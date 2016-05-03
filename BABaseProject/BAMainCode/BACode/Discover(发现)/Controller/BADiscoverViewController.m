@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BA_Green_Color;
+    [self setVCBgColor:BA_Green_Color];
 
 }
 

@@ -18,7 +18,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BA_White_Color;
+    [self setVCBgColor:BA_White_Color];
+    
+    [self setupNavi];
+}
+
+- (void)setupNavi
+{
+//    UIImage *image = [UIImage imageNamed:@"14"];
+//    [self set_leftBarButtonItemWithImage] = image;
+    
 }
 
 - (void)didReceiveMemoryWarning {

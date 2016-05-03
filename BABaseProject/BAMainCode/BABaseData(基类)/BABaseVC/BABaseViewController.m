@@ -14,37 +14,215 @@
 
 
 @interface BABaseViewController ()
+{
+    CGFloat  navigationY;
+    CGFloat  navBarY;
+    CGFloat  verticalY;
+    BOOL     _isShowMenu;
+    
+}
 
 // 雪花动画
 @property (strong, nonatomic) CADisplayLink *displayLink;
+/*! 自定义naviView */
+@property (strong, nonatomic) UIView *naviView;
 
 
 @end
 
 @implementation BABaseViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    if ([self respondsToSelector:@selector(set_naviBackgroundColor)])
+    {
+        UIColor *naviBgColor = [self set_naviBackgroundColor];
+        UIImage *naviBgImage = [UIImage imageWithColor:naviBgColor];
+        
+        [self.navigationController.navigationBar setBackgroundImage:naviBgImage forBarMetrics:UIBarMetricsDefault];
+        self.naviView = [[UIView alloc] init];
+        self.naviView.frame = CGRectMake(0, 20, BA_SCREEN_WIDTH, 44);
+        self.naviView.userInteractionEnabled = NO;
+        [self.navigationController.navigationBar insertSubview:self.naviView atIndex:0];
+        self.naviView.backgroundColor = naviBgColor;
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /*! 1、基本设置 */
+    [self setupBase];
     
-    self.view.backgroundColor = BA_White_Color;
+    /*! 2、navi设置 */
+    [self setupBaseNavi];
 }
 
 #pragma mark - ***** 基本设置
-- (void)baseSetup
+- (void)setupBase
+{
+ 
+    
+    
+}
+
+/*!
+ *  设置VC的背景颜色
+ *
+ *  @param vcBgColor vcBgColor
+ */
+- (void)setVCBgColor:(UIColor *)vcBgColor
 {
     /*! 1、背景颜色 */
-    if (self.bgColor)
+    if (vcBgColor)
     {
-        self.view.backgroundColor = self.bgColor;
+        self.view.backgroundColor = vcBgColor;
     }
     else
     {
-        self.view.backgroundColor = self.bgColor;
+        self.view.backgroundColor = BA_White_Color;
+    }
+}
+
+#pragma mark - ***** navi设置
+- (void)setupBaseNavi
+{
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    [self BA_setNavbarBackgroundHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    if ([self respondsToSelector:@selector(set_navBackgroundImage)])
+    {
+        UIImage *naviBgImage = [self set_navBackgroundImage];
+        [self setNavigationBack:naviBgImage];
+    }
+    if ([self respondsToSelector:@selector(set_Title)])
+    {
+        NSMutableAttributedString *titleAttri = [self set_Title];
+        [self set_Title:titleAttri];
+    }
+    if (![self leftButton])
+    {
+        [self configLeftBaritemWithImage];
+    }
+    if (![self leftButton])
+    {
+        [self configRightBaritemWithImage];
     }
     
+}
+
+- (void)setNavigationBack:(UIImage*)image
+{
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:image ];
+    [self.navigationController.navigationBar setShadowImage:image];
+}
+
+/*!
+ *  设置vc的title
+ *
+ *  @param title title
+ */
+- (void)set_Title:(NSMutableAttributedString *)title
+{
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.frame = CGRectMake(80, 20, BA_SCREEN_WIDTH - 80*2, 44);
+//    titleLabel.numberOfLines = 0;//可能出现多行的标题
+    [titleLabel setAttributedText:title];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.backgroundColor = BA_Clear_Color;
+    titleLabel.userInteractionEnabled = YES;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(titleClick:)];
+    [titleLabel addGestureRecognizer:tap];
+    self.navigationItem.titleView = titleLabel;
+}
+
+#pragma mark left_button
+- (BOOL)leftButton
+{
+    BOOL isLeft = [self respondsToSelector:@selector(set_leftButton)];
+    if (isLeft)
+    {
+        UIButton *leftbutton = [self set_leftButton];
+        [leftbutton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:leftbutton];
+        self.navigationItem.leftBarButtonItem = item;
+    }
+    return isLeft;
+}
+
+- (void)configLeftBaritemWithImage
+{
+    if ([self respondsToSelector:@selector(set_leftBarButtonItemWithImage)])
+    {
+        UIImage *image = [self set_leftBarButtonItemWithImage];
+        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self  action:@selector(leftButtonClick:)];
+        self.navigationItem.backBarButtonItem = leftItem;
+    }
+}
+
+#pragma mark rightButton
+- (BOOL)rightButton
+{
+    BOOL isRitht = [self respondsToSelector:@selector(set_rightButton)];
+    if (isRitht)
+    {
+        UIButton *rightButton = [self set_rightButton];
+        [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    return isRitht;
+}
+
+- (void)configRightBaritemWithImage
+{
+    if ([self respondsToSelector:@selector(set_rightBarButtonItemWithImage)])
+    {
+        UIImage *image = [self set_rightBarButtonItemWithImage];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonClick:)];
+        self.navigationItem.rightBarButtonItem = rightItem;
+    }
+}
+
+#pragma mark - ***** 按钮点击事件
+#pragma mark
+- (IBAction)titleClick:(UIGestureRecognizer*)Tap
+{
+    UIView *view = Tap.view;
+    if ([self respondsToSelector:@selector(titleButton_Click:)])
+    {
+        [self titleButton_Click:view];
+    }
+}
+
+- (IBAction)leftButtonClick:(UIButton *)sender
+{
+    if ([self respondsToSelector:@selector(leftButton_Click:)])
+    {
+        [self leftButton_Click:sender];
+    }
+}
+
+- (IBAction)rightButtonClick:(UIButton *)sender
+{
+    if ([self respondsToSelector:@selector(rightButton_Click:)])
+    {
+        [self rightButton_Click:sender];
+    }
 }
 
 #pragma mark - ***** 其他设置

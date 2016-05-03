@@ -18,8 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BA_Yellow_Color;
-
+    [self setVCBgColor:BA_Yellow_Color];
 }
 
 - (void)didReceiveMemoryWarning {
