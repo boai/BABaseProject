@@ -1,0 +1,73 @@
+//
+//  BABaseProject.pch
+//  demoTest
+//
+//  Created by 博爱 on 16/3/16.
+//  Copyright © 2016年 博爱之家. All rights reserved.
+//
+
+#ifndef BABaseProject_pch
+#define BABaseProject_pch
+
+
+#ifndef __IPHONE_7_0
+//#warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifdef __OBJC__
+// 头文件
+#import <UIKit/UIKit.h> // UI
+#import <Foundation/Foundation.h> // NS
+
+// 全局宏定义文件
+#import "BADefin.h"
+#import "BAHeader.h"
+#import "BAColorHeader.h"
+#import "BAFrameHeader.h"
+
+#import "BAKit.h"
+
+#import "UINavigationItem+CustomItem.h"
+
+#import <Masonry.h>
+#import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+
+#import "UIImageView+WebCache.h"
+
+// 键盘
+#import "IQKeyboardManager.h"
+
+// 加载框提示
+#import "NSObject+BAProgressHUD.h"
+
+// 只要有网络操作
+#import <AFNetworking.h>
+#import <UIKit+AFNetworking.h>
+
+#import <BlocksKit.h>
+#import <BlocksKit+UIKit.h>
+
+// 可选(与<UIKit+AFNetworking.h>冲突，二选一)
+#import <SDImageCache.h>
+
+// 上下拉刷新
+#import <MJRefresh.h>
+#import "UIScrollView+BARefresh.h"
+
+// 友盟分享
+#import "BAShareManage.h"
+
+// FPS
+#import "BAFPSLabel.h"
+
+// 离屏渲染绘制 layer
+#import "UIView+RoundedCorner.h"
+
+
+
+
+
+#endif
+
+#endif /* BABaseProject_pch */
