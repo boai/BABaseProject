@@ -10,6 +10,7 @@
 		22442A2BB986E1C81BD3ED06 /* libPods-BABaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E335DBEAC965F78C8BE5DD /* libPods-BABaseProject.a */; };
 		C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527B1CD990B00004A671 /* BABaseTableViewController.m */; };
 		C40852801CD995200004A671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527F1CD995200004A671 /* Reachability.m */; };
+		C40852831CD9BE360004A671 /* UIView+SetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852821CD9BE360004A671 /* UIView+SetRect.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
 		C4EB5AAE1CD8B04B003A7094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */; };
@@ -202,6 +203,8 @@
 		C408527B1CD990B00004A671 /* BABaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseTableViewController.m; sourceTree = "<group>"; };
 		C408527E1CD995200004A671 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C408527F1CD995200004A671 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C40852811CD9BE360004A671 /* UIView+SetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SetRect.h"; sourceTree = "<group>"; };
+		C40852821CD9BE360004A671 /* UIView+SetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SetRect.m"; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EB5AA41CD8B04B003A7094 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1188,6 +1191,8 @@
 				C4EB5C661CD8B589003A7094 /* UITextField+BAKit.m */,
 				C4EB5C671CD8B589003A7094 /* UIView+BA.h */,
 				C4EB5C681CD8B589003A7094 /* UIView+BA.m */,
+				C40852811CD9BE360004A671 /* UIView+SetRect.h */,
+				C40852821CD9BE360004A671 /* UIView+SetRect.m */,
 				C4EB5C691CD8B589003A7094 /* UIView+BAKit.h */,
 				C4EB5C6A1CD8B589003A7094 /* UIView+BAKit.m */,
 				C4EB5C6B1CD8B589003A7094 /* UIWebView+BAKit.h */,
@@ -1528,6 +1533,7 @@
 				C4EB5C7C1CD8B58B003A7094 /* NSData+BAKit.m in Sources */,
 				C4EB5C811CD8B58B003A7094 /* NSMutableDictionary+BAKit.m in Sources */,
 				C4EB5C7F1CD8B58B003A7094 /* NSFileManager+BAKit.m in Sources */,
+				C40852831CD9BE360004A671 /* UIView+SetRect.m in Sources */,
 				C4EB5C311CD8B251003A7094 /* BATabBarButton.m in Sources */,
 				C4EB5C981CD8B58B003A7094 /* BALog.m in Sources */,
 				C4EB5C961CD8B58B003A7094 /* UIWindow+BAKit.m in Sources */,

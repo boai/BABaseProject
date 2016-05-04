@@ -127,48 +127,29 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
 
 @interface UIView (BAKit)
 
-/**
- *  1.间隔X值
- */
-@property (nonatomic, assign) CGFloat x;
+@property (nonatomic          ) CGPoint  viewOrigin;
+@property (nonatomic          ) CGSize   viewSize;
 
-/**
- *  2.间隔Y值
- */
-@property (nonatomic, assign) CGFloat y;
+@property (nonatomic          ) CGFloat  x;
+@property (nonatomic          ) CGFloat  y;
+@property (nonatomic          ) CGFloat  width;
+@property (nonatomic          ) CGFloat  height;
 
-/**
- *  3.宽度
- */
-@property (nonatomic, assign) CGFloat width;
+@property (nonatomic          ) CGFloat  top;
+@property (nonatomic          ) CGFloat  bottom;
+@property (nonatomic          ) CGFloat  left;
+@property (nonatomic          ) CGFloat  right;
 
-/**
- *  4.高度
- */
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic          ) CGFloat  centerX;
+@property (nonatomic          ) CGFloat  centerY;
 
-/**
- *  5.中心点X值
- */
-@property (nonatomic, assign) CGFloat centerX;
+/*----------------------
+ * Relative coordinate *
+ ----------------------*/
 
-/**
- *  6.中心点Y值
- */
-@property (nonatomic, assign) CGFloat centerY;
-
-/**
- *  7.尺寸大小
- */
-@property (nonatomic, assign) CGSize size;
-
-/**
- *  8.起始点
- */
-@property (nonatomic, assign) CGPoint origin;
-
-@property (nonatomic) CGFloat right;       ///< Shortcut for frame.origin.x + frame.size.width
-@property (nonatomic) CGFloat bottom;      ///< Shortcut for frame.origin.y + frame.size.height
+@property (nonatomic, readonly) CGFloat  middleX;
+@property (nonatomic, readonly) CGFloat  middleY;
+@property (nonatomic, readonly) CGPoint  middlePoint;
 
 /**
  *  1.设置颜色

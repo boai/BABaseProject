@@ -10,21 +10,38 @@
 #define BAFrameHeader_h
 
 #pragma mark - ***** frame设置
-// 当前设备的屏幕宽度
+/*! 当前设备的屏幕宽度 */
 #define BA_SCREEN_WIDTH    [[UIScreen mainScreen] bounds].size.width
-// 当前设备的屏幕高度
+
+/*! 当前设备的屏幕高度 */
 #define BA_SCREEN_HEIGHT   [[UIScreen mainScreen] bounds].size.height
-// 导航栏高，前提控制器带导航栏
-#define BA_NAV_HEIGHT CGRectGetHeight(self.navigationController.navigationBar.frame)
-// 状态栏高度
-#define BA_STATUSBAR_HEIGHT CGRectGetHeight([UIApplication sharedApplication].statusBarFrame)
-// Tabbar 的高度
-#define BA_getTabbarHeight 49
-// 黄金比例的宽
+
+/*! 黄金比例的宽 */
 #define BA_WIDTH_0_618 WIDTH * 0.618
 
+/*! Status bar height. */
+#define  BA_StatusBarHeight      20.f
 
+/*! Navigation bar height. */
+#define  BA_NavigationBarHeight  44.f
 
+/*! Tabbar height. */
+#define  BA_getTabbarHeight         49.f
+
+/*! Status bar & navigation bar height. */
+#define  BA_StatusBarAndNavigationBarHeight   (20.f + 44.f)
+
+/*! iPhone4 or iPhone4s */
+#define  BA_iPhone4_4s     (Width == 320.f && Height == 480.f)
+
+/*! iPhone5 or iPhone5s */
+#define  BA_iPhone5_5s     (Width == 320.f && Height == 568.f)
+
+/*! iPhone6 or iPhone6s */
+#define  BA_iPhone6_6s     (Width == 375.f && Height == 667.f)
+
+/*! iPhone6Plus or iPhone6sPlus */
+#define  BA_iPhone6_6sPlus (Width == 414.f && Height == 736.f)
 
 
 
