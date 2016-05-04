@@ -11,6 +11,18 @@
 		C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527B1CD990B00004A671 /* BABaseTableViewController.m */; };
 		C40852801CD995200004A671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527F1CD995200004A671 /* Reachability.m */; };
 		C40852831CD9BE360004A671 /* UIView+SetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852821CD9BE360004A671 /* UIView+SetRect.m */; };
+		C40852881CD9C34F0004A671 /* BABaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852871CD9C34F0004A671 /* BABaseView.m */; };
+		C408528B1CD9C53E0004A671 /* BASnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C408528A1CD9C53E0004A671 /* BASnowView.m */; };
+		C408528E1CD9C55A0004A671 /* EmitterLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C408528D1CD9C55A0004A671 /* EmitterLayerView.m */; };
+		C40852911CD9C90F0004A671 /* UIView+BAGlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852901CD9C90F0004A671 /* UIView+BAGlowView.m */; };
+		C40852941CD9CB0E0004A671 /* CALayer+BAMaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852931CD9CB0E0004A671 /* CALayer+BAMaskLayer.m */; };
+		C40852971CD9CBDD0004A671 /* BAUpdatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852961CD9CBDD0004A671 /* BAUpdatingView.m */; };
+		C408529E1CD9CD860004A671 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C40852991CD9CD860004A671 /* Lato-Bold.ttf */; };
+		C408529F1CD9CD860004A671 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C408529A1CD9CD860004A671 /* Lato-Light.ttf */; };
+		C40852A01CD9CD860004A671 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C408529B1CD9CD860004A671 /* Lato-Regular.ttf */; };
+		C40852A11CD9CD860004A671 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C408529C1CD9CD860004A671 /* Lato-Thin.ttf */; };
+		C40852A21CD9CD860004A671 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C408529D1CD9CD860004A671 /* Lato-ThinItalic.ttf */; };
+		C40852A61CD9E25D0004A671 /* BAFadeBlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852A51CD9E25D0004A671 /* BAFadeBlackView.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
 		C4EB5AAE1CD8B04B003A7094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */; };
@@ -205,6 +217,26 @@
 		C408527F1CD995200004A671 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C40852811CD9BE360004A671 /* UIView+SetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SetRect.h"; sourceTree = "<group>"; };
 		C40852821CD9BE360004A671 /* UIView+SetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SetRect.m"; sourceTree = "<group>"; };
+		C40852861CD9C34F0004A671 /* BABaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseView.h; sourceTree = "<group>"; };
+		C40852871CD9C34F0004A671 /* BABaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseView.m; sourceTree = "<group>"; };
+		C40852891CD9C53E0004A671 /* BASnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASnowView.h; sourceTree = "<group>"; };
+		C408528A1CD9C53E0004A671 /* BASnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASnowView.m; sourceTree = "<group>"; };
+		C408528C1CD9C55A0004A671 /* EmitterLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterLayerView.h; sourceTree = "<group>"; };
+		C408528D1CD9C55A0004A671 /* EmitterLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterLayerView.m; sourceTree = "<group>"; };
+		C408528F1CD9C90F0004A671 /* UIView+BAGlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BAGlowView.h"; sourceTree = "<group>"; };
+		C40852901CD9C90F0004A671 /* UIView+BAGlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BAGlowView.m"; sourceTree = "<group>"; };
+		C40852921CD9CB0E0004A671 /* CALayer+BAMaskLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+BAMaskLayer.h"; sourceTree = "<group>"; };
+		C40852931CD9CB0E0004A671 /* CALayer+BAMaskLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+BAMaskLayer.m"; sourceTree = "<group>"; };
+		C40852951CD9CBDD0004A671 /* BAUpdatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAUpdatingView.h; sourceTree = "<group>"; };
+		C40852961CD9CBDD0004A671 /* BAUpdatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAUpdatingView.m; sourceTree = "<group>"; };
+		C40852991CD9CD860004A671 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		C408529A1CD9CD860004A671 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		C408529B1CD9CD860004A671 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		C408529C1CD9CD860004A671 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		C408529D1CD9CD860004A671 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C40852A31CD9CD9A0004A671 /* AddedFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddedFont.h; sourceTree = "<group>"; };
+		C40852A41CD9E25D0004A671 /* BAFadeBlackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAFadeBlackView.h; sourceTree = "<group>"; };
+		C40852A51CD9E25D0004A671 /* BAFadeBlackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAFadeBlackView.m; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EB5AA41CD8B04B003A7094 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -496,6 +528,46 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		C40852841CD9C3120004A671 /* BACustom */ = {
+			isa = PBXGroup;
+			children = (
+				C40852851CD9C3120004A671 /* BACustomView */,
+			);
+			path = BACustom;
+			sourceTree = "<group>";
+		};
+		C40852851CD9C3120004A671 /* BACustomView */ = {
+			isa = PBXGroup;
+			children = (
+				C40852891CD9C53E0004A671 /* BASnowView.h */,
+				C408528A1CD9C53E0004A671 /* BASnowView.m */,
+				C408528F1CD9C90F0004A671 /* UIView+BAGlowView.h */,
+				C40852901CD9C90F0004A671 /* UIView+BAGlowView.m */,
+				C40852921CD9CB0E0004A671 /* CALayer+BAMaskLayer.h */,
+				C40852931CD9CB0E0004A671 /* CALayer+BAMaskLayer.m */,
+				C408528C1CD9C55A0004A671 /* EmitterLayerView.h */,
+				C408528D1CD9C55A0004A671 /* EmitterLayerView.m */,
+				C40852951CD9CBDD0004A671 /* BAUpdatingView.h */,
+				C40852961CD9CBDD0004A671 /* BAUpdatingView.m */,
+				C40852A41CD9E25D0004A671 /* BAFadeBlackView.h */,
+				C40852A51CD9E25D0004A671 /* BAFadeBlackView.m */,
+			);
+			path = BACustomView;
+			sourceTree = "<group>";
+		};
+		C40852981CD9CD860004A671 /* 字体 */ = {
+			isa = PBXGroup;
+			children = (
+				C40852A31CD9CD9A0004A671 /* AddedFont.h */,
+				C40852991CD9CD860004A671 /* Lato-Bold.ttf */,
+				C408529A1CD9CD860004A671 /* Lato-Light.ttf */,
+				C408529B1CD9CD860004A671 /* Lato-Regular.ttf */,
+				C408529C1CD9CD860004A671 /* Lato-Thin.ttf */,
+				C408529D1CD9CD860004A671 /* Lato-ThinItalic.ttf */,
+			);
+			path = "字体";
+			sourceTree = "<group>";
+		};
 		C4EB5A971CD8B04B003A7094 = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +640,7 @@
 				C4EB5B241CD8B24F003A7094 /* BATools(工具类) */,
 				C4EB5B441CD8B24F003A7094 /* Resources(资源) */,
 				C4EB5C9C1CD8BD18003A7094 /* Other */,
+				C40852841CD9C3120004A671 /* BACustom */,
 			);
 			path = BAMainCode;
 			sourceTree = "<group>";
@@ -625,6 +698,8 @@
 			children = (
 				C4EB5AEA1CD8B24F003A7094 /* BAGIFImageView.h */,
 				C4EB5AEB1CD8B24F003A7094 /* BAGIFImageView.m */,
+				C40852861CD9C34F0004A671 /* BABaseView.h */,
+				C40852871CD9C34F0004A671 /* BABaseView.m */,
 			);
 			path = BABaseView;
 			sourceTree = "<group>";
@@ -907,6 +982,7 @@
 		C4EB5B441CD8B24F003A7094 /* Resources(资源) */ = {
 			isa = PBXGroup;
 			children = (
+				C40852981CD9CD860004A671 /* 字体 */,
 				C4EB5B451CD8B24F003A7094 /* Plist */,
 				C4EB5B481CD8B24F003A7094 /* 图片 */,
 			);
@@ -1301,6 +1377,7 @@
 		C4EB5A981CD8B04B003A7094 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BA;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "博爱之家";
 				TargetAttributes = {
@@ -1351,8 +1428,10 @@
 				C4EB5C2C1CD8B251003A7094 /* 金元宝.png in Resources */,
 				C4EB5C1E1CD8B251003A7094 /* test1.jpg in Resources */,
 				C4EB5AB31CD8B04B003A7094 /* LaunchScreen.storyboard in Resources */,
+				C40852A11CD9CD860004A671 /* Lato-Thin.ttf in Resources */,
 				C4EB5C201CD8B251003A7094 /* test3.jpg in Resources */,
 				C4EB5C9E1CD8BDAE003A7094 /* Info.plist in Resources */,
+				C408529E1CD9CD860004A671 /* Lato-Bold.ttf in Resources */,
 				C4EB5C1B1CD8B251003A7094 /* pic8.jpg in Resources */,
 				C4EB5BFE1CD8B251003A7094 /* 18.jpg in Resources */,
 				C4EB5C011CD8B251003A7094 /* 20.jpg in Resources */,
@@ -1368,6 +1447,7 @@
 				C4EB5C2D1CD8B251003A7094 /* 雪花.png in Resources */,
 				C4EB5BDA1CD8B250003A7094 /* img12.jpg in Resources */,
 				C4EB5C2B1CD8B251003A7094 /* 烟花背景.jpg in Resources */,
+				C40852A01CD9CD860004A671 /* Lato-Regular.ttf in Resources */,
 				C4EB5BE11CD8B250003A7094 /* img6.jpg in Resources */,
 				C4EB5C031CD8B251003A7094 /* 22.jpg in Resources */,
 				C4EB5C181CD8B251003A7094 /* pic5.jpg in Resources */,
@@ -1404,6 +1484,7 @@
 				C4EB5C061CD8B251003A7094 /* 4.jpg in Resources */,
 				C4EB5BEC1CD8B250003A7094 /* icon-6@2x.png in Resources */,
 				C4EB5C091CD8B251003A7094 /* 7.jpg in Resources */,
+				C408529F1CD9CD860004A671 /* Lato-Light.ttf in Resources */,
 				C4EB5BC21CD8B250003A7094 /* LPLevelView.bundle in Resources */,
 				C4EB5C261CD8B251003A7094 /* 樱花树1.jpg in Resources */,
 				C4EB5C131CD8B251003A7094 /* pic0.jpg in Resources */,
@@ -1411,6 +1492,7 @@
 				C4EB5BFF1CD8B251003A7094 /* 19.jpg in Resources */,
 				C4EB5BE41CD8B250003A7094 /* img9.jpg in Resources */,
 				C4EB5C251CD8B251003A7094 /* snowbg.jpg in Resources */,
+				C40852A21CD9CD860004A671 /* Lato-ThinItalic.ttf in Resources */,
 				C4EB5C2A1CD8B251003A7094 /* 樱花瓣2.jpg in Resources */,
 				C4EB5C151CD8B251003A7094 /* pic2.jpg in Resources */,
 				C4EB5AB01CD8B04B003A7094 /* Assets.xcassets in Resources */,
@@ -1508,6 +1590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C408528E1CD9C55A0004A671 /* EmitterLayerView.m in Sources */,
 				C4EB5BD21CD8B250003A7094 /* BABaseNetManager.m in Sources */,
 				C4EB5C951CD8B58B003A7094 /* UIWebView+BAKit.m in Sources */,
 				C4EB5C8B1CD8B58B003A7094 /* UIDevice+BAKit.m in Sources */,
@@ -1516,6 +1599,7 @@
 				C4EB5C8C1CD8B58B003A7094 /* UIFont+BAKit.m in Sources */,
 				C4EB5BCF1CD8B250003A7094 /* UIBarButtonItem+Item.m in Sources */,
 				C4EB5C821CD8B58B003A7094 /* NSNumber+BAKit.m in Sources */,
+				C40852911CD9C90F0004A671 /* UIView+BAGlowView.m in Sources */,
 				C4EB5C8A1CD8B58B003A7094 /* UIColor+BAKit.m in Sources */,
 				C4EB5BBE1CD8B250003A7094 /* BAMessageViewController.m in Sources */,
 				C4EB5C8F1CD8B58B003A7094 /* UILabel+BAKit.m in Sources */,
@@ -1542,6 +1626,7 @@
 				C4EB5BCC1CD8B250003A7094 /* NSObject+BAMJParse.m in Sources */,
 				C4EB5BCB1CD8B250003A7094 /* AppDelegate+Category.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
+				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
 				C4EB5C301CD8B251003A7094 /* BATabBar.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */,
@@ -1550,6 +1635,7 @@
 				C4EB5C9B1CD8B58B003A7094 /* BATouchID.m in Sources */,
 				C4EB5C8D1CD8B58B003A7094 /* UIImage+BAKit.m in Sources */,
 				C4EB5C901CD8B58B003A7094 /* UIScrollView+BAKit.m in Sources */,
+				C40852A61CD9E25D0004A671 /* BAFadeBlackView.m in Sources */,
 				C4EB5AA51CD8B04B003A7094 /* main.m in Sources */,
 				C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */,
 				C4EB5BC31CD8B250003A7094 /* LPLevelView.m in Sources */,
@@ -1559,12 +1645,15 @@
 				C4EB5BC41CD8B250003A7094 /* SDBrowserImageView.m in Sources */,
 				C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */,
 				C4EB5BC91CD8B250003A7094 /* BAShareManageView.m in Sources */,
+				C40852941CD9CB0E0004A671 /* CALayer+BAMaskLayer.m in Sources */,
 				C4EB5BD11CD8B250003A7094 /* UIViewController+BAAlertView.m in Sources */,
 				C4EB5C2F1CD8B251003A7094 /* BABadgeView.m in Sources */,
+				C40852971CD9CBDD0004A671 /* BAUpdatingView.m in Sources */,
 				C4EB5C881CD8B58B003A7094 /* BATextView.m in Sources */,
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
 				C4EB5BBA1CD8B250003A7094 /* BANavigationController.m in Sources */,
 				C4EB5C871CD8B58B003A7094 /* BAPickerView.m in Sources */,
+				C408528B1CD9C53E0004A671 /* BASnowView.m in Sources */,
 				C4EB5C7B1CD8B589003A7094 /* NSArray+BAKit.m in Sources */,
 				C4EB5C7D1CD8B58B003A7094 /* NSDate+BAKit.m in Sources */,
 				C4EB5C991CD8B58B003A7094 /* BAPassword.m in Sources */,

@@ -7,8 +7,16 @@
 //
 
 #import "BADiscoverViewController.h"
+#import "BASnowView.h"
+// 更新 + 变黑
+#import "BAUpdatingView.h"
+#import "BAFadeBlackView.h"
 
 @interface BADiscoverViewController ()
+
+@property (nonatomic, strong) BAFadeBlackView        *fadeBlackView;
+@property (nonatomic, strong) BAUpdatingView         *upDatingView;
+
 
 @end
 
@@ -21,21 +29,29 @@
     
     [self setVCBgColor:BA_Green_Color];
 
+    [self test];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)test
+{
+    // 变黑
+    self.fadeBlackView = [[BAFadeBlackView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.fadeBlackView];
+    
+    // loading
+    self.upDatingView        = [[BAUpdatingView alloc] initWithFrame:CGRectZero];
+    self.upDatingView.center = self.view.center;
+    [self.view addSubview:self.upDatingView];
+    
+    [self getLocationAndFadeShow];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)getLocationAndFadeShow {
+    
+    // 显示出等待页面
+    [self.fadeBlackView showFadeBlackView:YES];
+    [self.upDatingView show];
+    
+    
 }
-*/
-
 @end

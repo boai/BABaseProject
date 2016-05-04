@@ -12,15 +12,22 @@
 // GIF动画
 #import "BAGIFImageView.h"
 
+#import "BASnowView.h"
+// 更新 + 变黑
+#import "BAUpdatingView.h"
+#import "BAFadeBlackView.h"
 
 @interface BABaseViewController ()
 
 
 
 // 雪花动画
-@property (strong, nonatomic) CADisplayLink       *displayLink;
+@property (strong, nonatomic) CADisplayLink    *displayLink;
 /*! 自定义naviView */
-@property (strong, nonatomic) UIView              *naviView;
+@property (strong, nonatomic) UIView           *naviView;
+
+@property (strong, nonatomic) BAFadeBlackView  *fadeBlackView;
+@property (strong, nonatomic) BAUpdatingView   *upDatingView;
 
 
 @end
@@ -210,6 +217,37 @@
 //        [self rightButton_Click:sender];
 //    }
 //}
+
+#pragma mark - ***** 显示自定义加载框
+
+/*!
+ *  显示雪花加载框
+ *
+ *  @param isShow yes:显示，no:隐藏
+ */
+- (void)isShowSnowLoadingView:(BOOL)isShow
+{
+    // 变黑
+    self.fadeBlackView = [[BAFadeBlackView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.fadeBlackView];
+    
+    // loading
+    self.upDatingView        = [[BAUpdatingView alloc] initWithFrame:CGRectZero];
+    self.upDatingView.center = self.view.center;
+    [self.view addSubview:self.upDatingView];
+    
+    if (isShow)
+    {
+        // 显示出等待页面
+        [self.fadeBlackView showFadeBlackView:YES];
+        [self.upDatingView show];
+    }
+    else
+    {
+        [self.fadeBlackView showFadeBlackView:NO];
+        [self.upDatingView hide];
+    }
+}
 
 #pragma mark - ***** 网络类型判断
 /*!

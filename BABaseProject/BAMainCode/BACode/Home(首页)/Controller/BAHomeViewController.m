@@ -14,7 +14,20 @@
 
 @implementation BAHomeViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    [self isShowSnowLoadingView:YES];
+}
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self isShowSnowLoadingView:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +38,7 @@
     [self setupNavi];
     // 判断网络
     [self networkChangeWith:self];
+    
 }
 
 - (void)setupNavi
@@ -34,6 +48,8 @@
 //    self.set_leftBarButtonItemWithImage = [UIImage imageNamed:@"14"];
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

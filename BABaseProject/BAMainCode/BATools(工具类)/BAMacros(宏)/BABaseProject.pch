@@ -73,6 +73,9 @@
 // 警告框
 #import "UIViewController+BAAlertView.h"
 
+// 自定义字体
+#import "AddedFont.h"
+
 
 #endif
 

@@ -15,8 +15,17 @@
 @interface BABaseViewController : UIViewController
 
 
+#pragma mark - ***** 显示自定义加载框
 
-#pragma mark - ***** 网络判断
+/*!
+ *  显示雪花加载框
+ *
+ *  @param isShow yes:显示，no:隐藏
+ */
+- (void)isShowSnowLoadingView:(BOOL)isShow;
+
+
+#pragma mark - ***** 网络类型判断
 /*!
  *  网络判断
  *
