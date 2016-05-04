@@ -18,13 +18,15 @@
 
 @interface BATabBarController ()<BATabBarDelegate>
 
-@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray            *items;
 
-@property (nonatomic, weak) BAHomeViewController *home;
+@property (nonatomic, weak  ) BAHomeViewController      *home;
 
-@property (nonatomic, weak) BAMessageViewController *message;
+@property (nonatomic, weak  ) BAMessageViewController   *message;
 
-@property (nonatomic, weak) BAProfileViewController *profile;
+@property (nonatomic, weak  ) BAProfileViewController   *profile;
+
+@property (nonatomic, weak  ) BADiscoverViewController  *discover;
 
 @end
 
@@ -51,7 +53,7 @@
     [self setUpTabBar];
     
     // 每隔一段时间请求未读数
-    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(requestUnread) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(requestUnread) userInfo:nil repeats:YES];
 }
 
 // 请求未读数
@@ -149,8 +151,7 @@
     // 发现
     BADiscoverViewController *discover = [[BADiscoverViewController alloc] init];
     [self setUpOneChildViewController:discover image:[UIImage imageNamed:@"tabbar_discover"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_discover_selected"] title:@"发现"];
-
-    
+    _discover = discover;
 
     // 我
     BAProfileViewController *profile = [[BAProfileViewController alloc] init];

@@ -43,6 +43,9 @@
 /*! iPhone6Plus or iPhone6sPlus */
 #define  BA_iPhone6_6sPlus (Width == 414.f && Height == 736.f)
 
+/*! cell的间距：10 */
+#define BAStatusCellMargin 10
+
 
 
 #endif /* BAFrameHeader_h */

@@ -9,7 +9,7 @@
 #import "BANavigationController.h"
 #import "UIBarButtonItem+Item.h"
 #import "BANavigationBar.h"
-
+#import "BATabBar.h"
 
 @interface BANavigationController ()<UINavigationControllerDelegate>
 
@@ -71,49 +71,63 @@
     //    BALog(@"%@", self.viewControllers[0]);
     if (viewController == self.viewControllers[0])
     {
+        // 实现滑动返回功能
+        // 清空滑动返回手势代理
+
+        self.interactivePopGestureRecognizer.delegate = nil;
+    }
+    else
+    {
         // 显示根控制器
         // 返回滑动返回手势代理
         self.interactivePopGestureRecognizer.delegate = _popDelegate;
     }
-    else
-    {
-        // 实现滑动返回功能
-        // 清空滑动返回手势代理
-        self.interactivePopGestureRecognizer.delegate = nil;
-    }
-    
-    //    BALog(@"%s", __func__);
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    //    BALog(@"%s", __func__);
-    
     // 设置非根控制器导航条内容
-    if (self.viewControllers.count != 0)
+    if (self.viewControllers.count)
     {
+        viewController.hidesBottomBarWhenPushed = YES;
+
         // 设置导航条的内容
         // 设置导航条左边 右边
         // 左边
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_back"] highImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_back"] highImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
+        // 设置导航条的按钮
+        viewController.navigationItem.leftBarButtonItem = left;
         
         // 右边
-        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_more"] highImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] target:self action:@selector(backToRoot) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *right = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_more"] highImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] target:self action:@selector(backToRoot) forControlEvents:UIControlEventTouchUpInside];
+//        viewController.navigationItem.rightBarButtonItem = right;
     }
     [super pushViewController:viewController animated:animated];
 }
 
 - (void)backToPre
 {
-    
     [self popViewControllerAnimated:YES];
 }
 
 - (void)backToRoot
 {
-    
     [self popToRootViewControllerAnimated:YES];
 }
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    UITabBarController *tabBarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    // 删除系统自带的tabBarButton
+    for (UIView *tabBarButton in tabBarVc.tabBar.subviews) {
+        if (![tabBarButton isKindOfClass:[BATabBar class]]) {
+            [tabBarButton removeFromSuperview];
+        }
+    }
+    
+}
+
 
 /**
  *  导航控制器 统一管理状态栏颜色
