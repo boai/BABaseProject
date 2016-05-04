@@ -64,8 +64,14 @@
 // 离屏渲染绘制 layer
 #import "UIView+RoundedCorner.h"
 
+// 将Toast通知添加到UIView对象类
+#import "UIView+Toast.h"
 
+// 网络状态
+#import "Reachability.h"
 
+// 警告框
+#import "UIViewController+BAAlertView.h"
 
 
 #endif

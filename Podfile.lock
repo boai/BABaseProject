@@ -46,6 +46,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - Toast (3.0)
   - UMengSocial (4.4)
   - ZXingObjC (3.1.0):
     - ZXingObjC/All (= 3.1.0)
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - MWPhotoBrowser
   - SDAutoLayout (~> 1.31)
   - SDWebImage (~> 3.7.5)
+  - Toast (~> 3.0)
   - UMengSocial (~> 4.4)
   - ZXingObjC (~> 3.0)
 
@@ -83,6 +85,7 @@ SPEC CHECKSUMS:
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   SDAutoLayout: 7c92e8f149059e80010507e471e1b4b6c85a62bb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 

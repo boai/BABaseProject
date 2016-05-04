@@ -14,41 +14,26 @@
 
 
 @interface BABaseViewController ()
-{
-    CGFloat  navigationY;
-    CGFloat  navBarY;
-    CGFloat  verticalY;
-    BOOL     _isShowMenu;
-    
-}
+
+
 
 // 雪花动画
-@property (strong, nonatomic) CADisplayLink *displayLink;
+@property (strong, nonatomic) CADisplayLink       *displayLink;
 /*! 自定义naviView */
-@property (strong, nonatomic) UIView *naviView;
+@property (strong, nonatomic) UIView              *naviView;
 
 
 @end
 
 @implementation BABaseViewController
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    if ([self respondsToSelector:@selector(set_naviBackgroundColor)])
-    {
-        UIColor *naviBgColor = [self set_naviBackgroundColor];
-        UIImage *naviBgImage = [UIImage imageWithColor:naviBgColor];
-        
-        [self.navigationController.navigationBar setBackgroundImage:naviBgImage forBarMetrics:UIBarMetricsDefault];
-        self.naviView = [[UIView alloc] init];
-        self.naviView.frame = CGRectMake(0, 20, BA_SCREEN_WIDTH, 44);
-        self.naviView.userInteractionEnabled = NO;
-        [self.navigationController.navigationBar insertSubview:self.naviView atIndex:0];
-        self.naviView.backgroundColor = naviBgColor;
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -65,16 +50,17 @@
     [self setupBase];
     
     /*! 2、navi设置 */
-    [self setupBaseNavi];
+//    [self setupBaseNavi];
 }
 
 #pragma mark - ***** 基本设置
 - (void)setupBase
 {
- 
     
     
 }
+
+
 
 /*!
  *  设置VC的背景颜色
@@ -95,135 +81,214 @@
 }
 
 #pragma mark - ***** navi设置
-- (void)setupBaseNavi
-{
-    self.extendedLayoutIncludesOpaqueBars = YES;
-    [self BA_setNavbarBackgroundHidden:NO];
-    [self.navigationController setNavigationBarHidden:NO];
-    
-    if ([self respondsToSelector:@selector(set_navBackgroundImage)])
-    {
-        UIImage *naviBgImage = [self set_navBackgroundImage];
-        [self setNavigationBack:naviBgImage];
-    }
-    if ([self respondsToSelector:@selector(set_Title)])
-    {
-        NSMutableAttributedString *titleAttri = [self set_Title];
-        [self set_Title:titleAttri];
-    }
-    if (![self leftButton])
-    {
-        [self configLeftBaritemWithImage];
-    }
-    if (![self leftButton])
-    {
-        [self configRightBaritemWithImage];
-    }
-    
-}
+//- (void)setupBaseNavi
+//{
+//    self.extendedLayoutIncludesOpaqueBars = YES;
+//    [self BA_setNavbarBackgroundHidden:NO];
+//    [self.navigationController setNavigationBarHidden:NO];
+//    
+//    if ([self respondsToSelector:@selector(set_navBackgroundImage)])
+//    {
+//        UIImage *naviBgImage = [self set_navBackgroundImage];
+//        [self setNavigationBack:naviBgImage];
+//    }
+//    if ([self respondsToSelector:@selector(set_Title)])
+//    {
+//        NSMutableAttributedString *titleAttri = [self set_Title];
+//        [self set_Title:titleAttri];
+//    }
+//    if (![self leftButton])
+//    {
+//        [self configLeftBaritemWithImage];
+//    }
+//    if (![self leftButton])
+//    {
+//        [self configRightBaritemWithImage];
+//    }
+//    
+//}
+//
+//- (void)setNavigationBack:(UIImage*)image
+//{
+//    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+//    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:image ];
+//    [self.navigationController.navigationBar setShadowImage:image];
+//}
+//
+///*!
+// *  设置vc的title
+// *
+// *  @param title title
+// */
+//- (void)set_Title:(NSMutableAttributedString *)title
+//{
+//    UILabel *titleLabel = [[UILabel alloc] init];
+//    titleLabel.frame = CGRectMake(80, 20, BA_SCREEN_WIDTH - 80*2, 44);
+////    titleLabel.numberOfLines = 0;//可能出现多行的标题
+//    [titleLabel setAttributedText:title];
+//    titleLabel.textAlignment = NSTextAlignmentCenter;
+//    titleLabel.backgroundColor = BA_Clear_Color;
+//    titleLabel.userInteractionEnabled = YES;
+//    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(titleClick:)];
+//    [titleLabel addGestureRecognizer:tap];
+//    self.navigationItem.titleView = titleLabel;
+//}
+//
+//#pragma mark left_button
+//- (BOOL)leftButton
+//{
+//    BOOL isLeft = [self respondsToSelector:@selector(set_leftButton)];
+//    if (isLeft)
+//    {
+//        UIButton *leftbutton = [self set_leftButton];
+//        [leftbutton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:leftbutton];
+//        self.navigationItem.leftBarButtonItem = item;
+//    }
+//    return isLeft;
+//}
+//
+//- (void)configLeftBaritemWithImage
+//{
+//    if ([self respondsToSelector:@selector(set_leftBarButtonItemWithImage)])
+//    {
+//        UIImage *image = [self set_leftBarButtonItemWithImage];
+//        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self  action:@selector(leftButtonClick:)];
+//        self.navigationItem.backBarButtonItem = leftItem;
+//    }
+//}
+//
+//#pragma mark rightButton
+//- (BOOL)rightButton
+//{
+//    BOOL isRitht = [self respondsToSelector:@selector(set_rightButton)];
+//    if (isRitht)
+//    {
+//        UIButton *rightButton = [self set_rightButton];
+//        [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+//        self.navigationItem.rightBarButtonItem = item;
+//    }
+//    return isRitht;
+//}
+//
+//- (void)configRightBaritemWithImage
+//{
+//    if ([self respondsToSelector:@selector(set_rightBarButtonItemWithImage)])
+//    {
+//        UIImage *image = [self set_rightBarButtonItemWithImage];
+//        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonClick:)];
+//        self.navigationItem.rightBarButtonItem = rightItem;
+//    }
+//}
+//
+//#pragma mark - ***** 按钮点击事件
+//#pragma mark
+//- (IBAction)titleClick:(UIGestureRecognizer*)Tap
+//{
+//    UIView *view = Tap.view;
+//    if ([self respondsToSelector:@selector(titleButton_Click:)])
+//    {
+//        [self titleButton_Click:view];
+//    }
+//}
+//
+//- (IBAction)leftButtonClick:(UIButton *)sender
+//{
+//    if ([self respondsToSelector:@selector(leftButton_Click:)])
+//    {
+//        [self leftButton_Click:sender];
+//    }
+//}
+//
+//- (IBAction)rightButtonClick:(UIButton *)sender
+//{
+//    if ([self respondsToSelector:@selector(rightButton_Click:)])
+//    {
+//        [self rightButton_Click:sender];
+//    }
+//}
 
-- (void)setNavigationBack:(UIImage*)image
-{
-    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:image ];
-    [self.navigationController.navigationBar setShadowImage:image];
-}
-
+#pragma mark - ***** 网络类型判断
 /*!
- *  设置vc的title
+ *  网络判断
  *
- *  @param title title
+ *  @param viewController viewController
  */
-- (void)set_Title:(NSMutableAttributedString *)title
+- (void)networkChangeWith:(UIViewController *)viewController
 {
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.frame = CGRectMake(80, 20, BA_SCREEN_WIDTH - 80*2, 44);
-//    titleLabel.numberOfLines = 0;//可能出现多行的标题
-    [titleLabel setAttributedText:title];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.backgroundColor = BA_Clear_Color;
-    titleLabel.userInteractionEnabled = YES;
+    // 1.获得网络监控的管理者
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(titleClick:)];
-    [titleLabel addGestureRecognizer:tap];
-    self.navigationItem.titleView = titleLabel;
+    // 2.设置网络状态改变后的处理
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        // 当网络状态改变了, 就会调用这个block
+        switch (status) {
+                
+            case AFNetworkReachabilityStatusUnknown: // 未知网络
+            {
+                BALog(@"当前网络未知！");
+                [self BA_showAlert:@"当前网络未知！"];
+                break;
+            }
+            case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
+            {
+                BALog(@"当前无网络！");
+                [self BAAlertWithTitle:@"温馨提示：" message:@"亲！当前无网络！去设置网络" andOthers:@[@"取消", @"确认"] animated:YES action:^(NSInteger index) {
+                    
+                    if (index == 0)
+                    {
+                    }
+                    if (index == 1)
+                    {
+                        [self goNetNotUse];
+                    }
+                }];
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
+            {
+                [self BAAlertWithTitle:@"温馨提示：" message:@"亲！正在使用手机3G/4G网络" andOthers:@[@"取消", @"确认"] animated:YES action:^(NSInteger index) {
+                    
+                    if (index == 0)
+                    {
+                    }
+                    if (index == 1)
+                    {
+                    }
+                }];
+                
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
+            {
+                BALog(@"当前是WiFi环境！");
+                [self BA_showAlert:@"当前是WiFi环境！"];
+                break;
+            }
+        }
+    }];
+    
+    // 3.开始监控
+    [manager startMonitoring];
+
 }
 
-#pragma mark left_button
-- (BOOL)leftButton
+#pragma mark 网络不可用点击UI的回调
+- (void)goNetNotUse
 {
-    BOOL isLeft = [self respondsToSelector:@selector(set_leftButton)];
-    if (isLeft)
+    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
     {
-        UIButton *leftbutton = [self set_leftButton];
-        [leftbutton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:leftbutton];
-        self.navigationItem.leftBarButtonItem = item;
-    }
-    return isLeft;
-}
-
-- (void)configLeftBaritemWithImage
-{
-    if ([self respondsToSelector:@selector(set_leftBarButtonItemWithImage)])
-    {
-        UIImage *image = [self set_leftBarButtonItemWithImage];
-        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self  action:@selector(leftButtonClick:)];
-        self.navigationItem.backBarButtonItem = leftItem;
-    }
-}
-
-#pragma mark rightButton
-- (BOOL)rightButton
-{
-    BOOL isRitht = [self respondsToSelector:@selector(set_rightButton)];
-    if (isRitht)
-    {
-        UIButton *rightButton = [self set_rightButton];
-        [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-        self.navigationItem.rightBarButtonItem = item;
-    }
-    return isRitht;
-}
-
-- (void)configRightBaritemWithImage
-{
-    if ([self respondsToSelector:@selector(set_rightBarButtonItemWithImage)])
-    {
-        UIImage *image = [self set_rightBarButtonItemWithImage];
-        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonClick:)];
-        self.navigationItem.rightBarButtonItem = rightItem;
-    }
-}
-
-#pragma mark - ***** 按钮点击事件
-#pragma mark
-- (IBAction)titleClick:(UIGestureRecognizer*)Tap
-{
-    UIView *view = Tap.view;
-    if ([self respondsToSelector:@selector(titleButton_Click:)])
-    {
-        [self titleButton_Click:view];
-    }
-}
-
-- (IBAction)leftButtonClick:(UIButton *)sender
-{
-    if ([self respondsToSelector:@selector(leftButton_Click:)])
-    {
-        [self leftButton_Click:sender];
+        [[UIApplication sharedApplication] openURL:url];
     }
 }
 
-- (IBAction)rightButtonClick:(UIButton *)sender
-{
-    if ([self respondsToSelector:@selector(rightButton_Click:)])
-    {
-        [self rightButton_Click:sender];
-    }
-}
+
+
 
 #pragma mark - ***** 其他设置
 /*!

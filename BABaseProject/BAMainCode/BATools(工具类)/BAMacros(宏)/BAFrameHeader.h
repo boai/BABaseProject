@@ -23,9 +23,9 @@
 // 黄金比例的宽
 #define BA_WIDTH_0_618 WIDTH * 0.618
 
-// BABannerView.h 广告frame
-#define YRBannerHeight 100
-// 直播、点播页面 头高
-#define YRLiveHeadViewHeight 250
+
+
+
+
 
 #endif /* BAFrameHeader_h */

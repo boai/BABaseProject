@@ -8,59 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
+//#pragma mark - ***** 设置navi
 
-#pragma mark - ***** 设置navi
-@protocol BABaseViewControllerNaviDataSource <NSObject>
-
-/*! 设置navi标题 */
-- (NSMutableAttributedString *)set_Title;
-
-/*! 设置navi leftButton */
-- (UIButton *)set_leftButton;
-
-/*! 设置navi rightButton */
-- (UIButton *)set_rightButton;
-
-/*! 设置navi 的背景颜色 */
-- (UIColor *)set_naviBackgroundColor;
-
-/*! 设置navi的高度 */
-//- (CGFloat)set_navigationHeight;
-
-/*! 设置底部view */
-- (UIView *)set_bottomView;
-
-/*! 设置navi的背景图片 */
-- (UIImage *)set_navBackgroundImage;
-
-/*! 设置navi leftButton的图片 */
-- (UIImage *)set_leftBarButtonItemWithImage;
-
-/*! 设置navi rightButton的图片 */
-- (UIImage *)set_rightBarButtonItemWithImage;
-
-@end
-
-#pragma mark - ***** navi点击事件回调
-@protocol BABaseViewControllerNaviDelegate <NSObject>
-
-@optional
-- (void)leftButton_Click:(UIButton*)sender;
-- (void)rightButton_Click:(UIButton*)sender;
-- (void)titleButton_Click:(UIView*)sender;
-
-@end
 
 
 @interface BABaseViewController : UIViewController
-<
-    BABaseViewControllerNaviDataSource,
-    BABaseViewControllerNaviDelegate
->
-
-@property (nonatomic, strong) UIColor *vcBgColor;
 
 
+
+#pragma mark - ***** 网络判断
+/*!
+ *  网络判断
+ *
+ *  @param viewController viewController
+ */
+- (void)networkChangeWith:(UIViewController *)viewController;
+
+#pragma mark 网络不可用点击UI的回调
+/*!
+ *  网络不可以用时点击UI的回调-默认点击是打开系统系统设置页面
+ */
+- (void)goNetNotUse;
+
+
+#pragma mark - ***** VC的基本设置
 /*!
  *  设置VC的背景颜色
  *
@@ -68,6 +39,7 @@
  */
 - (void)setVCBgColor:(UIColor *)vcBgColor;
 
+#pragma mark - ***** VC的navi设置
 /*!
  *  是否隐藏naviBar
  *
@@ -75,6 +47,11 @@
  */
 - (void)BA_setNavbarBackgroundHidden:(BOOL)hidden;
 
+
+
+
+
+#pragma mark - ***** VC的其他设置
 /*!
  *  开启樱花动画（CAEmitterLayer动画）
  */

@@ -53,7 +53,7 @@ target 'BABaseProject' do
     # 把系统的target+selector/委托模式 转为 Block语法，让代码结构更加紧凑
     pod 'BlocksKit'
     
-    
+    pod 'Toast', '~> 3.0'
     
 end
 

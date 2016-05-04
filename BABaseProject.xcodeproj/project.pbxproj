@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22442A2BB986E1C81BD3ED06 /* libPods-BABaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E335DBEAC965F78C8BE5DD /* libPods-BABaseProject.a */; };
+		C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527B1CD990B00004A671 /* BABaseTableViewController.m */; };
+		C40852801CD995200004A671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527F1CD995200004A671 /* Reachability.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
 		C4EB5AAE1CD8B04B003A7094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */; };
@@ -37,7 +39,6 @@
 		C4EB5BC71CD8B250003A7094 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B1F1CD8B24F003A7094 /* BAShareAnimationView.m */; };
 		C4EB5BC81CD8B250003A7094 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B211CD8B24F003A7094 /* BAShareManage.m */; };
 		C4EB5BC91CD8B250003A7094 /* BAShareManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B231CD8B24F003A7094 /* BAShareManageView.m */; };
-		C4EB5BCA1CD8B250003A7094 /* AppDelegate+BATest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B271CD8B24F003A7094 /* AppDelegate+BATest.m */; };
 		C4EB5BCB1CD8B250003A7094 /* AppDelegate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B291CD8B24F003A7094 /* AppDelegate+Category.m */; };
 		C4EB5BCC1CD8B250003A7094 /* NSObject+BAMJParse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B2B1CD8B24F003A7094 /* NSObject+BAMJParse.m */; };
 		C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B2D1CD8B24F003A7094 /* NSObject+BAProgressHUD.m */; };
@@ -197,6 +198,10 @@
 		2EE27125FC8B4E42D75EA347 /* Pods-BABaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject/Pods-BABaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		5007C9AEF729C8A9B8593129 /* Pods-BABaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject/Pods-BABaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		67E335DBEAC965F78C8BE5DD /* libPods-BABaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C408527A1CD990B00004A671 /* BABaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseTableViewController.h; sourceTree = "<group>"; };
+		C408527B1CD990B00004A671 /* BABaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseTableViewController.m; sourceTree = "<group>"; };
+		C408527E1CD995200004A671 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C408527F1CD995200004A671 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EB5AA41CD8B04B003A7094 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -254,8 +259,6 @@
 		C4EB5B211CD8B24F003A7094 /* BAShareManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManage.m; sourceTree = "<group>"; };
 		C4EB5B221CD8B24F003A7094 /* BAShareManageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareManageView.h; sourceTree = "<group>"; };
 		C4EB5B231CD8B24F003A7094 /* BAShareManageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManageView.m; sourceTree = "<group>"; };
-		C4EB5B261CD8B24F003A7094 /* AppDelegate+BATest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BATest.h"; sourceTree = "<group>"; };
-		C4EB5B271CD8B24F003A7094 /* AppDelegate+BATest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BATest.m"; sourceTree = "<group>"; };
 		C4EB5B281CD8B24F003A7094 /* AppDelegate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Category.h"; sourceTree = "<group>"; };
 		C4EB5B291CD8B24F003A7094 /* AppDelegate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Category.m"; sourceTree = "<group>"; };
 		C4EB5B2A1CD8B24F003A7094 /* NSObject+BAMJParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAMJParse.h"; sourceTree = "<group>"; };
@@ -481,6 +484,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C408527D1CD995200004A671 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C408527E1CD995200004A671 /* Reachability.h */,
+				C408527F1CD995200004A671 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		C4EB5A971CD8B04B003A7094 = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +611,8 @@
 				C4EB5AE61CD8B24F003A7094 /* BABaseViewController.m */,
 				C4EB5AE71CD8B24F003A7094 /* BANavigationController.h */,
 				C4EB5AE81CD8B24F003A7094 /* BANavigationController.m */,
+				C408527A1CD990B00004A671 /* BABaseTableViewController.h */,
+				C408527B1CD990B00004A671 /* BABaseTableViewController.m */,
 			);
 			path = BABaseVC;
 			sourceTree = "<group>";
@@ -758,6 +772,7 @@
 		C4EB5B0B1CD8B24F003A7094 /* BALib(三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				C408527D1CD995200004A671 /* Reachability */,
 				C4EB5B0C1CD8B24F003A7094 /* BANavigationItem */,
 				C4EB5B111CD8B24F003A7094 /* LPLevelView */,
 				C4EB5B151CD8B24F003A7094 /* SDPhotoBrowser */,
@@ -829,8 +844,6 @@
 		C4EB5B251CD8B24F003A7094 /* BACategory(分类) */ = {
 			isa = PBXGroup;
 			children = (
-				C4EB5B261CD8B24F003A7094 /* AppDelegate+BATest.h */,
-				C4EB5B271CD8B24F003A7094 /* AppDelegate+BATest.m */,
 				C4EB5B281CD8B24F003A7094 /* AppDelegate+Category.h */,
 				C4EB5B291CD8B24F003A7094 /* AppDelegate+Category.m */,
 				C4EB5B2A1CD8B24F003A7094 /* NSObject+BAMJParse.h */,
@@ -1524,6 +1537,7 @@
 				C4EB5BCB1CD8B250003A7094 /* AppDelegate+Category.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
 				C4EB5C301CD8B251003A7094 /* BATabBar.m in Sources */,
+				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */,
 				C4EB5BC71CD8B250003A7094 /* BAShareAnimationView.m in Sources */,
 				C4EB5C921CD8B58B003A7094 /* UITextField+BAKit.m in Sources */,
@@ -1537,10 +1551,10 @@
 				C4EB5BB81CD8B250003A7094 /* BANavigationBar.m in Sources */,
 				C4EB5C851CD8B58B003A7094 /* NSThread+BAKit.m in Sources */,
 				C4EB5BC41CD8B250003A7094 /* SDBrowserImageView.m in Sources */,
+				C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */,
 				C4EB5BC91CD8B250003A7094 /* BAShareManageView.m in Sources */,
 				C4EB5BD11CD8B250003A7094 /* UIViewController+BAAlertView.m in Sources */,
 				C4EB5C2F1CD8B251003A7094 /* BABadgeView.m in Sources */,
-				C4EB5BCA1CD8B250003A7094 /* AppDelegate+BATest.m in Sources */,
 				C4EB5C881CD8B58B003A7094 /* BATextView.m in Sources */,
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
 				C4EB5BBA1CD8B250003A7094 /* BANavigationController.m in Sources */,

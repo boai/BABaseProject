@@ -84,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Toast.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ZXingObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,12 +97,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2339B425E311ECC4437A15B5A65833B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DCC52ACB0BC2B11A7D13FA226A47FF8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5813251FEA21E4AEE97385709F1912DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6A1A18BD8E54F92AAC5F4FA3121E96E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>837405AF8B8EA6687810765A42D35A98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,11 +137,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>946D6AF3672257BBEA4FEC109EA625C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9775596B3CA16905FC8F66DA8E2A3C67</key>
 		<dict>
 			<key>primary</key>
@@ -127,17 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E0855A7A9F6593A04A9749617A680BF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B23F82E9BA5B1FBFF759F75CDB243FA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
