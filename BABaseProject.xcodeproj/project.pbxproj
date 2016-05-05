@@ -348,7 +348,7 @@
 		C4EB5B3F1CD8B24F003A7094 /* BABaseNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseNetManager.m; sourceTree = "<group>"; };
 		C4EB5B401CD8B24F003A7094 /* BANewsNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANewsNetManager.h; sourceTree = "<group>"; };
 		C4EB5B411CD8B24F003A7094 /* BANewsNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANewsNetManager.m; sourceTree = "<group>"; };
-		C4EB5B421CD8B24F003A7094 /* BANewsPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANewsPath.h; sourceTree = "<group>"; };
+		C4EB5B421CD8B24F003A7094 /* BAURLsPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAURLsPath.h; sourceTree = "<group>"; };
 		C4EB5B461CD8B24F003A7094 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		C4EB5B4A1CD8B24F003A7094 /* img0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img0.jpg; sourceTree = "<group>"; };
 		C4EB5B4B1CD8B24F003A7094 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
@@ -1032,7 +1032,7 @@
 				C4EB5B3F1CD8B24F003A7094 /* BABaseNetManager.m */,
 				C4EB5B401CD8B24F003A7094 /* BANewsNetManager.h */,
 				C4EB5B411CD8B24F003A7094 /* BANewsNetManager.m */,
-				C4EB5B421CD8B24F003A7094 /* BANewsPath.h */,
+				C4EB5B421CD8B24F003A7094 /* BAURLsPath.h */,
 			);
 			path = "BANetManager(网络类)";
 			sourceTree = "<group>";

@@ -7,32 +7,41 @@
 //
 
 #import "BANewsNetManager.h"
-#import "BANewsPath.h"
+#import "BAURLsPath.h"
 
 //static AFHTTPSessionManager *manger = nil;
 
 @implementation BANewsNetManager
 
 
+//+ (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle
+//{
+//    NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
+//    
+//    return [self GET:path parameters:nil completionHandle:^(id model, NSError *error) {
+//
+//        /** MJExtension 解析方法, 数组和字典是不同的 */
+//        // 如果model是个字典类型
+//        // 在最新版本中,下方方法名称变动mj_objectWithKeyValues
+////        BAVideoModel *mo = [BAVideoModel mj_objectWithKeyValues:model];
+//        // 假设 返回值 是数组类型
+//        
+////         mo = [BAVideoModel mj_objectArrayWithKeyValuesArray:model];
+////        completionHandle(mo, error);
+//        
+//        completionHandle([BAVideoModel BAMJParse:model], error);
+//    }];
+//}
+
 + (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle
 {
     NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
     
-    return [self GET:path parameters:nil completionHandle:^(id model, NSError *error) {
-
-        /** MJExtension 解析方法, 数组和字典是不同的 */
-        // 如果model是个字典类型
-        // 在最新版本中,下方方法名称变动mj_objectWithKeyValues
-//        BAVideoModel *mo = [BAVideoModel mj_objectWithKeyValues:model];
-        // 假设 返回值 是数组类型
-        
-//         mo = [BAVideoModel mj_objectArrayWithKeyValuesArray:model];
-//        completionHandle(mo, error);
+    return [self BA_GET_Url:path parameters:nil response:BAResponseStyleJSON requestHeadFile:nil completionHandle:^(id model, NSError *error) {
         
         completionHandle([BAVideoModel BAMJParse:model], error);
     }];
 }
-
 
 
 //// 单例写法

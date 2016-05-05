@@ -7,6 +7,7 @@
 //
 
 #import "DemoVC1.h"
+#import "BANewsNetManager.h"
 
 @interface DemoVC1 ()
 
@@ -34,7 +35,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setVCBgColor:BA_Yellow_Color];
+    [self getData];
+}
 
+- (void)getData
+{
+    [BANewsNetManager getVideosWithStartIndex:1 completionHandle:^(id model, NSError *error) {
+        
+        if (!error)
+        {
+            BALog(@"model: %@", model);
+        }
+        else
+        {
+            BALog(@"解析数据有误！");
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

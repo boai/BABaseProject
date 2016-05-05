@@ -33,6 +33,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setVCBgColor:BA_Green_Color];
+    
+    [self clearCache];
+}
+
+- (void)clearCache
+{
+    CGFloat cacheSize = [[SDImageCache sharedImageCache] getSize];
+    
+    NSString *clearMessage = cacheSize >= 1024*1024 ? [NSString stringWithFormat:@"清理缓存（%.2fM）", cacheSize / 1024 / 1024] : [NSString stringWithFormat:@"清理缓存（%.2fK）", cacheSize / 1024];
+    [self BAAlertWithTitle:@"温馨提示：" message:clearMessage andOthers:@[@"确 定"] animated:YES action:^(NSInteger index) {
+        
+        if (index == 0)
+        {
+            // 清除内存缓存
+            [[[SDWebImageManager sharedManager] imageCache] clearMemory];
+            // 清除系统缓存
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+            
+//            [[[SDWebImageManager sharedManager] imageCache] cleanDisk];
+        }
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
