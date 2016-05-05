@@ -25,7 +25,7 @@
 
 ## 3、项目简介 和 使用指南
 #### 3.1 项目简介 <br>
-**主要使用MVVM模式，共分为三大类：** <br>
+**主要使用 MVVM 设计模式 和 MVC 设计模式，共分为三大类：** <br>
 **1、Main** <br>
 主要功能：两种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController <br>
 **2、BAMainCode** <br>
