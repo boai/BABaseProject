@@ -1,9 +1,9 @@
 //
 //  BATabBarController.h
-//  BABaseProject
+//  博爱微博
 //
-//  Created by 博爱 on 16/5/3.
-//  Copyright © 2016年 博爱之家. All rights reserved.
+//  Created by 孙博岩 on 15/7/26.
+//  Copyright © 2015年 boai. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

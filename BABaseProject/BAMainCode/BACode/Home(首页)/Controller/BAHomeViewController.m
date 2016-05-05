@@ -11,6 +11,10 @@
 #import "BAHomeVCModel.h"
 #import "BAHomeViewCell.h"
 
+#import "DemoVC1.h"
+#import "DemoVC2.h"
+
+
 static NSString *const CellId = @"cell";
 @interface BAHomeViewController ()
 <
@@ -35,7 +39,7 @@ static NSString *const CellId = @"cell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 //    [self isShowSnowLoadingView:YES];
 }
@@ -194,14 +198,28 @@ static NSString *const CellId = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *className = self.classNamesArray[indexPath.row];
-    Class class = NSClassFromString(className);
-    if (class)
+//    NSString *className = self.classNamesArray[indexPath.row];
+//    Class class = NSClassFromString(className);
+//    if (class)
+//    {
+//        UIViewController *vc = class.new;
+//        vc.title = self.titlesArray[indexPath.row];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+    
+    if (indexPath.row == 0)
     {
-        UIViewController *vc = class.new;
+        DemoVC1 *vc = [DemoVC1 new];
         vc.title = self.titlesArray[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    if (indexPath.row == 1)
+    {
+        DemoVC2 *vc = [DemoVC2 new];
+        vc.title = self.titlesArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
     // 点击立刻取消该cell的选中状态
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

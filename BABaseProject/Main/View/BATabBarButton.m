@@ -1,15 +1,13 @@
 //
 //  BATabBarButton.m
-//  BABaseProject
+//  博爱微博
 //
-//  Created by 博爱 on 16/5/3.
-//  Copyright © 2016年 博爱之家. All rights reserved.
+//  Created by 孙博岩 on 15/8/1.
+//  Copyright © 2015年 boai. All rights reserved.
 //
 
 #import "BATabBarButton.h"
 #import "BABadgeView.h"
-
-
 
 #define BAImageRidio 0.7
 
@@ -22,7 +20,10 @@
 @implementation BATabBarButton
 
 // 重写setHighlighted，取消高亮做的事情
-- (void)setHighlighted:(BOOL)highlighted{}
+- (void)setHighlighted:(BOOL)highlighted
+{
+
+}
 
 // 懒加载badgeView
 - (BABadgeView *)badgeView
@@ -63,13 +64,16 @@
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         // 设置文字字体
         self.titleLabel.font = [UIFont systemFontOfSize:12];
-        self.lineView.backgroundColor = BA_Red_Color;
+        
+        self.lineView.backgroundColor = BA_NaviBgBlueColor;
         self.lineView.hidden = YES;
+        
+        [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
-
 // 传递UITabBarItem给tabBarButton,给tabBarButton内容赋值
+
 - (void)setItem:(UITabBarItem *)item
 {
     _item = item;
@@ -83,17 +87,15 @@
     [item addObserver:self forKeyPath:@"image" options:NSKeyValueObservingOptionNew context:nil];
     [item addObserver:self forKeyPath:@"selectedImage" options:NSKeyValueObservingOptionNew context:nil];
     [item addObserver:self forKeyPath:@"badgeValue" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 // 只要监听的属性一有新值，就会调用
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context
 {
     self.lineView.hidden = !self.selected;
+
     [self setTitle:_item.title forState:UIControlStateNormal];
-    
     [self setImage:_item.image forState:UIControlStateNormal];
-    
     [self setImage:_item.selectedImage forState:UIControlStateSelected];
     
     // 设置badgeValue
@@ -125,26 +127,12 @@
     CGFloat titleX = 0;
     CGFloat titleY = imageH - 3;
     CGFloat titleW = self.bounds.size.width;
-    CGFloat titleH = self.bounds.size.height - titleY -2;
+    CGFloat titleH = self.bounds.size.height - titleY;
     self.titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
     
     // 3.badgeView
     self.badgeView.x = self.width - self.badgeView.width - 10;
     self.badgeView.y = 0;
-    
-    CGFloat lineViewX = 0;
-    CGFloat lineViewY = self.titleLabel.bottom;
-    CGFloat lineViewW = self.bounds.size.width;
-    CGFloat lineViewH = 2;
-    self.lineView.frame = CGRectMake(lineViewX, lineViewY, lineViewW, lineViewH);
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

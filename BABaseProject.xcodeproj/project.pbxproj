@@ -28,6 +28,14 @@
 		C40852B01CD9FDF30004A671 /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852AF1CD9FDF30004A671 /* BAHomeViewModel.m */; };
 		C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852B71CDA08F10004A671 /* DemoVC1.m */; };
 		C40852BC1CDA09100004A671 /* DemoVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852BB1CDA09100004A671 /* DemoVC2.m */; };
+		C40852E31CDA229B0004A671 /* BANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E21CDA229B0004A671 /* BANavigationController.m */; };
+		C40852E81CDA263B0004A671 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E51CDA263B0004A671 /* RDVTabBarItem.m */; };
+		C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E71CDA263B0004A671 /* RDVTabBar.m */; };
+		C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852EB1CDA26680004A671 /* RDVTabBarController.m */; };
+		C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6ADE1CDAE10500D534EE /* BATabBar.m */; };
+		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
+		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
+		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
 		C4EB5AAE1CD8B04B003A7094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */; };
@@ -41,7 +49,6 @@
 		C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AE11CD8B24F003A7094 /* BAFPSLabel.m */; };
 		C4EB5BB81CD8B250003A7094 /* BANavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AE31CD8B24F003A7094 /* BANavigationBar.m */; };
 		C4EB5BB91CD8B250003A7094 /* BABaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AE61CD8B24F003A7094 /* BABaseViewController.m */; };
-		C4EB5BBA1CD8B250003A7094 /* BANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AE81CD8B24F003A7094 /* BANavigationController.m */; };
 		C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AEB1CD8B24F003A7094 /* BAGIFImageView.m */; };
 		C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AF41CD8B24F003A7094 /* BADiscoverViewController.m */; };
 		C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AFA1CD8B24F003A7094 /* BAHomeViewController.m */; };
@@ -155,10 +162,6 @@
 		C4EB5C2B1CD8B251003A7094 /* 烟花背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA51CD8B250003A7094 /* 烟花背景.jpg */; };
 		C4EB5C2C1CD8B251003A7094 /* 金元宝.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA61CD8B250003A7094 /* 金元宝.png */; };
 		C4EB5C2D1CD8B251003A7094 /* 雪花.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA71CD8B250003A7094 /* 雪花.png */; };
-		C4EB5C2E1CD8B251003A7094 /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5BAB1CD8B250003A7094 /* BATabBarController.m */; };
-		C4EB5C2F1CD8B251003A7094 /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5BAF1CD8B250003A7094 /* BABadgeView.m */; };
-		C4EB5C301CD8B251003A7094 /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5BB11CD8B250003A7094 /* BATabBar.m */; };
-		C4EB5C311CD8B251003A7094 /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5BB31CD8B250003A7094 /* BATabBarButton.m */; };
 		C4EB5C7B1CD8B589003A7094 /* NSArray+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C371CD8B589003A7094 /* NSArray+BAKit.m */; };
 		C4EB5C7C1CD8B58B003A7094 /* NSData+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C391CD8B589003A7094 /* NSData+BAKit.m */; };
 		C4EB5C7D1CD8B58B003A7094 /* NSDate+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C3B1CD8B589003A7094 /* NSDate+BAKit.m */; };
@@ -252,6 +255,22 @@
 		C40852B71CDA08F10004A671 /* DemoVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC1.m; sourceTree = "<group>"; };
 		C40852BA1CDA09100004A671 /* DemoVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2.h; sourceTree = "<group>"; };
 		C40852BB1CDA09100004A671 /* DemoVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2.m; sourceTree = "<group>"; };
+		C40852E11CDA229B0004A671 /* BANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANavigationController.h; sourceTree = "<group>"; };
+		C40852E21CDA229B0004A671 /* BANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANavigationController.m; sourceTree = "<group>"; };
+		C40852E41CDA263B0004A671 /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
+		C40852E51CDA263B0004A671 /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
+		C40852E61CDA263B0004A671 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
+		C40852E71CDA263B0004A671 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
+		C40852EA1CDA26680004A671 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
+		C40852EB1CDA26680004A671 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		C42A6ADD1CDAE10500D534EE /* BATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBar.h; sourceTree = "<group>"; };
+		C42A6ADE1CDAE10500D534EE /* BATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBar.m; sourceTree = "<group>"; };
+		C42A6ADF1CDAE10500D534EE /* BATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarButton.h; sourceTree = "<group>"; };
+		C42A6AE01CDAE10500D534EE /* BATabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarButton.m; sourceTree = "<group>"; };
+		C42A6AE11CDAE10500D534EE /* BABadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABadgeView.h; sourceTree = "<group>"; };
+		C42A6AE21CDAE10500D534EE /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
+		C42A6AE61CDAE10D00D534EE /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
+		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EB5AA41CD8B04B003A7094 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -277,8 +296,6 @@
 		C4EB5AE31CD8B24F003A7094 /* BANavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANavigationBar.m; sourceTree = "<group>"; };
 		C4EB5AE51CD8B24F003A7094 /* BABaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseViewController.h; sourceTree = "<group>"; };
 		C4EB5AE61CD8B24F003A7094 /* BABaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseViewController.m; sourceTree = "<group>"; };
-		C4EB5AE71CD8B24F003A7094 /* BANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANavigationController.h; sourceTree = "<group>"; };
-		C4EB5AE81CD8B24F003A7094 /* BANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANavigationController.m; sourceTree = "<group>"; };
 		C4EB5AEA1CD8B24F003A7094 /* BAGIFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAGIFImageView.h; sourceTree = "<group>"; };
 		C4EB5AEB1CD8B24F003A7094 /* BAGIFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAGIFImageView.m; sourceTree = "<group>"; };
 		C4EB5AF31CD8B24F003A7094 /* BADiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADiscoverViewController.h; sourceTree = "<group>"; };
@@ -421,14 +438,6 @@
 		C4EB5BA51CD8B250003A7094 /* 烟花背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "烟花背景.jpg"; sourceTree = "<group>"; };
 		C4EB5BA61CD8B250003A7094 /* 金元宝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "金元宝.png"; sourceTree = "<group>"; };
 		C4EB5BA71CD8B250003A7094 /* 雪花.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雪花.png"; sourceTree = "<group>"; };
-		C4EB5BAA1CD8B250003A7094 /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
-		C4EB5BAB1CD8B250003A7094 /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
-		C4EB5BAE1CD8B250003A7094 /* BABadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABadgeView.h; sourceTree = "<group>"; };
-		C4EB5BAF1CD8B250003A7094 /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
-		C4EB5BB01CD8B250003A7094 /* BATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBar.h; sourceTree = "<group>"; };
-		C4EB5BB11CD8B250003A7094 /* BATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBar.m; sourceTree = "<group>"; };
-		C4EB5BB21CD8B250003A7094 /* BATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarButton.h; sourceTree = "<group>"; };
-		C4EB5BB31CD8B250003A7094 /* BATabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarButton.m; sourceTree = "<group>"; };
 		C4EB5C321CD8B530003A7094 /* BABaseProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProject.pch; sourceTree = "<group>"; };
 		C4EB5C361CD8B589003A7094 /* NSArray+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BAKit.h"; sourceTree = "<group>"; };
 		C4EB5C371CD8B589003A7094 /* NSArray+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BAKit.m"; sourceTree = "<group>"; };
@@ -736,8 +745,8 @@
 			children = (
 				C4EB5AE51CD8B24F003A7094 /* BABaseViewController.h */,
 				C4EB5AE61CD8B24F003A7094 /* BABaseViewController.m */,
-				C4EB5AE71CD8B24F003A7094 /* BANavigationController.h */,
-				C4EB5AE81CD8B24F003A7094 /* BANavigationController.m */,
+				C40852E11CDA229B0004A671 /* BANavigationController.h */,
+				C40852E21CDA229B0004A671 /* BANavigationController.m */,
 				C408527A1CD990B00004A671 /* BABaseTableViewController.h */,
 				C408527B1CD990B00004A671 /* BABaseTableViewController.m */,
 			);
@@ -1219,8 +1228,10 @@
 		C4EB5BA91CD8B250003A7094 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C4EB5BAA1CD8B250003A7094 /* BATabBarController.h */,
-				C4EB5BAB1CD8B250003A7094 /* BATabBarController.m */,
+				C40852EA1CDA26680004A671 /* RDVTabBarController.h */,
+				C40852EB1CDA26680004A671 /* RDVTabBarController.m */,
+				C42A6AE61CDAE10D00D534EE /* BATabBarController.h */,
+				C42A6AE71CDAE10D00D534EE /* BATabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1235,12 +1246,16 @@
 		C4EB5BAD1CD8B250003A7094 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4EB5BAE1CD8B250003A7094 /* BABadgeView.h */,
-				C4EB5BAF1CD8B250003A7094 /* BABadgeView.m */,
-				C4EB5BB01CD8B250003A7094 /* BATabBar.h */,
-				C4EB5BB11CD8B250003A7094 /* BATabBar.m */,
-				C4EB5BB21CD8B250003A7094 /* BATabBarButton.h */,
-				C4EB5BB31CD8B250003A7094 /* BATabBarButton.m */,
+				C40852E41CDA263B0004A671 /* RDVTabBarItem.h */,
+				C40852E51CDA263B0004A671 /* RDVTabBarItem.m */,
+				C40852E61CDA263B0004A671 /* RDVTabBar.h */,
+				C40852E71CDA263B0004A671 /* RDVTabBar.m */,
+				C42A6ADD1CDAE10500D534EE /* BATabBar.h */,
+				C42A6ADE1CDAE10500D534EE /* BATabBar.m */,
+				C42A6ADF1CDAE10500D534EE /* BATabBarButton.h */,
+				C42A6AE01CDAE10500D534EE /* BATabBarButton.m */,
+				C42A6AE11CDAE10500D534EE /* BABadgeView.h */,
+				C42A6AE21CDAE10500D534EE /* BABadgeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1652,7 +1667,9 @@
 				C40852B01CD9FDF30004A671 /* BAHomeViewModel.m in Sources */,
 				C40852A91CD9FD760004A671 /* BAHomeViewCell.m in Sources */,
 				C4EB5C951CD8B58B003A7094 /* UIWebView+BAKit.m in Sources */,
+				C40852E81CDA263B0004A671 /* RDVTabBarItem.m in Sources */,
 				C4EB5C8B1CD8B58B003A7094 /* UIDevice+BAKit.m in Sources */,
+				C40852E31CDA229B0004A671 /* BANavigationController.m in Sources */,
 				C4EB5BC51CD8B250003A7094 /* SDPhotoBrowser.m in Sources */,
 				C4EB5C891CD8B58B003A7094 /* UIButton+BAKit.m in Sources */,
 				C4EB5C8C1CD8B58B003A7094 /* UIFont+BAKit.m in Sources */,
@@ -1661,6 +1678,7 @@
 				C40852911CD9C90F0004A671 /* UIView+BAGlowView.m in Sources */,
 				C4EB5C8A1CD8B58B003A7094 /* UIColor+BAKit.m in Sources */,
 				C4EB5BBE1CD8B250003A7094 /* BAMessageViewController.m in Sources */,
+				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C4EB5C8F1CD8B58B003A7094 /* UILabel+BAKit.m in Sources */,
 				C4EB5C911CD8B58B003A7094 /* UITableView+BAKit.m in Sources */,
 				C4EB5BD01CD8B250003A7094 /* UIScrollView+BARefresh.m in Sources */,
@@ -1669,6 +1687,7 @@
 				C4EB5C841CD8B58B003A7094 /* NSString+BAKit.m in Sources */,
 				C4EB5C861CD8B58B003A7094 /* BACustomModalTransition.m in Sources */,
 				C4EB5C7E1CD8B58B003A7094 /* NSDictionary+BAKit.m in Sources */,
+				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5C801CD8B58B003A7094 /* NSMutableArray+BAKit.m in Sources */,
 				C4EB5C931CD8B58B003A7094 /* UIView+BA.m in Sources */,
 				C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */,
@@ -1677,7 +1696,6 @@
 				C4EB5C811CD8B58B003A7094 /* NSMutableDictionary+BAKit.m in Sources */,
 				C4EB5C7F1CD8B58B003A7094 /* NSFileManager+BAKit.m in Sources */,
 				C40852831CD9BE360004A671 /* UIView+SetRect.m in Sources */,
-				C4EB5C311CD8B251003A7094 /* BATabBarButton.m in Sources */,
 				C4EB5C981CD8B58B003A7094 /* BALog.m in Sources */,
 				C4EB5C961CD8B58B003A7094 /* UIWindow+BAKit.m in Sources */,
 				C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */,
@@ -1685,8 +1703,9 @@
 				C4EB5BCC1CD8B250003A7094 /* NSObject+BAMJParse.m in Sources */,
 				C4EB5BCB1CD8B250003A7094 /* AppDelegate+Category.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
+				C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
-				C4EB5C301CD8B251003A7094 /* BATabBar.m in Sources */,
+				C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,
 				C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */,
@@ -1707,12 +1726,12 @@
 				C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */,
 				C4EB5BC91CD8B250003A7094 /* BAShareManageView.m in Sources */,
 				C40852941CD9CB0E0004A671 /* CALayer+BAMaskLayer.m in Sources */,
+				C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */,
 				C4EB5BD11CD8B250003A7094 /* UIViewController+BAAlertView.m in Sources */,
-				C4EB5C2F1CD8B251003A7094 /* BABadgeView.m in Sources */,
 				C40852971CD9CBDD0004A671 /* BAUpdatingView.m in Sources */,
+				C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */,
 				C4EB5C881CD8B58B003A7094 /* BATextView.m in Sources */,
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
-				C4EB5BBA1CD8B250003A7094 /* BANavigationController.m in Sources */,
 				C4EB5C871CD8B58B003A7094 /* BAPickerView.m in Sources */,
 				C408528B1CD9C53E0004A671 /* BASnowView.m in Sources */,
 				C4EB5C7B1CD8B589003A7094 /* NSArray+BAKit.m in Sources */,
@@ -1722,7 +1741,6 @@
 				C4EB5C9A1CD8B58B003A7094 /* BASystemSound.m in Sources */,
 				C4EB5BB61CD8B250003A7094 /* BAVideoModel.m in Sources */,
 				C4EB5C941CD8B58B003A7094 /* UIView+BAKit.m in Sources */,
-				C4EB5C2E1CD8B251003A7094 /* BATabBarController.m in Sources */,
 				C4EB5C8E1CD8B58B003A7094 /* UIImageView+BAKit.m in Sources */,
 				C4EB5C971CD8B58B003A7094 /* BAAPP.m in Sources */,
 				C4EB5BB41CD8B250003A7094 /* BABaseModel.m in Sources */,
