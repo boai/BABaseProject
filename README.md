@@ -24,15 +24,15 @@
 
 
 ## 3、项目简介 和 使用指南
-3.1 项目简介 <br>
-主要使用MVVM模式，共分为三大类：
-- 1、Main
+#### 3.1 项目简介 <br>
+** 主要使用MVVM模式，共分为三大类：** <br>
+** 1、Main** <br>
 主要功能：两种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController <br>
-- 2、BAMainCode
+** 2、BAMainCode** <br>
 - 2.1 
-- 3、Supporting Files
+** 3、Supporting Files** <br>
 
-3.2 使用指南 <br>
+#### 3.2 使用指南 <br>
 使用的时候删除每个VC里面的DemoVC文件夹即可！<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
