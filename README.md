@@ -11,7 +11,9 @@
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
 ## 2、推荐
-#### 完全实现button的自定义的类库，pod 导入：   pod 'BAButton', '~> 1.0.1'
+2.1 完全实现[UIButton](https://github.com/boai/BAButton)的自定义的类库 <br>
+**pod 导入：   pod 'BAButton', '~> 1.0.1'** <br>
+
 如果发现pod search BAButton 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了 <br>
 具体步骤：
 - pod setup : 初始化
