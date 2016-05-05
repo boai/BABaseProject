@@ -37,7 +37,7 @@
 - 2.6 Other【其他代码】如： <br>
 - 2.7 BACustom【其他自定义】如：暂时不知道放在哪里的自定义文件可放在这里 <br>
 **3、Supporting Files** <br>
-- 这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
+- 3.1这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
 
 #### 3.2 使用指南 <br>
 使用的时候删除每个VC里面的DemoVC文件夹即可！<br>
