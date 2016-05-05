@@ -2,11 +2,11 @@
 一个基本项目框架，项目用到的各种类，各种封装，各种三方库的综合项目，欢迎大家使用！
 
 ## 1、个人简介
-**新浪微博：@博爱1616** <br>
-**QQ：     137361770** <br>
+**新浪微博：@博爱1616 ** <br>
+**QQ：     137361770 ** <br>
 **博客：http://boai.github.io ** <br>
 **博客园：http://www.cnblogs.com/boai/ ** <br>
-**简书：http://www.jianshu.com/users/95c9800fdf47/latest_articles**
+**简书：http://www.jianshu.com/users/95c9800fdf47/latest_articles ** <br>
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助！** <br>
 
@@ -18,7 +18,7 @@
 - pod repo update : 更新仓库
 - pod search BAButton
 
-#### [对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法](url "http://www.cnblogs.com/boai/p/4977976.html")<br>
+#### [对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法]("http://www.cnblogs.com/boai/p/4977976.html")<br>
 
 
 ## 3、使用指南
