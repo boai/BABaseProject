@@ -15,66 +15,74 @@
 #endif
 
 #ifdef __OBJC__
-// 头文件
+
+/*! 系统头文件 */
 #import <UIKit/UIKit.h> // UI
 #import <Foundation/Foundation.h> // NS
 
-// 全局宏定义文件
+/*! 全局宏定义文件 */
 #import "BADefin.h"
 #import "BAHeader.h"
 #import "BAColorHeader.h"
 #import "BAFrameHeader.h"
 
+/*! BAKit框架 */
 #import "BAKit.h"
 
+/*! 文本宽度/高度自适应 */
+#import "NSObject+BAAutoSizeWithWH.h"
+
+/*! 自定义UINavigationItem */
 #import "UINavigationItem+CustomItem.h"
 
+/*! 自动布局三方库 */
 #import <Masonry.h>
 #import "UIView+SDAutoLayout.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
 
+/*! 缓存三方库 */
 #import "UIImageView+WebCache.h"
+#import <SDImageCache.h>
 
-// 键盘
+/*! 键盘 */
 #import "IQKeyboardManager.h"
 
-// 加载框提示
+/*! 加载框提示 */
 #import "NSObject+BAProgressHUD.h"
 
-// 只要有网络操作
+/*! 网络库 */
 #import <AFNetworking.h>
 #import <UIKit+AFNetworking.h>
 
+/*! block三方库 */
 #import <BlocksKit.h>
 #import <BlocksKit+UIKit.h>
 
-// 可选(与<UIKit+AFNetworking.h>冲突，二选一)
-#import <SDImageCache.h>
-
-// 上下拉刷新
+/*! 上下拉刷新 */
 #import <MJRefresh.h>
 #import "UIScrollView+BARefresh.h"
 
-// 友盟分享
+/*! 友盟分享/登陆 的详细封装 */
 #import "BAShareManage.h"
 
-// FPS
+/*! FPS */
 #import "BAFPSLabel.h"
 
-// 离屏渲染绘制 layer
+/*! 离屏渲染绘制 layer */
 #import "UIView+RoundedCorner.h"
 
-// 将Toast通知添加到UIView对象类
+/*! 将Toast通知添加到UIView对象类 */
 #import "UIView+Toast.h"
 
-// 网络状态
-#import "Reachability.h"
+/*! 网络状态：与AFN可二选一 */
+//#import "Reachability.h"
 
-// 警告框
+/*! 警告框 */
 #import "UIViewController+BAAlertView.h"
 
-// 自定义字体
+/*! 自定义字体 */
 #import "AddedFont.h"
+
 
 
 #endif

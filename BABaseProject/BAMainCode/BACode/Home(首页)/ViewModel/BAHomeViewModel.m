@@ -26,6 +26,7 @@
     CGFloat titleY = titleX;
     CGFloat titleW = BA_SCREEN_WIDTH - 2 * BAStatusCellMargin;
     CGRect titleSize = [_viewModel.titleLabel boundingRectWithSize:CGSizeMake(titleW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:BA_FontSize(15)} context:nil];
+//    CGFloat titleH = [self baauto];
     _titleLabelFrame = (CGRect){{titleX, titleY}, titleSize.size};
 
     /*! 内容Frame */
