@@ -81,7 +81,7 @@ static NSString *const CellId = @"cell";
         [self.view addSubview:_tableView];
         
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, 0, 0));
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, BA_getTabbarHeight, 0));
         }];
         
         _tableView.tableFooterView = [UIView new];

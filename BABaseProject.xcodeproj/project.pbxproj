@@ -152,7 +152,7 @@
 		C4EB5C211CD8B251003A7094 /* test4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5B9A1CD8B250003A7094 /* test4.jpg */; };
 		C4EB5C221CD8B251003A7094 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5B9C1CD8B250003A7094 /* ball.png */; };
 		C4EB5C231CD8B251003A7094 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5B9D1CD8B250003A7094 /* fire.png */; };
-		C4EB5C241CD8B251003A7094 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5B9E1CD8B250003A7094 /* snow.png */; };
+		C4EB5C241CD8B251003A7094 /* snow2.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5B9E1CD8B250003A7094 /* snow2.png */; };
 		C4EB5C251CD8B251003A7094 /* snowbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5B9F1CD8B250003A7094 /* snowbg.jpg */; };
 		C4EB5C261CD8B251003A7094 /* 樱花树1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA01CD8B250003A7094 /* 樱花树1.jpg */; };
 		C4EB5C271CD8B251003A7094 /* 樱花树2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA11CD8B250003A7094 /* 樱花树2.jpg */; };
@@ -428,7 +428,7 @@
 		C4EB5B9A1CD8B250003A7094 /* test4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test4.jpg; sourceTree = "<group>"; };
 		C4EB5B9C1CD8B250003A7094 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		C4EB5B9D1CD8B250003A7094 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
-		C4EB5B9E1CD8B250003A7094 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		C4EB5B9E1CD8B250003A7094 /* snow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow2.png; sourceTree = "<group>"; };
 		C4EB5B9F1CD8B250003A7094 /* snowbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowbg.jpg; sourceTree = "<group>"; };
 		C4EB5BA01CD8B250003A7094 /* 樱花树1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "樱花树1.jpg"; sourceTree = "<group>"; };
 		C4EB5BA11CD8B250003A7094 /* 樱花树2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "樱花树2.jpg"; sourceTree = "<group>"; };
@@ -1201,7 +1201,7 @@
 			children = (
 				C4EB5B9C1CD8B250003A7094 /* ball.png */,
 				C4EB5B9D1CD8B250003A7094 /* fire.png */,
-				C4EB5B9E1CD8B250003A7094 /* snow.png */,
+				C4EB5B9E1CD8B250003A7094 /* snow2.png */,
 				C4EB5B9F1CD8B250003A7094 /* snowbg.jpg */,
 				C4EB5BA01CD8B250003A7094 /* 樱花树1.jpg */,
 				C4EB5BA11CD8B250003A7094 /* 樱花树2.jpg */,
@@ -1538,7 +1538,7 @@
 				C4EB5C161CD8B251003A7094 /* pic3.jpg in Resources */,
 				C4EB5C0A1CD8B251003A7094 /* 8.jpg in Resources */,
 				C4EB5C071CD8B251003A7094 /* 5.jpg in Resources */,
-				C4EB5C241CD8B251003A7094 /* snow.png in Resources */,
+				C4EB5C241CD8B251003A7094 /* snow2.png in Resources */,
 				C4EB5C021CD8B251003A7094 /* 21.jpg in Resources */,
 				C4EB5BF31CD8B250003A7094 /* gif2.gif in Resources */,
 				C4EB5BDB1CD8B250003A7094 /* img13.jpg in Resources */,

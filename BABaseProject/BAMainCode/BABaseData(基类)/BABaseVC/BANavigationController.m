@@ -106,13 +106,11 @@
 
 - (void)backToPre
 {
-    
     [self popViewControllerAnimated:YES];
 }
 
 - (void)backToRoot
 {
-    
     [self popToRootViewControllerAnimated:YES];
 }
 

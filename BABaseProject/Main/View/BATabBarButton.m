@@ -65,7 +65,7 @@
         // 设置文字字体
         self.titleLabel.font = [UIFont systemFontOfSize:12];
         
-        self.lineView.backgroundColor = BA_NaviBgBlueColor;
+        self.lineView.backgroundColor = BA_Red_Color;
         self.lineView.hidden = YES;
         
         [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
@@ -127,12 +127,19 @@
     CGFloat titleX = 0;
     CGFloat titleY = imageH - 3;
     CGFloat titleW = self.bounds.size.width;
-    CGFloat titleH = self.bounds.size.height - titleY;
+    CGFloat titleH = self.bounds.size.height - titleY -2;
     self.titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
     
     // 3.badgeView
     self.badgeView.x = self.width - self.badgeView.width - 10;
     self.badgeView.y = 0;
+    
+    CGFloat lineViewX = 0;
+    CGFloat lineViewY = self.titleLabel.bottom;
+    CGFloat lineViewW = self.bounds.size.width;
+    CGFloat lineViewH = 2;
+    self.lineView.frame = CGRectMake(lineViewX, lineViewY, lineViewW, lineViewH);
 }
+
 
 @end
