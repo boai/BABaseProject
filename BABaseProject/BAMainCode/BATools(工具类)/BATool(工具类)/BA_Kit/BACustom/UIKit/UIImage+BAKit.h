@@ -318,6 +318,16 @@
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
 
+/*!
+ *  图片背景颜色
+ *
+ *  @param color Color value
+ *  @param size size
+ *
+ *  @return Return an UIImage instance
+ */
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
 + (instancetype)imageWithStretchableName:(NSString *)imageName;
 
 /*! 获得的就是一个圆形的图片 */

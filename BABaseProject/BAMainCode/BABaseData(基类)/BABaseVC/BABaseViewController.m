@@ -63,7 +63,8 @@
 #pragma mark - ***** 基本设置
 - (void)setupBase
 {
-    
+    self.view.backgroundColor = BA_White_Color;
+
     
 }
 
@@ -80,10 +81,6 @@
     if (vcBgColor)
     {
         self.view.backgroundColor = vcBgColor;
-    }
-    else
-    {
-        self.view.backgroundColor = BA_White_Color;
     }
 }
 

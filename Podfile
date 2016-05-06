@@ -53,7 +53,12 @@ target 'BABaseProject' do
     # 把系统的target+selector/委托模式 转为 Block语法，让代码结构更加紧凑
     pod 'BlocksKit'
     
+    # 自定义提示框
     pod 'Toast', '~> 3.0'
+    
+    # 一个支持多选、选原图和视频的图片选择器，同时有预览功能，适配了iOS6789系统。
+#    pod 'TZImagePickerController'
+
     
 end
 

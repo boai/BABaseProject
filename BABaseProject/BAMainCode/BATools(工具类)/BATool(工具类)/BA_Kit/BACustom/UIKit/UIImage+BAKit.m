@@ -832,6 +832,23 @@ UIColor *colorForColorString(NSString *colorString)
     return returnImage;
 }
 
+/*!
+ *  图片背景颜色
+ *
+ *  @param color Color value
+ *  @param size size
+ *
+ *  @return Return an UIImage instance
+ */
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height); UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext(); CGContextSetFillColorWithColor(context, [color CGColor]); CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 + (instancetype)imageWithStretchableName:(NSString *)imageName
 {
     UIImage *image = [UIImage imageNamed:imageName];

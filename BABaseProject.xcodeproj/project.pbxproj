@@ -35,6 +35,7 @@
 		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
 		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
+		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C46C5AB51CDB4A58002F707F /* NSObject+BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB41CDB4A58002F707F /* NSObject+BAAutoSizeWithWH.m */; };
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
@@ -196,7 +197,6 @@
 		C4EB5C991CD8B58B003A7094 /* BAPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C751CD8B589003A7094 /* BAPassword.m */; };
 		C4EB5C9A1CD8B58B003A7094 /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C771CD8B589003A7094 /* BASystemSound.m */; };
 		C4EB5C9B1CD8B58B003A7094 /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C791CD8B589003A7094 /* BATouchID.m */; };
-		C4EB5C9E1CD8BDAE003A7094 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5C9D1CD8BDAE003A7094 /* Info.plist */; };
 		C4F6B0B01CDC28630070304C /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F6B0AF1CDC28630070304C /* BAAutoSizeWithWH.m */; };
 /* End PBXBuildFile section */
 
@@ -271,6 +271,8 @@
 		C42A6AE21CDAE10500D534EE /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
 		C42A6AE61CDAE10D00D534EE /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
 		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
+		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
+		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C46C5AB31CDB4A58002F707F /* NSObject+BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAAutoSizeWithWH.h"; sourceTree = "<group>"; };
 		C46C5AB41CDB4A58002F707F /* NSObject+BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BAAutoSizeWithWH.m"; sourceTree = "<group>"; };
 		C46C5AB71CDB75B9002F707F /* BAHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewModel.h; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 			children = (
 				C40852B51CDA08F10004A671 /* DemoVC1 */,
 				C40852B91CDA09020004A671 /* DemoVC2 */,
+				C430AB731CDC8A170086DDD6 /* DemoVC3 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -623,6 +626,15 @@
 				C40852BB1CDA09100004A671 /* DemoVC2.m */,
 			);
 			path = DemoVC2;
+			sourceTree = "<group>";
+		};
+		C430AB731CDC8A170086DDD6 /* DemoVC3 */ = {
+			isa = PBXGroup;
+			children = (
+				C430AB741CDC8A360086DDD6 /* DemoVC3.h */,
+				C430AB751CDC8A360086DDD6 /* DemoVC3.m */,
+			);
+			path = DemoVC3;
 			sourceTree = "<group>";
 		};
 		C46C5AB61CDB75B9002F707F /* ViewModel */ = {
@@ -1520,7 +1532,6 @@
 				C4EB5AB31CD8B04B003A7094 /* LaunchScreen.storyboard in Resources */,
 				C40852A11CD9CD860004A671 /* Lato-Thin.ttf in Resources */,
 				C4EB5C201CD8B251003A7094 /* test3.jpg in Resources */,
-				C4EB5C9E1CD8BDAE003A7094 /* Info.plist in Resources */,
 				C408529E1CD9CD860004A671 /* Lato-Bold.ttf in Resources */,
 				C4EB5C1B1CD8B251003A7094 /* pic8.jpg in Resources */,
 				C4EB5BFE1CD8B251003A7094 /* 18.jpg in Resources */,
@@ -1703,6 +1714,7 @@
 				C4EB5BC81CD8B250003A7094 /* BAShareManage.m in Sources */,
 				C4EB5C841CD8B58B003A7094 /* NSString+BAKit.m in Sources */,
 				C4EB5C861CD8B58B003A7094 /* BACustomModalTransition.m in Sources */,
+				C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */,
 				C4EB5C7E1CD8B58B003A7094 /* NSDictionary+BAKit.m in Sources */,
 				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5C801CD8B58B003A7094 /* NSMutableArray+BAKit.m in Sources */,
