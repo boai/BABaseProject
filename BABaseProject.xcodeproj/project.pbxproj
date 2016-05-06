@@ -197,6 +197,7 @@
 		C4EB5C9A1CD8B58B003A7094 /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C771CD8B589003A7094 /* BASystemSound.m */; };
 		C4EB5C9B1CD8B58B003A7094 /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5C791CD8B589003A7094 /* BATouchID.m */; };
 		C4EB5C9E1CD8BDAE003A7094 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5C9D1CD8BDAE003A7094 /* Info.plist */; };
+		C4F6B0B01CDC28630070304C /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F6B0AF1CDC28630070304C /* BAAutoSizeWithWH.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -510,6 +511,8 @@
 		C4EB5C791CD8B589003A7094 /* BATouchID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATouchID.m; sourceTree = "<group>"; };
 		C4EB5C7A1CD8B589003A7094 /* BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKit.h; sourceTree = "<group>"; };
 		C4EB5C9D1CD8BDAE003A7094 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4F6B0AE1CDC28630070304C /* BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAutoSizeWithWH.h; sourceTree = "<group>"; };
+		C4F6B0AF1CDC28630070304C /* BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAutoSizeWithWH.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1045,6 +1048,7 @@
 		C4EB5B431CD8B24F003A7094 /* BATool(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				C4F6B0AD1CDC283D0070304C /* 自定义工具类 */,
 				C4EB5C331CD8B589003A7094 /* BA_Kit */,
 			);
 			path = "BATool(工具类)";
@@ -1380,6 +1384,15 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		C4F6B0AD1CDC283D0070304C /* 自定义工具类 */ = {
+			isa = PBXGroup;
+			children = (
+				C4F6B0AE1CDC28630070304C /* BAAutoSizeWithWH.h */,
+				C4F6B0AF1CDC28630070304C /* BAAutoSizeWithWH.m */,
+			);
+			path = "自定义工具类";
+			sourceTree = "<group>";
+		};
 		D7432FE7EAE32BEDAFC5EEEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1698,6 +1711,7 @@
 				C4EB5BCE1CD8B250003A7094 /* NSObject+Network.m in Sources */,
 				C4EB5C7C1CD8B58B003A7094 /* NSData+BAKit.m in Sources */,
 				C4EB5C811CD8B58B003A7094 /* NSMutableDictionary+BAKit.m in Sources */,
+				C4F6B0B01CDC28630070304C /* BAAutoSizeWithWH.m in Sources */,
 				C4EB5C7F1CD8B58B003A7094 /* NSFileManager+BAKit.m in Sources */,
 				C40852831CD9BE360004A671 /* UIView+SetRect.m in Sources */,
 				C4EB5C981CD8B58B003A7094 /* BALog.m in Sources */,

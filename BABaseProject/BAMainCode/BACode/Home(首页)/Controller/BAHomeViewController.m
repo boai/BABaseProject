@@ -11,11 +11,6 @@
 #import "BAHomeVCModel.h"
 #import "BAHomeViewCell.h"
 
-#import "DemoVC1.h"
-#import "DemoVC2.h"
-
-
-static NSString *const CellId = @"cell";
 @interface BAHomeViewController ()
 <
     UITableViewDelegate,
@@ -113,7 +108,7 @@ static NSString *const CellId = @"cell";
         [self.dataArray addObject:model];
     }
     
-    // 模型转换视图模型 HomeVCModel -> HomeViewModel
+    // 模型转换视图模型 BAHomeVCModel -> BAHomeViewModel
     NSMutableArray *statusF = [NSMutableArray array];
     for (BAHomeVCModel *model in self.dataArray)
     {
@@ -189,7 +184,6 @@ static NSString *const CellId = @"cell";
     BAHomeViewCell *cell = [BAHomeViewCell cellWithTableView:tableView];
     // 获取DemoVC15_ViewModel模型
     BAHomeViewModel *subViewFrame = self.statusFrames[indexPath.row];
-    
     // 给cell传递模型
     cell.subViewFrame = subViewFrame;
     
@@ -198,24 +192,11 @@ static NSString *const CellId = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSString *className = self.classNamesArray[indexPath.row];
-//    Class class = NSClassFromString(className);
-//    if (class)
-//    {
-//        UIViewController *vc = class.new;
-//        vc.title = self.titlesArray[indexPath.row];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
-    
-    if (indexPath.row == 0)
+    NSString *className = self.classNamesArray[indexPath.row];
+    Class class = NSClassFromString(className);
+    if (class)
     {
-        DemoVC1 *vc = [DemoVC1 new];
-        vc.title = self.titlesArray[indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    if (indexPath.row == 1)
-    {
-        DemoVC2 *vc = [DemoVC2 new];
+        UIViewController *vc = class.new;
         vc.title = self.titlesArray[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }

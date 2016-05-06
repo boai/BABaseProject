@@ -31,6 +31,8 @@
 
 /*! 文本宽度/高度自适应 */
 #import "NSObject+BAAutoSizeWithWH.h"
+#import "BAAutoSizeWithWH.h"
+
 
 /*! 自定义UINavigationItem */
 #import "UINavigationItem+CustomItem.h"

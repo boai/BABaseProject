@@ -32,12 +32,12 @@
 - (void)setUpAllChildView
 {
     _titleLabel                 = [UILabel new];
-    _titleLabel.font            = BA_FontSize(15);
-    _titleLabel.textColor       = BA_TEXTGrayColor;
+    _titleLabel.font            = [UIFont boldSystemFontOfSize:15];
+//    _titleLabel.textColor       = BA_TEXTGrayColor;
 
     _contentLabel               = [UILabel new];
     _contentLabel.font          = BA_FontSize(14);
-    _titleLabel.textColor       = [UIColor lightGrayColor];
+    _titleLabel.textColor       = BA_TEXTGrayColor;
     _contentLabel.numberOfLines = 0;
     
     [self.contentView BA_AddSubViewsWithArray:@[_titleLabel, _contentLabel]];

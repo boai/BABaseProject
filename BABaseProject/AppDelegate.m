@@ -13,7 +13,7 @@
 #import "BANavigationController.h"
 #import "BATabBarController.h"
 
-
+/*! 用RDVTabBarController，使用此头文件 */
 #import "BAHomeViewController.h"
 #import "BAMessageViewController.h"
 #import "BADiscoverViewController.h"
