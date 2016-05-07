@@ -43,38 +43,6 @@
             endingLineNumber = "147"
             landmarkName = "+BA_POST_Url:parameters:response:requestHeadFile:completionHandle:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[NSObject(Network) BA_POST_Url:parameters:response:requestHeadFile:completionHandle:]"
-                  moduleName = "BABaseProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boai/%E5%8D%9A%E7%88%B1%E8%B5%84%E6%96%99/GitHub/BABaseProject/BABaseProject/BAMainCode/BATools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/BACategory(%E5%88%86%E7%B1%BB)/NSObject+Network.m"
-                  timestampString = "484282205.551091"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "1320">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__86+[NSObject(Network) BA_POST_Url:parameters:response:requestHeadFile:completionHandle:]_block_invoke"
-                  moduleName = "BABaseProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boai/%E5%8D%9A%E7%88%B1%E8%B5%84%E6%96%99/GitHub/BABaseProject/BABaseProject/BAMainCode/BATools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/BACategory(%E5%88%86%E7%B1%BB)/NSObject+Network.m"
-                  timestampString = "484282205.551234"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

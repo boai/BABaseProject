@@ -45,10 +45,12 @@
         if (!error)
         {
             BALog(@"model: %@", model);
+            [self BA_showAlert:@"数据解析成功！请查看！"];
         }
         else
         {
             BALog(@"解析数据有误！");
+            [self BA_showAlert:@"解析数据有误！请检查！"];
         }
     }];
 }

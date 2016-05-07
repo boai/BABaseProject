@@ -1,14 +1,14 @@
 //
-//  NSObject+Network.m
+//  NSObject+BANetwork.m
 //  BABaseProject
 //
 //  Created by apple on 16/1/13.
 //  Copyright © 2016年 博爱之家. All rights reserved.
 //
 
-#import "NSObject+Network.h"
+#import "NSObject+BANetwork.h"
 
-@implementation NSObject (Network)
+@implementation NSObject (BANetwork)
 
 + (AFHTTPSessionManager *)sharedAFManager
 {

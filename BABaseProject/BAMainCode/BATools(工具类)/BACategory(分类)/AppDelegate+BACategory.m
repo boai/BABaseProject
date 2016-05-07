@@ -21,6 +21,12 @@
 #import "BADiscoverViewController.h"
 #import "BAProfileViewController.h"
 
+/*! 友盟分享 */
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
+
 @implementation AppDelegate (BACategory)
 
 #pragma mark - ***** TabVC 设置
@@ -126,13 +132,77 @@
     // 网络活动发生变化时,会发送下方key 的通知, 可以在通知中心中添加检测
     // AFNetworkingReachabilityDidChangeNotification
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:nil name:AFNetworkingReachabilityDidChangeNotification object:nil];
-    
 }
 
 #pragma mark - ***** 友盟分享/登陆 设置
 - (void)BA_YMShareSetting
 {
+    // ************* 友盟分享 *************
+    [UMSocialData setAppKey:BA_Umeng_Appkey];
+    // 打开调试log的开关
+    [UMSocialData openLog:YES];
+    
+    // 如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
+    //[UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait];
+    
+    /*苹果审核要求,隐藏未安装的应用 的分享选项 */
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToSina, UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
+    
+    //     打开新浪微博的SSO开关
+    //     将在新浪微博注册的应用appkey、redirectURL替换下面参数，并在info.plist的URL Scheme中相应添加wb+appkey，如"wb3112175844"，详情请参考官方文档。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:BA_Sina_AppKey
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //  添加微信分享授权
+    // 设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:@"http://www.imyouren.com"];
+    
+    // 设置分享到QQ空间的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:@"http://www.imyouren.com"];
+    // 设置支持没有客户端情况下使用SSO授权
+    [UMSocialQQHandler setSupportWebView:YES];
+    
+    UMSocialSnsPlatform *copyPlatform = [[UMSocialSnsPlatform alloc] initWithPlatformName:@"copy"];
+    copyPlatform.displayName = @"复制";
+    copyPlatform.smallImageName = @"icon"; //用于tableView样式的分享列表
+    copyPlatform.bigImageName = @"icon"; //用于actionsheet样式的分享列表
+    copyPlatform.snsClickHandler = ^(UIViewController *presentingController, UMSocialControllerService * socialControllerService, BOOL isPresentInController){ NSLog(@"copy!"); };                                                                                                                                                                                                          [UMSocialConfig addSocialSnsPlatform:@[copyPlatform]];                                                                                                                                                                                                        [UMSocialConfig setSnsPlatformNames:@[UMShareToSina, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQQ, UMShareToQzone]];
+}
 
+/**
+ 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
+ */
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
+/**
+ 这里处理新浪微博SSO授权进入新浪微博客户端后进入后台，再返回原来应用
+ */
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    BALog(@"程序已经进入前台！");
+    [UMSocialSnsService  applicationDidBecomeActive];
+    [application setApplicationIconBadgeNumber:0];
+    return;
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    BALog(@"程序即将进入后台！");
+
+    [application setApplicationIconBadgeNumber:0];
+    [application cancelAllLocalNotifications];
 }
 
 #pragma mark - ***** 使用RDVTabBarController 设置
@@ -206,6 +276,16 @@
     [navigationBarAppearance setTitleTextAttributes:textAttributes];
 }
 
+#pragma mark - ***** 键盘处理
+- (void)BA_KeyboardSetting
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = YES;
+}
+
 #pragma mark - ***** 其他
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -218,17 +298,6 @@
 
     BALog(@"程序已进入后台！");
 
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-
-    BALog(@"程序已进入前台！");
-
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-
-    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

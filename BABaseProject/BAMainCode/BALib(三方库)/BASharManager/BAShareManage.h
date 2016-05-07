@@ -12,10 +12,11 @@
 
 @protocol BAShareManageDelegate <NSObject>
 
-/*! 代理方法1：获取选择的城市 */
+/*! 返回用户信息 */
 - (void)getUserData:(NSDictionary *)backUserData;
 
 @end
+
 @interface BAShareManage : NSObject <MFMessageComposeViewControllerDelegate>
 
 /** 登录后返回的数据 **/
@@ -25,13 +26,13 @@
 /*! 分享的名字数组（要和图片名字一一对应哦！） */
 @property (nonatomic, strong) NSArray *shareNameArray;
 
-// 友盟分享SDK的各种key设置【pod下来后只需调用下即可】
-@property (nonatomic, strong) NSString *BAShareUmengAppkey;
-@property (nonatomic, strong) NSString *BAShareSinaAppKey;
-@property (nonatomic, strong) NSString *BAShareWX_APP_KEY;
-@property (nonatomic, strong) NSString *BAShareWX_APP_SECRET;
-@property (nonatomic, strong) NSString *BASharekQQKey;
-@property (nonatomic, strong) NSString *BASharekQQAppID;
+//// 友盟分享SDK的各种key设置【pod下来后只需调用下即可】
+//@property (nonatomic, strong) NSString *BAShareUmengAppkey;
+//@property (nonatomic, strong) NSString *BAShareSinaAppKey;
+//@property (nonatomic, strong) NSString *BAShareWX_APP_KEY;
+//@property (nonatomic, strong) NSString *BAShareWX_APP_SECRET;
+//@property (nonatomic, strong) NSString *BASharekQQKey;
+//@property (nonatomic, strong) NSString *BASharekQQAppID;
 
 
 
@@ -39,7 +40,7 @@
 
 - (void)shareConfig;
 
-#pragma mark - 友盟分享
+#pragma mark - ***** 友盟分享
 /**微信分享**/
 - (void)BA_wxShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString;
 
@@ -55,7 +56,7 @@
 /**分享列表**/
 - (void)BA_UMshareListWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString;
 
-#pragma mark - 友盟登录
+#pragma mark - ***** 友盟登录
 /**友盟 QQ 登录**/
 - (void)BA_QQLogin:(UIViewController *)viewController;
 

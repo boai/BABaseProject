@@ -35,11 +35,11 @@ static BAShareManage *shareManage;
 - (void)shareConfig
 {
     //设置友盟社会化组件appkey
-    [UMSocialData setAppKey:YRUmengAppkey];
+    [UMSocialData setAppKey:BA_Umeng_Appkey];
     [UMSocialData openLog:YES];
     
     //注册微信
-    [WXApi registerApp:WX_APP_KEY];
+    [WXApi registerApp:BA_WX_APPKEY];
     //设置图文分享
     [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
 }
@@ -50,7 +50,7 @@ static BAShareManage *shareManage;
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
     
-    [UMSocialWechatHandler setWXAppId:WX_APP_KEY appSecret:WX_APP_SECRET url:shareURLString];
+    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:shareURLString];
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -67,7 +67,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialWechatHandler setWXAppId:WX_APP_KEY appSecret:WX_APP_SECRET url:shareURLString];
+    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:shareURLString];
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -76,7 +76,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialQQHandler setQQWithAppId:kQQAppID appKey:kQQKey url:shareURLString];
+    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:shareURLString];
 
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
@@ -86,7 +86,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialQQHandler setQQWithAppId:kQQAppID appKey:kQQKey url:shareURLString];
+    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:shareURLString];
     
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
@@ -132,7 +132,7 @@ static BAShareManage *shareManage;
 - (void)BA_UMshareListWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString
 {
     NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"朋友圈",@"微博", @"QQ",@"空间",nil];
-    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"wechat",@"pyq",@"weibo", @"qq",@"zone",nil];
+    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方分享"];
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
@@ -308,8 +308,8 @@ static BAShareManage *shareManage;
 /**友盟登录列表**/
 - (void)BA_UMLoginListWithViewControll:(UIViewController *)viewController
 {
-    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"微博", @"QQ",@"空间",nil];
-    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"wechat",@"weibo", @"qq",@"zone",nil];
+    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信", @"微博",  @"QQ", @"空间",nil];
+    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友", @"BASharManager.bundle/新浪微博",  @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方登录"];
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);

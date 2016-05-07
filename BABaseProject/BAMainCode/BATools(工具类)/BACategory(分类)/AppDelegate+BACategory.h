@@ -29,6 +29,8 @@
 /*! 友盟分享/登陆 */
 - (void)BA_YMShareSetting;
 
+/*! 键盘处理 */
+- (void)BA_KeyboardSetting;
 
 
 @end

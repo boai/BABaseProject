@@ -1,5 +1,5 @@
 //
-//  NSObject+Network.h
+//  NSObject+BANetwork.h
 //  BABaseProject
 //
 //  Created by apple on 16/1/13.
@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, BAResponseStyle){
 
 
 
-@interface NSObject (Network)
+@interface NSObject (BANetwork)
 
 /*
  

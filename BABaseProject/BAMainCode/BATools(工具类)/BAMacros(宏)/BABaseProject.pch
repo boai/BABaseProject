@@ -29,10 +29,11 @@
 /*! BAKit框架 */
 #import "BAKit.h"
 
-/*! 文本宽度/高度自适应 */
-#import "NSObject+BAAutoSizeWithWH.h"
-#import "BAAutoSizeWithWH.h"
+/*! 自定义button */
+#import <BAButton.h>
 
+/*! 文本宽度/高度自适应 */
+#import "BAAutoSizeWithWH.h"
 
 /*! 自定义UINavigationItem */
 #import "UINavigationItem+CustomItem.h"

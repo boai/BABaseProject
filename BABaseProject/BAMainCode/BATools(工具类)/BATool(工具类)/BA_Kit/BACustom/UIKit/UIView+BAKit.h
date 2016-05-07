@@ -259,5 +259,26 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  */
 - (void)showAlertView:(NSString *)title message:(NSString *)message;
 
+/*!
+ *  自适应label的高度
+ *
+ *  @param text  内容
+ *  @param font  字体大小
+ *  @param width 宽度
+ *
+ *  @return label的高度
+ */
++ (CGFloat)BA_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width;
+
+/*!
+ *  自适应label的宽度
+ *
+ *  @param text  内容
+ *  @param font  字体大小
+ *  @param width 高度
+ *
+ *  @return label的宽度
+ */
++ (CGFloat)BA_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
 
 @end

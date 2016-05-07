@@ -12,13 +12,13 @@
 
 #pragma mark - ***** AppDelegate
 
-/*! 友盟分享SDK */
-#define YRUmengAppkey     @"56f217d467e58e513a000434"
-#define kSinaAppKey       @"2447331824"
-#define WX_APP_KEY        @"wx19d8c52e02fa7556"
-#define WX_APP_SECRET     @"90eeb0c9ef2a1c99fb473890809f7f19"
-#define kQQKey            @"wrGGgg89e0lqqoXT"
-#define kQQAppID          @"1105285308"
+/*! 友盟分享SDK：接入自己项目时需要更改各个属性值 */
+#define BA_Umeng_Appkey     @"56f217d467e58e513a000434"
+#define BA_Sina_AppKey       @"2447331824"
+#define BA_WX_APPKEY        @"wx19d8c52e02fa7556"
+#define BA_WX_APPSECRET     @"90eeb0c9ef2a1c99fb473890809f7f19"
+#define BA_QQKey            @"wrGGgg89e0lqqoXT"
+#define BA_QQAppID          @"1105285308"
 
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
