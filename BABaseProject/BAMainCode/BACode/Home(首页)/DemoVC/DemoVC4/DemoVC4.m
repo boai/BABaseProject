@@ -70,10 +70,10 @@
 #pragma mark 友盟分享
 - (IBAction)clickshareBtn:(UIButton *)sender
 {
-    NSString *shareText = @"测试（博爱demo）分享【博爱之家】！";
+    NSString *urlSrt = @"http://www.cnblogs.com/boai/";
+    NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", urlSrt];
     // 注意：图片不能为空
     UIImage *shareImage = [UIImage imageNamed:@"樱花瓣2"];
-    NSString *urlSrt = @"http://www.cnblogs.com/boai/";
     
     [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:urlSrt];
 }
@@ -88,7 +88,8 @@
 
 - (void)getUserData:(NSDictionary *)backUserData
 {
-    BALog(@"友盟登陆: %@", backUserData);
+    [self BA_showAlert:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
+    BALog(@"友盟登陆成功，返回信息: %@", backUserData);
 }
 
 @end
