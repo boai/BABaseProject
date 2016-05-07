@@ -195,6 +195,15 @@
  */
 + (nullable NSString *)BA_time_getTimeStamp;
 
+/*!
+ *  日期转换星期
+ *
+ *  @param inputDate 日期
+ *
+ *  @return 返回星期几
+ */
++ (nullable NSString *)weekdayStringFromDate:(nullable NSDate *)inputDate;
+
 /*! 一般应用程序设置这一组的存在，比如夜间模式，如果你。从8：00-23：00。在这个当前的时间是如何推断出期间。主要的困难在于如何使用NSDate生成8：00时间和23：00时间。然后用当前时间，也许有足够的时间，以使控制。 */
 /**
  * @brief 推断当前时间是否在fromHour和toHour之间。如。fromHour=8，toHour=23时。即为推断当前时间是否在8:00-23:00之间
@@ -215,6 +224,7 @@
 
 /*! 解析新浪微博中的日期, 判断日期是今天，昨天还是明天 */
 + (nullable NSString *)BA_time_resolveSinaWeiboDate:(nullable NSString*)dateStr;
+
 
 #pragma mark - *****  数字处理 类
 /*! 判断数字为2.1千，3.4万（点赞数处理） */

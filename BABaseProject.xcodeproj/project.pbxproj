@@ -594,6 +594,7 @@
 				C40852B91CDA09020004A671 /* DemoVC2 */,
 				C430AB731CDC8A170086DDD6 /* DemoVC3 */,
 				C4562C681CDD9EF1000F5710 /* DemoVC4 */,
+				C4562C7B1CDDB405000F5710 /* DemoVC5 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -667,6 +668,13 @@
 				C4562C751CDDA25E000F5710 /* BAShareManageView.m */,
 			);
 			path = BASharManager;
+			sourceTree = "<group>";
+		};
+		C4562C7B1CDDB405000F5710 /* DemoVC5 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DemoVC5;
 			sourceTree = "<group>";
 		};
 		C46C5AB61CDB75B9002F707F /* ViewModel */ = {

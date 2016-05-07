@@ -71,7 +71,8 @@
 - (IBAction)clickshareBtn:(UIButton *)sender
 {
     NSString *shareText = @"测试（博爱demo）分享【博爱之家】！";
-    UIImage *shareImage = [UIImage imageNamed:@"005.jpg"];
+    // 注意：图片不能为空
+    UIImage *shareImage = [UIImage imageNamed:@"樱花瓣2"];
     NSString *urlSrt = @"http://www.cnblogs.com/boai/";
     
     [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:urlSrt];

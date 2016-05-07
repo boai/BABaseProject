@@ -33,11 +33,9 @@
 {
     _titleLabel                 = [UILabel new];
     _titleLabel.font            = [UIFont boldSystemFontOfSize:15];
-//    _titleLabel.textColor       = BA_TEXTGrayColor;
 
     _contentLabel               = [UILabel new];
     _contentLabel.font          = BA_FontSize(14);
-    _titleLabel.textColor       = BA_TEXTGrayColor;
     _contentLabel.numberOfLines = 0;
     
     [self.contentView BA_AddSubViewsWithArray:@[_titleLabel, _contentLabel]];
