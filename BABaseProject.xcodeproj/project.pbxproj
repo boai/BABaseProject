@@ -66,7 +66,7 @@
 		C4EB5BC71CD8B250003A7094 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B1F1CD8B24F003A7094 /* BAShareAnimationView.m */; };
 		C4EB5BC81CD8B250003A7094 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B211CD8B24F003A7094 /* BAShareManage.m */; };
 		C4EB5BC91CD8B250003A7094 /* BAShareManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B231CD8B24F003A7094 /* BAShareManageView.m */; };
-		C4EB5BCB1CD8B250003A7094 /* AppDelegate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B291CD8B24F003A7094 /* AppDelegate+Category.m */; };
+		C4EB5BCB1CD8B250003A7094 /* AppDelegate+BACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B291CD8B24F003A7094 /* AppDelegate+BACategory.m */; };
 		C4EB5BCC1CD8B250003A7094 /* NSObject+BAMJParse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B2B1CD8B24F003A7094 /* NSObject+BAMJParse.m */; };
 		C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B2D1CD8B24F003A7094 /* NSObject+BAProgressHUD.m */; };
 		C4EB5BCE1CD8B250003A7094 /* NSObject+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5B2F1CD8B24F003A7094 /* NSObject+Network.m */; };
@@ -273,6 +273,7 @@
 		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
+		C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProjectNoti.h; sourceTree = "<group>"; };
 		C46C5AB31CDB4A58002F707F /* NSObject+BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAAutoSizeWithWH.h"; sourceTree = "<group>"; };
 		C46C5AB41CDB4A58002F707F /* NSObject+BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BAAutoSizeWithWH.m"; sourceTree = "<group>"; };
 		C46C5AB71CDB75B9002F707F /* BAHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewModel.h; sourceTree = "<group>"; };
@@ -332,8 +333,8 @@
 		C4EB5B211CD8B24F003A7094 /* BAShareManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManage.m; sourceTree = "<group>"; };
 		C4EB5B221CD8B24F003A7094 /* BAShareManageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareManageView.h; sourceTree = "<group>"; };
 		C4EB5B231CD8B24F003A7094 /* BAShareManageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManageView.m; sourceTree = "<group>"; };
-		C4EB5B281CD8B24F003A7094 /* AppDelegate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Category.h"; sourceTree = "<group>"; };
-		C4EB5B291CD8B24F003A7094 /* AppDelegate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Category.m"; sourceTree = "<group>"; };
+		C4EB5B281CD8B24F003A7094 /* AppDelegate+BACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BACategory.h"; sourceTree = "<group>"; };
+		C4EB5B291CD8B24F003A7094 /* AppDelegate+BACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BACategory.m"; sourceTree = "<group>"; };
 		C4EB5B2A1CD8B24F003A7094 /* NSObject+BAMJParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAMJParse.h"; sourceTree = "<group>"; };
 		C4EB5B2B1CD8B24F003A7094 /* NSObject+BAMJParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BAMJParse.m"; sourceTree = "<group>"; };
 		C4EB5B2C1CD8B24F003A7094 /* NSObject+BAProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAProgressHUD.h"; sourceTree = "<group>"; };
@@ -683,6 +684,7 @@
 			children = (
 				C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */,
 				C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */,
+				C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */,
 				C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */,
 				C4EB5AAF1CD8B04B003A7094 /* Assets.xcassets */,
 				C4EB5AB11CD8B04B003A7094 /* LaunchScreen.storyboard */,
@@ -1006,8 +1008,8 @@
 		C4EB5B251CD8B24F003A7094 /* BACategory(分类) */ = {
 			isa = PBXGroup;
 			children = (
-				C4EB5B281CD8B24F003A7094 /* AppDelegate+Category.h */,
-				C4EB5B291CD8B24F003A7094 /* AppDelegate+Category.m */,
+				C4EB5B281CD8B24F003A7094 /* AppDelegate+BACategory.h */,
+				C4EB5B291CD8B24F003A7094 /* AppDelegate+BACategory.m */,
 				C4EB5B2A1CD8B24F003A7094 /* NSObject+BAMJParse.h */,
 				C4EB5B2B1CD8B24F003A7094 /* NSObject+BAMJParse.m */,
 				C4EB5B2C1CD8B24F003A7094 /* NSObject+BAProgressHUD.h */,
@@ -1731,7 +1733,7 @@
 				C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */,
 				C4EB5BC11CD8B250003A7094 /* UINavigationItem+CustomItem.m in Sources */,
 				C4EB5BCC1CD8B250003A7094 /* NSObject+BAMJParse.m in Sources */,
-				C4EB5BCB1CD8B250003A7094 /* AppDelegate+Category.m in Sources */,
+				C4EB5BCB1CD8B250003A7094 /* AppDelegate+BACategory.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
 				C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,

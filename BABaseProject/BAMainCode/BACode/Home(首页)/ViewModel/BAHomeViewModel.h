@@ -11,6 +11,7 @@
 @class BAHomeVCModel;
 @interface BAHomeViewModel : BABaseViewModel
 
+/*! model */
 @property (nonatomic, strong) BAHomeVCModel  *viewModel;
 
 /*! 标题Frame */
