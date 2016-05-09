@@ -21,11 +21,11 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 
 
 ## 2、个人简介
-**新浪微博：@博爱1616** <br>
-**QQ：     137361770** <br>
-**博客：http://boai.github.io** <br>
-**博客园：http://www.cnblogs.com/boai/** <br>
-**简书：http://www.jianshu.com/users/95c9800fdf47/latest_articles** <br>
+**2.1、新浪微博：@博爱1616** <br>
+**2.2、QQ：     137361770** <br>
+**2.3、博客：http://boai.github.io** <br>
+**2.4、博客园：http://www.cnblogs.com/boai/** <br>
+**2.5、简书：http://www.jianshu.com/users/95c9800fdf47/latest_articles** <br>
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
@@ -43,20 +43,20 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 
 
 ## 4、项目简介 和 使用指南
-#### 4.1 项目简介 <br>
+####4.1、项目简介 <br>
 **主要使用 MVVM 和 MVC 设计模式，共分为三大类：** <br>
 
-**1、Main** <br>
+**4.1.1、Main** <br>
 主要功能：两种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController <br>
 
-**2、BAMainCode** <br>
-- 2.1 BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
-- 2.2 BABaseData【基类】      如：BABaseVC、BABaseView、BABaseModel <br>
-- 2.3 BALib     【三方库】    如：不能用pod更新的三方库可以放在这里 <br>
-- 2.4 BATools   【工具类】    如：BACategory(分类)、BADataBase(数据库)、BAMacros(宏)、BANetManager(网络类)、BATool(工具类) <br>
-- 2.5 Resources 【资源】      如：字体、Plist、图片 <br>
-- 2.6 Other     【其他代码】   如： <br>
-- 2.7 BACustom  【其他自定义】 如：暂时不知道放在哪里的自定义文件可放在这里 <br>
+**4.1.2、BAMainCode** <br>
+- 4.1.2.1、BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
+- 4.1.2.2、BABaseData【基类】      如：BABaseVC、BABaseView、BABaseModel <br>
+- 4.1.2.3、BALib     【三方库】    如：不能用pod更新的三方库可以放在这里 <br>
+- 4.1.2.4、BATools   【工具类】    如：BACategory(分类)、BADataBase(数据库)、BAMacros(宏)、BANetManager(网络类)、BATool(工具类) <br>
+- 4.1.2.5、Resources 【资源】      如：字体、Plist、图片 <br>
+- 4.1.2.6、Other     【其他代码】   如： <br>
+- 4.1.2.7、BACustom  【其他自定义】 如：暂时不知道放在哪里的自定义文件可放在这里 <br>
 
 **3、Supporting Files** <br>
 - 3.1这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
