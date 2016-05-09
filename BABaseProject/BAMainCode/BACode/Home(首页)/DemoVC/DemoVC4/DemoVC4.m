@@ -29,10 +29,10 @@
         [_shareBtn setTitle:@"分享" forState:UIControlStateNormal];
         [_shareBtn setTitleColor:BA_NaviBgBlueColor forState:UIControlStateNormal];
         _shareBtn.titleLabel.font = BA_FontSize(16);
-        _shareBtn.tag = 2;
-        [_shareBtn addTarget:self action:@selector(clickshareBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_shareBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
+        _shareBtn.tag = 1001;
+        [_shareBtn addTarget:self action:@selector(clickShareBtn:) forControlEvents:UIControlEventTouchUpInside];
         _shareBtn.titleLabel.textAlignment = NSTextAlignmentRight;
-        _shareBtn.backgroundColor = BA_Green_Color;
         
         [self.view addSubview:_shareBtn];
     }
@@ -48,10 +48,10 @@
         [_QQLoginBtn setTitle:@"QQ登陆" forState:UIControlStateNormal];
         [_QQLoginBtn setTitleColor:BA_NaviBgBlueColor forState:UIControlStateNormal];
         _QQLoginBtn.titleLabel.font = BA_FontSize(16);
-        _QQLoginBtn.tag = 2;
-        [_QQLoginBtn addTarget:self action:@selector(clickQQLoginBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_QQLoginBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
+        _QQLoginBtn.tag = 1002;
+        [_QQLoginBtn addTarget:self action:@selector(clickShareBtn:) forControlEvents:UIControlEventTouchUpInside];
         _QQLoginBtn.titleLabel.textAlignment = NSTextAlignmentRight;
-        _QQLoginBtn.backgroundColor = BA_Green_Color;
 
         [self.view addSubview:_QQLoginBtn];
     }
@@ -67,25 +67,29 @@
     self.QQLoginBtn.hidden = NO;
 }
 
-#pragma mark 友盟分享
-- (IBAction)clickshareBtn:(UIButton *)sender
+#pragma mark 友盟分享和登陆
+- (IBAction)clickShareBtn:(UIButton *)sender
 {
-    NSString *urlSrt = @"http://www.cnblogs.com/boai/";
-    NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", urlSrt];
-    // 注意：图片不能为空
-    UIImage *shareImage = [UIImage imageNamed:@"樱花瓣2"];
-    
-    [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:urlSrt];
+    /*! 友盟分享 */
+    if (sender.tag == 1001)
+    {
+        NSString *urlSrt = @"http://www.cnblogs.com/boai/";
+        NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", urlSrt];
+        // 注意：图片不能为空
+        UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
+        
+        [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:urlSrt];
+    }
+    /*! 友盟登陆 */
+    if (sender.tag == 1002)
+    {
+        BAShareManage *manger = [BAShareManage shareManage];
+        manger.delegate = self;
+        [manger BA_UMLoginListWithViewControll:self];
+    }
 }
 
-#pragma mark 友盟登陆
-- (IBAction)clickQQLoginBtn:(UIButton *)sender
-{
-    BAShareManage *manger = [BAShareManage shareManage];
-    manger.delegate = self;
-    [manger BA_UMLoginListWithViewControll:self];
-}
-
+#pragma mark 友盟登陆BAShareManageDelegate
 - (void)getUserData:(NSDictionary *)backUserData
 {
     [self BA_showAlert:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];

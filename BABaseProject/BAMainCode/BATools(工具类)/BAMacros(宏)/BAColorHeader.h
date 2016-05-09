@@ -95,6 +95,9 @@
 /*! 无色 */
 #define BA_Clear_Color         [UIColor clearColor]
 
+/*! 橙色 */
+#define BA_Orange_Color        [UIColor orangeColor]
+
 
 
 #endif /* BAColorHeader_h */

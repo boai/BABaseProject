@@ -35,12 +35,11 @@
     {
         _time = 29;
         self.timeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.timeButton.backgroundColor = [UIColor orangeColor];
         [self.timeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
         self.timeButton.titleLabel.font = BA_FontSize(15);
         [self.timeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.timeButton addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.timeButton setCornerRadius:5];
+        [self.timeButton jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
         
         [self refreshButtonWidth];
         [self.view addSubview:self.timeButton];
@@ -96,15 +95,14 @@
 {
     if (!_timeButton2)
     {
-        _time = 29;
+        _time = 19;
         _timeButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _timeButton2.backgroundColor = BA_Green_Color;
         _timeButton2.frame = CGRectMake(_timeButton.x, _timeButton.bottom + 10, 120, _timeButton.height);
         [_timeButton2 setTitle:@"获取验证码" forState:UIControlStateNormal];
         _timeButton2.titleLabel.font = BA_FontSize(15);
         [_timeButton2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_timeButton2 addTarget:self action:@selector(btnAction2:) forControlEvents:UIControlEventTouchUpInside];
-        [_timeButton2 setCornerRadius:5];
+        [_timeButton2 jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
         
         [self.view addSubview:_timeButton2];
     }
