@@ -142,6 +142,7 @@
     [self addCell:@"2、清理缓存" content:@"清理网络请求缓存和图片缓存，可清理系统缓存！" class:@"DemoVC2"];
     [self addCell:@"3、点击button倒计时" content:@"两种比较常用的获取倒计时验证码的样式！" class:@"DemoVC3"];
     [self addCell:@"4、友盟分享和友盟登陆的完美封装" content:@"包含：微博、微信、朋友圈、QQ、空间、短信的分享和登陆，可以使用默认列表，也可以自定义单个分享和登陆！" class:@"DemoVC4"];
+    [self addCell:@"5、正则表达式最新封装" content:@"包含：手机号码、运营商类型、邮箱、数字、中英文、身份证号码等！" class:@"DemoVC5"];
 
 }
 

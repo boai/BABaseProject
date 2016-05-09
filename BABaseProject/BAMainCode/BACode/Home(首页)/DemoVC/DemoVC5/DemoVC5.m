@@ -59,8 +59,17 @@
  */
 
 #import "DemoVC5.h"
+#import "DemoVC5Cell.h"
+
 
 @interface DemoVC5 ()
+<
+    UITableViewDelegate,
+    UITableViewDataSource
+>
+
+@property (nonatomic, strong) UITableView  *tableView;
+@property (nonatomic, strong) NSArray      *titlesArray;
 
 @end
 
@@ -68,22 +77,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.hidden = NO;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UITableView *)tableView
+{
+    if (!_tableView)
+    {
+        _tableView = [[UITableView alloc] init];
+        
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorColor = [UIColor redColor];
+        
+        [self.view addSubview:_tableView];
+        
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, BA_getTabbarHeight, 0));
+        }];
+        
+        _tableView.tableFooterView = [UIView new];
+    }
+    return _tableView;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSArray *)titlesArray
+{
+    if (!_titlesArray)
+    {
+        _titlesArray = @[@"电话号码：", @"运营商类型：", @"邮箱地址：", @"用户密码：", @"身份证号码：", @"全数字：", @"网页地址URL：", @"IP地址：", @"汉字：", @"英文字符："];
+    }
+    return _titlesArray;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.titlesArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 创建cell
+    DemoVC5Cell *cell = [DemoVC5Cell cellWithTableView:tableView];
+    cell.titleLabel.text = self.titlesArray[indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 点击立刻取消该cell的选中状态
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
 
 @end
