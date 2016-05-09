@@ -92,9 +92,9 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 该项目最低支持 iOS 7.0 和 Xcode 7.0。（部分动画效果仅支持iOS 8.0）使用时请仔细查看！
 
 ## 7、感谢
-项目中集成了很多网络上民间大神的多年积累的优秀成果，结合自己项目开发中遇到的重难点，和很多开发者向我提起的疑难问题，在下综合整理并优化了下，最终成就了[『BABaseProject』](https://github.com/boai/BABaseProject)，
-在此，博爱再次感谢各位大神的源码贡献！
-希望开源项目[『BABaseProject』](https://github.com/boai/BABaseProject)能够为众多iOS开发新手提供最简单、最快捷的开源项目！
+项目中集成了很多网络上民间大神的多年积累的优秀成果，结合自己项目开发中遇到的重难点，和很多开发者向我提起的疑难问题，在下综合整理并优化了下，最终成就了[『BABaseProject』](https://github.com/boai/BABaseProject) <br>
+在此，博爱再次感谢各位大神的源码贡献！ <br>
+希望开源项目[『BABaseProject』](https://github.com/boai/BABaseProject)能够为众多iOS开发新手提供最简单、最快捷的开源项目！ <br>
 感谢大家的支持！
 
 
