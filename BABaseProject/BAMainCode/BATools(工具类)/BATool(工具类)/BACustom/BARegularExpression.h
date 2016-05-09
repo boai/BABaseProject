@@ -63,13 +63,49 @@
 @interface BARegularExpression : NSObject
 
 /*!
- *  是否为电话号码
+ *  是否为电话号码【简单写法】
  *
  *  @param pattern 传入需要检测的字符串
  *
  *  @return 返回检测结果 是或者不是
  */
 + (BOOL)ba_isPhoneNumber:(NSString *)phoneNum;
+
+/*!
+ *  是否为电话号码【复杂写法】
+ *
+ *  @param pattern 传入需要检测的字符串
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isMobileNumber:(NSString *)mobileNum;
+
+/*!
+ *  判断是否是：移动手机号
+ *
+ *  @param phoneNum 手机号码
+ *
+ *  @return 移动手机号
+ */
++ (BOOL)ba_isChinaMobile:(NSString *)phoneNum;
+
+/*!
+ *  判断是否是：联通手机号
+ *
+ *  @param phoneNum 手机号码
+ *
+ *  @return 联通手机号
+ */
++ (BOOL)ba_isChinaUnicom:(NSString *)phoneNum;
+
+/*!
+ *  判断是否是：电信手机号
+ *
+ *  @param phoneNum 手机号码
+ *
+ *  @return 电信手机号
+ */
++ (BOOL)ba_isChinaTelecom:(NSString *)phoneNum;
 
 /*!
  *  判断具体是哪个运营商的手机号

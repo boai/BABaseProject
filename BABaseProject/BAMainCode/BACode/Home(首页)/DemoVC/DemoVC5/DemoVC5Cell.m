@@ -9,9 +9,6 @@
 #import "DemoVC5Cell.h"
 
 @implementation DemoVC5Cell
-{
-    UITextField  *_textField;
-}
 
 // 注意：cell是用initWithStyle初始化
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -37,11 +34,11 @@
 //    _textField.placeholder = self.placeHolder;
     _textField.placeholder = @"请输入字符串";
     _textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-    _textField.returnKeyType = UIReturnKeyNext;
+    _textField.returnKeyType = UIReturnKeyDone;
     _textField.clearsOnBeginEditing = YES;
     _textField.adjustsFontSizeToFitWidth = YES;
-    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;//设置对齐方式
-    _textField.delegate = self;
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    //设置对齐方式
     _textField.borderStyle = UITextBorderStyleRoundedRect;
 
     [self.contentView BA_AddSubViewsWithArray:@[_titleLabel, _textField]];
@@ -70,17 +67,6 @@
     }
     
     return cell;
-}
-
-#pragma mark --UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    //收起键盘
-    [_textField resignFirstResponder];
-    NSString *inputText = textField.text;
-    [self judgeTextFieldResultType:inputText];
-    
-    return YES;
 }
 
 

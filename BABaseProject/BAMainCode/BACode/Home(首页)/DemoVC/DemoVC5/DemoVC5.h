@@ -60,8 +60,30 @@
 
 #import "BABaseViewController.h"
 
+typedef enum {
+    /*! 验证输入的是否是手机号码 */
+    BARegularExpressionTypePhone,
+    /*! 验证输入的是否是邮箱 */
+    BARegularExpressionTypeEmail,
+    /*! 验证输入的是否是url */
+    BARegularExpressionTypeUrl,
+    /*! 验证输入的是否是纯数字 */
+    BARegularExpressionTypeAllNumber,
+    /*! 验证身份证号（15位或18位数字） */
+    BARegularExpressionTypeIDCard,
+    /*! 验证由26个英文字母组成的字符串 */
+    BARegularExpressionTypeEnglishAlphabet,
+    /*! 检测用户输入密码是否以字母开头，长度在6-18之间，只能包含字符、数字和下划线。 */
+    BARegularExpressionTypePasswordQualified,
+    /*! 验证IP地址（15位或18位数字） */
+    BARegularExpressionTypeIPAddress,
+    /*! 验证输入的是否是中文 */
+    BARegularExpressionTypeChinese,
+}BARegularExpressionType;
+
 @interface DemoVC5 : BABaseViewController
 
+@property (nonatomic, assign) BARegularExpressionType   inputType;
 
 
 @end

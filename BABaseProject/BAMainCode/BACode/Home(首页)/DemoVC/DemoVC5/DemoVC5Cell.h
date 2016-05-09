@@ -8,24 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum{
-    BARegularExpressionTypePhone,
-    BARegularExpressionTypeEmail,
-    BARegularExpressionTypeUrl,
-    BARegularExpressionTypeAllNumber,
-    BARegularExpressionTypeIDCardVc,
-    BARegularExpressionTypeEnglishAlphabetVc,
-    BARegularExpressionTypeuserPsswordVc,
-    BARegularExpressionTypeIPAddress,
-    BARegularExpressionTypeChinese,
-}BARegularExpressionType;
 
-@interface DemoVC5Cell : UITableViewCell<UITextFieldDelegate>
+
+@interface DemoVC5Cell : UITableViewCell
 
 /*! placeHolder */
-@property (nonatomic, strong) NSString *placeHolder;
-@property (nonatomic, strong) UILabel  *titleLabel;
-
+@property (nonatomic, strong) NSString     *placeHolder;
+@property (nonatomic, strong) UILabel      *titleLabel;
+@property (nonatomic, strong) UITextField  *textField;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
