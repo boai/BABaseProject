@@ -222,10 +222,14 @@
  */
 + (BOOL)ba_isPasswordQualified:(NSString *)passwordStr
 {
-    NSString *pattern = @"^[a-zA-Z]\\w.{5,17}$";
-    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:0 error:nil];
-    NSArray *results = [regex matchesInString:passwordStr options:0 range:NSMakeRange(0, passwordStr.length)];
-    return results.count > 0;
+//    NSString *pattern = @"^[a-zA-Z]\\w.{5,17}$";
+//    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:0 error:nil];
+//    NSArray *results = [regex matchesInString:passwordStr options:0 range:NSMakeRange(0, passwordStr.length)];
+//    return results.count > 0;
+    
+    NSString *passWordRegex = @"^[a-zA-Z]\\w.{5,17}$";
+    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",passWordRegex];
+    return [passWordPredicate evaluateWithObject:passwordStr];
 }
 
 /*!
@@ -293,10 +297,18 @@
  */
 + (BOOL)ba_isUrl:(NSString *)urlStr
 {
-    NSString *pattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
-    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:0 error:nil];
-    NSArray *results = [regex matchesInString:urlStr options:0 range:NSMakeRange(0, urlStr.length)];
-    return results.count > 0;
+//    NSString* verifyRules=@"^http://([\\w-]+\.)+[\\w-]+(/[\\w-./?%&=]*)?$";
+//    NSPredicate *verifyRulesPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",verifyRules];
+//    return [verifyRulesPre evaluateWithObject:urlStr];
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:urlStr];
+    
+//    NSString *pattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+//    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:0 error:nil];
+//    NSArray *results = [regex matchesInString:urlStr options:0 range:NSMakeRange(0, urlStr.length)];
+//    return results.count > 0;
 }
 
 /*!
@@ -329,6 +341,65 @@
     }
     return results.count > 0;
 }
+
+/*!
+ *  是否为常用用户名（根据自己需求改）
+ *
+ *  @param userNameStr userNameStr
+ *
+ *  @return 返回检测结果 是或者不是（6-20位数字+字母组合）
+ */
++ (BOOL)ba_isUserNameInGeneral:(NSString *)userNameStr
+{
+    NSString* verifyRules = @"^[A-Za-z0-9]{6,20}+$";
+    NSPredicate *verifyRulesPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",verifyRules];
+    return [verifyRulesPre evaluateWithObject:userNameStr];
+}
+
+/*!
+ *  车牌号验证
+ *
+ *  @param carNumber carNumber
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isValidateCarNumber:(NSString *)carNumber
+{
+    NSString *carRegex = @"^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$";
+    NSPredicate *catTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", carRegex];
+    return [catTest evaluateWithObject:carNumber];
+}
+
+/*!
+ *  车型验证
+ *
+ *  @param CarType CarType
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isValidateCarType:(NSString *)CarType
+{
+    NSString *CarTypeRegex = @"^[\u4E00-\u9FFF]+$";
+    NSPredicate *carTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",CarTypeRegex];
+    return [carTest evaluateWithObject:CarType];
+}
+
+/*!
+ *  昵称验证
+ *
+ *  @param nickname nickname
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isValidateNickname:(NSString *)nickname
+{
+    NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{4,8}$";
+    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nicknameRegex];
+    return [passWordPredicate evaluateWithObject:nickname];
+}
+
+
+
 
 
 @end

@@ -190,5 +190,45 @@
  */
 + (BOOL)ba_isNormalText:(NSString *)normalStr WithHighLightText:(NSString *)HighLightStr;
 
+/*!
+ *  是否为常用用户名（根据自己需求改）
+ *
+ *  @param userNameStr userNameStr
+ *
+ *  @return 返回检测结果 是或者不是（6-20位数字+字母组合）
+ */
++ (BOOL)ba_isUserNameInGeneral:(NSString *)userNameStr;
+
+/*!
+ *  车牌号验证
+ *
+ *  @param carNumber carNumber
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isValidateCarNumber:(NSString *)carNumber;
+
+/*!
+ *  车型验证
+ *
+ *  @param CarType CarType
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isValidateCarType:(NSString *)CarType;
+
+/*!
+ *  昵称验证
+ *
+ *  @param nickname nickname
+ *
+ *  @return 返回检测结果 是或者不是
+ */
++ (BOOL)ba_isValidateNickname:(NSString *)nickname;
+
+
+
+
+
 
 @end
