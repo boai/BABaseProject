@@ -10,15 +10,15 @@
 - 1.1.3、如果在cell的set方法计算子控件的位置，会比较耗性能
 
 ####1.2、解决方法：MVVM思想
-M:模型
-V:视图
+M:模型 <br>
+V:视图 <br>
 VM:视图模型（模型包装视图模型，模型+模型对应视图的frame）
 
 ####1.3、MVVM模式的 优点
 MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（Model），有几大优点
 - 1.3.1、低耦合。视图（View）可以独立于Model变化和修改，一个ViewModel可以绑定到不同的"View"上，当View变化的时候Model可以不变，当Model变化的时候View也可以不变。
 - 1.3.2、可重用性。你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。
-- 1.3.3、独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用Expression Blend可以很容易设计界面并生成xaml代码。
+- 1.3.3、独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。
 - 1.3.4、可测试。界面素来是比较难于测试的，而现在测试可以针对ViewModel来写。
 
 
@@ -28,6 +28,7 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 **2.3、博客：http://boai.github.io** <br>
 **2.4、博客园：http://www.cnblogs.com/boai/** <br>
 **2.5、简书：http://www.jianshu.com/users/95c9800fdf47/latest_articles** <br>
+**简书专题链接：http://www.jianshu.com/collections/250078/submissions** <br>
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
