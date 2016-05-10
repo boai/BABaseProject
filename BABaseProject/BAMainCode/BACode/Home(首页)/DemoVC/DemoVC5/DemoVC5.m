@@ -60,17 +60,20 @@
 
 #import "DemoVC5.h"
 #import "DemoVC5Cell.h"
-
+#import "RegexKitLite.h"
+#import "DemoVC5_TextPart.h"
 
 @interface DemoVC5 ()
 <
     UITableViewDelegate,
     UITableViewDataSource,
-    UITextFieldDelegate
+    UITextFieldDelegate,
+    UITextViewDelegate
 >
 
 @property (nonatomic, strong) UITableView  *tableView;
 @property (nonatomic, strong) NSArray      *titlesArray;
+@property (nonatomic, strong) DemoVC5Cell2 *cell2;
 
 @end
 
@@ -95,7 +98,7 @@
         [self.view addSubview:_tableView];
         
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, BA_getTabbarHeight, 0));
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, 0, 0));
         }];
         
         _tableView.tableFooterView = [UIView new];
@@ -112,20 +115,42 @@
     return _titlesArray;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.titlesArray.count;
+    if (section == 0) return self.titlesArray.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 创建cell
-    DemoVC5Cell *cell = [DemoVC5Cell cellWithTableView:tableView];
-    cell.titleLabel.text = self.titlesArray[indexPath.row];
-    cell.textField.tag = 1001 + indexPath.row;
-    cell.textField.delegate = self;
-    
-    return cell;
+    if (indexPath.section == 0)
+    {
+        // 创建cell
+        DemoVC5Cell *cell = [DemoVC5Cell cellWithTableView:tableView];
+        cell.titleLabel.text = self.titlesArray[indexPath.row];
+        cell.textField.tag = 1001 + indexPath.row;
+        cell.textField.delegate = self;
+        
+        return cell;
+    }
+    if (indexPath.section == 1)
+    {
+        // 创建cell
+        _cell2 = [DemoVC5Cell2 DemoVC5Cell2WithTableView:tableView];
+//        cell.titleLabel.text = self.titlesArray[indexPath.row];
+//        cell.textField.tag = 1001 + indexPath.row;
+        _cell2.normalTextView.delegate = self;
+        _cell2.hightlightTextField.delegate = self;
+        _cell2.backgroundColor = BA_Orange_Color;
+        
+        return _cell2;
+    }
+    return [UITableViewCell new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,7 +159,44 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark --UITextFieldDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1)
+    {
+        return 280;
+    }
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *headerLabel = [UILabel new];
+    headerLabel.frame = CGRectMake(0, 0, BA_SCREEN_WIDTH, 20);
+    headerLabel.textColor = BA_TEXTGrayColor;
+    headerLabel.font = BA_FontSize(13);
+    headerLabel.backgroundColor = BA_Yellow_Color;
+    
+    [self.view addSubview:headerLabel];
+    
+    if (section == 0)
+    {
+        headerLabel.text = @"正则表达式测试";
+    }
+    if (section == 1)
+    {
+        headerLabel.text = @"文字高亮筛选";
+    }
+    
+    return headerLabel;
+}
+
+#pragma mark - ***** UITextFieldDelegate
+#pragma mark 第一分区
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     //收起键盘
@@ -177,6 +239,14 @@
         default:
             break;
     }
+    
+//    _cell2 = [DemoVC5Cell2 DemoVC5Cell2WithTableView:self.tableView];
+    //收起键盘
+    [_cell2.hightlightTextField resignFirstResponder];
+    NSString *inputText = textField.text;
+    NSLog(@"%@---%@",_cell2.normalStr,inputText);
+    _cell2.attributeStr = [self attributedTextWithText:_cell2.normalStr withPattern:inputText];
+    _cell2.resultLabel.attributedText = _cell2.attributeStr;
     
     return YES;
 }
@@ -281,6 +351,95 @@
     }
 }
 
+#pragma mark 第二分区
+- (NSAttributedString *)attributedTextWithText:(NSString *)text withPattern:(NSString *)pattern
+{
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] init];
+    //    // 表情的规则
+    //    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    //    // @的规则
+    //    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5-_]+";
+    //    // #话题#的规则
+    //    NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
+    //    // url链接的规则
+    //    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    //    NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
+    
+    // 遍历所有的特殊字符串
+    NSMutableArray *parts = [NSMutableArray array];
+    [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        
+        if ((*capturedRanges).length == 0) return;
+        
+        DemoVC5_TextPart *part = [[DemoVC5_TextPart alloc] init];
+        part.text = *capturedStrings;
+        part.specical = YES;
+        part.range = *capturedRanges;
+        [parts addObject:part];
+    }];
+    // 遍历所有的非特殊字符
+    [text enumerateStringsSeparatedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        
+        if ((*capturedRanges).length == 0) return;
+        
+        DemoVC5_TextPart *part = [[DemoVC5_TextPart alloc] init];
+        part.text = *capturedStrings;
+        part.range = *capturedRanges;
+        [parts addObject:part];
+    }];
+    
+    // 排序
+    // 按照从小 -> 大的顺序排列对象
+    [parts sortUsingComparator:^NSComparisonResult(DemoVC5_TextPart *part1, DemoVC5_TextPart *part2)
+    {
+        // NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending
+        // 返回NSOrderedSame:两个一样大
+        // NSOrderedAscending(升序):part2>part1
+        // NSOrderedDescending(降序):part1>part2
+        if (part1.range.location > part2.range.location)
+        {
+            // part1>part2
+            // part1放后面, part2放前面
+            return NSOrderedDescending;
+        }
+        // part1<part2
+        // part1放前面, part2放后面
+        return NSOrderedAscending;
+    }];
+    
+    UIFont *font = BA_FontSize(15);
+    // 按顺序拼接每一段文字
+    for (DemoVC5_TextPart *part in parts) {
+        // 等会需要拼接的子串
+        NSAttributedString *substr = nil;
+        
+        if (part.specical)
+        {
+            // 非表情的特殊文字
+            substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{NSForegroundColorAttributeName:BA_Red_Color}];
+        }
+        else
+        {
+            // 非特殊文字
+            substr = [[NSAttributedString alloc] initWithString:part.text];
+        }
+        [attributedText appendAttributedString:substr];
+    }
+    
+    // 一定要设置字体,保证计算出来的尺寸是正确的
+    [attributedText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributedText.length)];
+    
+    return attributedText;
+}
 
+#pragma mark - ***** textViewDeleagate
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+//    DemoVC5Cell2 *cell = [DemoVC5Cell2 DemoVC5Cell2WithTableView:self.tableView];
+    _cell2.normalStr = textView.text;
+    BALog(@"----------------%@", _cell2.normalStr);
+
+    return YES;
+}
 
 @end

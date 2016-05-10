@@ -98,6 +98,8 @@
 /*! 橙色 */
 #define BA_Orange_Color        [UIColor orangeColor]
 
+/*! 黑色 */
+#define BA_Black_Color         [UIColor blackColor]
 
 
 #endif /* BAColorHeader_h */

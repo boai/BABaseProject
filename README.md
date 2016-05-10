@@ -60,14 +60,17 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 - 4.1.2.6、Other     【其他代码】   如： <br>
 - 4.1.2.7、BACustom  【其他自定义】 如：暂时不知道放在哪里的自定义文件可放在这里 <br>
 
-**3、Supporting Files** <br>
-- 3.1这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
+**4.1.3、Supporting Files** <br>
+- 4.1.3.1这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
 
 #### 4.2 使用指南 <br>
 使用的时候删除每个VC里面的DemoVC文件夹即可！<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录
+
+#### 2016-05-10  版本：1.0
+- 5.1.16、优化DemoVC5，新增一段文字关键字筛选高亮显示！
 
 #### 2016-05-09  版本：1.0
 - 5.1.15、新增DemoVC5：最贴心的正则表达式封装！

@@ -76,6 +76,9 @@
 		C46B89F51CE020F700005E2B /* UIWebView+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89D21CE020F700005E2B /* UIWebView+BAKit.m */; };
 		C46B89F61CE020F700005E2B /* UIWindow+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89D41CE020F700005E2B /* UIWindow+BAKit.m */; };
 		C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89F81CE055DD00005E2B /* DemoVC5Cell.m */; };
+		C46B89FC1CE0AE3400005E2B /* DemoVC5_TextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89FB1CE0AE3400005E2B /* DemoVC5_TextPart.m */; };
+		C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B8A031CE0BAC200005E2B /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C46B8A061CE0BB7D00005E2B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C46B8A051CE0BB7D00005E2B /* libicucore.tbd */; };
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
@@ -353,6 +356,11 @@
 		C46B89D41CE020F700005E2B /* UIWindow+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+BAKit.m"; sourceTree = "<group>"; };
 		C46B89F71CE055DD00005E2B /* DemoVC5Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC5Cell.h; sourceTree = "<group>"; };
 		C46B89F81CE055DD00005E2B /* DemoVC5Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC5Cell.m; sourceTree = "<group>"; };
+		C46B89FA1CE0AE3400005E2B /* DemoVC5_TextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC5_TextPart.h; sourceTree = "<group>"; };
+		C46B89FB1CE0AE3400005E2B /* DemoVC5_TextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC5_TextPart.m; sourceTree = "<group>"; };
+		C46B8A021CE0BAC200005E2B /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		C46B8A031CE0BAC200005E2B /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		C46B8A051CE0BB7D00005E2B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		C46C5AB71CDB75B9002F707F /* BAHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewModel.h; sourceTree = "<group>"; };
 		C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewModel.m; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -517,6 +525,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46B8A061CE0BB7D00005E2B /* libicucore.tbd in Frameworks */,
 				22442A2BB986E1C81BD3ED06 /* libPods-BABaseProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +550,7 @@
 		B678F676F10C8EB64082087B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C46B8A051CE0BB7D00005E2B /* libicucore.tbd */,
 				67E335DBEAC965F78C8BE5DD /* libPods-BABaseProject.a */,
 			);
 			name = Frameworks;
@@ -685,6 +695,8 @@
 				C4562C7D1CDDBE44000F5710 /* DemoVC5.m */,
 				C46B89F71CE055DD00005E2B /* DemoVC5Cell.h */,
 				C46B89F81CE055DD00005E2B /* DemoVC5Cell.m */,
+				C46B89FA1CE0AE3400005E2B /* DemoVC5_TextPart.h */,
+				C46B89FB1CE0AE3400005E2B /* DemoVC5_TextPart.m */,
 			);
 			path = DemoVC5;
 			sourceTree = "<group>";
@@ -786,6 +798,15 @@
 				C46B89D41CE020F700005E2B /* UIWindow+BAKit.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		C46B8A011CE0BAC200005E2B /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				C46B8A021CE0BAC200005E2B /* RegexKitLite.h */,
+				C46B8A031CE0BAC200005E2B /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		C46C5AB61CDB75B9002F707F /* ViewModel */ = {
@@ -1089,6 +1110,7 @@
 		C4EB5B0B1CD8B24F003A7094 /* BALib(三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				C46B8A011CE0BAC200005E2B /* RegexKitLite */,
 				C408527D1CD995200004A671 /* Reachability */,
 				C4EB5B0C1CD8B24F003A7094 /* BANavigationItem */,
 				C4EB5B111CD8B24F003A7094 /* LPLevelView */,
@@ -1717,6 +1739,7 @@
 				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C4EB5BD01CD8B250003A7094 /* UIScrollView+BARefresh.m in Sources */,
 				C46B89E31CE020F700005E2B /* NSNumber+BAKit.m in Sources */,
+				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
 				C46B89E91CE020F700005E2B /* BATextView.m in Sources */,
 				C46B89F41CE020F700005E2B /* UIView+BAKit.m in Sources */,
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
@@ -1757,6 +1780,7 @@
 				C46B89D91CE020F700005E2B /* BARegularExpression.m in Sources */,
 				C46B89E71CE020F700005E2B /* BACustomModalTransition.m in Sources */,
 				C4EB5AA51CD8B04B003A7094 /* main.m in Sources */,
+				C46B89FC1CE0AE3400005E2B /* DemoVC5_TextPart.m in Sources */,
 				C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */,
 				C46B89F31CE020F700005E2B /* UITextField+BAKit.m in Sources */,
 				C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */,
