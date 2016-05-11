@@ -58,7 +58,8 @@
 
 
 
-
+#pragma mark 随机颜色
+- (UIColor *)ba_randomColor;
 
 #pragma mark - ***** VC的其他设置
 /*!

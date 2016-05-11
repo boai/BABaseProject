@@ -44,6 +44,7 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 
 #### [对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法](http://www.cnblogs.com/boai/p/4977976.html)
 
+#### 3.2 新增网易新闻的滑动SegmentControl，已经完美封装[『BASegmentControl』](https://github.com/boai/BASegmentControl)，可随时取用！ <br>
 
 ## 4、项目简介 和 使用指南
 ####4.1、项目简介 <br>
@@ -69,6 +70,9 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录
+
+#### 2016-05-10  版本：2.0 
+- 5.2.01、新增网易新闻的滑动SegmentControl，已经完美封装[『BASegmentControl』](https://github.com/boai/BASegmentControl)，可随时取用！
 
 #### 2016-05-10  版本：1.0 
 - 5.1.17、新增最贴心的正则表达式封装：车型和车牌号验证、昵称、姓名验证、使用常用的两种正则判断方法！

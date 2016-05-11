@@ -1,0 +1,72 @@
+//
+//  view4.m
+//  test
+//
+//  Created by 博爱 on 16/5/11.
+//  Copyright © 2016年 博爱之家. All rights reserved.
+//
+
+#import "view4.h"
+
+@interface view4 ()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+
+@end
+
+@implementation view4
+
+- (UITableView *)tableView
+{
+    if (!_tableView)
+    {
+        _tableView = [[UITableView alloc] init];
+        
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorColor = [UIColor redColor];
+        
+        [self addSubview:_tableView];
+        
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, BA_getTabbarHeight, 0));
+        }];
+        
+        _tableView.tableFooterView = [UIView new];
+    }
+    return _tableView;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame withSelectRowBlock:(selectRowBlock)selectRowBlock
+{
+    if (self = [super initWithFrame:frame])
+    {
+        self.selectBlock = selectRowBlock;
+        
+        self.tableView.hidden = NO;
+    }
+    return self;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"view4 第 %ld 行", indexPath.row];
+    
+    return cell;
+}
+
+@end

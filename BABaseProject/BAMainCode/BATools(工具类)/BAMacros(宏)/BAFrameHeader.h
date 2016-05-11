@@ -77,8 +77,8 @@
 /*! Navigation bar height. */
 #define  BA_NavigationBarHeight  44.f
 
-/*! Tabbar height. */
-#define  BA_getTabbarHeight         49.f
+/*! Tabbar height. self.tabBarController.tabBar.height */
+#define  BA_getTabbarHeight      49.f
 
 /*! Status bar & navigation bar height. */
 #define  BA_StatusBarAndNavigationBarHeight   (20.f + 44.f)

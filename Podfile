@@ -59,6 +59,9 @@ target 'BABaseProject' do
     # 一个支持多选、选原图和视频的图片选择器，同时有预览功能，适配了iOS6789系统。
 #    pod 'TZImagePickerController'
 
+    # 一款支持七牛云存储的ios/mac sdk。它基于AFNetworking 2.x版本和七牛官方API构建。支持批量上传的七牛上传sdk
+#    pod "QiniuUpload"
+
     
 end
 
