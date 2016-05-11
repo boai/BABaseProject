@@ -176,6 +176,7 @@
     {
         UIViewController *vc = class.new;
         vc.title = self.titlesArray[indexPath.row];
+        
         [[self getCurrentViewController].navigationController pushViewController:vc animated:YES];
     }
     
