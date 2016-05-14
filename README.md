@@ -70,6 +70,9 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录
 
 #### 2016-05-10  版本：2.0 
+- 5.2.02、新增DemoVC6，本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！
+
+#### 2016-05-10  版本：2.0 
 - 5.2.01、新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装[『BASegmentControl』](https://github.com/boai/BASegmentControl)，可随时取用！
 
 #### 2016-05-10  版本：1.0 

@@ -78,9 +78,14 @@
     
     // 通知内容
     notification.alertBody =  @"笨蛋，让你平时不好好敲代码，看看，本地通知都不会做！";
-    notification.applicationIconBadgeNumber = 1;
+    notification.alertAction = @"谁让你锁屏了！";
     // 通知被触发时播放的声音
     notification.soundName = UILocalNotificationDefaultSoundName;
+    
+     // 设置应用程序右上角的提醒个数
+    notification.applicationIconBadgeNumber ++;
+    //    notification.applicationIconBadgeNumber = 1;
+
     // 通知参数
     NSDictionary *userDict = [NSDictionary dictionaryWithObject:@"有博爱在，本地通知不用怕！哈哈。。。" forKey:@"key"];
     notification.userInfo = userDict;
@@ -101,13 +106,18 @@
         notification.repeatInterval = NSCalendarUnitDay;
     }
     
-    // 执行通知注册
+    // 将通知添加到系统中
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
 // 取消某个本地推送通知
 + (void)cancelLocalNotificationWithKey:(NSString *)key
 {
+    /*! 
+     
+     有一点需要注意，如果我们的应用程序给系统发送的本地通知是周期性的，那么即使把程序删了重装，之前的本地通知在重装时依然存在（没有从系统中移除）。例如，我们在viewDidLoad方法中启动添加本地通知的方法，多跑几次，然后把程序在模拟器中删除，再重新跑，并用下列方法输出所有的本地通知：
+     
+     */
     // 获取所有本地通知数组
     NSArray *localNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
     
