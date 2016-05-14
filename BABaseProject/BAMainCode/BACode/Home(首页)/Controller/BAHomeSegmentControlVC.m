@@ -25,6 +25,23 @@
 
 @implementation BAHomeSegmentControlVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [[UINavigationBar appearance] setBarTintColor:BA_Red_Color];
+    
+    //    [self isShowSnowLoadingView:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    //    [self isShowSnowLoadingView:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
