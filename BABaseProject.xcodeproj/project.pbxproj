@@ -30,6 +30,8 @@
 		C40852E81CDA263B0004A671 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E51CDA263B0004A671 /* RDVTabBarItem.m */; };
 		C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E71CDA263B0004A671 /* RDVTabBar.m */; };
 		C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852EB1CDA26680004A671 /* RDVTabBarController.m */; };
+		C423217B1CE72A7000D91F45 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C423217A1CE72A7000D91F45 /* BALocalNotification.m */; };
+		C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = C423217E1CE72ABC00D91F45 /* DemoVC6.m */; };
 		C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6ADE1CDAE10500D534EE /* BATabBar.m */; };
 		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
@@ -270,6 +272,10 @@
 		C40852E71CDA263B0004A671 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
 		C40852EA1CDA26680004A671 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
 		C40852EB1CDA26680004A671 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		C42321791CE72A7000D91F45 /* BALocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALocalNotification.h; sourceTree = "<group>"; };
+		C423217A1CE72A7000D91F45 /* BALocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALocalNotification.m; sourceTree = "<group>"; };
+		C423217D1CE72ABC00D91F45 /* DemoVC6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC6.h; sourceTree = "<group>"; };
+		C423217E1CE72ABC00D91F45 /* DemoVC6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC6.m; sourceTree = "<group>"; };
 		C42A6ADD1CDAE10500D534EE /* BATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBar.h; sourceTree = "<group>"; };
 		C42A6ADE1CDAE10500D534EE /* BATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBar.m; sourceTree = "<group>"; };
 		C42A6ADF1CDAE10500D534EE /* BATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarButton.h; sourceTree = "<group>"; };
@@ -634,6 +640,7 @@
 				C430AB731CDC8A170086DDD6 /* DemoVC3 */,
 				C4562C681CDD9EF1000F5710 /* DemoVC4 */,
 				C4562C7B1CDDB405000F5710 /* DemoVC5 */,
+				C423217C1CE72AA500D91F45 /* DemoVC6 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -654,6 +661,24 @@
 				C40852BB1CDA09100004A671 /* DemoVC2.m */,
 			);
 			path = DemoVC2;
+			sourceTree = "<group>";
+		};
+		C42321781CE72A7000D91F45 /* BALocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				C42321791CE72A7000D91F45 /* BALocalNotification.h */,
+				C423217A1CE72A7000D91F45 /* BALocalNotification.m */,
+			);
+			path = BALocalNotification;
+			sourceTree = "<group>";
+		};
+		C423217C1CE72AA500D91F45 /* DemoVC6 */ = {
+			isa = PBXGroup;
+			children = (
+				C423217D1CE72ABC00D91F45 /* DemoVC6.h */,
+				C423217E1CE72ABC00D91F45 /* DemoVC6.m */,
+			);
+			path = DemoVC6;
 			sourceTree = "<group>";
 		};
 		C430AB731CDC8A170086DDD6 /* DemoVC3 */ = {
@@ -1152,6 +1177,7 @@
 		C4EB5B0B1CD8B24F003A7094 /* BALib(三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				C42321781CE72A7000D91F45 /* BALocalNotification */,
 				C4D107F01CE2FB2300F735B9 /* BASegmentControl */,
 				C46B8A011CE0BAC200005E2B /* RegexKitLite */,
 				C408527D1CD995200004A671 /* Reachability */,
@@ -1783,6 +1809,7 @@
 				C46B89EE1CE020F700005E2B /* UIImage+BAKit.m in Sources */,
 				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C4EB5BD01CD8B250003A7094 /* UIScrollView+BARefresh.m in Sources */,
+				C423217B1CE72A7000D91F45 /* BALocalNotification.m in Sources */,
 				C46B89E31CE020F700005E2B /* NSNumber+BAKit.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
 				C46B89E91CE020F700005E2B /* BATextView.m in Sources */,
@@ -1804,6 +1831,7 @@
 				C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */,
 				C46B89F21CE020F700005E2B /* UITableView+BAKit.m in Sources */,
 				C46B89D71CE020F700005E2B /* BALog.m in Sources */,
+				C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */,
 				C46B89F51CE020F700005E2B /* UIWebView+BAKit.m in Sources */,
 				C46B89DC1CE020F700005E2B /* NSArray+BAKit.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
