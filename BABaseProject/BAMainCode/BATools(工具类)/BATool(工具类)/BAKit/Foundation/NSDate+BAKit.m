@@ -416,9 +416,18 @@
 /*! 时间戳转换成日期 */
 + (NSDate *)NSDateTransformWithNSDateTimeSp:(NSString *)timeSp
 {
-    NSTimeInterval time = [timeSp doubleValue] + 28800;//因为时差问题要加8小时 == 28800 sec
-    NSDate *currentTime = [NSDate dateWithTimeIntervalSince1970:time];
-    return currentTime;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeSp doubleValue]];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    // 当地时区
+    NSTimeZone *localTime = [NSTimeZone localTimeZone];
+    NSLog(@"当地时区: %@",localTime);
+    // 和格林尼治时间差
+    NSInteger timeOff = [zone secondsFromGMT];
+    // 时差转化
+    NSDate *localeDate = [date dateByAddingTimeInterval:timeOff];
+    NSLog(@"通知时间: %@",localeDate);
+    
+    return localeDate;
 }
 
 @end
