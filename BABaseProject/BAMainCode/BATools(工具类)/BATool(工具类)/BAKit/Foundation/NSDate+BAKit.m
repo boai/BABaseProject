@@ -413,4 +413,12 @@
     return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
 }
 
+/*! 时间戳转换成日期 */
++ (NSDate *)NSDateTransformWithNSDateTimeSp:(NSString *)timeSp
+{
+    NSTimeInterval time = [timeSp doubleValue] + 28800;//因为时差问题要加8小时 == 28800 sec
+    NSDate *currentTime = [NSDate dateWithTimeIntervalSince1970:time];
+    return currentTime;
+}
+
 @end

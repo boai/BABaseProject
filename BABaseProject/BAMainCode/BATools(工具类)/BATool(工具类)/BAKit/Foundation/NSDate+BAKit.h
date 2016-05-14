@@ -282,4 +282,7 @@ typedef struct STDateInformation STDateInformation;
  */
 - (NSDateComponents *)deltaWithNow;
 
+/*! 时间戳转换成日期 */
++ (NSDate *)NSDateTransformWithNSDateTimeSp:(NSString *)timeSp;
+
 @end
