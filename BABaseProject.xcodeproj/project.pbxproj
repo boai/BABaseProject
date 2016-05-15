@@ -82,6 +82,7 @@
 		C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B8A031CE0BAC200005E2B /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C46B8A061CE0BB7D00005E2B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C46B8A051CE0BB7D00005E2B /* libicucore.tbd */; };
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
+		C47DA41D1CE8DB8500CBDCDB /* BAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47DA41C1CE8DB8500CBDCDB /* BAWebViewController.m */; };
 		C4D107F51CE2FB2300F735B9 /* BASegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107F21CE2FB2300F735B9 /* BASegmentControl.m */; };
 		C4D107F61CE2FB2300F735B9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107F41CE2FB2300F735B9 /* HMSegmentedControl.m */; };
 		C4D107F91CE2FBE000F735B9 /* BAHomeSegmentControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107F81CE2FBE000F735B9 /* BAHomeSegmentControlVC.m */; };
@@ -376,6 +377,8 @@
 		C46B8A051CE0BB7D00005E2B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		C46C5AB71CDB75B9002F707F /* BAHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewModel.h; sourceTree = "<group>"; };
 		C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewModel.m; sourceTree = "<group>"; };
+		C47DA41B1CE8DB8500CBDCDB /* BAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAWebViewController.h; sourceTree = "<group>"; };
+		C47DA41C1CE8DB8500CBDCDB /* BAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAWebViewController.m; sourceTree = "<group>"; };
 		C4D107F11CE2FB2300F735B9 /* BASegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASegmentControl.h; sourceTree = "<group>"; };
 		C4D107F21CE2FB2300F735B9 /* BASegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASegmentControl.m; sourceTree = "<group>"; };
 		C4D107F31CE2FB2300F735B9 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
@@ -997,6 +1000,8 @@
 				C40852E21CDA229B0004A671 /* BANavigationController.m */,
 				C408527A1CD990B00004A671 /* BABaseTableViewController.h */,
 				C408527B1CD990B00004A671 /* BABaseTableViewController.m */,
+				C47DA41B1CE8DB8500CBDCDB /* BAWebViewController.h */,
+				C47DA41C1CE8DB8500CBDCDB /* BAWebViewController.m */,
 			);
 			path = BABaseVC;
 			sourceTree = "<group>";
@@ -1883,6 +1888,7 @@
 				C4EB5BB91CD8B250003A7094 /* BABaseViewController.m in Sources */,
 				C4EB5BB61CD8B250003A7094 /* BAVideoModel.m in Sources */,
 				C4EB5BB41CD8B250003A7094 /* BABaseModel.m in Sources */,
+				C47DA41D1CE8DB8500CBDCDB /* BAWebViewController.m in Sources */,
 				C4EB5BD31CD8B250003A7094 /* BANewsNetManager.m in Sources */,
 				C40852BC1CDA09100004A671 /* DemoVC2.m in Sources */,
 				C46B89D61CE020F700005E2B /* BAAutoSizeWithWH.m in Sources */,
