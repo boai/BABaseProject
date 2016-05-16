@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UIProgressView *progressView;
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) WKWebView *wkWebView;
+@property (strong, nonatomic) WKWebView *wkWebView2;
 
 @end
 
@@ -230,8 +231,53 @@
     }
 }
 
-#pragma mark - wkWebView代理
-#pragma mark 如果不添加这个，那么wkwebview跳转不了AppStore
+#pragma mark - WKNavigationDelegate 【该代理提供的方法，可以用来追踪加载过程（页面开始加载、加载完成、加载失败）、决定是否执行跳转。】
+#pragma mark 页面开始加载时调用
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
+{
+    // 类似UIWebView的 -webViewDidStartLoad:
+    NSLog(@"didStartProvisionalNavigation");
+    BASharedApplication.networkActivityIndicatorVisible = YES;
+}
+
+#pragma mark 当内容开始返回时调用
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
+{
+    NSLog(@"didCommitNavigation");
+}
+
+#pragma mark 页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+    // 类似 UIWebView 的 －webViewDidFinishLoad:
+    NSLog(@"didFinishNavigation");
+    if (webView.title.length > 0)
+    {
+        self.title = webView.title;
+    }
+}
+
+#pragma mark 页面加载失败时调用
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error
+{
+    // 类似 UIWebView 的- webView:didFailLoadWithError:
+    NSLog(@"didFailProvisionalNavigation");
+}
+
+/*! 页面跳转的代理方法有三种，分为（收到跳转与决定是否跳转两种）*/
+#pragma mark 接收到服务器跳转请求之后调用
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation
+{
+
+}
+
+#pragma mark 在收到响应后，决定是否跳转
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
+{
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+#pragma mark 在发送请求之前，决定是否跳转，如果不添加这个，那么wkwebview跳转不了AppStore
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     if ([webView.URL.absoluteString hasPrefix:@"https://itunes.apple.com"])
@@ -245,53 +291,35 @@
     }
 }
 
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
-{
-    // 类似UIWebView的 -webViewDidStartLoad:
-    NSLog(@"didStartProvisionalNavigation");
-    BASharedApplication.networkActivityIndicatorVisible = YES;
-}
-
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
-{
-    NSLog(@"didCommitNavigation");
-}
-
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
-{
-    // 类似 UIWebView 的 －webViewDidFinishLoad:
-    NSLog(@"didFinishNavigation");
-    if (webView.title.length > 0)
-    {
-        self.title = webView.title;
-    }
-}
-
-- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error
-{
-    // 类似 UIWebView 的- webView:didFailLoadWithError:
-    
-    NSLog(@"didFailProvisionalNavigation");
-}
-
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
-{
-    decisionHandler(WKNavigationResponsePolicyAllow);
-}
 
 //- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler
 //{
 //    
 //}
 
-//- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
-//{
-//    // 接口的作用是打开新窗口委托
-////    [self createNewWebViewWithURL:webView.URL.absoluteString config:configuration];
-////    
-////    return currentSubView.webView;
-//}
+#pragma mark 创建一个新的WebView
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
+{
+    // 接口的作用是打开新窗口委托
+    [self createNewWebViewWithURL:webView.URL.absoluteString config:configuration];
+    return _wkWebView2;
+}
 
+- (void)createNewWebViewWithURL:(NSString *)url config:(WKWebViewConfiguration *)configuration
+{
+    _wkWebView2 = [[WKWebView alloc] initWithFrame:self.wkWebView.frame configuration:configuration];
+    [_wkWebView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+}
+
+#pragma mark 针对于web界面的三种提示框（警告框、确认框、输入框）分别对应三种代理方法。下面只举了警告框的例子。
+/**
+ *  web界面中有弹出警告框时调用
+ *
+ *  @param webView           实现该代理的webview
+ *  @param message           警告框中的内容
+ *  @param frame             主窗口
+ *  @param completionHandler 警告框消失调用
+ */
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler
 {
     //  js 里面的alert实现，如果不实现，网页的alert函数无效  ,
@@ -318,6 +346,13 @@
 {
     completionHandler(@"Client Not handler");
 }
+
+#pragma mark 从web界面中接收到一个脚本时调用
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
+{
+
+}
+
 
 #pragma mark 计算wkWebView进度条
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
