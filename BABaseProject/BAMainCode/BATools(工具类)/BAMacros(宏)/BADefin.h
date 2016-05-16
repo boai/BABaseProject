@@ -75,6 +75,13 @@
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
 
+
+/*! 用safari打开URL */
+#define BA_OpenUrl(urlStr) [BASharedApplication openURL:urlStr]
+
+/*! 复制文字内容 */
+#define BA_CopyContent(content) [[UIPasteboard generalPasteboard] setString:content]
+
 /*! 随机数据 */
 #define BA_RandomData arc4random_uniform(5)
 

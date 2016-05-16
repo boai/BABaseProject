@@ -73,12 +73,12 @@
     /*! 友盟分享 */
     if (sender.tag == 1001)
     {
-        NSString *urlSrt = @"http://www.cnblogs.com/boai/";
-        NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", urlSrt];
+        NSString *shareUrlSrt = @"http://www.cnblogs.com/boai/";
+        NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
         // 注意：图片不能为空
         UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
         
-        [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:urlSrt];
+        [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:shareUrlSrt];
     }
     /*! 友盟登陆 */
     if (sender.tag == 1002)

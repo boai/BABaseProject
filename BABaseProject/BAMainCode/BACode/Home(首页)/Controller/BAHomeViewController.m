@@ -75,7 +75,7 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [[UINavigationBar appearance] setBarTintColor:BA_Red_Color];
+    [[UINavigationBar appearance] setBarTintColor:BA_White_Color];
 
 //    [self isShowSnowLoadingView:YES];
 }
