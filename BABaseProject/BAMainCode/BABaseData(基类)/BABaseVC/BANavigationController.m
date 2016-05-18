@@ -45,7 +45,7 @@
 
     // 设置导航条按钮的文字颜色
     NSMutableDictionary *titleAttr = [NSMutableDictionary dictionary];
-    titleAttr[NSForegroundColorAttributeName] = BA_Red_Color;
+    titleAttr[NSForegroundColorAttributeName] = BA_White_Color;
     titleAttr[NSFontAttributeName] = BA_FontSize(18);
     
     [bar setTitleTextAttributes:titleAttr];

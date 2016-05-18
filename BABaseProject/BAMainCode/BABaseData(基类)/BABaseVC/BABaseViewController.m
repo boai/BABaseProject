@@ -63,8 +63,8 @@
 #pragma mark - ***** 基本设置
 - (void)setupBase
 {
+    
     self.view.backgroundColor = BA_White_Color;
-
     
 }
 
