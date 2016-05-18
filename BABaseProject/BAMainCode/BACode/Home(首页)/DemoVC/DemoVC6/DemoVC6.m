@@ -45,5 +45,10 @@
     
 }
 
+- (void)reloadNotiView
+{
+    BALog(@"本地通知已跳转到本页面！");
+}
+
 
 @end

@@ -65,6 +65,8 @@
 
 @property (strong, nonatomic) UIWindow          *window;
 @property (nonatomic, strong) UIViewController  *viewController;
+/*! 本地通知保存字典 */
+@property (nonatomic, strong) NSDictionary      *LocalNotificationDic;
 
 
 @end

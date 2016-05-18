@@ -83,6 +83,9 @@
 /*! BAKit框架 */
 #import "BAKit.h"
 
+/*! 本地通知 */
+#import "BALocalNotification.h"
+
 /*! 自定义button */
 #import <BAButton.h>
 

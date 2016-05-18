@@ -27,6 +27,9 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaSSOHandler.h"
 
+/*! 本地通知VC */
+#import "DemoVC6.h"
+
 @implementation AppDelegate (BACategory)
 
 #pragma mark - ***** TabVC 设置
@@ -311,6 +314,9 @@ didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"noti:%@",notification);
     
+    if (self.LocalNotificationDic) self.LocalNotificationDic = nil;
+    self.LocalNotificationDic = notification.userInfo;
+    
     // 这里真实需要处理交互的地方
     // 获取通知所带的数据
     NSString *notMess = [notification.userInfo objectForKey:@"key"];
@@ -320,7 +326,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification
     //    application.applicationIconBadgeNumber -= 1;
     //    NSLog(@"didReceiveLocalNotification");
     
-    
     // 更新显示的badge个数
     NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
     badge--;
@@ -328,6 +333,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification
     [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
     
     // 在不需要再推送时，可以取消推送
+    [BALocalNotification cancelLocalNotificationWithKey:@"key"];
 }
 
 /*! 代理方法 */
@@ -355,7 +361,28 @@ didReceiveLocalNotification:(UILocalNotification *)notification
 // 实现跳转
 - (void)moveToVC
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+//    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        BATabBarController *tabBarController = ( BATabBarController*)self.window.rootViewController;
+        BANavigationController * nav = (BANavigationController *)tabBarController.selectedViewController;
+        UIViewController * baseVC = (UIViewController *)nav.visibleViewController;
+        //如果是当前控制器是我的消息控制器的话，刷新数据即可
+        if([baseVC isKindOfClass:[DemoVC6 class]])
+        {
+            DemoVC6 *vc = (DemoVC6 *)baseVC;
+            [vc reloadNotiView];
+            return;
+        }
+        // 否则，跳转到第三个tabbar
+        //        [AppDelegate gotoTabBarIndex:2];
+        
+        DemoVC6 *liveRemindVC = [[DemoVC6 alloc] init];
+        /*! 想带参数传，需要在DemoVC6的.h文件中公开属性 */
+//        liveRemindVC.liveRemindID = self.LocalNotificationDic[@"liveRemindID"];
+        [nav pushViewController:liveRemindVC animated:YES];
+    });
 }
 
 #pragma mark - *****

@@ -10,4 +10,6 @@
 
 @interface DemoVC6 : BABaseViewController
 
+- (void)reloadNotiView;
+
 @end

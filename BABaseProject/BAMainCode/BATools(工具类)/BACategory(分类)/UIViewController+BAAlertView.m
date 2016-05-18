@@ -73,7 +73,7 @@ static NSMutableArray *fields = nil;
         
         if (idx != 0)
         {
-            [alertView adButtonWithTitle:obj];
+            [alertView addButtonWithTitle:obj];
         }
     }];
 
