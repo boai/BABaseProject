@@ -112,6 +112,3 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 在此，博爱再次感谢各位大神的源码贡献！ <br>
 希望开源项目[『BABaseProject』](https://github.com/boai/BABaseProject)能够为众多iOS开发新手提供最简单、最快捷的开源项目！ <br>
 感谢大家的支持！
-
-
-
