@@ -8,14 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
-#define IPHONE_OS_VERSION_MIN_IPHONE_8_0    //less than 8.0
+// 系统版本大于等于
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+// 系统版本小于
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+#if IOS8xLatter
+
+#define IOS8x SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+
 #else
-#define IPHONE_OS_VERSION_MAX_IPHONE_8_0    //greater than or equal to 8.0
+
+#define IOS7x SYSTEM_VERSION_LESS_THAN(@"8.0")
+
 #endif
 
-#define NO_USE -1000
 
+#define NO_USE -1000
 
 typedef void(^click)(NSInteger index);
 typedef void(^configuration)(UITextField *field, NSInteger index);
@@ -23,10 +33,12 @@ typedef void(^clickHaveField)(NSArray<UITextField *> *fields, NSInteger index);
 
 @interface UIViewController (BAAlertView)
 
-#ifdef IPHONE_OS_VERSION_MIN_IPHONE_8_0
+#ifdef IOS8x
+
+#else
 <
-    UIAlertViewDelegate,
-    UIActionSheetDelegate
+UIAlertViewDelegate,
+UIActionSheetDelegate
 >
 #endif
 
@@ -76,16 +88,10 @@ typedef void(^clickHaveField)(NSArray<UITextField *> *fields, NSInteger index);
  *  @param click         button action
  */
 - (void)BAAlertWithTitle:(NSString *)title
-                message:(NSString *)message
-                buttons:(NSArray<NSString *> *)buttons
-        textFieldNumber:(NSInteger )number
-          configuration:(configuration )configuration
-               animated:(BOOL )animated
-                 action:(clickHaveField )click;
-
-
-
-
-
-
+                 message:(NSString *)message
+                 buttons:(NSArray<NSString *> *)buttons
+         textFieldNumber:(NSInteger )number
+           configuration:(configuration )configuration
+                animated:(BOOL )animated
+                  action:(clickHaveField )click;
 @end

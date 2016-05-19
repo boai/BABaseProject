@@ -8,15 +8,13 @@
 
 #import "UIViewController+BAAlertView.h"
 
+#ifdef IOS8x
 
-#ifdef IPHONE_OS_VERSION_MIN_IPHONE_8_0
-
+#else
 static click clickIndex = nil;
 static clickHaveField clickIncludeFields = nil;
 static click clickDestructive = nil;
-
 #endif
-
 static NSMutableArray *fields = nil;
 
 @implementation UIViewController (BAAlertView)
@@ -29,8 +27,7 @@ static NSMutableArray *fields = nil;
                 animated:(BOOL)animated
                   action:(click)click
 {
-#ifdef IPHONE_OS_VERSION_MAX_IPHONE_8_0
-    
+#ifdef IOS8x
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
     [others enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -76,7 +73,7 @@ static NSMutableArray *fields = nil;
             [alertView addButtonWithTitle:obj];
         }
     }];
-
+    
     clickIndex = click;
     
     [alertView show];
@@ -84,8 +81,10 @@ static NSMutableArray *fields = nil;
 }
 
 #pragma mark - *****  alertView delegate
-#ifdef IPHONE_OS_VERSION_MIN_IPHONE_8_0
 
+#ifdef IOS8x
+
+#else
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (clickIndex)
@@ -111,7 +110,7 @@ static NSMutableArray *fields = nil;
                       animated:(BOOL )animated
                         action:(click )click
 {
-#ifdef IPHONE_OS_VERSION_MAX_IPHONE_8_0
+#ifdef IOS8x
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
     
     [alertController addAction:[UIAlertAction actionWithTitle:destructive style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -167,7 +166,9 @@ static NSMutableArray *fields = nil;
 #endif
 }
 
-#ifdef IPHONE_OS_VERSION_MIN_IPHONE_8_0
+#ifdef IOS8x
+
+#else
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0)
@@ -205,7 +206,7 @@ static NSMutableArray *fields = nil;
         [fields removeAllObjects];
     }
     
-#ifdef IPHONE_OS_VERSION_MAX_IPHONE_8_0
+#ifdef IOS8x
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     // textfield
     for (NSInteger i = 0; i < number; i++)
@@ -287,14 +288,5 @@ static NSMutableArray *fields = nil;
     [alertView show];
 #endif
 }
-
-
-
-
-
-
-
-
-
 
 @end
