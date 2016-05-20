@@ -77,15 +77,15 @@
     CGFloat titleX = BAStatusCellMargin;
     CGFloat titleY = titleX;
     CGFloat titleW = BA_SCREEN_WIDTH - 2 * BAStatusCellMargin;
-    CGFloat titleH = [BAAutoSizeWithWH BA_AutoSizeOfHeghtWithText:_viewModel.titleLabel font:[UIFont boldSystemFontOfSize:15] width:titleW];
-    _titleLabelFrame = (CGRect){{titleX, titleY}, {titleW, titleH}};
+    CGSize titleSize = [BAAutoSizeWithWH BA_AutoSizeOfHeghtWithText:_viewModel.titleLabel font:[UIFont boldSystemFontOfSize:15] width:titleW];
+    _titleLabelFrame = (CGRect){{titleX, titleY}, {titleSize.width, titleSize.height}};
 
     /*! 内容Frame */
     CGFloat contentLabelX = titleX;
     CGFloat contentLabelY = CGRectGetMaxY(_titleLabelFrame) + BAStatusCellMargin;
     CGFloat contentLabelW = BA_SCREEN_WIDTH - 2 * BAStatusCellMargin;
-    CGFloat contentLabelH = [BAAutoSizeWithWH BA_AutoSizeOfHeghtWithText:_viewModel.contentLabel font:BA_FontSize(15) width:titleW];
-    _contentLabelFrame = (CGRect){{contentLabelX, contentLabelY}, {contentLabelW, contentLabelH}};
+    CGSize contentLabelSize = [BAAutoSizeWithWH BA_AutoSizeOfHeghtWithText:_viewModel.contentLabel font:BA_FontSize(15) width:titleW];
+    _contentLabelFrame = (CGRect){{contentLabelX, contentLabelY}, {contentLabelSize.width, contentLabelSize.height}};
 
     /*! 计算cell高度 */
     self.cellHeight = CGRectGetMaxY(_contentLabelFrame) + BAStatusCellMargin * 0.5;

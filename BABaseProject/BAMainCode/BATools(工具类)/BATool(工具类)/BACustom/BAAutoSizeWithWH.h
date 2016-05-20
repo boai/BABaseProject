@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface BAAutoSizeWithWH : NSObject
 
-/*! 
+/*!
  
  在自定义文字高度那
  高度用
@@ -38,7 +39,7 @@
  *
  *  @return label的高度
  */
-+ (CGFloat)BA_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width;
++ (CGSize)BA_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width;
 
 /*!
  *  自适应label的宽度
@@ -49,6 +50,6 @@
  *
  *  @return label的宽度
  */
-+ (CGFloat)BA_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
++ (CGSize)BA_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
 
 @end

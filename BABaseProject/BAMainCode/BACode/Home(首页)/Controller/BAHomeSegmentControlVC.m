@@ -116,7 +116,8 @@
 {
     if (index == 0)
     {
-        [self.view addSubview:_views1];
+//        [self.view addSubview:_views1];
+        _views1.hidden = NO;
     }
     else if (index == 1)
     {
@@ -143,6 +144,8 @@
         _views1 = [[view1 alloc] initWithFrame:_viewFrame withSelectRowBlock:^(UITableView *tableView, NSIndexPath *indexPath, NSArray *dataArray) {
             
         }];
+        [self.view addSubview:_views1];
+
 //        _views1.backgroundColor = [self ba_randomColor];
     }
     return _views1;

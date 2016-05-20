@@ -118,6 +118,7 @@
     self.itemArray = @[@"最新",@"排行榜",@"手机",@"新闻",@"游戏",@"数码",@"段子",@"科技"];
 
     self.slideSwitchView = [[BASegmentControl alloc] ba_initWithFrame:CGRectMake(0 , BA_StatusBarHeight, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_StatusBarHeight) channelName:self.itemArray source:self];
+    
     [self.slideSwitchView setUserInteractionEnabled:YES];
     
     // BASegmentControl代理
