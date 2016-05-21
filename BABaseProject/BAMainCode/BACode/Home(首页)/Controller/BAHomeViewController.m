@@ -139,22 +139,36 @@
     if (!_segmentedControl)
     {
         _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, 40)];
+        /*! 设置标题 */
         _segmentedControl.sectionTitles = @[@"最新",@"排行榜",@"手机",@"新闻",@"游戏",@"数码",@"段子",@"科技"];
+        /*! 自适应宽度，随着屏幕滑动自动滚动 */
         _segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        /*! 默认选中第0个view */
         _segmentedControl.selectedSegmentIndex = 0;
-        _segmentedControl.backgroundColor = [UIColor whiteColor];
-        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
+        /*! 标题背景颜色 */
+        _segmentedControl.backgroundColor = BA_White_Color;
+        /*! 标题默认字体颜色 */
+        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : BA_Black_Color};
+        /*! 标题选中字体颜色 */
         _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_Them_greenColor};
+        /*! 标题选中的下划线的颜色 */
         _segmentedControl.selectionIndicatorColor = BA_Them_greenColor;
+        /*! 标题选中的下划线的高度 */
         _segmentedControl.selectionIndicatorHeight = 2.0f;
+        /*! 标题选中的样式：本样式为下划线 */
         _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+        /*! 标题选中的下划线的方向：本样式为向下 */
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        /*! 标题的中间的隔线：默认为：NO */
         _segmentedControl.verticalDividerEnabled = YES;
+        /*! 标题的中间的隔线颜色 */
         _segmentedControl.verticalDividerColor = BA_LightGray_Color;
+        /*! 标题的中间的隔线宽度 */
         _segmentedControl.verticalDividerWidth = 1.0f;
         
         [self.view addSubview:_segmentedControl];
         
+        /*! 标题点击事件 */
         __weak typeof(self) weakSelf = self;
         [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
             [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, 200) animated:YES];
@@ -179,7 +193,7 @@
     return _scrollView;
 }
 
-#pragma mark - UIScrollViewDelegate
+#pragma mark - ***** UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
