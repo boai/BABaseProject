@@ -105,6 +105,11 @@
     
     [self setVCBgColor:BA_White_Color];
     
+    // 设置CGRectZero从导航栏下开始计算
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
 //    [self setupNavi];
     // 判断网络
     [self networkChangeWith:self];
@@ -127,60 +132,56 @@
 - (void)buildSegment
 {
     self.segmentedControl.hidden = NO;
-    self.scrollView.hidden = NO;
-    self.views1.hidden = NO;
-    self.views2.hidden = NO;
-    self.views3.hidden = NO;
-    self.views4.hidden = NO;
+    self.scrollView.hidden       = NO;
+    self.views1.hidden           = NO;
+    self.views2.hidden           = NO;
+    self.views3.hidden           = NO;
+    self.views4.hidden           = NO;
 }
 
 - (HMSegmentedControl *)segmentedControl
 {
     if (!_segmentedControl)
     {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, 40)];
+        _segmentedControl                             = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 20, BA_SCREEN_WIDTH, 44)];
+//        _segmentedControl                           = [[HMSegmentedControl alloc] init];
+
         /*! 设置标题 */
-        _segmentedControl.sectionTitles = @[@"最新",@"排行榜",@"手机",@"新闻",@"游戏",@"数码",@"段子",@"科技"];
+        _segmentedControl.sectionTitles               = @[@"最新",@"排行榜",@"手机",@"新闻",@"游戏",@"数码",@"段子",@"科技"];
         /*! 自适应宽度，随着屏幕滑动自动滚动 */
-        _segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        _segmentedControl.autoresizingMask            = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
         /*! 默认选中第0个view */
-        _segmentedControl.selectedSegmentIndex = 0;
+        _segmentedControl.selectedSegmentIndex        = 0;
         /*! 标题背景颜色 */
-        _segmentedControl.backgroundColor = BA_White_Color;
+        _segmentedControl.backgroundColor             = BA_Red_Color;
         /*! 标题默认字体颜色 */
-        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : BA_LightGray_Color, NSFontAttributeName: BA_FontSize(16)};
+        _segmentedControl.titleTextAttributes         = @{NSForegroundColorAttributeName : BA_LightGray_Color, NSFontAttributeName: BA_FontSize(16)};
         /*! 标题选中字体颜色 */
-        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_Them_greenColor, NSFontAttributeName: BA_FontSize(18)};
+        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_White_Color, NSFontAttributeName: BA_FontSize(18)};
         /*! 标题选中的下划线的颜色 */
-        _segmentedControl.selectionIndicatorColor = BA_Them_greenColor;
+        _segmentedControl.selectionIndicatorColor     = BA_Green_Color;
         /*! 标题选中的下划线的高度 */
-        _segmentedControl.selectionIndicatorHeight = 2.0f;
+        _segmentedControl.selectionIndicatorHeight    = 2.0f;
         /*! 标题选中的样式：本样式为下划线 */
-        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+        _segmentedControl.selectionStyle              = HMSegmentedControlSelectionStyleFullWidthStripe;
         /*! 标题选中的下划线的方向：本样式为向下 */
-        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _segmentedControl.selectionIndicatorLocation  = HMSegmentedControlSelectionIndicatorLocationDown;
         /*! 标题的中间的隔线：默认为：NO */
-        _segmentedControl.verticalDividerEnabled = YES;
+        _segmentedControl.verticalDividerEnabled      = YES;
         /*! 标题的中间的隔线颜色 */
-        _segmentedControl.verticalDividerColor = BA_LightGray_Color;
+        _segmentedControl.verticalDividerColor        = BA_LightGray_Color;
         /*! 标题的中间的隔线宽度 */
-        _segmentedControl.verticalDividerWidth = 1.0f;
+        _segmentedControl.verticalDividerWidth        = 1.0f;
         
-        [self.view addSubview:_segmentedControl];
+//        [self.view addSubview:_segmentedControl];
         
         /*! 标题点击事件 */
         __weak typeof(self) weakSelf = self;
         
         [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
-            [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, 200) animated:YES];
-//            NSInteger count = weakSelf.segmentedControl.sectionTitles.count;
-//                CGFloat itemWidth = BA_SCREEN_WIDTH/count;
-//                CGFloat offsetX = 0;
-            
-           
-
-            
+            [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, weakSelf.scrollView.height) animated:YES];
         }];
+        self.navigationItem.titleView = _segmentedControl;
     }
     return _segmentedControl;
 }
@@ -189,13 +190,16 @@
 {
     if (!_scrollView)
     {
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_segmentedControl.frame), BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - CGRectGetMaxY(_segmentedControl.frame))];
-        self.scrollView.backgroundColor = [UIColor whiteColor];
-        self.scrollView.pagingEnabled = YES;
+        self.scrollView                                = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_getTabbarHeight - 15)];
+        self.scrollView.backgroundColor                = [UIColor whiteColor];
+        self.scrollView.pagingEnabled                  = YES;
         self.scrollView.showsHorizontalScrollIndicator = NO;
-        self.scrollView.contentSize = CGSizeMake(BA_SCREEN_WIDTH * (_segmentedControl.sectionTitles.count), BA_SCREEN_HEIGHT - CGRectGetMaxY(_segmentedControl.frame));
-        self.scrollView.delegate = self;
-        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
+        self.scrollView.bounces                        = NO;
+        self.scrollView.contentSize                    = CGSizeMake(BA_SCREEN_WIDTH * (_segmentedControl.sectionTitles.count), self.scrollView.frame.size.height);
+        self.scrollView.delegate                       = self;
+        self.scrollView.backgroundColor                = BA_Green_Color;
+
+//        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
         [self.view addSubview:self.scrollView];
         
     }

@@ -82,6 +82,9 @@
     /*! 键盘处理 */
     [self BA_KeyboardSetting];
     
+    /*! 设置statusBar为白色 */
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 
