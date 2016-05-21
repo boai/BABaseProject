@@ -148,9 +148,9 @@
         /*! 标题背景颜色 */
         _segmentedControl.backgroundColor = BA_White_Color;
         /*! 标题默认字体颜色 */
-        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : BA_Black_Color};
+        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : BA_LightGray_Color, NSFontAttributeName: BA_FontSize(16)};
         /*! 标题选中字体颜色 */
-        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_Them_greenColor};
+        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_Them_greenColor, NSFontAttributeName: BA_FontSize(18)};
         /*! 标题选中的下划线的颜色 */
         _segmentedControl.selectionIndicatorColor = BA_Them_greenColor;
         /*! 标题选中的下划线的高度 */
