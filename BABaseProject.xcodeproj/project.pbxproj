@@ -30,6 +30,7 @@
 		C40852E81CDA263B0004A671 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E51CDA263B0004A671 /* RDVTabBarItem.m */; };
 		C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E71CDA263B0004A671 /* RDVTabBar.m */; };
 		C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852EB1CDA26680004A671 /* RDVTabBarController.m */; };
+		C41B8F651CF00A290037EE27 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C41B8F641CF00A290037EE27 /* HMSegmentedControl.m */; };
 		C423217B1CE72A7000D91F45 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C423217A1CE72A7000D91F45 /* BALocalNotification.m */; };
 		C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = C423217E1CE72ABC00D91F45 /* DemoVC6.m */; };
 		C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6ADE1CDAE10500D534EE /* BATabBar.m */; };
@@ -84,9 +85,6 @@
 		C46B8A061CE0BB7D00005E2B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C46B8A051CE0BB7D00005E2B /* libicucore.tbd */; };
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
 		C47DA41D1CE8DB8500CBDCDB /* BAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47DA41C1CE8DB8500CBDCDB /* BAWebViewController.m */; };
-		C4D107F51CE2FB2300F735B9 /* BASegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107F21CE2FB2300F735B9 /* BASegmentControl.m */; };
-		C4D107F61CE2FB2300F735B9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107F41CE2FB2300F735B9 /* HMSegmentedControl.m */; };
-		C4D107F91CE2FBE000F735B9 /* BAHomeSegmentControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107F81CE2FBE000F735B9 /* BAHomeSegmentControlVC.m */; };
 		C4D108021CE2FC1C00F735B9 /* view1.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FB1CE2FC1C00F735B9 /* view1.m */; };
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
 		C4D108041CE2FC1C00F735B9 /* view3.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FF1CE2FC1C00F735B9 /* view3.m */; };
@@ -274,6 +272,8 @@
 		C40852E71CDA263B0004A671 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
 		C40852EA1CDA26680004A671 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
 		C40852EB1CDA26680004A671 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		C41B8F631CF00A290037EE27 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		C41B8F641CF00A290037EE27 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		C42321791CE72A7000D91F45 /* BALocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALocalNotification.h; sourceTree = "<group>"; };
 		C423217A1CE72A7000D91F45 /* BALocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALocalNotification.m; sourceTree = "<group>"; };
 		C423217D1CE72ABC00D91F45 /* DemoVC6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC6.h; sourceTree = "<group>"; };
@@ -382,12 +382,6 @@
 		C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewModel.m; sourceTree = "<group>"; };
 		C47DA41B1CE8DB8500CBDCDB /* BAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAWebViewController.h; sourceTree = "<group>"; };
 		C47DA41C1CE8DB8500CBDCDB /* BAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAWebViewController.m; sourceTree = "<group>"; };
-		C4D107F11CE2FB2300F735B9 /* BASegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASegmentControl.h; sourceTree = "<group>"; };
-		C4D107F21CE2FB2300F735B9 /* BASegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASegmentControl.m; sourceTree = "<group>"; };
-		C4D107F31CE2FB2300F735B9 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
-		C4D107F41CE2FB2300F735B9 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
-		C4D107F71CE2FBE000F735B9 /* BAHomeSegmentControlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeSegmentControlVC.h; sourceTree = "<group>"; };
-		C4D107F81CE2FBE000F735B9 /* BAHomeSegmentControlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeSegmentControlVC.m; sourceTree = "<group>"; };
 		C4D107FA1CE2FC1C00F735B9 /* view1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view1.h; sourceTree = "<group>"; };
 		C4D107FB1CE2FC1C00F735B9 /* view1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view1.m; sourceTree = "<group>"; };
 		C4D107FC1CE2FC1C00F735B9 /* view2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view2.h; sourceTree = "<group>"; };
@@ -647,6 +641,7 @@
 				C4562C681CDD9EF1000F5710 /* DemoVC4 */,
 				C4562C7B1CDDB405000F5710 /* DemoVC5 */,
 				C423217C1CE72AA500D91F45 /* DemoVC6 */,
+				C437CB201CEF0AFD00FCA331 /* DemoVC7 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -694,6 +689,13 @@
 				C430AB751CDC8A360086DDD6 /* DemoVC3.m */,
 			);
 			path = DemoVC3;
+			sourceTree = "<group>";
+		};
+		C437CB201CEF0AFD00FCA331 /* DemoVC7 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DemoVC7;
 			sourceTree = "<group>";
 		};
 		C4562C681CDD9EF1000F5710 /* DemoVC4 */ = {
@@ -875,10 +877,8 @@
 		C4D107F01CE2FB2300F735B9 /* BASegmentControl */ = {
 			isa = PBXGroup;
 			children = (
-				C4D107F11CE2FB2300F735B9 /* BASegmentControl.h */,
-				C4D107F21CE2FB2300F735B9 /* BASegmentControl.m */,
-				C4D107F31CE2FB2300F735B9 /* HMSegmentedControl.h */,
-				C4D107F41CE2FB2300F735B9 /* HMSegmentedControl.m */,
+				C41B8F631CF00A290037EE27 /* HMSegmentedControl.h */,
+				C41B8F641CF00A290037EE27 /* HMSegmentedControl.m */,
 			);
 			path = BASegmentControl;
 			sourceTree = "<group>";
@@ -1084,8 +1084,6 @@
 			children = (
 				C4EB5AF91CD8B24F003A7094 /* BAHomeViewController.h */,
 				C4EB5AFA1CD8B24F003A7094 /* BAHomeViewController.m */,
-				C4D107F71CE2FBE000F735B9 /* BAHomeSegmentControlVC.h */,
-				C4D107F81CE2FBE000F735B9 /* BAHomeSegmentControlVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1812,7 +1810,6 @@
 				C46B89ED1CE020F700005E2B /* UIFont+BAKit.m in Sources */,
 				C4EB5BCF1CD8B250003A7094 /* UIBarButtonItem+Item.m in Sources */,
 				C40852911CD9C90F0004A671 /* UIView+BAGlowView.m in Sources */,
-				C4D107F91CE2FBE000F735B9 /* BAHomeSegmentControlVC.m in Sources */,
 				C46B89E21CE020F700005E2B /* NSMutableDictionary+BAKit.m in Sources */,
 				C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */,
 				C437CB1F1CEF09CD00FCA331 /* BAModal.m in Sources */,
@@ -1831,6 +1828,7 @@
 				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */,
 				C4EB5BCE1CD8B250003A7094 /* NSObject+BANetwork.m in Sources */,
+				C41B8F651CF00A290037EE27 /* HMSegmentedControl.m in Sources */,
 				C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */,
 				C4EB5BC11CD8B250003A7094 /* UINavigationItem+CustomItem.m in Sources */,
 				C4EB5BCC1CD8B250003A7094 /* NSObject+BAMJParse.m in Sources */,
@@ -1848,7 +1846,6 @@
 				C46B89DC1CE020F700005E2B /* NSArray+BAKit.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
 				C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */,
-				C4D107F61CE2FB2300F735B9 /* HMSegmentedControl.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C46B89DA1CE020F700005E2B /* BASystemSound.m in Sources */,
 				C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */,
@@ -1856,7 +1853,6 @@
 				C4D108041CE2FC1C00F735B9 /* view3.m in Sources */,
 				C46B89E61CE020F700005E2B /* NSThread+BAKit.m in Sources */,
 				C46B89E11CE020F700005E2B /* NSMutableArray+BAKit.m in Sources */,
-				C4D107F51CE2FB2300F735B9 /* BASegmentControl.m in Sources */,
 				C46B89E81CE020F700005E2B /* BAPickerView.m in Sources */,
 				C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */,
 				C46B89F01CE020F700005E2B /* UILabel+BAKit.m in Sources */,

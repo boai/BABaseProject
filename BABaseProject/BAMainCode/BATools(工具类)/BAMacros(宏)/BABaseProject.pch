@@ -83,6 +83,9 @@
 /*! BAKit框架 */
 #import "BAKit.h"
 
+/*! 自定义modal动画 */
+#import "BAModal.h"
+
 /*! 本地通知 */
 #import "BALocalNotification.h"
 

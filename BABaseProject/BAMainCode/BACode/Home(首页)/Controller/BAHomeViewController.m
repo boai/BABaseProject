@@ -59,13 +59,24 @@
  */
 
 #import "BAHomeViewController.h"
-#import "BASegmentControl.h"
-#import "BAHomeSegmentControlVC.h"
+#import "HMSegmentedControl.h"
+#import "view1.h"
+#import "view2.h"
+#import "view3.h"
+#import "view4.h"
 
-@interface BAHomeViewController ()<BASegmentControlDelegate>
 
-@property (nonatomic, strong) BASegmentControl *slideSwitchView;
-@property (nonatomic,strong ) NSArray          *itemArray;
+@interface BAHomeViewController ()<UIScrollViewDelegate>
+
+@property (nonatomic, strong) UIScrollView        *scrollView;
+@property (nonatomic, strong) HMSegmentedControl  *segmentedControl;
+
+/*! views */
+@property (nonatomic, strong) view1 *views1;
+@property (nonatomic, strong) view2 *views2;
+@property (nonatomic, strong) view3 *views3;
+@property (nonatomic, strong) view4 *views4;
+
 
 @end
 
@@ -74,8 +85,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [[UINavigationBar appearance] setBarTintColor:BA_White_Color];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [[UINavigationBar appearance] setBarTintColor:BA_White_Color];
 
 //    [self isShowSnowLoadingView:YES];
 }
@@ -83,7 +94,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
 
 //    [self isShowSnowLoadingView:NO];
 }
@@ -112,69 +123,119 @@
     
 }
 
-#pragma mark - 配置segment
+#pragma mark - ***** 配置segment
 - (void)buildSegment
 {
-    self.itemArray = @[@"最新",@"排行榜",@"手机",@"新闻",@"游戏",@"数码",@"段子",@"科技"];
-
-    self.slideSwitchView = [[BASegmentControl alloc] ba_initWithFrame:CGRectMake(0 , BA_StatusBarHeight, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_StatusBarHeight) channelName:self.itemArray source:self];
-    
-    [self.slideSwitchView setUserInteractionEnabled:YES];
-    
-    // BASegmentControl代理
-    self.slideSwitchView.segmentControlDelegate = self;
-    
-    //注意：设置字体大小，颜色，的背景，并且tabSelectionIndicatorLocation设置成HMSegmentedControlSelectionIndicatorLocationNone 实现木有被选中效果
-    
-    // 设置tab 颜色(可选)
-    self.slideSwitchView.tabItemNormalColor = [UIColor lightGrayColor];
-    
-    // 设置tab 被选中的颜色(可选)
-    self.slideSwitchView.tabItemSelectedColor = BA_White_Color;
-    
-    //设置tab 背景颜色(可选)
-    self.slideSwitchView.tabItemNormalBackgroundColor = BA_Red_Color;
-    //    //设置tab 被选中的标识的颜色(可选)
-//    self.slideSwitchView.tabItemSelectionIndicatorColor = BA_White_Color;
-    
-    // 设置tab字体大小(可选)
-    self.slideSwitchView.tabItemNormalFont = 15;
-    
-    // 被选中字体大小 (可选)
-    self.slideSwitchView.tabItemSelectedFont = 20;
-    
-    // 设置tab 被选中标识的位置
-    //    self.slideSwitchView.tabSelectionIndicatorLocation = HMSegmentedControlSelectionStyleFullWidthStripe;
-    // 设置tab 被选中标识的位置 实现木有被选中效果
-    self.slideSwitchView.tabSelectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    
-    //    self.slideSwitchView.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFixed;
-    
-    //设置分界线样式
-    //    self.slideSwitchView.verticalDividerEnabled = YES;
-    //    self.slideSwitchView.verticalDividerColor = [UIColor brownColor];
-    //    self.slideSwitchView.verticalDividerWidth = 1.0f;
-    
-    [self.view addSubview:self.slideSwitchView];
+    self.segmentedControl.hidden = NO;
+    self.scrollView.hidden = NO;
+    self.views1.hidden = NO;
+    self.views2.hidden = NO;
+    self.views3.hidden = NO;
+    self.views4.hidden = NO;
 }
 
-- (NSUInteger)ba_numberOfTitle:(BASegmentControl *)view
+- (HMSegmentedControl *)segmentedControl
 {
-    return self.itemArray.count;
+    if (!_segmentedControl)
+    {
+        _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, 40)];
+        _segmentedControl.sectionTitles = @[@"最新",@"排行榜",@"手机",@"新闻",@"游戏",@"数码",@"段子",@"科技"];
+        _segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        _segmentedControl.selectedSegmentIndex = 0;
+        _segmentedControl.backgroundColor = [UIColor whiteColor];
+        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
+        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_Them_greenColor};
+        _segmentedControl.selectionIndicatorColor = BA_Them_greenColor;
+        _segmentedControl.selectionIndicatorHeight = 2.0f;
+        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _segmentedControl.verticalDividerEnabled = YES;
+        _segmentedControl.verticalDividerColor = BA_LightGray_Color;
+        _segmentedControl.verticalDividerWidth = 1.0f;
+        
+        [self.view addSubview:_segmentedControl];
+        
+        __weak typeof(self) weakSelf = self;
+        [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
+            [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, 200) animated:YES];
+        }];
+    }
+    return _segmentedControl;
 }
 
-// 待加载的控制器
-- (UIViewController *)ba_slideSwitchView:(BASegmentControl *)view viewOfTitle:(NSUInteger)index
+- (UIScrollView *)scrollView
 {
-    BAHomeSegmentControlVC *root = [BAHomeSegmentControlVC new];
-    root.title = self.itemArray[index];
-    return root;
+    if (!_scrollView)
+    {
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_segmentedControl.frame), BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - CGRectGetMaxY(_segmentedControl.frame))];
+        self.scrollView.backgroundColor = [UIColor whiteColor];
+        self.scrollView.pagingEnabled = YES;
+        self.scrollView.showsHorizontalScrollIndicator = NO;
+        self.scrollView.contentSize = CGSizeMake(BA_SCREEN_WIDTH * (_segmentedControl.sectionTitles.count), BA_SCREEN_HEIGHT - CGRectGetMaxY(_segmentedControl.frame));
+        self.scrollView.delegate = self;
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
+        [self.view addSubview:self.scrollView];
+    }
+    return _scrollView;
 }
 
-- (void)ba_slideSwitchView:(BASegmentControl *)view didselectTitle:(NSUInteger)index
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    BAHomeSegmentControlVC *root = view.viewArray[index];
-    [root rootLoadData:index];
+    CGFloat pageWidth = scrollView.frame.size.width;
+    NSInteger page = scrollView.contentOffset.x / pageWidth;
+    
+    [_segmentedControl setSelectedSegmentIndex:page animated:YES];
 }
+
+- (view1 *)views1
+{
+    if (!_views1)
+    {
+        _views1 = [[view1 alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) withSelectRowBlock:^(UITableView *tableView, NSIndexPath *indexPath, NSArray *dataArray) {
+            
+        }];
+        [self.scrollView addSubview:_views1];
+    }
+    return _views1;
+}
+
+- (view2 *)views2
+{
+    if (!_views2)
+    {
+        _views2 = [[view2 alloc] initWithFrame:CGRectMake(BA_SCREEN_WIDTH, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) withSelectRowBlock:^(UITableView *tableView, NSIndexPath *indexPath, NSArray *dataArray) {
+            
+        }];
+        [self.scrollView addSubview:_views2];
+    }
+    return _views2;
+}
+
+- (view3 *)views3
+{
+    if (!_views3)
+    {
+        _views3 = [[view3 alloc] initWithFrame:CGRectMake(BA_SCREEN_WIDTH * 2, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) withSelectRowBlock:^(UITableView *tableView, NSIndexPath *indexPath, NSArray *dataArray) {
+            
+        }];
+        [self.scrollView addSubview:_views3];
+    }
+    return _views3;
+}
+
+- (view4 *)views4
+{
+    if (!_views4)
+    {
+        _views4 = [[view4 alloc] initWithFrame:CGRectMake(BA_SCREEN_WIDTH * 3, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) withSelectRowBlock:^(UITableView *tableView, NSIndexPath *indexPath, NSArray *dataArray) {
+            
+        }];
+        [self.scrollView addSubview:_views4];
+    }
+    return _views4;
+}
+
 
 @end
