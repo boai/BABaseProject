@@ -83,7 +83,10 @@
     [self BA_KeyboardSetting];
     
     /*! 设置statusBar为白色 */
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [BASharedApplication setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    /*! 测试信息 */
+    [self test];
     
     return YES;
 }

@@ -37,7 +37,7 @@
     if (!_tableView)
     {
         _tableView = [[UITableView alloc] init];
-        
+//        _tableView.frame = CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_getTabbarHeight);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = [UIColor redColor];
@@ -47,7 +47,7 @@
         [self addSubview:_tableView];
         
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, BA_getTabbarHeight, 0));
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, 0, 0));
         }];
         
         _tableView.tableFooterView = [UIView new];

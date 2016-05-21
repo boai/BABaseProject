@@ -23,7 +23,8 @@ UITableViewDataSource
     if (!_tableView)
     {
         _tableView = [[UITableView alloc] init];
-        
+//        _tableView.frame = CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_getTabbarHeight);
+
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = [UIColor redColor];

@@ -64,7 +64,7 @@
 
 @interface BATabBar ()
 
-@property (nonatomic, weak  ) UIButton        *plusButton;
+//@property (nonatomic, weak  ) UIButton        *plusButton;
 
 @property (nonatomic, strong) NSMutableArray  *buttons;
 

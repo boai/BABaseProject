@@ -105,7 +105,7 @@
     
     [self setVCBgColor:BA_White_Color];
     
-    // 设置CGRectZero从导航栏下开始计算
+    /*! 设置CGRectZero从导航栏下开始计算 */
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -143,7 +143,7 @@
 {
     if (!_segmentedControl)
     {
-        _segmentedControl                             = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 20, BA_SCREEN_WIDTH, 44)];
+        _segmentedControl                             = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, 40)];
 //        _segmentedControl                           = [[HMSegmentedControl alloc] init];
 
         /*! 设置标题 */
@@ -190,7 +190,8 @@
 {
     if (!_scrollView)
     {
-        self.scrollView                                = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_getTabbarHeight - 15)];
+        /*! 这里的frame按实际情况更改！ */
+        self.scrollView                                = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_getTabbarHeight - 64)];
         self.scrollView.backgroundColor                = [UIColor whiteColor];
         self.scrollView.pagingEnabled                  = YES;
         self.scrollView.showsHorizontalScrollIndicator = NO;

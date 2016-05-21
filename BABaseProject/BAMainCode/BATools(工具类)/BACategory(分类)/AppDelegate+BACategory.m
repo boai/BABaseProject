@@ -157,10 +157,10 @@
                                          RedirectURL:@"http://sns.whalecloud.com/sin"];
     //  添加微信分享授权
     // 设置微信AppId、appSecret，分享url
-    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:@"http://www.imyouren.com"];
+    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:@"https://www.baidu.com"];
     
     // 设置分享到QQ空间的应用Id，和分享url 链接
-    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:@"http://www.imyouren.com"];
+    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:@"https://www.baidu.com"];
     // 设置支持没有客户端情况下使用SSO授权
     [UMSocialQQHandler setSupportWebView:YES];
     
