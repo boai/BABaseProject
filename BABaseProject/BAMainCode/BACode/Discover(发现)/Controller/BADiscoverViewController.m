@@ -8,14 +8,14 @@
 
 #import "BADiscoverViewController.h"
 #import "BASnowView.h"
-// 更新 + 变黑
+/*! 更新 + 变黑 */
 #import "BAUpdatingView.h"
 #import "BAFadeBlackView.h"
 
 @interface BADiscoverViewController ()
 
-@property (nonatomic, strong) BAFadeBlackView        *fadeBlackView;
-@property (nonatomic, strong) BAUpdatingView         *upDatingView;
+@property (nonatomic, strong) BAFadeBlackView  *fadeBlackView;
+@property (nonatomic, strong) BAUpdatingView   *upDatingView;
 
 
 @end
@@ -30,6 +30,7 @@
     [self setVCBgColor:BA_Green_Color];
 
     [self test];
+    
 }
 
 - (void)test
@@ -52,6 +53,13 @@
     [self.fadeBlackView showFadeBlackView:YES];
     [self.upDatingView show];
     
-    
 }
+
+#pragma mark - ***** 懒加载
+
+
+
+
+
+
 @end

@@ -170,8 +170,16 @@
         
         /*! 标题点击事件 */
         __weak typeof(self) weakSelf = self;
+        
         [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
             [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, 200) animated:YES];
+//            NSInteger count = weakSelf.segmentedControl.sectionTitles.count;
+//                CGFloat itemWidth = BA_SCREEN_WIDTH/count;
+//                CGFloat offsetX = 0;
+            
+           
+
+            
         }];
     }
     return _segmentedControl;
@@ -189,6 +197,7 @@
         self.scrollView.delegate = self;
         [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
         [self.view addSubview:self.scrollView];
+        
     }
     return _scrollView;
 }
