@@ -113,12 +113,16 @@ static NSMutableArray *fields = nil;
 #ifdef IOS8x
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [alertController addAction:[UIAlertAction actionWithTitle:destructive style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        if (action)
-        {
-            destructiveAction(NO_USE);
-        }
-    }]];
+    if (destructive)
+    {
+        [alertController addAction:[UIAlertAction actionWithTitle:destructive style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            if (action)
+            {
+                destructiveAction(NO_USE);
+            }
+        }]];
+    }
+    
     
     [others enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx == 0)
@@ -143,9 +147,10 @@ static NSMutableArray *fields = nil;
     }];
     
     [self presentViewController:alertController animated:animated completion:nil];
+
 #else
     UIActionSheet *sheet = nil;
-    if (others.count > 0)
+    if (others.count > 0 && destructive)
     {
         sheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:others[0] destructiveButtonTitle:destructive otherButtonTitles:nil];
     }
@@ -205,88 +210,86 @@ static NSMutableArray *fields = nil;
     {
         [fields removeAllObjects];
     }
-    
+        
 #ifdef IOS8x
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    // textfield
-    for (NSInteger i = 0; i < number; i++)
-    {
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            [fields addObject:textField];
-            configuration(textField,i);
-        }];
-    }
-    
-    // button
-    [buttons enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx == 0)
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        // textfield
+        for (NSInteger i = 0; i < number; i++)
         {
-            [alertController addAction:[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                if (action)
-                {
-                    click(fields,idx);
-                }
-            }]];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                [fields addObject:textField];
+                configuration(textField,i);
+            }];
+        }
+        
+        // button
+        [buttons enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (idx == 0)
+            {
+                [alertController addAction:[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    if (action)
+                    {
+                        click(fields,idx);
+                    }
+                }]];
+            }
+            else
+            {
+                [alertController addAction:[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    if (action)
+                    {
+                        click(fields,idx);
+                    }
+                }]];
+            }
+        }];
+        [self presentViewController:alertController animated:animated completion:nil];
+#else
+        UIAlertView *alertView = nil;
+        if (buttons.count > 0)
+        {
+            alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:buttons[0] otherButtonTitles:nil];
         }
         else
         {
-            [alertController addAction:[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                if (action)
-                {
-                    click(fields,idx);
-                }
-            }]];
+            alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
         }
-    }];
-    [self presentViewController:alertController animated:animated completion:nil];
-#else
-    UIAlertView *alertView = nil;
-    if (buttons.count > 0)
-    {
-        alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:buttons[0] otherButtonTitles:nil];
-    }
-    else
-    {
-        alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    }
-    // field
-    if (number == 1)
-    {
-        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    }
-    else if (number > 2)
-    {
-        alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-    }
-    
-    // configuration field
-    if (alertView.alertViewStyle == UIAlertViewStyleLoginAndPasswordInput)
-    {
-        [fields addObject:[alertView textFieldAtIndex:0]];
-        [fields addObject:[alertView textFieldAtIndex:1]];
-        
-        configuration([alertView textFieldAtIndex:0],0);
-        configuration([alertView textFieldAtIndex:1],1);
-        
-        
-    }
-    else if(alertView.alertViewStyle == UIAlertViewStylePlainTextInput || alertView.alertViewStyle == UIAlertViewStyleSecureTextInput)
-    {
-        [fields addObject:[alertView textFieldAtIndex:0]];
-        configuration([alertView textFieldAtIndex:0],0);
-    }
-    
-    // other button
-    [buttons enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx != 0)
+        // field
+        if (number == 1)
         {
-            [alertView addButtonWithTitle:obj];
+            alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         }
-    }];
-    clickIncludeFields = click;
-    
-    [alertView show];
+        else if (number > 2)
+        {
+            alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+        }
+        
+        // configuration field
+        if (alertView.alertViewStyle == UIAlertViewStyleLoginAndPasswordInput)
+        {
+            [fields addObject:[alertView textFieldAtIndex:0]];
+            [fields addObject:[alertView textFieldAtIndex:1]];
+            
+            configuration([alertView textFieldAtIndex:0],0);
+            configuration([alertView textFieldAtIndex:1],1);
+        }
+        else if(alertView.alertViewStyle == UIAlertViewStylePlainTextInput || alertView.alertViewStyle == UIAlertViewStyleSecureTextInput)
+        {
+            [fields addObject:[alertView textFieldAtIndex:0]];
+            configuration([alertView textFieldAtIndex:0],0);
+        }
+        
+        // other button
+        [buttons enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (idx != 0)
+            {
+                [alertView addButtonWithTitle:obj];
+            }
+        }];
+        clickIncludeFields = click;
+        
+        [alertView show];
 #endif
-}
+    }
 
 @end

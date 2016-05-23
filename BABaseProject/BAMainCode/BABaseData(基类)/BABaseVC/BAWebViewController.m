@@ -63,7 +63,7 @@
 #import <WebKit/WebKit.h>
 
 
-#define IOS8x SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+#define IOS8x IPHONE_OS_VERSION_MAX_IPHONE_8_0
 
 @interface BAWebViewController ()
 <UIWebViewDelegate,UIActionSheetDelegate,WKNavigationDelegate>

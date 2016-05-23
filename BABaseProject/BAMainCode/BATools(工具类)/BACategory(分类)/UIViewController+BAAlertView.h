@@ -8,19 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-// 系统版本大于等于
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-
-// 系统版本小于
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-
 #if IOS8xLatter
 
-#define IOS8x SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+#define IOS8x IPHONE_OS_VERSION_MAX_IPHONE_8_0
 
 #else
 
-#define IOS7x SYSTEM_VERSION_LESS_THAN(@"8.0")
+#define IOS7x IPHONE_OS_VERSION_MIN_IPHONE_8_0
 
 #endif
 
