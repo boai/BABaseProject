@@ -93,6 +93,9 @@
 
 #define BA_UserDefault [NSUserDefaults standardUserDefaults]
 
+/*! 大于8.0 */
+#define IOS8x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
 
 /*! 警告框-一个按钮【VC】 */
 #define BA_SHOW_ALERT(title, msg)  UIAlertController *alert = [UIAlertController alertControllerWithTitle:title  message:msg preferredStyle:UIAlertControllerStyleAlert];\

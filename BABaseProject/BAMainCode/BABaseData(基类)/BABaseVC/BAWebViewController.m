@@ -63,16 +63,14 @@
 #import <WebKit/WebKit.h>
 
 
-#define IOS8x IPHONE_OS_VERSION_MAX_IPHONE_8_0
 
 @interface BAWebViewController ()
 <UIWebViewDelegate,UIActionSheetDelegate,WKNavigationDelegate>
 
-@property (assign, nonatomic) NSUInteger loadCount;
-@property (strong, nonatomic) UIProgressView *progressView;
-@property (strong, nonatomic) UIWebView *webView;
-@property (strong, nonatomic) WKWebView *wkWebView;
-@property (strong, nonatomic) WKWebView *wkWebView2;
+@property (assign, nonatomic) NSUInteger       loadCount;
+@property (strong, nonatomic) UIProgressView  *progressView;
+@property (strong, nonatomic) UIWebView       *webView;
+@property (strong, nonatomic) WKWebView       *wkWebView;
 
 @end
 
@@ -87,6 +85,7 @@
     [self configUI];
     [self configBackItem];
     [self configMenuItem];
+    
     
 }
 
@@ -107,12 +106,7 @@
 #pragma mark - ***** UI创建
 - (void)configUI
 {
-    self.progressView.hidden = NO;
-    
-//    self.urlString = @"https://www.baidu.com";
-//    self.urlString = @"http://boai.github.io";
-
-    if (!_urlString) _urlString = @"http://boai.github.io";
+    if (!_urlString) _urlString = @"http://m.jd.com/";
     else _urlString = self.urlString;
     if ([BARegularExpression ba_isUrl:self.urlString])
     {
@@ -120,13 +114,19 @@
     }
     else
     {
-        [self.view showAlertView:@"温馨提示：" message:@"不能识别的二维码！"];
+        [self.view showAlertView:@"温馨提示：" message:@"不能识别的URL！"];
         return;
     }
     
+    self.progressView.hidden = NO;
+//    self.webView.hidden = NO;
+    
+//    self.urlString = @"http://m.jd.com/";
+//    self.urlString = @"http://boai.github.io";
+
+
     // 网页
-    if (IOS8x)
-    {
+    if (IOS8x) {
         WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
         wkWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         wkWebView.backgroundColor = [UIColor whiteColor];
@@ -134,12 +134,10 @@
         [self.view insertSubview:wkWebView belowSubview:_progressView];
         
         [wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_urlString]];
         [wkWebView loadRequest:request];
         self.wkWebView = wkWebView;
-    }
-    else
-    {
+    }else {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
         webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         webView.scalesPageToFit = YES;
@@ -147,7 +145,7 @@
         webView.delegate = self;
         [self.view insertSubview:webView belowSubview:_progressView];
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_urlString]];
         [webView loadRequest:request];
         self.webView = webView;
     }
@@ -173,7 +171,6 @@
 {
     UIImage *menuImage = [UIImage imageNamed:@"navigationbar_more"];
     menuImage = [menuImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    WithFrame:CGRectMake(0, 0, 40, 40)
     UIButton *menuBtn = [[UIButton alloc] init];
     [menuBtn setTintColor:BA_Orange_Color];
     [menuBtn setImage:menuImage forState:UIControlStateNormal];
@@ -202,31 +199,22 @@
 #pragma mark 返回按钮点击
 - (void)backBtnAction:(UIButton *)sender
 {
-    if (IOS8x)
-    {
-        if (self.wkWebView.canGoBack)
-        {
+    if (IOS8x) {
+        if (self.wkWebView.canGoBack) {
             [self.wkWebView goBack];
-            if (self.navigationItem.leftBarButtonItems.count == 1)
-            {
+            if (self.navigationItem.leftBarButtonItems.count == 1) {
                 [self configColseItem];
             }
         }else {
             [self.navigationController popViewControllerAnimated:YES];
         }
-    }
-    else
-    {
-        if (self.webView.canGoBack)
-        {
+    }else {
+        if (self.webView.canGoBack) {
             [self.webView goBack];
-            if (self.navigationItem.leftBarButtonItems.count == 1)
-            {
+            if (self.navigationItem.leftBarButtonItems.count == 1) {
                 [self configColseItem];
             }
-        }
-        else
-        {
+        }else {
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
@@ -234,54 +222,63 @@
 
 #pragma mark 菜单按钮点击
 - (void)menuBtnAction:(UIButton *)sender
-
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"safari打开",@"复制链接",@"分享",@"刷新", nil];
-    [actionSheet showInView:self.view];
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"safari打开",@"复制链接",@"分享",@"刷新", nil];
+//    [actionSheet showInView:self.view];
+    [self BAActionSheetWithTitle:@"更 多" message:nil destructive:nil destructiveAction:^(NSInteger index) {
+        
+    } andOthers:@[@"取消", @"safari打开",@"复制链接",@"分享",@"刷新"] animated:YES action:^(NSInteger index) {
+        
+        NSString *urlStr = [NSURL URLWithString:self.urlString].absoluteString;
+        if (IOS8x)
+            urlStr = self.wkWebView.URL.absoluteString;
+        else
+            urlStr = self.webView.request.URL.absoluteString;
+        
+        if (index == 0)
+        {
+            return ;
+        }
+        if (index == 1)
+        {
+            /*! safari打开 */
+            BA_OpenUrl([NSURL URLWithString:urlStr]);
+        }
+        else if (index == 2)
+        {
+            /*! 复制链接 */
+            if (urlStr.length > 0)
+            {
+                BA_CopyContent(urlStr);
+                [self.view showAlertView:@"温馨提示：" message:@"亲爱的，已复制URL到黏贴板中！"];
+                return;
+            }
+        }
+        else if (index == 3)
+        {
+            NSString *shareUrlSrt = @"http://www.cnblogs.com/boai/";
+            NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
+            // 注意：图片不能为空
+            UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
+            
+            [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:shareUrlSrt];
+        }
+        else if (index == 4)
+        {
+            /*! 刷新 */
+            if (IOS8x)
+                [self.wkWebView reload];
+            else
+                [self.webView reload];
+        }
+        
+    }];
 }
 
 #pragma mark 关闭按钮点击
 - (void)colseBtnAction:(UIButton *)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSString *urlStr = [NSURL URLWithString:self.urlString].absoluteString;
-    if (IOS8x) urlStr = self.wkWebView.URL.absoluteString;
-    else urlStr = self.webView.request.URL.absoluteString;
-    if (buttonIndex == 0)
-    {
-        /*! safari打开 */
-        BA_OpenUrl([NSURL URLWithString:urlStr]);
-    }
-    else if (buttonIndex == 1)
-    {
-        /*! 复制链接 */
-        if (urlStr.length > 0)
-        {
-            BA_CopyContent(urlStr);
-            [self.view showAlertView:@"温馨提示：" message:@"亲爱的，已复制URL到黏贴板中！"];
-            return;
-        }
-    }
-    else if (buttonIndex == 2)
-    {
-        NSString *shareUrlSrt = @"http://www.cnblogs.com/boai/";
-        NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
-        // 注意：图片不能为空
-        UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
-        
-        [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:shareUrlSrt];
-    }
-    else if (buttonIndex == 3)
-    {
-        /*! 刷新 */
-        if (IOS8x) [self.wkWebView reload];
-        else [self.webView reload];
-    }
 }
 
 #pragma mark - WKNavigationDelegate 【该代理提供的方法，可以用来追踪加载过程（页面开始加载、加载完成、加载失败）、决定是否执行跳转。】
@@ -351,18 +348,18 @@
 //}
 
 #pragma mark 创建一个新的WebView
-- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
-{
-    // 接口的作用是打开新窗口委托
-    [self createNewWebViewWithURL:webView.URL.absoluteString config:configuration];
-    return _wkWebView2;
-}
-
-- (void)createNewWebViewWithURL:(NSString *)url config:(WKWebViewConfiguration *)configuration
-{
-    _wkWebView2 = [[WKWebView alloc] initWithFrame:self.wkWebView.frame configuration:configuration];
-    [_wkWebView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
-}
+//- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
+//{
+//    // 接口的作用是打开新窗口委托
+//    [self createNewWebViewWithURL:webView.URL.absoluteString config:configuration];
+//    return _wkWebView2;
+//}
+//
+//- (void)createNewWebViewWithURL:(NSString *)url config:(WKWebViewConfiguration *)configuration
+//{
+//    _wkWebView2 = [[WKWebView alloc] initWithFrame:self.wkWebView.frame configuration:configuration];
+//    [_wkWebView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+//}
 
 #pragma mark 针对于web界面的三种提示框（警告框、确认框、输入框）分别对应三种代理方法。下面只举了警告框的例子。
 /**
@@ -373,27 +370,27 @@
  *  @param frame             主窗口
  *  @param completionHandler 警告框消失调用
  */
-- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler
-{
-    //  js 里面的alert实现，如果不实现，网页的alert函数无效  ,
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message
-                                                                             message:nil
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定"
-                                                        style:UIAlertActionStyleDefault
-                                                      handler:^(UIAlertAction *action) {
-                                                          completionHandler(YES);
-                                                      }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消"
-                                                        style:UIAlertActionStyleCancel
-                                                      handler:^(UIAlertAction *action){
-                                                          completionHandler(NO);
-                                                      }]];
-    
-    [self presentViewController:alertController animated:YES completion:^{}];
-    
-}
+//- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler
+//{
+//    //  js 里面的alert实现，如果不实现，网页的alert函数无效  ,
+//    
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message
+//                                                                             message:nil
+//                                                                      preferredStyle:UIAlertControllerStyleAlert];
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"确定"
+//                                                        style:UIAlertActionStyleDefault
+//                                                      handler:^(UIAlertAction *action) {
+//                                                          completionHandler(YES);
+//                                                      }]];
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"取消"
+//                                                        style:UIAlertActionStyleCancel
+//                                                      handler:^(UIAlertAction *action){
+//                                                          completionHandler(NO);
+//                                                      }]];
+//    
+//    [self presentViewController:alertController animated:YES completion:^{}];
+//    
+//}
 
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *))completionHandler
 {

@@ -8,15 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#if IOS8xLatter
-
-#define IOS8x IPHONE_OS_VERSION_MAX_IPHONE_8_0
-
-#else
-
-#define IOS7x IPHONE_OS_VERSION_MIN_IPHONE_8_0
-
-#endif
+//#define IOS8x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
 
 #define NO_USE -1000
