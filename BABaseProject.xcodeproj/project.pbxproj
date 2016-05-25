@@ -86,6 +86,9 @@
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
 		C4ACE2FC1CF5C19500313DD4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */; };
 		C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */; };
+		C4ACE3031CF5C90C00313DD4 /* DemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */; };
+		C4ACE3051CF5C96200313DD4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE3041CF5C96200313DD4 /* EventKit.framework */; };
+		C4ACE3071CF5C96B00313DD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE3061CF5C96B00313DD4 /* CoreGraphics.framework */; };
 		C4C802511CF5AFAE00AD5B3B /* BAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8024F1CF5AFAE00AD5B3B /* BAWebViewController.m */; };
 		C4D108021CE2FC1C00F735B9 /* view1.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FB1CE2FC1C00F735B9 /* view1.m */; };
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
@@ -385,6 +388,10 @@
 		C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C4ACE2FD1CF5C53100313DD4 /* DemoVC7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7.h; sourceTree = "<group>"; };
 		C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7.m; sourceTree = "<group>"; };
+		C4ACE3011CF5C90C00313DD4 /* DemoVC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC8.h; sourceTree = "<group>"; };
+		C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC8.m; sourceTree = "<group>"; };
+		C4ACE3041CF5C96200313DD4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		C4ACE3061CF5C96B00313DD4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C4C8024F1CF5AFAE00AD5B3B /* BAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAWebViewController.m; sourceTree = "<group>"; };
 		C4C802501CF5AFAE00AD5B3B /* BAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAWebViewController.h; sourceTree = "<group>"; };
 		C4D107FA1CE2FC1C00F735B9 /* view1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view1.h; sourceTree = "<group>"; };
@@ -557,6 +564,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4ACE3071CF5C96B00313DD4 /* CoreGraphics.framework in Frameworks */,
+				C4ACE3051CF5C96200313DD4 /* EventKit.framework in Frameworks */,
 				C4ACE2FC1CF5C19500313DD4 /* WebKit.framework in Frameworks */,
 				C46B8A061CE0BB7D00005E2B /* libicucore.tbd in Frameworks */,
 				22442A2BB986E1C81BD3ED06 /* libPods-BABaseProject.a in Frameworks */,
@@ -583,6 +592,8 @@
 		B678F676F10C8EB64082087B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4ACE3061CF5C96B00313DD4 /* CoreGraphics.framework */,
+				C4ACE3041CF5C96200313DD4 /* EventKit.framework */,
 				C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */,
 				C46B8A051CE0BB7D00005E2B /* libicucore.tbd */,
 				67E335DBEAC965F78C8BE5DD /* libPods-BABaseProject.a */,
@@ -649,6 +660,7 @@
 				C4562C7B1CDDB405000F5710 /* DemoVC5 */,
 				C423217C1CE72AA500D91F45 /* DemoVC6 */,
 				C437CB201CEF0AFD00FCA331 /* DemoVC7 */,
+				C4ACE3001CF5C8FA00313DD4 /* DemoVC8 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -881,6 +893,15 @@
 				C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4ACE3001CF5C8FA00313DD4 /* DemoVC8 */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACE3011CF5C90C00313DD4 /* DemoVC8.h */,
+				C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */,
+			);
+			path = DemoVC8;
 			sourceTree = "<group>";
 		};
 		C4D107F01CE2FB2300F735B9 /* BASegmentControl */ = {
@@ -1894,6 +1915,7 @@
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
 				C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */,
 				C4D108021CE2FC1C00F735B9 /* view1.m in Sources */,
+				C4ACE3031CF5C90C00313DD4 /* DemoVC8.m in Sources */,
 				C46B89E01CE020F700005E2B /* NSFileManager+BAKit.m in Sources */,
 				C408528B1CD9C53E0004A671 /* BASnowView.m in Sources */,
 				C4562C791CDDA25E000F5710 /* BAShareManageView.m in Sources */,
@@ -2053,7 +2075,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-boai.BABaseProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2071,7 +2093,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-boai.BABaseProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
