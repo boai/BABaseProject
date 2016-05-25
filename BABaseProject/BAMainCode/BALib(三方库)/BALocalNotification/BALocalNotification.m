@@ -87,8 +87,12 @@
     //    notification.applicationIconBadgeNumber = 1;
 
     // 通知参数
-    NSDictionary *userDict = [NSDictionary dictionaryWithObject:@"有博爱在，本地通知不用怕！哈哈。。。" forKey:@"key"];
-    notification.userInfo = userDict;
+    notification.userInfo = @{@"userNoti":
+                                  @{@"userID":@"1234",
+                                    @"userKey":@"赶紧去看直播吧！"
+                                    }
+                              };
+    // 绑定到通知上的其他附加信息;
     
     // ios8后，需要添加这个注册，才能得到授权
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])

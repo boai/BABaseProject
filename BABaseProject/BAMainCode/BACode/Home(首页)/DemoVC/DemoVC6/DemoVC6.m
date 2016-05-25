@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"本地通知";
+    
     [self setupUI];
     
     // 1463215800

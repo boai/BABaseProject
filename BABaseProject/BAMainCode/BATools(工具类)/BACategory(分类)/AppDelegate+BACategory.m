@@ -314,55 +314,42 @@ didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"noti:%@",notification);
     
-    if (self.LocalNotificationDic) self.LocalNotificationDic = nil;
-    self.LocalNotificationDic = notification.userInfo;
+    NSDictionary *userInfo = notification.userInfo;
     
-    // 这里真实需要处理交互的地方
-    // 获取通知所带的数据
-    NSString *notMess = [notification.userInfo objectForKey:@"key"];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"去看直播...(用于测试阶段)"message:notMess delegate:self cancelButtonTitle:@"取消"otherButtonTitles:@"确定",nil];
-    [alert show];
-    // 图标上的数字减1
-    //    application.applicationIconBadgeNumber -= 1;
-    //    NSLog(@"didReceiveLocalNotification");
-    
-    // 更新显示的badge个数
-    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
-    badge--;
-    badge = badge >= 0 ? badge : 0;
-    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
-    
-    // 在不需要再推送时，可以取消推送
-    [BALocalNotification cancelLocalNotificationWithKey:@"key"];
-}
-
-/*! 代理方法 */
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"buttonIndex is : %li",(long)buttonIndex);
-    
-    switch (buttonIndex)
+    if (userInfo[@"userNoti"])
     {
-            // 取消
-        case 0:
-            return;
-            break;
-            // 确定
-        case 1:
-            [self moveToVC];
-            break;
+        // 这里真实需要处理交互的地方
+        // 获取通知所带的数据
+        [self.window.rootViewController BAAlertWithTitle:@"温馨提示：" message:userInfo[@"userKey"] andOthers:@[@"取消", @"确定"] animated:YES action:^(NSInteger index) {
             
-        default:
-            break;
+            if (index == 0)
+            {
+                return ;
+            }
+            else
+            {
+                [self moveToVC];
+            }
+            
+        }];
+
+        // 图标上的数字减1
+        //    application.applicationIconBadgeNumber -= 1;
+        //    NSLog(@"didReceiveLocalNotification");
+        
+        // 更新显示的badge个数
+        NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+        badge--;
+        badge = badge >= 0 ? badge : 0;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
     }
-    
+
+    // 在不需要再推送时，可以取消推送
+    [BALocalNotification cancelLocalNotificationWithKey:@"userKey"];
 }
 
-// 实现跳转
 - (void)moveToVC
 {
-//    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://www.baidu.com"]];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         BATabBarController *tabBarController = ( BATabBarController*)self.window.rootViewController;
