@@ -75,7 +75,7 @@
     [self addCell:@"4、友盟分享和友盟登陆的完美封装" content:@"包含：微博、微信、朋友圈、QQ、空间、短信的分享和登陆，可以使用默认列表，也可以自定义单个分享和登陆！" class:@"DemoVC4"];
     [self addCell:@"5、正则表达式最新封装" content:@"包含：手机号码、运营商类型(判断移动、联通、电信)、邮箱、数字、中英文、URL、身份证号码等！还可以文字筛选高亮显示！" class:@"DemoVC5"];
     [self addCell:@"6、本地通知最新完美封装" content:@"最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！【刚添加了本地通知的跳转事件处理！】如果喜欢，请在git上点个星吧！" class:@"DemoVC6"];
-    [self addCell:@"7、webView和WKWebView完美封装" content:@"webView和WKWebView的封装，简单的内置浏览器，有简单的功能，后期有新功能会加上！如果喜欢，请在git上点个星吧！" class:@"BAWebViewController"];
+    [self addCell:@"7、webView和WKWebView完美封装" content:@"webView和WKWebView的封装，简单的内置浏览器，有简单的功能，后期有新功能会加上！如果喜欢，请在git上点个星吧！" class:@"DemoVC7"];
 
 }
 

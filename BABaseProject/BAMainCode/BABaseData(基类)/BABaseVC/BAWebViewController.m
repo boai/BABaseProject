@@ -106,18 +106,6 @@
 #pragma mark - ***** UI创建
 - (void)configUI
 {
-    if (!_urlString) _urlString = @"http://m.jd.com/";
-    else _urlString = self.urlString;
-    if ([BARegularExpression ba_isUrl:self.urlString])
-    {
-        _urlString = self.urlString;
-    }
-    else
-    {
-        [self.view showAlertView:@"温馨提示：" message:@"不能识别的URL！"];
-        return;
-    }
-    
     self.progressView.hidden = NO;
 //    self.webView.hidden = NO;
     
