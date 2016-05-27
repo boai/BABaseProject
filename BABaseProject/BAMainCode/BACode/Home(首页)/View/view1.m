@@ -69,7 +69,7 @@
 
 - (void)creatData
 {
-    [self addCell:@"1、测试AFN数据请求" content:@"封装AFN，实现简单的get和post请求，可以自定义请求头，可以解析json数据、xml数据、data数据，可以获取缓存数据。" class:@"DemoVC1"];
+    [self addCell:@"1、AFNetWorking的完美封装" content:@"封装AFN，实现简单的get和post请求，可以自定义请求头，可以解析json数据、xml数据、data数据，可以获取缓存数据。" class:@"DemoVC1"];
     [self addCell:@"2、清理缓存" content:@"清理网络请求缓存和图片缓存，可清理系统缓存！" class:@"DemoVC2"];
     [self addCell:@"3、点击button倒计时" content:@"两种比较常用的获取倒计时验证码的样式！新增一种自定义警告框，可以点击屏幕消失！" class:@"DemoVC3"];
     [self addCell:@"4、友盟分享和友盟登陆的完美封装" content:@"包含：微博、微信、朋友圈、QQ、空间、短信的分享和登陆，可以使用默认列表，也可以自定义单个分享和登陆！" class:@"DemoVC4"];
@@ -77,6 +77,7 @@
     [self addCell:@"6、本地通知最新完美封装" content:@"最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！【刚添加了本地通知的跳转事件处理！】如果喜欢，请在git上点个星吧！" class:@"DemoVC6"];
     [self addCell:@"7、webView和WKWebView完美封装" content:@"webView和WKWebView的封装，简单的内置浏览器，有简单的功能，后期有新功能会加上！如果喜欢，请在git上点个星吧！" class:@"DemoVC7"];
     [self addCell:@"8、系统提醒和日历提醒" content:@"最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！如果喜欢，请在git上点个星吧！" class:@"DemoVC8"];
+    [self addCell:@"9、流式布局和线性布局库的使用" content:@"用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！" class:@"DemoVC9"];
 
 }
 

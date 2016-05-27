@@ -574,6 +574,29 @@
     objc_setAssociatedObject(self, @selector(sd_equalWidthSubviews), sd_equalWidthSubviews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (void)setupAutoWidthFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin
+{
+    self.sd_categoryManager.flowItems = viewsArray;
+    self.sd_categoryManager.perRowItemsCount = perRowItemsCount;
+    self.sd_categoryManager.verticalMargin = verticalMargin;
+    self.sd_categoryManager.horizontalMargin = horizontalMagin;
+    
+    self.sd_categoryManager.lastWidth = 0;
+    
+    if (viewsArray.count) {
+        [self setupAutoHeightWithBottomView:viewsArray.lastObject bottomMargin:verticalMargin];
+    } else {
+        [self clearAutoHeigtSettings];
+    }
+}
+
+- (void)setupAutoMarginFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount itemWidth:(CGFloat)itemWidth verticalMargin:(CGFloat)verticalMargin
+{
+    self.sd_categoryManager.shouldShowAsAutoMarginViews = YES;
+    self.sd_categoryManager.flowItemWidth = itemWidth;
+    [self setupAutoWidthFlowItems:viewsArray withPerRowItemsCount:perRowItemsCount verticalMargin:verticalMargin horizontalMargin:0];
+}
+
 - (void)sd_addSubviews:(NSArray *)subviews
 {
     [subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
@@ -884,6 +907,11 @@
     // 如果程序崩溃在这行代码说明是你的view在执行“layoutSubvies”方法时出了问题而不是在此自动布局库内部出现了问题，请检查你的“layoutSubvies”方法
     [self sd_layoutSubviews];
     
+    [self sd_layoutSubviewsHandle];
+}
+
+- (void)sd_layoutSubviewsHandle{
+
     if (self.sd_equalWidthSubviews.count) {
         __block CGFloat totalMargin = 0;
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
@@ -895,6 +923,51 @@
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
             view.width = averageWidth;
             view.fixedWidth = @(averageWidth);
+        }];
+    }
+    
+    if (self.sd_categoryManager.flowItems.count && (self.sd_categoryManager.lastWidth != self.width)) {
+        
+        self.sd_categoryManager.lastWidth = self.width;
+        
+        NSInteger perRowItemsCount = self.sd_categoryManager.perRowItemsCount;
+        CGFloat horizontalMargin = 0;
+        CGFloat w = 0;
+        if (self.sd_categoryManager.shouldShowAsAutoMarginViews) {
+            w = self.sd_categoryManager.flowItemWidth;
+            long itemsCount = self.sd_categoryManager.flowItems.count;
+            if (itemsCount > 1) {
+                horizontalMargin = (self.width - itemsCount * w) / (itemsCount - 1);
+            }
+        } else {
+            horizontalMargin = self.sd_categoryManager.horizontalMargin;
+            w = (self.width - (perRowItemsCount + 1) * horizontalMargin) / perRowItemsCount;
+        }
+        CGFloat verticalMargin = self.sd_categoryManager.verticalMargin;
+        
+        __block UIView *referencedView = self;
+        [self.sd_categoryManager.flowItems enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+            if (idx < perRowItemsCount) {
+                if (idx == 0) {
+                    BOOL shouldShowAsAutoMarginViews = self.sd_categoryManager.shouldShowAsAutoMarginViews;
+                    view.sd_layout
+                    .leftSpaceToView(referencedView, shouldShowAsAutoMarginViews ? 0 : horizontalMargin)
+                    .topSpaceToView(referencedView, verticalMargin)
+                    .widthIs(w);
+                } else {
+                    view.sd_layout
+                    .leftSpaceToView(referencedView, horizontalMargin)
+                    .topEqualToView(referencedView)
+                    .widthIs(w);
+                }
+                referencedView = view;
+            } else {
+                referencedView = self.sd_categoryManager.flowItems[idx - perRowItemsCount];
+                view.sd_layout
+                .leftEqualToView(referencedView)
+                .widthIs(w)
+                .topSpaceToView(referencedView, verticalMargin);
+            }
         }];
     }
     
@@ -910,7 +983,11 @@
             if (idx < caches.count) {
                 model.needsAutoResizeView.frame = [[caches objectAtIndex:idx] CGRectValue];
                 [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
+                model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = YES;
             } else {
+                if (model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache) {
+                    model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = NO;
+                }
                 [self sd_resizeWithModel:model];
             }
         }];
@@ -929,6 +1006,10 @@
             cell.autoHeight = height + cell.sd_bottomViewBottomMargin;
         }
     } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomViewsArray.count || self.sd_rightViewsArray.count)) {
+        if (self.sd_categoryManager.hasSetFrameWithCache) {
+            self.sd_categoryManager.hasSetFrameWithCache = NO;
+            return;
+        }
         CGFloat contentHeight = 0;
         CGFloat contentWidth = 0;
         if (self.sd_bottomViewsArray) {
@@ -1289,6 +1370,32 @@
 
 @end
 
+@implementation UIButton (SDAutoLayoutButton)
+
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *selString = @"layoutSubviews";
+        NSString *mySelString = [@"sd_button_" stringByAppendingString:selString];
+        
+        Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+        Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+        method_exchangeImplementations(originalMethod, myMethod);
+    });
+}
+
+- (void)sd_button_layoutSubviews
+{
+    // 如果程序崩溃在这行代码说明是你的view在执行“layoutSubvies”方法时出了问题而不是在此自动布局库内部出现了问题，请检查你的“layoutSubvies”方法
+    [self sd_button_layoutSubviews];
+    
+    [self sd_layoutSubviewsHandle];
+    
+}
+
+@end
+
 
 @implementation UIView (SDChangeFrame)
 
@@ -1405,8 +1512,6 @@
 }
 
 @end
-
-
 
 @implementation SDUIViewCategoryManager
 

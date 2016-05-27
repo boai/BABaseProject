@@ -69,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MyLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BABaseProject.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,12 +102,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2339B425E311ECC4437A15B5A65833B7</key>
+		<key>07A1458F0ECFD7D943DC4EF15E916F34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DCC52ACB0BC2B11A7D13FA226A47FF8</key>
+		<key>4D84ED188BFE1BF84D75BE66DDF9C6D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A1A18BD8E54F92AAC5F4FA3121E96E5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>837405AF8B8EA6687810765A42D35A98</key>
+		<key>5D7078CD93FDB7804577A046FA127493</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,6 +133,11 @@
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93C631BFE88419ED8A77AE8BA24BF65F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -148,6 +153,11 @@
 			<true/>
 		</dict>
 		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB988FBACDFAFFFCF7DD274D743C6018</key>
 		<dict>
 			<key>primary</key>
 			<true/>
