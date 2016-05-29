@@ -23,16 +23,16 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 
 
 ## 2、个人简介
-**2.1、[『微博：博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1)** <br>
-**2.2、[『博客』](http://boai.github.io)** <br>
-**2.3、[『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles)** <br>
-**2.4、[『简书专题链接』](http://www.jianshu.com/collections/250078/submissions)** <br>
+- 2.1、[『微博：博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1)** <br>
+- 2.2、[『博客』](http://boai.github.io)** <br>
+- 2.3、[『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles)** <br>
+- 2.4、[『简书专题链接』](http://www.jianshu.com/collections/250078/submissions)** <br>
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
 ## 3、推荐
 - 3.1 完全实现 [『UIButton』](https://github.com/boai/BAButton) 的自定义的类库 <br>
-**pod 导入：   pod 'BAButton', '~> 1.0.1'** <br>
+pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 
 - 3.2 [对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法](http://www.cnblogs.com/boai/p/4977976.html)
 
