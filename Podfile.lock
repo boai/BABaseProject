@@ -31,7 +31,7 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - DACircularProgress (2.3.1)
-  - IQKeyboardManager (4.0.3)
+  - IQKeyboardManager (4.0.2)
   - JMRoundedCorner (1.1.2)
   - LBXAlertAction (1.0.3)
   - Masonry (0.6.4)
@@ -49,6 +49,9 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - Toast (3.0)
   - UMengSocial (4.4)
+  - YYKit (1.0.5):
+    - YYKit/no-arc (= 1.0.5)
+  - YYKit/no-arc (1.0.5)
   - ZXingObjC (3.1.0):
     - ZXingObjC/All (= 3.1.0)
   - ZXingObjC/All (3.1.0)
@@ -70,6 +73,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.5)
   - Toast (~> 3.0)
   - UMengSocial (~> 4.4)
+  - YYKit
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
@@ -77,7 +81,7 @@ SPEC CHECKSUMS:
   BAButton: bb8f74e5e167a7e01ce8c0a66eafc3245ebb8c31
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1
+  IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
   JMRoundedCorner: d7c7d95f21251bcb52849ef4c99ac07e6c60ed2f
   LBXAlertAction: e904f511f0e44fde323e056691d7a8a99d71faba
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
@@ -90,6 +94,7 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
   UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0
+  YYKit: f2654fe525de2283648db957bddb37ddd8e06549
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
 COCOAPODS: 0.39.0

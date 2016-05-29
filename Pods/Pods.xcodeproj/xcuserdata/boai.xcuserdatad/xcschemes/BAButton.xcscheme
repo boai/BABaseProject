@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AA9AF347CFE053BAF5FD031A'
+               BlueprintIdentifier = 'B5E3CECB37731BB15BA96E46'
                BlueprintName = 'BAButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libBAButton.a'>

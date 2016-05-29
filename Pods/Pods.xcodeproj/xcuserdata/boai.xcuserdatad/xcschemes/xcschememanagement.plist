@@ -94,6 +94,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ZXingObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D84ED188BFE1BF84D75BE66DDF9C6D3</key>
+		<key>42C065E9324542F341FE31C4A5432A61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +127,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D7078CD93FDB7804577A046FA127493</key>
+		<key>64E7B1A124A560FA4FA251CF38115AA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A2925DF3EE9350373F98B4C1DA55A9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,11 +143,6 @@
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>93C631BFE88419ED8A77AE8BA24BF65F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,17 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB988FBACDFAFFFCF7DD274D743C6018</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B58AE9150F017AC1E3E69371EC850776</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C743C42395D3C33F9883CB4690B475A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC0914D711769F6A227EB7423DA58CDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -183,6 +188,11 @@
 			<true/>
 		</dict>
 		<key>E2FE87384A67337831E53490EEA8BF11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDE2E0098BBAC556E919939C797F8042</key>
 		<dict>
 			<key>primary</key>
 			<true/>

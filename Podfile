@@ -59,6 +59,8 @@ target 'BABaseProject' do
     # 线性布局MyLinearLayout/相对布局MyRelativeLayout/框架布局MyFrameLayout/表格布局MyTableLayout/流式布局MyFlowLayout/浮动布局MyFloatLayout/SizeClass的支持
     pod 'MyLayout', '~> 1.1.6'
 
+    # 各种封装的集合！大神的多年积累！
+    pod 'YYKit'
     
     # 一个支持多选、选原图和视频的图片选择器，同时有预览功能，适配了iOS6789系统。
 #    pod 'TZImagePickerController'
