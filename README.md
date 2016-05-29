@@ -70,13 +70,13 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录
 
 #### 2016-05-25  版本：2.0 
-- 5.2.04、新增DemoVC8，系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！
+- 5.2.04、新增DemoVC8，系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！详情请看：[『BAReminderDemo』](https://github.com/boai/BAReminderDemo)！
 
 #### 2016-05-25  版本：2.0 
 - 5.2.03、新增DemoVC7，webView和WKWebView完美封装，简单的内置浏览器，有简单的功能，后期有新功能会加上！如果喜欢，请在git上点个星吧！
 
 #### 2016-05-10  版本：2.0 
-- 5.2.02、新增DemoVC6，本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！
+- 5.2.02、新增DemoVC6，本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！详情请看：[『BALocalNotification』](https://github.com/boai/BALocalNotification)！
 
 #### 2016-05-10  版本：2.0 
 - 5.2.01、新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装[『BASegmentControl』](https://github.com/boai/BASegmentControl)，可随时取用！
