@@ -41,10 +41,12 @@
 {
     // 此处使用两个时间戳的差来计算，10秒后开启通知
     NSInteger time = [[NSString BA_time_getTimeStamp] integerValue] + 10 - [[NSString BA_time_getTimeStamp] integerValue];
+    
+//    NSDate *fireDate = [NSDate ba_NSDateTransformWithNSDateTimeSp:@"1464586860"];
+    NSLog(@"***** 通知时间：%ld", (long)time);
     [BALocalNotification registerLocalNotification:time];
     
     /*! 记得要看 #import "AppDelegate+BACategory.h" 里面的回调哦！ #pragma mark - ***** 本地通知回调 */
-    
 }
 
 - (void)reloadNotiView

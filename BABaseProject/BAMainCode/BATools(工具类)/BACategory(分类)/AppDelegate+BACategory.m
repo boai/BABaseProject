@@ -309,6 +309,16 @@
 }
 
 #pragma mark - ***** 本地通知回调
+
+#pragma mark 调用过用户注册通知方法之后执行（也就是调用完registerUserNotificationSettings:方法之后执行）
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    if (notificationSettings.types!=UIUserNotificationTypeNone)
+    {
+//        [self addLocalNotification];
+    }
+}
+
 - (void)application:(UIApplication *)application
 didReceiveLocalNotification:(UILocalNotification *)notification
 {
@@ -320,7 +330,13 @@ didReceiveLocalNotification:(UILocalNotification *)notification
     {
         // 这里真实需要处理交互的地方
         // 获取通知所带的数据
-        [self.window.rootViewController BAAlertWithTitle:@"温馨提示：" message:userInfo[@"userKey"] andOthers:@[@"取消", @"确定"] animated:YES action:^(NSInteger index) {
+        if (self.LocalNotificationDic)
+        {
+            self.LocalNotificationDic = nil;
+        }
+        self.LocalNotificationDic = userInfo[@"userNoti"];
+        
+        [self.window.rootViewController BAAlertWithTitle:@"温馨提示：" message:self.LocalNotificationDic[@"userKey"] andOthers:@[@"取消", @"确定"] animated:YES action:^(NSInteger index) {
             
             if (index == 0)
             {

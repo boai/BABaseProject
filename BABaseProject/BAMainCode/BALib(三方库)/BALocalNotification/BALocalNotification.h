@@ -64,7 +64,7 @@
 @interface BALocalNotification : NSObject
 
 // 设置本地通知
-+ (void)registerLocalNotification:(NSInteger)alertTime;
++ (void)registerLocalNotification:(NSInteger)fireTime;
 + (void)cancelLocalNotificationWithKey:(NSString *)key;
 
 @end

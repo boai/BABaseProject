@@ -97,6 +97,8 @@
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
 		C4D108041CE2FC1C00F735B9 /* view3.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FF1CE2FC1C00F735B9 /* view3.m */; };
 		C4D108051CE2FC1C00F735B9 /* view4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D108011CE2FC1C00F735B9 /* view4.m */; };
+		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
+		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
 		C4EB5AAE1CD8B04B003A7094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */; };
@@ -410,6 +412,10 @@
 		C4D107FF1CE2FC1C00F735B9 /* view3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view3.m; sourceTree = "<group>"; };
 		C4D108001CE2FC1C00F735B9 /* view4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view4.h; sourceTree = "<group>"; };
 		C4D108011CE2FC1C00F735B9 /* view4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view4.m; sourceTree = "<group>"; };
+		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
+		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
+		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
+		C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10_CollectionView.m; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EB5AA41CD8B04B003A7094 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -938,6 +944,10 @@
 		C4EA257E1CF7DF4B00F6081C /* DemoVC10 */ = {
 			isa = PBXGroup;
 			children = (
+				C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */,
+				C4EA25801CF7DFEC00F6081C /* DemoVC10.m */,
+				C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */,
+				C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */,
 			);
 			path = DemoVC10;
 			sourceTree = "<group>";
@@ -1887,6 +1897,7 @@
 				C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */,
 				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */,
+				C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */,
 				C4EB5BCE1CD8B250003A7094 /* NSObject+BANetwork.m in Sources */,
 				C41B8F651CF00A290037EE27 /* HMSegmentedControl.m in Sources */,
 				C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */,
@@ -1902,6 +1913,7 @@
 				C46B89F21CE020F700005E2B /* UITableView+BAKit.m in Sources */,
 				C46B89D71CE020F700005E2B /* BALog.m in Sources */,
 				C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */,
+				C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */,
 				C46B89F51CE020F700005E2B /* UIWebView+BAKit.m in Sources */,
 				C46B89DC1CE020F700005E2B /* NSArray+BAKit.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,

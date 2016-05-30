@@ -63,18 +63,21 @@
 @implementation BALocalNotification
 
 // 设置本地通知
-+ (void)registerLocalNotification:(NSInteger)alertTime
++ (void)registerLocalNotification:(NSInteger)fireTime
 {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     // 设置触发通知的时间
-    NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:alertTime];
-    NSLog(@"fireDate=%@",fireDate);
+    NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:fireTime];
+    NSLog(@"fireDate = %@",fireDate);
     
     notification.fireDate = fireDate;
     // 时区
     notification.timeZone = [NSTimeZone defaultTimeZone];
     // 设置重复的间隔
     notification.repeatInterval = kCFCalendarUnitSecond;
+    
+    // 当前日历，使用前最好设置时区等信息以便能够自动同步时间
+    notification.repeatCalendar=[NSCalendar currentCalendar];
     
     // 通知内容
     notification.alertBody =  @"笨蛋，让你平时不好好敲代码，看看，本地通知都不会做！";
@@ -102,12 +105,12 @@
                                                                                  categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         // 通知重复提示的单位，可以是天、周、月
-        notification.repeatInterval = NSCalendarUnitDay;
+//        notification.repeatInterval = NSCalendarUnitDay;
     }
     else
     {
         // 通知重复提示的单位，可以是天、周、月
-        notification.repeatInterval = NSCalendarUnitDay;
+//        notification.repeatInterval = NSCalendarUnitDay;
     }
     
     // 将通知添加到系统中
@@ -127,11 +130,11 @@
     
     for (UILocalNotification *notification in localNotifications)
     {
-        NSDictionary *userInfo = notification.userInfo;
+        NSDictionary *userInfo = notification.userInfo[@"userNoti"];
         if (userInfo)
         {
             // 根据设置通知参数时指定的key来获取通知参数
-            NSString *info = userInfo[key];
+            NSString *info = userInfo[@"userKey"];
             
             // 如果找到需要取消的通知，则取消
             if (info != nil)

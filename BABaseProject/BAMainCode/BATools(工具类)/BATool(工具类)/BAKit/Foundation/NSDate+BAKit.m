@@ -414,7 +414,7 @@
 }
 
 /*! 时间戳转换成日期 */
-+ (NSDate *)NSDateTransformWithNSDateTimeSp:(NSString *)timeSp
++ (NSDate *)ba_NSDateTransformWithNSDateTimeSp:(NSString *)timeSp
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeSp doubleValue]];
     NSTimeZone *zone = [NSTimeZone localTimeZone];
