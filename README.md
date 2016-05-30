@@ -68,6 +68,12 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录【倒叙】
 
+##### 2016-05-30  版本：2.0 
+- 5.2.06、新增DemoVC10，collectionView的简单使用，用View写的写了一个简单的collectionView，可随意添加到任何地方，如果喜欢，请在git上点个星吧！
+
+##### 2016-05-30  版本：2.0 
+- 5.2.05、新增DemoVC9，流式布局和线性布局库的使用，用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！
+
 ##### 2016-05-25  版本：2.0 
 - 5.2.04、新增DemoVC8，系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！详情请看：[『BAReminderDemo』](https://github.com/boai/BAReminderDemo)！
 

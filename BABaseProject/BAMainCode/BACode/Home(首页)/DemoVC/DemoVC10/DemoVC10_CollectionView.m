@@ -57,9 +57,11 @@ static NSString *headerID = @"DemoVC10_ReusableView";
         _collectionView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_collectionView];
         
+        /*! Masonry用法 */
 //        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.edges.mas_equalTo(UIEdgeInsetsMake(0 , 0, 0, 0));
 //        }];
+        /*! SD用法 */
         _collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
         
         _collectionView.dataSource = self;
