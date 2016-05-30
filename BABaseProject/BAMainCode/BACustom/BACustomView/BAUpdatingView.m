@@ -134,11 +134,11 @@
 {
     [UIView animateWithDuration:0.75f animations:^{
         
-        self.snow.alpha     = 0.f;
-        self.snow.transform = CGAffineTransformMake(0.7f, 0, 0, 0.7f, 0, 0);
+        self.snow.alpha        = 0.f;
+        self.snow.transform    = CGAffineTransformMake(0.7f, 0, 0, 0.7f, 0, 0);
         
-        self.label.frame    = self.labelStoreValue.endRect;
-        self.label.alpha    = 0.f;
+        self.label.frame       = self.labelStoreValue.endRect;
+        self.label.alpha       = 0.f;
         
         self.failedLabel.frame = self.failedLabelStoreValue.endRect;
         self.failedLabel.alpha = 0.f;
@@ -148,6 +148,11 @@
         self.label.frame       = self.labelStoreValue.startRect;
         self.snow.transform    = CGAffineTransformMake(1.4, 0, 0, 1.4f, 0, 0);
         self.failedLabel.frame = self.self.failedLabelStoreValue.startRect;
+        
+        [self.label removeFromSuperview];
+        [self.snow removeFromSuperview];
+        [self.failedLabel removeFromSuperview];
+
     }];
 }
 

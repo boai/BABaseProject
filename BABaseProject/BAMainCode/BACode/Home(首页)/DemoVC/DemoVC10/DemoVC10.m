@@ -36,7 +36,7 @@
             
             NSDictionary *dict = [DemoVC10Model mj_keyValuesArrayWithObjectArray:dataArray][indexPath.row];
             NSString *message = [[NSString alloc] initWithFormat:@"你点击了第%ld个section，第%ld个cell：%@",(long)indexPath.section,(long)indexPath.row, dict[@"desc"]];
-            NSLog(@"%@", message);
+            BALog(@"%@", message);
             
             [self.view showAlertView:@"温馨提示：" message:message];
             

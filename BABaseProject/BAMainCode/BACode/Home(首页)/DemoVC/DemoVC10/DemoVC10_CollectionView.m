@@ -133,8 +133,6 @@ static NSString *headerID = @"DemoVC10_ReusableView";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    
     self.indexBlock(self.collectionView, indexPath, [_dataArray mutableCopy]);
 }
 
@@ -158,7 +156,7 @@ static NSString *headerID = @"DemoVC10_ReusableView";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((SCREEN_WIDTH - 80)/3, (SCREEN_WIDTH - 80)/3 + 20);
+    return CGSizeMake((SCREEN_WIDTH - 30)/2, (SCREEN_WIDTH - 30)/2 + 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

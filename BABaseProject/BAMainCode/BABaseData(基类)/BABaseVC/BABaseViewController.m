@@ -295,6 +295,8 @@
     {
         [self.fadeBlackView showFadeBlackView:NO];
         [self.upDatingView hide];
+        [self.upDatingView removeFromSuperview];
+        [self.fadeBlackView removeFromSuperview];
     }
 }
 
