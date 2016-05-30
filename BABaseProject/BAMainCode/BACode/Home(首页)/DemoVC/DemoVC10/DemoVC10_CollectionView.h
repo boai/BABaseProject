@@ -14,9 +14,8 @@ typedef void(^selectItemIndexBlock)(UICollectionView *collection, NSIndexPath *i
 @interface DemoVC10_CollectionView : UIView
 
 @property (nonatomic, strong) UICollectionView      *collectionView;
-@property (nonatomic, strong) NSArray               *dataArray;
 @property (nonatomic, copy  ) selectItemIndexBlock   indexBlock;
 
-
+- (instancetype)initWithFrame:(CGRect)frame withblock:(selectItemIndexBlock)block;
 
 @end

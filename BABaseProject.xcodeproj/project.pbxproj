@@ -31,6 +31,9 @@
 		C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E71CDA263B0004A671 /* RDVTabBar.m */; };
 		C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852EB1CDA26680004A671 /* RDVTabBarController.m */; };
 		C41B8F651CF00A290037EE27 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C41B8F641CF00A290037EE27 /* HMSegmentedControl.m */; };
+		C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41F62551CFC250500294C35 /* DemoVC10Cell.m */; };
+		C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C41F62581CFC253600294C35 /* DemoVC10Model.m */; };
+		C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41F625B1CFC265300294C35 /* DemoVC10_ReusableView.m */; };
 		C423217B1CE72A7000D91F45 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C423217A1CE72A7000D91F45 /* BALocalNotification.m */; };
 		C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = C423217E1CE72ABC00D91F45 /* DemoVC6.m */; };
 		C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6ADE1CDAE10500D534EE /* BATabBar.m */; };
@@ -284,6 +287,12 @@
 		C40852EB1CDA26680004A671 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
 		C41B8F631CF00A290037EE27 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		C41B8F641CF00A290037EE27 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		C41F62541CFC250500294C35 /* DemoVC10Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10Cell.h; sourceTree = "<group>"; };
+		C41F62551CFC250500294C35 /* DemoVC10Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10Cell.m; sourceTree = "<group>"; };
+		C41F62571CFC253600294C35 /* DemoVC10Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10Model.h; sourceTree = "<group>"; };
+		C41F62581CFC253600294C35 /* DemoVC10Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10Model.m; sourceTree = "<group>"; };
+		C41F625A1CFC265300294C35 /* DemoVC10_ReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_ReusableView.h; sourceTree = "<group>"; };
+		C41F625B1CFC265300294C35 /* DemoVC10_ReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10_ReusableView.m; sourceTree = "<group>"; };
 		C42321791CE72A7000D91F45 /* BALocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALocalNotification.h; sourceTree = "<group>"; };
 		C423217A1CE72A7000D91F45 /* BALocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALocalNotification.m; sourceTree = "<group>"; };
 		C423217D1CE72ABC00D91F45 /* DemoVC6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC6.h; sourceTree = "<group>"; };
@@ -948,6 +957,12 @@
 				C4EA25801CF7DFEC00F6081C /* DemoVC10.m */,
 				C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */,
 				C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */,
+				C41F62541CFC250500294C35 /* DemoVC10Cell.h */,
+				C41F62551CFC250500294C35 /* DemoVC10Cell.m */,
+				C41F62571CFC253600294C35 /* DemoVC10Model.h */,
+				C41F62581CFC253600294C35 /* DemoVC10Model.m */,
+				C41F625A1CFC265300294C35 /* DemoVC10_ReusableView.h */,
+				C41F625B1CFC265300294C35 /* DemoVC10_ReusableView.m */,
 			);
 			path = DemoVC10;
 			sourceTree = "<group>";
@@ -1922,6 +1937,7 @@
 				C46B89DA1CE020F700005E2B /* BASystemSound.m in Sources */,
 				C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */,
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,
+				C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */,
 				C4D108041CE2FC1C00F735B9 /* view3.m in Sources */,
 				C46B89E61CE020F700005E2B /* NSThread+BAKit.m in Sources */,
 				C46B89E11CE020F700005E2B /* NSMutableArray+BAKit.m in Sources */,
@@ -1933,6 +1949,7 @@
 				C46B89E51CE020F700005E2B /* NSString+BAKit.m in Sources */,
 				C46B89F61CE020F700005E2B /* UIWindow+BAKit.m in Sources */,
 				C46B89DD1CE020F700005E2B /* NSData+BAKit.m in Sources */,
+				C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */,
 				C4562C781CDDA25E000F5710 /* BAShareManage.m in Sources */,
 				C46B89D91CE020F700005E2B /* BARegularExpression.m in Sources */,
 				C46B89E71CE020F700005E2B /* BACustomModalTransition.m in Sources */,
@@ -1940,6 +1957,7 @@
 				C46B89FC1CE0AE3400005E2B /* DemoVC5_TextPart.m in Sources */,
 				C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */,
 				C46B89F31CE020F700005E2B /* UITextField+BAKit.m in Sources */,
+				C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */,
 				C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */,
 				C46B89E41CE020F700005E2B /* NSProcessInfo+BAKit.m in Sources */,
 				C4EB5BC31CD8B250003A7094 /* LPLevelView.m in Sources */,

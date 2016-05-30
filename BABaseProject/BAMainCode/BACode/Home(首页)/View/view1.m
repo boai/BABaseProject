@@ -78,6 +78,7 @@
     [self addCell:@"7、webView和WKWebView完美封装" content:@"webView和WKWebView的封装，简单的内置浏览器，有简单的功能，后期有新功能会加上！如果喜欢，请在git上点个星吧！" class:@"DemoVC7"];
     [self addCell:@"8、系统提醒和日历提醒" content:@"最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！如果喜欢，请在git上点个星吧！" class:@"DemoVC8"];
     [self addCell:@"9、流式布局和线性布局库的使用" content:@"用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！" class:@"DemoVC9"];
+    [self addCell:@"10、collectionView的简单使用" content:@"写了一个简单的collectionView，如果喜欢，请在git上点个星吧！" class:@"DemoVC10"];
 
 }
 
