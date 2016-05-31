@@ -106,38 +106,38 @@ static char glowDurationFlag;
 }
 
 - (void)startGlow {
-    
+    BA_Weak;
     [self.layer.sublayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CALayer *layer = obj;
         
         // 找到了layer才进行下面的操作
         if ([layer.name isEqualToString:GLOWVIEW_LAYER_FLAG]) {
             
-            if (self.glowViewShowFlag == nil) {
+            if (weakSelf.glowViewShowFlag == nil) {
                 
-                self.glowViewShowFlag = [NSNumber numberWithBool:NO];
+                weakSelf.glowViewShowFlag = [NSNumber numberWithBool:NO];
             }
             
-            if (self.dispatchSource == nil) {
+            if (weakSelf.dispatchSource == nil) {
                 
-                self.dispatchSource = \
+                weakSelf.dispatchSource = \
                 dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(self.dispatchSource, dispatch_time(DISPATCH_TIME_NOW, 0),
-                                          NSEC_PER_SEC * (self.GCDTimerInterval == nil ? 1 : self.GCDTimerInterval.floatValue), 0);
-                dispatch_source_set_event_handler(self.dispatchSource, ^{
+                dispatch_source_set_timer(weakSelf.dispatchSource, dispatch_time(DISPATCH_TIME_NOW, 0),
+                                          NSEC_PER_SEC * (weakSelf.GCDTimerInterval == nil ? 1 : weakSelf.GCDTimerInterval.floatValue), 0);
+                dispatch_source_set_event_handler(weakSelf.dispatchSource, ^{
                     
-                    if (self.glowViewShowFlag.boolValue == NO) {
+                    if (weakSelf.glowViewShowFlag.boolValue == NO) {
                         
-                        self.glowViewShowFlag = @(YES);
+                        weakSelf.glowViewShowFlag = @(YES);
                         
                         // 做动画，从透明到显示出来
                         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
                         
-                        if (self.glowLayerOpacity != nil) {
+                        if (weakSelf.glowLayerOpacity != nil) {
                             
                             animation.fromValue = @(0.f);
-                            animation.toValue   = [NSNumber numberWithFloat:self.glowLayerOpacity.floatValue];
-                            layer.opacity       = self.glowLayerOpacity.floatValue;
+                            animation.toValue   = [NSNumber numberWithFloat:weakSelf.glowLayerOpacity.floatValue];
+                            layer.opacity       = weakSelf.glowLayerOpacity.floatValue;
                             
                         } else {
                             
@@ -147,9 +147,9 @@ static char glowDurationFlag;
                             
                         }
                         
-                        if (self.glowDuration != nil) {
+                        if (weakSelf.glowDuration != nil) {
                             
-                            animation.duration = self.glowDuration.floatValue;
+                            animation.duration = weakSelf.glowDuration.floatValue;
                             
                         } else {
                             
@@ -160,16 +160,16 @@ static char glowDurationFlag;
                         
                     } else {
                         
-                        self.glowViewShowFlag = @(NO);
+                        weakSelf.glowViewShowFlag = @(NO);
                         
                         // 做动画
                         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
                         animation.fromValue         = [NSNumber numberWithFloat:layer.opacity];
                         animation.toValue           = @(0.f);
                         
-                        if (self.glowDuration != nil) {
+                        if (weakSelf.glowDuration != nil) {
                             
-                            animation.duration = self.glowDuration.floatValue;
+                            animation.duration = weakSelf.glowDuration.floatValue;
                             layer.opacity      = 0.f;
                             
                         } else {
@@ -182,14 +182,14 @@ static char glowDurationFlag;
                     }
                 });
                 
-                dispatch_resume(self.dispatchSource);
+                dispatch_resume(weakSelf.dispatchSource);
             }
         }
     }];
 }
 
 - (void)glowToGlowLayerOnce {
-    
+    BA_Weak;
     [self.layer.sublayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CALayer *layer = obj;
         
@@ -198,11 +198,11 @@ static char glowDurationFlag;
             
             // 做动画，从透明到显示出来
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-            if (self.glowLayerOpacity != nil) {
+            if (weakSelf.glowLayerOpacity != nil) {
                 
                 animation.fromValue = @(0.f);
-                animation.toValue   = [NSNumber numberWithFloat:self.glowLayerOpacity.floatValue];
-                layer.opacity       = self.glowLayerOpacity.floatValue;
+                animation.toValue   = [NSNumber numberWithFloat:weakSelf.glowLayerOpacity.floatValue];
+                layer.opacity       = weakSelf.glowLayerOpacity.floatValue;
                 
             } else {
                 
@@ -211,9 +211,9 @@ static char glowDurationFlag;
                 layer.opacity       = 0.8;
             }
             
-            if (self.glowDuration != nil) {
+            if (weakSelf.glowDuration != nil) {
                 
-                animation.duration = self.glowDuration.floatValue;
+                animation.duration = weakSelf.glowDuration.floatValue;
                 
             } else {
                 
@@ -227,6 +227,7 @@ static char glowDurationFlag;
 
 - (void)glowToNormalLayerOnce {
     
+    BA_Weak;
     [self.layer.sublayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         CALayer *layer = obj;
@@ -236,9 +237,9 @@ static char glowDurationFlag;
         animation.fromValue         = [NSNumber numberWithFloat:layer.opacity];
         animation.toValue           = @(0.f);
         
-        if (self.glowDuration != nil) {
+        if (weakSelf.glowDuration != nil) {
             
-            animation.duration = self.glowDuration.floatValue;
+            animation.duration = weakSelf.glowDuration.floatValue;
             layer.opacity      = 0.f;
             
         } else {

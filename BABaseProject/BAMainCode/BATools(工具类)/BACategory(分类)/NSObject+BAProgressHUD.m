@@ -30,13 +30,14 @@
 /** 弹出文字提示 */
 - (void)BA_showAlert:(NSString *)text
 {
+    BA_Weak;
     // 防止在非主线程中调用此方法,会报错
     dispatch_async(dispatch_get_main_queue(), ^{
         
         // 弹出新的提示之前,先把旧的隐藏掉
         //        [self hideProgress]; // 主线程中会先调用这个，所以速度很快
-        [MBProgressHUD hideAllHUDsForView:[self getCurrentView] animated:YES];
-        MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[self getCurrentView] animated:YES];
+        [MBProgressHUD hideAllHUDsForView:[weakSelf getCurrentView] animated:YES];
+        MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[weakSelf getCurrentView] animated:YES];
         
         progressHUD.mode = MBProgressHUDModeText;
         progressHUD.labelText = text;
@@ -47,9 +48,10 @@
 /** 显示忙 */
 - (void)BA_showBusy
 {
+    BA_Weak;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [MBProgressHUD hideAllHUDsForView:[self getCurrentView] animated:YES];
-        MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[self getCurrentView] animated:YES];
+        MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[weakSelf getCurrentView] animated:YES];
         
         // 最长显示30秒
         [progressHUD hide:YES afterDelay:30];
@@ -59,8 +61,9 @@
 /** 隐藏提示 */
 - (void)BA_hideProgress
 {
+    BA_Weak;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [MBProgressHUD hideAllHUDsForView:[self getCurrentView] animated:YES];
+        [MBProgressHUD hideAllHUDsForView:[weakSelf getCurrentView] animated:YES];
     }];
 }
 

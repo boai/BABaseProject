@@ -22,9 +22,9 @@
 /** 登录后返回的数据 **/
 @property (nonatomic, weak) id<BAShareManageDelegate> delegate;
 /*! 图片数组 */
-@property (nonatomic, strong) NSArray *shareImageArray;
-/*! 分享的名字数组（要和图片名字一一对应哦！） */
-@property (nonatomic, strong) NSArray *shareNameArray;
+//@property (nonatomic, strong) NSArray *shareImageArray;
+///*! 分享的名字数组（要和图片名字一一对应哦！） */
+//@property (nonatomic, strong) NSArray *shareNameArray;
 
 //// 友盟分享SDK的各种key设置【pod下来后只需调用下即可】
 //@property (nonatomic, strong) NSString *BAShareUmengAppkey;

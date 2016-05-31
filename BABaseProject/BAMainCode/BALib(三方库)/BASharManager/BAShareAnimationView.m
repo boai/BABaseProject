@@ -32,6 +32,7 @@
 
 - (id)initWithTitleArray:(NSMutableArray *)titlearray picarray:(NSMutableArray *)picarray title:(NSString *)title
 {
+    BA_Weak;
     self = [super init];
     if (self) {
         self.frame = [UIScreen mainScreen].bounds;
@@ -82,8 +83,8 @@
             [rr.sheetLab setText:[NSString stringWithFormat:@"%@",titlearray[i]]];
             
             [rr selectedIndex:^(NSInteger index, UILabel *sheetLab,id shareType) {
-                [self dismiss];
-                self.block(index,shareType);
+                [weakSelf dismiss];
+                weakSelf.block(index,shareType);
                 
             }];
             
@@ -122,6 +123,7 @@
     UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
     [window addSubview:self];
     
+    BA_Weak;
     [UIView animateWithDuration:0.2 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         _largeView.transform = CGAffineTransformMakeTranslation(0,  - HH);
@@ -129,7 +131,7 @@
             
             CGPoint CLCenterPoint = CGPointMake(SCREENWIDTH/4* i  + (SCREENWIDTH/8), 45);
             
-            BAShareManageView *rr =  (BAShareManageView *)[self viewWithTag:10 + i];
+            BAShareManageView *rr =  (BAShareManageView *)[weakSelf viewWithTag:10 + i];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(i*0.03 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [UIView animateWithDuration:1.0 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     rr.center = CLCenterPoint;
@@ -148,11 +150,12 @@
 }
 
 - (void)dismiss {
+    BA_Weak;
     [UIView animateWithDuration:0 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         _largeView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
+        [weakSelf removeFromSuperview];
     }];
 }
 @end

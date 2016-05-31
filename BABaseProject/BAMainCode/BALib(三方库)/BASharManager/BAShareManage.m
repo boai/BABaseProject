@@ -138,26 +138,27 @@ static BAShareManage *shareManage;
     NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"朋友圈",@"微博", @"QQ",@"空间",nil];
     NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方分享"];
+    BA_Weak;
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
         BALog(@"要分享到的平台");
-        
+
         switch (index)
         {
             case 1:
-                [self BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                [weakSelf BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
                 break;
             case 2:
-                [self BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                [weakSelf BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
                 break;
             case 3:
-                [self BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
                 break;
             case 4:
-                [self BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                [weakSelf BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
                 break;
             case 5:
-                [self BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                [weakSelf BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
                 break;
                 
             default:
@@ -198,6 +199,7 @@ static BAShareManage *shareManage;
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
     
+    BA_Weak;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         //          获取微博用户名、uid、token等
@@ -214,7 +216,7 @@ static BAShareManage *shareManage;
                      @"iconURL" : snsAccount.iconURL
                      };
             // delegate
-            [self.delegate getUserData:dict];
+            [weakSelf.delegate getUserData:dict];
 
             BALog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
         }});
@@ -224,7 +226,7 @@ static BAShareManage *shareManage;
 - (void)BA_QzoneLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone];
-    
+    BA_Weak;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         // 获取微博用户名、uid、token等
@@ -240,7 +242,7 @@ static BAShareManage *shareManage;
                      @"iconURL" : snsAccount.iconURL
                      };
             // delegate
-            [self.delegate getUserData:dict];
+            [weakSelf.delegate getUserData:dict];
 
             BALog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             
@@ -251,7 +253,7 @@ static BAShareManage *shareManage;
 - (void)BA_SinaLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
-    
+    BA_Weak;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         // 获取微博用户名、uid、token等
@@ -267,7 +269,7 @@ static BAShareManage *shareManage;
                      @"iconURL" : snsAccount.iconURL
                      };
             // delegate
-            [self.delegate getUserData:dict];
+            [weakSelf.delegate getUserData:dict];
 
             BALog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             
@@ -286,7 +288,7 @@ static BAShareManage *shareManage;
 - (void)BA_WechatSessionLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
-    
+    BA_Weak;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         if (response.responseCode == UMSResponseCodeSuccess) {
@@ -302,7 +304,7 @@ static BAShareManage *shareManage;
                      };
 
             // delegate
-            [self.delegate getUserData:dict];
+            [weakSelf.delegate getUserData:dict];
 
             BALog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
         }
@@ -315,6 +317,7 @@ static BAShareManage *shareManage;
     NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信", @"微博",  @"QQ", @"空间",nil];
     NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友", @"BASharManager.bundle/新浪微博",  @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方登录"];
+    BA_Weak;
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
         BALog(@"要登录的平台");
@@ -322,16 +325,16 @@ static BAShareManage *shareManage;
         switch (index)
         {
             case 1:
-                [self BA_WechatSessionLogin:viewController];
+                [weakSelf BA_WechatSessionLogin:viewController];
                 break;
             case 2:
-                [self BA_SinaLogin:viewController];
+                [weakSelf BA_SinaLogin:viewController];
                 break;
             case 3:
-                [self BA_QQLogin:viewController];
+                [weakSelf BA_QQLogin:viewController];
                 break;
             case 4:
-                [self BA_QzoneLogin:viewController];
+                [weakSelf BA_QzoneLogin:viewController];
                 break;
 
             default:
