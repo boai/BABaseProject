@@ -68,6 +68,9 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录【倒叙】
 
+##### 2016-05-31  版本：2.0 
+- 5.2.07、新增内存泄露检测，使用检测工具[『MLeaksFinder』](http://wereadteam.github.io/2016/02/22/MLeaksFinder/)！
+
 ##### 2016-05-30  版本：2.0 
 - 5.2.06、新增DemoVC10，collectionView的简单使用，用View写的写了一个简单的collectionView，可随意添加到任何地方，如果喜欢，请在git上点个星吧！
 
