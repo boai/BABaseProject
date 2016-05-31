@@ -1,8 +1,8 @@
 # BABaseProject
 一个基于 MVVM 和 MVC 设计模式的基本项目框架，项目用到的各种类，各种封装，各种三方库的综合项目，欢迎大家使用！ <br>
 
-本项目使用内存泄露检测工具[『MLeaksFinder』](http://wereadteam.github.io/2016/02/22/MLeaksFinder/)！ <br>
-所有demo均检测通过！欢迎大家使用！
+>**本项目使用内存泄露检测工具[『MLeaksFinder』](http://wereadteam.github.io/2016/02/22/MLeaksFinder/)！** <br>
+>**所有demo均检测通过！欢迎大家使用！**
 
 ###### 大家有好的需求，或者项目中遇到的重难点，可以在issue里面提需求，一定要记得联系我哈！有时间我会处理的！
 
