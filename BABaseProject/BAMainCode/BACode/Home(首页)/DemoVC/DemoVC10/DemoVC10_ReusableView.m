@@ -28,7 +28,7 @@
 {
     if (!_titleLabel)
     {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 300, 20)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 20)];
         _titleLabel.textColor = [UIColor blackColor];
         [self addSubview:_titleLabel];
     }

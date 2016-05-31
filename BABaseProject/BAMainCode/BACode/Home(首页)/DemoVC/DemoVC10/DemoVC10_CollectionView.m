@@ -151,12 +151,12 @@ static NSString *headerID = @"DemoVC10_ReusableView";
 #pragma mark - ***** UICollectionViewDelegateFlowLayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(20, 20, 10, 20);
+    return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((SCREEN_WIDTH - 60)/2, (SCREEN_WIDTH - 60)/2 + 20);
+    return CGSizeMake((SCREEN_WIDTH - 30)/2, (SCREEN_WIDTH - 60)/2 + 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

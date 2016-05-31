@@ -35,7 +35,7 @@
     if (!_imageView)
     {
         _imageView = [UIImageView new];
-        _imageView.frame = CGRectMake(0, 0, (SCREEN_WIDTH - 60)/2, (SCREEN_WIDTH - 60)/2);
+        _imageView.frame = CGRectMake(0, 0, (SCREEN_WIDTH - 30)/2, (SCREEN_WIDTH - 60)/2);
         _imageView.userInteractionEnabled = YES;
         [self.contentView addSubview:self.imageView];
     }
@@ -47,7 +47,7 @@
     if (!_descLabel)
     {
         _descLabel = [UILabel new];
-        _descLabel.frame = CGRectMake(0, (SCREEN_WIDTH - 60)/2, (SCREEN_WIDTH - 60)/2, 20);
+        _descLabel.frame = CGRectMake(0, (SCREEN_WIDTH - 60)/2, (SCREEN_WIDTH - 30)/2, 20);
         
         _descLabel.textColor = [UIColor blackColor];
         _descLabel.textAlignment = NSTextAlignmentCenter;
