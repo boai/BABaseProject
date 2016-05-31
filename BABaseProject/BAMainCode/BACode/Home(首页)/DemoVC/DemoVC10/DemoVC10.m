@@ -30,6 +30,7 @@
 #pragma mark - ***** setter / getter
 - (DemoVC10_CollectionView *)collectionView
 {
+    BA_Weak;
     if (!_collectionView)
     {
         _collectionView = [[DemoVC10_CollectionView alloc] initWithFrame:CGRectZero withblock:^(UICollectionView *collection, NSIndexPath *indexPath, NSArray *dataArray) {
@@ -38,7 +39,7 @@
             NSString *message = [[NSString alloc] initWithFormat:@"你点击了第%ld个section，第%ld个cell：%@",(long)indexPath.section,(long)indexPath.row, dict[@"desc"]];
             BALog(@"%@", message);
             
-            [self.view showAlertView:@"温馨提示：" message:message];
+            [weakSelf.view showAlertView:@"温馨提示：" message:message];
             
         }];
         

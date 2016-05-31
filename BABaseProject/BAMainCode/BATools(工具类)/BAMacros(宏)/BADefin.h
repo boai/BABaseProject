@@ -76,6 +76,9 @@
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
 
 
+/*! weak */
+#define BA_Weak  __weak __typeof(self) weakSelf = self
+
 /*! 用safari打开URL */
 #define BA_OpenUrl(urlStr) [BASharedApplication openURL:urlStr]
 
