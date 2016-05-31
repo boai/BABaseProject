@@ -10,6 +10,9 @@ inhibit_all_warnings!
 
 target 'BABaseProject' do
     
+    # 自定义button框架
+    pod 'BAButton', '~> 1.0.1'
+    
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry', '~> 0.6.4'
     # 两个都是自动布局框架
@@ -24,9 +27,6 @@ target 'BABaseProject' do
     # 键盘框架
     pod 'IQKeyboardManager'
     
-    # 自定义button框架
-    pod 'BAButton', '~> 1.0.1'
-    
     # 专门用于转换 Array/Dictionary -> 对象模型 主要用于JSON解析，基本都用这个框架（必会）
     pod 'MJExtension', '~> 3.0.10'
     
@@ -37,16 +37,16 @@ target 'BABaseProject' do
     pod 'MBProgressHUD'
     
     # 网络或本地 多张图片浏览 控制器
-    pod 'MWPhotoBrowser'
-    
+#    pod 'MWPhotoBrowser'
+
     # 友盟分享
     pod 'UMengSocial', '~> 4.4'
     
     # 二维码
     #pod 'LBXScan','~> 1.1.1'
-    pod 'LBXAlertAction'
-    pod 'ZXingObjC', '~> 3.0'
-    
+#    pod 'LBXAlertAction'
+#    pod 'ZXingObjC', '~> 3.0'
+
     # 离屏渲染，切边角
     pod 'JMRoundedCorner', '~> 1.1.2'
     
@@ -61,6 +61,9 @@ target 'BABaseProject' do
 
     # 各种封装的集合！大神的多年积累！
     pod 'YYKit'
+    
+    # 内存泄露检测工具
+    pod 'MLeaksFinder'
     
     # 一个支持多选、选原图和视频的图片选择器，同时有预览功能，适配了iOS6789系统。
 #    pod 'TZImagePickerController'

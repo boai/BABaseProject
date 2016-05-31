@@ -156,7 +156,7 @@ static NSString *headerID = @"DemoVC10_ReusableView";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((SCREEN_WIDTH - 30)/2, (SCREEN_WIDTH - 30)/2 + 20);
+    return CGSizeMake((SCREEN_WIDTH - 60)/2, (SCREEN_WIDTH - 60)/2 + 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

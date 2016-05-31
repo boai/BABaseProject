@@ -105,6 +105,8 @@ void _IQShowLog(NSString *logString);
 
 /*******************************************/
 
+@property(nonatomic, strong, nonnull, readwrite) NSMutableSet<Class> *registeredClasses;
+
 @property(nonatomic, strong, nonnull, readwrite) NSMutableSet<Class> *disabledDistanceHandlingClasses;
 @property(nonatomic, strong, nonnull, readwrite) NSMutableSet<Class> *enabledDistanceHandlingClasses;
 
@@ -193,13 +195,17 @@ void _IQShowLog(NSString *logString);
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 
+            strongSelf.registeredClasses = [[NSMutableSet alloc] init];
+
 			//  Registering for UITextField notification.
-            [self addTextFieldViewDidBeginEditingNotificationName:UITextFieldTextDidBeginEditingNotification
-                                    didEndEditingNotificationName:UITextFieldTextDidEndEditingNotification];
+            [self registerTextFieldViewClass:[UITextField class]
+             didBeginEditingNotificationName:UITextFieldTextDidBeginEditingNotification
+               didEndEditingNotificationName:UITextFieldTextDidEndEditingNotification];
 
             //  Registering for UITextView notification.
-            [self addTextFieldViewDidBeginEditingNotificationName:UITextViewTextDidBeginEditingNotification
-                                    didEndEditingNotificationName:UITextViewTextDidEndEditingNotification];
+            [self registerTextFieldViewClass:[UITextView class]
+             didBeginEditingNotificationName:UITextViewTextDidBeginEditingNotification
+               didEndEditingNotificationName:UITextViewTextDidEndEditingNotification];
 
             //  Registering for orientation changes notification
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willChangeStatusBarOrientation:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
@@ -585,8 +591,23 @@ void _IQShowLog(NSString *logString);
 	
     _IQShowLog([NSString stringWithFormat:@"Need to move: %.2f",move]);
 
-    //  Getting it's superScrollView.   //  (Enhancement ID: #21, #24)
-    UIScrollView *superScrollView = (UIScrollView*)[_textFieldView superviewOfClassType:[UIScrollView class]];
+    UIScrollView *superScrollView = nil;
+    UIScrollView *superView = (UIScrollView*)[_textFieldView superviewOfClassType:[UIScrollView class]];
+
+    //Getting UIScrollView whose scrolling is enabled.    //  (Bug ID: #285)
+    while (superView)
+    {
+        if (superView.isScrollEnabled)
+        {
+            superScrollView = superView;
+            break;
+        }
+        else
+        {
+            //  Getting it's superScrollView.   //  (Enhancement ID: #21, #24)
+            superView = (UIScrollView*)[superView superviewOfClassType:[UIScrollView class]];
+        }
+    }
     
     //If there was a lastScrollView.    //  (Bug ID: #34)
     if (_lastScrollView)
@@ -730,7 +751,7 @@ void _IQShowLog(NSString *logString);
             {
                 CGRect lastScrollViewRect = [[_lastScrollView superview] convertRect:_lastScrollView.frame toView:keyWindow];
 
-                CGFloat bottom = kbSize.height-(CGRectGetHeight(keyWindow.frame)-CGRectGetMaxY(lastScrollViewRect));
+                CGFloat bottom = kbSize.height-keyboardDistanceFromTextField-(CGRectGetHeight(keyWindow.frame)-CGRectGetMaxY(lastScrollViewRect));
 
                 // Update the insets so that the scroll vew doesn't shift incorrectly when the offset is near the bottom of the scroll view.
                 UIEdgeInsets movedInsets = _lastScrollView.contentInset;
@@ -748,19 +769,11 @@ void _IQShowLog(NSString *logString);
                     strongSelf.lastScrollView.contentInset = movedInsets;
                     
                     UIEdgeInsets newInset = strongSelf.lastScrollView.scrollIndicatorInsets;
-                    newInset.bottom = movedInsets.bottom - 10;
+                    newInset.bottom = movedInsets.bottom;
                     strongSelf.lastScrollView.scrollIndicatorInsets = newInset;
 
                 } completion:NULL];
 
-                //Maintaining contentSize
-                if (_lastScrollView.contentSize.height<_lastScrollView.frame.size.height)
-                {
-                    CGSize contentSize = _lastScrollView.contentSize;
-                    contentSize.height = _lastScrollView.frame.size.height;
-                    _lastScrollView.contentSize = contentSize;
-                }
-                
                 _IQShowLog([NSString stringWithFormat:@"%@ new ContentInset : %@",[_lastScrollView _IQDescription], NSStringFromUIEdgeInsets(_lastScrollView.contentInset)]);
             }
         }
@@ -909,6 +922,22 @@ void _IQShowLog(NSString *logString);
     }
     
     _IQShowLog([NSString stringWithFormat:@"****** %@ ended ******",NSStringFromSelector(_cmd)]);
+}
+
+#pragma mark - Public Methods
+
+/*  Refreshes textField/textView position if any external changes is explicitly made by user.   */
+- (void)reloadLayoutIfNeeded
+{
+    if ([self privateIsEnabled] == NO)	return;
+    
+    if (_textFieldView != nil &&
+        _isKeyboardShowing == YES &&
+        CGRectEqualToRect(_topViewBeginRect, CGRectZero) == false &&
+        [_textFieldView isAlertViewTextField] == NO)
+    {
+        [self adjustFrame];
+    }
 }
 
 #pragma mark - UIKeyboad Notification methods
@@ -1839,9 +1868,12 @@ void _IQShowLog(NSString *logString);
 /**
  Add customised Notification for third party customised TextField/TextView.
  */
--(void)addTextFieldViewDidBeginEditingNotificationName:(nonnull NSString *)didBeginEditingNotificationName
-                         didEndEditingNotificationName:(nonnull NSString *)didEndEditingNotificationName
+-(void)registerTextFieldViewClass:(nonnull Class)aClass
+  didBeginEditingNotificationName:(nonnull NSString *)didBeginEditingNotificationName
+    didEndEditingNotificationName:(nonnull NSString *)didEndEditingNotificationName
 {
+    [_registeredClasses addObject:aClass];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldViewDidBeginEditing:) name:didBeginEditingNotificationName object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldViewDidEndEditing:) name:didEndEditingNotificationName object:nil];
 }
