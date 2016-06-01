@@ -42,6 +42,7 @@
 		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C437CB1F1CEF09CD00FCA331 /* BAModal.m in Sources */ = {isa = PBXBuildFile; fileRef = C437CB1E1CEF09CD00FCA331 /* BAModal.m */; };
+		C455A1BE1CFE72DD00368F54 /* DemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = C455A1BD1CFE72DD00368F54 /* DemoVC11.m */; };
 		C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C6A1CDD9F05000F5710 /* DemoVC4.m */; };
 		C4562C771CDDA25E000F5710 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C711CDDA25E000F5710 /* BAShareAnimationView.m */; };
 		C4562C781CDDA25E000F5710 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C731CDDA25E000F5710 /* BAShareManage.m */; };
@@ -309,6 +310,8 @@
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C437CB1D1CEF09CD00FCA331 /* BAModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAModal.h; sourceTree = "<group>"; };
 		C437CB1E1CEF09CD00FCA331 /* BAModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAModal.m; sourceTree = "<group>"; };
+		C455A1BC1CFE72DD00368F54 /* DemoVC11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC11.h; sourceTree = "<group>"; };
+		C455A1BD1CFE72DD00368F54 /* DemoVC11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC11.m; sourceTree = "<group>"; };
 		C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProjectNoti.h; sourceTree = "<group>"; };
 		C4562C691CDD9F05000F5710 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		C4562C6A1CDD9F05000F5710 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
@@ -686,6 +689,7 @@
 				C4ACE3001CF5C8FA00313DD4 /* DemoVC8 */,
 				C473CC761CF7234E001883A9 /* DemoVC9 */,
 				C4EA257E1CF7DF4B00F6081C /* DemoVC10 */,
+				C455A1BB1CFE72B400368F54 /* DemoVC11 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -742,6 +746,16 @@
 				C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */,
 			);
 			path = DemoVC7;
+			sourceTree = "<group>";
+		};
+		C455A1BB1CFE72B400368F54 /* DemoVC11 */ = {
+			isa = PBXGroup;
+			children = (
+				C455A1BC1CFE72DD00368F54 /* DemoVC11.h */,
+				C455A1BD1CFE72DD00368F54 /* DemoVC11.m */,
+			);
+			name = DemoVC11;
+			path = DemoVC10/DemoVC11;
 			sourceTree = "<group>";
 		};
 		C4562C681CDD9EF1000F5710 /* DemoVC4 */ = {
@@ -1948,6 +1962,7 @@
 				C40852A61CD9E25D0004A671 /* BAFadeBlackView.m in Sources */,
 				C46B89E51CE020F700005E2B /* NSString+BAKit.m in Sources */,
 				C46B89F61CE020F700005E2B /* UIWindow+BAKit.m in Sources */,
+				C455A1BE1CFE72DD00368F54 /* DemoVC11.m in Sources */,
 				C46B89DD1CE020F700005E2B /* NSData+BAKit.m in Sources */,
 				C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */,
 				C4562C781CDDA25E000F5710 /* BAShareManage.m in Sources */,

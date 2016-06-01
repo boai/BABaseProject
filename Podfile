@@ -65,6 +65,9 @@ target 'BABaseProject' do
     # 内存泄露检测工具
     pod 'MLeaksFinder'
     
+    # 一个 UICollectionViewLayout，长按可以拖拽排序，同时支持纵向和横线滚动。
+    pod 'LewReorderableLayout'
+    
     # WebView的进度条
 #    pod 'NJKWebViewProgress'
     

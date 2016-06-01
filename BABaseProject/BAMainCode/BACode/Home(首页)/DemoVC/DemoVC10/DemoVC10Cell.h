@@ -13,5 +13,7 @@
 
 @property (nonatomic, strong) DemoVC10Model *model;
 
+/*! cell右上角的删除按钮 */
+@property (nonatomic, strong) UIButton      *deleteButton;
 
 @end

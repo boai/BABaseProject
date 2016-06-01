@@ -10,4 +10,7 @@
 
 @interface DemoVC10 : BABaseViewController
 
+@property (nonatomic, strong) UIButton *editButton;
+
+
 @end

@@ -11,7 +11,9 @@
 
 @implementation DemoVC10Cell
 {
+    /*! cell中的描述文本 */
     UILabel      *_descLabel;
+    /*! cell中的图片 */
     UIImageView  *_imageView;
 }
 
@@ -28,6 +30,7 @@
 {
     self.imageView.hidden = NO;
     self.descLabel.hidden = NO;
+    self.deleteButton.hidden = NO;
 }
 
 - (UIImageView *)imageView
@@ -54,6 +57,19 @@
         [self.contentView addSubview:_descLabel];
     }
     return _descLabel;
+}
+
+- (UIButton *)deleteButton
+{
+    if (!_deleteButton)
+    {
+        _deleteButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 30)/2 - 35, 5, 30, 30)];
+        [self.deleteButton setImage:[UIImage imageNamed:@"BACollectionView.bundle/close.png"] forState:UIControlStateNormal];
+        /*! 先设置不可见 */
+        [self.deleteButton setHidden:YES];
+        [self.contentView addSubview:self.deleteButton];
+    }
+    return _deleteButton;
 }
 
 - (void)setModel:(DemoVC10Model *)model

@@ -11,8 +11,8 @@
 #import "DemoVC10Cell.h"
 #import "DemoVC10_ReusableView.h"
 
-static NSString *cellID = @"DemoVC10Cell";
-static NSString *headerID = @"DemoVC10_ReusableView";
+static NSString * const cellID = @"DemoVC10Cell";
+static NSString * const headerID = @"DemoVC10_ReusableView";
 
 @interface DemoVC10_CollectionView ()
 <
@@ -21,6 +21,7 @@ static NSString *headerID = @"DemoVC10_ReusableView";
     UICollectionViewDelegateFlowLayout
 >
 @property (nonatomic, strong) UICollectionViewFlowLayout  *flowLayout;
+
 @property (nonatomic, strong) NSMutableArray              *dataArray;
 
 
@@ -69,6 +70,9 @@ static NSString *headerID = @"DemoVC10_ReusableView";
         
         [_collectionView registerClass:[DemoVC10Cell class] forCellWithReuseIdentifier:cellID];
         [_collectionView registerClass:[DemoVC10_ReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID];
+        
+        /*! 默认是正常状态 */
+        _cellState = DemoVC10_cellStateNormal;
     }
     return _collectionView;
 }
@@ -114,7 +118,7 @@ static NSString *headerID = @"DemoVC10_ReusableView";
 #pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 3;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -128,8 +132,39 @@ static NSString *headerID = @"DemoVC10_ReusableView";
     
     cell.model = self.dataArray[indexPath.row];
     
+    /*! 设置删除按钮 */
+    /*! 点击编辑按钮触发事件 */
+    if (_cellState == DemoVC10_cellStateNormal)
+    {
+        /*! 正常情况下，所有删除按钮都隐藏； */
+        cell.deleteButton.hidden = YES;
+    }
+    else
+    {
+        cell.deleteButton.hidden = NO;
+    }
+    
+    [cell.deleteButton addTarget:self action:@selector(deleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
+
+- (IBAction)deleteButtonAction:(UIButton *)sender
+{
+    /*! 获取cell */
+    DemoVC10Cell *cell = (DemoVC10Cell *)[[sender superview] superview];
+    /*! 获取cell */
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    NSLog(@"删除按钮，section:%ld ,   row: %ld",(long)indexPath.section,(long)indexPath.row);
+
+    /*! 删除cell */
+//    DemoVC10Model *model = [self.dataArray objectAtIndex:indexPath.row];
+    [self.dataArray removeObjectAtIndex:indexPath.row];
+    [self.collectionView reloadData];
+    NSLog(@"删除按钮，section:%ld ,   row: %ld",(long)indexPath.section,(long)indexPath.row);
+}
+
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

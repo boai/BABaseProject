@@ -9,6 +9,7 @@
 #import "DemoVC10.h"
 #import "DemoVC10_CollectionView.h"
 #import "DemoVC10Model.h"
+#import "DemoVC10Cell.h"
 
 @interface DemoVC10 ()
 
@@ -22,9 +23,50 @@
 {
     [super viewDidLoad];
 
+    self.title                 = @"collectionView";
     [self setVCBgColor:BA_Yellow_Color];
     self.collectionView.hidden = NO;
+    self.editButton.hidden     = NO;
 
+}
+
+- (UIButton *)editButton
+{
+    if (!_editButton)
+    {
+        _editButton = [[UIButton alloc] init];
+        [_editButton setTintColor:BA_Orange_Color];
+        [_editButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [_editButton addTarget:self action:@selector(editButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_editButton sizeToFit];
+        
+        UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:_editButton];
+        self.navigationItem.rightBarButtonItem = menuItem;
+    }
+    return _editButton;
+}
+
+- (IBAction)editButtonAction:(UIButton *)sender
+{
+    /*! 从正常状态变为可删除状态 */
+    if (self.collectionView.cellState == DemoVC10_cellStateNormal)
+    {
+        self.collectionView.cellState = DemoVC10_cellStateDelete;
+        [self.editButton setTitle:@"完成" forState:UIControlStateNormal];
+        
+        /*! 循环遍历整个CollectionView */
+        for (DemoVC10Cell *cell in self.collectionView.collectionView.visibleCells)
+        {
+            //            NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+            cell.deleteButton.hidden = NO;
+        }
+    }
+    else if (self.collectionView.cellState == DemoVC10_cellStateDelete)
+    {
+        self.collectionView.cellState = DemoVC10_cellStateNormal;
+        [self.editButton setTitle:@"编辑" forState:UIControlStateNormal];
+    }
+    [self.collectionView.collectionView reloadData];
 }
 
 #pragma mark - ***** setter / getter
