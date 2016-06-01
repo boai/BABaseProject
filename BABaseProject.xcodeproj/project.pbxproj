@@ -96,6 +96,8 @@
 		C4ACE3031CF5C90C00313DD4 /* DemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */; };
 		C4ACE3051CF5C96200313DD4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE3041CF5C96200313DD4 /* EventKit.framework */; };
 		C4ACE3071CF5C96B00313DD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE3061CF5C96B00313DD4 /* CoreGraphics.framework */; };
+		C4BAA57C1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BAA57B1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.m */; };
+		C4BAA57F1CFEEB81005FDAF8 /* DemoVC11_model.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BAA57E1CFEEB81005FDAF8 /* DemoVC11_model.m */; };
 		C4C802511CF5AFAE00AD5B3B /* BAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8024F1CF5AFAE00AD5B3B /* BAWebViewController.m */; };
 		C4D108021CE2FC1C00F735B9 /* view1.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FB1CE2FC1C00F735B9 /* view1.m */; };
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
@@ -414,6 +416,10 @@
 		C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC8.m; sourceTree = "<group>"; };
 		C4ACE3041CF5C96200313DD4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		C4ACE3061CF5C96B00313DD4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C4BAA57A1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC11_AutoLayout.h; sourceTree = "<group>"; };
+		C4BAA57B1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC11_AutoLayout.m; sourceTree = "<group>"; };
+		C4BAA57D1CFEEB81005FDAF8 /* DemoVC11_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC11_model.h; sourceTree = "<group>"; };
+		C4BAA57E1CFEEB81005FDAF8 /* DemoVC11_model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC11_model.m; sourceTree = "<group>"; };
 		C4C8024F1CF5AFAE00AD5B3B /* BAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAWebViewController.m; sourceTree = "<group>"; };
 		C4C802501CF5AFAE00AD5B3B /* BAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAWebViewController.h; sourceTree = "<group>"; };
 		C4D107FA1CE2FC1C00F735B9 /* view1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view1.h; sourceTree = "<group>"; };
@@ -753,6 +759,10 @@
 			children = (
 				C455A1BC1CFE72DD00368F54 /* DemoVC11.h */,
 				C455A1BD1CFE72DD00368F54 /* DemoVC11.m */,
+				C4BAA57D1CFEEB81005FDAF8 /* DemoVC11_model.h */,
+				C4BAA57E1CFEEB81005FDAF8 /* DemoVC11_model.m */,
+				C4BAA57A1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.h */,
+				C4BAA57B1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.m */,
 			);
 			name = DemoVC11;
 			path = DemoVC10/DemoVC11;
@@ -1935,6 +1945,7 @@
 				C46B89D51CE020F700005E2B /* BAAPP.m in Sources */,
 				C46B89EC1CE020F700005E2B /* UIDevice+BAKit.m in Sources */,
 				C4EB5BCB1CD8B250003A7094 /* AppDelegate+BACategory.m in Sources */,
+				C4BAA57C1CFED3F2005FDAF8 /* DemoVC11_AutoLayout.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
 				C4D108031CE2FC1C00F735B9 /* view2.m in Sources */,
 				C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */,
@@ -1964,6 +1975,7 @@
 				C46B89F61CE020F700005E2B /* UIWindow+BAKit.m in Sources */,
 				C455A1BE1CFE72DD00368F54 /* DemoVC11.m in Sources */,
 				C46B89DD1CE020F700005E2B /* NSData+BAKit.m in Sources */,
+				C4BAA57F1CFEEB81005FDAF8 /* DemoVC11_model.m in Sources */,
 				C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */,
 				C4562C781CDDA25E000F5710 /* BAShareManage.m in Sources */,
 				C46B89D91CE020F700005E2B /* BARegularExpression.m in Sources */,
