@@ -118,7 +118,7 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
 #pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -163,8 +163,6 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
     [self.collectionView reloadData];
     NSLog(@"删除按钮，section:%ld ,   row: %ld",(long)indexPath.section,(long)indexPath.row);
 }
-
-
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
