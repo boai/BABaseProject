@@ -65,6 +65,9 @@ target 'BABaseProject' do
     # 内存泄露检测工具
     pod 'MLeaksFinder'
     
+    # WebView的进度条
+#    pod 'NJKWebViewProgress'
+    
     # 一个支持多选、选原图和视频的图片选择器，同时有预览功能，适配了iOS6789系统。
 #    pod 'TZImagePickerController'
 
