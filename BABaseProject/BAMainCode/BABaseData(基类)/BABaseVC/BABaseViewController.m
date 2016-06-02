@@ -330,7 +330,7 @@
             case AFNetworkReachabilityStatusUnknown: // 未知网络
             {
                 BALog(@"当前网络未知！");
-                [self BA_showAlert:@"当前网络未知！"];
+                [self BA_showAlertWithTitle:@"当前网络未知！"];
                 break;
             }
             case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
@@ -365,7 +365,7 @@
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
             {
                 BALog(@"当前是WiFi环境！");
-                [self BA_showAlert:@"当前是WiFi环境！"];
+                [self BA_showAlertWithTitle:@"当前是WiFi环境！"];
                 break;
             }
         }

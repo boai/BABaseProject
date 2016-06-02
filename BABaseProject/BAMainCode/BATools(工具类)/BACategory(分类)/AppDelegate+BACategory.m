@@ -109,19 +109,19 @@
         {
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 BALog(@"当前是WiFi环境！");
-                [self BA_showAlert:@"当前是WiFi环境！"];
+                [self BA_showAlertWithTitle:@"当前是WiFi环境！"];
                 break;
             case AFNetworkReachabilityStatusNotReachable:
                 BALog(@"当前无网络！");
-                [self BA_showAlert:@"当前无网络！"];
+                [self BA_showAlertWithTitle:@"当前无网络！"];
                 break;
             case AFNetworkReachabilityStatusUnknown:
                 BALog(@"当前网络未知！");
-                [self BA_showAlert:@"当前网络未知！"];
+                [self BA_showAlertWithTitle:@"当前网络未知！"];
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
                 BALog(@"当前是蜂窝网络！");
-                [self BA_showAlert:@"当前是蜂窝网络！"];
+                [self BA_showAlertWithTitle:@"当前是蜂窝网络！"];
                 break;
                 
             default:

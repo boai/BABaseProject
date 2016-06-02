@@ -10,4 +10,9 @@
 
 @interface DemoVC11_model : BABaseModel
 
+@property (nonatomic, strong) NSString *photo_url;
+@property (nonatomic, strong) NSString *desc;
+@property (nonatomic, strong) NSNumber *width;
+@property (nonatomic, strong) NSNumber *height;
+
 @end

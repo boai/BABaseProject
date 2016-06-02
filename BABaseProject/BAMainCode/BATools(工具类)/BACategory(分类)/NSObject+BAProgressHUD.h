@@ -11,13 +11,28 @@
 
 @interface NSObject (BAProgressHUD)
 
-/** 弹出文字提示 */
+/*!
+*  弹出文字提示（菊花转动）
+*
+*  @param text 提示内容
+*/
 - (void)BA_showAlert:(NSString *)text;
 
-/** 显示忙 */
+/*!
+ *  弹出文字提示，自定义显示时间(默认1.5秒)
+ *
+ *  @param text 提示内容
+ */
+- (void)BA_showAlertWithTitle:(NSString *)text;
+
+/*!
+ *  显示忙
+ */
 - (void)BA_showBusy;
 
-/** 隐藏提示 */
+/*!
+ *  隐藏提示
+ */
 - (void)BA_hideProgress;
 
 @end

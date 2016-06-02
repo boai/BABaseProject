@@ -10,11 +10,11 @@
 #define BAURLsPath_h
 
 
-// 宏定义，一定要以K开头，区别系统其他宏
+/*! 示例1：DemoVC1中的网络获取示例 */
 #define KVideoPath @"http://c.m.163.com/nc/video/home/%ld-10.html"
 
-
-
+/*! 示例2：DemoVC11中的网络获取示例 */
+#define DemoVC11URLPath @"http://chanyouji.com/api/users/likes/268717.json?per_page=18&page=1"
 
 
 

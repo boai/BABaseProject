@@ -9,6 +9,10 @@
 #import "BANewsNetManager.h"
 #import "BAURLsPath.h"
 
+
+#import "BAVideoModel.h"
+#import "DemoVC11_model.h"
+
 //static AFHTTPSessionManager *manger = nil;
 
 @implementation BANewsNetManager
@@ -43,6 +47,20 @@
     }];
 }
 
+/*!
+ *  示例2：DemoVC11中的网络获取示例
+ *
+ *  @return DemoVC11中的网络获取示例
+ */
++ (id)getDemoVC11DataCompletionHandle:(void(^)(id model, NSError *error))completionHandle
+{
+//    NSString *urlPath = [];
+    return [self BA_GET_Url:DemoVC11URLPath parameters:nil response:(BAResponseStyleJSON) requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+        
+        completionHandle([DemoVC11_model BAMJParse:model], error);
+        
+    }];
+}
 
 //// 单例写法
 //+ (AFHTTPSessionManager *)sharedAFManager

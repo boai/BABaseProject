@@ -94,7 +94,7 @@
 - (void)getUserData:(NSDictionary *)backUserData
 {
     BA_Weak;
-    [weakSelf BA_showAlert:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
+    [weakSelf BA_showAlertWithTitle:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
     BALog(@"友盟登陆成功，返回信息: %@", backUserData);
 }
 

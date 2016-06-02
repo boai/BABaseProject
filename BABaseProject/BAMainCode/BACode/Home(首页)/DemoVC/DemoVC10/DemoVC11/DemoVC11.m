@@ -7,8 +7,23 @@
 //
 
 #import "DemoVC11.h"
+#import "DemoVC11_model.h"
+#import "DemoVC11_Cell.h"
+#import "DemoVC11_AutoLayout.h"
+#import "BANewsNetManager.h"
+
+static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 
 @interface DemoVC11 ()
+<
+    UICollectionViewDataSource,
+    UICollectionViewDelegate,
+    DemoVC11_AutoLayoutDelegate
+>
+@property (nonatomic, strong) UICollectionView     *collectionView;
+@property (nonatomic, strong) NSMutableArray       *dataArray;
+@property (nonatomic, strong) DemoVC11_AutoLayout  *layout;
+@property (nonatomic, strong) BANewsNetManager     *netManager;
 
 @end
 
@@ -16,25 +31,89 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     [self setVCBgColor:BA_White_Color];
     
+    [self setupLayout];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupLayout
+{
+//    self.netManager = [[BANewsNetManager alloc] init];
+    [self getData];
+    
+//    _layout = [DemoVC11_AutoLayout new];
+//    /*! 列数 */
+//    _layout.columCounts = 3;
+//    /*! 列间距 */
+//    _layout.columSpace = 5;
+//    /*! 行间距 */
+//    _layout.itemSpace = 5;
+//    /*! 边距 */
+//    _layout.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+//    _layout.delegate = self;
+//    
+//    self.collectionView.hidden = NO;
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView)
+    {
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_layout];
+        _collectionView.backgroundColor = BA_Yellow_Color;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        
+        [self.view addSubview:_collectionView];
+        /*! 滚动条隐藏 */
+        _collectionView.showsVerticalScrollIndicator = NO;
+        
+        [_collectionView registerClass:[DemoVC11_Cell class] forCellWithReuseIdentifier:DemoVC11_cellID];
+        
+        _collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+    }
+    return _collectionView;
 }
-*/
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray)
+    {
+        _dataArray = @[].mutableCopy;
+    }
+    return _dataArray;
+}
+
+#pragma mark - ***** 获取网络数据
+- (void)getData
+{
+    [self BA_showAlert:BA_Loading];
+    [BANewsNetManager getDemoVC11DataCompletionHandle:^(id model, NSError *error) {
+        
+        [self BA_hideProgress];
+        if (!error)
+        {
+            self.dataArray = [(NSArray *)model mutableCopy];
+            BALog([NSString stringWithFormat:@" **** %@", self.dataArray]);
+        }
+        else
+        {
+            [self BA_showAlertWithTitle:@"解析错误！"];
+        }
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end

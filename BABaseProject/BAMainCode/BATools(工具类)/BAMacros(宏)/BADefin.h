@@ -79,6 +79,9 @@
 /*! weak */
 #define BA_Weak  __weak __typeof(self) weakSelf = self
 
+/*! Loading */
+#define BA_Loading @"Loading..."
+
 /*! 用safari打开URL */
 #define BA_OpenUrl(urlStr) [BASharedApplication openURL:urlStr]
 

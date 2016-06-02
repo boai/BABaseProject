@@ -39,8 +39,34 @@
         [MBProgressHUD hideAllHUDsForView:[weakSelf getCurrentView] animated:YES];
         MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[weakSelf getCurrentView] animated:YES];
         
+        progressHUD.mode = MBProgressHUDModeIndeterminate;
+        progressHUD.labelText = text;
+        progressHUD.color = BA_Orange_Color;
+
+//        [progressHUD hide:YES afterDelay:1.5];
+    });
+}
+
+/** 弹出文字提示，自定义显示时间 */
+- (void)BA_showAlertWithTitle:(NSString *)text
+{
+    BA_Weak;
+    // 防止在非主线程中调用此方法,会报错
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        // 弹出新的提示之前,先把旧的隐藏掉
+        //        [self hideProgress]; // 主线程中会先调用这个，所以速度很快
+        [MBProgressHUD hideAllHUDsForView:[weakSelf getCurrentView] animated:YES];
+        MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[weakSelf getCurrentView] animated:YES];
+        
         progressHUD.mode = MBProgressHUDModeText;
         progressHUD.labelText = text;
+        progressHUD.color = BA_Orange_Color;
+//        if (!time || time == 0)
+//        {
+//            [progressHUD hide:YES afterDelay:1.5];
+//            return ;
+//        }
         [progressHUD hide:YES afterDelay:1.5];
     });
 }
@@ -52,7 +78,7 @@
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [MBProgressHUD hideAllHUDsForView:[self getCurrentView] animated:YES];
         MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:[weakSelf getCurrentView] animated:YES];
-        
+        progressHUD.color = BA_Orange_Color;
         // 最长显示30秒
         [progressHUD hide:YES afterDelay:30];
     }];
