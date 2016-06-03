@@ -72,7 +72,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     /*! 是否使用自定义TabVC * YES:使用，NO:使用RDVTabVC */
-    [self isBATabVC:YES];
+    [self isBATabVC:NO];
     
     /*！把各种初始化操作,固定的操作 写入到类别中 */
 //    [self BA_initializeWithApplication:application];
