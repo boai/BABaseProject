@@ -21,7 +21,7 @@
  *
  *  @return DemoVC1中的网络获取示例
  */
-+ (id)getVideosWithStartIndex:(NSInteger)startIndex kCompletionHandle;
++ (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle;
 
 /*!
  *  示例2：DemoVC11中的网络获取示例

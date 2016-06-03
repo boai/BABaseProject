@@ -12,21 +12,21 @@
 @class Videosidlist,Videolist;
 @interface BAVideoModel : BABaseModel
 
-///*
-// 1.遇到字典则新建类型
-// 2.解析的实现 由底层 向上
-// */
-//
-///*
-// ESJsonFormat插件的使用
-// window->ESJsonFormat-> input Json
-// 1.生成时,会弹出输入框,要求输入即将生成的类的类名
-// 2.生成以后,要查看生成的属性,修改系统关键字
-// 
-// */
-//
-////http://c.m.163.com/nc/video/home/1-10.html
-//
+/*
+ 1.遇到字典则新建类型
+ 2.解析的实现 由底层 向上
+ */
+
+/*
+ ESJsonFormat插件的使用
+ window->ESJsonFormat-> input Json
+ 1.生成时,会弹出输入框,要求输入即将生成的类的类名
+ 2.生成以后,要查看生成的属性,修改系统关键字
+ 
+ */
+
+//http://c.m.163.com/nc/video/home/1-10.html
+
 
 
 @property (nonatomic, copy) NSString  *videoHomeSid;

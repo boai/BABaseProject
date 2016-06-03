@@ -60,6 +60,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+BACategory.h"
+#import "BABaseNetManager.h"
 
 @interface AppDelegate ()
 
@@ -74,8 +75,9 @@
     [self isBATabVC:YES];
     
     /*！把各种初始化操作,固定的操作 写入到类别中 */
-    [self BA_initializeWithApplication:application];
-
+//    [self BA_initializeWithApplication:application];
+    [BANetManager ba_startNetWorkMonitoring];
+    
     /*! 友盟分享/登陆 */
     [self BA_YMShareSetting];
     

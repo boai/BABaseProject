@@ -40,6 +40,7 @@
 		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
 		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
+		C42C7F371D01A1E3001EEDCA /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42C7F361D01A1E3001EEDCA /* BANetManager.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C437CB1F1CEF09CD00FCA331 /* BAModal.m in Sources */ = {isa = PBXBuildFile; fileRef = C437CB1E1CEF09CD00FCA331 /* BAModal.m */; };
 		C43CE71F1CFFBEEF004C763B /* DemoVC11_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C43CE71E1CFFBEEF004C763B /* DemoVC11_Cell.m */; };
@@ -309,6 +310,8 @@
 		C42A6AE21CDAE10500D534EE /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
 		C42A6AE61CDAE10D00D534EE /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
 		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
+		C42C7F351D01A1E3001EEDCA /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
+		C42C7F361D01A1E3001EEDCA /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C437CB1D1CEF09CD00FCA331 /* BAModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAModal.h; sourceTree = "<group>"; };
@@ -1386,6 +1389,8 @@
 			children = (
 				C4EB5B3E1CD8B24F003A7094 /* BABaseNetManager.h */,
 				C4EB5B3F1CD8B24F003A7094 /* BABaseNetManager.m */,
+				C42C7F351D01A1E3001EEDCA /* BANetManager.h */,
+				C42C7F361D01A1E3001EEDCA /* BANetManager.m */,
 				C4EB5B401CD8B24F003A7094 /* BANewsNetManager.h */,
 				C4EB5B411CD8B24F003A7094 /* BANewsNetManager.m */,
 				C4EB5B421CD8B24F003A7094 /* BAURLsPath.h */,
@@ -1933,6 +1938,7 @@
 				C4EB5BD01CD8B250003A7094 /* UIScrollView+BARefresh.m in Sources */,
 				C423217B1CE72A7000D91F45 /* BALocalNotification.m in Sources */,
 				C46B89E31CE020F700005E2B /* NSNumber+BAKit.m in Sources */,
+				C42C7F371D01A1E3001EEDCA /* BANetManager.m in Sources */,
 				C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
 				C46B89E91CE020F700005E2B /* BATextView.m in Sources */,

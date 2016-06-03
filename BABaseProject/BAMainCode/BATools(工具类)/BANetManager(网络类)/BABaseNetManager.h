@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+BANetwork.h"
+#import "BANetManager.h"
 
 @interface BABaseNetManager : NSObject
 

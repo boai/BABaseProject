@@ -17,33 +17,31 @@
 
 @implementation BANewsNetManager
 
-
-//+ (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle
-//{
-//    NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
-//    
-//    return [self GET:path parameters:nil completionHandle:^(id model, NSError *error) {
-//
-//        /** MJExtension 解析方法, 数组和字典是不同的 */
-//        // 如果model是个字典类型
-//        // 在最新版本中,下方方法名称变动mj_objectWithKeyValues
-////        BAVideoModel *mo = [BAVideoModel mj_objectWithKeyValues:model];
-//        // 假设 返回值 是数组类型
-//        
-////         mo = [BAVideoModel mj_objectArrayWithKeyValuesArray:model];
-////        completionHandle(mo, error);
-//        
-//        completionHandle([BAVideoModel BAMJParse:model], error);
-//    }];
-//}
-
+/*!
+ *  示例1：DemoVC1中的网络获取示例
+ *
+ *  @param startIndex index
+ *
+ *  @return DemoVC1中的网络获取示例
+ */
 + (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle
 {
     NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
     
-    return [self BA_GET_Url:path parameters:nil response:BAResponseStyleJSON requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+//    return [self BA_GET_Url:path parameters:nil response:BAResponseStyleJSON requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+//        
+//        completionHandle([BAVideoModel BAMJParse:model], error);
+//    }];
+    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet withUrlString:path withParameters:nil withSuccessBlock:^(id response) {
         
-        completionHandle([BAVideoModel BAMJParse:model], error);
+        completionHandle([BAVideoModel BAMJParse:response], nil);
+        
+    } withFailureBlock:^(NSError *error) {
+        
+        BALog(@"error：%@", error);
+        
+    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+        
     }];
 }
 
@@ -54,53 +52,19 @@
  */
 + (id)getDemoVC11DataCompletionHandle:(void(^)(id model, NSError *error))completionHandle
 {
-//    NSString *urlPath = [];
-    return [self BA_GET_Url:DemoVC11URLPath parameters:nil response:(BAResponseStyleJSON) requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet withUrlString:DemoVC11URLPath withParameters:nil withSuccessBlock:^(id response) {
         
-        completionHandle([DemoVC11_model BAMJParse:model], error);
+    completionHandle([DemoVC11_model BAMJParse:response], nil);
+        
+    } withFailureBlock:^(NSError *error) {
+        
+        BALog(@"error：%@", error);
+        
+    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         
     }];
 }
 
-//// 单例写法
-//+ (AFHTTPSessionManager *)sharedAFManager
-//{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        manger = [AFHTTPSessionManager manager];
-//        
-//        // 设置AF对哪些数据类型进行解析
-//        manger.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"application/json", @"text/json", @"text/javascript", @"text/plain", nil];
-//        
-//        // 定义请求超时时间长度
-//        manger.requestSerializer.timeoutInterval = 30;
-//        
-//        // 还可以设置请求的 头部 httpHeaderField
-//        // 可以设置value为nil, 来删除某个key
-//        
-//    });
-//    return manger;
-//}
-
-//+ (id)getNewsListWithStartIndex:(NSInteger)index completionHandle:(void (^)(id, NSError *))completionHandle
-//{
-//    NSString *path = [NSString stringWithFormat:KVideoPath, index];
-//    return [self GET:path parameters:nil completionHandle:^(id responseObject, NSError *error) {
-//        completionHandle(responseObject, error);
-//    }];
-//    
-////    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-////    NSString *path = [NSString stringWithFormat:KNewsPath, index];
-////    return [[self sharedAFManager] GET:path parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-////        
-////        completionHandle(responseObject, nil);
-////        
-////    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-////        
-////        completionHandle(nil, error);
-////    }];
-//    
-//}
 
 
 @end
