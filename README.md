@@ -29,7 +29,7 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 - 2.1、[『微博：博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1) <br>
 - 2.2、[『博客』](http://boai.github.io) <br>
 - 2.3、[『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) <br>
-- 2.4、[『简书专题链接』](http://www.jianshu.com/collections/250078/submissions) <br>
+- 2.4、[『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) <br>
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 

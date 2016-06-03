@@ -97,6 +97,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         if (!error)
         {
             self.dataArray = [(NSArray *)model mutableCopy];
+            [self.collectionView reloadData];
 //            BALog([NSString stringWithFormat:@" **** %@", self.dataArray]);
         }
         else
