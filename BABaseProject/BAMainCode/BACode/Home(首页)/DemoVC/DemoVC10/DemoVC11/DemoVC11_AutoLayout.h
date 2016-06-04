@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class QpLayout;
+@class BALayout;
 
 @protocol DemoVC11_AutoLayoutDelegate <NSObject>
 
@@ -21,7 +21,7 @@
  *
  *  @return 根据item的宽度返回item的高度
  */
-- (CGFloat)layout:(QpLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath width:(CGFloat)width;
+- (CGFloat)layout:(BALayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath width:(CGFloat)width;
 
 @end
 

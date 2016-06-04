@@ -39,7 +39,8 @@
     } withFailureBlock:^(NSError *error) {
         
         BALog(@"error：%@", error);
-        
+        completionHandle(nil, error);
+
     } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         
     }];
@@ -54,11 +55,34 @@
 {
     return [BANetManager ba_requestWithType:BAHttpRequestTypeGet withUrlString:DemoVC11URLPath withParameters:nil withSuccessBlock:^(id response) {
         
+        /*! 
+         获取的字典示例：
+         
+         {
+         description = "Hi\Uff0c\U6d17\U526a\U5439";
+         height = 1600;
+         id = 13328041;
+         "photo_url" = "http://p.chanyouji.cn/333978/1451945850044p1a879bbtem71udn1ujh1aaa1h9958.jpg";
+         "trip_id" = 333978;
+         width = 1068;
+         },
+         {
+         description = "";
+         height = 1600;
+         id = 14015158;
+         "photo_url" = "http://p.chanyouji.cn/1456589788/B078C994-6D71-4811-80BE-653D01C3A2A1.jpg";
+         "trip_id" = 361477;
+         width = 1600;
+         }
+         
+         */
+        
     completionHandle([DemoVC11_model BAMJParse:response], nil);
         
     } withFailureBlock:^(NSError *error) {
         
         BALog(@"error：%@", error);
+        completionHandle(nil, error);
         
     } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         

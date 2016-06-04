@@ -22,7 +22,6 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 >
 @property (nonatomic, strong) UICollectionView     *collectionView;
 @property (nonatomic, strong) NSMutableArray       *dataArray;
-//@property (nonatomic, strong) DemoVC11_AutoLayout  *layout;
 @property (nonatomic, strong) BANewsNetManager     *netManager;
 
 @end
@@ -44,25 +43,26 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     self.collectionView.hidden = NO;
 }
 
+#pragma mark - ***** setter / getter
 - (UICollectionView *)collectionView
 {
     if (!_collectionView)
     {
-        DemoVC11_AutoLayout *layout = [DemoVC11_AutoLayout new];
+        DemoVC11_AutoLayout *layout     = [DemoVC11_AutoLayout new];
         /*! 列数 */
-        layout.columCounts = 3;
+        layout.columCounts              = 3;
         /*! 列间距 */
-        layout.columSpace = 5;
+        layout.columSpace               = 5;
         /*! 行间距 */
-        layout.itemSpace = 5;
+        layout.itemSpace                = 5;
         /*! 边距 */
-        layout.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-        layout.delegate = self;
+        layout.edgeInsets               = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.delegate                 = self;
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView                 = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.backgroundColor = BA_Yellow_Color;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+        _collectionView.delegate        = self;
+        _collectionView.dataSource      = self;
         
         [self.view addSubview:_collectionView];
         /*! 滚动条隐藏 */
@@ -95,7 +95,6 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         {
             self.dataArray = [(NSArray *)model mutableCopy];
             [self.collectionView reloadData];
-//            BALog([NSString stringWithFormat:@" **** %@", self.dataArray]);
         }
         else
         {
@@ -104,25 +103,26 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     }];
 }
 
-#pragma mark - 协议方法
+#pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.dataArray.count;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DemoVC11_Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DemoVC11_cellID forIndexPath:indexPath];
-    cell.model = self.dataArray[indexPath.item];
+    cell.model          = self.dataArray[indexPath.item];
     
     return cell;
 }
 
-// 设置图片高度
-- (CGFloat) layout:(QpLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexpath width:(CGFloat)width
+#pragma mark - ***** DemoVC11_AutoLayoutDelegate 设置图片高度
+- (CGFloat) layout:(BALayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexpath width:(CGFloat)width
 {
-    DemoVC11_model *q = self.dataArray[indexpath.item];
-    CGFloat h = width *q.height.doubleValue / q.width.doubleValue + 25;
-    return h;
+    DemoVC11_model *model = self.dataArray[indexpath.item];
+    CGFloat height        = width * model.height.doubleValue / model.width.doubleValue + 25;
+    return height;
 }
 
 

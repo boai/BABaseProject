@@ -11,9 +11,9 @@
 @interface DemoVC11_AutoLayout ()
 
 /*! 保存每一列的y值 */
-@property (nonatomic, strong) NSMutableDictionary *columYdic;
+@property (nonatomic, strong) NSMutableDictionary  *columYdic;
 /*! 布局属性数组 */
-@property (nonatomic, strong) NSMutableArray *attributesArray;
+@property (nonatomic, strong) NSMutableArray       *attributesArray;
 
 @end
 
