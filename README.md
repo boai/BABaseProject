@@ -47,6 +47,10 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 
 - 3.6 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
 
+- 3.7 APP中的文字和APP名字的国际化多语言处理，详情请看：[『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)！
+
+- 3.8 [『最新的pod安装和常见问题处理』](http://www.cnblogs.com/boai/p/4977976.html)！
+
 
 ## 4、项目简介 和 使用指南
 ####4.1、项目简介 <br>
@@ -72,6 +76,9 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录【倒叙】
+
+##### 2016-06-04  版本：2.0 
+- 5.2.10、APP中的文字和APP名字的国际化多语言处理，详情请看：[『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)！
 
 ##### 2016-06-04  版本：2.0 
 - 5.2.09、重新封装全新AFN的网络类，基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
