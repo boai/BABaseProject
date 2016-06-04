@@ -45,6 +45,8 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 
 - 3.5 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！详情请看：[『BALocalNotification』](https://github.com/boai/BALocalNotification)！
 
+- 3.6 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
+
 
 ## 4、项目简介 和 使用指南
 ####4.1、项目简介 <br>
@@ -70,6 +72,12 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录【倒叙】
+
+##### 2016-06-04  版本：2.0 
+- 5.2.09、重新封装全新AFN的网络类，基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
+
+##### 2016-06-03  版本：2.0 
+- 5.2.08、新增DemoVC11，collectionView的浮动布局，自适应宽高的item，
 
 ##### 2016-05-31  版本：2.0 
 - 5.2.07、新增内存泄露检测，使用检测工具[『MLeaksFinder』](http://wereadteam.github.io/2016/02/22/MLeaksFinder/)！
