@@ -39,11 +39,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 
 - (void)setupLayout
 {
-//    self.netManager = [[BANewsNetManager alloc] init];
     [self getData];
     
     self.collectionView.hidden = NO;
-    
 }
 
 - (UICollectionView *)collectionView
@@ -62,7 +60,6 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         layout.delegate = self;
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _collectionView.frame = self.view.bounds;
         _collectionView.backgroundColor = BA_Yellow_Color;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -73,7 +70,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         
         [_collectionView registerClass:[DemoVC11_Cell class] forCellWithReuseIdentifier:DemoVC11_cellID];
         
-//        _collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+        _collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     }
     return _collectionView;
 }
