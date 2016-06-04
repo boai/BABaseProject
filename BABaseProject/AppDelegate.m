@@ -71,7 +71,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    /*! 是否使用自定义TabVC * YES:使用，NO:使用RDVTabVC */
+    /*! 是否使用自定义TabVC * YES:使用，NO:使用RDVTabVC , 这行注掉后还可以使用SB看看，具体使用：情趣工程中修改Main显示即可！*/
     [self isBATabVC:YES];
     
     /*！把各种初始化操作,固定的操作 写入到类别中 */
