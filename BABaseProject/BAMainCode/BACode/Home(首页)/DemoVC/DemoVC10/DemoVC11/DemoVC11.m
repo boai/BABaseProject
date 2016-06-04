@@ -113,8 +113,22 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 {
     DemoVC11_Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DemoVC11_cellID forIndexPath:indexPath];
     cell.model          = self.dataArray[indexPath.item];
+    cell.backgroundColor = BA_Green_Color;
+    
+    if ([NSString BA_NSStringIsNULL:cell.model.desc])
+    {
+        cell.titleLabel.text = @(indexPath.item).stringValue;
+    }
+    else
+        cell.titleLabel.text = cell.model.desc;
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *msg = [NSString stringWithFormat:@"你点击了第 %ld 个item！", (long)indexPath.item];
+    [self.view ba_showAlertView:@"温馨提示：" message:msg];
 }
 
 #pragma mark - ***** DemoVC11_AutoLayoutDelegate 设置图片高度

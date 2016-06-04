@@ -176,8 +176,7 @@
 //        [self.view addSubview:_segmentedControl];
         
         /*! 标题点击事件 */
-        __weak typeof(self) weakSelf = self;
-        
+        BA_Weak;
         [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
             [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, weakSelf.scrollView.height) animated:YES];
         }];
@@ -200,7 +199,7 @@
         self.scrollView.delegate                       = self;
         self.scrollView.backgroundColor                = BA_Green_Color;
 
-//        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
         [self.view addSubview:self.scrollView];
         
     }

@@ -78,7 +78,7 @@
     }
     else
     {
-        [self.view showAlertView:@"温馨提示：" message:@"不能识别的URL！"];
+        [self.view ba_showAlertView:@"温馨提示：" message:@"不能识别的URL！"];
         return;
     }
     

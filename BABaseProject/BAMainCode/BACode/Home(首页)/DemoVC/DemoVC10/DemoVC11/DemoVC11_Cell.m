@@ -12,7 +12,6 @@
 @interface DemoVC11_Cell ()
 
 @property (nonatomic, retain) UIImageView *imgview;
-@property (nonatomic, strong) UILabel     *titleLabel;
 
 @end
 
@@ -49,9 +48,10 @@
     {
         _titleLabel               = [[UILabel alloc]init];
         _titleLabel.textColor     = [UIColor redColor];
-        _titleLabel.font          = [UIFont systemFontOfSize:15];
-        _titleLabel.text          = @"312313131";
+        _titleLabel.font          = [UIFont systemFontOfSize:12];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.numberOfLines = 0;
+//        _titleLabel.backgroundColor = [];
         
         [self.contentView addSubview:_titleLabel];
     }
@@ -63,13 +63,18 @@
     _model = model;
     
     [_imgview sd_setImageWithURL:[NSURL URLWithString:model.photo_url]  placeholderImage:[UIImage imageNamed:@"1"]];
-    _titleLabel.text = model.desc;
+//    if ([NSString BA_NSStringIsNULL:model.desc])
+//    {
+//        _titleLabel.text          = @"312313131";
+//    }
+//    else
+//        _titleLabel.text = model.desc;
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 {
-    _imgview.frame = CGRectMake(0, 0, layoutAttributes.frame.size.width, layoutAttributes.frame.size.height);
-    _titleLabel.frame = CGRectMake(CGRectGetMinX(_imgview.frame), _imgview.bottom + 5, _imgview.width, 20);
+    _imgview.frame = CGRectMake(0, 0, layoutAttributes.frame.size.width, layoutAttributes.frame.size.height - 30);
+    _titleLabel.frame = CGRectMake(0, _imgview.bottom, _imgview.width, 30);
 }
 
 

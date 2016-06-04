@@ -11,6 +11,7 @@
 @class DemoVC11_model;
 @interface DemoVC11_Cell : UICollectionViewCell
 
-@property (nonatomic, strong) DemoVC11_model *model;
+@property (nonatomic, strong) DemoVC11_model  *model;
+@property (nonatomic, strong) UILabel         *titleLabel;
 
 @end

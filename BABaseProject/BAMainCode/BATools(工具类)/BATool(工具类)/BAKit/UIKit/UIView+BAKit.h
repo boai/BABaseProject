@@ -257,7 +257,7 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  *  @param title   title description
  *  @param message message description
  */
-- (void)showAlertView:(NSString *)title message:(NSString *)message;
+- (void)ba_showAlertView:(NSString *)title message:(NSString *)message;
 
 /*!
  *  自适应label的高度

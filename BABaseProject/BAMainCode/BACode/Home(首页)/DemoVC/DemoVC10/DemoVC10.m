@@ -81,7 +81,7 @@
             NSString *message = [[NSString alloc] initWithFormat:@"你点击了第%ld个section，第%ld个cell：%@",(long)indexPath.section,(long)indexPath.row, dict[@"desc"]];
             BALog(@"%@", message);
             
-            [weakSelf.view showAlertView:@"温馨提示：" message:message];
+            [weakSelf.view ba_showAlertView:@"温馨提示：" message:message];
             
         }];
         
