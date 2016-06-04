@@ -79,7 +79,9 @@
     [self addCell:@"8、系统提醒和日历提醒" content:@"最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！如果喜欢，请在git上点个星吧！" class:@"DemoVC8"];
     [self addCell:@"9、流式布局和线性布局库的使用" content:@"用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！" class:@"DemoVC9"];
     [self addCell:@"10、collectionView的简单使用" content:@"用View写的写了一个简单的collectionView，可随意添加到任何地方，如果喜欢，请在git上点个星吧！" class:@"DemoVC10"];
-    [self addCell:@"11、随意拖动标签和添加标签" content:@"随意拖动标签和添加标签，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
+    [self addCell:@"11、collectionView的浮动布局" content:@"自适应宽高的collectionView，自定义layout，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
+
+//    [self addCell:@"11、随意拖动标签和添加标签" content:@"随意拖动标签和添加标签，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
 
 }
 

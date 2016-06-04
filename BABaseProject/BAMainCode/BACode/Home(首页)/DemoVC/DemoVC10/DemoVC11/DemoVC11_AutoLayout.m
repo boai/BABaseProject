@@ -97,7 +97,7 @@
      获取高度
      通过协议 在VC中 求得h 传递在layout中
      */
-    CGFloat h = [self.delegate layout:self heightForItemAtIndexPath:indexPath width:w];
+    CGFloat h = [self.delegate layout:(BALayout *)self heightForItemAtIndexPath:indexPath width:w];
     
     /*! 获取y */
     CGFloat y = [_columYdic[minColum] doubleValue];
