@@ -22,8 +22,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.title                 = @"collectionView";
+    
+    /*! 在需要设置国际化文字的地方这样写： */
+    /*!  
+     NSLocalizedString（参数1，参数2） ：参数1是你在前面定义的名称，我定义的title，这里就是title，参数2可以不写，直接为nil就行！ 
+     */
+    self.title = NSLocalizedString(@"DemoVC10Title", nil);
+   
+    
     [self setVCBgColor:BA_Yellow_Color];
     self.collectionView.hidden = NO;
     self.editButton.hidden     = NO;

@@ -108,6 +108,8 @@
 		C4D108051CE2FC1C00F735B9 /* view4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D108011CE2FC1C00F735B9 /* view4.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
+		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
+		C4EADCE91D02C0200086979C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCEB1D02C0200086979C /* InfoPlist.strings */; };
 		C4EB5AA51CD8B04B003A7094 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA41CD8B04B003A7094 /* main.m */; };
 		C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5AA71CD8B04B003A7094 /* AppDelegate.m */; };
 		C4EB5AAE1CD8B04B003A7094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */; };
@@ -448,6 +450,12 @@
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
 		C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10_CollectionView.m; sourceTree = "<group>"; };
+		C4EADCDF1D02BFAF0086979C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		C4EADCE01D02BFAF0086979C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C4EADCE61D02C0130086979C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C4EADCE81D02C0150086979C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C4EADCEA1D02C0200086979C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4EADCEC1D02C0230086979C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C4EB5AA01CD8B04B003A7094 /* BABaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BABaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EB5AA41CD8B04B003A7094 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EB5AA61CD8B04B003A7094 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1447,6 +1455,8 @@
 			children = (
 				C4EB5C9D1CD8BDAE003A7094 /* Info.plist */,
 				C4EB5B461CD8B24F003A7094 /* area.plist */,
+				C4EADCE71D02C0130086979C /* Localizable.strings */,
+				C4EADCEB1D02C0200086979C /* InfoPlist.strings */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -1748,6 +1758,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = C4EB5A971CD8B04B003A7094;
 			productRefGroup = C4EB5AA11CD8B04B003A7094 /* Products */;
@@ -1839,11 +1850,13 @@
 				C4EB5BE41CD8B250003A7094 /* img9.jpg in Resources */,
 				C4EB5C251CD8B251003A7094 /* snowbg.jpg in Resources */,
 				C40852A21CD9CD860004A671 /* Lato-ThinItalic.ttf in Resources */,
+				C4EADCE91D02C0200086979C /* InfoPlist.strings in Resources */,
 				C473CC7B1CF72439001883A9 /* BACollectionView.bundle in Resources */,
 				C4EB5C2A1CD8B251003A7094 /* 樱花瓣2.jpg in Resources */,
 				C4EB5C151CD8B251003A7094 /* pic2.jpg in Resources */,
 				C4EB5AB01CD8B04B003A7094 /* Assets.xcassets in Resources */,
 				C4EB5BD71CD8B250003A7094 /* img1.jpg in Resources */,
+				C4EADCE51D02C0130086979C /* Localizable.strings in Resources */,
 				C4EB5BF41CD8B250003A7094 /* 0.jpg in Resources */,
 				C4EB5BEA1CD8B250003A7094 /* icon-4@2x.png in Resources */,
 				C4EB5C141CD8B251003A7094 /* pic1.jpg in Resources */,
@@ -2161,10 +2174,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C4EADCE71D02C0130086979C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4EADCE61D02C0130086979C /* en */,
+				C4EADCE81D02C0150086979C /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C4EADCEB1D02C0200086979C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4EADCEA1D02C0200086979C /* en */,
+				C4EADCEC1D02C0230086979C /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		C4EB5AAC1CD8B04B003A7094 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C4EB5AAD1CD8B04B003A7094 /* Base */,
+				C4EADCDF1D02BFAF0086979C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2173,6 +2205,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4EB5AB21CD8B04B003A7094 /* Base */,
+				C4EADCE01D02BFAF0086979C /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
