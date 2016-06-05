@@ -63,9 +63,13 @@
                 
         self.tableView.hidden = NO;
         [self viewDidLayoutSubviews];
+        
+
     }
     return self;
 }
+
+
 
 - (void)creatData
 {
