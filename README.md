@@ -57,7 +57,7 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 **主要使用 MVVM 和 MVC 设计模式，共分为三大类：** <br>
 
 **4.1.1、Main** <br>
-- 主要功能：两种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController <br>
+- 主要功能：三种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController，一种是storeboard搭建的tabBarController <br>
 
 **4.1.2、BAMainCode** <br>
 - 4.1.2.1、BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
@@ -78,7 +78,7 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录【倒叙】
 
 ##### 2016-06-04  版本：2.0 
-- 5.2.11、新增StoreBoard版的tabbar，具体使用详情请看appdelegate
+- 5.2.11、新增StoreBoard版的tabbar，具体使用详情请看appdelegate，已修复使用StoreBoard不能更改tabbar选中颜色的问题！
 - 5.2.10、APP中的文字和APP名字的国际化多语言处理，详情请看：[『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)！
 
 ##### 2016-06-04  版本：2.0 
