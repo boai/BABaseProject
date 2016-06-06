@@ -135,7 +135,7 @@
 #import "UIView+RoundedCorner.h"
 
 /*! 将Toast通知添加到UIView对象类 */
-#import "UIView+Toast.h"
+//#import "UIView+Toast.h"
 
 /*! 网络状态：与AFN可二选一 */
 //#import "Reachability.h"

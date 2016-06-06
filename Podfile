@@ -54,8 +54,8 @@ target 'BABaseProject' do
     pod 'BlocksKit'
     
     # 自定义提示框
-    pod 'Toast', '~> 3.0'
-    
+#    pod 'Toast', '~> 3.0'
+
     # 线性布局MyLinearLayout/相对布局MyRelativeLayout/框架布局MyFrameLayout/表格布局MyTableLayout/流式布局MyFlowLayout/浮动布局MyFloatLayout/SizeClass的支持
     pod 'MyLayout', '~> 1.1.6'
 
@@ -65,6 +65,9 @@ target 'BABaseProject' do
     # 内存泄露检测工具
     pod 'MLeaksFinder'
     
+    # 获取所有设备型号
+#    pod 'DeviceUtil'
+
     # 一个 UICollectionViewLayout，长按可以拖拽排序，同时支持纵向和横线滚动。
 # pod 'LewReorderableLayout'
     

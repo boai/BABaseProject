@@ -42,7 +42,6 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - Toast (3.0)
   - UMengSocial (4.4)
   - YYKit (1.0.6):
     - YYKit/no-arc (= 1.0.6)
@@ -62,7 +61,6 @@ DEPENDENCIES:
   - MyLayout (~> 1.1.6)
   - SDAutoLayout (~> 1.31)
   - SDWebImage (~> 3.7.5)
-  - Toast (~> 3.0)
   - UMengSocial (~> 4.4)
   - YYKit
 
@@ -80,10 +78,7 @@ SPEC CHECKSUMS:
   MyLayout: dbdca562d98703dfb4c12687182d2fe0a65ea11c
   SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0
   YYKit: a80c77ab7be226ebe539ef1495dfc25d5766d61e
 
-PODFILE CHECKSUM: ed7bb8242b4fde0e26e956fe55a968ed8c1b1311
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

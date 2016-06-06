@@ -515,7 +515,6 @@ static NSMutableArray *tasks;
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
-
 + (NSString *)strUTF8Encoding:(NSString *)str
 {
     /*! ios9适配的话 打开第一个 */

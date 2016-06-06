@@ -62,19 +62,15 @@
 {
     _model = model;
     
-<<<<<<< HEAD
     [_imgview sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"1"] options:0];
 
     _titleLabel.text = model.desc;
-=======
-    [_imgview sd_setImageWithURL:[NSURL URLWithString:model.photo_url]  placeholderImage:[UIImage imageNamed:@"1"]];
 //    if ([NSString BA_NSStringIsNULL:model.desc])
 //    {
 //        _titleLabel.text          = @"312313131";
 //    }
 //    else
 //        _titleLabel.text = model.desc;
->>>>>>> origin/master
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes

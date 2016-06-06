@@ -33,7 +33,7 @@
 
 }
 
-#pragma mark - ***** 第一种倒计时button【不推荐，推荐第二种】
+#pragma mark - ***** 第一种倒计时button【不推荐，推荐第二种，此方法有内存泄露】
 - (UIButton *)timeButton
 {
     if (!_timeButton)
