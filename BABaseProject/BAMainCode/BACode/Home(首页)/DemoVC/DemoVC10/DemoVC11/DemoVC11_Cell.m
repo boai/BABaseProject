@@ -62,7 +62,8 @@
 {
     _model = model;
     
-    [_imgview setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"1"]];
+    [_imgview sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"1"] options:0];
+
     _titleLabel.text = model.desc;
 }
 

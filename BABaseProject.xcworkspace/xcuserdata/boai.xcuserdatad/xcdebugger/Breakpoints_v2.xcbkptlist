@@ -19,14 +19,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BABaseProject/BAMainCode/BACode/Home(&#x9996;&#x9875;)/DemoVC/DemoVC10/DemoVC11/DemoVC11_Cell.m"
-            timestampString = "486558149.529786"
+            filePath = "BABaseProject/BAMainCode/BATools(&#x5de5;&#x5177;&#x7c7b;)/BACategory(&#x5206;&#x7c7b;)/NSObject+BANetwork.m"
+            timestampString = "486613533.542687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-setModel:"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "+writeInfoWithDict:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[NSObject(BANetwork) writeInfoWithDict:]"
+                  moduleName = "BABaseProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boai/%E5%8D%9A%E7%88%B1%E8%B5%84%E6%96%99/GitHub/BABaseProject/BABaseProject/BAMainCode/BATools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/BACategory(%E5%88%86%E7%B1%BB)/NSObject+BANetwork.m"
+                  timestampString = "486613724.821893"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41+[NSObject(BANetwork) writeInfoWithDict:]_block_invoke"
+                  moduleName = "BABaseProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boai/%E5%8D%9A%E7%88%B1%E8%B5%84%E6%96%99/GitHub/BABaseProject/BABaseProject/BAMainCode/BATools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/BACategory(%E5%88%86%E7%B1%BB)/NSObject+BANetwork.m"
+                  timestampString = "486613724.822064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -35,29 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BABaseProject/BAMainCode/BACode/Home(&#x9996;&#x9875;)/DemoVC/DemoVC10/DemoVC11/DemoVC11.m"
-            timestampString = "486558430.105104"
+            filePath = "BABaseProject/BAMainCode/BATools(&#x5de5;&#x5177;&#x7c7b;)/BACategory(&#x5206;&#x7c7b;)/NSObject+BANetwork.m"
+            timestampString = "486613533.542687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BABaseProject/BAMainCode/BACode/Home(&#x9996;&#x9875;)/DemoVC/DemoVC10/DemoVC11/DemoVC11.m"
-            timestampString = "486558427.390853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-collectionView"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "+writeInfoWithDict:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

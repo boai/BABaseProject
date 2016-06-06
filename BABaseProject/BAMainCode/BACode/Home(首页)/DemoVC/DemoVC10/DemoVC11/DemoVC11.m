@@ -61,7 +61,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         layout.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         layout.delegate = self;
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.frame.size.height) collectionViewLayout:layout];
         _collectionView.frame = self.view.bounds;
         _collectionView.backgroundColor = BA_Yellow_Color;
         _collectionView.delegate = self;
@@ -97,6 +97,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         if (!error)
         {
             self.dataArray = [(NSArray *)model mutableCopy];
+            [self.collectionView reloadData];
 //            BALog([NSString stringWithFormat:@" **** %@", self.dataArray]);
         }
         else

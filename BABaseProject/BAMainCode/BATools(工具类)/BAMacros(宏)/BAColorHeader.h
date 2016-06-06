@@ -78,7 +78,7 @@
 #define BA_BGClearColor        [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.7f]
 
 /*! 主题浅绿 */
-#define BA_Them_greenColor     BA_COLOR(29, 192, 184, 1.0)
+#define BA_Them_greenColor     BA_COLOR(30, 198, 181, 1.0)
 
 /*! 白色 */
 #define BA_White_Color         [UIColor whiteColor]

@@ -51,6 +51,7 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
     if (!_collectionView)
     {
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        /*! 横向滑动请改这里：UICollectionViewScrollDirectionHorizontal */
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
