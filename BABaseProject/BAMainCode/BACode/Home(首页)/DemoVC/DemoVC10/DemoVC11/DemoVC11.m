@@ -22,7 +22,6 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 >
 @property (nonatomic, strong) UICollectionView     *collectionView;
 @property (nonatomic, strong) NSMutableArray       *dataArray;
-//@property (nonatomic, strong) DemoVC11_AutoLayout  *layout;
 @property (nonatomic, strong) BANewsNetManager     *netManager;
 
 @end
@@ -39,33 +38,36 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 
 - (void)setupLayout
 {
-//    self.netManager = [[BANewsNetManager alloc] init];
     [self getData];
     
     self.collectionView.hidden = NO;
-    
 }
 
+#pragma mark - ***** setter / getter
 - (UICollectionView *)collectionView
 {
     if (!_collectionView)
     {
-        DemoVC11_AutoLayout *layout = [DemoVC11_AutoLayout new];
+        DemoVC11_AutoLayout *layout     = [DemoVC11_AutoLayout new];
         /*! 列数 */
-        layout.columCounts = 3;
+        layout.columCounts              = 3;
         /*! 列间距 */
-        layout.columSpace = 5;
+        layout.columSpace               = 5;
         /*! 行间距 */
-        layout.itemSpace = 5;
+        layout.itemSpace                = 5;
         /*! 边距 */
-        layout.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-        layout.delegate = self;
+        layout.edgeInsets               = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.delegate                 = self;
         
+<<<<<<< HEAD
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.frame.size.height) collectionViewLayout:layout];
         _collectionView.frame = self.view.bounds;
+=======
+        _collectionView                 = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+>>>>>>> origin/master
         _collectionView.backgroundColor = BA_Yellow_Color;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+        _collectionView.delegate        = self;
+        _collectionView.dataSource      = self;
         
         [self.view addSubview:_collectionView];
         /*! 滚动条隐藏 */
@@ -73,7 +75,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         
         [_collectionView registerClass:[DemoVC11_Cell class] forCellWithReuseIdentifier:DemoVC11_cellID];
         
-//        _collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+        _collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     }
     return _collectionView;
 }
@@ -98,7 +100,10 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         {
             self.dataArray = [(NSArray *)model mutableCopy];
             [self.collectionView reloadData];
+<<<<<<< HEAD
 //            BALog([NSString stringWithFormat:@" **** %@", self.dataArray]);
+=======
+>>>>>>> origin/master
         }
         else
         {
@@ -107,25 +112,40 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     }];
 }
 
-#pragma mark - 协议方法
+#pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.dataArray.count;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DemoVC11_Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DemoVC11_cellID forIndexPath:indexPath];
-    cell.model = self.dataArray[indexPath.item];
+    cell.model          = self.dataArray[indexPath.item];
+    cell.backgroundColor = BA_Green_Color;
+    
+    if ([NSString BA_NSStringIsNULL:cell.model.desc])
+    {
+        cell.titleLabel.text = @(indexPath.item).stringValue;
+    }
+    else
+        cell.titleLabel.text = cell.model.desc;
     
     return cell;
 }
 
-// 设置图片高度
-- (CGFloat) layout:(QpLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexpath width:(CGFloat)width
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    DemoVC11_model *q = self.dataArray[indexpath.item];
-    CGFloat h = width *q.height.doubleValue / q.width.doubleValue + 25;
-    return h;
+    NSString *msg = [NSString stringWithFormat:@"你点击了第 %ld 个item！", (long)indexPath.item];
+    [self.view ba_showAlertView:@"温馨提示：" message:msg];
+}
+
+#pragma mark - ***** DemoVC11_AutoLayoutDelegate 设置图片高度
+- (CGFloat) layout:(BALayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexpath width:(CGFloat)width
+{
+    DemoVC11_model *model = self.dataArray[indexpath.item];
+    CGFloat height        = width * model.height.doubleValue / model.width.doubleValue + 25;
+    return height;
 }
 
 

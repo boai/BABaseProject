@@ -134,6 +134,8 @@
     {
         self.view.backgroundColor = vcBgColor;
     }
+    else
+        self.view.backgroundColor = BA_White_Color;
 }
 
 #pragma mark - ***** navi设置
@@ -373,7 +375,6 @@
     
     // 3.开始监控
     [manager startMonitoring];
-
 }
 
 #pragma mark 网络不可用点击UI的回调

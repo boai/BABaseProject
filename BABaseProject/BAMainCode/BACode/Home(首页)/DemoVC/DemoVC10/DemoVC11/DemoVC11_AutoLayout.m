@@ -11,9 +11,9 @@
 @interface DemoVC11_AutoLayout ()
 
 /*! 保存每一列的y值 */
-@property (nonatomic, strong) NSMutableDictionary *columYdic;
+@property (nonatomic, strong) NSMutableDictionary  *columYdic;
 /*! 布局属性数组 */
-@property (nonatomic, strong) NSMutableArray *attributesArray;
+@property (nonatomic, strong) NSMutableArray       *attributesArray;
 
 @end
 
@@ -97,7 +97,7 @@
      获取高度
      通过协议 在VC中 求得h 传递在layout中
      */
-    CGFloat h = [self.delegate layout:self heightForItemAtIndexPath:indexPath width:w];
+    CGFloat h = [self.delegate layout:(BALayout *)self heightForItemAtIndexPath:indexPath width:w];
     
     /*! 获取y */
     CGFloat y = [_columYdic[minColum] doubleValue];

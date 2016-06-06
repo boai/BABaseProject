@@ -238,7 +238,7 @@
             if (urlStr.length > 0)
             {
                 BA_CopyContent(urlStr);
-                [self.view showAlertView:@"温馨提示：" message:@"亲爱的，已复制URL到黏贴板中！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"亲爱的，已复制URL到黏贴板中！"];
                 return;
             }
         }

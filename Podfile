@@ -12,7 +12,7 @@ target 'BABaseProject' do
     
     # 自定义button框架
     pod 'BAButton', '~> 1.0.1'
-    
+        
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry', '~> 0.6.4'
     # 两个都是自动布局框架
@@ -66,7 +66,7 @@ target 'BABaseProject' do
     pod 'MLeaksFinder'
     
     # 一个 UICollectionViewLayout，长按可以拖拽排序，同时支持纵向和横线滚动。
-    pod 'LewReorderableLayout'
+# pod 'LewReorderableLayout'
     
     # WebView的进度条
 #    pod 'NJKWebViewProgress'

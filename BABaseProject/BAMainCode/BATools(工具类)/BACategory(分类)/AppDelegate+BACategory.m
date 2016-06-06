@@ -249,7 +249,7 @@
         [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
         item.title = [titlesArray objectAtIndex:index];
         textAttributes = @{
-                           NSFontAttributeName: [UIFont systemFontOfSize:18],
+                           NSFontAttributeName: [UIFont systemFontOfSize:12],
                            NSForegroundColorAttributeName: [UIColor orangeColor],
                            };
         [item setSelectedTitleAttributes:textAttributes];
@@ -269,7 +269,7 @@
         backgroundImage = [UIImage imageNamed:@"navigationbar_background_tall"];
         
         textAttributes = @{
-                           NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
+                           NSFontAttributeName: [UIFont boldSystemFontOfSize:12],
                            NSForegroundColorAttributeName: [UIColor blackColor],
                            };
     }

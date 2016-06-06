@@ -29,7 +29,7 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 - 2.1、[『微博：博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1) <br>
 - 2.2、[『博客』](http://boai.github.io) <br>
 - 2.3、[『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) <br>
-- 2.4、[『简书专题链接』](http://www.jianshu.com/collections/250078/submissions) <br>
+- 2.4、[『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) <br>
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
@@ -45,13 +45,19 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 
 - 3.5 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！详情请看：[『BALocalNotification』](https://github.com/boai/BALocalNotification)！
 
+- 3.6 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
+
+- 3.7 [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)
+
+- 3.8 [『最新的pod安装和常见问题处理』](http://www.cnblogs.com/boai/p/4977976.html)
+
 
 ## 4、项目简介 和 使用指南
 ####4.1、项目简介 <br>
 **主要使用 MVVM 和 MVC 设计模式，共分为三大类：** <br>
 
 **4.1.1、Main** <br>
-- 主要功能：两种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController <br>
+- 主要功能：三种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController，一种是storeboard搭建的tabBarController <br>
 
 **4.1.2、BAMainCode** <br>
 - 4.1.2.1、BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
@@ -70,6 +76,16 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ## 5、更新记录【倒叙】
+
+##### 2016-06-04  版本：2.0 
+- 5.2.11、新增StoreBoard版的tabbar，具体使用详情请看appdelegate，已修复使用StoreBoard不能更改tabbar选中颜色的问题！
+- 5.2.10、APP中的文字和APP名字的国际化多语言处理，详情请看：[『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)！
+
+##### 2016-06-04  版本：2.0 
+- 5.2.09、重新封装全新AFN的网络类，基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
+
+##### 2016-06-03  版本：2.0 
+- 5.2.08、新增DemoVC11，collectionView的浮动布局，自适应宽高的item，
 
 ##### 2016-05-31  版本：2.0 
 - 5.2.07、新增内存泄露检测，使用检测工具[『MLeaksFinder』](http://wereadteam.github.io/2016/02/22/MLeaksFinder/)！

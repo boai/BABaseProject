@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E9482D35FC4BE81B3FF32FD7'
+               BlueprintIdentifier = 'B58AE9150F017AC1E3E69371EC850776'
                BlueprintName = 'JMRoundedCorner'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libJMRoundedCorner.a'>

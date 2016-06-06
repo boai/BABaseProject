@@ -1,10 +1,62 @@
+
+/*!
+ *  @header BAKit.h
+ *          BABaseProject
+ *
+ *  @brief  BAKit
+ *
+ *  @author 博爱
+ *  @copyright    Copyright © 2016年 博爱. All rights reserved.
+ *  @version    V1.0
+ */
+
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
 //
-//  BANewsNetManager.m
-//  BABaseProject
-//
-//  Created by apple on 16/1/13.
-//  Copyright © 2016年 博爱之家. All rights reserved.
-//
+//         .............................................
+//                  佛祖镇楼                  BUG辟易
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+
+/*
+ 
+ *********************************************************************************
+ *
+ * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
+ *
+ * QQ     : 博爱1616【137361770】
+ * 微博    : 博爱1616
+ * Email  : 137361770@qq.com
+ * GitHub : https://github.com/boai
+ * 博客园  : http://www.cnblogs.com/boai/
+ * 博客    : http://boai.github.io
+ 
+ *********************************************************************************
+ 
+ */
 
 #import "BANewsNetManager.h"
 #import "BAURLsPath.h"
@@ -17,33 +69,32 @@
 
 @implementation BANewsNetManager
 
-
-//+ (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle
-//{
-//    NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
-//    
-//    return [self GET:path parameters:nil completionHandle:^(id model, NSError *error) {
-//
-//        /** MJExtension 解析方法, 数组和字典是不同的 */
-//        // 如果model是个字典类型
-//        // 在最新版本中,下方方法名称变动mj_objectWithKeyValues
-////        BAVideoModel *mo = [BAVideoModel mj_objectWithKeyValues:model];
-//        // 假设 返回值 是数组类型
-//        
-////         mo = [BAVideoModel mj_objectArrayWithKeyValuesArray:model];
-////        completionHandle(mo, error);
-//        
-//        completionHandle([BAVideoModel BAMJParse:model], error);
-//    }];
-//}
-
+/*!
+ *  示例1：DemoVC1中的网络获取示例
+ *
+ *  @param startIndex index
+ *
+ *  @return DemoVC1中的网络获取示例
+ */
 + (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle
 {
     NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
     
-    return [self BA_GET_Url:path parameters:nil response:BAResponseStyleJSON requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+//    return [self BA_GET_Url:path parameters:nil response:BAResponseStyleJSON requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+//        
+//        completionHandle([BAVideoModel BAMJParse:model], error);
+//    }];
+    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet withUrlString:path withParameters:nil withSuccessBlock:^(id response) {
         
-        completionHandle([BAVideoModel BAMJParse:model], error);
+        completionHandle([BAVideoModel BAMJParse:response], nil);
+        
+    } withFailureBlock:^(NSError *error) {
+        
+        BALog(@"error：%@", error);
+        completionHandle(nil, error);
+
+    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+        
     }];
 }
 
@@ -54,53 +105,42 @@
  */
 + (id)getDemoVC11DataCompletionHandle:(void(^)(id model, NSError *error))completionHandle
 {
-//    NSString *urlPath = [];
-    return [self BA_GET_Url:DemoVC11URLPath parameters:nil response:(BAResponseStyleJSON) requestHeadFile:nil completionHandle:^(id model, NSError *error) {
+    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet withUrlString:DemoVC11URLPath withParameters:nil withSuccessBlock:^(id response) {
         
-        completionHandle([DemoVC11_model BAMJParse:model], error);
+        /*! 
+         获取的字典示例：
+         
+         {
+         description = "Hi\Uff0c\U6d17\U526a\U5439";
+         height = 1600;
+         id = 13328041;
+         "photo_url" = "http://p.chanyouji.cn/333978/1451945850044p1a879bbtem71udn1ujh1aaa1h9958.jpg";
+         "trip_id" = 333978;
+         width = 1068;
+         },
+         {
+         description = "";
+         height = 1600;
+         id = 14015158;
+         "photo_url" = "http://p.chanyouji.cn/1456589788/B078C994-6D71-4811-80BE-653D01C3A2A1.jpg";
+         "trip_id" = 361477;
+         width = 1600;
+         }
+         
+         */
+        
+    completionHandle([DemoVC11_model BAMJParse:response], nil);
+        
+    } withFailureBlock:^(NSError *error) {
+        
+        BALog(@"error：%@", error);
+        completionHandle(nil, error);
+        
+    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         
     }];
 }
 
-//// 单例写法
-//+ (AFHTTPSessionManager *)sharedAFManager
-//{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        manger = [AFHTTPSessionManager manager];
-//        
-//        // 设置AF对哪些数据类型进行解析
-//        manger.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"application/json", @"text/json", @"text/javascript", @"text/plain", nil];
-//        
-//        // 定义请求超时时间长度
-//        manger.requestSerializer.timeoutInterval = 30;
-//        
-//        // 还可以设置请求的 头部 httpHeaderField
-//        // 可以设置value为nil, 来删除某个key
-//        
-//    });
-//    return manger;
-//}
-
-//+ (id)getNewsListWithStartIndex:(NSInteger)index completionHandle:(void (^)(id, NSError *))completionHandle
-//{
-//    NSString *path = [NSString stringWithFormat:KVideoPath, index];
-//    return [self GET:path parameters:nil completionHandle:^(id responseObject, NSError *error) {
-//        completionHandle(responseObject, error);
-//    }];
-//    
-////    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-////    NSString *path = [NSString stringWithFormat:KNewsPath, index];
-////    return [[self sharedAFManager] GET:path parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-////        
-////        completionHandle(responseObject, nil);
-////        
-////    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-////        
-////        completionHandle(nil, error);
-////    }];
-//    
-//}
 
 
 @end

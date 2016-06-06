@@ -347,5 +347,14 @@
 /*! 加载最原始的图片，没有渲染 */
 + (instancetype)imageWithOriginalName:(NSString *)imageName;
 
+/**
+ *  图片的压缩方法
+ *
+ *  @param sourceImg   要被压缩的图片
+ *  @param defineWidth 要被压缩的尺寸(宽)
+ *
+ *  @return 被压缩的图片
+ */
++ (UIImage *)ba_IMGCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;
 
 @end

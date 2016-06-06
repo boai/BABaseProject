@@ -675,7 +675,7 @@
     return nil;
 }
 
-- (void)showAlertView:(NSString *)title message:(NSString *)message
+- (void)ba_showAlertView:(NSString *)title message:(NSString *)message
 {
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确 定" otherButtonTitles: nil] show];
 }

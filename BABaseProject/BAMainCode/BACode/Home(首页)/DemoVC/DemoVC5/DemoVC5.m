@@ -209,7 +209,7 @@
             [self judgeTextFieldResultType:BARegularExpressionTypePhone inputString:textField.text];
             break;
         case 1002:
-            [self.view showAlertView:@"温馨提示：" message:[BARegularExpression ba_getPhoneNumType:textField.text]];
+            [self.view ba_showAlertView:@"温馨提示：" message:[BARegularExpression ba_getPhoneNumType:textField.text]];
             break;
         case 1003:
             [self judgeTextFieldResultType:BARegularExpressionTypeEmail inputString:textField.text];
@@ -258,91 +258,91 @@
         case BARegularExpressionTypePhone:
             if ([BARegularExpression ba_isPhoneNumber:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是电话号码！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是电话号码！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的电话号码格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的电话号码格式错误！"];
             }
             break;
         case BARegularExpressionTypeEmail:
             if ([BARegularExpression ba_isEmailQualified:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是邮箱！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是邮箱！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的邮箱格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的邮箱格式错误！"];
             }
             break;
         case BARegularExpressionTypeUrl:
             if ([BARegularExpression ba_isUrl:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是Url！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是Url！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的Url格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的Url格式错误！"];
             }
             break;
         case BARegularExpressionTypeAllNumber:
             if ([BARegularExpression ba_isAllNumber:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是纯数字！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是纯数字！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的数字格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的数字格式错误！"];
             }
             break;
         case BARegularExpressionTypeIDCard:
             if ([BARegularExpression ba_isIdCardNumberQualified:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是身份证号码！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是身份证号码！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的身份证号码格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的身份证号码格式错误！"];
             }
             break;
         case BARegularExpressionTypeEnglishAlphabet:
             if ([BARegularExpression ba_isEnglishAlphabet:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是26个英文字母组成的字符串！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是26个英文字母组成的字符串！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的26个英文字母组成的字符串格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的26个英文字母组成的字符串格式错误！"];
             }
             break;
         case BARegularExpressionTypePasswordQualified:
             if ([BARegularExpression ba_isPasswordQualified:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的密码是以字母开头，长度在6-18之间，只能包含字符、数字和下划线。！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的密码是以字母开头，长度在6-18之间，只能包含字符、数字和下划线。！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的密码格式错误！密码要以以字母开头，长度在6-18之间，只能包含字符、数字和下划线。"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的密码格式错误！密码要以以字母开头，长度在6-18之间，只能包含字符、数字和下划线。"];
             }
             break;
         case BARegularExpressionTypeIPAddress:
             if ([BARegularExpression ba_isIPAddress:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是IP地址！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是IP地址！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的IP地址格式错误！IP地址（15位或18位数字）"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的IP地址格式错误！IP地址（15位或18位数字）"];
             }
             break;
         case BARegularExpressionTypeChinese:
             if ([BARegularExpression ba_isChinese:inputText])
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的是中文！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是中文！"];
             }
             else
             {
-                [self.view showAlertView:@"温馨提示：" message:@"输入的中文格式错误！"];
+                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的中文格式错误！"];
             }
             break;
             

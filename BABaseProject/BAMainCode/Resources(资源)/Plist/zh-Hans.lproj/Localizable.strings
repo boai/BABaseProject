@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  BABaseProject
+
+  Created by 博爱之家 on 16/6/4.
+  Copyright © 2016年 博爱之家. All rights reserved.
+*/
+
+title = "博爱";
+DemoVC10Title = "自定义 collectionView";
+
+
