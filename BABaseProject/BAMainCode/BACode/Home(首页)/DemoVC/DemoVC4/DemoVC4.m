@@ -8,7 +8,7 @@
 
 #import "DemoVC4.h"
 
-// 友盟分享
+/*! 友盟分享 */
 #import "UMSocial.h"
 
 @interface DemoVC4 ()<BAShareManageDelegate>

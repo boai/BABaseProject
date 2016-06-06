@@ -135,34 +135,110 @@ static BAShareManage *shareManage;
     {
         shareImage = [UIImage imageNamed:@"樱花瓣2"];
     }
-    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"朋友圈",@"微博", @"QQ",@"空间",nil];
-    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
+    
+    NSArray *titarray = nil;
+    NSArray *picarray = nil;
+//    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"朋友圈",@"微博", @"QQ",@"空间",nil];
+//    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
+    
+    if ([WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微信",@"朋友圈",@"微博", @"QQ",@"空间"];
+        picarray = @[@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间"];
+    }
+    else if (![WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微博", @"QQ",@"空间"];
+        picarray = @[@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间"];
+    }
+    else if ([WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微信",@"朋友圈",@"微博",];
+        picarray = @[@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈", @"BASharManager.bundle/新浪微博"];
+    }
+    else if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微博",];
+        picarray = @[@"BASharManager.bundle/新浪微博"];
+    }
+    
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方分享"];
     BA_Weak;
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
         BALog(@"要分享到的平台");
 
-        switch (index)
+        if ([WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
         {
-            case 1:
-                [weakSelf BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
-                break;
-            case 2:
-                [weakSelf BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
-                break;
-            case 3:
-                [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
-                break;
-            case 4:
-                [weakSelf BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
-                break;
-            case 5:
-                [weakSelf BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
-                break;
-                
-            default:
-                break;
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    case 2:
+                    [weakSelf BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    case 3:
+                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    break;
+                    case 4:
+                    [weakSelf BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    case 5:
+                    [weakSelf BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if (![WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
+        {
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    break;
+                    case 2:
+                    [weakSelf BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    case 3:
+                    [weakSelf BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if ([WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+        {
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    case 2:
+                    [weakSelf BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    break;
+                    case 3:
+                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+        {
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    break;
+                    
+                default:
+                    break;
+            }
         }
     }];
     [animationView CLBtnBlock:^(UIButton *btn) {
@@ -314,33 +390,109 @@ static BAShareManage *shareManage;
 /**友盟登录列表**/
 - (void)BA_UMLoginListWithViewControll:(UIViewController *)viewController
 {
-    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信", @"微博",  @"QQ", @"空间",nil];
-    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友", @"BASharManager.bundle/新浪微博",  @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
+//    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信", @"微博",  @"QQ", @"空间",nil];
+//    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友", @"BASharManager.bundle/新浪微博",  @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
+    
+    NSArray *titarray = nil;
+    NSArray *picarray = nil;
+    //    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"朋友圈",@"微博", @"QQ",@"空间",nil];
+    //    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
+    
+    if ([WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微信",@"微博", @"QQ",@"空间"];
+        picarray = @[@"BASharManager.bundle/微信好友",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间"];
+    }
+    else if (![WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微博", @"QQ",@"空间"];
+        picarray = @[@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间"];
+    }
+    else if ([WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微信",@"微博",];
+        picarray = @[@"BASharManager.bundle/微信好友", @"BASharManager.bundle/新浪微博"];
+    }
+    else if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+    {
+        titarray = @[@"微博",];
+        picarray = @[@"BASharManager.bundle/新浪微博"];
+    }
+    
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方登录"];
     BA_Weak;
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
         BALog(@"要登录的平台");
         
-        switch (index)
+        if ([WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
         {
-            case 1:
-                [weakSelf BA_WechatSessionLogin:viewController];
-                break;
-            case 2:
-                [weakSelf BA_SinaLogin:viewController];
-                break;
-            case 3:
-                [weakSelf BA_QQLogin:viewController];
-                break;
-            case 4:
-                [weakSelf BA_QzoneLogin:viewController];
-                break;
-
-            default:
-                break;
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_WechatSessionLogin:viewController];
+                    break;
+                    case 2:
+                    [weakSelf BA_SinaLogin:viewController];
+                    break;
+                    case 3:
+                    [weakSelf BA_QQLogin:viewController];
+                    break;
+                    case 4:
+                    [weakSelf BA_QzoneLogin:viewController];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if (![WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
+        {
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_SinaLogin:viewController];
+                    break;
+                    case 2:
+                    [weakSelf BA_QQLogin:viewController];
+                    break;
+                    case 3:
+                    [weakSelf BA_QzoneLogin:viewController];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if ([WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+        {
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_WechatSessionLogin:viewController];
+                    break;
+                    case 2:
+                    [weakSelf BA_SinaLogin:viewController];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled])
+        {
+            switch (index)
+            {
+                    case 1:
+                    [weakSelf BA_SinaLogin:viewController];
+                    break;
+                    
+                default:
+                    break;
+            }
         }
     }];
+
     [animationView CLBtnBlock:^(UIButton *btn) {
         
         BALog(@"你点了选择/取消按钮");

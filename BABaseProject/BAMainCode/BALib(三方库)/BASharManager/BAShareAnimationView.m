@@ -30,7 +30,7 @@
 @implementation BAShareAnimationView
 
 
-- (id)initWithTitleArray:(NSMutableArray *)titlearray picarray:(NSMutableArray *)picarray title:(NSString *)title
+- (id)initWithTitleArray:(NSArray *)titlearray picarray:(NSArray *)picarray title:(NSString *)title
 {
     BA_Weak;
     self = [super init];

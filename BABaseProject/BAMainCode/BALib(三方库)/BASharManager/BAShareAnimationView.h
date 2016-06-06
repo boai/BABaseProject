@@ -27,7 +27,7 @@ typedef void(^CLBtnBlock)(UIButton *btn);
  *
  *  @return id
  */
-- (id)initWithTitleArray:(NSMutableArray *)titlearray picarray:(NSMutableArray *)picarray title:(NSString *)title;
+- (id)initWithTitleArray:(NSArray *)titlearray picarray:(NSArray *)picarray title:(NSString *)title;
 
 /*!
  *  视图展示
