@@ -76,7 +76,7 @@
     {
         NSString *shareUrlSrt = @"http://boai.github.io";
         NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
-        // 注意：图片不能为空
+        /*! 注意：图片不能为空 */
         UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
         
         [[BAShareManage shareManage] BA_UMshareListWithViewControll:weakSelf withShareText:shareText image:shareImage url:shareUrlSrt];
@@ -94,7 +94,7 @@
 - (void)getUserData:(NSDictionary *)backUserData
 {
     BA_Weak;
-    [weakSelf BA_showAlertWithTitle:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
+    [weakSelf.view ba_showAlertView:@"温馨提示：" message:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
     BALog(@"友盟登陆成功，返回信息: %@", backUserData);
 }
 

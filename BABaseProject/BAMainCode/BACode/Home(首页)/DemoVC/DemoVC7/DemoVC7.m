@@ -36,6 +36,8 @@
             UITextField * textField = [[UITextField alloc]initWithFrame:CGRectMake(10, 100, BA_SCREEN_WIDTH - 20, 40)];
             textField.placeholder = @"请输入网址";
             textField.borderStyle = UITextBorderStyleRoundedRect;
+            textField.clearButtonMode = UITextFieldViewModeAlways;
+            textField.keyboardType = UIKeyboardTypeURL;
 //            textField.layer.borderColor = [UIColor colorWithWhite:0.797 alpha:1.000].CGColor;
 //            textField.layer.borderWidth = 0.5f;
             textField;

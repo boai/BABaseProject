@@ -143,7 +143,7 @@
     // ************* 友盟分享 *************
     [UMSocialData setAppKey:BA_Umeng_Appkey];
     // 打开调试log的开关
-    [UMSocialData openLog:YES];
+    [UMSocialData openLog:NO];
     
     // 如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
     //[UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait];
