@@ -22,10 +22,8 @@
 #import "BAProfileViewController.h"
 
 /*! 友盟分享 */
+#import "BAShareManage.h"
 #import "UMSocial.h"
-#import "UMSocialWechatHandler.h"
-#import "UMSocialQQHandler.h"
-#import "UMSocialSinaSSOHandler.h"
 
 /*! 本地通知VC */
 #import "DemoVC6.h"
@@ -141,34 +139,7 @@
 - (void)BA_YMShareSetting
 {
     // ************* 友盟分享 *************
-    [UMSocialData setAppKey:BA_Umeng_Appkey];
-    // 打开调试log的开关
-    [UMSocialData openLog:NO];
-    
-    // 如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
-    //[UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait];
-    
-    /*苹果审核要求,隐藏未安装的应用 的分享选项 */
-    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToSina, UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
-    
-    // 打开新浪微博的SSO开关
-    // 将在新浪微博注册的应用appkey、redirectURL替换下面参数，并在info.plist的URL Scheme中相应添加wb+appkey，如"wb3112175844"，详情请参考官方文档。
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:BA_Sina_AppKey
-                                         RedirectURL:@"http://sns.whalecloud.com/sin"];
-    //  添加微信分享授权
-    // 设置微信AppId、appSecret，分享url
-    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:@"https://www.baidu.com"];
-    
-    // 设置分享到QQ空间的应用Id，和分享url 链接
-    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:@"https://www.baidu.com"];
-    // 设置支持没有客户端情况下使用SSO授权
-    [UMSocialQQHandler setSupportWebView:YES];
-    
-    UMSocialSnsPlatform *copyPlatform = [[UMSocialSnsPlatform alloc] initWithPlatformName:@"copy"];
-    copyPlatform.displayName = @"复制";
-    copyPlatform.smallImageName = @"icon"; //用于tableView样式的分享列表
-    copyPlatform.bigImageName = @"icon"; //用于actionsheet样式的分享列表
-    copyPlatform.snsClickHandler = ^(UIViewController *presentingController, UMSocialControllerService * socialControllerService, BOOL isPresentInController){ NSLog(@"copy!"); };                                                                                                                                                                                                          [UMSocialConfig addSocialSnsPlatform:@[copyPlatform]];                                                                                                                                                                                                        [UMSocialConfig setSnsPlatformNames:@[UMShareToSina, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQQ, UMShareToQzone]];
+    [BASHAREMANAGER ba_shareConfig];
 }
 
 /**

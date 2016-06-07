@@ -7,11 +7,13 @@
 //  友盟分享工具类
 
 #import "BAShareManage.h"
+
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "WXApi.h"
 #import "BAShareAnimationView.h"
 #import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
 
 @implementation BAShareManage {
     UIViewController *_viewC;
@@ -21,27 +23,57 @@ static BAShareManage *shareManage;
 
 + (BAShareManage *)shareManage
 {
-    @synchronized(self)
-    {
-        if (shareManage == nil) {
-            shareManage = [[self alloc] init];
-        }
-        return shareManage;
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shareManage = [[BAShareManage alloc] init];
+    });
+    return shareManage;
 }
 
 #pragma mark - 友盟分享
 #pragma mark 注册友盟分享微信
-- (void)shareConfig
+- (void)ba_shareConfig
 {
     //设置友盟社会化组件appkey
-    [UMSocialData setAppKey:BA_Umeng_Appkey];
-    [UMSocialData openLog:YES];
+//    [UMSocialData setAppKey:BA_Umeng_Appkey];
+//    [UMSocialData openLog:YES];
+//    
+//    //注册微信
+//    [WXApi registerApp:BA_WX_APPKEY];
+//    //设置图文分享
+//    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
     
-    //注册微信
-    [WXApi registerApp:BA_WX_APPKEY];
-    //设置图文分享
-    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
+    
+    // ************* 友盟分享 *************
+    [UMSocialData setAppKey:BA_Umeng_Appkey];
+    // 打开调试log的开关
+    [UMSocialData openLog:NO];
+    
+    // 如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
+    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait];
+    
+    /*苹果审核要求,隐藏未安装的应用 的分享选项 */
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToSina, UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
+    
+    // 打开新浪微博的SSO开关
+    // 将在新浪微博注册的应用appkey、redirectURL替换下面参数，并在info.plist的URL Scheme中相应添加wb+appkey，如"wb3112175844"，详情请参考官方文档。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:BA_Sina_AppKey
+                                         RedirectURL:@"http://sns.whalecloud.com/sin"];
+    //  添加微信分享授权
+    // 设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:@"https://www.baidu.com"];
+    
+    // 设置分享到QQ空间的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:@"https://www.baidu.com"];
+    // 设置支持没有客户端情况下使用SSO授权
+    [UMSocialQQHandler setSupportWebView:YES];
+    
+    /*! 这段代码是用友盟自带的自定义分享的时候打开！ */
+//    UMSocialSnsPlatform *copyPlatform = [[UMSocialSnsPlatform alloc] initWithPlatformName:@"copy"];
+//    copyPlatform.displayName = @"复制";
+//    copyPlatform.smallImageName = @"icon"; //用于tableView样式的分享列表
+//    copyPlatform.bigImageName = @"icon"; //用于actionsheet样式的分享列表
+//    copyPlatform.snsClickHandler = ^(UIViewController *presentingController, UMSocialControllerService * socialControllerService, BOOL isPresentInController){ NSLog(@"copy!"); };                                                                                                                                                                                                          [UMSocialConfig addSocialSnsPlatform:@[copyPlatform]];                                                                                                                                                                                                        [UMSocialConfig setSnsPlatformNames:@[UMShareToSina, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQQ, UMShareToQzone]];
 }
 
 #pragma mark 微信分享
@@ -49,8 +81,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    
-    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:shareURLString];
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = shareURLString;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -67,7 +98,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialWechatHandler setWXAppId:BA_WX_APPKEY appSecret:BA_WX_APPSECRET url:shareURLString];
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareURLString;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -76,7 +107,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:shareURLString];
+    [UMSocialData defaultData].extConfig.qqData.url = shareURLString;
 
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
@@ -86,8 +117,7 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialQQHandler setQQWithAppId:BA_QQAppID appKey:BA_QQKey url:shareURLString];
-    
+    [UMSocialData defaultData].extConfig.qzoneData.url = shareURLString;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -138,8 +168,6 @@ static BAShareManage *shareManage;
     
     NSArray *titarray = nil;
     NSArray *picarray = nil;
-//    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信",@"朋友圈",@"微博", @"QQ",@"空间",nil];
-//    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友",@"BASharManager.bundle/朋友圈",@"BASharManager.bundle/新浪微博", @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
     
     if ([WXApi isWXAppInstalled] && [TencentOAuth iphoneQQInstalled])
     {
