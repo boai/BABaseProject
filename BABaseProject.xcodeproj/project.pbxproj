@@ -107,6 +107,10 @@
 		C4D108051CE2FC1C00F735B9 /* view4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D108011CE2FC1C00F735B9 /* view4.m */; };
 		C4DEB3701D0C2F44001F1585 /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB36D1D0C2F44001F1585 /* UIImage+CompressImage.m */; };
 		C4DEB3741D0C2FC8001F1585 /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3721D0C2FC8001F1585 /* BANetManager.m */; };
+		C4DEB3771D0C332C001F1585 /* BATabBarController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3761D0C332C001F1585 /* BATabBarController2.m */; };
+		C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3791D0C3351001F1585 /* BATabBar2.m */; };
+		C4DEB37D1D0C33E8001F1585 /* BANavigationController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB37C1D0C33E8001F1585 /* BANavigationController2.m */; };
+		C4DEB3851D0C34B0001F1585 /* BAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
@@ -449,6 +453,14 @@
 		C4DEB36D1D0C2F44001F1585 /* UIImage+CompressImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CompressImage.m"; path = "../../../BANetManager(网络类)/UIImage+CompressImage.m"; sourceTree = "<group>"; };
 		C4DEB3721D0C2FC8001F1585 /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
 		C4DEB3731D0C2FC8001F1585 /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
+		C4DEB3751D0C332C001F1585 /* BATabBarController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController2.h; sourceTree = "<group>"; };
+		C4DEB3761D0C332C001F1585 /* BATabBarController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController2.m; sourceTree = "<group>"; };
+		C4DEB3781D0C3351001F1585 /* BATabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BATabBar2.h; path = ../Controller/BATabBar2.h; sourceTree = "<group>"; };
+		C4DEB3791D0C3351001F1585 /* BATabBar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BATabBar2.m; path = ../Controller/BATabBar2.m; sourceTree = "<group>"; };
+		C4DEB37B1D0C33E8001F1585 /* BANavigationController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANavigationController2.h; sourceTree = "<group>"; };
+		C4DEB37C1D0C33E8001F1585 /* BANavigationController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANavigationController2.m; sourceTree = "<group>"; };
+		C4DEB3831D0C34B0001F1585 /* BAPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPublishViewController.h; sourceTree = "<group>"; };
+		C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPublishViewController.m; sourceTree = "<group>"; };
 		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
@@ -1020,6 +1032,47 @@
 			path = BASegmentControl;
 			sourceTree = "<group>";
 		};
+		C4DEB37E1D0C348E001F1585 /* Publish(发布) */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEB37F1D0C348E001F1585 /* Model */,
+				C4DEB3801D0C348E001F1585 /* View */,
+				C4DEB3811D0C348E001F1585 /* ViewController */,
+				C4DEB3821D0C348E001F1585 /* ViewModel */,
+			);
+			path = "Publish(发布)";
+			sourceTree = "<group>";
+		};
+		C4DEB37F1D0C348E001F1585 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4DEB3801D0C348E001F1585 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4DEB3811D0C348E001F1585 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEB3831D0C34B0001F1585 /* BAPublishViewController.h */,
+				C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C4DEB3821D0C348E001F1585 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C4EA257E1CF7DF4B00F6081C /* DemoVC10 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1157,6 +1210,8 @@
 				C4EB5AE61CD8B24F003A7094 /* BABaseViewController.m */,
 				C40852E11CDA229B0004A671 /* BANavigationController.h */,
 				C40852E21CDA229B0004A671 /* BANavigationController.m */,
+				C4DEB37B1D0C33E8001F1585 /* BANavigationController2.h */,
+				C4DEB37C1D0C33E8001F1585 /* BANavigationController2.m */,
 				C408527A1CD990B00004A671 /* BABaseTableViewController.h */,
 				C408527B1CD990B00004A671 /* BABaseTableViewController.m */,
 				C4C802501CF5AFAE00AD5B3B /* BAWebViewController.h */,
@@ -1183,6 +1238,7 @@
 				C4EB5AFF1CD8B24F003A7094 /* Message(消息) */,
 				C4EB5AF11CD8B24F003A7094 /* Discover(发现) */,
 				C4EB5B051CD8B24F003A7094 /* Profile(我) */,
+				C4DEB37E1D0C348E001F1585 /* Publish(发布) */,
 			);
 			path = BACode;
 			sourceTree = "<group>";
@@ -1634,6 +1690,8 @@
 				C40852EB1CDA26680004A671 /* RDVTabBarController.m */,
 				C42A6AE61CDAE10D00D534EE /* BATabBarController.h */,
 				C42A6AE71CDAE10D00D534EE /* BATabBarController.m */,
+				C4DEB3751D0C332C001F1585 /* BATabBarController2.h */,
+				C4DEB3761D0C332C001F1585 /* BATabBarController2.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1654,6 +1712,8 @@
 				C40852E71CDA263B0004A671 /* RDVTabBar.m */,
 				C42A6ADD1CDAE10500D534EE /* BATabBar.h */,
 				C42A6ADE1CDAE10500D534EE /* BATabBar.m */,
+				C4DEB3781D0C3351001F1585 /* BATabBar2.h */,
+				C4DEB3791D0C3351001F1585 /* BATabBar2.m */,
 				C42A6ADF1CDAE10500D534EE /* BATabBarButton.h */,
 				C42A6AE01CDAE10500D534EE /* BATabBarButton.m */,
 				C42A6AE11CDAE10500D534EE /* BABadgeView.h */,
@@ -2053,6 +2113,7 @@
 				C408528E1CD9C55A0004A671 /* EmitterLayerView.m in Sources */,
 				C46B89EB1CE020F700005E2B /* UIColor+BAKit.m in Sources */,
 				C4EB5BD21CD8B250003A7094 /* BABaseNetManager.m in Sources */,
+				C4DEB37D1D0C33E8001F1585 /* BANavigationController2.m in Sources */,
 				C40852A91CD9FD760004A671 /* BAHomeViewCell.m in Sources */,
 				C40852E81CDA263B0004A671 /* RDVTabBarItem.m in Sources */,
 				C40852E31CDA229B0004A671 /* BANavigationController.m in Sources */,
@@ -2124,6 +2185,7 @@
 				C46B89D91CE020F700005E2B /* BARegularExpression.m in Sources */,
 				C46B89E71CE020F700005E2B /* BACustomModalTransition.m in Sources */,
 				C4EB5AA51CD8B04B003A7094 /* main.m in Sources */,
+				C4DEB3851D0C34B0001F1585 /* BAPublishViewController.m in Sources */,
 				C46B89FC1CE0AE3400005E2B /* DemoVC5_TextPart.m in Sources */,
 				C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */,
 				C46B89F31CE020F700005E2B /* UITextField+BAKit.m in Sources */,
@@ -2150,10 +2212,12 @@
 				C46B89E01CE020F700005E2B /* NSFileManager+BAKit.m in Sources */,
 				C473CC791CF72372001883A9 /* DemoVC9.m in Sources */,
 				C408528B1CD9C53E0004A671 /* BASnowView.m in Sources */,
+				C4DEB3771D0C332C001F1585 /* BATabBarController2.m in Sources */,
 				C4562C791CDDA25E000F5710 /* BAShareManageView.m in Sources */,
 				C4EB5BB91CD8B250003A7094 /* BABaseViewController.m in Sources */,
 				C4EB5BB61CD8B250003A7094 /* BAVideoModel.m in Sources */,
 				C4EB5BB41CD8B250003A7094 /* BABaseModel.m in Sources */,
+				C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */,
 				C4EB5BD31CD8B250003A7094 /* BANewsNetManager.m in Sources */,
 				C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */,
 				C40852BC1CDA09100004A671 /* DemoVC2.m in Sources */,

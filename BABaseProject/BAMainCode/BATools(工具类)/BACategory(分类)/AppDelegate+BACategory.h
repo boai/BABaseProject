@@ -21,6 +21,8 @@
  */
 - (void)isBATabVC:(BOOL)is;
 
+- (void)isBATabVC2:(BOOL)is;
+
 - (void)test;
 
 /*！把各种初始化操作,固定的操作 写入到类别中 */

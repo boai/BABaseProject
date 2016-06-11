@@ -150,8 +150,7 @@
 {
     [super layoutSubviews];
     
-    
-    CGFloat W = self.bounds.size.width;
+    CGFloat W = BA_SCREEN_WIDTH;
     CGFloat H = self.bounds.size.height;
     
     CGFloat btn_X = 0;
@@ -175,10 +174,6 @@
     // 调整系统自带的tabBar上的按钮位置frame
     for (UIView *tabBarButton in self.buttons)
     {
-//        if (i == 2)
-//        {
-//            i = 3;·
-//        }
         btn_X = i * btn_W;
         
         tabBarButton.frame = CGRectMake(btn_X, btn_Y, btn_W, btn_H);

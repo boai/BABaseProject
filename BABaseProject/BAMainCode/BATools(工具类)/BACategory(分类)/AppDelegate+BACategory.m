@@ -12,6 +12,10 @@
 #import "BANavigationController.h"
 #import "BATabBarController.h"
 
+/*! 第三种tabbar */
+#import "BATabBarController2.h"
+#import "BANavigationController2.h"
+
 /*! 用RDVTabBarController，使用此头文件 */
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
@@ -53,6 +57,17 @@
             self.window.rootViewController = self.viewController;
     }
 
+    [self.window makeKeyAndVisible];
+}
+
+- (void)isBATabVC2:(BOOL)is
+{
+    // 创建窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    /*! 此处使用自定义TabBarController */
+    self.window.rootViewController = [[BATabBarController2 alloc] init];
+    
     [self.window makeKeyAndVisible];
 }
 
