@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"我 的";
     [self setVCBgColor:BA_Red_Color];
 
 }

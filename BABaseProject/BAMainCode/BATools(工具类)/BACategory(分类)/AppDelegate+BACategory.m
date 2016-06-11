@@ -53,9 +53,7 @@
             self.window.rootViewController = self.viewController;
     }
 
-    
     [self.window makeKeyAndVisible];
-    
 }
 
 #pragma mark - ***** 设备各种信息获取 设置

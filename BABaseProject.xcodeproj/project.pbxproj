@@ -41,7 +41,6 @@
 		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
 		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
-		C42C7F371D01A1E3001EEDCA /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42C7F361D01A1E3001EEDCA /* BANetManager.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C437CB1F1CEF09CD00FCA331 /* BAModal.m in Sources */ = {isa = PBXBuildFile; fileRef = C437CB1E1CEF09CD00FCA331 /* BAModal.m */; };
 		C43CE71F1CFFBEEF004C763B /* DemoVC11_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C43CE71E1CFFBEEF004C763B /* DemoVC11_Cell.m */; };
@@ -106,6 +105,8 @@
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
 		C4D108041CE2FC1C00F735B9 /* view3.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FF1CE2FC1C00F735B9 /* view3.m */; };
 		C4D108051CE2FC1C00F735B9 /* view4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D108011CE2FC1C00F735B9 /* view4.m */; };
+		C4DEB3701D0C2F44001F1585 /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB36D1D0C2F44001F1585 /* UIImage+CompressImage.m */; };
+		C4DEB3741D0C2FC8001F1585 /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3721D0C2FC8001F1585 /* BANetManager.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
@@ -320,8 +321,6 @@
 		C42A6AE21CDAE10500D534EE /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
 		C42A6AE61CDAE10D00D534EE /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
 		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
-		C42C7F351D01A1E3001EEDCA /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
-		C42C7F361D01A1E3001EEDCA /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C437CB1D1CEF09CD00FCA331 /* BAModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAModal.h; sourceTree = "<group>"; };
@@ -446,6 +445,10 @@
 		C4D107FF1CE2FC1C00F735B9 /* view3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view3.m; sourceTree = "<group>"; };
 		C4D108001CE2FC1C00F735B9 /* view4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view4.h; sourceTree = "<group>"; };
 		C4D108011CE2FC1C00F735B9 /* view4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view4.m; sourceTree = "<group>"; };
+		C4DEB36C1D0C2F44001F1585 /* UIImage+CompressImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+CompressImage.h"; path = "../../../BANetManager(网络类)/UIImage+CompressImage.h"; sourceTree = "<group>"; };
+		C4DEB36D1D0C2F44001F1585 /* UIImage+CompressImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CompressImage.m"; path = "../../../BANetManager(网络类)/UIImage+CompressImage.m"; sourceTree = "<group>"; };
+		C4DEB3721D0C2FC8001F1585 /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
+		C4DEB3731D0C2FC8001F1585 /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
 		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
@@ -945,6 +948,8 @@
 				C46B89C01CE020F700005E2B /* UIDevice+BAKit.m */,
 				C46B89C11CE020F700005E2B /* UIFont+BAKit.h */,
 				C46B89C21CE020F700005E2B /* UIFont+BAKit.m */,
+				C4DEB36C1D0C2F44001F1585 /* UIImage+CompressImage.h */,
+				C4DEB36D1D0C2F44001F1585 /* UIImage+CompressImage.m */,
 				C46B89C31CE020F700005E2B /* UIImage+BAKit.h */,
 				C46B89C41CE020F700005E2B /* UIImage+BAKit.m */,
 				C46B89C51CE020F700005E2B /* UIImageView+BAKit.h */,
@@ -1422,8 +1427,8 @@
 			children = (
 				C4EB5B3E1CD8B24F003A7094 /* BABaseNetManager.h */,
 				C4EB5B3F1CD8B24F003A7094 /* BABaseNetManager.m */,
-				C42C7F351D01A1E3001EEDCA /* BANetManager.h */,
-				C42C7F361D01A1E3001EEDCA /* BANetManager.m */,
+				C4DEB3721D0C2FC8001F1585 /* BANetManager.m */,
+				C4DEB3731D0C2FC8001F1585 /* BANetManager.h */,
 				C4EB5B401CD8B24F003A7094 /* BANewsNetManager.h */,
 				C4EB5B411CD8B24F003A7094 /* BANewsNetManager.m */,
 				C4EB5B421CD8B24F003A7094 /* BAURLsPath.h */,
@@ -1741,6 +1746,7 @@
 				TargetAttributes = {
 					C4EB5A9F1CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = TRVB83KBJJ;
 					};
 					C4EB5AB81CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
@@ -2063,9 +2069,9 @@
 				C4EB5BD01CD8B250003A7094 /* UIScrollView+BARefresh.m in Sources */,
 				C423217B1CE72A7000D91F45 /* BALocalNotification.m in Sources */,
 				C46B89E31CE020F700005E2B /* NSNumber+BAKit.m in Sources */,
-				C42C7F371D01A1E3001EEDCA /* BANetManager.m in Sources */,
 				C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
+				C4DEB3701D0C2F44001F1585 /* UIImage+CompressImage.m in Sources */,
 				C46B89E91CE020F700005E2B /* BATextView.m in Sources */,
 				C46B89F41CE020F700005E2B /* UIView+BAKit.m in Sources */,
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
@@ -2124,6 +2130,7 @@
 				C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */,
 				C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */,
 				C46B89E41CE020F700005E2B /* NSProcessInfo+BAKit.m in Sources */,
+				C4DEB3741D0C2FC8001F1585 /* BANetManager.m in Sources */,
 				C4EB5BC31CD8B250003A7094 /* LPLevelView.m in Sources */,
 				C4EB5BB81CD8B250003A7094 /* BANavigationBar.m in Sources */,
 				C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */,
@@ -2323,7 +2330,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-boai.BABaseProject";
+				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2341,7 +2348,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-boai.BABaseProject";
+				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

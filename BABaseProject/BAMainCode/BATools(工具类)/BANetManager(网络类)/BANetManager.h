@@ -142,13 +142,12 @@ typedef NSURLSessionTask BAURLSessionTask;
  *
  *  @param operations   上传图片预留参数---视具体情况而定 可移除
  *  @param imageArray   上传的图片数组
- *  @parm width      图片要被压缩到的宽度
  *  @param urlString    上传的url
  *  @param successBlock 上传成功的回调
  *  @param failureBlock 上传失败的回调
  *  @param progress     上传进度
  */
-+ (BAURLSessionTask *)ba_uploadImageWithOperations:(NSDictionary *)operations withImageArray:(NSArray *)imageArray withtargetWidth:(CGFloat )width withUrlString:(NSString *)urlString withSuccessBlock:(BAResponseSuccess)successBlock withFailurBlock:(BAResponseFail)failureBlock withUpLoadProgress:(BAUploadProgress)progress;
++ (BAURLSessionTask *)ba_uploadImageWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters withImageArray:(NSArray *)imageArray withSuccessBlock:(BAResponseSuccess)successBlock withFailurBlock:(BAResponseFail)failureBlock withUpLoadProgress:(BAUploadProgress)progress;
 
 /*!
  *  视频上传

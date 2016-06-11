@@ -21,6 +21,8 @@
     // Do any additional setup after loading the view.
     
     [self setVCBgColor:BA_Yellow_Color];
+    self.title = @"消 息";
+    
 }
 
 

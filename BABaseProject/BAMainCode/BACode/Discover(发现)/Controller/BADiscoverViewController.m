@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"发 现";
     [self setVCBgColor:BA_Green_Color];
 
     [self test];

@@ -152,7 +152,7 @@
     
     
     CGFloat W = self.bounds.size.width;
-//    CGFloat H = self.bounds.size.height;
+    CGFloat H = self.bounds.size.height;
     
     CGFloat btn_X = 0;
     CGFloat btn_Y = 0;
@@ -177,7 +177,7 @@
     {
 //        if (i == 2)
 //        {
-//            i = 3;
+//            i = 3;·
 //        }
         btn_X = i * btn_W;
         

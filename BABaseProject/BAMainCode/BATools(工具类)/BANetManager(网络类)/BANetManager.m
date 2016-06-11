@@ -63,8 +63,17 @@
 #import <AVFoundation/AVAssetExportSession.h>
 #import <AVFoundation/AVMediaFormat.h>
 
-//#import <AFNetworking.h>
-//#import "AFNetworkActivityIndicatorManager.h"
+/*! 系统相册 */
+#import <AssetsLibrary/ALAsset.h>
+#import <AssetsLibrary/ALAssetsLibrary.h>
+#import <AssetsLibrary/ALAssetsGroup.h>
+#import <AssetsLibrary/ALAssetRepresentation.h>
+
+
+#import <AFNetworking.h>
+#import "AFNetworkActivityIndicatorManager.h"
+
+#import "UIImage+CompressImage.h"
 
 
 static NSMutableArray *tasks;
@@ -112,8 +121,7 @@ static NSMutableArray *tasks;
 //        [manager.requestSerializer setValue:apikey forHTTPHeaderField:@"apikey"];
         
         /*! 复杂的参数类型 需要使用json传值-设置请求内容的类型*/
-        
-        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
         /*! 设置响应数据的基本了类型 */
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/css",@"text/xml",@"text/plain", @"application/javascript", nil];
@@ -128,7 +136,7 @@ static NSMutableArray *tasks;
 + (NSMutableArray *)tasks{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        BALog(@"创建tasks数组");
+        NSLog(@"创建数组");
         tasks = [[NSMutableArray alloc] init];
     });
     return tasks;
@@ -147,7 +155,7 @@ static NSMutableArray *tasks;
  */
 + (BAURLSessionTask *)ba_requestWithType:(BAHttpRequestType)type withUrlString:(NSString *)urlString withParameters:(NSDictionary *)parameters withSuccessBlock:(BAResponseSuccess)successBlock withFailureBlock:(BAResponseFail)failureBlock progress:(BADownloadProgress)progress
 {
-    BALog(@"请求地址----%@\n \r请求参数----%@", urlString, parameters);
+    NSLog(@"请求地址----%@\n    请求参数----%@", urlString, parameters);
     if (urlString == nil)
     {
         return nil;
@@ -200,7 +208,7 @@ static NSMutableArray *tasks;
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             /* ************************************************** */
-            //如果请求成功 , 回调请求到的数据 , 同时 在这里 做本地缓存
+            // 如果请求成功 , 回调请求到的数据 , 同时 在这里 做本地缓存
             NSString *path = [NSString stringWithFormat:@"%ld.plist", [URLString hash]];
             // 存储的沙盒路径
             NSString *path_doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
@@ -219,6 +227,7 @@ static NSMutableArray *tasks;
             if (failureBlock)
             {
                 failureBlock(error);
+                NSLog(@"错误信息：%@",error);
             }
             [[self tasks] removeObject:sessionTask];
 
@@ -244,9 +253,9 @@ static NSMutableArray *tasks;
  *  @param failureBlock 上传失败的回调
  *  @param progress     上传进度
  */
-+ (BAURLSessionTask *)ba_uploadImageWithOperations:(NSDictionary *)operations withImageArray:(NSArray *)imageArray withtargetWidth:(CGFloat )width withUrlString:(NSString *)urlString withSuccessBlock:(BAResponseSuccess)successBlock withFailurBlock:(BAResponseFail)failureBlock withUpLoadProgress:(BAUploadProgress)progress
++ (BAURLSessionTask *)ba_uploadImageWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters withImageArray:(NSArray *)imageArray withSuccessBlock:(BAResponseSuccess)successBlock withFailurBlock:(BAResponseFail)failureBlock withUpLoadProgress:(BAUploadProgress)progress
 {
-    BALog(@"请求地址----%@\n ,\r请求参数----%@", urlString, imageArray);
+    NSLog(@"请求地址----%@\n    请求参数----%@", urlString, imageArray);
     if (urlString == nil)
     {
         return nil;
@@ -256,25 +265,48 @@ static NSMutableArray *tasks;
     NSString *URLString = [NSURL URLWithString:urlString] ? urlString : [self strUTF8Encoding:urlString];
 
     BAURLSessionTask *sessionTask = nil;
-    sessionTask = [[self sharedAFManager] POST:URLString parameters:operations constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    sessionTask = [[self sharedAFManager] POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         NSUInteger i = 0 ;
         /*! 出于性能考虑,将上传图片进行压缩 */
-        for (UIImage *image in imageArray)
+        for (int i = 0; i < imageArray.count; i++)
         {
-            /*! image的分类方法 */
-            UIImage *  resizedImage =  [UIImage ba_IMGCompressed:image targetWidth:width];
+            /*! image的压缩方法 */
+            UIImage *resizedImage;
+            /*! 此处是使用原生系统相册 */
+            if([imageArray[i] isKindOfClass:[ALAsset class]])
+            {
+                // 用ALAsset获取Asset URL  转化为image
+                ALAssetRepresentation *assetRep = [imageArray[i] defaultRepresentation];
+                
+                CGImageRef imgRef = [assetRep fullResolutionImage];
+                resizedImage = [UIImage imageWithCGImage:imgRef
+                                          scale:1.0
+                                    orientation:(UIImageOrientation)assetRep.orientation];
+                //                imageWithImage
+                NSLog(@"1111-----size : %@",NSStringFromCGSize(resizedImage.size));
+                
+                resizedImage = [self imageWithImage:resizedImage scaledToSize:resizedImage.size];
+                NSLog(@"2222-----size : %@",NSStringFromCGSize(resizedImage.size));
+            }
+            else
+            {
+                /*! 此处是使用其他第三方相册，可以自由定制压缩方法 */
+                resizedImage = imageArray[i];
+            }
             
-            NSData * imgData = UIImageJPEGRepresentation(resizedImage, .5);
+            /*! 此处压缩方法是jpeg格式是原图大小的0.8倍，要调整大小的话，就在这里调整就行了还是原图等比压缩 */
+            NSData *imgData = UIImageJPEGRepresentation(resizedImage, 0.8);
             
             /*! 拼接data */
-            [formData appendPartWithFileData:imgData name:[NSString stringWithFormat:@"picflie%ld",(long)i] fileName:@"image.png" mimeType:@" image/jpeg"];
-            
-            i++;
+            if (imgData != nil)
+            {   // 图片数据不为空才传递
+                [formData appendPartWithFileData:imgData name:[NSString stringWithFormat:@"picflie%ld",(long)i] fileName:@"image.png" mimeType:@" image/jpeg"];
+            }
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
-        BALog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+        NSLog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
         
         if (progress)
         {
@@ -283,7 +315,7 @@ static NSMutableArray *tasks;
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        BALog(@"上传图片成功 = %@",responseObject);
+        NSLog(@"上传图片成功 = %@",responseObject);
         if (successBlock)
         {
             successBlock(responseObject);
@@ -331,14 +363,17 @@ static NSMutableArray *tasks;
     //    NSString *const AVAssetExportPreset1920x1080;
     //    NSString *const AVAssetExportPreset3840x2160;
     
-    AVAssetExportSession  *avAssetExport = [[AVAssetExportSession alloc] initWithAsset:avAsset presetName:AVAssetExportPreset640x480];
+    AVAssetExportSession  *  avAssetExport = [[AVAssetExportSession alloc] initWithAsset:avAsset presetName:AVAssetExportPreset640x480];
     
     /*! 创建日期格式化器 */
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    
     [formatter setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
     
     /*! 转化后直接写入Library---caches */
-    NSString *videoWritePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/output-%@.mp4",[formatter stringFromDate:[NSDate date]]]];
+    
+    NSString *  videoWritePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/output-%@.mp4",[formatter stringFromDate:[NSDate date]]]];
     
     
     avAssetExport.outputURL = [NSURL URLWithString:videoWritePath];
@@ -359,7 +394,7 @@ static NSMutableArray *tasks;
                     
                 } progress:^(NSProgress * _Nonnull uploadProgress) {
                     
-                    BALog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+                    NSLog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
                     
                     if (progress)
                     {
@@ -368,7 +403,7 @@ static NSMutableArray *tasks;
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
                     
-                    BALog(@"上传视频成功 = %@",responseObject);
+                    NSLog(@"上传视频成功 = %@",responseObject);
                     if (successBlock)
                     {
                         successBlock(responseObject);
@@ -406,7 +441,7 @@ static NSMutableArray *tasks;
  */
 + (BAURLSessionTask *)ba_downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString withSuccessBlock:(BAResponseSuccess)successBlock withFailureBlock:(BAResponseFail)failureBlock withDownLoadProgress:(BADownloadProgress)progress
 {
-    BALog(@"请求地址----%@\n \r请求参数----%@", urlString, operations);
+    NSLog(@"请求地址----%@\n    请求参数----%@", urlString, operations);
     if (urlString == nil)
     {
         return nil;
@@ -418,7 +453,7 @@ static NSMutableArray *tasks;
     
     sessionTask = [[self sharedAFManager] downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        BALog(@"下载进度：%.2lld%%",100 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
+        NSLog(@"下载进度：%.2lld%%",100 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
         /*! 回到主线程刷新UI */
         dispatch_async(dispatch_get_main_queue(), ^{
            
@@ -434,7 +469,7 @@ static NSMutableArray *tasks;
         if (!savePath)
         {
             NSURL *downloadURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-            BALog(@"默认路径--%@",downloadURL);
+            NSLog(@"默认路径--%@",downloadURL);
             return [downloadURL URLByAppendingPathComponent:[response suggestedFilename]];
         }
         else
@@ -446,7 +481,7 @@ static NSMutableArray *tasks;
         
         [[self tasks] removeObject:sessionTask];
 
-        BALog(@"下载文件成功");
+        NSLog(@"下载文件成功");
         if (error == nil)
         {
             if (successBlock)
@@ -490,29 +525,43 @@ static NSMutableArray *tasks;
         switch (status)
         {
             case AFNetworkReachabilityStatusUnknown: // 未知网络
-                [self BA_showAlertWithTitle:@"当前网络未知！"];
-                BALog(@"未知网络");
+                NSLog(@"未知网络");
                 BANetManagerShare.netWorkStatus = BANetworkStatusUnknown;
                 break;
             case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
-                [self BA_showAlertWithTitle:@"当前无网络！"];
-                BALog(@"没有网络");
+                NSLog(@"没有网络");
                 BANetManagerShare.netWorkStatus = BANetworkStatusNotReachable;
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
-                [self BA_showAlertWithTitle:@"当前是蜂窝网络！"];
-                BALog(@"手机自带网络");
+                NSLog(@"手机自带网络");
                 BANetManagerShare.netWorkStatus = BANetworkStatusReachableViaWWAN;
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
                 
-                [self BA_showAlertWithTitle:@"当前是WiFi环境！"];
                 BANetManagerShare.netWorkStatus = BANetworkStatusReachableViaWiFi;
-                BALog(@"WIFI--%lu", (unsigned long)BANetManagerShare.netWorkStatus);
+                NSLog(@"WIFI--%lu", (unsigned long)BANetManagerShare.netWorkStatus);
                 break;
         }
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+/*! 对图片尺寸进行压缩 */
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
+    if (newSize.height > 375/newSize.width*newSize.height)
+    {
+        newSize.height = 375/newSize.width*newSize.height;
+    }
+    
+    if (newSize.width > 375)
+    {
+        newSize.width = 375;
+    }
+    
+    UIImage *newImage = [UIImage needCenterImage:image size:newSize scale:1.0];
+    
+    return newImage;
 }
 
 + (NSString *)strUTF8Encoding:(NSString *)str

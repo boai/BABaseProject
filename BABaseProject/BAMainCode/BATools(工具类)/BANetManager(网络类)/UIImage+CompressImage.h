@@ -47,7 +47,7 @@
  *
  * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
  *
- * QQ     : 可以添加SDAutoLayout群 497140713 在这里找到我(博爱1616【137361770】)
+ * QQ     : 博爱1616【137361770】
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
@@ -58,96 +58,48 @@
  
  */
 
-#ifndef BABaseProject_pch
-#define BABaseProject_pch
+#import <UIKit/UIKit.h>
+
+typedef UIImage JPEGImage;
+typedef UIImage PNGImage;
+typedef NSData JPEGData;
+typedef NSData PNGData;
+
+@interface UIImage (CompressImage)
+/**
+ *  传入图片,需要的大小,比例,得到压缩图片大小
+ *      
+ *      @prama image 需要压缩的图片
+ *      @prama size  压缩后图片的大小
+ *      @prama scale 压缩的比例 0.0 - 1.0
+ *
+ *      @return 返回新的图片
+ */
++ (JPEGImage *)needCompressImage:(UIImage *)image size:(CGSize )size scale:(CGFloat )scale;
++ (JPEGImage *)needCompressImageData:(NSData *)imageData size:(CGSize )size scale:(CGFloat )scale;
+
+/**
+ *  传入图片,获取中间部分,需要的大小,压缩比例
+ *
+ *      @prama image 需要压缩的图片
+ *      @prama size  压缩后图片的大小
+ *      @prama scale 压缩的比例 0.0 - 1.0
+ *
+ *      @return 返回新的图片
+ */
++ (JPEGImage *)needCenterImage:(UIImage *)image size:(CGSize )size scale:(CGFloat )scale;
 
 
-#ifndef __IPHONE_7_0
-//#warning "This project uses features only available in iOS SDK 7.0 and later."
-#endif
+/**
+ *  png图片转为jpeg(jpg)图片
+ *
+ *      @prama image 需要转为jpeg的png图片
+ *      
+ *      @return 返回一张jpeg图片
+ */
++ (JPEGImage *)jpegImageWithPNGImage:(PNGImage *)pngImage;
++ (JPEGImage *)jpegImageWithPNGData:(PNGData *)pngData;
++ (JPEGData *)jpegDataWithPNGData:(PNGData *)pngData;
++ (JPEGData *)jpegDataWithPNGImage:(PNGImage *)pngImage;
 
-#ifdef __OBJC__
-
-    /*! 系统头文件 */
-    #import <UIKit/UIKit.h> // UI
-    #import <Foundation/Foundation.h> // NS
-
-    /*! 全局宏定义文件 */
-    #import "BADefin.h"
-    #import "BAColorHeader.h"
-    #import "BAFrameHeader.h"
-
-    /*! 正则表达式 */
-    #import "BARegularExpression.h"
-
-    /*! BAKit框架 */
-    #import "BAKit.h"
-
-    /*! 自定义modal动画 */
-    #import "BAModal.h"
-
-    /*! 本地通知 */
-    #import "BALocalNotification.h"
-
-    /*! 自定义button */
-    #import <BAButton.h>
-
-    /*! 文本宽度/高度自适应 */
-    #import "BAAutoSizeWithWH.h"
-
-    /*! 自定义UINavigationItem */
-    #import "UINavigationItem+CustomItem.h"
-
-    /*! 自动布局三方库 */
-    #import <Masonry.h>
-    #import "UIView+SDAutoLayout.h"
-    #import "UITableView+SDAutoTableViewCellHeight.h"
-
-    /*! 缓存三方库 */
-    #import "UIImageView+WebCache.h"
-    #import <SDImageCache.h>
-
-    /*! 键盘 */
-    #import "IQKeyboardManager.h"
-
-    /*! 加载框提示 */
-    #import "NSObject+BAProgressHUD.h"
-
-    /*! 网络库 */
-    #import <AFNetworking.h>
-    #import <UIKit+AFNetworking.h>
-
-    /*! block三方库 */
-    #import <BlocksKit.h>
-    #import <BlocksKit+UIKit.h>
-
-    /*! 上下拉刷新 */
-    #import <MJRefresh.h>
-    #import "UIScrollView+BARefresh.h"
-
-    /*! 友盟分享/登陆 的详细封装 */
-    #import "BAShareManage.h"
-
-    /*! FPS */
-    #import "BAFPSLabel.h"
-
-    /*! 离屏渲染绘制 layer */
-    #import "UIView+RoundedCorner.h"
-
-    /*! 将Toast通知添加到UIView对象类 */
-    //#import "UIView+Toast.h"
-
-    /*! 网络状态：与AFN可二选一 */
-    //#import "Reachability.h"
-
-    /*! 警告框 */
-    #import "UIViewController+BAAlertView.h"
-
-    /*! 自定义字体 */
-    #import "AddedFont.h"
-
-
-
-#endif
-
-#endif /* BABaseProject_pch */
+@end

@@ -172,15 +172,15 @@
     // 1.imageView
     CGFloat imageX = 0;
     CGFloat imageY = 0;
-    CGFloat imageW = self.bounds.size.width;
-    CGFloat imageH = self.bounds.size.height * BAImageRidio;
+    CGFloat imageW = self.frame.size.width;
+    CGFloat imageH = self.frame.size.height * BAImageRidio;
     self.imageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
     
     // 2.title
     CGFloat titleX = 0;
     CGFloat titleY = imageH - 3;
-    CGFloat titleW = self.bounds.size.width;
-    CGFloat titleH = self.bounds.size.height - titleY -2;
+    CGFloat titleW = self.frame.size.width;
+    CGFloat titleH = self.frame.size.height - titleY -2;
     self.titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
     
     // 3.badgeView
@@ -189,7 +189,7 @@
     
     CGFloat lineViewX = 0;
     CGFloat lineViewY = self.titleLabel.bottom;
-    CGFloat lineViewW = self.bounds.size.width;
+    CGFloat lineViewW = self.frame.size.width;
     CGFloat lineViewH = 2;
     self.lineView.frame = CGRectMake(lineViewX, lineViewY, lineViewW, lineViewH);
 }

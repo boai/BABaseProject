@@ -80,20 +80,19 @@
     self.interactivePopGestureRecognizer.delegate = nil;
     self.delegate = self;
 
-//    BANavigationBar * bar = self.navigationBar;
+//    BANavigationBar *bar = self.navigationBar;
 //    [bar setBackgroundImage:[UIImage imageNamed:@"005.jpg"] forBarMetrics:UIBarMetricsCompactPrompt];
 //    [bar setBarTintColor:BA_White_Color];
     
     BANavigationBar *bar = [[BANavigationBar alloc]initWithFrame:CGRectMake(0, 20, BA_SCREEN_WIDTH, 44)];
     [self setValue:bar forKey:@"navigationBar"];
 //    [bar setBarTintColor:BA_White_Color];
-    [bar setTranslucent:NO]; // 半透明
+//    [bar setTranslucent:NO]; // 半透明
     
-    self.navigationBar.barTintColor = BA_Red_Color;
+    bar.barTintColor = BA_Red_Color;
 
     // 去掉导航分割线
-    [bar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [bar setShadowImage:[[UIImage alloc] init]];
+    [bar setShadowImage:[UIImage new]];
 
     // 设置导航条按钮的文字颜色
     NSMutableDictionary *titleAttr = [NSMutableDictionary dictionary];
@@ -133,14 +132,10 @@
         // 清空滑动返回手势代理
         self.interactivePopGestureRecognizer.delegate = nil;
     }
-    
-    //    BALog(@"%s", __func__);
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    //    BALog(@"%s", __func__);
-    
     // 设置非根控制器导航条内容
     if (self.viewControllers.count)
     {
