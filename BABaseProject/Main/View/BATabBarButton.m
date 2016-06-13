@@ -118,10 +118,10 @@
         // 设置文字字体
         self.titleLabel.font = [UIFont systemFontOfSize:12];
         
-        self.lineView.backgroundColor = BA_Red_Color;
-        self.lineView.hidden = YES;
+//        self.lineView.backgroundColor = BA_Red_Color;
+//        self.lineView.hidden = YES;
         
-        [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
+//        [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -145,7 +145,7 @@
 // 只要监听的属性一有新值，就会调用
 - (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context
 {
-    self.lineView.hidden = !self.selected;
+//    self.lineView.hidden = !self.selected;
 
     [self setTitle:_item.title forState:UIControlStateNormal];
     [self setImage:_item.image forState:UIControlStateNormal];

@@ -7,6 +7,7 @@
 //
 
 #import "DemoVC3.h"
+#import "BAScrollBar.h"
 
 @interface DemoVC3 ()
 {
@@ -15,10 +16,12 @@
     
     UILabel    *_label1;
 }
-@property (nonatomic, strong) UIButton  *timeButton;
-@property (nonatomic, strong) NSTimer   *timer;
-@property (nonatomic, strong) UIButton  *timeButton2;
-@property (nonatomic, strong) UIButton  *timeButton3;
+@property (nonatomic, strong) UIButton     *timeButton;
+@property (nonatomic, strong) NSTimer      *timer;
+@property (nonatomic, strong) UIButton     *timeButton2;
+@property (nonatomic, strong) UIButton     *timeButton3;
+
+@property (nonatomic, strong) BAScrollBar  *scrollBar;
 
 @end
 
@@ -27,74 +30,74 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.timeButton.hidden = NO;
+//    self.timeButton.hidden = NO;
     self.timeButton2.hidden = NO;
     self.timeButton3.hidden = NO;
-
+    self.scrollBar.hidden = NO;
 }
 
 #pragma mark - ***** 第一种倒计时button【不推荐，推荐第二种，此方法有内存泄露】
-- (UIButton *)timeButton
-{
-    if (!_timeButton)
-    {
-        _time = 29;
-        self.timeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.timeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-        self.timeButton.titleLabel.font = BA_FontSize(15);
-        [self.timeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.timeButton addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.timeButton jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
-
-        [self refreshButtonWidth];
-        [self.view addSubview:self.timeButton];
-    }
-    return _timeButton;
-}
-
-- (void)refreshButtonWidth
-{
-    CGFloat width = 0;
-    if (self.timeButton.enabled)
-    {
-        width = 100;
-    }
-    else
-    {
-        width = 120;
-    }
-    self.timeButton.center = CGPointMake(self.view.centerX, 100);
-    self.timeButton.bounds = CGRectMake(0, 0, width, 40);
-    
-    /*! 每次刷新，保证区域正确 */
-    [self.timeButton setBackgroundImage:[UIImage imageWithColor:[UIColor orangeColor] size:self.timeButton.frame.size] forState:UIControlStateNormal];
-    [self.timeButton setBackgroundImage:[UIImage imageWithColor:[UIColor lightGrayColor] size:self.timeButton.frame.size] forState:UIControlStateDisabled];
-    [self.timeButton jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
-}
-
-- (IBAction)btnAction:(UIButton *)sender
-{
-    sender.enabled = NO;
-    [self refreshButtonWidth];
-    [sender setTitle:[NSString stringWithFormat:@"获取验证码(%zi)", _time] forState:UIControlStateNormal];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(timeDown) userInfo:nil repeats:YES];
-}
-
-- (void)timeDown
-{
-    _time --;
-    if (_time == 0)
-    {
-        [self.timeButton setTitle:@"重新获取" forState:UIControlStateNormal];
-        self.timeButton.enabled = YES;
-        [self refreshButtonWidth];
-        [_timer invalidate];
-        _timer = nil;
-        _time = 29 ;
-        return;
-    }
-    [self.timeButton setTitle:[NSString stringWithFormat:@"获取验证码(%zi)", _time] forState:UIControlStateNormal];
-}
+//- (UIButton *)timeButton
+//{
+//    if (!_timeButton)
+//    {
+//        _time = 29;
+//        self.timeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [self.timeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+//        self.timeButton.titleLabel.font = BA_FontSize(15);
+//        [self.timeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [self.timeButton addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.timeButton jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
+//
+//        [self refreshButtonWidth];
+//        [self.view addSubview:self.timeButton];
+//    }
+//    return _timeButton;
+//}
+//
+//- (void)refreshButtonWidth
+//{
+//    CGFloat width = 0;
+//    if (self.timeButton.enabled)
+//    {
+//        width = 100;
+//    }
+//    else
+//    {
+//        width = 120;
+//    }
+//    self.timeButton.center = CGPointMake(self.view.centerX, 100);
+//    self.timeButton.bounds = CGRectMake(0, 100, width, 40);
+//    
+//    /*! 每次刷新，保证区域正确 */
+//    [self.timeButton setBackgroundImage:[UIImage imageWithColor:[UIColor orangeColor] size:self.timeButton.frame.size] forState:UIControlStateNormal];
+//    [self.timeButton setBackgroundImage:[UIImage imageWithColor:[UIColor lightGrayColor] size:self.timeButton.frame.size] forState:UIControlStateDisabled];
+//    [self.timeButton jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
+//}
+//
+//- (IBAction)btnAction:(UIButton *)sender
+//{
+//    sender.enabled = NO;
+//    [self refreshButtonWidth];
+//    [sender setTitle:[NSString stringWithFormat:@"获取验证码(%zi)", _time] forState:UIControlStateNormal];
+//    _timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(timeDown) userInfo:nil repeats:YES];
+//}
+//
+//- (void)timeDown
+//{
+//    _time --;
+//    if (_time == 0)
+//    {
+//        [self.timeButton setTitle:@"重新获取" forState:UIControlStateNormal];
+//        self.timeButton.enabled = YES;
+//        [self refreshButtonWidth];
+//        [_timer invalidate];
+//        _timer = nil;
+//        _time = 29 ;
+//        return;
+//    }
+//    [self.timeButton setTitle:[NSString stringWithFormat:@"获取验证码(%zi)", _time] forState:UIControlStateNormal];
+//}
 
 #pragma mark - ***** 第二种倒计时button【推荐使用】
 - (UIButton *)timeButton2
@@ -103,7 +106,7 @@
     {
         _time = 19;
         _timeButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _timeButton2.frame = CGRectMake(_timeButton.x, _timeButton.bottom + 10, 120, _timeButton.height);
+        _timeButton2.frame = CGRectMake(self.view.centerX, 120, 120, 40);
         [_timeButton2 setTitle:@"获取验证码" forState:UIControlStateNormal];
         _timeButton2.titleLabel.font = BA_FontSize(15);
         [_timeButton2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -169,7 +172,7 @@
     if (!_timeButton3)
     {
         _timeButton3 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _timeButton3.frame = CGRectMake(_timeButton.x, _timeButton2.bottom + 10, 120, _timeButton.height);
+        _timeButton3.frame = CGRectMake(self.view.centerX, _timeButton2.bottom + 10, 120, 40);
         [_timeButton3 setTitle:@"点击有惊喜！" forState:UIControlStateNormal];
         _timeButton3.titleLabel.font = BA_FontSize(15);
         [_timeButton3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -218,6 +221,20 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.textColor = [UIColor colorWithWhite:1 alpha:0.85];
     return label;
+}
+
+#pragma mark - ***** 一个滚动的广告条：跑马灯label
+- (BAScrollBar *)scrollBar
+{
+    if (!_scrollBar)
+    {
+        _scrollBar = [[BAScrollBar alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 40)];
+        _scrollBar.text = @"对于 MacBook，我们给自己设定了一个几乎不可能实现的目标：在有史以来最为轻盈纤薄的 Mac 笔记本电脑上，打造全尺寸的使用体验。这就要求每个元素都必须重新构想，不仅令其更为纤薄轻巧，还要更加出色。最终我们带来的，不仅是一部新款的笔记本电脑，更是一种对笔记本电脑的前瞻性思考。现在，有了第六代 Intel 处理器、提升的图形处理性能、高速闪存和最长可达 10 小时的电池使用时间*，MacBook 的强大更进一步。";
+        _scrollBar.bgColor = BA_Green_Color;
+        
+        [self.view addSubview:_scrollBar];
+    }
+    return _scrollBar;
 }
 
 @end
