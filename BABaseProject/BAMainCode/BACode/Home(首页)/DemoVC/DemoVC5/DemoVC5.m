@@ -173,6 +173,42 @@
     return 20;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /*! 第二种：卡片式动画 */
+    static CGFloat initialDelay = 0.2f;
+    static CGFloat stutter = 0.06f;
+    
+    cell.contentView.transform =  CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+    
+    [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
+        cell.contentView.transform = CGAffineTransformIdentity;
+    } completion:NULL];
+    
+}
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    CATransform3D rotation;
+//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+//    rotation.m44 = 1.0/ -600;
+//    //阴影
+//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+//    
+//    //阴影偏移
+//    cell.layer.shadowOffset = CGSizeMake(10, 10);
+//    cell.alpha = 0;
+//    cell.layer.transform = rotation;
+//    //锚点
+//    cell.layer.anchorPoint = CGPointMake(0.5, 0.5);
+//    [UIView beginAnimations:@"rotation" context:NULL];
+//    [UIView setAnimationDuration:0.8];
+//    cell.layer.transform = CATransform3DIdentity;
+//    cell.alpha = 1;
+//    cell.layer.shadowOffset = CGSizeMake(0, 0);
+//    [UIView commitAnimations];
+//}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel *headerLabel = [UILabel new];

@@ -195,6 +195,21 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
     return reusable;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0)
+{
+    /*! 第二种：卡片式动画 */
+    static CGFloat initialDelay = 0.2f;
+    static CGFloat stutter = 0.06f;
+    
+    cell.contentView.transform =  CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+    
+    [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
+        cell.contentView.transform = CGAffineTransformIdentity;
+    } completion:NULL];
+}
+
+
+
 #pragma mark - ***** UICollectionViewDelegateFlowLayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {

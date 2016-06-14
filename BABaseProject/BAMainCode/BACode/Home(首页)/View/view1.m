@@ -274,6 +274,25 @@
     
 //    cell.layer.transform = CATransform3DMakeTranslation(SCREEN_WIDTH, -SCREEN_HEIGHT, 0);
 
+    /*! 第六种：翻转动画 */
+//    CATransform3D rotation;
+//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+//    rotation.m44 = 1.0/ -600;
+//    //阴影
+//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+//    
+//    //阴影偏移
+//    cell.layer.shadowOffset = CGSizeMake(10, 10);
+//    cell.alpha = 0;
+//    cell.layer.transform = rotation;
+//    //锚点
+//    cell.layer.anchorPoint = CGPointMake(0.5, 0.5);
+//    [UIView beginAnimations:@"rotation" context:NULL];
+//    [UIView setAnimationDuration:0.8];
+//    cell.layer.transform = CATransform3DIdentity;
+//    cell.alpha = 1;
+//    cell.layer.shadowOffset = CGSizeMake(0, 0);
+//    [UIView commitAnimations];
 
 }
 
