@@ -135,7 +135,7 @@
 + (BOOL)ba_isPasswordQualified:(NSString *)passwordStr;
 
 /*!
- *  验证身份证号（15位或18位数字）
+ *  验证身份证号（15位或18位数字）【最全的身份证校验，带校验位】
  *  @param pattern 传入需要检测的字符串
  *
  *  @return 返回检测结果 是或者不是
