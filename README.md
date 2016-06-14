@@ -78,9 +78,8 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录【倒叙】
 
 ##### 2016-06-14  版本：2.0 
+- 5.2.15、正则表达式更新：验证身份证号（15位或18位数字）【最全的身份证校验，带校验省份、生日】，详见：DemoVC5！
 - 5.2.14、新增webView的高度获取，详见：DemoVC7！
-
-##### 2016-06-14  版本：2.0 
 - 5.2.13、新增cell 的五种动画显示方式！详见：HomeVC！
 
 ##### 2016-06-13  版本：2.0 
@@ -89,8 +88,6 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ##### 2016-06-04  版本：2.0 
 - 5.2.11、新增StoreBoard版的tabbar，具体使用详情请看appdelegate，已修复使用StoreBoard不能更改tabbar选中颜色的问题！
 - 5.2.10、APP中的文字和APP名字的国际化多语言处理，详情请看：[『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)！
-
-##### 2016-06-04  版本：2.0 
 - 5.2.09、重新封装全新AFN的网络类，基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
 
 ##### 2016-06-03  版本：2.0 
@@ -101,20 +98,14 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
 ##### 2016-05-30  版本：2.0 
 - 5.2.06、新增DemoVC10，collectionView的简单使用，用View写的写了一个简单的collectionView，可随意添加到任何地方，新增编辑功能，能够实现collectionView 的删除！如果喜欢，请在git上点个星吧！
-
-##### 2016-05-30  版本：2.0 
 - 5.2.05、新增DemoVC9，流式布局和线性布局库的使用，用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！
 
 ##### 2016-05-25  版本：2.0 
 - 5.2.04、新增DemoVC8，系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！详情请看：[『BAReminderDemo』](https://github.com/boai/BAReminderDemo)！
-
-##### 2016-05-25  版本：2.0 
 - 5.2.03、新增DemoVC7，webView和WKWebView完美封装，简单的内置浏览器，有简单的功能，后期有新功能会加上！如果喜欢，请在git上点个星吧！
 
 ##### 2016-05-10  版本：2.0 
 - 5.2.02、新增DemoVC6，本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！详情请看：[『BALocalNotification』](https://github.com/boai/BALocalNotification)！
-
-##### 2016-05-10  版本：2.0 
 - 5.2.01、新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装[『BASegmentControl』](https://github.com/boai/BASegmentControl)，可随时取用！
 
 ##### 2016-05-10  版本：1.0 
