@@ -16,6 +16,9 @@
     UITableViewDelegate,
     UITableViewDataSource
 >
+{
+    BOOL isShowAnimation;
+}
 @property (nonatomic, strong) NSMutableArray  *titlesArray;
 @property (nonatomic, strong) NSMutableArray  *classNamesArray;
 @property (nonatomic, strong) NSMutableArray  *contentsArray;
@@ -62,6 +65,9 @@
         self.selectBlock = selectRowBlock;
                 
         self.tableView.hidden = NO;
+        
+        isShowAnimation = NO;
+
         [self viewDidLayoutSubviews];
         
 
@@ -227,6 +233,48 @@
     {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+    
+    /*! 第一种：3d xyz三维坐标刚出现0.1 0.1 1  0.5 s后正常 */
+//    cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1);
+//    [UIView animateWithDuration:0.6 animations:^{
+//        
+//        cell.layer.transform = CATransform3DMakeScale(1,1,1);
+//        
+//    }];
+    
+    /*! 第二种：卡片式动画 */
+    static CGFloat initialDelay = 0.2f;
+    static CGFloat stutter = 0.06f;
+    
+    cell.contentView.transform =  CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+    
+    [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
+        cell.contentView.transform = CGAffineTransformIdentity;
+    } completion:NULL];
+    
+    /*! 第三种：从下往上 */
+    
+//    [UIView animateWithDuration:1 animations:^{
+//        
+//        cell.layer.transform = CATransform3DMakeTranslation(0, 0, 0);
+//        
+//    }];
+    
+    /*! 第四种：右下角出来 */
+    
+//    cell.layer.transform = CATransform3DMakeTranslation(SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+//    
+//    [UIView animateWithDuration:0.5 animations:^{
+//        
+//        cell.layer.transform = CATransform3DMakeTranslation(0, 0, 0);
+//        
+//    }];
+    
+     /*! 第五种：右上角出现 */
+    
+//    cell.layer.transform = CATransform3DMakeTranslation(SCREEN_WIDTH, -SCREEN_HEIGHT, 0);
+
+
 }
 
 
