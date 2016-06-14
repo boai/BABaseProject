@@ -206,6 +206,28 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
     [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
         cell.contentView.transform = CGAffineTransformIdentity;
     } completion:NULL];
+    
+    
+    /*! 第七种：扇形动画 */
+//    if (indexPath.row % 2 != 0)
+//    {
+//        cell.transform = CGAffineTransformTranslate(cell.transform, BA_SCREEN_WIDTH/2,0);
+//    }
+//    else
+//    {
+//        cell.transform = CGAffineTransformTranslate(cell.transform, -BA_SCREEN_WIDTH/2, 0);
+//    }
+//    
+//    cell.alpha = 0.0;
+//    
+//    [UIView animateWithDuration:0.7 animations:^{
+//        
+//        cell.transform = CGAffineTransformIdentity;
+//        
+//        cell.alpha = 1.0;
+//        
+//    } completion:^(BOOL finished) {
+//    }];
 }
 
 
