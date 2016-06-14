@@ -132,6 +132,41 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     [self.view ba_showAlertView:@"温馨提示：" message:msg];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0)
+{
+    /*! 第二种：卡片式动画 */
+//    static CGFloat initialDelay = 0.2f;
+//    static CGFloat stutter = 0.06f;
+//    
+//    cell.contentView.transform =  CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+//    
+//    [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
+//        cell.contentView.transform = CGAffineTransformIdentity;
+//    } completion:NULL];
+    
+    
+    /*! 第七种：扇形动画 */
+    if (indexPath.row % 2 != 0)
+    {
+        cell.transform = CGAffineTransformTranslate(cell.transform, BA_SCREEN_WIDTH/2,0);
+    }
+    else
+    {
+        cell.transform = CGAffineTransformTranslate(cell.transform, -BA_SCREEN_WIDTH/2, 0);
+    }
+
+    cell.alpha = 0.0;
+
+    [UIView animateWithDuration:0.7 animations:^{
+
+        cell.transform = CGAffineTransformIdentity;
+
+        cell.alpha = 1.0;
+        
+    } completion:^(BOOL finished) {
+    }];
+}
+
 #pragma mark - ***** DemoVC11_AutoLayoutDelegate 设置图片高度
 - (CGFloat) layout:(BALayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexpath width:(CGFloat)width
 {

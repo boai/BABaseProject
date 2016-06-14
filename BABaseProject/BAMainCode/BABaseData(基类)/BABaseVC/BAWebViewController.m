@@ -211,8 +211,6 @@
 #pragma mark 菜单按钮点击
 - (void)menuBtnAction:(UIButton *)sender
 {
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"safari打开",@"复制链接",@"分享",@"刷新", nil];
-//    [actionSheet showInView:self.view];
     [self BAActionSheetWithTitle:@"更 多" message:nil destructive:nil destructiveAction:^(NSInteger index) {
         
     } andOthers:@[@"取消", @"safari打开",@"复制链接",@"分享",@"刷新"] animated:YES action:^(NSInteger index) {
@@ -293,6 +291,11 @@
     {
         self.title = webView.title;
     }
+    
+    // 获取内容高度
+//    CGFloat height =  [[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollHeight"] intValue];
+//    
+//    NSLog(@"html 的高度：%f", height);
 }
 
 #pragma mark 页面加载失败时调用
@@ -453,6 +456,38 @@
     self.loadCount --;
     BASharedApplication.networkActivityIndicatorVisible = NO;
     self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    // 获取内容高度
+    CGFloat height =  [[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollHeight"] intValue];
+    
+    NSLog(@"html 的高度：%f", height);
+
+//    CGFloat htmlHeight;
+//    // 防止死循环
+//    if (height != htmlHeight)
+//    {
+//        
+//        htmlHeight = height;
+//        
+//        if (height > 0)
+//        {
+//            // 更新布局
+//            CGFloat paddingEdge = 10;
+//            [webView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                
+//                make.left.equalTo(self.view).with.offset(paddingEdge);
+//                make.right.mas_equalTo(-paddingEdge);
+//                make.top.equalTo(self.view).with.offset(paddingEdge);
+//                make.bottom.mas_equalTo(-paddingEdge);
+//                
+//            }];
+//            
+//            // 刷新cell高度
+////            _viewModel.cellHeight = _viewModel.otherHeight + _viewModel.htmlHeight;
+////            [_viewModel.refreshSubject sendNext:nil];
+//        }
+//        NSLog(@"html 的高度：%f", htmlHeight);
+//    }
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
