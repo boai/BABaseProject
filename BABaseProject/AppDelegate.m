@@ -87,6 +87,9 @@
     /*! 设置statusBar为白色 */
     [BASharedApplication setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    /*! 设置默认缓存大小 */
+    [self ba_setNSURLCache];
+    
     /*! 测试信息 */
     [self test];
     

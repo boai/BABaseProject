@@ -8,6 +8,9 @@ xcodeproj 'BABaseProject.xcodeproj'
 # 去掉由pod引入的第三方库的警告，需要更新命令才生效
 inhibit_all_warnings!
 
+# pod 快速更新方法
+# pod update --verbose --no-repo-update
+
 target 'BABaseProject' do
     
     # 自定义button框架
@@ -15,8 +18,9 @@ target 'BABaseProject' do
         
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry', '~> 0.6.4'
+    
     # 两个都是自动布局框架
-    pod 'SDAutoLayout', '~> 1.31'
+    pod 'SDAutoLayout'
     
     # 为UI控件提供网络图片加载和缓存功能，AF已经整合了此功能，一般用AF就够了，据专业人士说：SD比AF快0.02秒，如果，同时引用AF和SD，那么AF的网络图片加载方法会被划线
     pod 'SDWebImage', '~> 3.7.5'
@@ -64,6 +68,9 @@ target 'BABaseProject' do
     
     # 内存泄露检测工具
     pod 'MLeaksFinder'
+    
+    # 空数据的处理
+    pod 'NullSafe'
     
     # 获取所有设备型号
 #    pod 'DeviceUtil'

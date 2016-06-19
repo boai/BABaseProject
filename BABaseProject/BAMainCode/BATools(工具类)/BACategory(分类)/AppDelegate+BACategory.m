@@ -71,6 +71,31 @@
     [self.window makeKeyAndVisible];
 }
 
+#pragma mark - ***** 设置默认缓存大小
+- (void)ba_setNSURLCache
+{
+    /*! 
+     
+     首先要知道，POST请求不能被缓存，只有 GET 请求能被缓存。因为从数学的角度来讲，GET 的结果是 幂等 的，就好像字典里的 key 与 value 就是幂等的，而 POST 不 幂等 。缓存的思路就是将查询的参数组成的值作为 key ，对应结果作为value。从这个意义上说，一个文件的资源链接，也叫 GET 请求，下文也会这样看待。
+     80%的缓存需求：两行代码就可满足
+     设置缓存只需要三个步骤：
+     
+     第一个步骤：请使用 GET 请求。
+     
+     第二个步骤：
+     
+     如果你已经使用 了 GET 请求，iOS 系统 SDK 已经帮你做好了缓存。你需要的仅仅是设置下内存缓存大小、磁盘缓存大小、以及缓存路径。甚至这两行代码不设置也是可以的，会有一个默认值。代码如下：
+     
+     要注意
+     
+     iOS 5.0开始，支持磁盘缓存，但仅支持 HTTP
+     iOS 6.0开始，支持 HTTPS 缓存
+     
+     */
+    NSURLCache *urlCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
+    [NSURLCache setSharedURLCache:urlCache];
+}
+
 #pragma mark - ***** 设备各种信息获取 设置
 - (void)test
 {

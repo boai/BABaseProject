@@ -25,6 +25,11 @@
 
 - (void)test;
 
+/*！
+ *  设置默认缓存大小
+ */
+- (void)ba_setNSURLCache;
+
 /*！把各种初始化操作,固定的操作 写入到类别中 */
 - (void)BA_initializeWithApplication:(UIApplication *)application;
 

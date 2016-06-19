@@ -80,9 +80,15 @@ typedef NS_ENUM(NSUInteger, BANetworkStatus)
 /*！定义请求类型的枚举 */
 typedef NS_ENUM(NSUInteger, BAHttpRequestType)
 {
-    
+    /*! get请求 */
     BAHttpRequestTypeGet = 0,
-    BAHttpRequestTypePost
+    /*! post请求 */
+    BAHttpRequestTypePost,
+    /*! put请求 */
+    BAHttpRequestTypePut,
+    /*! delete请求 */
+    BAHttpRequestTypeDelete
+    
     
 };
 
@@ -111,7 +117,7 @@ typedef NSURLSessionTask BAURLSessionTask;
 @interface BANetManager : NSObject
 
 /*! 获取当前网络状态 */
-@property (nonatomic, assign) BANetworkStatus netWorkStatus;
+@property (nonatomic, assign) BANetworkStatus   netWorkStatus;
 
 /*!
  *  获得全局唯一的网络请求实例单例方法
@@ -135,7 +141,12 @@ typedef NSURLSessionTask BAURLSessionTask;
  *  @param failureBlock 请求失败的回调
  *  @param progress 进度
  */
-+ (BAURLSessionTask *)ba_requestWithType:(BAHttpRequestType)type withUrlString:(NSString *)urlString withParameters:(NSDictionary *)parameters withSuccessBlock:(BAResponseSuccess)successBlock withFailureBlock:(BAResponseFail)failureBlock progress:(BADownloadProgress)progress;
++ (BAURLSessionTask *)ba_requestWithType:(BAHttpRequestType)type
+                           withUrlString:(NSString *)urlString
+                          withParameters:(NSDictionary *)parameters
+                        withSuccessBlock:(BAResponseSuccess)successBlock
+                        withFailureBlock:(BAResponseFail)failureBlock
+                                progress:(BADownloadProgress)progress;
 
 /*!
  *  上传图片(多图)
@@ -147,7 +158,12 @@ typedef NSURLSessionTask BAURLSessionTask;
  *  @param failureBlock 上传失败的回调
  *  @param progress     上传进度
  */
-+ (BAURLSessionTask *)ba_uploadImageWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters withImageArray:(NSArray *)imageArray withSuccessBlock:(BAResponseSuccess)successBlock withFailurBlock:(BAResponseFail)failureBlock withUpLoadProgress:(BAUploadProgress)progress;
++ (BAURLSessionTask *)ba_uploadImageWithUrlString:(NSString *)urlString
+                                       parameters:(NSDictionary *)parameters
+                                   withImageArray:(NSArray *)imageArray
+                                 withSuccessBlock:(BAResponseSuccess)successBlock
+                                  withFailurBlock:(BAResponseFail)failureBlock
+                               withUpLoadProgress:(BAUploadProgress)progress;
 
 /*!
  *  视频上传
@@ -159,7 +175,12 @@ typedef NSURLSessionTask BAURLSessionTask;
  *  @param failureBlock 失败的回调
  *  @param progress     上传的进度
  */
-+ (void)ba_uploadVideoWithOperaitons:(NSDictionary *)operations withVideoPath:(NSString *)videoPath withUrlString:(NSString *)urlString withSuccessBlock:(BAResponseSuccess)successBlock withFailureBlock:(BAResponseFail)failureBlock withUploadProgress:(BAUploadProgress)progress;
++ (void)ba_uploadVideoWithUrlString:(NSString *)urlString
+                         parameters:(NSDictionary *)parameters
+                      withVideoPath:(NSString *)videoPath
+                   withSuccessBlock:(BAResponseSuccess)successBlock
+                   withFailureBlock:(BAResponseFail)failureBlock
+                 withUploadProgress:(BAUploadProgress)progress;
 
 /*!
  *  文件下载
@@ -171,7 +192,12 @@ typedef NSURLSessionTask BAURLSessionTask;
  *  @param failureBlock 下载文件失败的回调
  *  @param progress     下载文件的进度显示
  */
-+ (BAURLSessionTask *)ba_downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString withSuccessBlock:(BAResponseSuccess)successBlock withFailureBlock:(BAResponseFail)failureBlock withDownLoadProgress:(BADownloadProgress)progress;
++ (BAURLSessionTask *)ba_downLoadFileWithUrlString:(NSString *)urlString
+                                        parameters:(NSDictionary *)parameters
+                                      withSavaPath:(NSString *)savePath
+                                  withSuccessBlock:(BAResponseSuccess)successBlock
+                                  withFailureBlock:(BAResponseFail)failureBlock
+                              withDownLoadProgress:(BADownloadProgress)progress;
 
 
 
