@@ -63,7 +63,7 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 - 4.1.2.1、BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
 - 4.1.2.2、BABaseData【基类】      如：BABaseVC、BABaseView、BABaseModel <br>
 - 4.1.2.3、BALib     【三方库】    如：不能用pod更新的三方库可以放在这里 <br>
-- 4.1.2.4、BATools   【工具类】    如：BACategory(分类)、BADataBase(数据库)、BAMacros(宏)、BANetManager(网络类)、BATool(工具类) <br>
+- 4.1.2.4、BATools   【工具类】    如：BACategory(分类)、BADataBase(数据库)、BAMacros(宏)、BANetManager(网络类)、BAKit(工具类) <br>
 - 4.1.2.5、Resources 【资源】      如：字体、Plist、图片 <br>
 - 4.1.2.6、Other     【其他代码】   如： <br>
 - 4.1.2.7、BACustom  【其他自定义】 如：暂时不知道放在哪里的自定义文件可放在这里 <br>
