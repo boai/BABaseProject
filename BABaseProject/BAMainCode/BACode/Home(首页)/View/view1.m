@@ -90,8 +90,7 @@
     [self addCell:@"9、流式布局和线性布局库的使用" content:@"用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！" class:@"DemoVC9"];
     [self addCell:@"10、collectionView的简单使用" content:@"用View写的写了一个简单的collectionView，可随意添加到任何地方，如果喜欢，请在git上点个星吧！" class:@"DemoVC10"];
     [self addCell:@"11、collectionView的浮动布局" content:@"自适应宽高的collectionView，自定义layout，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
-
-//    [self addCell:@"11、随意拖动标签和添加标签" content:@"随意拖动标签和添加标签，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
+    [self addCell:@"12、各种自定义弹框" content:@"各种自定义弹框，系统的、自定义的弹框，如果喜欢，请在git上点个星吧！" class:@"DemoVC12"];
 
 }
 
@@ -198,7 +197,7 @@
         [[self getCurrentViewController].navigationController pushViewController:vc animated:YES];
     }
     
-    // 点击立刻取消该cell的选中状态
+    /*! 点击立刻取消该cell的选中状态 */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

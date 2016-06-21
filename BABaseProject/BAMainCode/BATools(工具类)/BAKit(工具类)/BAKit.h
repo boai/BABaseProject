@@ -75,6 +75,8 @@
 //#import <BAButton.h>
 #import "BAPickerView.h"
 #import "BATextView.h"
+#import "BAAlertView.h"
+
 
 // 扩展类
 #import "UIButton+BAKit.h"

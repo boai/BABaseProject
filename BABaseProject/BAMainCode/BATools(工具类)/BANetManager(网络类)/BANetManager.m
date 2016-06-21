@@ -319,13 +319,13 @@ static NSMutableArray *tasks;
         return nil;
     }
     
+    
     /*! 检查地址中是否有中文 */
     NSString *URLString = [NSURL URLWithString:urlString] ? urlString : [self strUTF8Encoding:urlString];
     
     BAURLSessionTask *sessionTask = nil;
     sessionTask = [[self sharedAFManager] POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-        NSUInteger i = 0 ;
         /*! 出于性能考虑,将上传图片进行压缩 */
         for (int i = 0; i < imageArray.count; i++)
         {
