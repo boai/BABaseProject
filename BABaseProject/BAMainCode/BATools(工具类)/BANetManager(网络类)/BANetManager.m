@@ -112,7 +112,7 @@ static NSMutableArray *tasks;
         manager.requestSerializer.timeoutInterval = 30;
         
         /*! 设置相应的缓存策略：此处选择不用加载也可以使用自动缓存【注：只有get方法才能用此缓存策略，NSURLRequestReturnCacheDataDontLoad】 */
-//        manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
+        manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         
         /*! 设置返回数据为json, 分别设置请求以及相应的序列化器 */
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -129,6 +129,12 @@ static NSMutableArray *tasks;
         /*! 设置响应数据的基本了类型 */
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/css",@"text/xml",@"text/plain", @"application/javascript", nil];
         
+        // https  参数配置
+        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+        securityPolicy.allowInvalidCertificates = YES;
+        securityPolicy.validatesDomainName = NO;
+        manager.securityPolicy = securityPolicy;
+        
     });
     
     return manager;
@@ -138,7 +144,7 @@ static NSMutableArray *tasks;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSLog(@"创建数组");
+        BALog(@"创建数组");
         tasks = [[NSMutableArray alloc] init];
     });
     return tasks;
@@ -162,7 +168,6 @@ static NSMutableArray *tasks;
                         withFailureBlock:(BAResponseFail)failureBlock
                                 progress:(BADownloadProgress)progress
 {
-    NSLog(@"请求地址----%@\n    请求参数----%@", urlString, parameters);
     if (urlString == nil)
     {
         return nil;
@@ -171,9 +176,11 @@ static NSMutableArray *tasks;
     /*! 检查地址中是否有中文 */
     NSString *URLString = [NSURL URLWithString:urlString] ? urlString : [self strUTF8Encoding:urlString];
     
+    BALog(@"******************** 请求参数 ***************************");
+    BALog(@"请求头: %@\n请求方式: %@\n请求URL: %@\n请求param: %@\n\n",[self sharedAFManager].requestSerializer.HTTPRequestHeaders, (type == BAHttpRequestTypeGet) ? @"POST":@"GET",URLString, parameters);
+    BALog(@"******************************************************");
+    
     BAURLSessionTask *sessionTask = nil;
-    
-    
     
     if (type == BAHttpRequestTypeGet)
     {
@@ -235,7 +242,7 @@ static NSMutableArray *tasks;
             if (failureBlock)
             {
                 failureBlock(error);
-                NSLog(@"错误信息：%@",error);
+                BALog(@"错误信息：%@",error);
             }
             [[self tasks] removeObject:sessionTask];
             
@@ -313,15 +320,18 @@ static NSMutableArray *tasks;
                                   withFailurBlock:(BAResponseFail)failureBlock
                                withUpLoadProgress:(BAUploadProgress)progress
 {
-    NSLog(@"请求地址----%@\n    请求参数----%@", urlString, imageArray);
     if (urlString == nil)
     {
         return nil;
     }
     
-    
     /*! 检查地址中是否有中文 */
     NSString *URLString = [NSURL URLWithString:urlString] ? urlString : [self strUTF8Encoding:urlString];
+    
+    BALog(@"******************** 请求参数 ***************************");
+    BALog(@"请求头: %@\n请求方式: %@\n请求URL: %@\n请求param: %@\n\n",[self sharedAFManager].requestSerializer.HTTPRequestHeaders, @"POST",URLString, parameters);
+    BALog(@"******************************************************");
+    
     
     BAURLSessionTask *sessionTask = nil;
     sessionTask = [[self sharedAFManager] POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -342,10 +352,10 @@ static NSMutableArray *tasks;
                                                    scale:1.0
                                              orientation:(UIImageOrientation)assetRep.orientation];
                 //                imageWithImage
-                NSLog(@"1111-----size : %@",NSStringFromCGSize(resizedImage.size));
+                BALog(@"1111-----size : %@",NSStringFromCGSize(resizedImage.size));
                 
                 resizedImage = [self imageWithImage:resizedImage scaledToSize:resizedImage.size];
-                NSLog(@"2222-----size : %@",NSStringFromCGSize(resizedImage.size));
+                BALog(@"2222-----size : %@",NSStringFromCGSize(resizedImage.size));
             }
             else
             {
@@ -364,7 +374,7 @@ static NSMutableArray *tasks;
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
-        NSLog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+        BALog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
         
         if (progress)
         {
@@ -373,7 +383,7 @@ static NSMutableArray *tasks;
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"上传图片成功 = %@",responseObject);
+        BALog(@"上传图片成功 = %@",responseObject);
         if (successBlock)
         {
             successBlock(responseObject);
@@ -457,7 +467,7 @@ static NSMutableArray *tasks;
                     
                 } progress:^(NSProgress * _Nonnull uploadProgress) {
                     
-                    NSLog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+                    BALog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
                     
                     if (progress)
                     {
@@ -466,7 +476,7 @@ static NSMutableArray *tasks;
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
                     
-                    NSLog(@"上传视频成功 = %@",responseObject);
+                    BALog(@"上传视频成功 = %@",responseObject);
                     if (successBlock)
                     {
                         successBlock(responseObject);
@@ -509,7 +519,6 @@ static NSMutableArray *tasks;
                                   withFailureBlock:(BAResponseFail)failureBlock
                               withDownLoadProgress:(BADownloadProgress)progress
 {
-    NSLog(@"请求地址----%@\n    请求参数----%@", urlString, parameters);
     if (urlString == nil)
     {
         return nil;
@@ -517,11 +526,16 @@ static NSMutableArray *tasks;
     
     NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
+    BALog(@"******************** 请求参数 ***************************");
+    BALog(@"请求头: %@\n请求方式: %@\n请求URL: %@\n请求param: %@\n\n",[self sharedAFManager].requestSerializer.HTTPRequestHeaders, @"download",urlString, parameters);
+    BALog(@"******************************************************");
+    
+    
     BAURLSessionTask *sessionTask = nil;
     
     sessionTask = [[self sharedAFManager] downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        NSLog(@"下载进度：%.2lld%%",100 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
+        BALog(@"下载进度：%.2lld%%",100 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
         /*! 回到主线程刷新UI */
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -537,7 +551,7 @@ static NSMutableArray *tasks;
         if (!savePath)
         {
             NSURL *downloadURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-            NSLog(@"默认路径--%@",downloadURL);
+            BALog(@"默认路径--%@",downloadURL);
             return [downloadURL URLByAppendingPathComponent:[response suggestedFilename]];
         }
         else
@@ -549,7 +563,7 @@ static NSMutableArray *tasks;
         
         [[self tasks] removeObject:sessionTask];
         
-        NSLog(@"下载文件成功");
+        BALog(@"下载文件成功");
         if (error == nil)
         {
             if (successBlock)
@@ -593,21 +607,21 @@ static NSMutableArray *tasks;
         switch (status)
         {
             case AFNetworkReachabilityStatusUnknown: // 未知网络
-                NSLog(@"未知网络");
+                BALog(@"未知网络");
                 BANetManagerShare.netWorkStatus = BANetworkStatusUnknown;
                 break;
             case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
-                NSLog(@"没有网络");
+                BALog(@"没有网络");
                 BANetManagerShare.netWorkStatus = BANetworkStatusNotReachable;
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
-                NSLog(@"手机自带网络");
+                BALog(@"手机自带网络");
                 BANetManagerShare.netWorkStatus = BANetworkStatusReachableViaWWAN;
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
                 
                 BANetManagerShare.netWorkStatus = BANetworkStatusReachableViaWiFi;
-                NSLog(@"WIFI--%lu", (unsigned long)BANetManagerShare.netWorkStatus);
+                BALog(@"WIFI--%lu", (unsigned long)BANetManagerShare.netWorkStatus);
                 break;
         }
     }];
