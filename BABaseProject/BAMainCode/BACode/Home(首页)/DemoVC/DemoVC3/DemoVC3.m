@@ -55,7 +55,7 @@
         /*! 此处已做奇偶数的点击事件处理，请大家放心使用！ */
         [_headerLine changeTapMarqueeAction:^(NSInteger index) {
             
-            NSString *msg = [NSString stringWithFormat:@"你点击了第 %ld 个button！内容：%@", index, weakSelf.headerLine.messageArray[index]];
+            NSString *msg = [NSString stringWithFormat:@"你点击了第 %ld 个广告！内容：%@", index, weakSelf.headerLine.messageArray[index]];
             [weakSelf.view ba_showAlertView:@"博爱温馨提示：" message:msg];
             
         }];
