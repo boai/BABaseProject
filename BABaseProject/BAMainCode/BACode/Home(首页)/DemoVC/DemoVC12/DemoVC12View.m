@@ -7,7 +7,7 @@
 //
 
 #import "DemoVC12View.h"
-
+#import "BAPayPwdInputView.h"
 
 static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能的 4 英寸 iPhone。在打造这款手机时，我们在深得人心的 4 英寸设计基础上，从里到外重新构想。它所采用的 A9 芯片，正是在 iPhone 6s 上使用的先进芯片。1200 万像素的摄像头能拍出令人叹为观止的精彩照片和 4K 视频，而 Live Photos 则会让你的照片栩栩如生。这一切，成就了一款外形小巧却异常强大的 iPhone。";
 @interface DemoVC12View ()
@@ -15,10 +15,19 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     UITableViewDelegate,
     UITableViewDataSource
 >
-@property (nonatomic, strong) NSArray *titleArray;
-@property (nonatomic, strong) BAModal *modal1;
-@property (nonatomic, strong) UILabel *label1;
-@property (nonatomic, strong) UIView  *bgView;
+@property (nonatomic, strong) NSArray         *titleArray;
+@property (nonatomic, strong) BAModal         *modal1;
+@property (nonatomic, strong) UILabel         *label1;
+@property (nonatomic, strong) UIView          *bgView;
+
+@property (nonatomic, strong) BACustomButton  *button1;
+@property (nonatomic, strong) BACustomButton  *button2;
+@property (nonatomic, strong) BACustomButton  *button3;
+@property (nonatomic, strong) BACustomButton  *button4;
+@property (nonatomic, strong) BACustomButton  *sureButton;
+
+@property (nonatomic, strong) BAPayPwdInputView *payPwdView;
+
 
 @end
 
@@ -129,21 +138,10 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     }
     
     self.bgView.hidden = NO;
-    
-//    if (!_label1)
-//    {
-//        _label1 = [self creatLabel];
-//        _label1.userInteractionEnabled = YES;
-//        _label1.text = titleMsg;
-//        
-//        _label1.font = [UIFont systemFontOfSize:16];
-//        
-//        CGSize size2 = [BAAutoSizeWithWH BA_AutoSizeOfHeghtWithText:_label1.text font:_label1.font width:BA_SCREEN_WIDTH - 60];
-//        _label1.frame = CGRectMake(10, self.tableView.centerX, size2.width, size2.height);
-//        _label1.backgroundColor = BA_Green_Color;
-//        [_label1 jm_setCornerRadius:10 withBorderColor:BA_Red_Color borderWidth:2];
-//    }
+//    self.payPwdView.hidden = NO;
+
     [_modal1 showContentView:_bgView animated:YES];
+//    [_modal1 showContentView:_payPwdView animated:YES];
 }
 
 - (void)alert2
@@ -285,19 +283,29 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         lineView.frame = CGRectMake(0, titleLabel.bottom, _bgView.width, 1);
         lineView.backgroundColor = BA_Red_Color;
         
-        BACustomButton *button1 = [self creatButtonWithFrame:CGRectMake(10, lineView.bottom + 10, (_bgView.width - 30) / 2, 30) title:@"88"];
-        BACustomButton *button2 = [self creatButtonWithFrame:CGRectMake(button1.right + 10, button1.top, button1.width, button1.height) title:@"168"];
-        BACustomButton *button3 = [self creatButtonWithFrame:CGRectMake(button1.x, button1.bottom + 10, button1.width, button1.height) title:@"288"];
-        BACustomButton *button4 = [self creatButtonWithFrame:CGRectMake(button3.right + 10, button3.top, button1.width, button1.height) title:@"388"];
+        _button1 = [self creatButtonWithFrame:CGRectMake(10, lineView.bottom + 10, (_bgView.width - 30) / 2, 30) title:@"88"];
+        _button2 = [self creatButtonWithFrame:CGRectMake(_button1.right + 10, _button1.top, _button1.width, _button1.height) title:@"168"];
+        _button3 = [self creatButtonWithFrame:CGRectMake(_button1.x, _button1.bottom + 10, _button1.width, _button1.height) title:@"288"];
+        _button4 = [self creatButtonWithFrame:CGRectMake(_button3.right + 10, _button3.top, _button1.width, _button1.height) title:@"388"];
 
-        button1.selected = YES;
+        _sureButton = [BACustomButton buttonWithType:UIButtonTypeCustom];
+        _sureButton.frame = CGRectMake(_button1.x, _button3.bottom + 20, _bgView.width - 20, _button1.height);
+        _sureButton.backgroundColor = [UIColor redColor];
+        _sureButton.layer.masksToBounds = YES;
+        _sureButton.layer.cornerRadius  = 5.0f;
+        [_sureButton setTitle:@"确 定" forState:UIControlStateNormal];
+        [_sureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_sureButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        button1.tag = 1;
-        button2.tag = 2;
-        button3.tag = 3;
-        button4.tag = 4;
+        _button1.selected = YES;
         
-        [_bgView BA_AddSubViewsWithArray:@[titleLabel, lineView, button1, button2, button3, button4]];
+        _button1.tag    = 1;
+        _button2.tag    = 2;
+        _button3.tag    = 3;
+        _button4.tag    = 4;
+        _sureButton.tag = 5;
+
+        [_bgView BA_AddSubViewsWithArray:@[titleLabel, lineView, _button1, _button2, _button3, _button4, _sureButton]];
         
         
     }
@@ -310,6 +318,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     btn.frame = frame;
 //    btn.clipsToBounds = YES;
     btn.layer.masksToBounds = YES;
+    btn.layer.cornerRadius  = 5.0f;
     btn.layer.borderWidth = 1.0f;
     
     if (btn.selected)
@@ -333,18 +342,72 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 
 - (IBAction)buttonAction:(UIButton *)sender
 {
-//    if (sender.tag == 1)
-//    {
+
         sender.selected = !sender.selected;
         BALog(@"你点击了第 %ld 个button！", sender.tag);
-//    }
     
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
+    if (sender.tag == 1)
+    {
+//        _awardNum = @"88";
+        _button2.selected = NO;
+        _button3.selected = NO;
+        _button4.selected = NO;
+
+        _button1.layer.borderColor = BA_Red_Color.CGColor;
+        _button2.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button3.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button4.layer.borderColor = BA_TEXTGrayColor.CGColor;
+    }
+    if (sender.tag == 2)
+    {
+        _button1.selected = NO;
+        _button3.selected = NO;
+        _button4.selected = NO;
+        
+        _button1.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button2.layer.borderColor = BA_Red_Color.CGColor;
+        _button3.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button4.layer.borderColor = BA_TEXTGrayColor.CGColor;
+    }
+    if (sender.tag == 3)
+    {
+        _button2.selected = NO;
+        _button1.selected = NO;
+        _button4.selected = NO;
+        
+        _button1.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button2.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button3.layer.borderColor = BA_Red_Color.CGColor;
+        _button4.layer.borderColor = BA_TEXTGrayColor.CGColor;
+    }
+    if (sender.tag == 4)
+    {
+        _button2.selected = NO;
+        _button1.selected = NO;
+        _button3.selected = NO;
+        
+        _button1.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button2.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button3.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button4.layer.borderColor = BA_Red_Color.CGColor;
+    }
+    if (sender.tag == 5)
+    {
+        BALog(@"你点击了 确定 button！");
+    }
+    
 }
 
-
+- (BAPayPwdInputView *)payPwdView
+{
+    if (!_payPwdView)
+    {
+        _payPwdView = [[BAPayPwdInputView alloc] init];
+        _payPwdView.frame = CGRectMake(20, 20, BA_SCREEN_WIDTH - 40, 44);
+        _payPwdView.backgroundColor = [UIColor redColor];
+    }
+    return _payPwdView;
+}
 
 
 @end

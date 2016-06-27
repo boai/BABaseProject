@@ -44,6 +44,7 @@
 		C445E1D31D1B86FE00D7654A /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1CB1D1B86FE00D7654A /* UIColor+Wonderful.m */; };
 		C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1CD1D1B86FE00D7654A /* UILabel+Wonderful.m */; };
 		C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1F41D1BF10A00D7654A /* DemoVC13.m */; };
+		C452CF641D20BF4F00CFCE5B /* BAPayPwdInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = C452CF631D20BF4F00CFCE5B /* BAPayPwdInputView.m */; };
 		C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C6A1CDD9F05000F5710 /* DemoVC4.m */; };
 		C4562C771CDDA25E000F5710 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C711CDDA25E000F5710 /* BAShareAnimationView.m */; };
 		C4562C781CDDA25E000F5710 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C731CDDA25E000F5710 /* BAShareManage.m */; };
@@ -339,6 +340,8 @@
 		C445E1CD1D1B86FE00D7654A /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
 		C445E1F31D1BF10A00D7654A /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		C445E1F41D1BF10A00D7654A /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
+		C452CF621D20BF4F00CFCE5B /* BAPayPwdInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPayPwdInputView.h; sourceTree = "<group>"; };
+		C452CF631D20BF4F00CFCE5B /* BAPayPwdInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPayPwdInputView.m; sourceTree = "<group>"; };
 		C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProjectNoti.h; sourceTree = "<group>"; };
 		C4562C691CDD9F05000F5710 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		C4562C6A1CDD9F05000F5710 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
@@ -954,6 +957,8 @@
 				C48026CD1D191F720087BBB9 /* DemoVC12.m */,
 				C48026CF1D1920110087BBB9 /* DemoVC12View.h */,
 				C48026D01D1920110087BBB9 /* DemoVC12View.m */,
+				C452CF621D20BF4F00CFCE5B /* BAPayPwdInputView.h */,
+				C452CF631D20BF4F00CFCE5B /* BAPayPwdInputView.m */,
 			);
 			path = DemoVC12;
 			sourceTree = "<group>";
@@ -2184,6 +2189,7 @@
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
 				C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */,
+				C452CF641D20BF4F00CFCE5B /* BAPayPwdInputView.m in Sources */,
 				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */,
 				C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */,
