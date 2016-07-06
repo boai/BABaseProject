@@ -41,7 +41,7 @@
 
 - (void)creatData
 {
-    [self addCell:@"2-1、31131316" content:@"封装AFN，实现简单的get和post请求，可以自定义请求头，可以解析json数据、xml数据、data数据，可以获取缓存数据。" class:@"DemoVC2_01"];
+    [self addCell:@"2-1、tableView的高级用法" content:@"封装baseCell" class:@"DemoVC2_01"];
 //    [self addCell:@"2、清理缓存" content:@"清理网络请求缓存和图片缓存，可清理系统缓存！" class:@"DemoVC2"];
 }
 
