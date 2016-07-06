@@ -10,8 +10,8 @@
 
 @interface view2 ()
 <
-UITableViewDelegate,
-UITableViewDataSource
+    UITableViewDelegate,
+    UITableViewDataSource
 >
 
 @end

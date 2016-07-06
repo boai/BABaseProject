@@ -190,7 +190,7 @@
     if (!_scrollView)
     {
         /*! 这里的frame按实际情况更改！ */
-        self.scrollView                                = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_getTabbarHeight - 64)];
+        self.scrollView                                = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, BA_SCREEN_HEIGHT - BA_TabbarHeight - 64)];
         self.scrollView.backgroundColor                = [UIColor whiteColor];
         self.scrollView.pagingEnabled                  = YES;
         self.scrollView.showsHorizontalScrollIndicator = NO;

@@ -108,7 +108,8 @@
 #import "NSProcessInfo+BAKit.h"
 #import "NSThread+BAKit.h"
 
-
+/*! GCD */
+#import "GCD/GCD.h"
 
 
 #endif /* BAKit_h */

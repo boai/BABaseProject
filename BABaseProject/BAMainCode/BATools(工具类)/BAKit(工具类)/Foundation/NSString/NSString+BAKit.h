@@ -363,7 +363,53 @@
 /*! 在软件沙盒路径中获取指定userPath路径 */
 - (nullable NSString *)BA_path_getUserInfoStorePath:(nullable NSString *)userPath;
 
+@end
 
+@interface NSString (BALabelWidthAndHeight)
 
+/**
+ *  Get the string's height with the fixed width.
+ *
+ *  @param attribute String's attribute, eg. attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18.f]}
+ *  @param width     Fixed width.
+ *
+ *  @return String's height.
+ */
+- (CGFloat)ba_heightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width;
+
+/**
+ *  Get the string's width.
+ *
+ *  @param attribute String's attribute, eg. attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18.f]}
+ *
+ *  @return String's width.
+ */
+- (CGFloat)ba_widthWithStringAttribute:(NSDictionary <NSString *, id> *)attribute;
+
+/**
+ *  Get a line of text height.
+ *
+ *  @param attribute String's attribute, eg. attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18.f]}
+ *
+ *  @return String's width.
+ */
++ (CGFloat)ba_oneLineOfTextHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute;
 
 @end
+
+
+@interface NSString (BARange)
+
+/**
+ *  Finds and returns the ranges of a given string, within the given range of the receiver.
+ *
+ *  @param searchString searchString.
+ *  @param mask         A mask specifying search options. The following options may be specified by combining them with the C bitwise OR operator: NSCaseInsensitiveSearch, NSLiteralSearch, NSBackwardsSearch, NSAnchoredSearch. See String Programming Guide for details on these options.
+ *  @param range        serachRange.
+ *
+ *  @return Ranges.
+ */
+- (NSArray <NSValue *> *)ba_rangesOfString:(NSString *)searchString options:(NSStringCompareOptions)mask serachRange:(NSRange)range;
+
+@end
+

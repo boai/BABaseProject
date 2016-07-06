@@ -62,6 +62,7 @@
 #import "NSData+BAKit.h"
 #import <CommonCrypto/CommonDigest.h>
 
+
 @implementation NSString (BAKit)
 
 /* 搜索两个字符之间的字符串 */
@@ -911,6 +912,112 @@
     }
     
     return String;
+}
+
+@end
+
+@implementation NSString (BALabelWidthAndHeight)
+
+/**
+ *  Get the string's height with the fixed width.
+ *
+ *  @param attribute String's attribute, eg. attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18.f]}
+ *  @param width     Fixed width.
+ *
+ *  @return String's height.
+ */
+- (CGFloat)ba_heightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width
+{
+    NSParameterAssert(attribute);
+    CGFloat height = 0;
+    
+    if (self.length)
+    {
+        CGRect rect = [self boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil];
+        height = rect.size.height;
+    }
+    
+    return height;
+}
+
+/**
+ *  Get the string's width.
+ *
+ *  @param attribute String's attribute, eg. attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18.f]}
+ *
+ *  @return String's width.
+ */
+- (CGFloat)ba_widthWithStringAttribute:(NSDictionary <NSString *, id> *)attribute
+{
+    NSParameterAssert(attribute);
+    CGFloat width = 0;
+    
+    if (self.length)
+    {
+        CGRect rect = [self boundingRectWithSize:CGSizeMake(MAXFLOAT, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil];
+        
+        width = rect.size.width;
+    }
+    
+    return width;
+}
+
+/**
+ *  Get a line of text height.
+ *
+ *  @param attribute String's attribute, eg. attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18.f]}
+ *
+ *  @return String's width.
+ */
++ (CGFloat)ba_oneLineOfTextHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute
+{
+    CGFloat height = 0;
+    
+    CGRect rect = [@"One" boundingRectWithSize:CGSizeMake(200, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil];
+    
+    height = rect.size.height;
+    
+    return height;
+}
+
+@end
+
+
+@implementation NSString (BARange)
+
+/**
+ *  Finds and returns the ranges of a given string, within the given range of the receiver.
+ *
+ *  @param searchString searchString.
+ *  @param mask         A mask specifying search options. The following options may be specified by combining them with the C bitwise OR operator: NSCaseInsensitiveSearch, NSLiteralSearch, NSBackwardsSearch, NSAnchoredSearch. See String Programming Guide for details on these options.
+ *  @param range        serachRange.
+ *
+ *  @return Ranges.
+ */
+- (NSArray <NSValue *> *)ba_rangesOfString:(NSString *)searchString options:(NSStringCompareOptions)mask serachRange:(NSRange)range
+{
+    NSMutableArray *array = [NSMutableArray array];
+    [self ba_rangeOfString:searchString range:NSMakeRange(0, self.length) array:array options:mask];
+    
+    return array;
+}
+
+- (void)ba_rangeOfString:(NSString *)searchString
+                range:(NSRange)searchRange
+                array:(NSMutableArray *)array
+              options:(NSStringCompareOptions)mask
+{
+    
+    NSRange range = [self rangeOfString:searchString options:mask range:searchRange];
+    
+    if (range.location != NSNotFound) {
+        
+        [array addObject:[NSValue valueWithRange:range]];
+        [self ba_rangeOfString:searchString
+                      range:NSMakeRange(range.location + range.length, self.length - (range.location + range.length))
+                      array:array
+                    options:mask];
+    }
 }
 
 @end

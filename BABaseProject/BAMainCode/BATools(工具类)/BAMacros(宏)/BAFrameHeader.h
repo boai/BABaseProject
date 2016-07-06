@@ -75,7 +75,7 @@
 #define BA_SCREEN_HEIGHT   ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
 
 /*! 黄金比例的宽 */
-#define BA_WIDTH_0_618 WIDTH * 0.618
+#define BA_WIDTH_0_618           BA_SCREEN_WIDTH * 0.618
 
 /*! Status bar height. */
 #define  BA_StatusBarHeight      20.f
@@ -84,7 +84,7 @@
 #define  BA_NavigationBarHeight  44.f
 
 /*! Tabbar height. self.tabBarController.tabBar.height */
-#define  BA_getTabbarHeight      49.f
+#define  BA_TabbarHeight         49.f
 
 /*! Status bar & navigation bar height. */
 #define  BA_StatusBarAndNavigationBarHeight   (20.f + 44.f)
