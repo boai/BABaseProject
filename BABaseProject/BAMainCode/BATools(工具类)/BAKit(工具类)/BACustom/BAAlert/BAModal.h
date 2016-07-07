@@ -113,7 +113,7 @@ typedef void(^ba_modal_block)();
 @property (strong, nonatomic) UIColor *dimBackgroundColor;
 
 
-//// 当不设置执行动画时，且animated为YES，会默认执行一个过渡动画
+// 当不设置执行动画时，且animated为YES，会默认执行一个过渡动画
 /**
  * @discussion 显示时的动画
  */
@@ -151,16 +151,8 @@ typedef void(^ba_modal_block)();
 - (void)hide:(BOOL)animated;
 
 
-
-
-
-
 + (instancetype)ba_modal;
 
 + (instancetype)ba_modalWithContentView:(UIView *)contentView;
-
-
-
-
 
 @end

@@ -45,6 +45,8 @@
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C44423261D2E5D67004ACAA8 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423251D2E5D66004ACAA8 /* BAKitManager.m */; };
 		C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423291D2E5E07004ACAA8 /* BAKitManager+BALabel.m */; };
+		C44423301D2E738A004ACAA8 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C444232D1D2E738A004ACAA8 /* BAAlertView.m */; };
+		C44423311D2E738A004ACAA8 /* BAModal.m in Sources */ = {isa = PBXBuildFile; fileRef = C444232F1D2E738A004ACAA8 /* BAModal.m */; };
 		C445E1CE1D1B86FE00D7654A /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1C11D1B86FE00D7654A /* SXColorGradientView.m */; };
 		C445E1CF1D1B86FE00D7654A /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1C31D1B86FE00D7654A /* SXColorLabel.m */; };
 		C445E1D01D1B86FE00D7654A /* SXHeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1C51D1B86FE00D7654A /* SXHeadLine.m */; };
@@ -77,7 +79,6 @@
 		C480272D1D1928290087BBB9 /* BAAPP.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D51D1928290087BBB9 /* BAAPP.m */; };
 		C480272E1D1928290087BBB9 /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */; };
 		C480272F1D1928290087BBB9 /* BALog.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D91D1928290087BBB9 /* BALog.m */; };
-		C48027301D1928290087BBB9 /* BAModal.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026DB1D1928290087BBB9 /* BAModal.m */; };
 		C48027311D1928290087BBB9 /* BAPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026DD1D1928290087BBB9 /* BAPassword.m */; };
 		C48027321D1928290087BBB9 /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026DF1D1928290087BBB9 /* BARegularExpression.m */; };
 		C48027341D1928290087BBB9 /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E31D1928290087BBB9 /* BASystemSound.m */; };
@@ -114,7 +115,6 @@
 		C48027541D1928290087BBB9 /* CALayer+BAMaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C48027281D1928290087BBB9 /* CALayer+BAMaskLayer.m */; };
 		C48027551D1928290087BBB9 /* EmitterLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C480272A1D1928290087BBB9 /* EmitterLayerView.m */; };
 		C48027561D1928290087BBB9 /* UIView+BAGlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C480272C1D1928290087BBB9 /* UIView+BAGlowView.m */; };
-		C48027591D19289B0087BBB9 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C48027581D19289B0087BBB9 /* BAAlertView.m */; };
 		C48027DA1D196AD40087BBB9 /* images1.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C48027D91D196AD40087BBB9 /* images1.bundle */; };
 		C4ACE2FC1CF5C19500313DD4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */; };
 		C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */; };
@@ -355,6 +355,10 @@
 		C44423251D2E5D66004ACAA8 /* BAKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAKitManager.m; sourceTree = "<group>"; };
 		C44423281D2E5E07004ACAA8 /* BAKitManager+BALabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BAKitManager+BALabel.h"; sourceTree = "<group>"; };
 		C44423291D2E5E07004ACAA8 /* BAKitManager+BALabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BAKitManager+BALabel.m"; sourceTree = "<group>"; };
+		C444232C1D2E738A004ACAA8 /* BAAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAlertView.h; sourceTree = "<group>"; };
+		C444232D1D2E738A004ACAA8 /* BAAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAlertView.m; sourceTree = "<group>"; };
+		C444232E1D2E738A004ACAA8 /* BAModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAModal.h; sourceTree = "<group>"; };
+		C444232F1D2E738A004ACAA8 /* BAModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAModal.m; sourceTree = "<group>"; };
 		C445E1C01D1B86FE00D7654A /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
 		C445E1C11D1B86FE00D7654A /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
 		C445E1C21D1B86FE00D7654A /* SXColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorLabel.h; sourceTree = "<group>"; };
@@ -417,8 +421,6 @@
 		C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAutoSizeWithWH.m; sourceTree = "<group>"; };
 		C48026D81D1928290087BBB9 /* BALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALog.h; sourceTree = "<group>"; };
 		C48026D91D1928290087BBB9 /* BALog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALog.m; sourceTree = "<group>"; };
-		C48026DA1D1928290087BBB9 /* BAModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAModal.h; sourceTree = "<group>"; };
-		C48026DB1D1928290087BBB9 /* BAModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAModal.m; sourceTree = "<group>"; };
 		C48026DC1D1928290087BBB9 /* BAPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPassword.h; sourceTree = "<group>"; };
 		C48026DD1D1928290087BBB9 /* BAPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPassword.m; sourceTree = "<group>"; };
 		C48026DE1D1928290087BBB9 /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
@@ -492,8 +494,6 @@
 		C480272A1D1928290087BBB9 /* EmitterLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterLayerView.m; sourceTree = "<group>"; };
 		C480272B1D1928290087BBB9 /* UIView+BAGlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BAGlowView.h"; sourceTree = "<group>"; };
 		C480272C1D1928290087BBB9 /* UIView+BAGlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BAGlowView.m"; sourceTree = "<group>"; };
-		C48027571D19289B0087BBB9 /* BAAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAlertView.h; sourceTree = "<group>"; };
-		C48027581D19289B0087BBB9 /* BAAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAlertView.m; sourceTree = "<group>"; };
 		C48027D91D196AD40087BBB9 /* images1.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images1.bundle; sourceTree = "<group>"; };
 		C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C4ACE2FD1CF5C53100313DD4 /* DemoVC7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7.h; sourceTree = "<group>"; };
@@ -880,6 +880,17 @@
 			path = BAKitManager;
 			sourceTree = "<group>";
 		};
+		C444232B1D2E738A004ACAA8 /* BAAlert */ = {
+			isa = PBXGroup;
+			children = (
+				C444232C1D2E738A004ACAA8 /* BAAlertView.h */,
+				C444232D1D2E738A004ACAA8 /* BAAlertView.m */,
+				C444232E1D2E738A004ACAA8 /* BAModal.h */,
+				C444232F1D2E738A004ACAA8 /* BAModal.m */,
+			);
+			path = BAAlert;
+			sourceTree = "<group>";
+		};
 		C445E1BF1D1B86FE00D7654A /* Wonderful */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,16 +1055,13 @@
 		C48026D31D1928290087BBB9 /* BACustom */ = {
 			isa = PBXGroup;
 			children = (
-				C48027571D19289B0087BBB9 /* BAAlertView.h */,
-				C48027581D19289B0087BBB9 /* BAAlertView.m */,
+				C444232B1D2E738A004ACAA8 /* BAAlert */,
 				C48026D41D1928290087BBB9 /* BAAPP.h */,
 				C48026D51D1928290087BBB9 /* BAAPP.m */,
 				C48026D61D1928290087BBB9 /* BAAutoSizeWithWH.h */,
 				C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */,
 				C48026D81D1928290087BBB9 /* BALog.h */,
 				C48026D91D1928290087BBB9 /* BALog.m */,
-				C48026DA1D1928290087BBB9 /* BAModal.h */,
-				C48026DB1D1928290087BBB9 /* BAModal.m */,
 				C48026DC1D1928290087BBB9 /* BAPassword.h */,
 				C48026DD1D1928290087BBB9 /* BAPassword.m */,
 				C48026DE1D1928290087BBB9 /* BARegularExpression.h */,
@@ -2286,6 +2294,7 @@
 				C4EB5BCF1CD8B250003A7094 /* UIBarButtonItem+Item.m in Sources */,
 				C48026D11D1920110087BBB9 /* DemoVC12View.m in Sources */,
 				C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */,
+				C44423301D2E738A004ACAA8 /* BAAlertView.m in Sources */,
 				C48027341D1928290087BBB9 /* BASystemSound.m in Sources */,
 				C4EB5BBE1CD8B250003A7094 /* BAMessageViewController.m in Sources */,
 				C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */,
@@ -2324,7 +2333,6 @@
 				C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */,
 				C480273C1D1928290087BBB9 /* NSMutableDictionary+BAKit.m in Sources */,
 				C427812F1D2D39B1003E6694 /* GCDQueue.m in Sources */,
-				C48027591D19289B0087BBB9 /* BAAlertView.m in Sources */,
 				C4D108031CE2FC1C00F735B9 /* view2.m in Sources */,
 				C48027451D1928290087BBB9 /* UIColor+BAKit.m in Sources */,
 				C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */,
@@ -2344,7 +2352,6 @@
 				C42781231D2D338F003E6694 /* DemoVC2_01_cell.m in Sources */,
 				C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */,
 				C445E1D31D1B86FE00D7654A /* UIColor+Wonderful.m in Sources */,
-				C48027301D1928290087BBB9 /* BAModal.m in Sources */,
 				C4EE1C5E1D2288BF005046A6 /* DemoVC2_01.m in Sources */,
 				C480273B1D1928290087BBB9 /* NSMutableArray+BAKit.m in Sources */,
 				C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */,
@@ -2408,6 +2415,7 @@
 				C4EB5BB41CD8B250003A7094 /* BABaseModel.m in Sources */,
 				C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */,
 				C48027361D1928290087BBB9 /* NSArray+BAKit.m in Sources */,
+				C44423311D2E738A004ACAA8 /* BAModal.m in Sources */,
 				C4EB5BD31CD8B250003A7094 /* BANewsNetManager.m in Sources */,
 				C48027511D1928290087BBB9 /* BAFadeBlackView.m in Sources */,
 				C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */,
