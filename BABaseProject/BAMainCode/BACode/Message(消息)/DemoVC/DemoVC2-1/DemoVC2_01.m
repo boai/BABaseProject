@@ -77,6 +77,7 @@
                          @"Star \"https://github.com/boai\" :)"
                          ];
     
+    BA_Weak;
     [GCDQueue executeInMainQueue:^{
         
         NSMutableArray *indexPaths = [NSMutableArray array];
@@ -94,18 +95,18 @@
             BACellDataAdapter *adapter = [BACellDataAdapter ba_cellDataAdapterWithCellReuseIdentifier:@"DemoVC2_01_cell" data:model
                                                                                     cellHeight:model.normalStringHeight
                                                                                       cellType:BAShowCellTextTypeNormal];
-            [self.datasArray addObject:adapter];
+            [weakSelf.datasArray addObject:adapter];
             [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
         }
         
-        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        [weakSelf.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
         
     } afterDelaySecs:0.5f];
     
     // Execute in MainQueue after delay 1 secs.
     [GCDQueue executeInMainQueue:^{
         
-        [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [weakSelf tableView:weakSelf.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         
     } afterDelaySecs:1.f];
     

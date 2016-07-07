@@ -62,8 +62,28 @@
 
 @interface BAKitManager (BALabel)
 
-@property (nonatomic, copy, readonly) ba_sting  label_text;
-@property (nonatomic, copy, readonly) ba_color  label_textColor;
+@property (nonatomic, copy, readonly) ba_sting               label_text;
+@property (nonatomic, copy, readonly) ba_color               label_textColor;
+@property (nonatomic, copy, readonly) ba_font                label_font;
+@property (nonatomic, copy, readonly) ba_color               label_shadowColor;
 
+@property (nonatomic, copy, readonly) ba_size                label_shadowOffset;
+@property (nonatomic, copy, readonly) ba_textAlignment       label_textAlignment;
+@property (nonatomic, copy, readonly) ba_lineBreakMode       label_lineBreakMode;
+@property (nonatomic, copy, readonly) ba_attributedString    label_attributedString;
+
+@property (nonatomic, readonly, copy) ba_color               label_highlightedTextColor;
+@property (nonatomic, readonly, copy) ba_bool                label_highlighted;
+
+@property (nonatomic, readonly, copy) ba_bool                label_userInteractionEnabled;
+@property (nonatomic, readonly, copy) ba_bool                label_enabled;
+
+@property (nonatomic, readonly, copy) ba_bool                label_adjustsFontSizeToFitWidth;
+
+@property (nonatomic, readonly, copy) ba_integer             label_numberOfLines;
+@property (nonatomic, readonly, copy) ba_baselineAdjustment  label_baselineAdjustment;
+@property (nonatomic, readonly, copy) ba_float         label_minimumScaleFactor NS_AVAILABLE_IOS(6_0);
+@property (nonatomic, readonly, copy) ba_bool          label_allowsDefaultTighteningForTruncation NS_AVAILABLE_IOS(9_0);
+@property (nonatomic, readonly, copy) ba_float         label_preferredMaxLayoutWidth NS_AVAILABLE_IOS(6_0);
 
 @end

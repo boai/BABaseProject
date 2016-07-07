@@ -651,7 +651,7 @@
  *
  *  @param array 添加子的ViewArray
  */
-- (void)BA_AddSubViewsWithArray:(NSArray *)array
+- (void)ba_AddSubViewsWithArray:(NSArray *)array
 {
     if (array)
     {
@@ -697,7 +697,7 @@
  *
  *  @return label的高度
  */
-+ (CGFloat)BA_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
++ (CGFloat)ba_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
 {
     CGSize size = CGSizeMake(width, MAXFLOAT);
     NSDictionary *attributesDic = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName,nil];
@@ -715,7 +715,7 @@
  *
  *  @return label的宽度
  */
-+ (CGFloat)BA_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height
++ (CGFloat)ba_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height
 {
     CGSize size = CGSizeMake(MAXFLOAT, height);
     NSDictionary *attributesDic = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName,nil];

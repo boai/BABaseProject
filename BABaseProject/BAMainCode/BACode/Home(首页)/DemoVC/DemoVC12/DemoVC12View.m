@@ -305,8 +305,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         _button4.tag    = 4;
         _sureButton.tag = 5;
 
-        [_bgView BA_AddSubViewsWithArray:@[titleLabel, lineView, _button1, _button2, _button3, _button4, _sureButton]];
-        
+        [_bgView ba_AddSubViewsWithArray:@[titleLabel, lineView, _button1, _button2, _button3, _button4, _sureButton]];
         
     }
     return _bgView;

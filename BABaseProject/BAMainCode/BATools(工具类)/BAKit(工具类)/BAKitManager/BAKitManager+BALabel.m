@@ -75,9 +75,165 @@
 - (ba_color)label_textColor
 {
     __weak typeof(self) weakSelf = self;
-    
     return ^BAKitManager *(UIColor *textColor){
         weakSelf.ba_label.textColor = textColor;
+        return weakSelf;
+    };
+}
+
+- (ba_font)label_font
+{
+    __weak typeof(self) weakSelf = self;
+    return ^BAKitManager *(UIFont *font){
+        weakSelf.ba_label.font = font;
+        return weakSelf;
+    };
+}
+
+- (ba_color)label_shadowColor
+{
+    __weak typeof(self) weakSelf = self;
+    return ^BAKitManager *(UIColor *shadowColor){
+        weakSelf.ba_label.shadowColor = shadowColor;
+        return weakSelf;
+    };
+}
+
+- (ba_bool )label_highlighted
+{
+    __weak typeof(self) weakSelf = self;
+    return ^BAKitManager *(BOOL highlighted){
+        weakSelf.ba_label.highlighted = highlighted;
+        return weakSelf;
+    };
+}
+
+- (ba_bool )label_userInteractionEnabled
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(BOOL userInteractionEnabled){
+        weakSelf.ba_label.userInteractionEnabled = userInteractionEnabled;
+        return weakSelf;
+    };
+}
+
+- (ba_bool )label_enabled
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(BOOL enabled){
+        weakSelf.ba_label.enabled = enabled;
+        return weakSelf;
+    };
+}
+
+- (ba_bool )label_adjustsFontSizeToFitWidth
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(BOOL adjustsFontSizeToFitWidth){
+        weakSelf.ba_label.adjustsFontSizeToFitWidth = adjustsFontSizeToFitWidth;
+        return weakSelf;
+    };
+}
+
+- (ba_bool )label_allowsDefaultTighteningForTruncation
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(BOOL allowsDefaultTighteningForTruncation){
+        weakSelf.ba_label.allowsDefaultTighteningForTruncation = allowsDefaultTighteningForTruncation;
+        return weakSelf;
+    };
+}
+
+- (ba_color )label_highlightedTextColor
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(UIColor *highlightedTextColor){
+        weakSelf.ba_label.highlightedTextColor = highlightedTextColor;
+        return weakSelf;
+    };
+}
+
+- (ba_size )label_shadowOffset
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(CGSize shadowOffset){
+        weakSelf.ba_label.shadowOffset = shadowOffset;
+        return weakSelf;
+    };
+}
+
+- (ba_textAlignment )label_textAlignment
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(NSTextAlignment textAlignment){
+        weakSelf.ba_label.textAlignment = textAlignment;
+        return weakSelf;
+    };
+}
+
+- (ba_lineBreakMode )label_lineBreakMode
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(NSLineBreakMode lineBreakMode){
+        weakSelf.ba_label.lineBreakMode = lineBreakMode;
+        return weakSelf;
+    };
+}
+
+- (ba_attributedString )label_attributedText
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(NSAttributedString *attributedText){
+        weakSelf.ba_label.attributedText = attributedText;
+        return weakSelf;
+    };
+}
+
+- (ba_integer )label_numberOfLines
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(NSInteger numberOfLines){
+        weakSelf.ba_label.numberOfLines = numberOfLines;
+        return weakSelf;
+    };
+}
+
+- (ba_baselineAdjustment )label_baselineAdjustment
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(UIBaselineAdjustment baselineAdjustment){
+        weakSelf.ba_label.baselineAdjustment = baselineAdjustment;
+        return weakSelf;
+    };
+}
+
+- (ba_float )label_minimumScaleFactor
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(CGFloat minimumScaleFactor){
+        weakSelf.ba_label.minimumScaleFactor = minimumScaleFactor;
+        return weakSelf;
+    };
+}
+
+- (ba_float )label_preferredMaxLayoutWidth
+{
+    __weak typeof(self) weakSelf = self;
+
+    return ^BAKitManager *(CGFloat preferredMaxLayoutWidth){
+        weakSelf.ba_label.preferredMaxLayoutWidth = preferredMaxLayoutWidth;
         return weakSelf;
     };
 }

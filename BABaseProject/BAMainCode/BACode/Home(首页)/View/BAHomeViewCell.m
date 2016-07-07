@@ -38,7 +38,7 @@
     _contentLabel.font          = BA_FontSize(14);
     _contentLabel.numberOfLines = 0;
     
-    [self.contentView BA_AddSubViewsWithArray:@[_titleLabel, _contentLabel]];
+    [self.contentView ba_AddSubViewsWithArray:@[_titleLabel, _contentLabel]];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView

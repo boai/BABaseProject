@@ -252,7 +252,7 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  *
  *  @param array 添加子的ViewArray
  */
-- (void)BA_AddSubViewsWithArray:(NSArray *)array;
+- (void)ba_AddSubViewsWithArray:(NSArray *)array;
 
 /**
  *  获取当前View的VC
@@ -278,7 +278,7 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  *
  *  @return label的高度
  */
-+ (CGFloat)BA_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width;
++ (CGFloat)ba_AutoSizeOfHeghtWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width;
 
 /*!
  *  自适应label的宽度
@@ -289,13 +289,6 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  *
  *  @return label的宽度
  */
-+ (CGFloat)BA_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
-
-///*!
-// *  BAKitManager
-// *
-// *  @return BAKitManager
-// */
-//- (BAKitManager *)bakit_manager;
++ (CGFloat)ba_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
 
 @end

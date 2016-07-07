@@ -32,24 +32,23 @@
 {
     self.line                 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, 0.5f)];
     self.line.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.25f];
-    [self.contentView addSubview:self.line];
     
     self.stateView                 = [[UIView alloc] initWithFrame:CGRectMake(0, 13, 2, 15)];
     self.stateView.backgroundColor = [UIColor grayColor];
-    [self.contentView addSubview:self.stateView];
     
     self.normalLabel               = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0)];
-    self.normalLabel.numberOfLines = 3.f;
-    self.normalLabel.textColor     = [UIColor grayColor];
-    self.normalLabel.font          = [UIFont HeitiSCWithFontSize:14.f];
+    self.normalLabel.bakit_manager
+    .label_numberOfLines(3.0f)
+    .label_textColor([UIColor grayColor])
+    .label_font([UIFont HeitiSCWithFontSize:14.0f]);
 
-    [self.contentView addSubview:self.normalLabel];
-    
     self.expendLabel               = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0)];
-    self.expendLabel.numberOfLines = 0;
-    self.expendLabel.textColor     = [UIColor blackColor];
-    self.expendLabel.font          = [UIFont HeitiSCWithFontSize:14.f];
-    [self.contentView addSubview:self.expendLabel];
+    self.expendLabel.bakit_manager
+    .label_numberOfLines(.0f)
+    .label_textColor(BA_Black_Color)
+    .label_font([UIFont HeitiSCWithFontSize:14.0f]);
+    
+    [self.contentView ba_AddSubViewsWithArray:@[_line, _stateView, _normalLabel, _expendLabel]];
 }
 
 - (void)ba_changeState
@@ -95,7 +94,6 @@
 - (void)normalState
 {
     [UIView animateWithDuration:0.35f animations:^{
-        
         self.normalLabel.alpha = 1.0f;
         self.expendLabel.alpha = 0.f;
         self.stateView.backgroundColor = BA_TEXTGrayColor;
@@ -105,10 +103,9 @@
 - (void)expandState
 {
     [UIView animateWithDuration:0.35f animations:^{
-        
         self.normalLabel.alpha = 0.f;
         self.expendLabel.alpha = 1.f;
-        self.stateView.backgroundColor = BA_TEXTGrayColor;
+        self.stateView.backgroundColor = BA_Red_Color;
     }];
 }
 
@@ -120,14 +117,14 @@
     switch (dataAdapter.cellType) {
         case BAShowCellTextTypeNormal:
             
-//            self.normalLabel.text  = model.contentString;
             self.normalLabel.bakit_manager
             .label_text(model.contentString);
             self.normalLabel.frame = CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0);
             self.normalLabel.alpha = 1;
             [self.normalLabel sizeToFit];
             
-            self.expendLabel.text  = model.contentString;
+            self.expendLabel.bakit_manager
+            .label_text(model.contentString);
             self.expendLabel.frame = CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0);
             self.expendLabel.alpha = 0;
             [self.expendLabel sizeToFit];
@@ -144,7 +141,8 @@
             self.normalLabel.alpha = 0;
             [self.normalLabel sizeToFit];
             
-            self.expendLabel.text  = model.contentString;
+            self.expendLabel.bakit_manager
+            .label_text(model.contentString);
             self.expendLabel.frame = CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0);
             self.expendLabel.alpha = 1;
             [self.expendLabel sizeToFit];

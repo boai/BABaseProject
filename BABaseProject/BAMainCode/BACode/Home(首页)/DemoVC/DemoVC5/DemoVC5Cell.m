@@ -41,7 +41,7 @@
     //设置对齐方式
     _textField.borderStyle = UITextBorderStyleRoundedRect;
 
-    [self.contentView BA_AddSubViewsWithArray:@[_titleLabel, _textField]];
+    [self.contentView ba_AddSubViewsWithArray:@[_titleLabel, _textField]];
     
     _titleLabel.sd_layout
     .topSpaceToView(self.contentView, 0)
@@ -133,7 +133,7 @@
     _resultLabel.textAlignment = NSTextAlignmentLeft;
     _resultLabel.font = BA_FontSize(14);
     
-    [self.contentView BA_AddSubViewsWithArray:@[labelS, _normalTextView, _hightlightTextField, label, _resultLabel]];
+    [self.contentView ba_AddSubViewsWithArray:@[labelS, _normalTextView, _hightlightTextField, label, _resultLabel]];
         
 }
 

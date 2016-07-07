@@ -63,8 +63,46 @@
 
 @class BAKitManager;
 
-typedef BAKitManager *(^ba_sting)(NSString *);
 typedef BAKitManager *(^ba_color)(UIColor *);
+typedef BAKitManager *(^ba_font)(UIFont *);
+
+/*! string */
+typedef BAKitManager *(^ba_sting)(NSString *);
+typedef BAKitManager *(^ba_attributedString)(NSAttributedString *);
+
+/*! text */
+typedef BAKitManager *(^ba_color)(UIColor *);
+typedef BAKitManager *(^ba_font)(UIFont *);
+typedef BAKitManager *(^ba_textAlignment)(NSTextAlignment);
+typedef BAKitManager *(^ba_lineBreakMode)(NSLineBreakMode);
+typedef BAKitManager *(^ba_baselineAdjustment)(UIBaselineAdjustment );
+
+/*! image */
+typedef BAKitManager *(^ba_image)(UIImage *);
+typedef BAKitManager *(^ba_image_state)(UIImage *, UIControlState);
+
+/*! view */
+typedef BAKitManager *(^ba_view)(UIView *);
+typedef BAKitManager *(^ba_tintAdjustmentMode)(UIViewTintAdjustmentMode );
+
+/*! 数据类型 */
+typedef BAKitManager *(^ba_void)(void);
+typedef BAKitManager *(^ba_float)(CGFloat);
+typedef BAKitManager *(^ba_bool)(BOOL);
+typedef BAKitManager *(^ba_bool_bool)(BOOL, BOOL);
+typedef BAKitManager *(^ba_float_bool)(CGFloat, BOOL);
+typedef BAKitManager *(^ba_point_bool)(CGPoint, BOOL);
+typedef BAKitManager *(^ba_integer)(NSInteger);
+typedef BAKitManager *(^ba_uinteger)(NSUInteger);
+
+/*! size */
+typedef BAKitManager *(^ba_edgeInsets)(UIEdgeInsets);
+typedef BAKitManager *(^ba_rect)(CGRect);
+typedef BAKitManager *(^ba_point)(CGPoint);
+typedef BAKitManager *(^ba_size)(CGSize);
+typedef BAKitManager *(^ba_range)(NSRange);
+typedef BAKitManager *(^ba_transform)(CGAffineTransform transform);
+typedef BAKitManager *(^ba_contentMode)(UIViewContentMode);
 
 
 @interface BAKitManager : NSObject
