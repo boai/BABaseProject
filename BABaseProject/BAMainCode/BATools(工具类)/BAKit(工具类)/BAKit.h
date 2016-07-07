@@ -64,12 +64,12 @@
 #define BAKit_h
 
 
-#pragma mark -****** 系统类
+#pragma mark - ****** 系统类
 /*! 系统类 */
 #import "BALog.h"
 #import "BAApp.h"
 
-#pragma mark -****** UIKit类
+#pragma mark - ****** UIKit类
 /*! UIKit类 */
 // 控件类
 //#import <BAButton.h>
@@ -94,7 +94,7 @@
 #import "UIWindow+BAKit.h"
 #import "UIDevice+BAKit.h"
 
-#pragma mark -****** Foundation类
+#pragma mark - ****** Foundation类
 /*! Foundation类 */
 #import "NSArray+BAKit.h"
 #import "NSMutableArray+BAKit.h"
@@ -108,8 +108,14 @@
 #import "NSProcessInfo+BAKit.h"
 #import "NSThread+BAKit.h"
 
+#pragma mark - ****** 其他封装
 /*! GCD */
 #import "GCD/GCD.h"
+
+#pragma mark - ****** BAKitManager类
+/*! BAKitManager */
+#import "BAKitManager.h"
+#import "BAKitManager+BALabel.h"
 
 
 #endif /* BAKit_h */

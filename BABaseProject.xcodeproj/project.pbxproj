@@ -43,6 +43,8 @@
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
 		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
+		C44423261D2E5D67004ACAA8 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423251D2E5D66004ACAA8 /* BAKitManager.m */; };
+		C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423291D2E5E07004ACAA8 /* BAKitManager+BALabel.m */; };
 		C445E1CE1D1B86FE00D7654A /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1C11D1B86FE00D7654A /* SXColorGradientView.m */; };
 		C445E1CF1D1B86FE00D7654A /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1C31D1B86FE00D7654A /* SXColorLabel.m */; };
 		C445E1D01D1B86FE00D7654A /* SXHeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1C51D1B86FE00D7654A /* SXHeadLine.m */; };
@@ -349,6 +351,10 @@
 		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
+		C44423241D2E5D66004ACAA8 /* BAKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKitManager.h; sourceTree = "<group>"; };
+		C44423251D2E5D66004ACAA8 /* BAKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAKitManager.m; sourceTree = "<group>"; };
+		C44423281D2E5E07004ACAA8 /* BAKitManager+BALabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BAKitManager+BALabel.h"; sourceTree = "<group>"; };
+		C44423291D2E5E07004ACAA8 /* BAKitManager+BALabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BAKitManager+BALabel.m"; sourceTree = "<group>"; };
 		C445E1C01D1B86FE00D7654A /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
 		C445E1C11D1B86FE00D7654A /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
 		C445E1C21D1B86FE00D7654A /* SXColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorLabel.h; sourceTree = "<group>"; };
@@ -865,6 +871,15 @@
 			path = DemoVC7;
 			sourceTree = "<group>";
 		};
+		C44423271D2E5DE1004ACAA8 /* BAKitManager */ = {
+			isa = PBXGroup;
+			children = (
+				C44423281D2E5E07004ACAA8 /* BAKitManager+BALabel.h */,
+				C44423291D2E5E07004ACAA8 /* BAKitManager+BALabel.m */,
+			);
+			path = BAKitManager;
+			sourceTree = "<group>";
+		};
 		C445E1BF1D1B86FE00D7654A /* Wonderful */ = {
 			isa = PBXGroup;
 			children = (
@@ -1014,6 +1029,9 @@
 			isa = PBXGroup;
 			children = (
 				C48026E61D1928290087BBB9 /* BAKit.h */,
+				C44423241D2E5D66004ACAA8 /* BAKitManager.h */,
+				C44423251D2E5D66004ACAA8 /* BAKitManager.m */,
+				C44423271D2E5DE1004ACAA8 /* BAKitManager */,
 				C48026D31D1928290087BBB9 /* BACustom */,
 				C48026E71D1928290087BBB9 /* Foundation */,
 				C48026FE1D1928290087BBB9 /* UIKit */,
@@ -2301,6 +2319,7 @@
 				C427812E1D2D39B1003E6694 /* GCDGroup.m in Sources */,
 				C48027551D1928290087BBB9 /* EmitterLayerView.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
+				C44423261D2E5D67004ACAA8 /* BAKitManager.m in Sources */,
 				C445E1D21D1B86FE00D7654A /* UIColor+Separate.m in Sources */,
 				C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */,
 				C480273C1D1928290087BBB9 /* NSMutableDictionary+BAKit.m in Sources */,
@@ -2328,6 +2347,7 @@
 				C48027301D1928290087BBB9 /* BAModal.m in Sources */,
 				C4EE1C5E1D2288BF005046A6 /* DemoVC2_01.m in Sources */,
 				C480273B1D1928290087BBB9 /* NSMutableArray+BAKit.m in Sources */,
+				C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */,
 				C480273A1D1928290087BBB9 /* NSFileManager+BAKit.m in Sources */,
 				C48027311D1928290087BBB9 /* BAPassword.m in Sources */,
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,

@@ -52,6 +52,7 @@
  */
 
 #import "UIView+BAKit.h"
+#import <objc/runtime.h>
 
 @implementation UIView (BAKit)
 
@@ -714,6 +715,34 @@
     CGRect frame = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDic context:nil];
     
     return frame.size.width;
+}
+
+- (void)setManager:(BAKitManager *)manager
+{
+    objc_setAssociatedObject(self, @selector(manager), manager, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BAKitManager *)getManager
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (BAKitManager *)bakit_manager
+{
+    BAKitManager *manager = [self getManager];
+    if (!manager)
+    {
+        manager = [BAKitManager new];
+        
+    }
+    manager.main = self;
+    
+    if ([self isKindOfClass:[UILabel class]])
+    {
+        manager.ba_label = (UILabel *)self;
+    }
+    
+    return manager;
 }
 
 @end

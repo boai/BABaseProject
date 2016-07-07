@@ -120,7 +120,9 @@
     switch (dataAdapter.cellType) {
         case BAShowCellTextTypeNormal:
             
-            self.normalLabel.text  = model.contentString;
+//            self.normalLabel.text  = model.contentString;
+            self.normalLabel.bakit_manager
+            .label_text(model.contentString);
             self.normalLabel.frame = CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0);
             self.normalLabel.alpha = 1;
             [self.normalLabel sizeToFit];
@@ -136,7 +138,8 @@
             
         case BAShowCellTextTypeExpend:
             
-            self.normalLabel.text  = model.contentString;
+            self.normalLabel.bakit_manager
+            .label_text(model.contentString);
             self.normalLabel.frame = CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0);
             self.normalLabel.alpha = 0;
             [self.normalLabel sizeToFit];
