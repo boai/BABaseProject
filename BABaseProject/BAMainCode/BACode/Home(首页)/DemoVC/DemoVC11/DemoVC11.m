@@ -20,6 +20,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     UICollectionViewDelegate,
     DemoVC11_AutoLayoutDelegate
 >
+{
+    int page;
+}
 @property (nonatomic, strong) UICollectionView     *collectionView;
 @property (nonatomic, strong) NSMutableArray       *dataArray;
 @property (nonatomic, strong) BANewsNetManager     *netManager;
@@ -38,9 +41,12 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 
 - (void)setupLayout
 {
-    [self getData];
+//    [self getData];
     
+
     self.collectionView.hidden = NO;
+    /*! 添加上下拉刷新 */
+    [self setupRefreshView];
 }
 
 #pragma mark - ***** setter / getter
@@ -85,24 +91,134 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     return _dataArray;
 }
 
-#pragma mark - ***** 获取网络数据
-- (void)getData
+#pragma mark - ***** 添加上下拉刷新
+- (void)setupRefreshView
 {
-    [self BA_showAlert:BA_Loading];
-    [BANewsNetManager getDemoVC11DataCompletionHandle:^(id model, NSError *error) {
-        
-        [self BA_hideProgress];
-        if (!error)
+    BA_Weak;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.collectionView addHeaderRefresh:^{
+        [weakSelf loadNewData];
+    }];
+    // 马上进入刷新状态
+    [self.collectionView.mj_header beginRefreshing];
+    
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.collectionView addFooterRefresh:^{
+        [weakSelf loadMoreData];
+    }];
+}
+
+- (void)loadNewData
+{
+    [self getDataWithHead:YES];
+}
+
+- (void)loadMoreData
+{
+    [self getDataWithHead:NO];
+}
+
+#pragma mark - *****  接口数据
+- (void)getDataWithHead:(BOOL)isHead
+{
+    if (isHead)
+    {
+        page = 1;
+    }
+    else
+    {
+        if (page < 2)
         {
-            self.dataArray = [(NSArray *)model mutableCopy];
-            [self.collectionView reloadData];
+            page = 2;
+        }
+    }
+    
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page), @"page", @"18", @"per_page", nil];;
+    
+    BA_Weak;
+    [self BA_showAlert:BA_Loading];
+    [BANewsNetManager postDemoVC11DataWithParameters:parameters completionHandle:^(id model, NSError *error) {
+        
+        [weakSelf BA_hideProgress];
+        
+        if (isHead)
+        {
+            [weakSelf.collectionView.mj_header endRefreshing];
         }
         else
         {
-            [self BA_showAlertWithTitle:@"解析错误！"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.collectionView.mj_footer endRefreshing];
+            });
         }
+        
+        if (!error)
+        {
+            if (model)
+            {
+                if (isHead)
+                    [weakSelf.dataArray removeAllObjects];
+                else
+                    page++;
+                
+                [(NSArray *)model enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [weakSelf.dataArray addObject:obj];
+                }];
+                [weakSelf.collectionView reloadData];
+            }
+            else
+            {
+                if (page > 1)
+                {
+                    [(MJRefreshAutoGifFooter *)weakSelf.collectionView.mj_footer setTitle:@"空空如也" forState:MJRefreshStateIdle];
+                }
+                else
+                {
+                    [(MJRefreshAutoGifFooter *)weakSelf.collectionView.mj_footer setTitle:@"" forState:MJRefreshStateIdle];
+                }
+            }
+        }
+        else
+        {
+            [weakSelf BA_showAlertWithTitle:@"解析错误！"];
+        }
+        
     }];
 }
+
+
+//#pragma mark - ***** 获取网络数据
+//- (void)getData
+//{
+//    [self BA_showAlert:BA_Loading];
+////    [BANewsNetManager getDemoVC11DataCompletionHandle:^(id model, NSError *error) {
+////        
+////        [self BA_hideProgress];
+////        if (!error)
+////        {
+////            self.dataArray = [(NSArray *)model mutableCopy];
+////            [self.collectionView reloadData];
+////        }
+////        else
+////        {
+////            [self BA_showAlertWithTitle:@"解析错误！"];
+////        }
+////    }];
+//    
+//    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"page", nil];
+//    [BANewsNetManager postDemoVC11DataWithParameters:dict completionHandle:^(id model, NSError *error) {
+//        [self BA_hideProgress];
+//        if (!error)
+//        {
+//            self.dataArray = [(NSArray *)model mutableCopy];
+//            [self.collectionView reloadData];
+//        }
+//        else
+//        {
+//            [self BA_showAlertWithTitle:@"解析错误！"];
+//        }
+//    }];
+//}
 
 #pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

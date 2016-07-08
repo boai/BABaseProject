@@ -52,6 +52,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <MJRefresh.h>
 
 /**
  *  给UIScrollView类添加许多有用的方法
@@ -68,4 +69,28 @@
                   pagingEnabled:(BOOL)pagingEnabled                 // 翻页，默认值是NO
            showScrollIndicators:(BOOL)showScrollIndicators          // 指标显示，默认YES
                        delegate:(id<UIScrollViewDelegate>)delegate; // 委托
+
+/** 添加头部刷新 */
+- (void)addHeaderRefresh:(MJRefreshComponentRefreshingBlock)refreshBlock;
+
+/** 开始头部刷新 */
+- (void)beginHeaderRefresh;
+
+/** 结束头部刷新 */
+- (void)endHeaderRefresh;
+
+/** 添加底部刷新 */
+- (void)addFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshBlock;
+
+/** 开始底部刷新 */
+- (void)beginFooterRefresh;
+
+/** 结束底部刷新 */
+- (void)endFooterRefresh;
+
+/*!
+ *  移除底部刷新
+ */
+-(void)removeFootRefresh;
+
 @end

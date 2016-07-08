@@ -123,7 +123,6 @@
 
     /*! 上下拉刷新 */
     #import <MJRefresh.h>
-    #import "UIScrollView+BARefresh.h"
 
     /*! 友盟分享/登陆 的详细封装 */
     #import "BAShareManage.h"

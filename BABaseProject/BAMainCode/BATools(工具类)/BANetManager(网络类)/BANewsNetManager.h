@@ -76,12 +76,18 @@
 + (id)getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(id, NSError *))completionHandle;
 
 /*!
- *  示例2：DemoVC11中的网络获取示例
+ *  示例2：DemoVC11中的网络获取示例 get
  *
  *  @return DemoVC11中的网络获取示例
  */
 + (id)getDemoVC11DataCompletionHandle:(void(^)(id model, NSError *error))completionHandle;
 
+/*!
+ *  示例3：DemoVC11中的网络获取示例 post
+ *
+ *  @return DemoVC11中的网络获取示例
+ */
++ (id)postDemoVC11DataWithParameters:parameters completionHandle:(void(^)(id model, NSError *error))completionHandle;
 
 
 @end

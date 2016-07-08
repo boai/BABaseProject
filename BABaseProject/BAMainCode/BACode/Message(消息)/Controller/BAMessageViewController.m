@@ -93,8 +93,8 @@
 
 - (void)creatData
 {
-    [self addCell:@"2-1、tableView的高级用法" content:@"封装baseCell" class:@"DemoVC2_01"];
-//    [self addCell:@"2、清理缓存" content:@"清理网络请求缓存和图片缓存，可清理系统缓存！" class:@"DemoVC2"];
+    [self addCell:@"tableView的高级用法" content:@"封装baseCell" class:@"DemoVC2_01"];
+    [self addCell:@"cell的分组展开收回" content:@"cell的分组展开收回" class:@"DemoVC2_02"];
 }
 
 - (void)addCell:(NSString *)title content:(NSString *)content class:(NSString *)className

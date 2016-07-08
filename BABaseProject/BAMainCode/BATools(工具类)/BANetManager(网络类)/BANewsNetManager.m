@@ -141,6 +141,22 @@
     }];
 }
 
-
+/*!
+ *  示例3：DemoVC11中的网络获取示例 post
+ *
+ *  @return DemoVC11中的网络获取示例
+ */
++ (id)postDemoVC11DataWithParameters:parameters completionHandle:(void(^)(id model, NSError *error))completionHandle
+{
+//    NSString *url = [NSString stringWithFormat:@"%@%@", DemoVC11URLPath2, parameters[@"page"]];
+    return [BANetManager ba_requestWithType:BAHttpRequestTypePost withUrlString:DemoVC11URLPath2 withParameters:parameters withSuccessBlock:^(id response) {
+        completionHandle([DemoVC11_model BAMJParse:response], nil);
+    } withFailureBlock:^(NSError *error) {
+        BALog(@"error：%@", error);
+        completionHandle(nil, error);
+    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+        
+    }];
+}
 
 @end

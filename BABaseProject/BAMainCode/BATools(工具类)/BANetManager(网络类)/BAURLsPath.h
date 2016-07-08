@@ -16,6 +16,8 @@
 /*! 示例2：DemoVC11中的网络获取示例 */
 #define DemoVC11URLPath @"http://chanyouji.com/api/users/likes/268717.json?per_page=18&page=2"
 
+/*! 示例3：DemoVC11中的网络获取示例 */
+#define DemoVC11URLPath2 @"http://chanyouji.com/api/users/likes/268717.json"
 
 
 
