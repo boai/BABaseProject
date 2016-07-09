@@ -93,7 +93,7 @@
 
 - (void)creatData
 {
-    [self addCell:@"tableView的高级用法" content:@"封装baseCell" class:@"DemoVC2_01"];
+    [self addCell:@"tableView的高级用法1" content:@"封装baseCell" class:@"DemoVC2_01"];
     [self addCell:@"cell的分组展开收回" content:@"cell的分组展开收回" class:@"DemoVC2_02"];
 }
 

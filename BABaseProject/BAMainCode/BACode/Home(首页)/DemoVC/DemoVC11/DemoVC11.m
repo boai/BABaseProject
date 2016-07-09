@@ -182,43 +182,8 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         {
             [weakSelf BA_showAlertWithTitle:@"解析错误！"];
         }
-        
     }];
 }
-
-
-//#pragma mark - ***** 获取网络数据
-//- (void)getData
-//{
-//    [self BA_showAlert:BA_Loading];
-////    [BANewsNetManager getDemoVC11DataCompletionHandle:^(id model, NSError *error) {
-////        
-////        [self BA_hideProgress];
-////        if (!error)
-////        {
-////            self.dataArray = [(NSArray *)model mutableCopy];
-////            [self.collectionView reloadData];
-////        }
-////        else
-////        {
-////            [self BA_showAlertWithTitle:@"解析错误！"];
-////        }
-////    }];
-//    
-//    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"page", nil];
-//    [BANewsNetManager postDemoVC11DataWithParameters:dict completionHandle:^(id model, NSError *error) {
-//        [self BA_hideProgress];
-//        if (!error)
-//        {
-//            self.dataArray = [(NSArray *)model mutableCopy];
-//            [self.collectionView reloadData];
-//        }
-//        else
-//        {
-//            [self BA_showAlertWithTitle:@"解析错误！"];
-//        }
-//    }];
-//}
 
 #pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
