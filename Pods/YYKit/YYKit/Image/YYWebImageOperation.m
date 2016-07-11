@@ -195,7 +195,6 @@ static void URLInBlackListAdd(NSURL *url) {
     _finished = NO;
     _cancelled = NO;
     _taskID = UIBackgroundTaskInvalid;
-    _lock = [NSRecursiveLock new];
     return self;
 }
 

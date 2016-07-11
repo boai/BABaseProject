@@ -14,49 +14,46 @@
 @interface MyTableRowLayout : MyLinearLayout
 
 
-+(id)rowSize:(CGFloat)rowSize colSize:(CGFloat)colSize orientation:(MyLayoutViewOrientation)orientation;
++(id)rowWith:(CGFloat)rowHeight colWidth:(CGFloat)colWidth orientation:(MyLayoutViewOrientation)orientation;
 
-@property(nonatomic,assign, readonly) CGFloat rowSize;
-@property(nonatomic,assign, readonly) CGFloat colSize;
+@property(nonatomic,assign, readonly) CGFloat rowHeight;
+@property(nonatomic,assign, readonly) CGFloat colWidth;
 
 @end
 
+IB_DESIGNABLE
 @implementation MyTableRowLayout
 {
-   CGFloat _rowSize;
-   CGFloat _colSize;
+   CGFloat _rowHeight;
+   CGFloat _colWidth;
 }
 
--(id)initWith:(CGFloat)rowSize colSize:(CGFloat)colSize orientation:(MyLayoutViewOrientation)orientation
+-(id)initWith:(CGFloat)rowHeight colWidth:(CGFloat)colWidth orientation:(MyLayoutViewOrientation)orientation
 {
     self = [super initWithOrientation:orientation];
     if (self != nil)
     {
-        _rowSize = rowSize;
-        _colSize = colSize;
+        _rowHeight = rowHeight;
+        _colWidth = colWidth;
         
-        if (rowSize == MTLSIZE_AVERAGE)
+        if (rowHeight == 0)
             self.weight = 1;
-        else if (rowSize > 0)
+        else if (rowHeight > 0)
         {
             if (orientation == MyLayoutViewOrientation_Horz)
-                self.myHeight = rowSize;
+                self.myHeight = rowHeight;
             else
-                self.myWidth = rowSize;
+                self.myWidth = rowHeight;
         }
-        else if (rowSize == MTLSIZE_WRAPCONTENT)
+        else
         {
             if (orientation == MyLayoutViewOrientation_Horz)
                 self.wrapContentHeight = YES;
             else
                 self.wrapContentWidth = YES;
         }
-        else
-        {
-            NSCAssert(0, @"Constraint exception !! rowSize can not set to MTLSIZE_MATCHPARENT");
-        }
         
-        if (colSize == MTLSIZE_AVERAGE)
+        if (colWidth == 0)
         {
             if (orientation == MyLayoutViewOrientation_Horz)
             {
@@ -70,7 +67,7 @@
             }
             
         }
-        else if (colSize == MTLSIZE_MATCHPARENT)
+        else if (colWidth == -2)
         {
             if (orientation == MyLayoutViewOrientation_Horz)
             {
@@ -88,9 +85,9 @@
     return self;
 }
 
-+(id)rowSize:(CGFloat)rowSize colSize:(CGFloat)colSize orientation:(MyLayoutViewOrientation)orientation
++(id)rowWith:(CGFloat)rowHeight colWidth:(CGFloat)colWidth orientation:(MyLayoutViewOrientation)orientation
 {
-    return [[self alloc] initWith:rowSize colSize:colSize orientation:orientation];
+    return [[self alloc] initWith:rowHeight colWidth:colWidth orientation:orientation];
 }
 
 
@@ -119,51 +116,22 @@
     return [self linearLayoutWithOrientation:orientation];
 }
 
--(void)setRowSpacing:(CGFloat)rowSpacing
+
+-(void)addRow:(CGFloat)rowHeight colWidth:(CGFloat)colWidth
 {
-    self.subviewMargin = rowSpacing;
+    [self insertRow:rowHeight colWidth:colWidth atIndex:self.countOfRow];
 }
 
--(CGFloat)rowSpacing
+-(void)insertRow:(CGFloat)rowHeight colWidth:(CGFloat)colWidth atIndex:(NSInteger)rowIndex
 {
-    return self.subviewMargin;
-}
-
--(void)setColSpacing:(CGFloat)colSpacing
-{
-    MyTableLayout *lsc = self.myCurrentSizeClass;
-    if (lsc.colSpacing != colSpacing)
-    {
-        lsc.colSpacing = colSpacing;
-        [self setNeedsLayout];
-    }
-
-}
-
--(CGFloat)colSpacing
-{
-    return self.myCurrentSizeClass.colSpacing;
-}
-
-
--(MyLinearLayout*)addRow:(CGFloat)rowSize colSize:(CGFloat)colSize
-{
-    return [self insertRow:rowSize colSize:colSize atIndex:self.countOfRow];
-}
-
--(MyLinearLayout*)insertRow:(CGFloat)rowSize colSize:(CGFloat)colSize atIndex:(NSInteger)rowIndex
-{
-    MyLayoutViewOrientation ori = MyLayoutViewOrientation_Vert;
+    MyLayoutViewOrientation ori = 0;
     if (self.orientation == MyLayoutViewOrientation_Vert)
         ori = MyLayoutViewOrientation_Horz;
     else
         ori = MyLayoutViewOrientation_Vert;
     
-    MyTableRowLayout *rowView = [MyTableRowLayout rowSize:rowSize colSize:colSize orientation:ori];
-    rowView.subviewMargin = self.colSpacing;
-    rowView.IntelligentBorderLine = self.IntelligentBorderLine;
+    MyTableRowLayout *rowView = [MyTableRowLayout rowWith:rowHeight colWidth:colWidth orientation:ori];
     [super insertSubview:rowView atIndex:rowIndex];
-    return rowView;
 }
 
 -(void)removeRowAt:(NSInteger)rowIndex
@@ -196,15 +164,15 @@
 {
     MyTableRowLayout *rowView = (MyTableRowLayout*)[self viewAtRowIndex:indexPath.row];
     
-    //colSize为0表示均分尺寸，为-1表示由子视图决定尺寸，大于0表示固定尺寸。
-    if (rowView.colSize == MTLSIZE_AVERAGE)
+    //colWidth为0表示均分宽度，为-1表示由子视图决定宽度，大于0表示固定宽度。
+    if (rowView.colWidth == 0)
         colView.weight = 1;
-    else if (rowView.colSize > 0)
+    else if (rowView.colWidth > 0)
     {
         if (rowView.orientation == MyLayoutViewOrientation_Horz)
-            colView.myWidth = rowView.colSize;
+            colView.myWidth = rowView.colWidth;
         else
-            colView.myHeight = rowView.colSize;
+            colView.myHeight = rowView.colWidth;
     }
     
     if (rowView.orientation == MyLayoutViewOrientation_Horz)
@@ -275,12 +243,12 @@
 //不能直接调用如下的函数。
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
 {
-    NSCAssert(0, @"Constraint exception!! Can't call insertSubview");
+    NSAssert(0, @"Can't call insertSubview");
 }
 
 - (void)exchangeSubviewAtIndex:(NSInteger)index1 withSubviewAtIndex:(NSInteger)index2
 {
-    NSCAssert(0, @"Constraint exception!! Can't call exchangeSubviewAtIndex");
+    NSAssert(0, @"Can't call exchangeSubviewAtIndex");
 }
 
 - (void)addSubview:(UIView *)view
@@ -290,11 +258,11 @@
 
 - (void)insertSubview:(UIView *)view belowSubview:(UIView *)siblingSubview
 {
-    NSCAssert(0, @"Constraint exception!! Can't call insertSubview");
+    NSAssert(0, @"Can't call insertSubview");
 }
 - (void)insertSubview:(UIView *)view aboveSubview:(UIView *)siblingSubview
 {
-    NSCAssert(0, @"Constraint exception!! Can't call insertSubview");
+    NSAssert(0, @"Can't call insertSubview");
 }
 
 
@@ -305,11 +273,5 @@
     // Drawing code
 }
 */
-
--(id)createSizeClassInstance
-{
-    return [MyLayoutSizeClassTableLayout new];
-}
-
 
 @end

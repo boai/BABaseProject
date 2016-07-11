@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '39818EAD9B4F5290D508A9F1E9C33CB6'
+               BlueprintIdentifier = '092E71EA0FF7E36864D7C79F'
                BlueprintName = 'NullSafe'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libNullSafe.a'>

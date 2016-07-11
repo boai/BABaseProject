@@ -186,12 +186,6 @@ typedef enum : unsigned char{
 @property(nonatomic, assign) CGFloat subviewHorzMargin;
 @property(nonatomic, assign) CGFloat subviewMargin;
 
-@end
-
-@interface MyLayoutSizeClassTableLayout : MyLayoutSizeClassLinearLayout
-
-@property(nonatomic, assign) CGFloat rowSpacing;
-@property(nonatomic, assign) CGFloat colSpacing;
 
 @end
 
@@ -205,15 +199,6 @@ typedef enum : unsigned char{
 
 
 @end
-
-
-@interface MyLayoutSizeClassFloatLayout : MyLayoutSizeClassLinearLayout
-
-@property(nonatomic, assign) CGFloat subviewSize;
-@property(nonatomic, assign) CGFloat minMargin;
-
-@end
-
 
 @interface MyLayoutSizeClassRelativeLayout : MyLayoutSizeClassLayout
 

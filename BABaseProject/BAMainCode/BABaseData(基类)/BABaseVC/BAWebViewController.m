@@ -119,6 +119,16 @@
         wkWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         wkWebView.backgroundColor = [UIColor whiteColor];
         wkWebView.navigationDelegate = self;
+        
+        /*! 适应屏幕 */
+//        wkWebView.scalesPageToFit = YES;
+        /*! 解决iOS9.2以上黑边问题 */
+        wkWebView.opaque = NO;
+        /*! 关闭多点触控 */
+        wkWebView.multipleTouchEnabled = YES;
+        /*! 加载网页中的电话号码，单击可以拨打 */
+//        wkWebView.dataDetectorTypes = YES;
+        
         [self.view insertSubview:wkWebView belowSubview:_progressView];
         
         [wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
@@ -128,9 +138,18 @@
     }else {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
         webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        webView.scalesPageToFit = YES;
+
         webView.backgroundColor = [UIColor whiteColor];
         webView.delegate = self;
+        /*! 适应屏幕 */
+        webView.scalesPageToFit = YES;
+        /*! 解决iOS9.2以上黑边问题 */
+        webView.opaque = NO;
+        /*! 关闭多点触控 */
+        webView.multipleTouchEnabled = YES;
+        /*! 加载网页中的电话号码，单击可以拨打 */
+        webView.dataDetectorTypes = YES;
+        
         [self.view insertSubview:webView belowSubview:_progressView];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_urlString]];

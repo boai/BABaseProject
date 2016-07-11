@@ -72,6 +72,9 @@ target 'BABaseProject' do
     # 空数据的处理
     pod 'NullSafe'
     
+    # oc 与 js 交互框架
+    pod 'WebViewJavascriptBridge', '~> 5.0'
+    
     # 获取所有设备型号
 #    pod 'DeviceUtil'
 
@@ -87,7 +90,15 @@ target 'BABaseProject' do
     # 一款支持七牛云存储的ios/mac sdk。它基于AFNetworking 2.x版本和七牛官方API构建。支持批量上传的七牛上传sdk
 #    pod "QiniuUpload"
 
-    
+
+# UIWebView页面信息的离线缓存
+#推荐一个比较好的第三方库RNCachingURLProtocol ，只需要在AppDelegate中加入下面方法即可。
+#
+#[NSURLProtocolregisterClass:[RNCachingURLProtocolclass]];
+#
+#地址:https://github.com/rnapier/RNCachingURLProtocol
+
+
 end
 
 target 'BABaseProjectTests' do

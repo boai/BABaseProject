@@ -69,22 +69,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-BABaseProjectTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-BABaseProjectUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SDAutoLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WebViewJavascriptBridge.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -107,7 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5084C72C304C134112AA1BF05CE15B9C</key>
+		<key>4064D8FE92427A15DACA4802ACD2759E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>46554C78228991216506C909A7AB60C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6942AAC0ABCA7065D200E037876A091E</key>
+		<key>678249932A8B0B9C0026E59E01811979</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E1C6EF62D89988AD504245A0C1EC25A</key>
+		<key>6D38B85F39208695ED1EC1055BF68C12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,17 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94E8E2376A2894DBD516B6DC759265C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>985F42852C5AD70E725D4F06503F5C5A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>999B533F3F251B211D25631597F38B8C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,12 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7F9EFF5CE4C0933490E7A2624CF9263</key>
+		<key>C743C42395D3C33F9883CB4690B475A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C743C42395D3C33F9883CB4690B475A0</key>
+		<key>CD04793AFA87B26C41C4E3EAE20D76B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -334,7 +334,7 @@ return def;
     RETURN_VALUE(unsignedIntegerValue);
 }
 
-- (NSNumber *)numberValueForKey:(NSString *)key default:(NSNumber *)def {
+- (NSNumber *)numverValueForKey:(NSString *)key default:(NSNumber *)def {
     if (!key) return def;
     id value = self[key];
     if (!value || value == [NSNull null]) return def;

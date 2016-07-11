@@ -23,9 +23,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 {
     int page;
 }
-@property (nonatomic, strong) UICollectionView     *collectionView;
-@property (nonatomic, strong) NSMutableArray       *dataArray;
-@property (nonatomic, strong) BANewsNetManager     *netManager;
+@property (nonatomic, strong) UICollectionView  *collectionView;
+@property (nonatomic, strong) NSMutableArray    *dataArray;
+@property (nonatomic, strong) BANewsNetManager  *netManager;
 
 @end
 
@@ -96,9 +96,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 {
     BA_Weak;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-    [self.collectionView addHeaderRefresh:^{
+//    [self.collectionView addHeaderRefresh:^{
         [weakSelf loadNewData];
-    }];
+//    }];
     // 马上进入刷新状态
     [self.collectionView.mj_header beginRefreshing];
     
@@ -133,7 +133,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         }
     }
     
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page), @"page", @"18", @"per_page", nil];;
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page), @"page", @"", @"per_page", nil];;
     
     BA_Weak;
     [self BA_showAlert:BA_Loading];
@@ -161,10 +161,15 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
                 else
                     page++;
                 
-                [(NSArray *)model enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSArray *array = (NSArray *)model;
+                [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                     [weakSelf.dataArray addObject:obj];
                 }];
-                [weakSelf.collectionView reloadData];
+                
+                [GCDQueue executeInMainQueue:^{
+//                    weakSelf.collectionView.contentOffset = CGPointZero;
+                    [weakSelf.collectionView reloadData];
+                }];
             }
             else
             {
@@ -188,8 +193,14 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 #pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    [self.collectionView.collectionViewLayout invalidateLayout];
     return self.dataArray.count;
 }
+
+//- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+//{
+//    return YES;
+//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

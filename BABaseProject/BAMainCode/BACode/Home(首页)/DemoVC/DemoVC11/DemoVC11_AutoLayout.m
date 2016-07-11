@@ -44,6 +44,8 @@
     /*! 重写layout中的方法 首先必须调用父类 */
     [super prepareLayout];
     
+//    [self invalidateLayout];
+
     /*!
      初始化每个item的位置
      通过y值判断最短列

@@ -20,42 +20,37 @@
 
 @end
 
-//定义特殊的尺寸
-#define MTLSIZE_AVERAGE 0
-#define MTLSIZE_WRAPCONTENT -1
-#define MTLSIZE_MATCHPARENT -2
+//定义特殊的行高
+#define MTLROWHEIGHT_AVERAGE 0
+#define MTLROWHEIGHT_WRAPCONTENT -1
+
+//定义特殊的列宽
+#define MTLCOLWIDTH_AVERAGE 0
+#define MTLCOLWIDTH_WRAPCONTENT -1
+#define MTLCOLWIDTH_MATCHPARENT -2
 
 
 /**
- *表格布局是一种里面的子视图可以像表格一样多行多列排列的布局视图。子视图添加到表格布局视图前必须先要建立并添加行视图，然后再将子视图添加到行视图里面。
- *如果行视图在表格布局里面是从上到下排列的则表格布局为垂直表格布局，垂直表格布局里面的子视图在行视图里面是从左到右排列的；
- *如果行视图在表格布局里面是从左到右排列的则表格布局为水平表格布局，水平表格布局里面的子视图在行视图里面是从上到下排列的。
+ * 表格布局，用来实现多行多列表格样式的布局，可以用表格布局来实现瀑布流的功能。一个垂直表格外部是一个垂直线性布局而里面的行则是水平线性布局，而一个水平表格外部是一个水平线性布局而
  */
 @interface MyTableLayout : MyLinearLayout
 
 +(id)tableLayoutWithOrientation:(MyLayoutViewOrientation)orientation;
 
 
-/**
- *  设置表格的行间距和列间距
- */
-@property(nonatomic ,assign) IBInspectable CGFloat rowSpacing;
-@property(nonatomic, assign) IBInspectable CGFloat colSpacing;
-
-
 
 /**
  *  添加一个新行。对于垂直表格来说每一行是从上往下排列的，而水平表格则每一行是从左往右排列的。
  *
- *  @param rowSize 为MTLSIZE_WRAPCONTENT表示由子视图决定本行尺寸，子视图需要自己设置尺寸；为MTLSIZE_AVERAGE表示均分尺寸，子视图不需要设置尺寸；大于0表示固定尺寸，子视图不需要设置尺寸;不能设置为MTLSIZE_MATCHPARENT。
- *  @param colSize  为MTLSIZE_MATCHPARENT表示子视图需要自己指定尺寸，整体行尺寸和父视图一样的尺寸；为MTLSIZE_WRAPCONTENT表示由子视图需要自己设置尺寸，行尺寸包裹所有子视图；为MTLSIZE_AVERAGE表示均分尺寸，这时候子视图不必设置尺寸；大于0表示子视图固定尺寸，这时候子视图可以不必设置尺寸。
+ *  @param rowHeight 为MTLROWHEIGHT_WRAPCONTENT表示由子视图决定本行高度，子视图需要自己设置高度；为MTLROWHEIGHT_AVERAGE表示均分高度，子视图不需要设置高度；大于0表示固定高度，子视图不需要设置高度.
+ *  @param colWidth  为MTLCOLWIDTH_MATCHPARENT表示子视图需要自己指定宽度，整体行宽和父视图一样宽；为MTLCOLWIDTH_WRAPCONTENT表示由子视图需要自己设置宽度，行宽包裹所有子视图；为MTLCOLWIDTH_AVERAGE表示均分宽度，这时候子视图不必设置宽度；大于0表示子视图固定宽度，这时候子视图可以不必设置宽度。
  */
--(MyLinearLayout*)addRow:(CGFloat)rowSize colSize:(CGFloat)colSize;
+-(void)addRow:(CGFloat)rowHeight colWidth:(CGFloat)colWidth;
 
 /**
  * 在指定的位置插入一个新行
  */
--(MyLinearLayout*)insertRow:(CGFloat)rowSize colSize:(CGFloat)colSize atIndex:(NSInteger)rowIndex;
+-(void)insertRow:(CGFloat)rowHeight colWidth:(CGFloat)colWidth atIndex:(NSInteger)rowIndex;
 
 /**
  * 删除一行

@@ -12,7 +12,6 @@
 #import "UIView+MJExtension.h"
 #import "UIScrollView+MJExtension.h"
 #import "UIScrollView+MJRefresh.h"
-#import "NSBundle+MJRefresh.h"
 
 /** 刷新控件的状态 */
 typedef NS_ENUM(NSInteger, MJRefreshState) {
@@ -30,10 +29,6 @@ typedef NS_ENUM(NSInteger, MJRefreshState) {
 
 /** 进入刷新状态的回调 */
 typedef void (^MJRefreshComponentRefreshingBlock)();
-/** 开始刷新后的回调(进入刷新状态后的回调) */
-typedef void (^MJRefreshComponentbeginRefreshingCompletionBlock)();
-/** 结束刷新后的回调 */
-typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)();
 
 /** 刷新控件的基类 */
 @interface MJRefreshComponent : UIView
@@ -49,6 +44,8 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)();
 /** 设置回调对象和回调方法 */
 - (void)setRefreshingTarget:(id)target refreshingAction:(SEL)action;
 
+- (NSString *)localizedStringForKey:(NSString *)key;
+
 /** 回调对象 */
 @property (weak, nonatomic) id refreshingTarget;
 /** 回调方法 */
@@ -59,14 +56,8 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)();
 #pragma mark - 刷新状态控制
 /** 进入刷新状态 */
 - (void)beginRefreshing;
-- (void)beginRefreshingWithCompletionBlock:(void (^)())completionBlock;
-/** 开始刷新后的回调(进入刷新状态后的回调) */
-@property (copy, nonatomic) MJRefreshComponentbeginRefreshingCompletionBlock beginRefreshingCompletionBlock;
-/** 结束刷新的回调 */
-@property (copy, nonatomic) MJRefreshComponentEndRefreshingCompletionBlock endRefreshingCompletionBlock;
 /** 结束刷新状态 */
 - (void)endRefreshing;
-- (void)endRefreshingWithCompletionBlock:(void (^)())completionBlock;
 /** 是否正在刷新 */
 - (BOOL)isRefreshing;
 /** 刷新状态 一般交给子类内部实现 */
