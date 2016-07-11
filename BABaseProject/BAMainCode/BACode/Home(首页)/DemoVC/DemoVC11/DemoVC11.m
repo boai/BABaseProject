@@ -96,9 +96,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 {
     BA_Weak;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-//    [self.collectionView addHeaderRefresh:^{
+    [self.collectionView addHeaderRefresh:^{
         [weakSelf loadNewData];
-//    }];
+    }];
     // 马上进入刷新状态
     [self.collectionView.mj_header beginRefreshing];
     

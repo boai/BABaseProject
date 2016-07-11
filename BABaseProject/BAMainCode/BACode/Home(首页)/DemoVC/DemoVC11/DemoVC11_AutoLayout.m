@@ -33,7 +33,7 @@
     if (self = [super init])
     {
         self.columYdic       = [NSMutableDictionary dictionary];
-        self.attributesArray = @[].mutableCopy;
+//        self.attributesArray = @[].mutableCopy;
     }
     return self;
 }
@@ -43,7 +43,8 @@
 {
     /*! 重写layout中的方法 首先必须调用父类 */
     [super prepareLayout];
-    
+    self.attributesArray = @[].mutableCopy;
+
 //    [self invalidateLayout];
 
     /*!
@@ -112,6 +113,7 @@
     
     /*! 每个item 的布局属性包含frame / bounds/ size */
     /*! 根据indexPath获取对应的属性 */
+
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     /*! 添加frame */
     attributes.frame = CGRectMake(x, y, w, h);
@@ -122,7 +124,14 @@
 /*! 3、布局属性 */
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    return _attributesArray;
+//    NSMutableArray *attributes = [NSMutableArray array];
+//    for(NSInteger i=0 ; i < self.collectionView.numberOfSections; i++) {
+//        for (NSInteger j=0 ; j < [self.collectionView numberOfItemsInSection:i]; j++) {
+//            NSIndexPath* indexPath = [NSIndexPath indexPathForItem:j inSection:i];
+//            [attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
+//        }
+//    }
+    return self.attributesArray;
 }
 
 /*! 4、设置滚动范围 */
