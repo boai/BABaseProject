@@ -112,6 +112,10 @@
 /*! GCD */
 #import "GCD/GCD.h"
 
+/*! 自定义上下拉刷新 */
+#import "BACustomMJFooter.h"
+#import "BACustomMJHeader.h"
+
 #pragma mark - ****** BAKitManager类
 /*! BAKitManager */
 #import "BAKitManager.h"

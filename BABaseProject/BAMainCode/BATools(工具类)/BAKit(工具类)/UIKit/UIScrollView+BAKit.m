@@ -77,7 +77,22 @@
 /** 添加头部刷新 */
 - (void)addHeaderRefresh:(MJRefreshComponentRefreshingBlock)refreshBlock
 {
-    self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:refreshBlock];
+    /*! 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法） */
+    BACustomMJHeader *header = [BACustomMJHeader headerWithRefreshingBlock:refreshBlock];
+    /*! 设置文字 */
+    [header setTitle:@"下拉博爱为您刷新！" forState:MJRefreshStateIdle];
+    [header setTitle:@"松开博爱再为您刷新！" forState:MJRefreshStatePulling];
+    [header setTitle:@"感谢博爱的刷新 ..." forState:MJRefreshStateRefreshing];
+    
+    /*! 设置字体 */
+    header.stateLabel.font = [UIFont systemFontOfSize:15];
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
+    
+    /*! 设置颜色 */
+    header.stateLabel.textColor = [UIColor redColor];
+    header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
+    header.automaticallyChangeAlpha = YES;
+    self.mj_header = header;
 }
 
 /** 开始头部刷新 */
@@ -95,7 +110,14 @@
 /** 添加底部刷新 */
 - (void)addFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshBlock
 {
-    self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:refreshBlock];
+    /*! 原生上拉刷新 */
+//    self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:refreshBlock];
+    /*! 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法） */
+    BACustomMJFooter *footer = [BACustomMJFooter footerWithRefreshingBlock:refreshBlock];
+    /*! 隐藏刷新状态的文字 */
+    footer.refreshingTitleHidden = YES;
+    footer.automaticallyChangeAlpha = YES;
+    self.mj_footer = footer;
 }
 
 /** 开始底部刷新 */
