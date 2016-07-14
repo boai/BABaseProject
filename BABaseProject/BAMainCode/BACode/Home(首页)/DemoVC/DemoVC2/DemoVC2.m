@@ -43,9 +43,13 @@
     NSString *clearMessage = [@"需要清除缓存 " stringByAppendingFormat:@"%.2fM ？", cacheSize];
 
     BA_Weak;
-    [self BAAlertWithTitle:@"温馨提示：" message:clearMessage andOthers:@[@"确 定"] animated:YES action:^(NSInteger index) {
+    [self BAAlertWithTitle:@"温馨提示：" message:clearMessage andOthers:@[@"取 消", @"确 定"] animated:YES action:^(NSInteger index) {
         
         if (index == 0)
+        {
+            return ;
+        }
+        if (index == 1)
         {
             [clearCacheManager ba_myClearCacheAction];
             NSString *msg = [NSString stringWithFormat:@"成功清除缓存：%.2fM",  cacheSize];
