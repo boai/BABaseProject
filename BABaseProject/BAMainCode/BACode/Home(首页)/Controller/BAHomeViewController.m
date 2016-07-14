@@ -103,8 +103,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setVCBgColor:BA_White_Color];
-    
+    self.vcBgColor = BA_White_Color;
+
     /*! 设置CGRectZero从导航栏下开始计算 */
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -112,7 +112,7 @@
     
 //    [self setupNavi];
     // 判断网络
-    [self networkChangeWith:self];
+    [self ba_networkChangeWith:self];
     
     [BAFPSLabel showInWindow:[UIApplication sharedApplication].keyWindow];
     

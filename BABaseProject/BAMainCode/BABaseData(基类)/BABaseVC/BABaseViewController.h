@@ -67,6 +67,8 @@
 @interface BABaseViewController : UIViewController
 
 
+@property (nonatomic, strong) UIColor *vcBgColor;
+
 #pragma mark - ***** 显示自定义加载框
 
 /*!
@@ -83,15 +85,12 @@
  *
  *  @param viewController viewController
  */
-- (void)networkChangeWith:(UIViewController *)viewController;
+- (void)ba_networkChangeWith:(UIViewController *)viewController;
 
-#pragma mark 网络不可用点击UI的回调
 /*!
- *  网络不可以用时点击UI的回调-默认点击是打开系统系统设置页面
+ *  使用4G网络时的方法调用此方法
  */
-- (void)goNetNotUse;
-
-
+- (void)ba_netUse4Gnet;
 
 #pragma mark - ***** app跳转到系统的各种基本设置选项
 /*!
@@ -115,7 +114,7 @@
  *
  *  @param vcBgColor vcBgColor
  */
-- (void)setVCBgColor:(UIColor *)vcBgColor;
+//- (void)setVCBgColor:(UIColor *)vcBgColor;
 
 #pragma mark - ***** VC的navi设置
 /*!
@@ -123,7 +122,7 @@
  *
  *  @param hidden YES：隐藏，NO：显示
  */
-- (void)BA_setNavbarBackgroundHidden:(BOOL)hidden;
+- (void)ba_setNavbarBackgroundHidden:(BOOL)hidden;
 
 
 
@@ -134,22 +133,22 @@
 /*!
  *  开启樱花动画（CAEmitterLayer动画）
  */
-- (void)BA_starYingHuaCoreAnimation;
+- (void)ba_starYingHuaCoreAnimation;
 
 /*!
  *  开启雪花动画（CADisplayLink动画）
  */
-- (void)BA_starXueHuaCoreAnimation;
+- (void)ba_starXueHuaCoreAnimation;
 
 /*!
  *  暂停雪花动画
  */
-- (void)BA_stopXueHuaCoreAnimation;
+- (void)ba_stopXueHuaCoreAnimation;
 
 /*!
  *  开启烟花动画（CAEmitterLayer动画）
  */
-- (void)BA_starYanHuaCoreAnimation;
+- (void)ba_starYanHuaCoreAnimation;
 
 /*!
  *  gif动画
@@ -157,7 +156,7 @@
  *  @param gifImageName gifImageName
  *  @param imgFrame     imgFrame
  */
-- (void)BA_useGIFImageViewWithGifImageName:(NSString *)gifImageName frame:(CGRect)imgFrame;
+- (void)ba_useGIFImageViewWithGifImageName:(NSString *)gifImageName frame:(CGRect)imgFrame;
 
 
 @end

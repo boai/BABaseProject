@@ -127,15 +127,10 @@
  *
  *  @param vcBgColor vcBgColor
  */
-- (void)setVCBgColor:(UIColor *)vcBgColor
+- (void)setVcBgColor:(UIColor *)vcBgColor
 {
-    /*! 1、背景颜色 */
-    if (vcBgColor)
-    {
-        self.view.backgroundColor = vcBgColor;
-    }
-    else
-        self.view.backgroundColor = BA_White_Color;
+    _vcBgColor = vcBgColor;
+    self.view.backgroundColor = vcBgColor;
 }
 
 #pragma mark - ***** navi设置
@@ -318,12 +313,13 @@
  *
  *  @param viewController viewController
  */
-- (void)networkChangeWith:(UIViewController *)viewController
+- (void)ba_networkChangeWith:(UIViewController *)viewController
 {
     // 1.获得网络监控的管理者
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     
     // 2.设置网络状态改变后的处理
+    BA_Weak;
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         // 当网络状态改变了, 就会调用这个block
@@ -332,7 +328,7 @@
             case AFNetworkReachabilityStatusUnknown: // 未知网络
             {
                 BALog(@"当前网络未知！");
-                [self BA_showAlertWithTitle:@"当前网络未知！"];
+                [weakSelf BA_showAlertWithTitle:@"当前网络未知！"];
                 break;
             }
             case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
@@ -345,7 +341,7 @@
                     }
                     if (index == 1)
                     {
-                        [self goNetNotUse];
+                        [weakSelf ba_gotoSystermSettings];
                     }
                 }];
                 break;
@@ -359,6 +355,7 @@
                     }
                     if (index == 1)
                     {
+                        [weakSelf ba_netUse4Gnet];
                     }
                 }];
                 
@@ -367,7 +364,7 @@
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
             {
                 BALog(@"当前是WiFi环境！");
-                [self BA_showAlertWithTitle:@"当前是WiFi环境！"];
+                [weakSelf BA_showAlertWithTitle:@"当前是WiFi环境！"];
                 break;
             }
         }
@@ -377,14 +374,12 @@
     [manager startMonitoring];
 }
 
-#pragma mark 网络不可用点击UI的回调
-- (void)goNetNotUse
+/*!
+ *  使用4G网络时的方法回调
+ */
+- (void)ba_netUse4Gnet
 {
-    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-    if ([[UIApplication sharedApplication] canOpenURL:url])
-    {
-        [[UIApplication sharedApplication] openURL:url];
-    }
+    BALog(@"使用3G/4G网络情况处理方法调用！");
 }
 
 #pragma mark - ***** app跳转到系统的各种基本设置选项
@@ -427,7 +422,7 @@
  *
  *  @param hidden YES：隐藏，NO：显示
  */
-- (void)BA_setNavbarBackgroundHidden:(BOOL)hidden
+- (void)ba_setNavbarBackgroundHidden:(BOOL)hidden
 {
     BANavigationBar *navBar =(BANavigationBar *)self.navigationController.navigationBar;
     if (hidden) {
@@ -440,7 +435,7 @@
 /*!
  *  开启樱花动画
  */
-- (void)BA_starYingHuaCoreAnimation
+- (void)ba_starYingHuaCoreAnimation
 {
     // =================== 樱花飘落 ====================
     CAEmitterLayer * snowEmitterLayer = [CAEmitterLayer layer];
@@ -494,7 +489,7 @@
 /*!
  *  开启雪花动画
  */
-- (void)BA_starXueHuaCoreAnimation
+- (void)ba_starXueHuaCoreAnimation
 {
 //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
 //    imageView.image = [UIImage imageNamed:@"snowbg.jpg"];
@@ -543,7 +538,7 @@
 /*!
  *  暂停雪花动画
  */
-- (void)BA_stopXueHuaCoreAnimation
+- (void)ba_stopXueHuaCoreAnimation
 {
     [self.displayLink invalidate];
     self.displayLink = nil;
@@ -552,7 +547,7 @@
 /*!
  *  开启烟花动画（CAEmitterLayer动画）
  */
-- (void)BA_starYanHuaCoreAnimation
+- (void)ba_starYanHuaCoreAnimation
 {
     CAEmitterLayer *snowEmitter = [CAEmitterLayer layer];
     snowEmitter.emitterPosition = CGPointMake(self.view.bounds.size.width / 2.0, -30);
@@ -680,7 +675,7 @@
  *  @param gifImageName gifImageName
  *  @param imgFrame     imgFrame
  */
-- (void)BA_useGIFImageViewWithGifImageName:(NSString *)gifImageName frame:(CGRect)imgFrame
+- (void)ba_useGIFImageViewWithGifImageName:(NSString *)gifImageName frame:(CGRect)imgFrame
 {
     BAGIFImageView *GIFimgView = [BAGIFImageView new];
     GIFimgView.frame = imgFrame;

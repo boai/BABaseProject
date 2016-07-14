@@ -30,7 +30,8 @@
     self.title = NSLocalizedString(@"DemoVC10Title", nil);
    
     
-    [self setVCBgColor:BA_Yellow_Color];
+    self.vcBgColor = BA_Yellow_Color;
+
     self.collectionView.hidden = NO;
     self.editButton.hidden     = NO;
 

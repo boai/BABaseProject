@@ -24,10 +24,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setVCBgColor:BA_Yellow_Color];
+    self.vcBgColor = BA_Yellow_Color;
     self.title = @"各种系统设置的跳转";
     
     self.tableView.hidden = NO;
+}
+
+/*! 调用父类中的处理方法 */
+- (void)ba_netUse4Gnet
+{
+    BALog(@"使用3G/4G网络情况处理方法调用！");
 }
 
 - (NSArray *)titlesArray
@@ -80,16 +86,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSString *className = self.classNamesArray[indexPath.row];
-//    Class class = NSClassFromString(className);
-//    if (class)
-//    {
-//        UIViewController *vc = class.new;
-//        vc.title = self.titlesArray[indexPath.row];
-//        
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
-    
     /*! 点击立刻取消该cell的选中状态 */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     

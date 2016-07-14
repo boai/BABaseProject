@@ -19,38 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BABaseProject/BAMainCode/BACode/Home(&#x9996;&#x9875;)/DemoVC/DemoVC11/DemoVC11.m"
-            timestampString = "489921579.013344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-getDataWithHead:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BABaseProject/BAMainCode/BACode/Home(&#x9996;&#x9875;)/DemoVC/DemoVC11/DemoVC11.m"
-            timestampString = "489921579.013344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-getDataWithHead:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "BABaseProject/BAMainCode/BACode/Message(&#x6d88;&#x606f;)/DemoVC/DemoVC2-3/DemoVC2-03VC.m"
             timestampString = "490160861.773127"
             startingColumnNumber = "9223372036854775807"

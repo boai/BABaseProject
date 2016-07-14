@@ -33,7 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setVCBgColor:BA_Yellow_Color];
+    self.vcBgColor = BA_Yellow_Color;
+
     [self getData];
 }
 

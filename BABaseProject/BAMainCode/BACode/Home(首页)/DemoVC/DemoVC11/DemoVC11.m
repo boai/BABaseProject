@@ -33,9 +33,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setVCBgColor:BA_White_Color];
-    
+
     [self setupLayout];
 }
 
