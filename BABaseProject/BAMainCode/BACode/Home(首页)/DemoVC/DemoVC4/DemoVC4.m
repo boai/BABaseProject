@@ -56,7 +56,7 @@
         _QQLoginBtn.titleLabel.textAlignment = NSTextAlignmentRight;
 
         [self.view addSubview:_QQLoginBtn];
-        [_QQLoginBtn ba_pulseViewWithTime:20];
+        [_QQLoginBtn ba_pulseViewWithTime:5];
 
     }
     return _QQLoginBtn;
@@ -97,8 +97,7 @@
 #pragma mark 友盟登陆BAShareManageDelegate
 - (void)getUserData:(NSDictionary *)backUserData
 {
-    BA_Weak;
-    [weakSelf.view ba_showAlertView:@"温馨提示：" message:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
+    [self.view ba_showAlertView:@"温馨提示：" message:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
     BALog(@"友盟登陆成功，返回信息: %@", backUserData);
 }
 

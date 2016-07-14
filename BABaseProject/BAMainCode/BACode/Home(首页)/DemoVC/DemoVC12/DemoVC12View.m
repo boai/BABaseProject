@@ -7,7 +7,6 @@
 //
 
 #import "DemoVC12View.h"
-#import "BAPayPwdInputView.h"
 
 static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能的 4 英寸 iPhone。在打造这款手机时，我们在深得人心的 4 英寸设计基础上，从里到外重新构想。它所采用的 A9 芯片，正是在 iPhone 6s 上使用的先进芯片。1200 万像素的摄像头能拍出令人叹为观止的精彩照片和 4K 视频，而 Live Photos 则会让你的照片栩栩如生。这一切，成就了一款外形小巧却异常强大的 iPhone。";
 @interface DemoVC12View ()
@@ -26,7 +25,6 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 @property (nonatomic, strong) BACustomButton  *button4;
 @property (nonatomic, strong) BACustomButton  *sureButton;
 
-@property (nonatomic, strong) BAPayPwdInputView *payPwdView;
 
 
 @end
@@ -59,7 +57,13 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 {
     if (!_titleArray)
     {
-        _titleArray = @[@"1、自定义弹窗1", @"2、自定义弹窗2【带图片，按钮】", @"3、自定义警告框3【类似系统警告框, 不带button】", @"4、自定义警告框4【类似系统警告框, 带延时】", @"5、自定义警告框5【类似系统警告框, 带图片，按钮】", @"6、系统警告框6【兼容iOS 7、8】", @"7、系统ActionSheet【兼容iOS 7、8】"];
+        _titleArray = @[@"1、自定义弹窗1",
+                        @"2、自定义弹窗2【带图片，按钮】",
+                        @"3、自定义警告框3【类似系统警告框, 不带button】",
+                        @"4、自定义警告框4【类似系统警告框, 带延时】",
+                        @"5、自定义警告框5【类似系统警告框, 带图片，按钮】",
+                        @"6、系统警告框6【兼容iOS 7、8】",
+                        @"7、系统ActionSheet【兼容iOS 7、8】"];
     }
     return _titleArray;
 }
@@ -132,16 +136,15 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 
 - (void)alert1
 {
-    if (!_modal1)
-    {
-        _modal1 = [self creatModal:nil];
-    }
-    
-    self.bgView.hidden = NO;
-//    self.payPwdView.hidden = NO;
-
-    [_modal1 showContentView:_bgView animated:YES];
-//    [_modal1 showContentView:_payPwdView animated:YES];
+    BALog(@"此方法待调试！");
+//    if (!_modal1)
+//    {
+//        _modal1 = [self creatModal:nil];
+//    }
+//    
+//    self.bgView.hidden = NO;
+//
+//    [_modal1 showContentView:_bgView animated:YES];
 }
 
 - (void)alert2
@@ -170,7 +173,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         }
         if (index == 1)
         {
-            BA_OpenUrl([NSURL URLWithString:@"http://boai.github.io"]);
+            BA_OpenUrl(@"http://boai.github.io");
         }
     }];
     [alert show:YES];
@@ -197,7 +200,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         }
         if (index == 1)
         {
-            BA_OpenUrl([NSURL URLWithString:@"http://boai.github.io"]);
+            BA_OpenUrl(@"http://boai.github.io");
         }
         
     }];
@@ -214,7 +217,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         }
         if (index == 1)
         {
-            BA_OpenUrl([NSURL URLWithString:@"http://boai.github.io"]);
+            BA_OpenUrl(@"http://boai.github.io");
         }
 
     }];
@@ -231,7 +234,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         }
         if (index == 1)
         {
-            BA_OpenUrl([NSURL URLWithString:@"http://boai.github.io"]);
+            BA_OpenUrl(@"http://boai.github.io");
         }
         if (index == 2)
         {
@@ -268,7 +271,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     {
         _bgView = [UIView new];
         _bgView.frame = CGRectMake(10, self.tableView.centerX, BA_SCREEN_WIDTH - 20, 200);
-        _bgView.backgroundColor = BA_White_Color;
+        _bgView.backgroundColor = BA_Green_Color;
         _bgView.layer.masksToBounds = YES;
         _bgView.clipsToBounds = YES;
         _bgView.layer.cornerRadius = 8.0f;
@@ -397,16 +400,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     
 }
 
-- (BAPayPwdInputView *)payPwdView
-{
-    if (!_payPwdView)
-    {
-        _payPwdView = [[BAPayPwdInputView alloc] init];
-        _payPwdView.frame = CGRectMake(20, 20, BA_SCREEN_WIDTH - 40, 44);
-        _payPwdView.backgroundColor = [UIColor redColor];
-    }
-    return _payPwdView;
-}
+
 
 
 @end

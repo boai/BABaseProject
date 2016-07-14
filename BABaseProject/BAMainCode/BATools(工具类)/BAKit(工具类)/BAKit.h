@@ -111,10 +111,14 @@
 #pragma mark - ****** 其他封装
 /*! GCD */
 #import "GCD/GCD.h"
+/*! 清理系统缓存 */
+#import "BAClearCacheManager.h"
+
 
 /*! 自定义上下拉刷新 */
 #import "BACustomMJFooter.h"
 #import "BACustomMJHeader.h"
+
 
 #pragma mark - ****** BAKitManager类
 /*! BAKitManager */

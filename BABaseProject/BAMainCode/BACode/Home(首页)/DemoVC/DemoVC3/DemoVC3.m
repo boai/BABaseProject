@@ -27,6 +27,17 @@
 
 @implementation DemoVC3
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_headerLine stop];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

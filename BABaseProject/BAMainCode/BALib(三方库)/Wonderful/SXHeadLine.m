@@ -64,16 +64,17 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
 #pragma mark - **************** animate
 - (void)scrollAnimate
 {
+    BA_Weak;
     CGRect rect1 = self.label1.frame;
     CGRect rect2 = self.label2.frame;
     rect1.origin.y -= _h;
     rect2.origin.y -= _h;
     [UIView animateWithDuration:_scrollDuration animations:^{
-        self.label1.frame = rect1;
-        self.label2.frame = rect2;
+        weakSelf.label1.frame = rect1;
+        weakSelf.label2.frame = rect2;
     } completion:^(BOOL finished) {
-        [self checkLabelFrameChange:self.label1];
-        [self checkLabelFrameChange:self.label2];
+        [weakSelf checkLabelFrameChange:weakSelf.label1];
+        [weakSelf checkLabelFrameChange:weakSelf.label2];
     }];
 }
 

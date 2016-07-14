@@ -26,7 +26,6 @@
     [super viewWillDisappear:animated];
     
     [self isShowSnowLoadingView:NO];
-    
 }
 
 - (void)viewDidLoad {
@@ -38,38 +37,23 @@
 
 - (void)clearCache
 {
-    CGFloat cacheSize = [[SDImageCache sharedImageCache] getSize];
-    
-    NSString *clearMessage = cacheSize >= 1024*1024 ? [NSString stringWithFormat:@"清理缓存（%.2fM）", cacheSize / 1024 / 1024] : [NSString stringWithFormat:@"清理缓存（%.2fK）", cacheSize / 1024];
+    BAClearCacheManager *clearCacheManager = [BAClearCacheManager ba_sharedCache];
+    CGFloat cacheSize = [clearCacheManager ba_loadCacheSize];
+
+    NSString *clearMessage = [@"需要清除缓存 " stringByAppendingFormat:@"%.2fM ？", cacheSize];
+
+    BA_Weak;
     [self BAAlertWithTitle:@"温馨提示：" message:clearMessage andOthers:@[@"确 定"] animated:YES action:^(NSInteger index) {
         
         if (index == 0)
         {
-            // 清除内存缓存
-            [[[SDWebImageManager sharedManager] imageCache] clearMemory];
-            // 清除系统缓存
-            [[NSURLCache sharedURLCache] removeAllCachedResponses];
-            
-//            [[[SDWebImageManager sharedManager] imageCache] cleanDisk];
+            [clearCacheManager ba_myClearCacheAction];
+            NSString *msg = [NSString stringWithFormat:@"成功清除缓存：%.2fM",  cacheSize];
+            [weakSelf.view ba_showAlertView:@"温馨提示：" message:msg];
         }
         
     }];
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
