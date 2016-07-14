@@ -39,11 +39,17 @@
 /*! 微信分享 */
 - (void)BA_wxShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString;
 
+/*! 微信朋友圈分享 */
+- (void)BA_wxpyqShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:shareURLString;
+
 /*! 新浪微博分享 */
 - (void)BA_wbShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage;
 
-/*! 微信朋友圈分享 */
-- (void)BA_wxpyqShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:shareURLString;
+/*! qq分享 */
+- (void)BA_qqShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString;
+
+/*! qqzone分享 */
+- (void)BA_qqzoneShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString;
 
 /*! 短信分享 */
 - (void)BA_smsShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage;
@@ -57,6 +63,7 @@
  *  @param shareURLString shareURLString
  */
 - (void)BA_UMshareListWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString;
+
 
 #pragma mark - ***** 友盟登录
 /*！友盟 QQ 登录 */
