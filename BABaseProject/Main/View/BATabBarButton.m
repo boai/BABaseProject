@@ -153,6 +153,30 @@
     
     // 设置badgeValue
     self.badgeView.badgeValue = _item.badgeValue;
+    
+    NSString *title = _item.title;
+    if ([title isEqualToString:@"首页"]) {
+        
+        [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self setTitleColor:BA_Red_Color forState:UIControlStateSelected];
+    }
+    else if ([title isEqualToString:@"消息"])
+    {
+        [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self setTitleColor:BA_Orange_Color forState:UIControlStateSelected];
+    }
+    else if ([title isEqualToString:@"发现"])
+    {
+        [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self setTitleColor:BA_Green_Color forState:UIControlStateSelected];
+    }
+    else if ([title isEqualToString:@"我的"])
+    {
+        [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self setTitleColor:BA_Blue_Color forState:UIControlStateSelected];
+    }
+
+    
 }
 
 - (void)dealloc
@@ -161,7 +185,7 @@
     [_item removeObserver:self forKeyPath:@"image"];
     [_item removeObserver:self forKeyPath:@"selectedImage"];
     [_item removeObserver:self forKeyPath:@"badgeValue"];
-    [self removeObserver:self forKeyPath:@"selected"];
+//    [self removeObserver:self forKeyPath:@"selected"];
 }
 
 // 修改按钮内部子控件的frame

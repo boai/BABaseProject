@@ -210,9 +210,8 @@
     // 首页
     BAHomeViewController *home = [[BAHomeViewController alloc] init];
     
-    [self setUpOneChildViewController:home image:[UIImage imageNamed:@"tabbar_home"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_home_selected"] title:@"首页"];
+    [self setUpOneChildViewController:home image:[UIImage imageNamed:@"otherImages.bundle/首页-不点亮"] selectedImage:[UIImage imageWithOriginalName:@"otherImages.bundle/首页-点亮"] title:@"首页"];
     _home = home;
-    
     
     // 消息
     BAMessageViewController *message = [[BAMessageViewController alloc] init];
@@ -224,10 +223,9 @@
     [self setUpOneChildViewController:discover image:[UIImage imageNamed:@"tabbar_discover"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_discover_selected"] title:@"发现"];
     _discover = discover;
     
-    
     // 我
     BAProfileViewController *profile = [[BAProfileViewController alloc] init];
-    [self setUpOneChildViewController:profile image:[UIImage imageNamed:@"tabbar_profile"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_profile_selected"] title:@"我"];
+    [self setUpOneChildViewController:profile image:[UIImage imageNamed:@"otherImages.bundle/我的-不点亮"] selectedImage:[UIImage imageWithOriginalName:@"otherImages.bundle/我的-点亮"] title:@"我的"];
     _profile = profile;
 }
 

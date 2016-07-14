@@ -331,8 +331,8 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     [btn setTitleColor:BA_Red_Color forState:UIControlStateSelected];
     [btn setTitleColor:BA_TEXTGrayColor forState:UIControlStateNormal];
     
-    [btn setImage:[UIImage imageNamed:@"images1.bundle/有币"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"images1.bundle/有币"] forState:UIControlStateSelected];
+    [btn setImage:[UIImage imageNamed:@"otherImages.bundle/有币"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"otherImages.bundle/有币"] forState:UIControlStateSelected];
     
     [btn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
 

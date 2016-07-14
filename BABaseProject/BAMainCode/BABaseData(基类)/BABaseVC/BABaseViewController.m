@@ -116,7 +116,7 @@
 - (void)setupBase
 {
     self.view.backgroundColor = BA_White_Color;
-
+    
     
 }
 
