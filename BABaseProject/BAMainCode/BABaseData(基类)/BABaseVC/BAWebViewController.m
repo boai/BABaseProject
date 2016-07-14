@@ -247,7 +247,7 @@
         if (index == 1)
         {
             /*! safari打开 */
-            BA_OpenUrl([NSURL URLWithString:urlStr]);
+            [self ba_gotoSafariBrowserWithURL:urlStr];
         }
         else if (index == 2)
         {

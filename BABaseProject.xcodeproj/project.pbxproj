@@ -42,6 +42,7 @@
 		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
 		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
+		C42DAA431D37269300FE8B3E /* DemoVC2_03.m in Sources */ = {isa = PBXBuildFile; fileRef = C42DAA421D37269300FE8B3E /* DemoVC2_03.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C44423261D2E5D67004ACAA8 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423251D2E5D66004ACAA8 /* BAKitManager.m */; };
 		C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423291D2E5E07004ACAA8 /* BAKitManager+BALabel.m */; };
@@ -481,6 +482,8 @@
 		C42A6AE21CDAE10500D534EE /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
 		C42A6AE61CDAE10D00D534EE /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
 		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
+		C42DAA411D37269300FE8B3E /* DemoVC2_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_03.h; sourceTree = "<group>"; };
+		C42DAA421D37269300FE8B3E /* DemoVC2_03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_03.m; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C44423241D2E5D66004ACAA8 /* BAKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKitManager.h; sourceTree = "<group>"; };
@@ -1122,6 +1125,15 @@
 				C427812D1D2D39B1003E6694 /* GCDTimer.m */,
 			);
 			path = GCD;
+			sourceTree = "<group>";
+		};
+		C42DAA401D37265500FE8B3E /* DemoVC2-3 */ = {
+			isa = PBXGroup;
+			children = (
+				C42DAA411D37269300FE8B3E /* DemoVC2_03.h */,
+				C42DAA421D37269300FE8B3E /* DemoVC2_03.m */,
+			);
+			path = "DemoVC2-3";
 			sourceTree = "<group>";
 		};
 		C430AB731CDC8A170086DDD6 /* DemoVC3 */ = {
@@ -2825,6 +2837,7 @@
 			children = (
 				C4EE1C5B1D22871D005046A6 /* DemoVC2-1 */,
 				C44423461D2E8596004ACAA8 /* DemoVC2-2 */,
+				C42DAA401D37265500FE8B3E /* DemoVC2-3 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -3470,6 +3483,7 @@
 				C480274A1D1928290087BBB9 /* UILabel+BAKit.m in Sources */,
 				C445E1CF1D1B86FE00D7654A /* SXColorLabel.m in Sources */,
 				C480274F1D1928290087BBB9 /* UIWebView+BAKit.m in Sources */,
+				C42DAA431D37269300FE8B3E /* DemoVC2_03.m in Sources */,
 				C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */,
 				C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */,
 				C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */,

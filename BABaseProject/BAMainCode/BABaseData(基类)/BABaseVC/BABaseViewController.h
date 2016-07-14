@@ -92,6 +92,23 @@
 - (void)goNetNotUse;
 
 
+
+#pragma mark - ***** app跳转到系统的各种基本设置选项
+/*!
+ *  跳转系统通知
+ */
+- (void)ba_gotoSystermSettings;
+
+/*!
+ *  跳转Safari浏览器
+ *
+ *  @param url 需要用Safari打开的url
+ */
+- (void)ba_gotoSafariBrowserWithURL:(NSString *)url;
+
+
+
+
 #pragma mark - ***** VC的基本设置
 /*!
  *  设置VC的背景颜色

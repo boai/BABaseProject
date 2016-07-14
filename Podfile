@@ -75,6 +75,9 @@ target 'BABaseProject' do
     # oc 与 js 交互框架
     pod 'WebViewJavascriptBridge', '~> 5.0'
     
+    # 类似QQ侧滑框架
+#    pod "JVFloatingDrawer"
+
     # 获取所有设备型号
 #    pod 'DeviceUtil'
 

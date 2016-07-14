@@ -387,6 +387,37 @@
     }
 }
 
+#pragma mark - ***** app跳转到系统的各种基本设置选项
+/*!
+ *  跳转系统通知
+ */
+- (void)ba_gotoSystermSettings
+{
+    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+//        [[UIApplication sharedApplication] openURL:url];
+        /*! 跳转系统通知 */
+        BA_OpenUrl(UIApplicationOpenSettingsURLString);
+    }
+}
+
+/*!
+ *  跳转Safari浏览器
+ */
+- (void)ba_gotoSafariBrowserWithURL:(NSString *)url
+{
+    if ([BARegularExpression ba_isUrl:url])
+    {
+        /*! 跳转系统通知 */
+        BA_OpenUrl(url);
+    }
+    else
+    {
+        [self.view ba_showAlertView:@"温馨提示：" message:@"url错误，请重新输入！"];
+    }
+
+}
 
 
 

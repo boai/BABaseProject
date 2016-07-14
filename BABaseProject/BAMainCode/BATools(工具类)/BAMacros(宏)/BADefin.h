@@ -83,7 +83,7 @@
 #define BA_Loading @"Loading..."
 
 /*! 用safari打开URL */
-#define BA_OpenUrl(urlStr) [BASharedApplication openURL:urlStr]
+#define BA_OpenUrl(urlStr) [BASharedApplication openURL:[NSURL URLWithString:urlStr]]
 
 /*! 复制文字内容 */
 #define BA_CopyContent(content) [[UIPasteboard generalPasteboard] setString:content]

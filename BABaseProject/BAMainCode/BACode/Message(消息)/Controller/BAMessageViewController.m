@@ -95,6 +95,9 @@
 {
     [self addCell:@"tableView的高级用法1" content:@"封装baseCell" class:@"DemoVC2_01"];
     [self addCell:@"cell的分组展开收回" content:@"cell的分组展开收回" class:@"DemoVC2_02"];
+    [self addCell:@"系统各种设置的跳转" content:@"系统各种设置的跳转" class:@"DemoVC2_03"];
+
+    
 }
 
 - (void)addCell:(NSString *)title content:(NSString *)content class:(NSString *)className
