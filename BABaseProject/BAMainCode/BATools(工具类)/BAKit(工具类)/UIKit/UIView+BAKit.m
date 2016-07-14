@@ -282,7 +282,7 @@
 }
 
 /* 3.创建边框 */
-- (void)setBordersWithColor:(UIColor *)color
+- (void)ba_setBordersWithColor:(UIColor *)color
             andCornerRadius:(CGFloat)radius
                    andWidth:(CGFloat)width
 {
@@ -309,16 +309,15 @@
 }
 
 /* 4.删除边框 */
-- (void)removeBorders
+- (void)ba_removeBorders
 {
     self.layer.borderWidth = 0;
     self.layer.cornerRadius = 0;
     self.layer.borderColor = nil;
 }
 
-
 /* 5.删除阴影 */
-- (void)removeShadow
+- (void)ba_removeShadow
 {
     [self.layer setShadowColor:[[UIColor clearColor] CGColor]];
     [self.layer setShadowOpacity:0.0f];
@@ -326,7 +325,7 @@
 }
 
 /* 6.设置圆角半径 */
-- (void)setCornerRadius:(CGFloat)radius
+- (void)ba_setCornerRadius:(CGFloat)radius
 {
     CALayer *roundedlayer = [self layer];
     roundedlayer.cornerRadius = radius;
@@ -334,7 +333,7 @@
 }
 
 /* 7.创建阴影 */
-- (void)setRectShadowWithOffset:(CGSize)offset
+- (void)ba_setRectShadowWithOffset:(CGSize)offset
                         opacity:(CGFloat)opacity
                          radius:(CGFloat)radius
 {
@@ -351,7 +350,7 @@
 }
 
 /* 8.创建圆角半径阴影 */
-- (void)setCornerRadiusShadowWithCornerRadius:(CGFloat)cornerRadius
+- (void)ba_setCornerRadiusShadowWithCornerRadius:(CGFloat)cornerRadius
                                        offset:(CGSize)offset
                                       opacity:(CGFloat)opacity
                                        radius:(CGFloat)radius
@@ -376,7 +375,7 @@
 }
 
 /* 9.摇摆动画 */
-- (void)shakeView
+- (void)ba_shakeView
 {
     // 创建关键帧动画类
     CAKeyframeAnimation *shake = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
@@ -395,13 +394,13 @@
 }
 
 /* 10.脉冲动画 */
-- (void)pulseViewWithTime:(CGFloat)seconds
+- (void)ba_pulseViewWithTime:(CGFloat)seconds
 {
     [self pulseViewWithDuration:seconds];
 }
 
 
-- (void)createGradientWithColors:(NSArray *)colors direction:(UIViewLinearGradientDirection)direction
+- (void)ba_createGradientWithColors:(NSArray *)colors direction:(UIViewLinearGradientDirection)direction
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.bounds;

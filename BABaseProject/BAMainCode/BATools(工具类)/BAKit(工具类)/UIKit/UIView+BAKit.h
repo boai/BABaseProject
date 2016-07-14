@@ -201,31 +201,31 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
 /**
  *  3.创建边框
  */
-- (void)setBordersWithColor:(UIColor *)color
+- (void)ba_setBordersWithColor:(UIColor *)color
             andCornerRadius:(CGFloat)radius
                    andWidth:(CGFloat)width;
 
 /**
  *  4.删除边框
  */
-- (void)removeBorders;
+- (void)ba_removeBorders;
 
 /**
  *  5.创建阴影
  */
-- (void)setRectShadowWithOffset:(CGSize)offset
+- (void)ba_setRectShadowWithOffset:(CGSize)offset
                         opacity:(CGFloat)opacity
                          radius:(CGFloat)radius;
 
 /**
  *  6.删除阴影
  */
-- (void)removeShadow;
+- (void)ba_removeShadow;
 
 /**
  *  7.创建圆角半径阴影
  */
-- (void)setCornerRadiusShadowWithCornerRadius:(CGFloat)cornerRadius
+- (void)ba_setCornerRadiusShadowWithCornerRadius:(CGFloat)cornerRadius
                                        offset:(CGSize)offset
                                       opacity:(CGFloat)opacity
                                        radius:(CGFloat)radius;
@@ -240,12 +240,20 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
 /**
  *  9.摇摆动画
  */
-- (void)shakeView;
+- (void)ba_shakeView;
 
 /**
  *  10.脉冲动画
  */
-- (void)pulseViewWithTime:(CGFloat)seconds;
+- (void)ba_pulseViewWithTime:(CGFloat)seconds;
+
+/*!
+ *  渐变色
+ *
+ *  @param colors    颜色
+ *  @param direction 方向，横向还是纵向
+ */
+- (void)ba_createGradientWithColors:(NSArray *)colors direction:(UIViewLinearGradientDirection)direction;
 
 /**
  *  添加子View

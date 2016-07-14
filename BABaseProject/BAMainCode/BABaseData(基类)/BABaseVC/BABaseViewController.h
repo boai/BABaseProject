@@ -130,6 +130,8 @@
 - (UIColor *)ba_randomColor;
 
 #pragma mark - ***** VC的其他设置
+
+#pragma mark - ***** 各种动画开关
 /*!
  *  开启樱花动画（CAEmitterLayer动画）
  */

@@ -27,7 +27,7 @@
         _shareBtn = [BACustomButton BA_ShareButton];
         _shareBtn.frame = CGRectMake(50, 100, 100, 40);
         [_shareBtn setTitle:@"分享" forState:UIControlStateNormal];
-        [_shareBtn setTitleColor:BA_NaviBgBlueColor forState:UIControlStateNormal];
+        [_shareBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];
         _shareBtn.titleLabel.font = BA_FontSize(16);
         [_shareBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
         _shareBtn.tag = 1001;
@@ -35,6 +35,8 @@
         _shareBtn.titleLabel.textAlignment = NSTextAlignmentRight;
         
         [self.view addSubview:_shareBtn];
+        
+        [_shareBtn ba_shakeView];
     }
     return _shareBtn;
 }
@@ -46,7 +48,7 @@
         _QQLoginBtn = [BACustomButton BA_ShareButton];
         _QQLoginBtn.frame = CGRectMake(50, _shareBtn.bottom + 50, 100, 40);
         [_QQLoginBtn setTitle:@"QQ登陆" forState:UIControlStateNormal];
-        [_QQLoginBtn setTitleColor:BA_NaviBgBlueColor forState:UIControlStateNormal];
+        [_QQLoginBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];
         _QQLoginBtn.titleLabel.font = BA_FontSize(16);
         [_QQLoginBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
         _QQLoginBtn.tag = 1002;
@@ -54,6 +56,8 @@
         _QQLoginBtn.titleLabel.textAlignment = NSTextAlignmentRight;
 
         [self.view addSubview:_QQLoginBtn];
+        [_QQLoginBtn ba_pulseViewWithTime:20];
+
     }
     return _QQLoginBtn;
 }
@@ -62,7 +66,8 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = BA_White_Color;
+    self.vcBgColor = BA_White_Color;
+//    [self.view ba_createGradientWithColors:@[[]] direction:UIViewLinearGradientDirectionVertical];
     self.shareBtn.hidden = NO;
     self.QQLoginBtn.hidden = NO;
 }
@@ -70,7 +75,6 @@
 #pragma mark 友盟分享和登陆
 - (IBAction)clickShareBtn:(UIButton *)sender
 {
-    BA_Weak;
     /*! 友盟分享 */
     if (sender.tag == 1001)
     {
@@ -79,14 +83,14 @@
         /*! 注意：图片不能为空 */
         UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
         
-        [[BAShareManage shareManage] BA_UMshareListWithViewControll:weakSelf withShareText:shareText image:shareImage url:shareUrlSrt];
+        [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:shareUrlSrt];
     }
     /*! 友盟登陆 */
     if (sender.tag == 1002)
     {
         BAShareManage *manger = [BAShareManage shareManage];
-        manger.delegate = weakSelf;
-        [manger BA_UMLoginListWithViewControll:weakSelf];
+        manger.delegate = self;
+        [manger BA_UMLoginListWithViewControll:self];
     }
 }
 
