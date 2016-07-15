@@ -40,7 +40,7 @@
     BAClearCacheManager *clearCacheManager = [BAClearCacheManager ba_sharedCache];
     CGFloat cacheSize = [clearCacheManager ba_loadCacheSize];
 
-    NSString *clearMessage = [@"需要清除缓存 " stringByAppendingFormat:@"%.2fM ？", cacheSize];
+    NSString *clearMessage = [NSString stringWithFormat:@"缓存大小为%.2fM确定要清理吗?", cacheSize];
 
     BA_Weak;
     [self BAAlertWithTitle:@"温馨提示：" message:clearMessage andOthers:@[@"取 消", @"确 定"] animated:YES action:^(NSInteger index) {
