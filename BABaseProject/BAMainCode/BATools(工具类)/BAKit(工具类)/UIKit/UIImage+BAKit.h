@@ -1,7 +1,7 @@
 
 /*!
- *  @header BAKit
- *          demoTest
+ *  @header BAKit.h
+ *          BABaseProject
  *
  *  @brief  BAKit
  *
@@ -10,31 +10,36 @@
  *  @version    V1.0
  */
 
-/*!
- *
- *          ┌─┐       ┌─┐
- *       ┌──┘ ┴───────┘ ┴──┐
- *       │                 │
- *       │       ───       │
- *       │  ─┬┘       └┬─  │
- *       │                 │
- *       │       ─┴─       │
- *       │                 │
- *       └───┐         ┌───┘
- *           │         │
- *           │         │
- *           │         │
- *           │         └──────────────┐
- *           │                        │
- *           │                        ├─┐
- *           │                        ┌─┘
- *           │                        │
- *           └─┐  ┐  ┌───────┬──┐  ┌──┘
- *             │ ─┤ ─┤       │ ─┤ ─┤
- *             └──┴──┘       └──┴──┘
- *                 神兽保佑
- *                 代码无BUG!
- */
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//
+//         .............................................
+//                  佛祖镇楼                  BUG辟易
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
 
 /*
  
@@ -42,11 +47,13 @@
  *
  * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
  *
- * QQ     : 可以添加SDAutoLayout群 497140713 在这里找到我(博爱1616【137361770】)
+ * QQ     : 可以添加ios开发技术群 479663605 在这里找到我(博爱1616【137361770】)
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
+ * 博客    : http://boai.github.io
+ 
  *********************************************************************************
  
  */
@@ -356,5 +363,35 @@
  *  @return 被压缩的图片
  */
 + (UIImage *)ba_IMGCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;
+
+
+- (UIImage *)ba_circleImage;
+
+/**
+ *  图片拉伸
+ */
++ (UIImage *)ba_resizeImage:(NSString *)imgName;
+
+/**
+ *  icon        要裁剪的图片
+ *  borderWith  头像边框的宽度
+ *  borderColor 边框的颜色
+ */
++ (instancetype)ba_image:(UIImage *)image borderWith:(CGFloat)borderWith borderColor:(UIColor *)borderColor;
+
+/**
+ *  缓存图片
+ */
++ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName;
+
+/**
+ *  取图片
+ */
++ (UIImage *)ba_getImageFromFileWithFileName:(NSString *)fileName;
+
+/**
+ *  图片缩放
+ */
++ (UIImage*)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 @end

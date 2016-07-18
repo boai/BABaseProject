@@ -85,13 +85,22 @@
     return imgView;
 }
 
-/*!
- *  显示成圆形图片
- */
-- (void)setRadiusImg
+- (void)ba_setImageWithURL:(NSURL *)url
 {
-    self.layer.masksToBounds = YES;
-    self.layer.cornerRadius = self.width/2;
+    [self sd_setImageWithURL:url];
+}
+
+- (void)ba_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder
+{
+    [self sd_setImageWithURL:url placeholderImage:placeholder];
+}
+
+- (void)ba_setHeardWithUrl:(NSString *)hearUrl
+{
+    UIImage *placeHolder = [[UIImage imageNamed:BA_PLACEHOLDER_IMAGE] ba_circleImage];
+    [self sd_setImageWithURL:[NSURL URLWithString:hearUrl] placeholderImage:placeHolder options:0 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.image = image ? [image ba_circleImage] : placeHolder;
+    }];
 }
 
 @end

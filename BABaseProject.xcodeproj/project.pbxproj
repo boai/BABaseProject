@@ -121,6 +121,8 @@
 		C48027561D1928290087BBB9 /* UIView+BAGlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C480272C1D1928290087BBB9 /* UIView+BAGlowView.m */; };
 		C485562C1D3CB01700002FA2 /* UINavigationController+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C485562B1D3CB01700002FA2 /* UINavigationController+BAKit.m */; };
 		C48556301D3CB2DD00002FA2 /* UINavigationBar+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C485562F1D3CB2DD00002FA2 /* UINavigationBar+BAKit.m */; };
+		C48556331D3CC39900002FA2 /* UIBarButtonItem+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48556321D3CC39900002FA2 /* UIBarButtonItem+BAKit.m */; };
+		C48556361D3CC74600002FA2 /* NSDateFormatter+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48556351D3CC74600002FA2 /* NSDateFormatter+BAKit.m */; };
 		C4ACE2FC1CF5C19500313DD4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */; };
 		C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */; };
 		C4ACE3031CF5C90C00313DD4 /* DemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */; };
@@ -642,6 +644,10 @@
 		C485562D1D3CB02000002FA2 /* UINavigationController+BAKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BAKit.h"; sourceTree = "<group>"; };
 		C485562E1D3CB2DD00002FA2 /* UINavigationBar+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BAKit.h"; sourceTree = "<group>"; };
 		C485562F1D3CB2DD00002FA2 /* UINavigationBar+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BAKit.m"; sourceTree = "<group>"; };
+		C48556311D3CC39900002FA2 /* UIBarButtonItem+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BAKit.h"; sourceTree = "<group>"; };
+		C48556321D3CC39900002FA2 /* UIBarButtonItem+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BAKit.m"; sourceTree = "<group>"; };
+		C48556341D3CC74600002FA2 /* NSDateFormatter+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+BAKit.h"; sourceTree = "<group>"; };
+		C48556351D3CC74600002FA2 /* NSDateFormatter+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+BAKit.m"; sourceTree = "<group>"; };
 		C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C4ACE2FD1CF5C53100313DD4 /* DemoVC7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7.h; sourceTree = "<group>"; };
 		C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7.m; sourceTree = "<group>"; };
@@ -1385,6 +1391,8 @@
 				C48026EB1D1928290087BBB9 /* NSData+BAKit.m */,
 				C48026EC1D1928290087BBB9 /* NSDate+BAKit.h */,
 				C48026ED1D1928290087BBB9 /* NSDate+BAKit.m */,
+				C48556341D3CC74600002FA2 /* NSDateFormatter+BAKit.h */,
+				C48556351D3CC74600002FA2 /* NSDateFormatter+BAKit.m */,
 				C48026EE1D1928290087BBB9 /* NSDictionary+BAKit.h */,
 				C48026EF1D1928290087BBB9 /* NSDictionary+BAKit.m */,
 				C48026F01D1928290087BBB9 /* NSFileManager+BAKit.h */,
@@ -1418,6 +1426,8 @@
 				C485562B1D3CB01700002FA2 /* UINavigationController+BAKit.m */,
 				C485562E1D3CB2DD00002FA2 /* UINavigationBar+BAKit.h */,
 				C485562F1D3CB2DD00002FA2 /* UINavigationBar+BAKit.m */,
+				C48556311D3CC39900002FA2 /* UIBarButtonItem+BAKit.h */,
+				C48556321D3CC39900002FA2 /* UIBarButtonItem+BAKit.m */,
 				C48027071D1928290087BBB9 /* UIColor+BAKit.h */,
 				C48027081D1928290087BBB9 /* UIColor+BAKit.m */,
 				C48027091D1928290087BBB9 /* UIDevice+BAKit.h */,
@@ -3419,6 +3429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48556331D3CC39900002FA2 /* UIBarButtonItem+BAKit.m in Sources */,
 				C4D108051CE2FC1C00F735B9 /* view4.m in Sources */,
 				C4EB5BD21CD8B250003A7094 /* BABaseNetManager.m in Sources */,
 				C4DEB37D1D0C33E8001F1585 /* BANavigationController2.m in Sources */,
@@ -3509,6 +3520,7 @@
 				C4EB5AA51CD8B04B003A7094 /* main.m in Sources */,
 				C480272E1D1928290087BBB9 /* BAAutoSizeWithWH.m in Sources */,
 				C44423451D2E824D004ACAA8 /* BARotateView.m in Sources */,
+				C48556361D3CC74600002FA2 /* NSDateFormatter+BAKit.m in Sources */,
 				C48027481D1928290087BBB9 /* UIImage+BAKit.m in Sources */,
 				C48027371D1928290087BBB9 /* NSData+BAKit.m in Sources */,
 				C4DEB3851D0C34B0001F1585 /* BAPublishViewController.m in Sources */,

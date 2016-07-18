@@ -103,6 +103,15 @@
 #define IOS8x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
 
+
+
+
+
+/*! 其他 */
+#pragma mark - ***** 应用内相关设置
+#define BA_PLACEHOLDER_IMAGE @"placeHolder"
+
+
 /*! 警告框-一个按钮【VC】 */
 #define BA_SHOW_ALERT(title, msg)  UIAlertController *alert = [UIAlertController alertControllerWithTitle:title  message:msg preferredStyle:UIAlertControllerStyleAlert];\
 [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {\

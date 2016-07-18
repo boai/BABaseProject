@@ -40,7 +40,7 @@
 {
     if (!_titlesArray)
     {
-        _titlesArray = @[@"系统设置"];
+        _titlesArray = @[@"本APP设置的跳转"];
     }
     return _titlesArray;
 }
