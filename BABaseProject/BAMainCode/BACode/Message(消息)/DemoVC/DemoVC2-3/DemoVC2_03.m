@@ -40,21 +40,21 @@
 {
     if (!_titlesArray)
     {
-        _titlesArray = @[@"本APP设置的跳转",
-                         @"跳到WIFI界面" ,
-                         @"跳到General界面",
-                         @"跳到About关于本机界面",
-                         @"跳到Accessibility辅助功能界面",
-                         @"跳到AirplaneModeOn飞行模式界面",
-                         @"跳到Auto-Lock自动锁屏时间界面" ,
-                         @"跳到Brightness自动锁定界面",
-                         @"跳到MICROPHONE麦克风界面",
-                         @"跳到CONTACTS通讯录界面",
-                         @"跳到Bluetooth蓝牙界面" ,
-                         @"跳到DATE_AND_TIME日期和时间界面",
-                         @"跳到FaceTime界面",
-                         @"跳到Keyboard界面",
-                         @"跳到iCloud界面"
+        _titlesArray = @[@"1、本APP设置的跳转",
+                         @"2、跳到WIFI界面" ,
+                         @"3、跳到General界面",
+                         @"4、跳到About关于本机界面",
+                         @"5、跳到Accessibility辅助功能界面",
+                         @"6、跳到AirplaneModeOn飞行模式界面",
+                         @"7、跳到Auto-Lock自动锁屏时间界面" ,
+                         @"8、跳到Brightness自动锁定界面",
+                         @"9、跳到MICROPHONE麦克风界面",
+                         @"10、跳到CONTACTS通讯录界面",
+                         @"11、跳到Bluetooth蓝牙界面" ,
+                         @"12、跳到DATE_AND_TIME日期和时间界面",
+                         @"13、跳到FaceTime界面",
+                         @"14、跳到Keyboard界面",
+                         @"15、跳到iCloud界面"
                          ];
 
     }
