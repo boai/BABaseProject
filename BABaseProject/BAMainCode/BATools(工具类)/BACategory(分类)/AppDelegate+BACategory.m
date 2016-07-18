@@ -296,6 +296,12 @@
     manager.shouldResignOnTouchOutside = YES;
     manager.shouldToolbarUsesTextFieldTintColor = YES;
     manager.enableAutoToolbar = YES;
+    
+    /*! 如果某个VC不想用IQkeyboard，就在这里用这两行代码把那个VC加进去就行，那个VC就可以用自己写的键盘代理 */
+//    [[IQKeyboardManager sharedManager] disableDistanceHandlingInViewControllerClass:[BALiveViewController class]];
+//    [[IQKeyboardManager sharedManager] disableToolbarInViewControllerClass:[BALiveViewController class]];
+
+    
 }
 
 #pragma mark - ***** 其他
