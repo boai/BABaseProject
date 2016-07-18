@@ -47,7 +47,7 @@
  *
  * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
  *
- * QQ     : 可以添加ios开发技术群 479663605 在这里找到我(博爱1616【137361770】)
+ * QQ     : 博爱1616【137361770】
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
@@ -60,11 +60,40 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BACustomModalTransition : UIPercentDrivenInteractiveTransition<UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate,UIGestureRecognizerDelegate>
+@interface UINavigationController (BAKit)
 
-//---设置是否可拖拽（默认：不可拖动）
-@property (nonatomic, assign, getter=isDragable) BOOL dragable;
-//---初始化 model视图控制器
-- (id)initWithModalViewController:(UIViewController *)modalViewController;
+@property(strong,nonatomic)UIImageView * nav_shadowView;
+
+/*!
+ *  显示navi的阴影
+ */
+- (void)ba_showNavShadowView;
+
+/*!
+ *  隐藏navi的阴影
+ */
+- (void)ba_hiddenNavShadowView;
+
+/*!
+ *  返回几层控制器
+ *
+ *  @param backCount backCount
+ */
+- (void)ba_popBackViewControllerCount:(NSInteger)backCount;
+
+/*!
+ *  返回第几层控制器
+ *
+ *  @param count count
+ */
+- (UIViewController *)ba_controllerByPopCount:(NSInteger)count;
+
+/*!
+ *  返回到指定的类视图
+ *
+ *  @param ClassName 类名
+ *  @param animated  是否动画
+ */
+- (void)ba_popToAppointViewController:(NSString *)ClassName animated:(BOOL)animated;
 
 @end
