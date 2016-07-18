@@ -392,10 +392,193 @@
     if ([[UIApplication sharedApplication] canOpenURL:url])
     {
 //        [[UIApplication sharedApplication] openURL:url];
-        /*! 跳转系统通知 */
         BA_OpenUrl(UIApplicationOpenSettingsURLString);
     }
 }
+
+/*!
+ *  跳到WIFI界面
+ */
+- (void)ba_gotoSystermWIFISettings
+{
+    /*! 
+     (1.)需要先配置plist文件:在URL types--URL Schemes中添加 prefs的字符串.因为苹果在iOS5.0后把系统自带的URL Schemes删除了 
+     */
+    NSURL *url = [NSURL URLWithString:@"prefs:root=WIFI"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=WIFI");
+    }
+}
+
+/*!
+ *  跳到About关于本机界面
+ */
+- (void)ba_gotoSystermAboutSettings
+{
+    /*!
+     (1.)需要先配置plist文件:在URL types--URL Schemes中添加 prefs的字符串.因为苹果在iOS5.0后把系统自带的URL Schemes删除了
+     */
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General&path=About"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=General&path=About");
+    }
+}
+
+/*!
+ *  跳到Accessibility辅助功能界面
+ */
+- (void)ba_gotoSystermAccessibilitySettings
+{
+    /*!
+     (1.)需要先配置plist文件:在URL types--URL Schemes中添加 prefs的字符串.因为苹果在iOS5.0后把系统自带的URL Schemes删除了
+     */
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General&path=ACCESSIBILITY"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=General&path=ACCESSIBILITY");
+    }
+}
+
+/*!
+ *  跳到AirplaneModeOn飞行模式界面
+ */
+- (void)ba_gotoSystermAirplaneModeOnSettings
+{
+    /*!
+     (1.)需要先配置plist文件:在URL types--URL Schemes中添加 prefs的字符串.因为苹果在iOS5.0后把系统自带的URL Schemes删除了
+     */
+    NSURL *url = [NSURL URLWithString:@"prefs:root=AIRPLANE_MODE"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=AIRPLANE_MODE");
+    }
+}
+
+/*!
+ *  跳到Auto-Lock自动锁屏时间界面
+ */
+- (void)ba_gotoSystermAutoLockSettings
+{
+    /*!
+     (1.)需要先配置plist文件:在URL types--URL Schemes中添加 prefs的字符串.因为苹果在iOS5.0后把系统自带的URL Schemes删除了
+     */
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General&path=AUTOLOCK"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=General&path=AUTOLOCK");
+    }
+}
+
+/*!
+ *  跳到Brightness自动锁定界面
+ */
+- (void)ba_gotoSystermBrightnessSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=Brightness"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=Brightness");
+    }
+}
+
+/*!
+ *  跳到MICROPHONE麦克风界面
+ */
+- (void)ba_gotoSystermMICROPHONESettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=Privacy&path=MICROPHONE"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=Privacy&path=MICROPHONE");
+    }
+}
+
+/*!
+ *  跳到CONTACTS通讯录界面
+ */
+- (void)ba_gotoSystermCONTACTSSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=Privacy&path=CONTACTS"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=Privacy&path=CONTACTS");
+    }
+}
+
+/*!
+ *  跳到Bluetooth蓝牙界面
+ */
+- (void)ba_gotoSystermBluetoothSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=Bluetooth"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=Bluetooth");
+    }
+}
+
+/*!
+ *  跳到DATE_AND_TIME日期和时间界面
+ */
+- (void)ba_gotoSystermDATE_AND_TIMESettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General&path=DATE_AND_TIME"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=General&path=DATE_AND_TIME");
+    }
+}
+
+/*!
+ *  跳到FaceTime界面
+ */
+- (void)ba_gotoSystermFaceTimeSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=FACETIME"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=FACETIME");
+    }
+}
+
+/*!
+ *  跳到General界面
+ */
+- (void)ba_gotoSystermGeneralSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=General");
+    }
+}
+
+/*!
+ *  跳到Keyboard界面
+ */
+- (void)ba_gotoSystermKeyboardSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=General&path=Keyboard"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=General&path=Keyboard");
+    }
+}
+
+/*!
+ *  跳到iCloud界面
+ */
+- (void)ba_gotoSystermiCloudSettings
+{
+    NSURL *url = [NSURL URLWithString:@"prefs:root=CASTLE"];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        BA_OpenUrl(@"prefs:root=CASTLE");
+    }
+}
+
 
 /*!
  *  跳转Safari浏览器

@@ -40,7 +40,23 @@
 {
     if (!_titlesArray)
     {
-        _titlesArray = @[@"本APP设置的跳转"];
+        _titlesArray = @[@"本APP设置的跳转",
+                         @"跳到WIFI界面" ,
+                         @"跳到General界面",
+                         @"跳到About关于本机界面",
+                         @"跳到Accessibility辅助功能界面",
+                         @"跳到AirplaneModeOn飞行模式界面",
+                         @"跳到Auto-Lock自动锁屏时间界面" ,
+                         @"跳到Brightness自动锁定界面",
+                         @"跳到MICROPHONE麦克风界面",
+                         @"跳到CONTACTS通讯录界面",
+                         @"跳到Bluetooth蓝牙界面" ,
+                         @"跳到DATE_AND_TIME日期和时间界面",
+                         @"跳到FaceTime界面",
+                         @"跳到Keyboard界面",
+                         @"跳到iCloud界面"
+                         ];
+
     }
     return _titlesArray;
 }
@@ -93,7 +109,51 @@
         case 0:
             [self ba_gotoSystermSettings];
             break;
+        case 1:
+            [self ba_gotoSystermWIFISettings];
+            break;
+        case 2:
+            [self ba_gotoSystermGeneralSettings];
+            break;
+        case 3:
+            [self ba_gotoSystermAboutSettings];
+            break;
+        case 4:
+            [self ba_gotoSystermAccessibilitySettings];
+            break;
+        case 5:
+            [self ba_gotoSystermAirplaneModeOnSettings];
+            break;
+        case 6:
+            [self ba_gotoSystermAutoLockSettings];
+            break;
+        case 7:
+            [self ba_gotoSystermBrightnessSettings];
+            break;
+        case 8:
+            [self ba_gotoSystermMICROPHONESettings];
+            break;
+        case 9:
+            [self ba_gotoSystermCONTACTSSettings];
+            break;
+        case 10:
+            [self ba_gotoSystermBluetoothSettings];
+            break;
+        case 11:
+            [self ba_gotoSystermDATE_AND_TIMESettings];
+            break;
+        case 12:
+            [self ba_gotoSystermFaceTimeSettings];
+            break;
+        case 13:
+            [self ba_gotoSystermKeyboardSettings];
+            break;
+        case 14:
+            [self ba_gotoSystermiCloudSettings];
+            break;
             
+            
+
         default:
             break;
     }
