@@ -35,7 +35,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
     [_headerLine stop];
+//    [_timeButton2 removeFromSuperview];
+    
+    
+    _timeButton2 = nil;
 }
 
 - (void)viewDidLoad
@@ -180,7 +185,11 @@
     }
     return _timeButton3;
 }
+- (BOOL)willDealloc{
+    return YES;
 
+
+}
 - (IBAction)btnAction3:(UIButton *)sender
 {
     if (!_modal1)

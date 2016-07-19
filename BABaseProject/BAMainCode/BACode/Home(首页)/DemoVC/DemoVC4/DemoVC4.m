@@ -101,4 +101,16 @@
     BALog(@"友盟登陆成功，返回信息: %@", backUserData);
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+
+    [super viewDidDisappear:animated];
+    _shareBtn = nil;
+    _QQLoginBtn = nil;
+
+
+}
+- (BOOL)willDealloc{
+
+    return YES;
+}
 @end
