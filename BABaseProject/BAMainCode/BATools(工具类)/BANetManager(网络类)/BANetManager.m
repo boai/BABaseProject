@@ -129,11 +129,34 @@ static NSMutableArray *tasks;
         /*! 设置响应数据的基本了类型 */
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/css",@"text/xml",@"text/plain", @"application/javascript", nil];
         
-        // https  参数配置
+        /*! https 参数配置 */
+        /*!
+         采用默认的defaultPolicy就可以了. AFN默认的securityPolicy就是它, 不必另写代码. AFSecurityPolicy类中会调用苹果security.framework的机制去自行验证本次请求服务端放回的证书是否是经过正规签名.
+         */
         AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
         securityPolicy.allowInvalidCertificates = YES;
         securityPolicy.validatesDomainName = NO;
         manager.securityPolicy = securityPolicy;
+        
+        /*! 自定义的CA证书配置如下： */
+        /*! 自定义security policy, 先前确保你的自定义CA证书已放入工程Bundle */
+        /*!
+         https://api.github.com网址的证书实际上是正规CADigiCert签发的, 这里把Charles的CA根证书导入系统并设为信任后, 把Charles设为该网址的SSL Proxy (相当于"中间人"), 这样通过代理访问服务器返回将是由Charles伪CA签发的证书.
+         AFNetworking会自动扫描bundle中.cer的文件，并引入，这样就可以通过自签证书来验证服务器唯一性了。
+         验证站点证书，是通过域名的，如果服务器端站点没有绑定域名（万恶的备案），仅靠IP地址上面的方法是绝对不行的。怎么办？答案是想通过设置是不可以的，你只能修改AFNetworking2的源代码！打开AFSecurityPolicy.m文件，找到方法：
+         securityPolicy.validatesDomainName = NO;
+         */
+        //        NSSet <NSData *> *cerSet = [AFSecurityPolicy certificatesInBundle:[NSBundle mainBundle]];
+        //        AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:cerSet];
+        //        policy.allowInvalidCertificates = YES;
+        //        manager.securityPolicy = policy;
+        
+        /*! 如果服务端使用的是正规CA签发的证书, 那么以下几行就可去掉: */
+        //        NSSet <NSData *> *cerSet = [AFSecurityPolicy certificatesInBundle:[NSBundle mainBundle]];
+        //        AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:cerSet];
+        //        policy.allowInvalidCertificates = YES;
+        //        manager.securityPolicy = policy;
+        
         
     });
     

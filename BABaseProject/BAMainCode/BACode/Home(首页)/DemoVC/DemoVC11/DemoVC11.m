@@ -39,9 +39,6 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 
 - (void)setupLayout
 {
-//    [self getData];
-    
-
     self.collectionView.hidden = NO;
     /*! 添加上下拉刷新 */
     [self setupRefreshView];
@@ -94,9 +91,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 {
     BA_Weak;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-    [self.collectionView addHeaderRefresh:^{
-        [weakSelf loadNewData];
-    }];
+//    [self.collectionView addHeaderRefresh:^{
+        [self loadNewData];
+//    }];
     // 马上进入刷新状态
     [self.collectionView.mj_header beginRefreshing];
     
@@ -154,10 +151,8 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         {
             if (model)
             {
-                if (isHead)
-                    [weakSelf.dataArray removeAllObjects];
-                else
-                    page++;
+                if (isHead) [weakSelf.dataArray removeAllObjects];
+                else page++;
                 
                 NSArray *array = (NSArray *)model;
                 [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -165,7 +160,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
                 }];
                 
                 [GCDQueue executeInMainQueue:^{
-//                    weakSelf.collectionView.contentOffset = CGPointZero;
+                    weakSelf.collectionView.contentOffset = CGPointZero;
                     [weakSelf.collectionView reloadData];
                 }];
             }
@@ -191,19 +186,14 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 #pragma mark - ***** UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    [self.collectionView.collectionViewLayout invalidateLayout];
     return self.dataArray.count;
 }
-
-//- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
-//{
-//    return YES;
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DemoVC11_Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DemoVC11_cellID forIndexPath:indexPath];
-    cell.model          = self.dataArray[indexPath.item];
+    DemoVC11_model *model = self.dataArray[indexPath.row];
+    cell.model          = model;
     cell.backgroundColor = BA_Green_Color;
     
     if ([NSString BA_NSStringIsNULL:cell.model.desc])
@@ -260,7 +250,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 #pragma mark - ***** DemoVC11_AutoLayoutDelegate 设置图片高度
 - (CGFloat) layout:(BALayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexpath width:(CGFloat)width
 {
-    DemoVC11_model *model = self.dataArray[indexpath.item];
+    DemoVC11_model *model = self.dataArray[indexpath.row];
     CGFloat height        = width * model.height.doubleValue / model.width.doubleValue + 25;
     return height;
 }
