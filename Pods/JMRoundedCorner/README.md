@@ -1,9 +1,13 @@
 # JMRoundedCorner
 
+
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/raozhizhen/JMRoundedCorner/master/LICENSE)&nbsp;
 [![CocoaPods](http://img.shields.io/cocoapods/v/JMRoundedCorner.svg?style=flat)](http://cocoapods.org/?q=JMRoundedCorner)&nbsp;
 [![SUPPORT](https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_7)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-raozhizhen.com-orange.svg?style=flat)](http://raozhizhen.com)&nbsp;
+
+###Swift 版本：[JMRoundedCornerSwift](https://github.com/raozhizhen/JMRoundedCornerSwift)
+
 
 当我们需要给一个 View 设置圆角的时候，一般会这样写
 
@@ -47,7 +51,7 @@ view.layer.backgroundColor = backgroundColor.CGColor;
 
 	platform :ios, '7.0'
 	
-	pod 'JMRoundedCorner', '~> 1.1.2'
+	pod 'JMRoundedCorner'
 	
 	#import "UIView+RoundedCorner.h"
 
@@ -130,19 +134,12 @@ view.layer.backgroundColor = backgroundColor.CGColor;
 
 优点：没有了离屏渲染，调整了 image 的像素大小以避免不必要的缩放
 
-缺点：会造成图层混合
-
-####已知问题
-
-因为只是绘制了一个带圆角的图片，所以不能使子视图超出部分不显示。
-
-虽然去掉了 size 参数，但某些场景可能会出现 JMRoundedCorner 拿不到 size 参数的情况，如果 JMRoundedCorner 没有拿到 view 的 size ，可以改成调用下面这个方法
-
-```objc
-- (void)jm_setJMRadius:(JMRadius)radius withBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor backgroundImage:(UIImage *)backgroundImage contentMode:(UIViewContentMode)contentMode size:(CGSize)size;
-```
+缺点：会造成图层混合，且因为只是绘制了一个带圆角的图片，所以不能使子视图超出圆角部分不显示。
+注意：内存会持续提升，是正常现象，点击 home 键内存会回到正常水平，并非内存泄漏，只是绘制的缓存，在内存不足时会自动释放。
 
 ####更新日志
+- 2016/4/25  1.2.0版本 : 使用 NSOperationQueue 代替 dispatch_queue，当重复设置圆角的时候会自动 cancel 上一次操作，感谢 **[kudocc](https://github.com/kudocc)** 的 pull request。
+
 - 2016/4/18  1.1.2版本 : 修改一点小 BUG
 
 - 2016/3/14  1.1.1版本 : 解决设置 contentMode 效果的一些 BUG。
@@ -168,3 +165,4 @@ view.layer.backgroundColor = backgroundColor.CGColor;
 - 2016/2/24  0.0.2版本 ：支持设置背景图片的绘制模式（cotentmode）
 
 - 2016/2/23  0.0.1版本 ：绘制一个圆角 image
+

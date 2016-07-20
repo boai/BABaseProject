@@ -9,9 +9,6 @@
 
 #import "MJRefreshComponent.h"
 #import "MJRefreshConst.h"
-#import "UIView+MJExtension.h"
-#import "UIScrollView+MJRefresh.h"
-#import "NSBundle+MJRefresh.h"
 
 @interface MJRefreshComponent()
 @property (strong, nonatomic) UIPanGestureRecognizer *pan;
@@ -134,41 +131,13 @@
     self.refreshingAction = action;
 }
 
-- (NSString *)localizedStringForKey:(NSString *)key{
-    return [self localizedStringForKey:key withDefault:nil];
-}
-
-- (NSString *)localizedStringForKey:(NSString *)key withDefault:(NSString *)defaultString
-{
-    static NSBundle *bundle = nil;
-    if (bundle == nil) {
-        // 获得设备的语言
-        NSString *language = [NSLocale preferredLanguages].firstObject;
-        // 如果是iOS9以上，截取前面的语言标识
-        if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
-            NSRange range = [language rangeOfString:@"-" options:NSBackwardsSearch];
-            language = [language substringToIndex:range.location];
-        }
-        
-        if (language.length == 0) {
-            language = @"zh-Hans";
-        }
-        
-        // 先从MJRefresh.bundle中查找资源
-        NSBundle *refreshBundle = [NSBundle mj_refreshBundle];
-        if ([refreshBundle.localizations containsObject:language]) {
-            bundle = [NSBundle bundleWithPath:[refreshBundle pathForResource:language ofType:@"lproj"]];
-        }
-    }
-    defaultString = [bundle localizedStringForKey:key value:defaultString table:nil];
-    return [[NSBundle mainBundle] localizedStringForKey:key value:defaultString table:nil];
-}
-
 - (void)setState:(MJRefreshState)state
 {
     _state = state;
     
-    [self setNeedsLayout];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setNeedsLayout];
+    });
 }
 
 #pragma mark 进入刷新状态
@@ -191,10 +160,24 @@
     }
 }
 
+- (void)beginRefreshingWithCompletionBlock:(void (^)())completionBlock
+{
+    self.beginRefreshingCompletionBlock = completionBlock;
+    
+    [self beginRefreshing];
+}
+
 #pragma mark 结束刷新状态
 - (void)endRefreshing
 {
     self.state = MJRefreshStateIdle;
+}
+
+- (void)endRefreshingWithCompletionBlock:(void (^)())completionBlock
+{
+    self.endRefreshingCompletionBlock = completionBlock;
+    
+    [self endRefreshing];
 }
 
 #pragma mark 是否正在刷新
@@ -248,6 +231,9 @@
         }
         if ([self.refreshingTarget respondsToSelector:self.refreshingAction]) {
             MJRefreshMsgSend(MJRefreshMsgTarget(self.refreshingTarget), self.refreshingAction, self);
+        }
+        if (self.beginRefreshingCompletionBlock) {
+            self.beginRefreshingCompletionBlock();
         }
     });
 }

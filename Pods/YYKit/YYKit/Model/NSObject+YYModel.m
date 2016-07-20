@@ -346,6 +346,18 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
 
 @implementation _YYModelPropertyMeta
 + (instancetype)metaWithClassInfo:(YYClassInfo *)classInfo propertyInfo:(YYClassPropertyInfo *)propertyInfo generic:(Class)generic {
+    
+    // support pseudo generic class with protocol name
+    if (!generic && propertyInfo.protocols) {
+        for (NSString *protocol in propertyInfo.protocols) {
+            Class cls = objc_getClass(protocol.UTF8String);
+            if (cls) {
+                generic = cls;
+                break;
+            }
+        }
+    }
+    
     _YYModelPropertyMeta *meta = [self new];
     meta->_name = propertyInfo.name;
     meta->_type = propertyInfo.type;
@@ -442,7 +454,7 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
 @interface _YYModelMeta : NSObject {
     @package
     YYClassInfo *_classInfo;
-    /// Key:mapped key and key path, Value:_YYModelPropertyInfo.
+    /// Key:mapped key and key path, Value:_YYModelPropertyMeta.
     NSDictionary *_mapper;
     /// Array<_YYModelPropertyMeta>, all property meta of this model.
     NSArray *_allPropertyMetas;
@@ -546,6 +558,14 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
                 
                 propertyMeta->_mappedToKey = mappedToKey;
                 NSArray *keyPath = [mappedToKey componentsSeparatedByString:@"."];
+                for (NSString *onePath in keyPath) {
+                    if (onePath.length == 0) {
+                        NSMutableArray *tmp = keyPath.mutableCopy;
+                        [tmp removeObject:@""];
+                        keyPath = tmp;
+                        break;
+                    }
+                }
                 if (keyPath.count > 1) {
                     propertyMeta->_mappedToKeyPath = keyPath;
                     [keyPathPropertyMetas addObject:propertyMeta];

@@ -41,7 +41,9 @@
 
 
 /**
- *  浮动布局，里面的子视图通过设定的向左向右浮动或者向上浮动来实现那些不规则的布局视图。
+ * 浮动布局是一种里面的子视图按照约定的方向浮动停靠，当尺寸不足以被容纳时会自动寻找最佳的位置进行浮动停靠的布局视图。
+ *浮动布局的理念源于HTML/CSS中的浮动定位技术,因此浮动布局可以专门用来实现那些不规则布局或者图文环绕的布局。
+ *根据浮动的方向不同，浮动布局可以分为左右浮动布局和上下浮动布局。
  */
 @interface MyFloatLayout : MyBaseLayout
 
@@ -69,8 +71,21 @@
 
 
 
+/**
+ *子视图之间的垂直和水平的间距，默认为0。当子视图之间的间距是固定时可以通过直接设置这两个属性值来指定间距而不需要为每个子视图来设置margin值。
+ */
+@property(nonatomic ,assign) IBInspectable CGFloat subviewVertMargin;
+@property(nonatomic, assign) IBInspectable CGFloat subviewHorzMargin;
+@property(nonatomic, assign) IBInspectable CGFloat subviewMargin;  //同时设置水平和垂直间距。
 
-
+/**
+ *根据浮动视图的方向设置子视图的间距为浮动间距而不是上面确定的固定间距。在一些应用场景我们有时候希望某些子视图的宽度是固定的情况下，子视图的间距是浮动的而不是固定的。因此您可以通过如下方法来设置浮动间距。这个方法会根据您当前布局的orientation方向不同而意义不同：
+ 1.如果您的布局方向是MyLayoutViewOrientation_Vert表示设置的是子视图的水平间距，其中的subviewSize指定的是子视图的宽度，minMargin指定的是最小的水平间距。
+ 2.如果您的布局方向是MyLayoutViewOrientation_Horz表示设置的是子视图的垂直间距，其中的subviewSize指定的是子视图的高度，minMargin指定的是最小的垂直间距。
+ 3.如果您不想使用浮动间距则请将subviewSize设置为0就可以了。
+ */
+-(void)setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin;
+-(void)setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin inSizeClass:(MySizeClass)sizeClass;
 
 
 @end

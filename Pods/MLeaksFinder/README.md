@@ -1,6 +1,9 @@
 # MLeaksFinder
 MLeaksFinder helps you find memory leaks in your iOS apps at develop time. It can automatically find leaks in UIView and UIViewController objects, hit assertion and print the View-ViewController stack when leaks happening. You can also extend it to find leaks in other kinds of objects.
 
+# Communication
+QQ group: 482121244
+
 # Installation
 - Download MLeaksFinder
 - Add MLeaksFinder as a subproject
@@ -29,7 +32,7 @@ View-ViewController stack: (
 
 ## Mute Assertion
 If your class is designed as singleton or for some reason objects of your class should not be dealloced, override -willDealloc in your class by returning NO.
-```
+```objc
 - (BOOL)willDealloc {
     return NO;
 }
@@ -37,7 +40,7 @@ If your class is designed as singleton or for some reason objects of your class 
 
 ## Find Leaks in Other Objects
 MLeaksFinder finds leaks in UIView and UIViewController objects by default. However, you can extend it to find leaks in the whole object graph rooted at a UIViewController object.
-```
+```objc
 - (BOOL)willDealloc {
     if (![super willDealloc]) {
         return NO;

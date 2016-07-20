@@ -2,7 +2,8 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
-xcodeproj 'BABaseProject.xcodeproj'
+
+project 'BABaseProject.project'
 
 
 # 去掉由pod引入的第三方库的警告，需要更新命令才生效
@@ -52,7 +53,7 @@ target 'BABaseProject' do
 #    pod 'ZXingObjC', '~> 3.0'
 
     # 离屏渲染，切边角
-    pod 'JMRoundedCorner', '~> 1.1.2'
+    pod 'JMRoundedCorner'
     
     # 把系统的target+selector/委托模式 转为 Block语法，让代码结构更加紧凑
     pod 'BlocksKit'
@@ -74,6 +75,9 @@ target 'BABaseProject' do
     
     # oc 与 js 交互框架
     pod 'WebViewJavascriptBridge', '~> 5.0'
+    
+    # Facebook的内存检测工具
+    pod 'FBMemoryProfiler'
     
     # 类似QQ侧滑框架
 #    pod "JVFloatingDrawer"
