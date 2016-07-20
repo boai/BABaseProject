@@ -56,7 +56,7 @@
         _QQLoginBtn.titleLabel.textAlignment = NSTextAlignmentRight;
 
         [self.view addSubview:_QQLoginBtn];
-        [_QQLoginBtn ba_pulseViewWithTime:5];
+//        [_QQLoginBtn ba_pulseViewWithTime:5];
 
     }
     return _QQLoginBtn;
