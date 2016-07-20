@@ -25,6 +25,9 @@
 		C40852E81CDA263B0004A671 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E51CDA263B0004A671 /* RDVTabBarItem.m */; };
 		C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852E71CDA263B0004A671 /* RDVTabBar.m */; };
 		C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852EB1CDA26680004A671 /* RDVTabBarController.m */; };
+		C41CA8C41D3FA049006296BD /* DemoVC2_02_studentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CA8C31D3FA049006296BD /* DemoVC2_02_studentModel.m */; };
+		C41CA8C71D3FA185006296BD /* DemoVC2_02_classModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CA8C61D3FA185006296BD /* DemoVC2_02_classModel.m */; };
+		C41CA8CA1D3FA3BF006296BD /* DemoVC2_02_studentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CA8C91D3FA3BF006296BD /* DemoVC2_02_studentCell.m */; };
 		C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41F62551CFC250500294C35 /* DemoVC10Cell.m */; };
 		C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C41F62581CFC253600294C35 /* DemoVC10Model.m */; };
 		C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41F625B1CFC265300294C35 /* DemoVC10_ReusableView.m */; };
@@ -457,6 +460,12 @@
 		C40852E71CDA263B0004A671 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
 		C40852EA1CDA26680004A671 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
 		C40852EB1CDA26680004A671 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		C41CA8C21D3FA049006296BD /* DemoVC2_02_studentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_02_studentModel.h; sourceTree = "<group>"; };
+		C41CA8C31D3FA049006296BD /* DemoVC2_02_studentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_02_studentModel.m; sourceTree = "<group>"; };
+		C41CA8C51D3FA185006296BD /* DemoVC2_02_classModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_02_classModel.h; sourceTree = "<group>"; };
+		C41CA8C61D3FA185006296BD /* DemoVC2_02_classModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_02_classModel.m; sourceTree = "<group>"; };
+		C41CA8C81D3FA3BF006296BD /* DemoVC2_02_studentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_02_studentCell.h; sourceTree = "<group>"; };
+		C41CA8C91D3FA3BF006296BD /* DemoVC2_02_studentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_02_studentCell.m; sourceTree = "<group>"; };
 		C41F62541CFC250500294C35 /* DemoVC10Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10Cell.h; sourceTree = "<group>"; };
 		C41F62551CFC250500294C35 /* DemoVC10Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10Cell.m; sourceTree = "<group>"; };
 		C41F62571CFC253600294C35 /* DemoVC10Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10Model.h; sourceTree = "<group>"; };
@@ -1204,6 +1213,12 @@
 				C44423481D2E85B8004ACAA8 /* DemoVC2_02.m */,
 				C444234A1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.h */,
 				C444234B1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m */,
+				C41CA8C21D3FA049006296BD /* DemoVC2_02_studentModel.h */,
+				C41CA8C31D3FA049006296BD /* DemoVC2_02_studentModel.m */,
+				C41CA8C51D3FA185006296BD /* DemoVC2_02_classModel.h */,
+				C41CA8C61D3FA185006296BD /* DemoVC2_02_classModel.m */,
+				C41CA8C81D3FA3BF006296BD /* DemoVC2_02_studentCell.h */,
+				C41CA8C91D3FA3BF006296BD /* DemoVC2_02_studentCell.m */,
 			);
 			path = "DemoVC2-2";
 			sourceTree = "<group>";
@@ -3480,6 +3495,7 @@
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
 				C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
+				C41CA8CA1D3FA3BF006296BD /* DemoVC2_02_studentCell.m in Sources */,
 				C48027461D1928290087BBB9 /* UIDevice+BAKit.m in Sources */,
 				C445E1CE1D1B86FE00D7654A /* SXColorGradientView.m in Sources */,
 				C48026C81D191EC90087BBB9 /* DemoVC11_AutoLayout.m in Sources */,
@@ -3494,6 +3510,7 @@
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,
 				C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */,
 				C4D108041CE2FC1C00F735B9 /* view3.m in Sources */,
+				C41CA8C71D3FA185006296BD /* DemoVC2_02_classModel.m in Sources */,
 				C48027431D1928290087BBB9 /* BATextView.m in Sources */,
 				C4EB5BCD1CD8B250003A7094 /* NSObject+BAProgressHUD.m in Sources */,
 				C42781301D2D39B1003E6694 /* GCDSemaphore.m in Sources */,
@@ -3501,6 +3518,7 @@
 				C480274D1D1928290087BBB9 /* UITextField+BAKit.m in Sources */,
 				C48027561D1928290087BBB9 /* UIView+BAGlowView.m in Sources */,
 				C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */,
+				C41CA8C41D3FA049006296BD /* DemoVC2_02_studentModel.m in Sources */,
 				C4EB5AA51CD8B04B003A7094 /* main.m in Sources */,
 				C480272E1D1928290087BBB9 /* BAAutoSizeWithWH.m in Sources */,
 				C44423451D2E824D004ACAA8 /* BARotateView.m in Sources */,
