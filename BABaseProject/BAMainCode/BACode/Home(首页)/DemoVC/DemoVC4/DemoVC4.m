@@ -36,7 +36,7 @@
         
         [self.view addSubview:_shareBtn];
         
-        [_shareBtn ba_shakeView];
+//        [_shareBtn ba_shakeView];
     }
     return _shareBtn;
 }
