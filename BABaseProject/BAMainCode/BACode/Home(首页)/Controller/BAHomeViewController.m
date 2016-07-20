@@ -153,7 +153,7 @@
         /*! 默认选中第0个view */
         _segmentedControl.selectedSegmentIndex        = 0;
         /*! 标题背景颜色 */
-        _segmentedControl.backgroundColor             = BA_Red_Color;
+        _segmentedControl.backgroundColor             = [UIColor clearColor];
         /*! 标题默认字体颜色 */
         _segmentedControl.titleTextAttributes         = @{NSForegroundColorAttributeName : BA_LightGray_Color, NSFontAttributeName: BA_FontSize(16)};
         /*! 标题选中字体颜色 */
