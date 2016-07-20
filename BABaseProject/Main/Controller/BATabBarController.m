@@ -69,8 +69,7 @@
 
 #import "BANavigationController.h"
 
-//#import "BAUserTool.h"
-//#import "BAUserResult.h"
+#import "BAWebViewController.h"
 
 #import <objc/message.h>
 
@@ -249,6 +248,35 @@
     [self addChildViewController:nav];
 }
 
+// 哪些页面支持自动转屏
+- (BOOL)shouldAutorotate{
+    
+    BANavigationController *nav = self.viewControllers[self.selectedIndex];
+    
+    // MoviePlayerViewController 、ZFTableViewController 控制器支持自动转屏
+//    if ([nav.topViewController isKindOfClass:[BAWebViewController class]]) {
+//        // 调用ZFPlayerSingleton单例记录播放状态是否锁定屏幕方向
+//        return !ZFPlayerShared.isLockScreen;
+//    }
+//    else
+    if ([nav.topViewController isKindOfClass:[BAWebViewController class]])
+    {
+        return YES;
+    }
+    return NO;
+}
+
+// viewcontroller支持哪些转屏方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    
+    BANavigationController *nav = self.viewControllers[self.selectedIndex];
+    if ([nav.topViewController isKindOfClass:[BAWebViewController class]])
+    { // MoviePlayerViewController这个页面支持转屏方向
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    // 其他页面
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 
 
