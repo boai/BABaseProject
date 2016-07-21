@@ -48,7 +48,7 @@
     /*! 箭头图片 */
     UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20/3.f, 36/3.f)];
     arrowImageView.image = [UIImage imageNamed:@"messageVC.bundle/Arrow_right"];
-    arrowImageView.center = _rotateView.center;
+    arrowImageView.center = _rotateView.middlePoint;
     
     _normalClassNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 26)];
     _normalClassNameLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Medium" size:12.f];
@@ -124,7 +124,7 @@
  */
 - (void)ba_extendStateAnimated:(BOOL)animated
 {
-    [self.rotateView ba_changeToUpAnimated:animated];
+    [self.rotateView ba_changeToRightAnimated:animated];
     
     if (animated == YES)
     {
