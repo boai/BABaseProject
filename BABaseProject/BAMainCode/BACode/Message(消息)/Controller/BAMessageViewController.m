@@ -70,6 +70,7 @@
 @property (nonatomic, strong) NSMutableArray  *titlesArray;
 @property (nonatomic, strong) NSMutableArray  *classNamesArray;
 @property (nonatomic, strong) NSMutableArray  *contentsArray;
+@property (nonatomic, strong) UIView          *statusBarView;   //状态栏背景
 
 @end
 
@@ -82,11 +83,11 @@
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar ba_setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1]];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BA_White_Color, NSForegroundColorAttributeName, nil]];
+    [self.navigationController.navigationBar ba_setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BA_Black_Color, NSForegroundColorAttributeName, nil]];
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
@@ -100,7 +101,9 @@
     // Do any additional setup after loading the view.
     
     self.vcBgColor = BA_Yellow_Color;
-
+    _statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, BA_SCREEN_WIDTH, 20)];
+    [self.navigationController.navigationBar addSubview:_statusBarView];
+    
     self.title = @"消 息";
     
     [self setupUI];
@@ -215,14 +218,14 @@
     CGFloat offset = scrollView.contentOffset.y;
     if (offset < 0)
     {
-        self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
-//        _statusBarView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
+        self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+        _statusBarView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     }
     else
     {
         CGFloat alpha = (self.tableView.contentOffset.y - 0)/64;
         
-//        _statusBarView.backgroundColor = [BlueColor colorWithAlphaComponent:alpha];
+        _statusBarView.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
         self.navigationController.navigationBar.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
     }
 }
