@@ -45,19 +45,20 @@
 
 - (void)getData
 {
-    [self BA_showAlert:BA_Loading];
+//    [self BA_showAlert:BA_Loading];
+    [self BA_showAlert:@"送给丹丹！"];
     [BANewsNetManager getVideosWithStartIndex:1 completionHandle:^(id model, NSError *error) {
         
-        [self BA_hideProgress];
+//        [self BA_hideProgress];
         if (!error)
         {
             BALog(@"model: %@", model);
-            [self BA_showAlertWithTitle:@"数据解析成功！请查看！"];
+//            [self BA_showAlertWithTitle:@"数据解析成功！请查看！"];
         }
         else
         {
             BALog(@"解析数据有误！");
-            [self BA_showAlertWithTitle:@"解析数据有误！请检查！"];
+//            [self BA_showAlertWithTitle:@"解析数据有误！请检查！"];
         }
     }];
 }
