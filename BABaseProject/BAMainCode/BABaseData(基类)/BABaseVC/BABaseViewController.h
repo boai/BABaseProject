@@ -187,7 +187,16 @@
  */
 //- (void)setVCBgColor:(UIColor *)vcBgColor;
 
+/*!
+ *  创建UI
+ */
+- (void)ba_setupUI;
+
 #pragma mark - ***** VC的navi设置
+/*!
+ *  设置navi
+ */
+- (void)ba_setupNavi;
 /*!
  *  是否隐藏naviBar
  *

@@ -109,10 +109,19 @@
     [self setupBase];
     
     /*! 2、navi设置 */
-//    [self setupBaseNavi];
+    [self ba_setupNavi];
+    
+    /*! 3、创建UI */
+    [self ba_setupUI];
 }
 
 #pragma mark - ***** 基本设置
+#pragma mark 创建UI
+- (void)ba_setupUI
+{
+    
+}
+
 - (void)setupBase
 {
     self.view.backgroundColor = BA_White_Color;
@@ -134,6 +143,12 @@
 }
 
 #pragma mark - ***** navi设置
+- (void)ba_setupNavi
+{
+
+}
+
+
 //- (void)setupBaseNavi
 //{
 //    self.extendedLayoutIncludesOpaqueBars = YES;

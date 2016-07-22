@@ -101,15 +101,18 @@
     // Do any additional setup after loading the view.
     
     self.vcBgColor = BA_Yellow_Color;
+
+    self.title = @"消 息";
+}
+
+- (void)ba_setupNavi
+{
     _statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, BA_SCREEN_WIDTH, 20)];
     [self.navigationController.navigationBar addSubview:_statusBarView];
     
-    self.title = @"消 息";
-    
-    [self setupUI];
 }
 
-- (void)setupUI
+- (void)ba_setupUI
 {
     [self creatData];
     self.tableView.hidden = NO;
@@ -120,6 +123,17 @@
     [self addCell:@"tableView的高级用法1" content:@"1、封装baseCell" class:@"DemoVC2_01"];
     [self addCell:@"cell的分组展开收回" content:@"2、cell的分组展开收回" class:@"DemoVC2_02"];
     [self addCell:@"系统各种设置的跳转" content:@"3、系统各种设置的跳转" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
 
     
 }
@@ -223,7 +237,7 @@
     }
     else
     {
-        CGFloat alpha = (self.tableView.contentOffset.y - 0)/64;
+        CGFloat alpha = (self.tableView.contentOffset.y - 30) / 75;
         
         _statusBarView.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
         self.navigationController.navigationBar.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
