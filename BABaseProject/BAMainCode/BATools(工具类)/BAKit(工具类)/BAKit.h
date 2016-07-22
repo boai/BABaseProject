@@ -94,6 +94,7 @@
 #import "UIWindow+BAKit.h"
 #import "UIDevice+BAKit.h"
 
+
 #import "UINavigationBar+BAKit.h"
 #import "UINavigationController+BAKit.h"
 #import "UINavigationItem+CustomItem.h"
@@ -113,6 +114,14 @@
 #import "NSProcessInfo+BAKit.h"
 #import "NSThread+BAKit.h"
 
+
+
+#pragma mark - ****** BAKitManager类
+/*! BAKitManager */
+#import "BAKitManager.h"
+#import "BAKitManager+BALabel.h"
+
+
 #pragma mark - ****** 其他封装
 /*! GCD */
 #import "GCD/GCD.h"
@@ -125,10 +134,7 @@
 #import "BACustomMJHeader.h"
 
 
-#pragma mark - ****** BAKitManager类
-/*! BAKitManager */
-#import "BAKitManager.h"
-#import "BAKitManager+BALabel.h"
+
 
 
 #endif /* BAKit_h */
