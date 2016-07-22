@@ -233,6 +233,13 @@
 - (void)ba_starYanHuaCoreAnimation;
 
 /*!
+ *  love动画
+ *
+ *  @param show 默认开启
+ */
+- (void)ba_isShowLoveReplicatorLayer:(BOOL)show;
+
+/*!
  *  gif动画
  *
  *  @param gifImageName gifImageName

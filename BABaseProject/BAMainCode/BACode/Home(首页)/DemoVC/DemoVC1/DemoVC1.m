@@ -20,14 +20,19 @@
 {
     [super viewWillAppear:animated];
     
-    [self isShowSnowLoadingView:YES];
+//    [self isShowSnowLoadingView:YES];
+    
+    [self ba_isShowLoveReplicatorLayer:YES];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [self isShowSnowLoadingView:NO];
+//    [self isShowSnowLoadingView:NO];
+    [self ba_isShowLoveReplicatorLayer:NO];
+
 }
 
 - (void)viewDidLoad {

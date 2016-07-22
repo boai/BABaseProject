@@ -109,7 +109,6 @@
 {
     _statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, BA_SCREEN_WIDTH, 20)];
     [self.navigationController.navigationBar addSubview:_statusBarView];
-    
 }
 
 - (void)ba_setupUI

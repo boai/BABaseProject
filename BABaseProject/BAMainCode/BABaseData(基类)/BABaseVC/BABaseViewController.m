@@ -73,8 +73,11 @@
 
 
 
-// 雪花动画
+/*! 雪花动画 */
 @property (strong, nonatomic) CADisplayLink    *displayLink;
+/*! love动画 */
+@property (nonatomic, strong) CAReplicatorLayer *loveLayer;
+
 /*! 自定义naviView */
 @property (strong, nonatomic) UIView           *naviView;
 
@@ -883,5 +886,50 @@
     GIFimgView.gifPath = [[NSBundle mainBundle] pathForResource:gifImageName ofType:nil];
     [GIFimgView startGIF];
 }
+
+/*! love动画 */
+- (void)ba_isShowLoveReplicatorLayer:(BOOL)show
+{
+    /*! love路径：送给丹丹 */
+    UIBezierPath *tPath = [UIBezierPath bezierPath];
+    [tPath moveToPoint:CGPointMake(BA_SCREEN_WIDTH/2.0, 200)];
+    [tPath addQuadCurveToPoint:CGPointMake(BA_SCREEN_WIDTH/2.0, 400) controlPoint:CGPointMake(BA_SCREEN_WIDTH/2.0 + 250, 40)];
+    [tPath addQuadCurveToPoint:CGPointMake(BA_SCREEN_WIDTH/2.0, 200) controlPoint:CGPointMake(BA_SCREEN_WIDTH/2.0 - 250, 40)];
+//    tPath.lineCapStyle = kCGLineCapRound;//线条拐角
+//    
+//    tPath.lineJoinStyle = kCGLineCapRound;//终点处理
+    [tPath closePath];
+    
+    /*! 具体的layer */
+    UIView *tView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    tView.center = CGPointMake(BA_SCREEN_WIDTH/2.0, 200);
+    tView.layer.cornerRadius = 5;
+    tView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    
+    /*! 动作效果 */
+    CAKeyframeAnimation *loveAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    loveAnimation.path = tPath.CGPath;
+    loveAnimation.duration = 8;
+    loveAnimation.repeatCount = MAXFLOAT;
+    [tView.layer addAnimation:loveAnimation forKey:@"loveAnimation"];
+    
+    _loveLayer = [CAReplicatorLayer layer];
+    _loveLayer.instanceCount = 40;                // 40个layer
+    _loveLayer.instanceDelay = 0.2;               // 每隔0.2出现一个layer
+    _loveLayer.instanceColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor;
+    _loveLayer.instanceGreenOffset = -0.03;       // 颜色值递减。
+    _loveLayer.instanceRedOffset = -0.02;         // 颜色值递减。
+    _loveLayer.instanceBlueOffset = -0.01;        // 颜色值递减。
+    [_loveLayer addSublayer:tView.layer];
+    
+    [self.view.layer addSublayer:_loveLayer];
+
+    if (show == NO)
+    {
+        [_loveLayer removeFromSuperlayer];
+    }
+}
+
+
 
 @end
