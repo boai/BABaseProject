@@ -75,6 +75,26 @@
 
 @implementation BAMessageViewController
 
+
+/*! 用的渐变navi！ */
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar ba_setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BA_White_Color, NSForegroundColorAttributeName, nil]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BA_Black_Color, NSForegroundColorAttributeName, nil]];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar ba_setBackgroundColor:BA_White_Color];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -190,5 +210,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offset = scrollView.contentOffset.y;
+    if (offset < 0)
+    {
+        self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1];
+//        _statusBarView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
+    }
+    else
+    {
+        CGFloat alpha = (self.tableView.contentOffset.y - 0)/64;
+        
+//        _statusBarView.backgroundColor = [BlueColor colorWithAlphaComponent:alpha];
+        self.navigationController.navigationBar.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
+    }
+}
 
 @end

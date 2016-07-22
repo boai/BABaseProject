@@ -94,6 +94,11 @@
 #import "UIWindow+BAKit.h"
 #import "UIDevice+BAKit.h"
 
+#import "UINavigationBar+BAKit.h"
+#import "UINavigationController+BAKit.h"
+#import "UINavigationItem+CustomItem.h"
+
+
 #pragma mark - ****** Foundation类
 /*! Foundation类 */
 #import "NSArray+BAKit.h"
