@@ -75,7 +75,7 @@
     [self isBATabVC:YES];
     
     /*! 设置3DTouch */
-    [self ba_setup3DTouchWithApplication:application];
+    [self ba_setup3DTouch];
     
     /*！把各种初始化操作,固定的操作 写入到类别中 */
 //    [self BA_initializeWithApplication:application];

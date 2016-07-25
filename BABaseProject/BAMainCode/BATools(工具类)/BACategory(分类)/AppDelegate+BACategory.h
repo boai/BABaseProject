@@ -28,7 +28,7 @@
  *
  *  @param application application
  */
-- (void)ba_setup3DTouchWithApplication:(UIApplication *)application;
+- (void)ba_setup3DTouch;
 
 - (void)test;
 

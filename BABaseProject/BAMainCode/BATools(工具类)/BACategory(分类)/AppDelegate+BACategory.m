@@ -72,7 +72,7 @@
 }
 
 #pragma mark - ***** 设置3Dtouch
-- (void)ba_setup3DTouchWithApplication:(UIApplication *)application
+- (void)ba_setup3DTouch
 {
     /**
      *  通过代码实现动态菜单
@@ -80,26 +80,26 @@
      *  iconWithTemplateImageName 自定义的icon
      *  iconWithType 系统的icon
      */
-    //系统ShortcutIcon
+    /*! 系统ShortcutIcon */
     UIApplicationShortcutIcon *favrite = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeFavorite];
     
-    UIApplicationShortcutItem *itemOne = [[UIApplicationShortcutItem alloc] initWithType:@"favrite" localizedTitle:@"时尚之都" localizedSubtitle:nil icon:favrite userInfo:nil];
+    UIApplicationShortcutItem *itemOne = [[UIApplicationShortcutItem alloc] initWithType:@"favrite" localizedTitle:@"博爱3D Touch 测试1" localizedSubtitle:nil icon:favrite userInfo:nil];
     
     UIApplicationShortcutIcon *bookMark = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeBookmark];
     
-    UIApplicationShortcutItem *itemTwo = [[UIApplicationShortcutItem alloc] initWithType:@"book" localizedTitle:@"知识海洋" localizedSubtitle:nil icon:bookMark userInfo:nil];
+    UIApplicationShortcutItem *itemTwo = [[UIApplicationShortcutItem alloc] initWithType:@"book" localizedTitle:@"博爱3D Touch 测试2" localizedSubtitle:nil icon:bookMark userInfo:nil];
     
-    //自定义ShortcutIcon
-    UIApplicationShortcutIcon *iconContact = [UIApplicationShortcutIcon iconWithTemplateImageName:@"contact"];
+    /*! 自定义ShortcutIcon */
+    UIApplicationShortcutIcon *iconContact = [UIApplicationShortcutIcon iconWithTemplateImageName:@"otherImages.bundle/扫一扫"];
     
-    UIApplicationShortcutItem *itemThree = [[UIApplicationShortcutItem alloc] initWithType:@"contact" localizedTitle:@"联系的人" localizedSubtitle:nil icon:iconContact userInfo:nil];
+    UIApplicationShortcutItem *itemThree = [[UIApplicationShortcutItem alloc] initWithType:@"contact" localizedTitle:@"博爱3D Touch 测试3" localizedSubtitle:nil icon:iconContact userInfo:nil];
     
-    [UIApplication sharedApplication].shortcutItems = @[itemOne,itemTwo,itemThree];
-
+    [UIApplication sharedApplication].shortcutItems = @[itemOne, itemTwo, itemThree];
 }
 
-//当点击AppIcon弹窗口,点击标题时调用
-//shortcutItem点击的是哪一个Item
+/*! 
+ 当点击AppIcon弹窗口,点击标题时调用，shortcutItem点击的是哪一个Item
+ */
 - (void)application:(UIApplication *)application performActionForShortcutItem:(nonnull UIApplicationShortcutItem *)shortcutItem completionHandler:(nonnull void (^)(BOOL))completionHandler
 {
     UITabBarController *tabBarVC = (UITabBarController *)self.window.rootViewController;
@@ -115,12 +115,17 @@
      }
      */
     
-    //方式two - type
-    if ([shortcutItem.type isEqualToString:@"movie"]) { //时尚之都
+    /*! 方式two - type */
+    if ([shortcutItem.type isEqualToString:@"movie"])
+    {
         tabBarVC.selectedIndex = 0;
-    }else if ([shortcutItem.type isEqualToString:@"book"]){ //知识海洋
+    }
+    else if ([shortcutItem.type isEqualToString:@"book"])
+    {
         tabBarVC.selectedIndex = 1;
-    }else{
+    }
+    else
+    {
         tabBarVC.selectedIndex = 2; //联系的人
     }
 }
