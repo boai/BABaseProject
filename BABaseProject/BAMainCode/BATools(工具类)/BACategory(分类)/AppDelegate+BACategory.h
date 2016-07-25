@@ -23,6 +23,13 @@
 
 - (void)isBATabVC2:(BOOL)is;
 
+/*!
+ *  设置3DTouch
+ *
+ *  @param application application
+ */
+- (void)ba_setup3DTouchWithApplication:(UIApplication *)application;
+
 - (void)test;
 
 /*！

@@ -74,6 +74,9 @@
     /*! 是否使用自定义TabVC * YES:使用，NO:使用RDVTabVC , 这行注掉后还可以使用SB看看，具体使用：请前往工程中修改Main显示即可！*/
     [self isBATabVC:YES];
     
+    /*! 设置3DTouch */
+    [self ba_setup3DTouchWithApplication:application];
+    
     /*！把各种初始化操作,固定的操作 写入到类别中 */
 //    [self BA_initializeWithApplication:application];
     [BANetManager ba_startNetWorkMonitoring];
