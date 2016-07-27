@@ -335,6 +335,15 @@
 /*! 特殊字符串处理：改变部分字符串的字体颜色 */
 + (nullable NSMutableAttributedString *)BA_creatMutableAttributedString:(nullable NSString *)text textColor:(nullable UIColor *)textColor bgColor:(nullable UIColor *)bgColor font:(CGFloat)fontSize range:(NSRange)range;
 
+/*!
+ *  字典转json
+ *
+ *  @param dict 传入的字典
+ *
+ *  @return 返回json字符串
+ */
++ (NSString *)ba_JsonTurnWithDictionary:(NSDictionary *)dict;
+
 #pragma mark - *****  获取软件沙盒路径 类
 
 /*! 获取软件沙盒路径 */

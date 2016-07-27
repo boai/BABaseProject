@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A2263DDA3BEC585020264E0 /* libPods-BABaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77795B692E80399FDA1BD963 /* libPods-BABaseProjectUITests.a */; };
 		5C5C57EED15443424D1F9E04 /* libPods-BABaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1574EF9FCBB113FDCC972156 /* libPods-BABaseProjectTests.a */; };
+		6E470DCC8E8F7DFE93E782E5 /* libPods-BABaseProject-BABaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB54BFBC1CA5F4765E84B54C /* libPods-BABaseProject-BABaseProjectUITests.a */; };
+		C3F6369929471C65565BE195 /* libPods-BABaseProject-BABaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF87F3C10B89949A3DB1CDEC /* libPods-BABaseProject-BABaseProjectTests.a */; };
 		C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527B1CD990B00004A671 /* BABaseTableViewController.m */; };
 		C40852801CD995200004A671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527F1CD995200004A671 /* Reachability.m */; };
 		C40852881CD9C34F0004A671 /* BABaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852871CD9C34F0004A671 /* BABaseView.m */; };
@@ -428,10 +430,15 @@
 		1574EF9FCBB113FDCC972156 /* libPods-BABaseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46504BE330E8BECB1887138B /* libPods-BABaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD2C0DE7422AACAB30B1B51 /* Pods-BABaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject/Pods-BABaseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		4E9FC567E3607A554D963AC3 /* Pods-BABaseProject-BABaseProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectUITests/Pods-BABaseProject-BABaseProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		77795B692E80399FDA1BD963 /* libPods-BABaseProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6875B539C22C6BAC2A5D03 /* Pods-BABaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject/Pods-BABaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		85433259C94DA94EF8BE73D7 /* Pods-BABaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProjectTests/Pods-BABaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		9F749E1D19424B075A7198FF /* Pods-BABaseProject-BABaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE682D062D927BDA40F4BE28 /* Pods-BABaseProject-BABaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1C444FFA4B8F0D1E86C9B57 /* Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectUITests/Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B703AA4647AF54EFA05E072A /* Pods-BABaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProjectTests/Pods-BABaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF87F3C10B89949A3DB1CDEC /* libPods-BABaseProject-BABaseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProject-BABaseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C408527A1CD990B00004A671 /* BABaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseTableViewController.h; sourceTree = "<group>"; };
 		C408527B1CD990B00004A671 /* BABaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseTableViewController.m; sourceTree = "<group>"; };
 		C408527E1CD995200004A671 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -1001,6 +1008,7 @@
 		C4F74A9A1D37C1BD0014C396 /* BAShareManageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManageView.m; sourceTree = "<group>"; };
 		C4F74A9B1D37C1BD0014C396 /* BASharManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BASharManager.bundle; sourceTree = "<group>"; };
 		DF2E61F00C0958F539053F08 /* Pods-BABaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProjectUITests/Pods-BABaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB54BFBC1CA5F4765E84B54C /* libPods-BABaseProject-BABaseProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProject-BABaseProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1021,6 +1029,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C5C57EED15443424D1F9E04 /* libPods-BABaseProjectTests.a in Frameworks */,
+				C3F6369929471C65565BE195 /* libPods-BABaseProject-BABaseProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1038,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2263DDA3BEC585020264E0 /* libPods-BABaseProjectUITests.a in Frameworks */,
+				6E470DCC8E8F7DFE93E782E5 /* libPods-BABaseProject-BABaseProjectUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,6 +1054,10 @@
 				85433259C94DA94EF8BE73D7 /* Pods-BABaseProjectTests.release.xcconfig */,
 				DF2E61F00C0958F539053F08 /* Pods-BABaseProjectUITests.debug.xcconfig */,
 				0C9CD344414868DF018ED31B /* Pods-BABaseProjectUITests.release.xcconfig */,
+				AE682D062D927BDA40F4BE28 /* Pods-BABaseProject-BABaseProjectTests.debug.xcconfig */,
+				9F749E1D19424B075A7198FF /* Pods-BABaseProject-BABaseProjectTests.release.xcconfig */,
+				B1C444FFA4B8F0D1E86C9B57 /* Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig */,
+				4E9FC567E3607A554D963AC3 /* Pods-BABaseProject-BABaseProjectUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1058,6 +1072,8 @@
 				46504BE330E8BECB1887138B /* libPods-BABaseProject.a */,
 				1574EF9FCBB113FDCC972156 /* libPods-BABaseProjectTests.a */,
 				77795B692E80399FDA1BD963 /* libPods-BABaseProjectUITests.a */,
+				BF87F3C10B89949A3DB1CDEC /* libPods-BABaseProject-BABaseProjectTests.a */,
+				EB54BFBC1CA5F4765E84B54C /* libPods-BABaseProject-BABaseProjectUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3313,7 +3329,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProjectUITests/Pods-BABaseProjectUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProject-BABaseProjectUITests/Pods-BABaseProject-BABaseProjectUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5771B39D4BE1BDAF9C05B45C /* [CP] Embed Pods Frameworks */ = {
@@ -3328,7 +3344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProjectTests/Pods-BABaseProjectTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5E094968378274473F13B0C5 /* [CP] Copy Pods Resources */ = {
@@ -3358,7 +3374,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProjectTests/Pods-BABaseProjectTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E529F28772B974488CBD1AB9 /* [CP] Embed Pods Frameworks */ = {
@@ -3777,7 +3793,7 @@
 		};
 		C4EB5AD11CD8B04B003A7094 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B703AA4647AF54EFA05E072A /* Pods-BABaseProjectTests.debug.xcconfig */;
+			baseConfigurationReference = AE682D062D927BDA40F4BE28 /* Pods-BABaseProject-BABaseProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BABaseProjectTests/Info.plist;
@@ -3790,7 +3806,7 @@
 		};
 		C4EB5AD21CD8B04B003A7094 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85433259C94DA94EF8BE73D7 /* Pods-BABaseProjectTests.release.xcconfig */;
+			baseConfigurationReference = 9F749E1D19424B075A7198FF /* Pods-BABaseProject-BABaseProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BABaseProjectTests/Info.plist;
@@ -3803,7 +3819,7 @@
 		};
 		C4EB5AD41CD8B04B003A7094 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF2E61F00C0958F539053F08 /* Pods-BABaseProjectUITests.debug.xcconfig */;
+			baseConfigurationReference = B1C444FFA4B8F0D1E86C9B57 /* Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BABaseProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3816,7 +3832,7 @@
 		};
 		C4EB5AD51CD8B04B003A7094 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C9CD344414868DF018ED31B /* Pods-BABaseProjectUITests.release.xcconfig */;
+			baseConfigurationReference = 4E9FC567E3607A554D963AC3 /* Pods-BABaseProject-BABaseProjectUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BABaseProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

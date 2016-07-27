@@ -79,17 +79,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BABaseProject-BABaseProjectTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-BABaseProject-BABaseProjectUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BABaseProject.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-BABaseProjectTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-BABaseProjectUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -127,17 +127,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>274F790B97E5AE8A7AB64D8F83473603</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>37D7380A52EE2E9B49BECEE4DC247D19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>39818EAD9B4F5290D508A9F1E9C33CB6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5084C72C304C134112AA1BF05CE15B9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,11 +192,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7F9EFF5CE4C0933490E7A2624CF9263</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
 		<dict>
 			<key>primary</key>
@@ -208,6 +203,11 @@
 			<true/>
 		</dict>
 		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DED33CF4E43969F4E40F313A8A826DC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

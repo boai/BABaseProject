@@ -762,6 +762,23 @@
     return unicodeString;
 }
 
+/*!
+ *  字典转json
+ *
+ *  @param dict 传入的字典
+ *
+ *  @return 返回json字符串
+ */
++ (NSString *)ba_JsonTurnWithDictionary:(NSDictionary *)dict
+{
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"字典转json：%@！", jsonStr);
+    
+    return jsonStr;
+}
+
 /*! 获取软件沙盒路径 */
 + (NSString *)BA_path_getApplicationSupportPath
 {

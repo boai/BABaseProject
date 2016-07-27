@@ -106,12 +106,12 @@ target 'BABaseProject' do
 #地址:https://github.com/rnapier/RNCachingURLProtocol
 
 
+    target 'BABaseProjectTests' do
+        
+    end
+
+    target 'BABaseProjectUITests' do
+        
+    end
 end
 
-target 'BABaseProjectTests' do
-    
-end
-
-target 'BABaseProjectUITests' do
-    
-end
