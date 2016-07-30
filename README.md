@@ -6,6 +6,8 @@
 
 ###### 大家有好的需求，或者项目中遇到的重难点，可以在issue里面提需求，一定要记得联系我哈！有时间我会处理的！
 
+---
+
 ## 1、性能问题 和 MVVM模式优点
 #####1.1、开发中遇到的 性能问题：
 - 1.1.1 cell的高度应该提前计算出来
@@ -13,45 +15,46 @@
 - 1.1.3 如果在cell的set方法计算子控件的位置，会比较耗性能
 
 #####1.2、解决方法：MVVM思想
-- M:模型 <br>
-- V:视图 <br>
-- VM:视图模型（模型包装视图模型，模型+模型对应视图的frame）
+* M:模型 <br>
+* V:视图 <br>
+* VM:视图模型（模型包装视图模型，模型+模型对应视图的frame）
 
 #####1.3、MVVM模式的 优点
-MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（Model），有几大优点
+MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（Model），有几大优点:
+
 - 1.3.1 低耦合。视图（View）可以独立于Model变化和修改，一个ViewModel可以绑定到不同的"View"上，当View变化的时候Model可以不变，当Model变化的时候View也可以不变。
 - 1.3.2 可重用性。你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。
 - 1.3.3 独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。
 - 1.3.4 可测试。界面素来是比较难于测试的，而现在测试可以针对ViewModel来写。
 
+---
 
 ## 2、个人简介
-- 2.1、[『微博：博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1) <br>
-- 2.2、[『博客』](http://boai.github.io) <br>
-- 2.3、[『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) <br>
-- 2.4、[『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) <br>
+方式     | 链接 | 
+:----------- | :-----------: | 
+微博     | [『博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1)        |
+博客     | [『http://boai.github.io』](http://boai.github.io)   | 
+简书     | [『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) | 
+简书专题  | [『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) | 
+QQ       | 137361770        | 
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
+---
+
 ## 3、推荐
-- 3.1 完全实现 [『BAButton』](https://github.com/boai/BAButton) 的自定义的类库 <br>
-pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
+序号 | 类库 | 简介及功能介绍 
+:----------- | :-----------: | :-----------
+3.1         | [『BAButton』](https://github.com/boai/BAButton)        | 完全实现 UIButton 的自定义的类库。pod 导入：   pod 'BAButton', '~> 1.0.1'
+3.2         | [pod安装和使用方法](http://www.cnblogs.com/boai/p/4977976.html)        | 对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法，一直更新！
+3.3         | [『BASegmentControl』](https://github.com/boai/BASegmentControl)        | 新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装！
+3.4         | [『BAReminderDemo』](https://github.com/boai/BAReminderDemo)        | 系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！
+3.5         | [『BALocalNotification』](https://github.com/boai/BALocalNotification)        | 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！
+3.6         | [『BANetManager』](https://github.com/boai/BANetManager)        | 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式！
+3.7         | [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)        | 最全、最贴心的国际化处理博客！
+3.8         | 3D Touch的纯代码实现方法        | 详见：本demo种的appdelegate！
 
-- 3.2 [对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法](http://www.cnblogs.com/boai/p/4977976.html)
-
-- 3.3 新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装[『BASegmentControl』](https://github.com/boai/BASegmentControl)，可随时取用！ <br>
-
-- 3.4 系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！详情请看：[『BAReminderDemo』](https://github.com/boai/BAReminderDemo)！
-
-- 3.5 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！详情请看：[『BALocalNotification』](https://github.com/boai/BALocalNotification)！
-
-- 3.6 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式，详情请看：[『BANetManager』](https://github.com/boai/BANetManager)！
-
-- 3.7 [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)
-
-- 3.8 [『最新的pod安装和常见问题处理』](http://www.cnblogs.com/boai/p/4977976.html)
-
-- 3.9 新增3D Touch！详见：appdelegate！
+---
 
 ## 4、项目简介 和 使用指南
 ####4.1、项目简介 <br>
@@ -75,6 +78,8 @@ pod 导入：   pod 'BAButton', '~> 1.0.1'<br>
 #### 4.2 使用指南 <br>
 使用的时候删除每个VC里面的DemoVC文件夹即可！<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
+
+---
 
 ## 5、更新记录【倒叙】
 
@@ -175,13 +180,20 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 - 5.1.02、整理优化各级目录 
 - 5.1.01、创建框架 
 
+---
+
 ## 6、系统要求
 该项目最低支持 iOS 7.0 和 Xcode 7.0。（部分动画效果仅支持iOS 8.0）使用时请仔细查看！
+
+---
 
 ## 7、感谢
 项目中集成了很多网络上民间大神的多年积累的优秀成果，结合自己项目开发中遇到的重难点，和很多开发者向我提起的疑难问题，在下综合整理并优化了下，最终成就了[『BABaseProject』](https://github.com/boai/BABaseProject) <br>
 在此，博爱再次感谢各位大神的源码贡献！ <br>
 希望开源项目[『BABaseProject』](https://github.com/boai/BABaseProject)能够为众多iOS开发新手提供最简单、最快捷的开源项目！ <br>
+
+---
+
 感谢大家的支持！
 
 
