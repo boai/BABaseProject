@@ -38,10 +38,10 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 博客     | [『http://boai.github.io』](http://boai.github.io)   | 
 简书     | [『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) | 
 简书专题  | [『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) | 
-QQ       | 137361770        | 
-iOS 10技术开发群       | 479663605        | 
+QQ       | `137361770`        | 
+iOS 10技术开发群       | `479663605`        | 
 
-为解决广大小白项目中遇到的各种疑难杂症，博爱新建了QQ群，希望广大小白和大神能够积极加入！
+为解决广大小白项目中遇到的各种疑难杂症，博爱新建了QQ群 `479663605`，希望广大小白和大神能够积极加入！
 
 **~~老司机也欢迎！~~**
 
@@ -50,14 +50,14 @@ iOS 10技术开发群       | 479663605        |
 ## 3、推荐
 序号 | 类库 | 简介及功能介绍 
 :----------- | :-----------: | :-----------
-3.1         | [『BAButton』](https://github.com/boai/BAButton)        | 完全实现 UIButton 的自定义的类库。pod 导入：   pod 'BAButton', '~> 1.0.1'
+3.1         | [『BAButton』](https://github.com/boai/BAButton)        | 完全实现 UIButton 的自定义的类库。pod 导入：`pod 'BAButton', '~> 1.0.1'`
 3.2         | [pod安装和使用方法](http://www.cnblogs.com/boai/p/4977976.html)        | 对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法，一直更新！
 3.3         | [『BASegmentControl』](https://github.com/boai/BASegmentControl)        | 新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装！
 3.4         | [『BAReminderDemo』](https://github.com/boai/BAReminderDemo)        | 系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！
 3.5         | [『BALocalNotification』](https://github.com/boai/BALocalNotification)        | 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！
 3.6         | [『BANetManager』](https://github.com/boai/BANetManager)        | 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式！
 3.7         | [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)        | 最全、最贴心的国际化处理博客！
-3.8         | 3D Touch的纯代码实现方法        | 详见：本demo种的appdelegate！
+3.8         | 3D Touch的纯代码实现方法        | 详见：本demo种的`appdelegate`！
 
 ---
 
@@ -89,7 +89,7 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录【倒叙】
 
 ##### 2016-07-25  版本：2.1
-- 5.2.25、新增3D Touch！详见：appdelegate！
+- 5.2.25、新增3D Touch！详见：`appdelegate`！
 
 ##### 2016-07-24  版本：2.1
 - 5.2.24、新增CAReplicatorLayer动画！详见：homeVC种demoVC1！
