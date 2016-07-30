@@ -37,6 +37,8 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 简书     | [『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) | 
 简书专题  | [『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) | 
 QQ       | 137361770        | 
+iOS 10技术开发群       | 479663605        | 
+
 
 **如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
 
