@@ -1,5 +1,6 @@
 # Objective-C-Coding-Guidelines-In-Chinese
-Objective-C编码规范，内容来自苹果、谷歌的文档翻译，自己的编码经验和对其它资料的总结。
+Objective-C编码规范，内容来自苹果、谷歌的文档翻译，[『博爱』](https://github.com/boai)的编码经验和对其它资料的总结。
+详情可前往：开源项目[『BABaseProject』](https://github.com/boai/BABaseProject)！
 
 转载请注明出处。
 
