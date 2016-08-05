@@ -396,6 +396,9 @@
 		C4EE1C611D228AE9005046A6 /* DemoVC2_01_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C601D228AE9005046A6 /* DemoVC2_01_Model.m */; };
 		C4EE1C651D228E34005046A6 /* NSString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C641D228E34005046A6 /* NSString+BAKit.m */; };
 		C4EE1C691D2295E2005046A6 /* BACellDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C681D2295E2005046A6 /* BACellDataAdapter.m */; };
+		C4F59F871D54680E00AA822A /* BANewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F861D54680E00AA822A /* BANewFeatureVC.m */; };
+		C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F891D54684E00AA822A /* BAADScrollView.m */; };
+		C4F59F8D1D5468B900AA822A /* BAADLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F8C1D5468B900AA822A /* BAADLabel.m */; };
 		C4F74A881D37BDEB0014C396 /* BAClearCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A871D37BDEB0014C396 /* BAClearCacheManager.m */; };
 		C4F74A9C1D37C1BD0014C396 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A8B1D37C1BD0014C396 /* BALocalNotification.m */; };
 		C4F74A9D1D37C1BD0014C396 /* BACustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A8E1D37C1BD0014C396 /* BACustomBarItem.m */; };
@@ -990,6 +993,12 @@
 		C4EE1C641D228E34005046A6 /* NSString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BAKit.m"; sourceTree = "<group>"; };
 		C4EE1C671D2295E2005046A6 /* BACellDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACellDataAdapter.h; sourceTree = "<group>"; };
 		C4EE1C681D2295E2005046A6 /* BACellDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACellDataAdapter.m; sourceTree = "<group>"; };
+		C4F59F851D54680E00AA822A /* BANewFeatureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANewFeatureVC.h; sourceTree = "<group>"; };
+		C4F59F861D54680E00AA822A /* BANewFeatureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANewFeatureVC.m; sourceTree = "<group>"; };
+		C4F59F881D54684E00AA822A /* BAADScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAADScrollView.h; sourceTree = "<group>"; };
+		C4F59F891D54684E00AA822A /* BAADScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAADScrollView.m; sourceTree = "<group>"; };
+		C4F59F8B1D5468B900AA822A /* BAADLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAADLabel.h; sourceTree = "<group>"; };
+		C4F59F8C1D5468B900AA822A /* BAADLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAADLabel.m; sourceTree = "<group>"; };
 		C4F74A861D37BDEB0014C396 /* BAClearCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAClearCacheManager.h; sourceTree = "<group>"; };
 		C4F74A871D37BDEB0014C396 /* BAClearCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAClearCacheManager.m; sourceTree = "<group>"; };
 		C4F74A8A1D37C1BD0014C396 /* BALocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALocalNotification.h; sourceTree = "<group>"; };
@@ -2298,6 +2307,7 @@
 			isa = PBXGroup;
 			children = (
 				C4EB5AEC1CD8B24F003A7094 /* BACode */,
+				C4F59F811D5467C100AA822A /* BANewFeatures(新特性) */,
 				C4EB5AD71CD8B24F003A7094 /* BABaseData(基类) */,
 				C4EB5B0B1CD8B24F003A7094 /* BALib(三方库) */,
 				C4EB5B241CD8B24F003A7094 /* BATools(工具类) */,
@@ -2898,6 +2908,43 @@
 			path = BABaseCell;
 			sourceTree = "<group>";
 		};
+		C4F59F811D5467C100AA822A /* BANewFeatures(新特性) */ = {
+			isa = PBXGroup;
+			children = (
+				C4F59F841D5467C100AA822A /* ViewController */,
+				C4F59F821D5467C100AA822A /* Model */,
+				C4F59F831D5467C100AA822A /* View */,
+			);
+			path = "BANewFeatures(新特性)";
+			sourceTree = "<group>";
+		};
+		C4F59F821D5467C100AA822A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4F59F831D5467C100AA822A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4F59F881D54684E00AA822A /* BAADScrollView.h */,
+				C4F59F891D54684E00AA822A /* BAADScrollView.m */,
+				C4F59F8B1D5468B900AA822A /* BAADLabel.h */,
+				C4F59F8C1D5468B900AA822A /* BAADLabel.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4F59F841D5467C100AA822A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4F59F851D54680E00AA822A /* BANewFeatureVC.h */,
+				C4F59F861D54680E00AA822A /* BANewFeatureVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C4F74A851D37BDB60014C396 /* 清理缓存 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3467,6 +3514,7 @@
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
 				C485562C1D3CB01700002FA2 /* UINavigationController+BAKit.m in Sources */,
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
+				C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */,
 				C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */,
 				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */,
@@ -3497,6 +3545,7 @@
 				C4F74A881D37BDEB0014C396 /* BAClearCacheManager.m in Sources */,
 				C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */,
 				C480273C1D1928290087BBB9 /* NSMutableDictionary+BAKit.m in Sources */,
+				C4F59F871D54680E00AA822A /* BANewFeatureVC.m in Sources */,
 				C427812F1D2D39B1003E6694 /* GCDQueue.m in Sources */,
 				C4D108031CE2FC1C00F735B9 /* view2.m in Sources */,
 				C48027451D1928290087BBB9 /* UIColor+BAKit.m in Sources */,
@@ -3560,6 +3609,7 @@
 				C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */,
 				C4C802511CF5AFAE00AD5B3B /* BAWebViewController.m in Sources */,
 				C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */,
+				C4F59F8D1D5468B900AA822A /* BAADLabel.m in Sources */,
 				C4EB5BD11CD8B250003A7094 /* UIViewController+BAAlertView.m in Sources */,
 				C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */,
 				C4F74A9D1D37C1BD0014C396 /* BACustomBarItem.m in Sources */,
