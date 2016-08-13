@@ -20,6 +20,15 @@
 
 @implementation DemoVC2_03
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+#ifdef BA_SIMULATOR_TEST
+    [self.view ba_showAlertView:@"温馨提示：" message:@"请在真机中运行！"];
+#endif
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

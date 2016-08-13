@@ -102,9 +102,14 @@
 /*! 大于8.0 */
 #define IOS8x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
-
-
-
+/*! 判断真机还是模拟器 */
+#if TARGET_IPHONE_SIMULATOR
+//NSLog(@"run on simulator");
+#define BA_SIMULATOR_TEST
+#else
+//不定义SIMULATOR_TEST这个宏
+//NSLog(@"run on device");
+#endif
 
 
 /*! 其他 */
