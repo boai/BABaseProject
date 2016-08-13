@@ -10,10 +10,6 @@
 
 @interface AppDelegate (BACategory)
 
-
-
-
-
 /*!
  *  是否使用自定义TabVC
  *
