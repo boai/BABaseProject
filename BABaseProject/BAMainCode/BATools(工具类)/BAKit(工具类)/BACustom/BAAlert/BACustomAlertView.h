@@ -59,84 +59,33 @@
  */
 
 
+#import <UIKit/UIKit.h>
 
-#ifndef BAKit_h
-#define BAKit_h
+@interface BACustomAlertView : UIView
 
+/*! 背景颜色 */
+@property (nonatomic, strong) UIColor *bgColor;
 
-#pragma mark - ****** 系统类
-/*! 系统类 */
-#import "BALog.h"
-#import "BAApp.h"
+/*! 是否有晃动动画 */
+@property (nonatomic, assign) BOOL isShowAnimate;
 
-#pragma mark - ****** UIKit类
-/*! UIKit类 */
-// 控件类
-//#import <BAButton.h>
-#import "BAPickerView.h"
-#import "BATextView.h"
-/*! 自定义alertView */
-#import "BAAlertView.h"
-#import "BACustomAlertView.h"
+/*!
+ *  初始化自定义动画视图
+ *
+ *  @param customView 自定义View
+ *
+ *  @return id
+ */
+- (instancetype)initWithCustomViewiew:(UIView *)customView;
 
+/*!
+ *  视图显示
+ */
+- (void)ba_showAlertView;
 
-// 扩展类
-#import "UIButton+BAKit.h"
-#import "UIImage+BAKit.h"
-#import "UIImageView+BAKit.h"
-#import "UILabel+BAKit.h"
-#import "UIScrollView+BAKit.h"
-#import "UITableView+BAKit.h"
-#import "UITextField+BAKit.h"
-#import "UIView+BAKit.h"
-#import "UIWebView+BAKit.h"
+/*!
+ *  视图消失
+ */
+- (void)ba_dismissAlertView;
 
-#import "UIColor+BAKit.h"
-#import "UIFont+BAKit.h"
-#import "UIWindow+BAKit.h"
-#import "UIDevice+BAKit.h"
-
-
-#import "UINavigationBar+BAKit.h"
-#import "UINavigationController+BAKit.h"
-#import "UINavigationItem+CustomItem.h"
-
-
-#pragma mark - ****** Foundation类
-/*! Foundation类 */
-#import "NSArray+BAKit.h"
-#import "NSMutableArray+BAKit.h"
-#import "NSDictionary+BAKit.h"
-#import "NSMutableDictionary+BAKit.h"
-#import "NSString+BAKit.h"
-
-#import "NSFileManager+BAKit.h"
-#import "NSNumber+BAKit.h"
-#import "NSDate+BAKit.h"
-#import "NSProcessInfo+BAKit.h"
-#import "NSThread+BAKit.h"
-
-
-
-#pragma mark - ****** BAKitManager类
-/*! BAKitManager */
-#import "BAKitManager.h"
-#import "BAKitManager+BALabel.h"
-
-
-#pragma mark - ****** 其他封装
-/*! GCD */
-#import "GCD/GCD.h"
-/*! 清理系统缓存 */
-#import "BAClearCacheManager.h"
-
-
-/*! 自定义上下拉刷新 */
-#import "BACustomMJFooter.h"
-#import "BACustomMJHeader.h"
-
-
-
-
-
-#endif /* BAKit_h */
+@end

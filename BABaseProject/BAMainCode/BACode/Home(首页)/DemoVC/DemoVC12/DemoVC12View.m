@@ -14,18 +14,18 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     UITableViewDelegate,
     UITableViewDataSource
 >
-@property (nonatomic, strong) NSArray         *titleArray;
-@property (nonatomic, strong) BAModal         *modal1;
-@property (nonatomic, strong) UILabel         *label1;
-@property (nonatomic, strong) UIView          *bgView;
+@property (nonatomic, strong) NSArray            *titleArray;
+@property (nonatomic, strong) BAModal            *modal1;
+@property (nonatomic, strong) UILabel            *label1;
+@property (nonatomic, strong) UIView             *bgView;
 
-@property (nonatomic, strong) BACustomButton  *button1;
-@property (nonatomic, strong) BACustomButton  *button2;
-@property (nonatomic, strong) BACustomButton  *button3;
-@property (nonatomic, strong) BACustomButton  *button4;
-@property (nonatomic, strong) BACustomButton  *sureButton;
+@property (nonatomic, strong) BACustomButton     *button1;
+@property (nonatomic, strong) BACustomButton     *button2;
+@property (nonatomic, strong) BACustomButton     *button3;
+@property (nonatomic, strong) BACustomButton     *button4;
+@property (nonatomic, strong) BACustomButton     *sureButton;
 
-
+@property (nonatomic, strong) BACustomAlertView  *customView;
 
 @end
 
@@ -137,6 +137,10 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 - (void)alert1
 {
     BALog(@"此方法待调试！");
+    _customView = [[BACustomAlertView alloc] initWithCustomViewiew:self.bgView];
+    [_customView ba_showAlertView];
+    _customView.isShowAnimate = YES;
+    
 //    if (!_modal1)
 //    {
 //        _modal1 = [self creatModal:nil];
@@ -396,6 +400,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     if (sender.tag == 5)
     {
         BALog(@"你点击了 确定 button！");
+        [_customView ba_dismissAlertView];
     }
     
 }
