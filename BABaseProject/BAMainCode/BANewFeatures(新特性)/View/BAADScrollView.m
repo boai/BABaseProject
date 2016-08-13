@@ -93,7 +93,7 @@
         if (i == 0) {
             firstLabel.text = self.titlesArray[i];
         }
-        if (i == self.titles.count - 1) {
+        if (i == self.titlesArray.count - 1) {
             lastLabel.text = self.titlesArray[i];
         }
         [self addSubview:advertLabel];
@@ -102,10 +102,10 @@
     lastLabel.frame = CGRectMake(0, Y, W, H);
     [self addSubview:lastLabel];
     
-    firstLabel.frame = CGRectMake((self.titles.count + 1) * W, Y, W, H);
+    firstLabel.frame = CGRectMake((self.titlesArray.count + 1) * W, Y, W, H);
     [self addSubview:firstLabel];
     
-    CGFloat contentW = (self.titles.count + 2) * W;
+    CGFloat contentW = (self.titlesArray.count + 2) * W;
     self.contentSize = CGSizeMake(contentW, 0);
     
     self.showsHorizontalScrollIndicator = NO;
@@ -116,8 +116,7 @@
     
     [self setContentOffset:CGPointMake(W, 0)];
     
-    [self addTimer];
-
+//    [self addTimer];
 }
 
 

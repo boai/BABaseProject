@@ -3073,7 +3073,6 @@
 				TargetAttributes = {
 					C4EB5A9F1CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TRVB83KBJJ;
 					};
 					C4EB5AB81CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
@@ -3810,14 +3809,14 @@
 			baseConfigurationReference = 4AD2C0DE7422AACAB30B1B51 /* Pods-BABaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3828,14 +3827,14 @@
 			baseConfigurationReference = 7E6875B539C22C6BAC2A5D03 /* Pods-BABaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

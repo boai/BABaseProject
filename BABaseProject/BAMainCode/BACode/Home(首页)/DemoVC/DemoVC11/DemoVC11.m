@@ -101,6 +101,8 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     [self.collectionView addFooterRefresh:^{
         [weakSelf loadMoreData];
     }];
+    
+    self.collectionView.mj_footer.automaticallyHidden = true;
 }
 
 - (void)loadNewData

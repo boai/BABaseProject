@@ -113,7 +113,7 @@
 //    self.urlString = @"http://boai.github.io";
 
 
-    // 网页
+    /*! 网页 */
     if (IOS8x) {
         WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
         wkWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
