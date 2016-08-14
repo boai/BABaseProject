@@ -266,7 +266,7 @@
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
 		C4D108041CE2FC1C00F735B9 /* view3.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FF1CE2FC1C00F735B9 /* view3.m */; };
 		C4D108051CE2FC1C00F735B9 /* view4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D108011CE2FC1C00F735B9 /* view4.m */; };
-		C4D3FEEA1D5F39A8009BC8A6 /* BACustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D3FEE91D5F39A8009BC8A6 /* BACustomAlertView.m */; };
+		C4D3FF3C1D602E2E009BC8A6 /* BACustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D3FF3B1D602E2E009BC8A6 /* BACustomAlertView.m */; };
 		C4DEB3741D0C2FC8001F1585 /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3721D0C2FC8001F1585 /* BANetManager.m */; };
 		C4DEB3771D0C332C001F1585 /* BATabBarController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3761D0C332C001F1585 /* BATabBarController2.m */; };
 		C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3791D0C3351001F1585 /* BATabBar2.m */; };
@@ -817,8 +817,8 @@
 		C4D107FF1CE2FC1C00F735B9 /* view3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view3.m; sourceTree = "<group>"; };
 		C4D108001CE2FC1C00F735B9 /* view4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view4.h; sourceTree = "<group>"; };
 		C4D108011CE2FC1C00F735B9 /* view4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view4.m; sourceTree = "<group>"; };
-		C4D3FEE81D5F39A8009BC8A6 /* BACustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACustomAlertView.h; sourceTree = "<group>"; };
-		C4D3FEE91D5F39A8009BC8A6 /* BACustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomAlertView.m; sourceTree = "<group>"; };
+		C4D3FF3A1D602E2E009BC8A6 /* BACustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACustomAlertView.h; sourceTree = "<group>"; };
+		C4D3FF3B1D602E2E009BC8A6 /* BACustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomAlertView.m; sourceTree = "<group>"; };
 		C4DEB3721D0C2FC8001F1585 /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
 		C4DEB3731D0C2FC8001F1585 /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
 		C4DEB3751D0C332C001F1585 /* BATabBarController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController2.h; sourceTree = "<group>"; };
@@ -1214,8 +1214,8 @@
 		C444232B1D2E738A004ACAA8 /* BAAlert */ = {
 			isa = PBXGroup;
 			children = (
-				C4D3FEE81D5F39A8009BC8A6 /* BACustomAlertView.h */,
-				C4D3FEE91D5F39A8009BC8A6 /* BACustomAlertView.m */,
+				C4D3FF3A1D602E2E009BC8A6 /* BACustomAlertView.h */,
+				C4D3FF3B1D602E2E009BC8A6 /* BACustomAlertView.m */,
 				C444232C1D2E738A004ACAA8 /* BAAlertView.h */,
 				C444232D1D2E738A004ACAA8 /* BAAlertView.m */,
 				C444232E1D2E738A004ACAA8 /* BAModal.h */,
@@ -3505,7 +3505,7 @@
 				C40852E31CDA229B0004A671 /* BANavigationController.m in Sources */,
 				C4EB5BCF1CD8B250003A7094 /* UIBarButtonItem+Item.m in Sources */,
 				C48026D11D1920110087BBB9 /* DemoVC12View.m in Sources */,
-				C4D3FEEA1D5F39A8009BC8A6 /* BACustomAlertView.m in Sources */,
+				C4D3FF3C1D602E2E009BC8A6 /* BACustomAlertView.m in Sources */,
 				C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */,
 				C44423301D2E738A004ACAA8 /* BAAlertView.m in Sources */,
 				C4F74A9C1D37C1BD0014C396 /* BALocalNotification.m in Sources */,

@@ -28,7 +28,8 @@
 
 @end
 
-@implementation BAAlertView{
+@implementation BAAlertView
+{
     BAModal  *_modal;
     BOOL      _didLayouted;
     

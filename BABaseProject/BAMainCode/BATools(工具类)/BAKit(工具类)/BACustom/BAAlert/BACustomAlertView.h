@@ -61,22 +61,54 @@
 
 #import <UIKit/UIKit.h>
 
+/*! 博爱温馨提示：目前本alert只支持竖屏适配，需要横屏的暂时先不要使用！ */
+
+#define SCREENWIDTH    [UIScreen mainScreen].bounds.size.width
+#define SCREENHEIGHT   [UIScreen mainScreen].bounds.size.height
+
+#define BAWeak         __weak __typeof(self) weakSelf = self
+
 @interface BACustomAlertView : UIView
 
 /*! 背景颜色 */
-@property (nonatomic, strong) UIColor *bgColor;
+@property (nonatomic, strong) UIColor   *bgColor;
+
+/*! 按钮字体颜色 */
+@property (nonatomic, strong) UIColor   *buttonTitleColor;
 
 /*! 是否有晃动动画 */
-@property (nonatomic, assign) BOOL isShowAnimate;
+@property (nonatomic, assign) BOOL       isShowAnimate;
+
+/*! 背景图片名字 */
+@property (nonatomic, strong) NSString  *bgImageName;
+
+/*!
+ * 按钮点击事件回调
+ */
+@property (strong, nonatomic) void (^buttonActionBlock)(NSInteger index);
+
+
 
 /*!
  *  初始化自定义动画视图
- *
- *  @param customView 自定义View
- *
  *  @return id
  */
 - (instancetype)initWithCustomViewiew:(UIView *)customView;
+
+/*!
+ *  创建一个类似系统的警告框
+ *
+ *  @param title        title
+ *  @param message      message
+ *  @param image        image
+ *  @param buttonTitles 按钮的标题
+ *
+ *  @return 创建一个类似系统的警告框
+ */
+- (instancetype)ba_showTitle:(NSString *)title
+                     message:(NSString *)message
+                       image:(UIImage *)image
+                buttonTitles:(NSArray *)buttonTitles;
 
 /*!
  *  视图显示

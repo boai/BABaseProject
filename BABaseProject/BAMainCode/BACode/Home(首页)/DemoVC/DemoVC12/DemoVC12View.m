@@ -136,7 +136,6 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 
 - (void)alert1
 {
-    BALog(@"此方法待调试！");
     _customView = [[BACustomAlertView alloc] initWithCustomViewiew:self.bgView];
     [_customView ba_showAlertView];
     _customView.isShowAnimate = YES;

@@ -57,7 +57,8 @@ iOS 10技术开发群       | `479663605`        |
 3.5         | [『BALocalNotification』](https://github.com/boai/BALocalNotification)        | 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！
 3.6         | [『BANetManager』](https://github.com/boai/BANetManager)        | 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式！
 3.7         | [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)        | 最全、最贴心的国际化处理博客！
-3.8         | 3D Touch的纯代码实现方法        | 详见：本demo种的`appdelegate`！
+3.8         | 3D Touch的纯代码实现方法        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`appdelegate`！
+3.9         | [『BACustomAlertView』](https://github.com/boai/BACustomAlertView)       | 目前为止，最为精简的alert封装，以后alert就用博爱的[『BACustomAlertView』](https://github.com/boai/BACustomAlertView)！
 
 ---
 
