@@ -16,7 +16,10 @@ target 'BABaseProject' do
     
     # 自定义button框架
     pod 'BAButton', '~> 1.0.1'
-        
+    
+    # 一个完全实现自定义的alertView！目前为止，最为精简的alert封装！
+    pod 'BACustomAlertView'
+    
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry', '~> 0.6.4'
     
