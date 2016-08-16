@@ -77,7 +77,7 @@
 #import "BATextView.h"
 /*! 自定义alertView */
 #import "BAAlertView.h"
-#import "BACustomAlertView.h"
+#import <BACustomAlertView.h>
 
 
 // 扩展类

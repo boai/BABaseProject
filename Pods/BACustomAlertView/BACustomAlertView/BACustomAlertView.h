@@ -53,15 +53,15 @@
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
  * 博客    : http://boai.github.io
- 
+ * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
+ * 简书专题 : http://www.jianshu.com/collection/072d578bf782
+
  *********************************************************************************
  
  */
 
 
 #import <UIKit/UIKit.h>
-
-/*! 博爱温馨提示：目前本alert只支持竖屏适配，需要横屏的暂时先不要使用！ */
 
 #define SCREENWIDTH    [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT   [UIScreen mainScreen].bounds.size.height
@@ -87,11 +87,9 @@
  */
 @property (strong, nonatomic) void (^buttonActionBlock)(NSInteger index);
 
-
-
 /*!
  *  初始化自定义动画视图
- *  @return id
+ *  @return instancetype
  */
 - (instancetype)initWithCustomViewiew:(UIView *)customView;
 
