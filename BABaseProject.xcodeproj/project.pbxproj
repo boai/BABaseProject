@@ -11,6 +11,7 @@
 		5C5C57EED15443424D1F9E04 /* libPods-BABaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1574EF9FCBB113FDCC972156 /* libPods-BABaseProjectTests.a */; };
 		6E470DCC8E8F7DFE93E782E5 /* libPods-BABaseProject-BABaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB54BFBC1CA5F4765E84B54C /* libPods-BABaseProject-BABaseProjectUITests.a */; };
 		C3F6369929471C65565BE195 /* libPods-BABaseProject-BABaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF87F3C10B89949A3DB1CDEC /* libPods-BABaseProject-BABaseProjectTests.a */; };
+		C407B6441D7434F0005DC17F /* NSString+BAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B6431D7434F0005DC17F /* NSString+BAColor.m */; };
 		C408527C1CD990B00004A671 /* BABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527B1CD990B00004A671 /* BABaseTableViewController.m */; };
 		C40852801CD995200004A671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C408527F1CD995200004A671 /* Reachability.m */; };
 		C40852881CD9C34F0004A671 /* BABaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40852871CD9C34F0004A671 /* BABaseView.m */; };
@@ -442,6 +443,8 @@
 		B1C444FFA4B8F0D1E86C9B57 /* Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectUITests/Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B703AA4647AF54EFA05E072A /* Pods-BABaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProjectTests/Pods-BABaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF87F3C10B89949A3DB1CDEC /* libPods-BABaseProject-BABaseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProject-BABaseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C407B6421D7434F0005DC17F /* NSString+BAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BAColor.h"; sourceTree = "<group>"; };
+		C407B6431D7434F0005DC17F /* NSString+BAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BAColor.m"; sourceTree = "<group>"; };
 		C408527A1CD990B00004A671 /* BABaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseTableViewController.h; sourceTree = "<group>"; };
 		C408527B1CD990B00004A671 /* BABaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseTableViewController.m; sourceTree = "<group>"; };
 		C408527E1CD995200004A671 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -2887,6 +2890,8 @@
 		C4EE1C621D228E34005046A6 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				C407B6421D7434F0005DC17F /* NSString+BAColor.h */,
+				C407B6431D7434F0005DC17F /* NSString+BAColor.m */,
 				C4EE1C631D228E34005046A6 /* NSString+BAKit.h */,
 				C4EE1C641D228E34005046A6 /* NSString+BAKit.m */,
 			);
@@ -3629,6 +3634,7 @@
 				C48027531D1928290087BBB9 /* BAUpdatingView.m in Sources */,
 				C4ACE3031CF5C90C00313DD4 /* DemoVC8.m in Sources */,
 				C473CC791CF72372001883A9 /* DemoVC9.m in Sources */,
+				C407B6441D7434F0005DC17F /* NSString+BAColor.m in Sources */,
 				C4DEB3771D0C332C001F1585 /* BATabBarController2.m in Sources */,
 				C480273E1D1928290087BBB9 /* NSProcessInfo+BAKit.m in Sources */,
 				C4EB5BB91CD8B250003A7094 /* BABaseViewController.m in Sources */,
