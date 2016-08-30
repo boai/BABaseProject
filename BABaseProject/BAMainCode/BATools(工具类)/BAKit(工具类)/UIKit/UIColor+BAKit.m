@@ -62,7 +62,7 @@
 
 @implementation UIColor (BAKit)
 
-/*  从HEX字符串得到一个UIColor对象 */
+/*! 从HEX字符串得到一个UIColor对象 */
 + (UIColor *)colorWithHexString:(NSString *)hexString
 {
     // 获取目标字符串，替换字符并转换成大写字符串
@@ -134,7 +134,15 @@
                            alpha:alpha];
 }
 
-/* 获取字符，转换数据类型 */
+/*!
+ *  获取字符，转换数据类型，改变部分字体颜色
+ *
+ *  @param string string
+ *  @param start  开始位置
+ *  @param length 截取长度
+ *
+ *  @return float
+ */
 + (CGFloat)colorComponentFrom:(NSString *)string
                         start:(NSUInteger)start
                        length:(NSUInteger)length
@@ -245,8 +253,14 @@
     return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
 }
 
-// UIColor 转UIImage
-+ (UIImage*) imageWithColor: (UIColor*) color
+/*!
+ *  UIColor 转UIImage
+ *
+ *  @param color color
+ *
+ *  @return UIColor 转UIImage
+ */
++ (UIImage *)imageWithColor:(UIColor *)color
 {
     CGRect rect=CGRectMake(0,0, 1, 1);
     UIGraphicsBeginImageContext(rect.size);
