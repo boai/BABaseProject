@@ -53,74 +53,40 @@
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
  * 博客    : http://boai.github.io
+ * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
+ * 简书专题 : http://www.jianshu.com/collection/072d578bf782
  
  *********************************************************************************
  
  */
 
-@import UIKit;
 
-@interface UIColor (BAKit)
+#import "NSString+BAColor.h"
 
-/*!
- *  返回一个RGBA格式的UIColor对象
- */
-#define KRGBA(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+@implementation NSString (BAColor)
 
 /*!
- *  返回一个RGB格式的UIColor对象
- */
-#define KRGB(r, g, b) RGBA(r, g, b, 1.0f)
-
-/*!
- *  从HEX字符串得到一个UIColor对象
- */
-+ (UIColor *)colorWithHexString:(NSString *)hexString;
-
-+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
-
-/*!
- *  获取字符，转换数据类型，改变部分字体颜色
+ *  返回十六进制的color 随机颜色
  *
- *  @param string string
- *  @param start  开始位置
- *  @param length 截取长度
- *
- *  @return float
+ *  @return randomColor
  */
-+ (CGFloat)colorComponentFrom:(NSString *)string
-                        start:(NSUInteger)start
-                       length:(NSUInteger)length;
-
-/*!
- *  从HEX数值得到一个UIColor对象
- */
-+ (UIColor *)colorWithHex:(unsigned int)hex;
-
-/*!
- *  从HEX数值和Alpha数值得到一个UIColor对象
- */
-+ (UIColor *)colorWithHex:(unsigned int)hex
-                    alpha:(float)alpha;
-
-/*!
- *  创建一个随机UIColor对象
- */
-+ (UIColor *)randomColor;
-
-/*!
- *  从已知UIColor对象和Alpha对象得到一个UIColor对象
- */
-+ (UIColor *)colorWithColor:(UIColor *)color
-                      alpha:(float)alpha;
-
-/*!
- *  UIColor 转UIImage
- *
- *  @param color color
- *
- *  @return UIColor 转UIImage
- */
-+ (UIImage *)imageWithColor:(UIColor *)color;
++ (NSString *)randomColorWithHex
+{
+    NSString *colorString;
+    NSArray *colorArr = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9",@"a", @"b", @"c", @"d", @"e", @"f"];
+    
+    for (NSInteger i= 0; i < 6; i++)
+    {
+        int r = arc4random()%colorArr.count;
+        NSString *string = colorArr[r];
+        colorString = [NSString stringWithFormat:@"%@%@", colorString, string];
+    }
+    
+    /*! 截取后六位，避免前面的(null) */
+    NSString *colorStr = [colorString substringFromIndex:6];
+    if (colorStr.length < 6) { colorStr = @"00EBFF"; }
+    NSLog(@"随机颜色为：%@", colorStr);
+    return colorStr;
+}
 
 @end
