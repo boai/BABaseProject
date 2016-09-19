@@ -23,6 +23,7 @@ static BAShareManage *shareManage;
 
 + (BAShareManage *)shareManage
 {
+    static BAShareManage *shareManage;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareManage = [[BAShareManage alloc] init];
@@ -32,7 +33,7 @@ static BAShareManage *shareManage;
 
 #pragma mark - 友盟分享
 #pragma mark 注册友盟分享微信
-- (void)ba_shareConfig
+- (void)ba_setupShareConfig
 {
     //设置友盟社会化组件appkey
 //    [UMSocialData setAppKey:BA_Umeng_Appkey];
@@ -77,58 +78,88 @@ static BAShareManage *shareManage;
 }
 
 #pragma mark 微信分享
-- (void)BA_wxShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString
+- (void)ba_wxShareWithViewControll:(UIViewController *)viewC
+                             title:(NSString *)shareTitle
+                      shareContent:(NSString *)shareContent
+                             image:(UIImage *)shareImage
+                               url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
+    
+    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = shareTitle;
     [UMSocialData defaultData].extConfig.wechatSessionData.url = shareURLString;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
 #pragma mark 新浪微博分享
-- (void)BA_wbShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage
+- (void)ba_wbShareWithViewControll:(UIViewController *)viewC
+                             title:(NSString *)shareTitle
+                      shareContent:(NSString *)shareContent
+                             image:(UIImage *)shareImage
+                               url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
+    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+//    [UMSocialData defaultData].extConfig.wechatSessionData.title = title;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
 #pragma mark 微信朋友圈分享
-- (void)BA_wxpyqShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString
+- (void)ba_wxpyqShareWithViewControll:(UIViewController *)viewC
+                                title:(NSString *)shareTitle
+                         shareContent:(NSString *)shareContent
+                                image:(UIImage *)shareImage
+                                  url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
+    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = shareTitle;
     [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareURLString;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
 #pragma mark qq分享
-- (void)BA_qqShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString
+- (void)ba_qqShareWithViewControll:(UIViewController *)viewC
+                             title:(NSString *)shareTitle
+                      shareContent:(NSString *)shareContent
+                             image:(UIImage *)shareImage
+                               url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
+    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
     [UMSocialData defaultData].extConfig.qqData.url = shareURLString;
+    [UMSocialData defaultData].extConfig.qqData.title = shareTitle;
 
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
 #pragma mark qqzone分享
-- (void)BA_qqzoneShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString
+- (void)ba_qqzoneShareWithViewControll:(UIViewController *)viewC
+                                 title:(NSString *)shareTitle
+                          shareContent:(NSString *)shareContent
+                                 image:(UIImage *)shareImage
+                                   url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:nil];
+    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    [UMSocialData defaultData].extConfig.qzoneData.title = shareTitle;
     [UMSocialData defaultData].extConfig.qzoneData.url = shareURLString;
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
 #pragma mark 短信分享
-- (void)BA_smsShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage
+- (void)ba_smsShareWithViewControll:(UIViewController *)viewC
+                              title:(NSString *)shareTitle
+                       shareContent:(NSString *)shareContent
+                              image:(UIImage *)shareImage
+                                url:(NSString *)shareURLString
 {
     _viewC = viewC;
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
     if (messageClass != nil) {
         if ([messageClass canSendText]) {
-            [self displaySMSComposerSheetWithShareText:(NSString *)shareText];
+            [self displaySMSComposerSheetWithShareText:(NSString *)shareContent];
         }
         else {
             //@"设备没有短信功能"
@@ -140,7 +171,7 @@ static BAShareManage *shareManage;
 }
 
 #pragma mark 短信的代理方法
-- (void)BA_messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+- (void)ba_messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
     [_viewC dismissViewControllerAnimated:YES completion:nil];
     switch (result)
     {
@@ -159,7 +190,11 @@ static BAShareManage *shareManage;
 }
 
 #pragma mark 分享列表
-- (void)BA_UMshareListWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString
+- (void)ba_UMshareListWithViewControll:(UIViewController *)viewC
+                                 title:(NSString *)shareTitle
+                          shareContent:(NSString *)shareContent
+                                 image:(UIImage *)shareImage
+                                   url:(NSString *)shareURLString
 {
     if (shareImage == nil)
     {
@@ -201,19 +236,19 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_wxShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 2:
-                    [weakSelf BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_wxpyqShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 3:
-                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    [weakSelf ba_wbShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 4:
-                    [weakSelf BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_qqShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 5:
-                    [weakSelf BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_qqzoneShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     
                 default:
@@ -225,13 +260,13 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    [weakSelf ba_wbShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 2:
-                    [weakSelf BA_qqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_qqShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 3:
-                    [weakSelf BA_qqzoneShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_qqzoneShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     
                 default:
@@ -243,13 +278,13 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_wxShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_wxShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 2:
-                    [weakSelf BA_wxpyqShareWithViewControll:viewC withShareText:shareText image:shareImage url:shareURLString];
+                    [weakSelf ba_wxpyqShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     case 3:
-                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    [weakSelf ba_wbShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     
                 default:
@@ -261,7 +296,7 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_wbShareWithViewControll:viewC withShareText:shareText image:shareImage];
+                    [weakSelf ba_wbShareWithViewControll:viewC title:shareTitle shareContent:shareContent image:shareImage url:shareURLString];
                     break;
                     
                 default:

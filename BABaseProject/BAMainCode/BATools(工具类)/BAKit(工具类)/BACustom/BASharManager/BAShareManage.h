@@ -33,36 +33,65 @@
 /*!
  *  友盟分享设置
  */
-- (void)ba_shareConfig;
+- (void)ba_setupShareConfig;
 
 #pragma mark - ***** 友盟分享
 /*! 微信分享 */
-- (void)BA_wxShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString;
+- (void)ba_wxShareWithViewControll:(UIViewController *)viewC
+                             title:(NSString *)shareTitle
+                      shareContent:(NSString *)shareContent
+                             image:(UIImage *)shareImage
+                               url:(NSString *)shareURLString;
 
 /*! 微信朋友圈分享 */
-- (void)BA_wxpyqShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:shareURLString;
+- (void)ba_wxpyqShareWithViewControll:(UIViewController *)viewC
+                                title:(NSString *)shareTitle
+                         shareContent:(NSString *)shareContent
+                                image:(UIImage *)shareImage
+                                  url:(NSString *)shareURLString;
 
 /*! 新浪微博分享 */
-- (void)BA_wbShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage;
+- (void)ba_wbShareWithViewControll:(UIViewController *)viewC
+                             title:(NSString *)shareTitle
+                      shareContent:(NSString *)shareContent
+                             image:(UIImage *)shareImage
+                               url:(NSString *)shareURLString;
 
 /*! qq分享 */
-- (void)BA_qqShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString;
+- (void)ba_qqShareWithViewControll:(UIViewController *)viewC
+                             title:(NSString *)shareTitle
+                      shareContent:(NSString *)shareContent
+                             image:(UIImage *)shareImage
+                               url:(NSString *)shareURLString;
 
 /*! qqzone分享 */
-- (void)BA_qqzoneShareWithViewControll:(UIViewController *)viewC withShareText:shareText image:shareImage url:shareURLString;
+- (void)ba_qqzoneShareWithViewControll:(UIViewController *)viewC
+                                 title:(NSString *)shareTitle
+                          shareContent:(NSString *)shareContent
+                                 image:(UIImage *)shareImage
+                                   url:(NSString *)shareURLString;
 
 /*! 短信分享 */
-- (void)BA_smsShareWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage;
+- (void)ba_smsShareWithViewControll:(UIViewController *)viewC
+                              title:(NSString *)shareTitle
+                       shareContent:(NSString *)shareContent
+                              image:(UIImage *)shareImage
+                                url:(NSString *)shareURLString;
 
 /*!
  *  友盟分享列表
  *
  *  @param viewC          viewC
- *  @param shareText      shareText
+ *  @param title          sharetitle
+ *  @param shareContent   shareContent
  *  @param shareImage     shareImage
  *  @param shareURLString shareURLString
  */
-- (void)BA_UMshareListWithViewControll:(UIViewController *)viewC withShareText:(NSString *)shareText image:(UIImage *)shareImage url:(NSString *)shareURLString;
+- (void)ba_UMshareListWithViewControll:(UIViewController *)viewC
+                                 title:(NSString *)shareTitle
+                          shareContent:(NSString *)shareContent
+                                 image:(UIImage *)shareImage
+                                   url:(NSString *)shareURLString;
 
 
 #pragma mark - ***** 友盟登录

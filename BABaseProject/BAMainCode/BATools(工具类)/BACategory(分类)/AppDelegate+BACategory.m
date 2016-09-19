@@ -47,7 +47,7 @@
     
     if (is)
     {
-        /*! 此处使用自定义TabBarController */
+        /*! 此处使用自定义TabBarController，此处暂时有问题，大家慎用！先使用第三方的tabbar */
         self.window.rootViewController = [BATabBarController new];
     }
     else
@@ -236,7 +236,7 @@
 - (void)BA_YMShareSetting
 {
     // ************* 友盟分享 *************
-    [BASHAREMANAGER ba_shareConfig];
+    [BASHAREMANAGER ba_setupShareConfig];
 }
 
 /**

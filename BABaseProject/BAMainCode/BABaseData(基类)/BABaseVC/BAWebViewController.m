@@ -261,12 +261,13 @@
         }
         else if (index == 3)
         {
+            NSString *shareTitle = @"博爱分享 2.0 版";
             NSString *shareUrlSrt = @"http://www.cnblogs.com/boai/";
-            NSString *shareText = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
+            NSString *shareContent = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
             // 注意：图片不能为空
             UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
             
-            [[BAShareManage shareManage] BA_UMshareListWithViewControll:self withShareText:shareText image:shareImage url:shareUrlSrt];
+            [[BAShareManage shareManage] ba_UMshareListWithViewControll:self title:shareTitle shareContent:shareContent image:shareImage url:shareUrlSrt];
         }
         else if (index == 4)
         {
