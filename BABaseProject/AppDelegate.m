@@ -72,7 +72,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     /*! 是否使用自定义TabVC * YES:使用，NO:使用RDVTabVC , 这行注掉后还可以使用SB看看，具体使用：请前往工程中修改Main显示即可！*/
-    [self isBATabVC:YES];
+    [self isBATabVC:NO];
     
     /*! 设置3DTouch */
     [self ba_setup3DTouch];

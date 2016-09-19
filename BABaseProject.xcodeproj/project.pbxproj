@@ -42,10 +42,7 @@
 		C427812F1D2D39B1003E6694 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C42781291D2D39B1003E6694 /* GCDQueue.m */; };
 		C42781301D2D39B1003E6694 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = C427812B1D2D39B1003E6694 /* GCDSemaphore.m */; };
 		C42781311D2D39B1003E6694 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = C427812D1D2D39B1003E6694 /* GCDTimer.m */; };
-		C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6ADE1CDAE10500D534EE /* BATabBar.m */; };
-		C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE01CDAE10500D534EE /* BATabBarButton.m */; };
 		C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE21CDAE10500D534EE /* BABadgeView.m */; };
-		C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A6AE71CDAE10D00D534EE /* BATabBarController.m */; };
 		C42DAA431D37269300FE8B3E /* DemoVC2_03.m in Sources */ = {isa = PBXBuildFile; fileRef = C42DAA421D37269300FE8B3E /* DemoVC2_03.m */; };
 		C42DAA481D3763A800FE8B3E /* discoverVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA441D3763A700FE8B3E /* discoverVC.bundle */; };
 		C42DAA491D3763A800FE8B3E /* homeVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA451D3763A700FE8B3E /* homeVC.bundle */; };
@@ -80,6 +77,10 @@
 		C473CC791CF72372001883A9 /* DemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC781CF72372001883A9 /* DemoVC9.m */; };
 		C473CC7B1CF72439001883A9 /* BACollectionView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C473CC7A1CF72439001883A9 /* BACollectionView.bundle */; };
 		C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC801CF72960001883A9 /* DemoVC9_Model.m */; };
+		C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B1B1D8F8DB6002B73CD /* BATabBar.m */; };
+		C4772B1F1D8F8DB6002B73CD /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B1D1D8F8DB6002B73CD /* BATabBarButton.m */; };
+		C4772B221D8F8F16002B73CD /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B211D8F8F16002B73CD /* BATabBarController.m */; };
+		C4772B251D8F911E002B73CD /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B241D8F911E002B73CD /* HMSegmentedControl.m */; };
 		C48026C71D191EC90087BBB9 /* DemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026C01D191EC90087BBB9 /* DemoVC11.m */; };
 		C48026C81D191EC90087BBB9 /* DemoVC11_AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026C21D191EC90087BBB9 /* DemoVC11_AutoLayout.m */; };
 		C48026C91D191EC90087BBB9 /* DemoVC11_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026C41D191EC90087BBB9 /* DemoVC11_Cell.m */; };
@@ -404,7 +405,6 @@
 		C4F74A9C1D37C1BD0014C396 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A8B1D37C1BD0014C396 /* BALocalNotification.m */; };
 		C4F74A9D1D37C1BD0014C396 /* BACustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A8E1D37C1BD0014C396 /* BACustomBarItem.m */; };
 		C4F74A9E1D37C1BD0014C396 /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A901D37C1BD0014C396 /* UINavigationItem+CustomItem.m */; };
-		C4F74A9F1D37C1BD0014C396 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A931D37C1BD0014C396 /* HMSegmentedControl.m */; };
 		C4F74AA01D37C1BD0014C396 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A961D37C1BD0014C396 /* BAShareAnimationView.m */; };
 		C4F74AA11D37C1BD0014C396 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A981D37C1BD0014C396 /* BAShareManage.m */; };
 		C4F74AA21D37C1BD0014C396 /* BAShareManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F74A9A1D37C1BD0014C396 /* BAShareManageView.m */; };
@@ -502,14 +502,8 @@
 		C427812B1D2D39B1003E6694 /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
 		C427812C1D2D39B1003E6694 /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
 		C427812D1D2D39B1003E6694 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
-		C42A6ADD1CDAE10500D534EE /* BATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBar.h; sourceTree = "<group>"; };
-		C42A6ADE1CDAE10500D534EE /* BATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBar.m; sourceTree = "<group>"; };
-		C42A6ADF1CDAE10500D534EE /* BATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarButton.h; sourceTree = "<group>"; };
-		C42A6AE01CDAE10500D534EE /* BATabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarButton.m; sourceTree = "<group>"; };
 		C42A6AE11CDAE10500D534EE /* BABadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABadgeView.h; sourceTree = "<group>"; };
 		C42A6AE21CDAE10500D534EE /* BABadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABadgeView.m; sourceTree = "<group>"; };
-		C42A6AE61CDAE10D00D534EE /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
-		C42A6AE71CDAE10D00D534EE /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
 		C42DAA411D37269300FE8B3E /* DemoVC2_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_03.h; sourceTree = "<group>"; };
 		C42DAA421D37269300FE8B3E /* DemoVC2_03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_03.m; sourceTree = "<group>"; };
 		C42DAA441D3763A700FE8B3E /* discoverVC.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = discoverVC.bundle; sourceTree = "<group>"; };
@@ -573,6 +567,14 @@
 		C473CC7A1CF72439001883A9 /* BACollectionView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BACollectionView.bundle; sourceTree = "<group>"; };
 		C473CC7F1CF72960001883A9 /* DemoVC9_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9_Model.h; sourceTree = "<group>"; };
 		C473CC801CF72960001883A9 /* DemoVC9_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9_Model.m; sourceTree = "<group>"; };
+		C4772B1A1D8F8DB6002B73CD /* BATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBar.h; sourceTree = "<group>"; };
+		C4772B1B1D8F8DB6002B73CD /* BATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBar.m; sourceTree = "<group>"; };
+		C4772B1C1D8F8DB6002B73CD /* BATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarButton.h; sourceTree = "<group>"; };
+		C4772B1D1D8F8DB6002B73CD /* BATabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarButton.m; sourceTree = "<group>"; };
+		C4772B201D8F8F16002B73CD /* BATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController.h; sourceTree = "<group>"; };
+		C4772B211D8F8F16002B73CD /* BATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarController.m; sourceTree = "<group>"; };
+		C4772B231D8F911E002B73CD /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		C4772B241D8F911E002B73CD /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		C48026BF1D191EC90087BBB9 /* DemoVC11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC11.h; sourceTree = "<group>"; };
 		C48026C01D191EC90087BBB9 /* DemoVC11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC11.m; sourceTree = "<group>"; };
 		C48026C11D191EC90087BBB9 /* DemoVC11_AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC11_AutoLayout.h; sourceTree = "<group>"; };
@@ -1010,8 +1012,6 @@
 		C4F74A8E1D37C1BD0014C396 /* BACustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomBarItem.m; sourceTree = "<group>"; };
 		C4F74A8F1D37C1BD0014C396 /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
 		C4F74A901D37C1BD0014C396 /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
-		C4F74A921D37C1BD0014C396 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
-		C4F74A931D37C1BD0014C396 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		C4F74A951D37C1BD0014C396 /* BAShareAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareAnimationView.h; sourceTree = "<group>"; };
 		C4F74A961D37C1BD0014C396 /* BAShareAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareAnimationView.m; sourceTree = "<group>"; };
 		C4F74A971D37C1BD0014C396 /* BAShareManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareManage.h; sourceTree = "<group>"; };
@@ -2823,8 +2823,8 @@
 			children = (
 				C40852EA1CDA26680004A671 /* RDVTabBarController.h */,
 				C40852EB1CDA26680004A671 /* RDVTabBarController.m */,
-				C42A6AE61CDAE10D00D534EE /* BATabBarController.h */,
-				C42A6AE71CDAE10D00D534EE /* BATabBarController.m */,
+				C4772B201D8F8F16002B73CD /* BATabBarController.h */,
+				C4772B211D8F8F16002B73CD /* BATabBarController.m */,
 				C4DEB3751D0C332C001F1585 /* BATabBarController2.h */,
 				C4DEB3761D0C332C001F1585 /* BATabBarController2.m */,
 			);
@@ -2845,12 +2845,12 @@
 				C40852E51CDA263B0004A671 /* RDVTabBarItem.m */,
 				C40852E61CDA263B0004A671 /* RDVTabBar.h */,
 				C40852E71CDA263B0004A671 /* RDVTabBar.m */,
-				C42A6ADD1CDAE10500D534EE /* BATabBar.h */,
-				C42A6ADE1CDAE10500D534EE /* BATabBar.m */,
+				C4772B1A1D8F8DB6002B73CD /* BATabBar.h */,
+				C4772B1B1D8F8DB6002B73CD /* BATabBar.m */,
+				C4772B1C1D8F8DB6002B73CD /* BATabBarButton.h */,
+				C4772B1D1D8F8DB6002B73CD /* BATabBarButton.m */,
 				C4DEB3781D0C3351001F1585 /* BATabBar2.h */,
 				C4DEB3791D0C3351001F1585 /* BATabBar2.m */,
-				C42A6ADF1CDAE10500D534EE /* BATabBarButton.h */,
-				C42A6AE01CDAE10500D534EE /* BATabBarButton.m */,
 				C42A6AE11CDAE10500D534EE /* BABadgeView.h */,
 				C42A6AE21CDAE10500D534EE /* BABadgeView.m */,
 			);
@@ -2982,8 +2982,8 @@
 		C4F74A911D37C1BD0014C396 /* BASegmentControl */ = {
 			isa = PBXGroup;
 			children = (
-				C4F74A921D37C1BD0014C396 /* HMSegmentedControl.h */,
-				C4F74A931D37C1BD0014C396 /* HMSegmentedControl.m */,
+				C4772B231D8F911E002B73CD /* HMSegmentedControl.h */,
+				C4772B241D8F911E002B73CD /* HMSegmentedControl.m */,
 			);
 			path = BASegmentControl;
 			sourceTree = "<group>";
@@ -3078,6 +3078,7 @@
 				TargetAttributes = {
 					C4EB5A9F1CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5MLEPWQRVD;
 					};
 					C4EB5AB81CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
@@ -3513,6 +3514,8 @@
 				C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */,
 				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C48026CA1D191EC90087BBB9 /* DemoVC11_model.m in Sources */,
+				C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */,
+				C4772B1F1D8F8DB6002B73CD /* BATabBarButton.m in Sources */,
 				C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */,
 				C48027471D1928290087BBB9 /* UIFont+BAKit.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
@@ -3520,9 +3523,7 @@
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
 				C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */,
 				C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */,
-				C42A6AE41CDAE10500D534EE /* BATabBarButton.m in Sources */,
 				C4EB5BBD1CD8B250003A7094 /* BAHomeViewController.m in Sources */,
-				C4F74A9F1D37C1BD0014C396 /* HMSegmentedControl.m in Sources */,
 				C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */,
 				C480274C1D1928290087BBB9 /* UITableView+BAKit.m in Sources */,
 				C4EE1C611D228AE9005046A6 /* DemoVC2_01_Model.m in Sources */,
@@ -3531,6 +3532,8 @@
 				C427811D1D2D2881003E6694 /* BABaseCell.m in Sources */,
 				C4EB5BCE1CD8B250003A7094 /* NSObject+BANetwork.m in Sources */,
 				C48027381D1928290087BBB9 /* NSDate+BAKit.m in Sources */,
+				C4772B251D8F911E002B73CD /* HMSegmentedControl.m in Sources */,
+				C4772B221D8F8F16002B73CD /* BATabBarController.m in Sources */,
 				C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */,
 				C444234C1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m in Sources */,
 				C4B964511D33A630005926B8 /* BACustomMJFooter.m in Sources */,
@@ -3553,7 +3556,6 @@
 				C427812F1D2D39B1003E6694 /* GCDQueue.m in Sources */,
 				C4D108031CE2FC1C00F735B9 /* view2.m in Sources */,
 				C48027451D1928290087BBB9 /* UIColor+BAKit.m in Sources */,
-				C42A6AE31CDAE10500D534EE /* BATabBar.m in Sources */,
 				C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */,
 				C480272D1D1928290087BBB9 /* BAAPP.m in Sources */,
 				C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */,
@@ -3615,7 +3617,6 @@
 				C40852E91CDA263B0004A671 /* RDVTabBar.m in Sources */,
 				C4F59F8D1D5468B900AA822A /* BAADLabel.m in Sources */,
 				C4EB5BD11CD8B250003A7094 /* UIViewController+BAAlertView.m in Sources */,
-				C42A6AE81CDAE10D00D534EE /* BATabBarController.m in Sources */,
 				C4F74A9D1D37C1BD0014C396 /* BACustomBarItem.m in Sources */,
 				C48027501D1928290087BBB9 /* UIWindow+BAKit.m in Sources */,
 				C44423341D2E7775004ACAA8 /* BABaseHeaderFooterView.m in Sources */,
@@ -3815,14 +3816,14 @@
 			baseConfigurationReference = 4AD2C0DE7422AACAB30B1B51 /* Pods-BABaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youren.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3833,14 +3834,14 @@
 			baseConfigurationReference = 7E6875B539C22C6BAC2A5D03 /* Pods-BABaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youren.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

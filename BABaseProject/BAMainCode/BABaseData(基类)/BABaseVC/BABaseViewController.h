@@ -63,11 +63,14 @@
 //#pragma mark - ***** 设置navi
 
 
-
+@class BATabBarButton;
 @interface BABaseViewController : UIViewController
 
 
 @property (nonatomic, strong) UIColor *vcBgColor;
+
+@property (nonatomic, strong) BATabBarButton *TabBarbutton;
+
 
 #pragma mark - ***** 显示自定义加载框
 

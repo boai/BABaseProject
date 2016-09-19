@@ -150,24 +150,24 @@
         // 左边
 //        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_back"] highImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
         
-        UIBarButtonItem *left;
-        /*! 从这里统一设置四个tabbarVC推出的子VC的navi的返回按钮图片 */
-        if ([self.viewControllers.firstObject isKindOfClass:[BAHomeViewController class]])
-        {
-            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"profileVC.bundle/返回白色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
-        }
-        else if ([self.viewControllers.firstObject isKindOfClass:[BAMessageViewController class]])
-        {
-            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"otherImages.bundle/返回黄色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
-        }
-        else if ([self.viewControllers.firstObject isKindOfClass:[BADiscoverViewController class]])
-        {
-            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"otherImages.bundle/返回绿色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
-        }
-        else if ([self.viewControllers.firstObject isKindOfClass:[BAProfileViewController class]])
-        {
-            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"profileVC.bundle/返回蓝色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
-        }
+//        UIBarButtonItem *left;
+//        /*! 从这里统一设置四个tabbarVC推出的子VC的navi的返回按钮图片 */
+//        if ([self.viewControllers.firstObject isKindOfClass:[BAHomeViewController class]])
+//        {
+//            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"profileVC.bundle/返回白色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        else if ([self.viewControllers.firstObject isKindOfClass:[BAMessageViewController class]])
+//        {
+//            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"otherImages.bundle/返回黄色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        else if ([self.viewControllers.firstObject isKindOfClass:[BADiscoverViewController class]])
+//        {
+//            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"otherImages.bundle/返回绿色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        else if ([self.viewControllers.firstObject isKindOfClass:[BAProfileViewController class]])
+//        {
+//            left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"profileVC.bundle/返回蓝色"] highImage:nil target:self action:@selector(backToPre) forControlEvents:UIControlEventTouchUpInside];
+//        }
 
         // 设置导航条的按钮
         viewController.navigationItem.leftBarButtonItem = left;

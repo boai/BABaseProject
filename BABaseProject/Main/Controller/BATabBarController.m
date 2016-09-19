@@ -1,65 +1,13 @@
-
-/*!
- *  @header BAKit.h
- *          BABaseProject
- *
- *  @brief  BAKit
- *
- *  @author 博爱
- *  @copyright    Copyright © 2016年 博爱. All rights reserved.
- *  @version    V1.0
- */
-
-//                            _ooOoo_
-//                           o8888888o
-//                           88" . "88
-//                           (| -_- |)
-//                            O\ = /O
-//                        ____/`---'\____
-//                      .   ' \\| |// `.
-//                       / \\||| : |||// \
-//                     / _||||| -:- |||||- \
-//                       | | \\\ - /// | |
-//                     | \_| ''\---/'' | |
-//                      \ .-\__ `-` ___/-. /
-//                   ___`. .' /--.--\ `. . __
-//                ."" '< `.___\_<|>_/___.' >'"".
-//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
-//                 \ \ `-. \_ __\ /__ _/ .-` / /
-//         ======`-.____`-.___\_____/___.-`____.-'======
-//                            `=---='
 //
-//         .............................................
-//                  佛祖镇楼                  BUG辟易
-//          佛曰:
-//                  写字楼里写字间，写字间里程序员；
-//                  程序人员写程序，又拿程序换酒钱。
-//                  酒醒只在网上坐，酒醉还来网下眠；
-//                  酒醉酒醒日复日，网上网下年复年。
-//                  但愿老死电脑间，不愿鞠躬老板前；
-//                  奔驰宝马贵者趣，公交自行程序员。
-//                  别人笑我忒疯癫，我笑自己命太贱；
-//                  不见满街漂亮妹，哪个归得程序员？
-
-/*
- 
- *********************************************************************************
- *
- * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
- *
- * QQ     : 可以添加SDAutoLayout群 497140713 在这里找到我(博爱1616【137361770】)
- * 微博    : 博爱1616
- * Email  : 137361770@qq.com
- * GitHub : https://github.com/boai
- * 博客园  : http://www.cnblogs.com/boai/
- * 博客    : http://boai.github.io
- 
- *********************************************************************************
- 
- */
-
+//  BATabBarController.m
+//  博爱微博
+//
+//  Created by 孙博岩 on 15/7/26.
+//  Copyright © 2015年 boai. All rights reserved.
+//
 
 #import "BATabBarController.h"
+#import "UIImage+BAKit.h"
 #import "BATabBar.h"
 
 #import "BAHomeViewController.h"
@@ -69,7 +17,8 @@
 
 #import "BANavigationController.h"
 
-#import "BAWebViewController.h"
+//#import "BAUserTool.h"
+//#import "BAUserResult.h"
 
 #import <objc/message.h>
 
@@ -82,12 +31,12 @@
 
 @interface BATabBarController () <BATabBarDelegate>
 
-@property (nonatomic, strong) NSMutableArray            *items;
+@property (nonatomic, strong) NSMutableArray *items;
 
-@property (nonatomic, weak  ) BAHomeViewController      *home;
-@property (nonatomic, weak  ) BAMessageViewController   *message;
-@property (nonatomic, weak  ) BADiscoverViewController  *discover;
-@property (nonatomic, weak  ) BAProfileViewController   *profile;
+@property (nonatomic, weak) BAHomeViewController *home;
+@property (nonatomic, weak) BAMessageViewController *message;
+@property (nonatomic, weak) BADiscoverViewController *discover;
+@property (nonatomic, weak) BAProfileViewController *profile;
 
 
 @end
@@ -126,7 +75,7 @@
     [self setUpTabBar];
     
     // 每隔一段时间请求未读数
-//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(requestUnread) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(requestUnread) userInfo:nil repeats:YES];
 }
 
 // 请求未读数
@@ -174,11 +123,11 @@
 #pragma mark - 当点击tabBar上的按钮调用
 - (void)tabBar:(BATabBar *)tabBar didClickButton:(NSInteger)index
 {
-//    if (index == 0 && self.selectedIndex == index)
-//    {
-//        // 点击首页刷新
+    if (index == 0 && self.selectedIndex == index)
+    {
+        // 点击首页刷新
 //        [_home refresh];
-//    }
+    }
     
     self.selectedIndex = index;
 }
@@ -208,7 +157,6 @@
 {
     // 首页
     BAHomeViewController *home = [[BAHomeViewController alloc] init];
-    
     [self setUpOneChildViewController:home image:[UIImage imageNamed:@"otherImages.bundle/首页-不点亮"] selectedImage:[UIImage imageWithOriginalName:@"otherImages.bundle/首页-点亮"] title:@"首页"];
     _home = home;
     
@@ -247,37 +195,5 @@
     
     [self addChildViewController:nav];
 }
-
-// 哪些页面支持自动转屏
-- (BOOL)shouldAutorotate{
-    
-    BANavigationController *nav = self.viewControllers[self.selectedIndex];
-    
-    // MoviePlayerViewController 、ZFTableViewController 控制器支持自动转屏
-//    if ([nav.topViewController isKindOfClass:[BAWebViewController class]]) {
-//        // 调用ZFPlayerSingleton单例记录播放状态是否锁定屏幕方向
-//        return !ZFPlayerShared.isLockScreen;
-//    }
-//    else
-    if ([nav.topViewController isKindOfClass:[BAWebViewController class]])
-    {
-        return YES;
-    }
-    return NO;
-}
-
-// viewcontroller支持哪些转屏方向
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    
-    BANavigationController *nav = self.viewControllers[self.selectedIndex];
-    if ([nav.topViewController isKindOfClass:[BAWebViewController class]])
-    { // MoviePlayerViewController这个页面支持转屏方向
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    }
-    // 其他页面
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-
 
 @end
