@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - BAButton (1.0.1)
-  - BACustomAlertView (1.0.4)
+  - BACustomAlertView (1.0.5)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -35,7 +35,7 @@ PODS:
   - FBMemoryProfiler (0.1.3):
     - FBAllocationTracker (~> 0.1)
     - FBRetainCycleDetector (~> 0.1)
-  - FBRetainCycleDetector (0.1.2)
+  - FBRetainCycleDetector (0.1.3)
   - IQKeyboardManager (4.0.4)
   - JMRoundedCorner (1.2.1)
   - Masonry (0.6.4)
@@ -50,7 +50,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - UMengSocial (4.4)
+  - UMengSocialCOM (5.2.1)
   - WebViewJavascriptBridge (5.0.5)
   - YYKit (1.0.7):
     - YYKit/no-arc (= 1.0.7)
@@ -73,18 +73,18 @@ DEPENDENCIES:
   - NullSafe
   - SDAutoLayout
   - SDWebImage (~> 3.7.5)
-  - UMengSocial (~> 4.4)
+  - UMengSocialCOM (~> 5.2.1)
   - WebViewJavascriptBridge (~> 5.0)
   - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BAButton: bb8f74e5e167a7e01ce8c0a66eafc3245ebb8c31
-  BACustomAlertView: 2adbd6bba52b9a59c4beb40dba49bf13f6435104
+  BACustomAlertView: 416a6497a6e1ca322f7a99ccdcc213492ee63be3
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
   FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
-  FBRetainCycleDetector: 45462f9ed1af0cd77224a4cc4e6dacaca47371b4
+  FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   IQKeyboardManager: 4a6f83b540283c2645aaeba2bd8dc0f09b5c77f8
   JMRoundedCorner: 214e56c2a7e3a0916e8d6040c66d85519cc1be87
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
@@ -96,10 +96,10 @@ SPEC CHECKSUMS:
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0
+  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: eed54f2afb1e73c3c64c9b8a714989ef4111c34d
+PODFILE CHECKSUM: 36aaab3082e8a2cbb437fb55d0caa3d1a12bfe0a
 
 COCOAPODS: 1.0.1

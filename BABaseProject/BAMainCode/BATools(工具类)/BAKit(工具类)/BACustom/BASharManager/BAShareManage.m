@@ -58,7 +58,10 @@ static BAShareManage *shareManage;
     
     // 打开新浪微博的SSO开关
     // 将在新浪微博注册的应用appkey、redirectURL替换下面参数，并在info.plist的URL Scheme中相应添加wb+appkey，如"wb3112175844"，详情请参考官方文档。
+//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:BA_Sina_AppKey
+//                                         RedirectURL:@"http://sns.whalecloud.com/sin"];
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:BA_Sina_AppKey
+                                              secret:BA_SinaAppSecret
                                          RedirectURL:@"http://sns.whalecloud.com/sin"];
     //  添加微信分享授权
     // 设置微信AppId、appSecret，分享url
@@ -334,7 +337,7 @@ static BAShareManage *shareManage;
 
 #pragma mark - 友盟登录
 /**友盟 QQ 登录**/
-- (void)BA_QQLogin:(UIViewController *)viewController
+- (void)ba_QQLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
     
@@ -362,7 +365,7 @@ static BAShareManage *shareManage;
 }
 
 /**友盟 Qzone 登录**/
-- (void)BA_QzoneLogin:(UIViewController *)viewController
+- (void)ba_QzoneLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone];
     BA_Weak;
@@ -389,7 +392,7 @@ static BAShareManage *shareManage;
 }
 
 /**友盟 新浪微博 登录**/
-- (void)BA_SinaLogin:(UIViewController *)viewController
+- (void)ba_SinaLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
     BA_Weak;
@@ -424,7 +427,7 @@ static BAShareManage *shareManage;
 }
 
 /**友盟 微信 登录**/
-- (void)BA_WechatSessionLogin:(UIViewController *)viewController
+- (void)ba_WechatSessionLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
     BA_Weak;
@@ -451,7 +454,7 @@ static BAShareManage *shareManage;
 }
 
 /**友盟登录列表**/
-- (void)BA_UMLoginListWithViewControll:(UIViewController *)viewController
+- (void)ba_UMLoginListWithViewControll:(UIViewController *)viewController
 {
 //    NSMutableArray *titarray = [NSMutableArray arrayWithObjects:@"微信", @"微博",  @"QQ", @"空间",nil];
 //    NSMutableArray *picarray = [NSMutableArray arrayWithObjects:@"BASharManager.bundle/微信好友", @"BASharManager.bundle/新浪微博",  @"BASharManager.bundle/qq好友", @"BASharManager.bundle/qq空间",nil];
@@ -493,16 +496,16 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_WechatSessionLogin:viewController];
+                    [weakSelf ba_WechatSessionLogin:viewController];
                     break;
                     case 2:
-                    [weakSelf BA_SinaLogin:viewController];
+                    [weakSelf ba_SinaLogin:viewController];
                     break;
                     case 3:
-                    [weakSelf BA_QQLogin:viewController];
+                    [weakSelf ba_QQLogin:viewController];
                     break;
                     case 4:
-                    [weakSelf BA_QzoneLogin:viewController];
+                    [weakSelf ba_QzoneLogin:viewController];
                     break;
                     
                 default:
@@ -514,13 +517,13 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_SinaLogin:viewController];
+                    [weakSelf ba_SinaLogin:viewController];
                     break;
                     case 2:
-                    [weakSelf BA_QQLogin:viewController];
+                    [weakSelf ba_QQLogin:viewController];
                     break;
                     case 3:
-                    [weakSelf BA_QzoneLogin:viewController];
+                    [weakSelf ba_QzoneLogin:viewController];
                     break;
                     
                 default:
@@ -532,10 +535,10 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_WechatSessionLogin:viewController];
+                    [weakSelf ba_WechatSessionLogin:viewController];
                     break;
                     case 2:
-                    [weakSelf BA_SinaLogin:viewController];
+                    [weakSelf ba_SinaLogin:viewController];
                     break;
                     
                 default:
@@ -547,7 +550,7 @@ static BAShareManage *shareManage;
             switch (index)
             {
                     case 1:
-                    [weakSelf BA_SinaLogin:viewController];
+                    [weakSelf ba_SinaLogin:viewController];
                     break;
                     
                 default:

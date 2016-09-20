@@ -539,10 +539,10 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2011 - 2015 UMeng.com. All rights reserved.
+			<string>Copyright 2011 - 2016 UMeng.com. All rights reserved.
 </string>
 			<key>Title</key>
-			<string>UMengSocial</string>
+			<string>UMengSocialCOM</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

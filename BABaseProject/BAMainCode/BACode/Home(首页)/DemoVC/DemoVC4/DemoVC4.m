@@ -91,13 +91,14 @@
     {
         BAShareManage *manger = [BAShareManage shareManage];
         manger.delegate = self;
-        [manger BA_UMLoginListWithViewControll:self];
+        [manger ba_UMLoginListWithViewControll:self];
     }
 }
 
 #pragma mark 友盟登陆BAShareManageDelegate
 - (void)getUserData:(NSDictionary *)backUserData
 {
+    [self BA_showAlert:@"登录成功！"];
     [self.view ba_showAlertView:@"温馨提示：" message:[NSString stringWithFormat:@"友盟登陆成功，返回信息: %@", backUserData]];
     BALog(@"友盟登陆成功，返回信息: %@", backUserData);
 }

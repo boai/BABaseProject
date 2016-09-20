@@ -40,7 +40,10 @@
     
     [_headerLine stop];    
     
-    dispatch_source_cancel(self.timer2);
+    if (self.timer2)
+    {
+        dispatch_source_cancel(self.timer2);
+    }
     
 //    _timeButton2 = nil;
 //    _timeButton3 = nil;

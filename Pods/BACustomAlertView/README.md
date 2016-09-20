@@ -1,12 +1,26 @@
 # BACustomAlertView
 一个完全实现自定义的alertView！目前为止，最为精简的alert封装，以后alert就用博爱的[『BACustomAlertView』](https://github.com/boai/BACustomAlertView)了！
 
-> ##ios 开发还不会自定义 alert ？<br>你还在为 iOS7 和 iOS8 的 alert 而烦恼吗？<br>你不知道博爱的 alert ，你就 out 了！<br>如果觉得好用就赶紧分享吧 ！
+---
 
+## 更新提示：【倒叙更新】
 
-博爱的alert特点：【倒叙更新】
+#### version 1.0.* 【2016.开发 ing...】
+* 正在努力完善中...
+* 高斯模糊马上就要来了
+* 更多的动画特效，让你的 alert 狂拽炫酷刁炸天！
+* 如果你有更好的建议，可以给博爱提 issue 哦！
+* 也可以加入我们的大家庭：QQ群 `479663605`，希望广大小白和大神能够积极加入！
+ 
+#### version 1.0.5 【2016.08.16 已上架】
+* 4、重新设计了demo，使得新用户更快上手！
+* 3、再次设计结构，两种封装方法创建 alert ，无论大神还是小白都能够运用自如！
+* 2、优化规范整体代码结构及注释，你想要的功能一目了然！
+* 1、新增是否开启边缘触摸隐藏 alert 默认：关闭，属性：isTouchEdgeHide，可自由开关边缘触摸！
+ 
+#### version 1.0.4 【2016.08.13 已上架】
 * 6、完美适配横竖屏
-* 5、简单的两行搞定一个自定义alert
+* 5、简单的两行搞定一个自定义 alert
 * 4、手势触摸隐藏
 * 3、可以自定义背景图片、按钮颜色
 * 2、可以添加文字和图片，且可以滑动查看
@@ -14,11 +28,18 @@
 
 ####~~注：目前此版本只支持竖屏适配，小伙伴儿记得哦！~~
 
+---
+
+## 0、安装和导入示例：
+* 0.1、pod 导入【当前最新版本：1.0.4】：<br> ` pod 'BACustomAlertView' ` <br>导入头文件：<br>`  #import <BACustomAlertView.h> `
+* 0.2、下载demo，把 BACustomAlertView 文件夹拖入项目即可，<br>导入头文件：<br>`  #import "BACustomAlertView.h" `
+
+---
 
 ## 1、代码示例：
-* 1.1 类似系统alert【加边缘手势消失】
+* 1.1 类似系统 alert【加边缘手势消失】
 ```
-/*! 1、类似系统alert【加边缘手势消失】 */
+/*! 1、类似系统 alert【加边缘手势消失】 */
         _alertView1 = [[BACustomAlertView alloc] ba_showTitle:@"博爱温馨提示："
                                                       message:titleMsg1
                                                         image:nil
@@ -222,6 +243,7 @@ iOS 10技术开发群       | `479663605`        |
 
 感谢[『陆晓峰』](https://github.com/zeR0Lu)大神的鼎力相助，得以完成如此完美的[『BACustomAlertView』](https://github.com/boai/BACustomAlertView)！<br>
     你们的使用就是对博爱最大的鼓励，博爱将继续一如既往的为大家提供最简单的开放源码！
-    再次感谢大家对博爱的支持！谢谢！
+    再次感谢大家对博爱的支持！<br>
+    谢谢！
 
 ---

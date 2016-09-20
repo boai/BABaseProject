@@ -66,7 +66,8 @@
 
 /*! 友盟分享SDK：接入自己项目时需要更改各个属性值 */
 #define BA_Umeng_Appkey     @"56f217d467e58e513a000434"
-#define BA_Sina_AppKey       @"2447331824"
+#define BA_Sina_AppKey      @"2447331824"
+#define BA_SinaAppSecret    @"4ee72cf1958fa92b88570d1b99328718"
 #define BA_WX_APPKEY        @"wx19d8c52e02fa7556"
 #define BA_WX_APPSECRET     @"90eeb0c9ef2a1c99fb473890809f7f19"
 #define BA_QQKey            @"wrGGgg89e0lqqoXT"

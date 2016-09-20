@@ -49,15 +49,22 @@
     {
         /*! 此处使用自定义TabBarController，此处暂时有问题，大家慎用！先使用第三方的tabbar */
         self.window.rootViewController = [BATabBarController new];
+        [self.window makeKeyAndVisible];
     }
     else
     {
         /*! 此处使用RDVTabBarController */
-            [self setupViewControllers];
-            self.window.rootViewController = self.viewController;
+//            [self setupViewControllers];
+//            self.window.rootViewController = self.viewController;
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.backgroundColor = [UIColor whiteColor];
+        [self setupViewControllers];
+        [self.window setRootViewController:self.viewController];
+        [self.window makeKeyAndVisible];
+        
+        [self customizeInterface];
     }
 
-    [self.window makeKeyAndVisible];
 }
 
 - (void)isBATabVC2:(BOOL)is
@@ -298,7 +305,7 @@
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
     [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController, thirdNavigationController, fourNavigationController]];
     self.viewController = tabBarController;
-    
+
     [self customizeTabBarForController:tabBarController];
 }
 
@@ -326,8 +333,7 @@
     }
 }
 
-- (void)customizeInterface
-{
+- (void)customizeInterface {
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
     
     UIImage *backgroundImage = nil;
@@ -337,9 +343,20 @@
         backgroundImage = [UIImage imageNamed:@"navigationbar_background_tall"];
         
         textAttributes = @{
-                           NSFontAttributeName: [UIFont boldSystemFontOfSize:12],
+                           NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
                            NSForegroundColorAttributeName: [UIColor blackColor],
                            };
+    } else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+        backgroundImage = [UIImage imageNamed:@"navigationbar_background"];
+        
+        textAttributes = @{
+                           UITextAttributeFont: [UIFont boldSystemFontOfSize:18],
+                           UITextAttributeTextColor: [UIColor blackColor],
+                           UITextAttributeTextShadowColor: [UIColor clearColor],
+                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero],
+                           };
+#endif
     }
     
     [navigationBarAppearance setBackgroundImage:backgroundImage

@@ -96,24 +96,24 @@
 
 #pragma mark - ***** 友盟登录
 /*！友盟 QQ 登录 */
-- (void)BA_QQLogin:(UIViewController *)viewController;
+- (void)ba_QQLogin:(UIViewController *)viewController;
 
 /*！友盟 Qzone 登录 */
-- (void)BA_QzoneLogin:(UIViewController *)viewController;
+- (void)ba_QzoneLogin:(UIViewController *)viewController;
 
 /*！友盟 新浪微博登录 */
-- (void)BA_SinaLogin:(UIViewController *)viewController;
+- (void)ba_SinaLogin:(UIViewController *)viewController;
 /*！删除新浪微博登陆授权调用下面的方法 */
 - (void)deleteSinaLogin;
 
 /*！友盟 微信 登录 */
-- (void)BA_WechatSessionLogin:(UIViewController *)viewController;
+- (void)ba_WechatSessionLogin:(UIViewController *)viewController;
 
 /*!
  *  友盟登录列表
  *
  *  @param viewController viewController
  */
-- (void)BA_UMLoginListWithViewControll:(UIViewController *)viewController;
+- (void)ba_UMLoginListWithViewControll:(UIViewController *)viewController;
 
 @end
