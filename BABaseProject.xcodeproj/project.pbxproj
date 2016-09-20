@@ -74,6 +74,7 @@
 		C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B8A031CE0BAC200005E2B /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C46B8A061CE0BB7D00005E2B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C46B8A051CE0BB7D00005E2B /* libicucore.tbd */; };
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
+		C46DEBC41D90DB0E00973EC6 /* UITableViewCell+Reuse.m in Sources */ = {isa = PBXBuildFile; fileRef = C46DEBC31D90DB0E00973EC6 /* UITableViewCell+Reuse.m */; };
 		C473CC791CF72372001883A9 /* DemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC781CF72372001883A9 /* DemoVC9.m */; };
 		C473CC7B1CF72439001883A9 /* BACollectionView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C473CC7A1CF72439001883A9 /* BACollectionView.bundle */; };
 		C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC801CF72960001883A9 /* DemoVC9_Model.m */; };
@@ -562,6 +563,8 @@
 		C46B8A051CE0BB7D00005E2B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		C46C5AB71CDB75B9002F707F /* BAHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewModel.h; sourceTree = "<group>"; };
 		C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewModel.m; sourceTree = "<group>"; };
+		C46DEBC21D90DB0D00973EC6 /* UITableViewCell+Reuse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Reuse.h"; sourceTree = "<group>"; };
+		C46DEBC31D90DB0E00973EC6 /* UITableViewCell+Reuse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Reuse.m"; sourceTree = "<group>"; };
 		C473CC771CF72372001883A9 /* DemoVC9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9.h; sourceTree = "<group>"; };
 		C473CC781CF72372001883A9 /* DemoVC9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9.m; sourceTree = "<group>"; };
 		C473CC7A1CF72439001883A9 /* BACollectionView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BACollectionView.bundle; sourceTree = "<group>"; };
@@ -1477,6 +1480,8 @@
 				C480270A1D1928290087BBB9 /* UIDevice+BAKit.m */,
 				C480270B1D1928290087BBB9 /* UIFont+BAKit.h */,
 				C480270C1D1928290087BBB9 /* UIFont+BAKit.m */,
+				C46DEBC21D90DB0D00973EC6 /* UITableViewCell+Reuse.h */,
+				C46DEBC31D90DB0E00973EC6 /* UITableViewCell+Reuse.m */,
 				C480270D1D1928290087BBB9 /* UIImage+BAKit.h */,
 				C480270E1D1928290087BBB9 /* UIImage+BAKit.m */,
 				C480270F1D1928290087BBB9 /* UIImageView+BAKit.h */,
@@ -3530,6 +3535,7 @@
 				C4EE1C651D228E34005046A6 /* NSString+BAKit.m in Sources */,
 				C48027391D1928290087BBB9 /* NSDictionary+BAKit.m in Sources */,
 				C427811D1D2D2881003E6694 /* BABaseCell.m in Sources */,
+				C46DEBC41D90DB0E00973EC6 /* UITableViewCell+Reuse.m in Sources */,
 				C4EB5BCE1CD8B250003A7094 /* NSObject+BANetwork.m in Sources */,
 				C48027381D1928290087BBB9 /* NSDate+BAKit.m in Sources */,
 				C4772B251D8F911E002B73CD /* HMSegmentedControl.m in Sources */,
