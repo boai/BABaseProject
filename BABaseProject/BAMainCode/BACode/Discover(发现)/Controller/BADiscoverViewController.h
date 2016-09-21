@@ -6,8 +6,8 @@
 //  Copyright © 2016年 博爱之家. All rights reserved.
 //
 
-#import "BABaseViewController.h"
+#import "BADiscoverViewController.h"
 
-@interface BADiscoverViewController : BABaseViewController
+@interface BADiscoverViewController : UIViewController
 
 @end

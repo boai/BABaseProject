@@ -100,9 +100,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.vcBgColor = BA_Yellow_Color;
+    self.view.backgroundColor = BA_Yellow_Color;
 
     self.title = @"消 息";
+    
+    [self ba_setupNavi];
+    [self ba_setupUI];
+
 }
 
 - (void)ba_setupNavi
@@ -122,6 +126,7 @@
     [self addCell:@"tableView的高级用法1" content:@"1、封装baseCell" class:@"DemoVC2_01"];
     [self addCell:@"cell的分组展开收回" content:@"2、cell的分组展开收回" class:@"DemoVC2_02"];
     [self addCell:@"系统各种设置的跳转" content:@"3、系统各种设置的跳转" class:@"DemoVC2_03"];
+    [self addCell:@"博爱百度地图" content:@"4、博爱百度地图" class:@"DemoVC2_04"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];

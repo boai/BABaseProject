@@ -1,26 +1,24 @@
 //
-//  BAProfileViewController.m
+//  DemoVC2_04.m
 //  BABaseProject
 //
-//  Created by 博爱 on 16/5/3.
+//  Created by boai on 2016/9/21.
 //  Copyright © 2016年 博爱之家. All rights reserved.
 //
 
-#import "BAProfileViewController.h"
+#import "DemoVC2_04.h"
 
-@interface BAProfileViewController ()
+@interface DemoVC2_04 ()
 
 @end
 
-@implementation BAProfileViewController
+@implementation DemoVC2_04
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
     
-    self.title = @"我 的";
-    self.view.backgroundColor = BA_Red_Color;
-
+    
 }
 
 - (void)didReceiveMemoryWarning {

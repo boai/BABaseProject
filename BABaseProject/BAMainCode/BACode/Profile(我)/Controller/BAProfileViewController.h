@@ -6,8 +6,8 @@
 //  Copyright © 2016年 博爱之家. All rights reserved.
 //
 
-#import "BABaseViewController.h"
+#import "BAProfileViewController.h"
 
-@interface BAProfileViewController : BABaseViewController
+@interface BAProfileViewController : UIViewController
 
 @end

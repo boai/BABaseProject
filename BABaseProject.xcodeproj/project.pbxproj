@@ -270,6 +270,8 @@
 		C4D108041CE2FC1C00F735B9 /* view3.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FF1CE2FC1C00F735B9 /* view3.m */; };
 		C4D108051CE2FC1C00F735B9 /* view4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D108011CE2FC1C00F735B9 /* view4.m */; };
 		C4D109281D92353F0057B2DC /* BASystermSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D109271D92353F0057B2DC /* BASystermSetting.m */; };
+		C4D1092D1D9271400057B2DC /* DemoVC2_04.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D1092B1D9271400057B2DC /* DemoVC2_04.m */; };
+		C4D1092E1D9271410057B2DC /* DemoVC2_04.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D1092C1D9271400057B2DC /* DemoVC2_04.xib */; };
 		C4DEB3741D0C2FC8001F1585 /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3721D0C2FC8001F1585 /* BANetManager.m */; };
 		C4DEB3771D0C332C001F1585 /* BATabBarController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3761D0C332C001F1585 /* BATabBarController2.m */; };
 		C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3791D0C3351001F1585 /* BATabBar2.m */; };
@@ -827,6 +829,9 @@
 		C4D108011CE2FC1C00F735B9 /* view4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = view4.m; sourceTree = "<group>"; };
 		C4D109261D92353F0057B2DC /* BASystermSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystermSetting.h; sourceTree = "<group>"; };
 		C4D109271D92353F0057B2DC /* BASystermSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystermSetting.m; sourceTree = "<group>"; };
+		C4D1092A1D9271400057B2DC /* DemoVC2_04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_04.h; sourceTree = "<group>"; };
+		C4D1092B1D9271400057B2DC /* DemoVC2_04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_04.m; sourceTree = "<group>"; };
+		C4D1092C1D9271400057B2DC /* DemoVC2_04.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoVC2_04.xib; sourceTree = "<group>"; };
 		C4DEB3721D0C2FC8001F1585 /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
 		C4DEB3731D0C2FC8001F1585 /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
 		C4DEB3751D0C332C001F1585 /* BATabBarController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarController2.h; sourceTree = "<group>"; };
@@ -2202,6 +2207,16 @@
 			path = BASystermSetting;
 			sourceTree = "<group>";
 		};
+		C4D109291D9270BA0057B2DC /* DemoVC2-4 */ = {
+			isa = PBXGroup;
+			children = (
+				C4D1092A1D9271400057B2DC /* DemoVC2_04.h */,
+				C4D1092B1D9271400057B2DC /* DemoVC2_04.m */,
+				C4D1092C1D9271400057B2DC /* DemoVC2_04.xib */,
+			);
+			path = "DemoVC2-4";
+			sourceTree = "<group>";
+		};
 		C4DEB37E1D0C348E001F1585 /* Publish(发布) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2888,6 +2903,7 @@
 				C4EE1C5B1D22871D005046A6 /* DemoVC2-1 */,
 				C44423461D2E8596004ACAA8 /* DemoVC2-2 */,
 				C42DAA401D37265500FE8B3E /* DemoVC2-3 */,
+				C4D109291D9270BA0057B2DC /* DemoVC2-4 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -3246,6 +3262,7 @@
 				C4B964101D33A5B1005926B8 /* Contents.json in Resources */,
 				C4B964001D33A5B1005926B8 /* Contents.json in Resources */,
 				C4EB5BDD1CD8B250003A7094 /* img2.jpg in Resources */,
+				C4D1092E1D9271410057B2DC /* DemoVC2_04.xib in Resources */,
 				C4B964421D33A5B1005926B8 /* Contents.json in Resources */,
 				C4EB5C221CD8B251003A7094 /* ball.png in Resources */,
 				C4EB5BDF1CD8B250003A7094 /* img4.jpg in Resources */,
@@ -3596,6 +3613,7 @@
 				C480273B1D1928290087BBB9 /* NSMutableArray+BAKit.m in Sources */,
 				C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */,
 				C480273A1D1928290087BBB9 /* NSFileManager+BAKit.m in Sources */,
+				C4D1092D1D9271400057B2DC /* DemoVC2_04.m in Sources */,
 				C48027311D1928290087BBB9 /* BAPassword.m in Sources */,
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,
 				C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */,

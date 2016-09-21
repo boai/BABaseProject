@@ -69,6 +69,9 @@
 #import "BAUpdatingView.h"
 #import "BAFadeBlackView.h"
 
+#import "RDVTabBarController.h"
+
+
 @interface BABaseViewController ()
 
 
@@ -91,17 +94,16 @@
 
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated {
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
     
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {

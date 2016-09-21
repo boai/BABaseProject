@@ -58,8 +58,8 @@
  
  */
 
-#import "BABaseViewController.h"
+#import "BAHomeViewController.h"
 
-@interface BAHomeViewController : BABaseViewController
+@interface BAHomeViewController : UIViewController
 
 @end

@@ -58,8 +58,8 @@
  
  */
 
-#import "BABaseViewController.h"
+#import "BAMessageViewController.h"
 
-@interface BAMessageViewController : BABaseViewController
+@interface BAMessageViewController : UIViewController
 
 @end

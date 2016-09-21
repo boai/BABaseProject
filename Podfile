@@ -51,6 +51,9 @@ target 'BABaseProject' do
 #    pod 'UMengSocial', '~> 4.4'
     pod 'UMengSocialCOM', '~> 5.2.1'
 
+    # 百度地图SDK
+#    pod 'BaiduMapKit'
+
     # 二维码
     #pod 'LBXScan','~> 1.1.1'
 #    pod 'LBXAlertAction'
