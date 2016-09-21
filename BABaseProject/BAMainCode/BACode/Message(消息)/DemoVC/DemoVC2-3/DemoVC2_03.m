@@ -193,51 +193,61 @@
     /*! 点击立刻取消该cell的选中状态 */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+//    NSLog(@"版本号1：%@", [[[[UIDevice currentDevice] systemVersion] substringToIndex:1] stringByAppendingString:@"0"]);
+//    NSLog(@"版本号2：%f", [[UIDevice currentDevice] systemVersion].floatValue);
+//    NSLog(@"版本号3：%@", [[UIDevice currentDevice] systemVersion] );
+
+    if (isiOS10)
+    {
+        [self.view ba_showAlertView:@"博爱温馨提示：" message:@"iOS 10 干掉了所有系统设置的 URL Scheme，这意味着你再也不可能直接跳转到系统设置页面（比如 WiFi、蜂窝数据、定位等！"];
+        return;
+    }
+    BASystermSetting *settingManager = [BASystermSetting ba_systermSettingManage];
     switch (indexPath.row) {
         case 0:
-            [self ba_gotoSystermSettings];
+            [settingManager ba_gotoSystermSettings];
             break;
         case 1:
-            [self ba_gotoSystermWIFISettings];
+            [settingManager ba_gotoSystermWIFISettings];
             break;
         case 2:
-            [self ba_gotoSystermGeneralSettings];
+            [settingManager ba_gotoSystermGeneralSettings];
             break;
         case 3:
-            [self ba_gotoSystermAboutSettings];
+            [settingManager ba_gotoSystermAboutSettings];
             break;
         case 4:
-            [self ba_gotoSystermAccessibilitySettings];
+            [settingManager ba_gotoSystermAccessibilitySettings];
             break;
         case 5:
-            [self ba_gotoSystermAirplaneModeOnSettings];
+            [settingManager ba_gotoSystermAirplaneModeOnSettings];
             break;
         case 6:
-            [self ba_gotoSystermAutoLockSettings];
+            [settingManager ba_gotoSystermAutoLockSettings];
             break;
         case 7:
-            [self ba_gotoSystermBrightnessSettings];
+            [settingManager ba_gotoSystermBrightnessSettings];
             break;
         case 8:
-            [self ba_gotoSystermMICROPHONESettings];
+            [settingManager ba_gotoSystermMICROPHONESettings];
             break;
         case 9:
-            [self ba_gotoSystermCONTACTSSettings];
+            [settingManager ba_gotoSystermCONTACTSSettings];
             break;
         case 10:
-            [self ba_gotoSystermBluetoothSettings];
+            [settingManager ba_gotoSystermBluetoothSettings];
             break;
         case 11:
-            [self ba_gotoSystermDATE_AND_TIMESettings];
+            [settingManager ba_gotoSystermDATE_AND_TIMESettings];
             break;
         case 12:
-            [self ba_gotoSystermFaceTimeSettings];
+            [settingManager ba_gotoSystermFaceTimeSettings];
             break;
         case 13:
-            [self ba_gotoSystermKeyboardSettings];
+            [settingManager ba_gotoSystermKeyboardSettings];
             break;
         case 14:
-            [self ba_gotoSystermiCloudSettings];
+            [settingManager ba_gotoSystermiCloudSettings];
             break;
             
             

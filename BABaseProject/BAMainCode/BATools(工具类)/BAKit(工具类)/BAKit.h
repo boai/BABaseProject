@@ -116,6 +116,8 @@
 #import "NSProcessInfo+BAKit.h"
 #import "NSThread+BAKit.h"
 
+/*! app跳转到系统的各种基本设置选项 */
+#import "BASystermSetting.h"
 
 
 #pragma mark - ****** BAKitManager类

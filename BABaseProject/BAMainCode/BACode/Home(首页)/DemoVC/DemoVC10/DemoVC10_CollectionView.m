@@ -201,7 +201,7 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
     static CGFloat initialDelay = 0.2f;
     static CGFloat stutter = 0.06f;
     
-    cell.contentView.transform =  CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+    cell.contentView.transform =  CGAffineTransformMakeTranslation(BA_SCREEN_WIDTH, 0);
     
     [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
         cell.contentView.transform = CGAffineTransformIdentity;
@@ -240,7 +240,7 @@ static NSString * const headerID = @"DemoVC10_ReusableView";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((SCREEN_WIDTH - 30)/2, (SCREEN_WIDTH - 60)/2 + 20);
+    return CGSizeMake((BA_SCREEN_WIDTH - 30)/2, (BA_SCREEN_WIDTH - 60)/2 + 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

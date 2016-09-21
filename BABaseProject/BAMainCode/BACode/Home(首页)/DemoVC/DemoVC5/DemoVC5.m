@@ -179,7 +179,7 @@
     static CGFloat initialDelay = 0.2f;
     static CGFloat stutter = 0.06f;
     
-    cell.contentView.transform =  CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+    cell.contentView.transform =  CGAffineTransformMakeTranslation(BA_SCREEN_WIDTH, 0);
     
     [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:0 options:0 animations:^{
         cell.contentView.transform = CGAffineTransformIdentity;

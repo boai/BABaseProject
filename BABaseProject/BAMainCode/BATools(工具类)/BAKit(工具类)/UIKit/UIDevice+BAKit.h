@@ -70,11 +70,28 @@
  */
 #define IOS_VERSION [UIDevice currentDevice].systemVersion
 
+#define isiOS10 ([[[[[UIDevice currentDevice] systemVersion] substringToIndex:1] stringByAppendingString:@"0"] intValue] >= 10)
+
+/*! 大于8.0 */
+#define IOS8x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+//#define isiOS10 ([[[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
+
+/*! 判断真机还是模拟器 */
+#if TARGET_IPHONE_SIMULATOR
+//NSLog(@"run on simulator");
+#define BA_SIMULATOR_TEST
+#else
+//不定义SIMULATOR_TEST这个宏
+//NSLog(@"run on device");
+#endif
+
+
 /**
  *  获取屏幕宽度和高度
  */
-#define SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
-#define SCREEN_HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
+#define BA_SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+#define BA_SCREEN_HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
 
 /**
  *  系统版本号对比

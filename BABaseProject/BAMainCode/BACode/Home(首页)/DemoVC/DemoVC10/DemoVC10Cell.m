@@ -38,7 +38,7 @@
     if (!_imageView)
     {
         _imageView = [UIImageView new];
-        _imageView.frame = CGRectMake(0, 0, (SCREEN_WIDTH - 30)/2, (SCREEN_WIDTH - 60)/2);
+        _imageView.frame = CGRectMake(0, 0, (BA_SCREEN_WIDTH - 30)/2, (BA_SCREEN_WIDTH - 60)/2);
         _imageView.userInteractionEnabled = YES;
         [self.contentView addSubview:self.imageView];
     }
@@ -50,7 +50,7 @@
     if (!_descLabel)
     {
         _descLabel = [UILabel new];
-        _descLabel.frame = CGRectMake(0, (SCREEN_WIDTH - 60)/2, (SCREEN_WIDTH - 30)/2, 20);
+        _descLabel.frame = CGRectMake(0, (BA_SCREEN_WIDTH - 60)/2, (BA_SCREEN_WIDTH - 30)/2, 20);
         
         _descLabel.textColor = [UIColor blackColor];
         _descLabel.textAlignment = NSTextAlignmentCenter;
@@ -63,7 +63,7 @@
 {
     if (!_deleteButton)
     {
-        _deleteButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 30)/2 - 35, 5, 30, 30)];
+        _deleteButton = [[UIButton alloc] initWithFrame:CGRectMake((BA_SCREEN_WIDTH - 30)/2 - 35, 5, 30, 30)];
         [self.deleteButton setImage:[UIImage imageNamed:@"BACollectionView.bundle/close.png"] forState:UIControlStateNormal];
         /*! 先设置不可见 */
         [self.deleteButton setHidden:YES];

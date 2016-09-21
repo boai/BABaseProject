@@ -247,7 +247,7 @@
         if (index == 1)
         {
             /*! safari打开 */
-            [self ba_gotoSafariBrowserWithURL:urlStr];
+            [[BASystermSetting ba_systermSettingManage] ba_gotoSafariBrowserWithURL:urlStr];
         }
         else if (index == 2)
         {

@@ -53,71 +53,107 @@
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
  * 博客    : http://boai.github.io
+ * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
+ * 简书专题 : http://www.jianshu.com/collection/072d578bf782
  
  *********************************************************************************
  
  */
 
-#ifndef BADefin_h
-#define BADefin_h
+
+#import <Foundation/Foundation.h>
+
+@interface BASystermSetting : NSObject
+
+/*!
+ *  创建单例 ba_systermSettingManage
+ *
+ *  @return ba_systermSettingManage
+ */
++ (BASystermSetting *)ba_systermSettingManage;
+
+#pragma mark - ***** app跳转到系统的各种基本设置选项
+/*!
+ *  跳转系统通知
+ */
+- (void)ba_gotoSystermSettings;
+
+/*!
+ *  跳到WIFI界面
+ */
+- (void)ba_gotoSystermWIFISettings;
+
+/*!
+ *  跳到About关于本机界面
+ */
+- (void)ba_gotoSystermAboutSettings;
+
+/*!
+ *  跳到Accessibility辅助功能界面
+ */
+- (void)ba_gotoSystermAccessibilitySettings;
+
+/*!
+ *  跳到AirplaneModeOn飞行模式界面
+ */
+- (void)ba_gotoSystermAirplaneModeOnSettings;
+
+/*!
+ *  跳到Auto-Lock自动锁屏时间界面
+ */
+- (void)ba_gotoSystermAutoLockSettings;
+
+/*!
+ *  跳到Brightness自动锁定界面
+ */
+- (void)ba_gotoSystermBrightnessSettings;
+
+/*!
+ *  跳到MICROPHONE麦克风界面
+ */
+- (void)ba_gotoSystermMICROPHONESettings;
+
+/*!
+ *  跳到CONTACTS通讯录界面
+ */
+- (void)ba_gotoSystermCONTACTSSettings;
+
+/*!
+ *  跳到Bluetooth蓝牙界面
+ */
+- (void)ba_gotoSystermBluetoothSettings;
+
+/*!
+ *  跳到DATE_AND_TIME日期和时间界面
+ */
+- (void)ba_gotoSystermDATE_AND_TIMESettings;
+
+/*!
+ *  跳到FaceTime界面
+ */
+- (void)ba_gotoSystermFaceTimeSettings;
+
+/*!
+ *  跳到General界面
+ */
+- (void)ba_gotoSystermGeneralSettings;
+
+/*!
+ *  跳到Keyboard界面
+ */
+- (void)ba_gotoSystermKeyboardSettings;
+
+/*!
+ *  跳到iCloud界面
+ */
+- (void)ba_gotoSystermiCloudSettings;
+
+/*!
+ *  跳转Safari浏览器
+ *
+ *  @param url 需要用Safari打开的url
+ */
+- (void)ba_gotoSafariBrowserWithURL:(NSString *)url;
 
 
-#pragma mark - ***** AppDelegate
-
-/*! 友盟分享SDK：接入自己项目时需要更改各个属性值 */
-#define BA_Umeng_Appkey     @"56f217d467e58e513a000434"
-#define BA_Sina_AppKey      @"2447331824"
-#define BA_SinaAppSecret    @"4ee72cf1958fa92b88570d1b99328718"
-#define BA_WX_APPKEY        @"wx19d8c52e02fa7556"
-#define BA_WX_APPSECRET     @"90eeb0c9ef2a1c99fb473890809f7f19"
-#define BA_QQKey            @"wrGGgg89e0lqqoXT"
-#define BA_QQAppID          @"1105285308"
-
-/*! 字体 */
-#define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
-
-
-/*! weak */
-#define BA_Weak  __weak __typeof(self) weakSelf = self
-
-/*! Loading */
-#define BA_Loading @"Loading..."
-
-/*! 用safari打开URL */
-#define BA_OpenUrl(urlStr) [BASharedApplication openURL:[NSURL URLWithString:urlStr]]
-
-/*! 复制文字内容 */
-#define BA_CopyContent(content) [[UIPasteboard generalPasteboard] setString:content]
-
-/*! 随机数据 */
-#define BA_RandomData arc4random_uniform(5)
-
-/*! weakSelf */
-#define BA_WEAKSELF typeof(self) __weak weakSelf = self
-
-/*! 通知 */
-#define BA_Noti [NSNotificationCenter defaultCenter]
-
-#define BA_UserDefault [NSUserDefaults standardUserDefaults]
-
-
-/*! 其他 */
-#pragma mark - ***** 应用内相关设置
-#define BA_PLACEHOLDER_IMAGE @"placeHolder"
-
-
-/*! 警告框-一个按钮【VC】 */
-#define BA_SHOW_ALERT(title, msg)  UIAlertController *alert = [UIAlertController alertControllerWithTitle:title  message:msg preferredStyle:UIAlertControllerStyleAlert];\
-[alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {\
-BALog(@"你点击了确定按钮！");\
-}]];\
-[self presentViewController:alert animated:YES completion:nil];\
-
-/*! 警告框-一个按钮【View】 */
-#define BA_SHOW_AlertAtView(msg) [[[UIAlertView alloc] initWithTitle:@"温馨提示：" message:msg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-
-
-
-
-
-#endif /* BADefin_h */
+@end
