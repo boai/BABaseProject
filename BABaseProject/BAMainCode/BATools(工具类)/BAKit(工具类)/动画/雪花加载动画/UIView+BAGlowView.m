@@ -106,7 +106,7 @@ static char glowDurationFlag;
 }
 
 - (void)startGlow {
-    BA_Weak;
+    BA_WEAKSELF;
     [self.layer.sublayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CALayer *layer = obj;
         
@@ -189,7 +189,7 @@ static char glowDurationFlag;
 }
 
 - (void)glowToGlowLayerOnce {
-    BA_Weak;
+    BA_WEAKSELF;
     [self.layer.sublayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CALayer *layer = obj;
         
@@ -227,7 +227,7 @@ static char glowDurationFlag;
 
 - (void)glowToNormalLayerOnce {
     
-    BA_Weak;
+    BA_WEAKSELF;
     [self.layer.sublayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         CALayer *layer = obj;

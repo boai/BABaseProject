@@ -46,13 +46,15 @@
 - (void)getData
 {
     [self BA_showAlert:BA_Loading];
+    BA_WEAKSELF;
+//    BA_WeakSelf(self);
     [BANewsNetManager getVideosWithStartIndex:1 completionHandle:^(id model, NSError *error) {
         
-        [self BA_hideProgress];
+        [weakSelf BA_hideProgress];
         if (!error)
         {
             BALog(@"model: %@", model);
-            [self BA_showAlertWithTitle:@"数据解析成功！请查看！"];
+            [weakSelf BA_showAlertWithTitle:@"数据解析成功！请查看！"];
         }
         else
         {

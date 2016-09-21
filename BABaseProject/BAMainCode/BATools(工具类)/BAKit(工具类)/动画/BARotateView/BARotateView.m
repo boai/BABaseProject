@@ -27,7 +27,7 @@
  */
 - (void)ba_changeToUpAnimated:(BOOL)animated
 {
-    BA_Weak;
+    BA_WEAKSELF;
     if (animated)
     {
         [UIView animateWithDuration:(self.rotateDuration > 0 ? self.rotateDuration : 0.5f) animations:^{
@@ -47,7 +47,7 @@
  */
 - (void)ba_changeToLeftAnimated:(BOOL)animated
 {
-    BA_Weak;
+    BA_WEAKSELF;
     if (animated)
     {
         [UIView animateWithDuration:(self.rotateDuration > 0 ? self.rotateDuration : 0.5f) animations:^{
@@ -67,7 +67,7 @@
  */
 - (void)ba_changeToRightAnimated:(BOOL)animated
 {
-    BA_Weak;
+    BA_WEAKSELF;
     if (animated)
     {
         [UIView animateWithDuration:(self.rotateDuration > 0 ? self.rotateDuration : 0.5f) animations:^{
@@ -87,7 +87,7 @@
  */
 - (void)ba_changeToDownAnimated:(BOOL)animated
 {
-    BA_Weak;
+    BA_WEAKSELF;
     if (animated)
     {
         [UIView animateWithDuration:(self.rotateDuration > 0 ? self.rotateDuration : 0.5f) animations:^{

@@ -76,10 +76,6 @@
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
 
-
-/*! weak */
-#define BA_Weak  __weak __typeof(self) weakSelf = self
-
 /*! Loading */
 #define BA_Loading @"Loading..."
 
@@ -94,6 +90,10 @@
 
 /*! weakSelf */
 #define BA_WEAKSELF typeof(self) __weak weakSelf = self
+#define BA_WeakSelf(type)  __weak typeof(type) weak##type = type;
+
+/*! strongSelf */
+#define BA_StrongSelf(type)  __strong typeof(type) type = weak##type;
 
 /*! 通知 */
 #define BA_Noti [NSNotificationCenter defaultCenter]

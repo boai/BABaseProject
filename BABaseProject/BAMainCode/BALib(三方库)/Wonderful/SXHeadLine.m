@@ -64,7 +64,7 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
 #pragma mark - **************** animate
 - (void)scrollAnimate
 {
-    BA_Weak;
+    BA_WEAKSELF;
     CGRect rect1 = self.label1.frame;
     CGRect rect2 = self.label2.frame;
     rect1.origin.y -= _h;

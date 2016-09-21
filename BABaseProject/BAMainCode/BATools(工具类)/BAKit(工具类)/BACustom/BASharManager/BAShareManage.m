@@ -229,7 +229,7 @@ static BAShareManage *shareManage;
     }
     
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方分享"];
-    BA_Weak;
+    BA_WEAKSELF;
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
         BALog(@"要分享到的平台");
@@ -341,7 +341,7 @@ static BAShareManage *shareManage;
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
     
-    BA_Weak;
+    BA_WEAKSELF;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         //          获取微博用户名、uid、token等
@@ -368,7 +368,7 @@ static BAShareManage *shareManage;
 - (void)ba_QzoneLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone];
-    BA_Weak;
+    BA_WEAKSELF;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         // 获取微博用户名、uid、token等
@@ -395,7 +395,7 @@ static BAShareManage *shareManage;
 - (void)ba_SinaLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
-    BA_Weak;
+    BA_WEAKSELF;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         // 获取微博用户名、uid、token等
@@ -430,7 +430,7 @@ static BAShareManage *shareManage;
 - (void)ba_WechatSessionLogin:(UIViewController *)viewController
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
-    BA_Weak;
+    BA_WEAKSELF;
     snsPlatform.loginClickHandler(viewController,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         if (response.responseCode == UMSResponseCodeSuccess) {
@@ -486,7 +486,7 @@ static BAShareManage *shareManage;
     }
     
     BAShareAnimationView *animationView = [[BAShareAnimationView alloc]initWithTitleArray:titarray picarray:picarray title:@"第三方登录"];
-    BA_Weak;
+    BA_WEAKSELF;
     [animationView selectedWithIndex:^(NSInteger index,id shareType) {
         BALog(@"你选择的index ＝＝ %ld",(long)index);
         BALog(@"要登录的平台");

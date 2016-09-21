@@ -32,7 +32,7 @@
 
 - (id)initWithTitleArray:(NSArray *)titlearray picarray:(NSArray *)picarray title:(NSString *)title
 {
-    BA_Weak;
+    BA_WEAKSELF;
     self = [super init];
     if (self) {
         self.frame = [UIScreen mainScreen].bounds;
@@ -123,7 +123,7 @@
     UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
     [window addSubview:self];
     
-    BA_Weak;
+    BA_WEAKSELF;
     [UIView animateWithDuration:0.2 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         _largeView.transform = CGAffineTransformMakeTranslation(0,  - HH);
@@ -150,7 +150,7 @@
 }
 
 - (void)dismiss {
-    BA_Weak;
+    BA_WEAKSELF;
     [UIView animateWithDuration:0 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         _largeView.transform = CGAffineTransformIdentity;

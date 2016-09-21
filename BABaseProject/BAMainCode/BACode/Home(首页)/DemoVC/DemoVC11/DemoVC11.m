@@ -89,7 +89,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
 #pragma mark - ***** 添加上下拉刷新
 - (void)setupRefreshView
 {
-    BA_Weak;
+    BA_WEAKSELF;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
 //    [self.collectionView addHeaderRefresh:^{
         [self loadNewData];
@@ -132,7 +132,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page), @"page", @"", @"per_page", nil];;
     
-    BA_Weak;
+    BA_WEAKSELF;
     [self BA_showAlert:BA_Loading];
     [BANewsNetManager postDemoVC11DataWithParameters:parameters completionHandle:^(id model, NSError *error) {
         

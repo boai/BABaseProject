@@ -79,7 +79,7 @@
 #pragma mark - ***** setter / getter
 - (DemoVC10_CollectionView *)collectionView
 {
-    BA_Weak;
+    BA_WEAKSELF;
     if (!_collectionView)
     {
         _collectionView = [[DemoVC10_CollectionView alloc] initWithFrame:CGRectZero withblock:^(UICollectionView *collection, NSIndexPath *indexPath, NSArray *dataArray) {

@@ -176,7 +176,7 @@
 //        [self.view addSubview:_segmentedControl];
         
         /*! 标题点击事件 */
-        BA_Weak;
+        BA_WEAKSELF;
         [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
             [weakSelf.scrollView scrollRectToVisible:CGRectMake(BA_SCREEN_WIDTH * index, 0, BA_SCREEN_WIDTH, weakSelf.scrollView.height) animated:YES];
         }];

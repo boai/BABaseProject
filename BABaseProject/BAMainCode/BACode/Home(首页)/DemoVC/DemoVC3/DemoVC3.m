@@ -74,7 +74,7 @@
         [_headerLine setScrollDuration:0.5 stayDuration:2];
         _headerLine.hasGradient = YES;
         [_headerLine start];
-        BA_Weak;
+        BA_WEAKSELF;
         /*! 此处已做奇偶数的点击事件处理，请大家放心使用！ */
         [_headerLine changeTapMarqueeAction:^(NSInteger index) {
             
@@ -94,7 +94,7 @@
 {
     if (!_headerLine2)
     {
-        BA_Weak;
+        BA_WEAKSELF;
         _headerLine2 = [[SXMarquee alloc]initWithFrame:CGRectMake(0, _headerLine.bottom + 20, BA_SCREEN_WIDTH, 40) speed:4 Msg:@"重大活动，天猫的双十一，然而并没卵用" bgColor:[UIColor salmonColor] txtColor:[UIColor whiteColor]];
         [_headerLine2 changeMarqueeLabelFont:[UIFont systemFontOfSize:26]];
         [_headerLine2 changeTapMarqueeAction:^{

@@ -130,7 +130,7 @@ static NSString *infoHeadFlag = @"DemoVC2_02_HeaderView";
                                    ]
                            }
                        ];
-    BA_Weak;
+    BA_WEAKSELF;
     [datas enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         DemoVC2_02_classModel *model = [[DemoVC2_02_classModel alloc] initWithDictionary:obj];
@@ -287,7 +287,7 @@ static NSString *infoHeadFlag = @"DemoVC2_02_HeaderView";
 
 - (void)firstLoadDataAnimation
 {
-    BA_Weak;
+    BA_WEAKSELF;
     [GCDQueue executeInMainQueue:^{
         
         /*! Extend sections */

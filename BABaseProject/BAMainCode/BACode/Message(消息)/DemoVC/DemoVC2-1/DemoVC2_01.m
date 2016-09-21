@@ -77,7 +77,7 @@
                          @"Star \"https://github.com/boai\" :)"
                          ];
     
-    BA_Weak;
+    BA_WEAKSELF;
     [GCDQueue executeInMainQueue:^{
         
         NSMutableArray *indexPaths = [NSMutableArray array];

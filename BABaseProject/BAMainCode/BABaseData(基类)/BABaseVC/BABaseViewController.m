@@ -337,7 +337,7 @@
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     
     // 2.设置网络状态改变后的处理
-    BA_Weak;
+    BA_WEAKSELF;
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         // 当网络状态改变了, 就会调用这个block
