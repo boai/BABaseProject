@@ -83,6 +83,17 @@
 /*! 6、获取sharedApplication */
 #define BASharedApplication [UIApplication sharedApplication]
 
+
+// 7、获取temp
+#define BA_PathTemp NSTemporaryDirectory()
+
+// 8、获取沙盒 Document
+#define BA_PathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+
+// 9、获取沙盒 Cache
+#define BA_PathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+
 FOUNDATION_EXPORT NSString * _Nonnull const BABundleName;
 FOUNDATION_EXPORT NSString * _Nonnull const BABundleVersion;
 FOUNDATION_EXPORT NSString * _Nonnull const BABundleShortVersionString;

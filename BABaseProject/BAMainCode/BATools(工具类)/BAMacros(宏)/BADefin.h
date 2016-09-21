@@ -100,6 +100,13 @@
 
 #define BA_UserDefault [NSUserDefaults standardUserDefaults]
 
+/*! 获取图片资源 */
+#define BA_GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+
+/*! 获取当前语言 */
+#define BA_CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+
 
 /*! 其他 */
 #pragma mark - ***** 应用内相关设置

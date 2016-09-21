@@ -101,8 +101,22 @@
 /*! iPhone6Plus or iPhone6sPlus */
 #define  BA_iPhone6_6sPlus (Width == 414.f && Height == 736.f)
 
-/*! cell的间距：10 */
+/*! cell 的间距：10 */
 #define BAStatusCellMargin 10
+
+/*! 设置 view 圆角和边框 */
+#define BA_ViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
+/*! 由角度转换弧度 */
+#define BA_DegreesToRadian(x) (M_PI * (x) / 180.0)
+
+/*! 由弧度转换角度 */
+#define BA_RadianToDegrees(radian) (radian*180.0)/(M_PI)
 
 
 
