@@ -61,6 +61,8 @@ iOS 10技术开发群       | `479663605`        |
 3.9         | [『BACustomAlertView』](https://github.com/boai/BACustomAlertView)       | 目前为止，最为精简的alert封装，以后alert就用博爱的[『BACustomAlertView』](https://github.com/boai/BACustomAlertView)！
 3.10        | 最新、最全、最优美的友盟登录和分享的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`demo 4`！
 3.11        | 最新、最全、最优美的 清理 APP 缓存的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`demo 2`！
+3.12        | 最新、最全、最优美的 渐变navi 的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`tabbar 的 消息栏目`！
+3.13        | 最新、最全、最优美的 获取所有系统设置跳转 的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`tabbar 的 消息栏目中demo 3`！
 
 ---
 
