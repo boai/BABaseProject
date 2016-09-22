@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - BAButton (1.0.1)
   - BACustomAlertView (1.0.5)
+  - BaiduMapKit (3.0.0)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - BAButton (~> 1.0.1)
   - BACustomAlertView
+  - BaiduMapKit
   - BlocksKit
   - FBMemoryProfiler
   - IQKeyboardManager
@@ -81,6 +83,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BAButton: bb8f74e5e167a7e01ce8c0a66eafc3245ebb8c31
   BACustomAlertView: 416a6497a6e1ca322f7a99ccdcc213492ee63be3
+  BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
   FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
@@ -100,6 +103,6 @@ SPEC CHECKSUMS:
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: 36aaab3082e8a2cbb437fb55d0caa3d1a12bfe0a
+PODFILE CHECKSUM: a431396f6e9ede8cbb33a4ef9361bb2b450b73e7
 
 COCOAPODS: 1.0.1

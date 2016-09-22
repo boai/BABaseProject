@@ -6,6 +6,6 @@
   Copyright © 2016年 博爱之家. All rights reserved.
 */
 
-title = "boai";
-DemoVC10Title = "custom collectionView";
+"title"         = "boai";
+"DemoVC10Title" = "custom collectionView";
 

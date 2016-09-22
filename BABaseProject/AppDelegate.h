@@ -60,9 +60,12 @@
 
 
 #import <UIKit/UIKit.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate>
+{
+    BMKMapManager *_mapManager;
+}
 @property (strong, nonatomic) UIWindow          *window;
 @property (nonatomic, strong) UIViewController  *viewController;
 /*! 本地通知保存字典 */

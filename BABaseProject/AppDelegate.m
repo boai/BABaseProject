@@ -60,6 +60,8 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+BACategory.h"
+#import "AppDelegate+BABaiduMap.h"
+
 #import "BABaseNetManager.h"
 
 @interface AppDelegate ()
@@ -95,6 +97,9 @@
     
     /*! 测试信息 */
     [self test];
+    
+    /*! 配置百度地图 */
+    [self ba_setupBaiduMap];
     
     return YES;
 }

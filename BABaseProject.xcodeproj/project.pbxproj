@@ -67,6 +67,7 @@
 		C445E1D31D1B86FE00D7654A /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1CB1D1B86FE00D7654A /* UIColor+Wonderful.m */; };
 		C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1CD1D1B86FE00D7654A /* UILabel+Wonderful.m */; };
 		C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1F41D1BF10A00D7654A /* DemoVC13.m */; };
+		C44BC02B1D93735800B5EA99 /* AppDelegate+BABaiduMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BC02A1D93735800B5EA99 /* AppDelegate+BABaiduMap.m */; };
 		C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C6A1CDD9F05000F5710 /* DemoVC4.m */; };
 		C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C7D1CDDBE44000F5710 /* DemoVC5.m */; };
 		C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89F81CE055DD00005E2B /* DemoVC5Cell.m */; };
@@ -552,6 +553,8 @@
 		C445E1CD1D1B86FE00D7654A /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
 		C445E1F31D1BF10A00D7654A /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		C445E1F41D1BF10A00D7654A /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
+		C44BC0291D93735800B5EA99 /* AppDelegate+BABaiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BABaiduMap.h"; sourceTree = "<group>"; };
+		C44BC02A1D93735800B5EA99 /* AppDelegate+BABaiduMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BABaiduMap.m"; sourceTree = "<group>"; };
 		C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProjectNoti.h; sourceTree = "<group>"; };
 		C4562C691CDD9F05000F5710 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		C4562C6A1CDD9F05000F5710 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
@@ -2617,6 +2620,8 @@
 			children = (
 				C4EB5B281CD8B24F003A7094 /* AppDelegate+BACategory.h */,
 				C4EB5B291CD8B24F003A7094 /* AppDelegate+BACategory.m */,
+				C44BC0291D93735800B5EA99 /* AppDelegate+BABaiduMap.h */,
+				C44BC02A1D93735800B5EA99 /* AppDelegate+BABaiduMap.m */,
 				C4EB5B2A1CD8B24F003A7094 /* NSObject+BAMJParse.h */,
 				C4EB5B2B1CD8B24F003A7094 /* NSObject+BAMJParse.m */,
 				C4EB5B2C1CD8B24F003A7094 /* NSObject+BAProgressHUD.h */,
@@ -3547,6 +3552,7 @@
 				C48027341D1928290087BBB9 /* BASystemSound.m in Sources */,
 				C4EB5BBE1CD8B250003A7094 /* BAMessageViewController.m in Sources */,
 				C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */,
+				C44BC02B1D93735800B5EA99 /* AppDelegate+BABaiduMap.m in Sources */,
 				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C48026CA1D191EC90087BBB9 /* DemoVC11_model.m in Sources */,
 				C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */,

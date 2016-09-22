@@ -52,7 +52,7 @@ target 'BABaseProject' do
     pod 'UMengSocialCOM', '~> 5.2.1'
 
     # 百度地图SDK
-#    pod 'BaiduMapKit'
+    pod 'BaiduMapKit'
 
     # 二维码
     #pod 'LBXScan','~> 1.1.1'

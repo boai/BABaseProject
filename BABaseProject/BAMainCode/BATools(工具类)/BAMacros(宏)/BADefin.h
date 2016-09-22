@@ -72,6 +72,9 @@
 #define BA_WX_APPSECRET     @"90eeb0c9ef2a1c99fb473890809f7f19"
 #define BA_QQKey            @"wrGGgg89e0lqqoXT"
 #define BA_QQAppID          @"1105285308"
+#define BA_BaiDuMapAppKey   @"qhqlttbTzqPdGilGTVoaH7fYGenIxNK5"
+
+
 
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]

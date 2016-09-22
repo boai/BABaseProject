@@ -35,16 +35,6 @@ static BAShareManage *shareManage;
 #pragma mark 注册友盟分享微信
 - (void)ba_setupShareConfig
 {
-    //设置友盟社会化组件appkey
-//    [UMSocialData setAppKey:BA_Umeng_Appkey];
-//    [UMSocialData openLog:YES];
-//    
-//    //注册微信
-//    [WXApi registerApp:BA_WX_APPKEY];
-//    //设置图文分享
-//    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
-    
-    
     // ************* 友盟分享 *************
     [UMSocialData setAppKey:BA_Umeng_Appkey];
     // 打开调试log的开关
