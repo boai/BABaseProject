@@ -47,18 +47,25 @@
     
 }
 
++ (void)initialize
+{
+    //设置自定义地图样式，会影响所有地图实例
+    //注：必须在BMKMapView对象初始化之前调用
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"custom_config_清新蓝" ofType:@""];
+    [BMKMapView customMapStyle:path];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self ba_configerBaiDuMap];
 
-    //适配ios7
-    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
+    /*! 适配ios7 */
+    if( ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0))
     {
-        //        self.edgesForExtendedLayout=UIRectEdgeNone;
         self.navigationController.navigationBar.translucent = NO;
     }
-    //添加普通地图/个性化地图切换开关
+    /*! 添加普通地图/个性化地图切换开关 */
     UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"normal", @"custom"]];
     [segment setSelectedSegmentIndex:0];
     [segment addTarget:self action:@selector(changeMapAction:) forControlEvents:UIControlEventValueChanged];
@@ -68,7 +75,8 @@
     [self addCustomGestures];//添加自定义的手势
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     [BMKMapView enableCustomMapStyle:enableCustomMap];
@@ -76,7 +84,8 @@
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
     [BMKMapView enableCustomMapStyle:NO];//关闭个性化地图
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
@@ -84,13 +93,17 @@
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-- (void)dealloc {
-    if (_mapView) {
+
+- (void)dealloc
+{
+    if (_mapView)
+    {
         _mapView = nil;
     }
 }
@@ -156,14 +169,16 @@
     [self.view addGestureRecognizer:singleTap];
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)theSingleTap {
+- (void)handleSingleTap:(UITapGestureRecognizer *)theSingleTap
+{
     /*
      *do something
      */
     NSLog(@"my handleSingleTap");
 }
 
-- (void)handleDoubleTap:(UITapGestureRecognizer *)theDoubleTap {
+- (void)handleDoubleTap:(UITapGestureRecognizer *)theDoubleTap
+{
     /*
      *do something
      */

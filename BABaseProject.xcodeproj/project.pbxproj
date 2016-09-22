@@ -132,6 +132,9 @@
 		C48556301D3CB2DD00002FA2 /* UINavigationBar+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C485562F1D3CB2DD00002FA2 /* UINavigationBar+BAKit.m */; };
 		C48556331D3CC39900002FA2 /* UIBarButtonItem+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48556321D3CC39900002FA2 /* UIBarButtonItem+BAKit.m */; };
 		C48556361D3CC74600002FA2 /* NSDateFormatter+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48556351D3CC74600002FA2 /* NSDateFormatter+BAKit.m */; };
+		C48CF5A11D93A8FA00F30C5B /* custom_config_黑夜 in Resources */ = {isa = PBXBuildFile; fileRef = C48CF59E1D93A8FA00F30C5B /* custom_config_黑夜 */; };
+		C48CF5A21D93A8FA00F30C5B /* custom_config_清新蓝 in Resources */ = {isa = PBXBuildFile; fileRef = C48CF59F1D93A8FA00F30C5B /* custom_config_清新蓝 */; };
+		C48CF5A31D93A8FA00F30C5B /* custom_config_午夜蓝 in Resources */ = {isa = PBXBuildFile; fileRef = C48CF5A01D93A8FA00F30C5B /* custom_config_午夜蓝 */; };
 		C4ACE2FC1CF5C19500313DD4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */; };
 		C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */; };
 		C4ACE3031CF5C90C00313DD4 /* DemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ACE3021CF5C90C00313DD4 /* DemoVC8.m */; };
@@ -683,6 +686,9 @@
 		C48556321D3CC39900002FA2 /* UIBarButtonItem+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BAKit.m"; sourceTree = "<group>"; };
 		C48556341D3CC74600002FA2 /* NSDateFormatter+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+BAKit.h"; sourceTree = "<group>"; };
 		C48556351D3CC74600002FA2 /* NSDateFormatter+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+BAKit.m"; sourceTree = "<group>"; };
+		C48CF59E1D93A8FA00F30C5B /* custom_config_黑夜 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "custom_config_黑夜"; sourceTree = "<group>"; };
+		C48CF59F1D93A8FA00F30C5B /* custom_config_清新蓝 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "custom_config_清新蓝"; sourceTree = "<group>"; };
+		C48CF5A01D93A8FA00F30C5B /* custom_config_午夜蓝 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "custom_config_午夜蓝"; sourceTree = "<group>"; };
 		C4ACE2FB1CF5C19500313DD4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C4ACE2FD1CF5C53100313DD4 /* DemoVC7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7.h; sourceTree = "<group>"; };
 		C4ACE2FE1CF5C53100313DD4 /* DemoVC7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7.m; sourceTree = "<group>"; };
@@ -2216,6 +2222,9 @@
 				C4D1092A1D9271400057B2DC /* DemoVC2_04.h */,
 				C4D1092B1D9271400057B2DC /* DemoVC2_04.m */,
 				C4D1092C1D9271400057B2DC /* DemoVC2_04.xib */,
+				C48CF59E1D93A8FA00F30C5B /* custom_config_黑夜 */,
+				C48CF59F1D93A8FA00F30C5B /* custom_config_清新蓝 */,
+				C48CF5A01D93A8FA00F30C5B /* custom_config_午夜蓝 */,
 			);
 			path = "DemoVC2-4";
 			sourceTree = "<group>";
@@ -3208,6 +3217,7 @@
 				C4EB5C191CD8B251003A7094 /* pic6.jpg in Resources */,
 				C4EB5C2D1CD8B251003A7094 /* 雪花.png in Resources */,
 				C4EB5BDA1CD8B250003A7094 /* img12.jpg in Resources */,
+				C48CF5A11D93A8FA00F30C5B /* custom_config_黑夜 in Resources */,
 				C4B963D11D33A5B1005926B8 /* dropdown_anim__0001@2x.png in Resources */,
 				C4EB5C2B1CD8B251003A7094 /* 烟花背景.jpg in Resources */,
 				C4B9641D1D33A5B1005926B8 /* dropdown_anim__00044@2x.png in Resources */,
@@ -3244,6 +3254,7 @@
 				C4B9640B1D33A5B1005926B8 /* dropdown_anim__00036@2x.png in Resources */,
 				C4B963F41D33A5B1005926B8 /* Contents.json in Resources */,
 				C4B964091D33A5B1005926B8 /* dropdown_anim__00035@2x.png in Resources */,
+				C48CF5A21D93A8FA00F30C5B /* custom_config_清新蓝 in Resources */,
 				C4EB5BE71CD8B250003A7094 /* icon-1@2x.png in Resources */,
 				C4B964261D33A5B1005926B8 /* Contents.json in Resources */,
 				C4EB5BD91CD8B250003A7094 /* img11.jpg in Resources */,
@@ -3361,6 +3372,7 @@
 				C4EB5BE61CD8B250003A7094 /* icon-10@2x.png in Resources */,
 				C42DAA4B1D3763A800FE8B3E /* profileVC.bundle in Resources */,
 				C4EB5BE31CD8B250003A7094 /* img8.jpg in Resources */,
+				C48CF5A31D93A8FA00F30C5B /* custom_config_午夜蓝 in Resources */,
 				C4EB5C1C1CD8B251003A7094 /* picon.jpg in Resources */,
 				C4EB5BD61CD8B250003A7094 /* img0.jpg in Resources */,
 				C4EB5BF81CD8B250003A7094 /* 12.jpg in Resources */,
