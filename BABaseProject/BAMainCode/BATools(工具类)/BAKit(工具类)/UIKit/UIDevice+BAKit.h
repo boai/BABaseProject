@@ -70,7 +70,7 @@
  */
 #define IOS_VERSION [UIDevice currentDevice].systemVersion
 
-#define isiOS10 ([[[[[UIDevice currentDevice] systemVersion] substringToIndex:1] stringByAppendingString:@"0"] intValue] >= 10)
+#define isiOS10 ([[[[[UIDevice currentDevice] systemVersion] substringToIndex:1] stringByAppendingString:@"0"] intValue] == 10)
 
 /*! 大于8.0 */
 #define IOS8x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)

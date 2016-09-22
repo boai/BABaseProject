@@ -8,11 +8,23 @@
 
 #import "BABaseViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
-@interface DemoVC2_04 : BABaseViewController <BMKMapViewDelegate>
+@interface DemoVC2_04 : BABaseViewController <BMKMapViewDelegate, BMKLocationServiceDelegate>
 {
     __weak IBOutlet BMKMapView *_mapView;
+    __weak IBOutlet UIButton *startBtn;
+    __weak IBOutlet UIButton *stopBtn;
+    __weak IBOutlet UIButton *followingBtn;
+    __weak IBOutlet UIButton *followHeadBtn;
+    
+    BMKLocationService* _locService;
 
 }
+
+-(IBAction)startLocation:(id)sender;
+-(IBAction)stopLocation:(id)sender;
+-(IBAction)startFollowing:(id)sender;
+-(IBAction)startFollowHeading:(id)sender;
 
 @end
