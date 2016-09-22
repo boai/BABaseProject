@@ -7,7 +7,12 @@
 //
 
 #import "BABaseViewController.h"
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
 
-@interface DemoVC2_04 : BABaseViewController
+@interface DemoVC2_04 : BABaseViewController <BMKMapViewDelegate>
+{
+    __weak IBOutlet BMKMapView *_mapView;
+
+}
 
 @end

@@ -11,13 +11,16 @@
 
 @implementation AppDelegate (BABaiduMap)
 
-
+/*!
+ *  配置百度地图
+ */
 - (void)ba_setupBaiduMap
 {
-    // 要使用百度地图，请先启动BaiduMapManager
+    /*! 要使用百度地图，请先启动BaiduMapManager */
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:BA_BaiDuMapAppKey generalDelegate:self];
-    if (!ret) {
+    if (!ret)
+    {
         NSLog(@"manager start failed!");
     }
 }
@@ -30,15 +33,16 @@
     else{
         NSLog(@"onGetNetworkState %d",iError);
     }
-    
 }
 
 - (void)onGetPermissionState:(int)iError
 {
-    if (0 == iError) {
+    if (0 == iError)
+    {
         NSLog(@"授权成功");
     }
-    else {
+    else
+    {
         NSLog(@"onGetPermissionState %d",iError);
     }
 }
