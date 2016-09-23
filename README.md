@@ -58,7 +58,7 @@ iOS 10技术开发群       | `479663605`        |
 3.6         | [『BANetManager』](https://github.com/boai/BANetManager)        | 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式！
 3.7         | [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)        | 最全、最贴心的国际化处理博客！
 3.8         | 3D Touch 的纯代码实现方法        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`appdelegate`！
-3.9         | [『BACustomAlertView』](https://github.com/boai/BACustomAlertView)       | 目前为止，最为精简的alert封装，以后alert就用博爱的[『BACustomAlertView』](https://github.com/boai/BACustomAlertView)！
+3.9         | [『DSAlert』](https://github.com/DS-Team/DSAlert-OC](https://github.com/DS-Team/DSAlert-OC)       | 目前为止，最为精简的 alert 和 actionSheet 封装！DSAlert 让你的弹框不再孤单！[『DSAlert』](https://github.com/DS-Team/DSAlert-OC](https://github.com/DS-Team/DSAlert-OC)！
 3.10        | 最新、最全、最优美的友盟登录和分享的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`demo 4`！
 3.11        | 最新、最全、最优美的 清理 APP 缓存的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`demo 2`！
 3.12        | 最新、最全、最优美的 渐变navi 的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`tabbar 的 消息栏目`！
