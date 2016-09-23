@@ -11,10 +11,10 @@
 @interface BAHomeVCModel : BABaseModel
 
 /*! 标题 */
-@property (nonatomic, strong) NSString *titleLabel;
+@property (nonatomic, copy) NSString *titleLabel;
 
 /*! 内容 */
-@property (nonatomic, strong) NSString *contentLabel;
+@property (nonatomic, copy) NSString *contentLabel;
 
 
 @end

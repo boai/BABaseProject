@@ -459,9 +459,9 @@ didReceiveLocalNotification:(UILocalNotification *)notification
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        BATabBarController *tabBarController = ( BATabBarController*)self.window.rootViewController;
-        BANavigationController * nav = (BANavigationController *)tabBarController.selectedViewController;
-        UIViewController * baseVC = (UIViewController *)nav.visibleViewController;
+        BATabBarController *tabBarController = (BATabBarController*)self.window.rootViewController;
+        BANavigationController *nav = (BANavigationController *)tabBarController.selectedViewController;
+        UIViewController *baseVC = (UIViewController *)nav.visibleViewController;
         //如果是当前控制器是我的消息控制器的话，刷新数据即可
         if([baseVC isKindOfClass:[DemoVC6 class]])
         {

@@ -402,6 +402,11 @@
 		C4EB5C2B1CD8B251003A7094 /* 烟花背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA51CD8B250003A7094 /* 烟花背景.jpg */; };
 		C4EB5C2C1CD8B251003A7094 /* 金元宝.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA61CD8B250003A7094 /* 金元宝.png */; };
 		C4EB5C2D1CD8B251003A7094 /* 雪花.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EB5BA71CD8B250003A7094 /* 雪花.png */; };
+		C4EBE1EA1D94C4FC00020C1F /* MyAnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EBE1E91D94C4FC00020C1F /* MyAnimatedAnnotationView.m */; };
+		C4EBE1ED1D94CB0700020C1F /* BAUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EBE1EC1D94CB0700020C1F /* BAUserModel.m */; };
+		C4EBE1F21D95015D00020C1F /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EBE1EF1D95015D00020C1F /* poi_1.png */; };
+		C4EBE1F31D95015D00020C1F /* poi_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EBE1F01D95015D00020C1F /* poi_2.png */; };
+		C4EBE1F41D95015D00020C1F /* poi_3.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EBE1F11D95015D00020C1F /* poi_3.png */; };
 		C4EE1C5E1D2288BF005046A6 /* DemoVC2_01.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C5D1D2288BF005046A6 /* DemoVC2_01.m */; };
 		C4EE1C611D228AE9005046A6 /* DemoVC2_01_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C601D228AE9005046A6 /* DemoVC2_01_Model.m */; };
 		C4EE1C651D228E34005046A6 /* NSString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C641D228E34005046A6 /* NSString+BAKit.m */; };
@@ -1010,6 +1015,13 @@
 		C4EB5BA71CD8B250003A7094 /* 雪花.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雪花.png"; sourceTree = "<group>"; };
 		C4EB5C321CD8B530003A7094 /* BABaseProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProject.pch; sourceTree = "<group>"; };
 		C4EB5C9D1CD8BDAE003A7094 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4EBE1E81D94C4FC00020C1F /* MyAnimatedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnimatedAnnotationView.h; sourceTree = "<group>"; };
+		C4EBE1E91D94C4FC00020C1F /* MyAnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnimatedAnnotationView.m; sourceTree = "<group>"; };
+		C4EBE1EB1D94CB0700020C1F /* BAUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAUserModel.h; sourceTree = "<group>"; };
+		C4EBE1EC1D94CB0700020C1F /* BAUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAUserModel.m; sourceTree = "<group>"; };
+		C4EBE1EF1D95015D00020C1F /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
+		C4EBE1F01D95015D00020C1F /* poi_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_2.png; sourceTree = "<group>"; };
+		C4EBE1F11D95015D00020C1F /* poi_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_3.png; sourceTree = "<group>"; };
 		C4EE1C5C1D2288BF005046A6 /* DemoVC2_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_01.h; sourceTree = "<group>"; };
 		C4EE1C5D1D2288BF005046A6 /* DemoVC2_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_01.m; sourceTree = "<group>"; };
 		C4EE1C5F1D228AE9005046A6 /* DemoVC2_01_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_01_Model.h; sourceTree = "<group>"; };
@@ -2219,9 +2231,14 @@
 		C4D109291D9270BA0057B2DC /* DemoVC2-4 */ = {
 			isa = PBXGroup;
 			children = (
+				C4EBE1EE1D95015D00020C1F /* 百度地图Image */,
 				C4D1092A1D9271400057B2DC /* DemoVC2_04.h */,
 				C4D1092B1D9271400057B2DC /* DemoVC2_04.m */,
 				C4D1092C1D9271400057B2DC /* DemoVC2_04.xib */,
+				C4EBE1EB1D94CB0700020C1F /* BAUserModel.h */,
+				C4EBE1EC1D94CB0700020C1F /* BAUserModel.m */,
+				C4EBE1E81D94C4FC00020C1F /* MyAnimatedAnnotationView.h */,
+				C4EBE1E91D94C4FC00020C1F /* MyAnimatedAnnotationView.m */,
 				C48CF59E1D93A8FA00F30C5B /* custom_config_黑夜 */,
 				C48CF59F1D93A8FA00F30C5B /* custom_config_清新蓝 */,
 				C48CF5A01D93A8FA00F30C5B /* custom_config_午夜蓝 */,
@@ -2911,6 +2928,16 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		C4EBE1EE1D95015D00020C1F /* 百度地图Image */ = {
+			isa = PBXGroup;
+			children = (
+				C4EBE1EF1D95015D00020C1F /* poi_1.png */,
+				C4EBE1F01D95015D00020C1F /* poi_2.png */,
+				C4EBE1F11D95015D00020C1F /* poi_3.png */,
+			);
+			path = "百度地图Image";
+			sourceTree = "<group>";
+		};
 		C4EE1C5A1D22871D005046A6 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -3126,7 +3153,6 @@
 				TargetAttributes = {
 					C4EB5A9F1CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5MLEPWQRVD;
 					};
 					C4EB5AB81CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
@@ -3292,6 +3318,7 @@
 				C4EB5BFC1CD8B251003A7094 /* 16.jpg in Resources */,
 				C4B963D31D33A5B1005926B8 /* dropdown_anim__00010@2x.png in Resources */,
 				C4EB5C281CD8B251003A7094 /* 樱花树3.jpg in Resources */,
+				C4EBE1F21D95015D00020C1F /* poi_1.png in Resources */,
 				C4B963D01D33A5AF005926B8 /* Contents.json in Resources */,
 				C4B9640F1D33A5B1005926B8 /* dropdown_anim__00038@2x.png in Resources */,
 				C4EB5C101CD8B251003A7094 /* icon3.jpg in Resources */,
@@ -3345,6 +3372,7 @@
 				C4B964061D33A5B1005926B8 /* Contents.json in Resources */,
 				C4B964141D33A5B1005926B8 /* Contents.json in Resources */,
 				C4B964381D33A5B1005926B8 /* Contents.json in Resources */,
+				C4EBE1F41D95015D00020C1F /* poi_3.png in Resources */,
 				C4EB5C151CD8B251003A7094 /* pic2.jpg in Resources */,
 				C4B964031D33A5B1005926B8 /* dropdown_anim__00032@2x.png in Resources */,
 				C4EB5AB01CD8B04B003A7094 /* Assets.xcassets in Resources */,
@@ -3353,6 +3381,7 @@
 				C4B963E21D33A5B1005926B8 /* Contents.json in Resources */,
 				C4EB5BD71CD8B250003A7094 /* img1.jpg in Resources */,
 				C4EADCE51D02C0130086979C /* Localizable.strings in Resources */,
+				C4EBE1F31D95015D00020C1F /* poi_2.png in Resources */,
 				C4EB5BF41CD8B250003A7094 /* 0.jpg in Resources */,
 				C4B964391D33A5B1005926B8 /* dropdown_anim__00057@2x.png in Resources */,
 				C4EB5BEA1CD8B250003A7094 /* icon-4@2x.png in Resources */,
@@ -3596,6 +3625,7 @@
 				C44423491D2E85B8004ACAA8 /* DemoVC2_02.m in Sources */,
 				C4EB5BCB1CD8B250003A7094 /* AppDelegate+BACategory.m in Sources */,
 				C48556301D3CB2DD00002FA2 /* UINavigationBar+BAKit.m in Sources */,
+				C4EBE1EA1D94C4FC00020C1F /* MyAnimatedAnnotationView.m in Sources */,
 				C480272F1D1928290087BBB9 /* BALog.m in Sources */,
 				C427812E1D2D39B1003E6694 /* GCDGroup.m in Sources */,
 				C48027551D1928290087BBB9 /* EmitterLayerView.m in Sources */,
@@ -3660,6 +3690,7 @@
 				C42DAA431D37269300FE8B3E /* DemoVC2_03.m in Sources */,
 				C4EB5BBB1CD8B250003A7094 /* BAGIFImageView.m in Sources */,
 				C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */,
+				C4EBE1ED1D94CB0700020C1F /* BAUserModel.m in Sources */,
 				C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */,
 				C4F74AA11D37C1BD0014C396 /* BAShareManage.m in Sources */,
 				C480274B1D1928290087BBB9 /* UIScrollView+BAKit.m in Sources */,
@@ -3879,7 +3910,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.youren.BABaseProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3897,7 +3928,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.youren.BABaseProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boai.BABaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

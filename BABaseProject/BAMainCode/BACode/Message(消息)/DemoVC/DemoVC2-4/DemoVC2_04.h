@@ -18,7 +18,7 @@
     __weak IBOutlet UIButton *followingBtn;
     __weak IBOutlet UIButton *followHeadBtn;
     
-    BMKLocationService* _locService;
+    BMKLocationService       *_locService;
 
 }
 
