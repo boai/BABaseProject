@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6jp-n2-X6K" customClass="BMKMapView">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6jp-n2-X6K" customClass="BMKMapView">
                     <rect key="frame" x="0.0" y="52" width="320" height="516"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xU-XM-5ml">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xU-XM-5ml">
                     <rect key="frame" x="161" y="1" width="85" height="44"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="使用罗盘">
@@ -35,7 +35,7 @@
                         <action selector="startFollowHeading:" destination="-1" eventType="touchUpInside" id="c5H-To-LXo"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kK7-0x-aPK">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kK7-0x-aPK">
                     <rect key="frame" x="0.0" y="1" width="73" height="44"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="开始定位">
@@ -55,8 +55,12 @@
                         <action selector="stopLocation:" destination="-1" eventType="touchUpInside" id="n1l-e6-O8I"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCK-Zb-2CQ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCK-Zb-2CQ">
                     <rect key="frame" x="74" y="1" width="85" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="br9-Gw-aG3"/>
+                        <constraint firstAttribute="width" constant="85" id="zrP-af-NkW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="使用跟随">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,6 +71,21 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="centerY" secondItem="kK7-0x-aPK" secondAttribute="centerY" id="5yY-tr-NgS"/>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="centerY" secondItem="5xU-XM-5ml" secondAttribute="centerY" id="DYV-ex-ia4"/>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="top" secondItem="5xU-XM-5ml" secondAttribute="top" id="KkS-aa-T4y"/>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="leading" secondItem="m5k-NT-veU" secondAttribute="leading" constant="74" id="NYv-LM-m2v"/>
+                <constraint firstItem="6jp-n2-X6K" firstAttribute="leading" secondItem="m5k-NT-veU" secondAttribute="leading" id="Out-Qy-Xdh"/>
+                <constraint firstAttribute="bottom" secondItem="6jp-n2-X6K" secondAttribute="bottom" id="P8p-ed-6uZ"/>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="top" secondItem="kK7-0x-aPK" secondAttribute="top" id="SxD-JI-5gX"/>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="leading" secondItem="kK7-0x-aPK" secondAttribute="trailing" constant="1" id="T4w-nF-mbu"/>
+                <constraint firstItem="vCK-Zb-2CQ" firstAttribute="top" secondItem="m5k-NT-veU" secondAttribute="top" constant="1" id="aHj-zS-ueh"/>
+                <constraint firstItem="6jp-n2-X6K" firstAttribute="top" secondItem="vCK-Zb-2CQ" secondAttribute="bottom" id="gh4-K8-g4M"/>
+                <constraint firstAttribute="trailing" secondItem="6jp-n2-X6K" secondAttribute="trailing" id="iYt-0V-cz7"/>
+                <constraint firstItem="5xU-XM-5ml" firstAttribute="leading" secondItem="vCK-Zb-2CQ" secondAttribute="trailing" constant="2" id="y1w-FS-pWt"/>
+            </constraints>
+            <point key="canvasLocation" x="68" y="158"/>
         </view>
     </objects>
 </document>
