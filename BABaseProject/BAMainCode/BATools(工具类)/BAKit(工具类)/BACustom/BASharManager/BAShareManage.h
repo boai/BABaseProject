@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
 
-#define BASHAREMANAGER [BAShareManage shareManage]
+#define BASHAREMANAGER [BAShareManage ba_shareManage]
 
+
+typedef NS_ENUM(NSUInteger, BAShareManageType) {
+    /*! 默认类型 */
+    BAShareManageTypeNone,
+    /*! 纯图片类型分享 */
+    BAShareManageTypeImage
+};
 @protocol BAShareManageDelegate <NSObject>
 
 /*! 返回用户信息 */
@@ -23,12 +30,16 @@
 /** 登录后返回的数据 **/
 @property (nonatomic, weak) id<BAShareManageDelegate> delegate;
 
+/*! 博爱分享：纯图片，默认为 NO */
+//@property (nonatomic, getter=isPurePicture) BOOL isPurePicture;
+@property (nonatomic, assign) BAShareManageType shareManageType;
+
 /*!
  *  友盟分享工具类封装
  *
  *  @return 返回：友盟分享工具类封装的实例
  */
-+ (BAShareManage *)shareManage;
++ (BAShareManage *)ba_shareManage;
 
 /*!
  *  友盟分享设置

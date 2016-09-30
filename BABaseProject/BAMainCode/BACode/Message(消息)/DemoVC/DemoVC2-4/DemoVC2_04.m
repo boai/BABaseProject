@@ -54,6 +54,12 @@
 }
 @property (nonatomic, strong) BAUserModel *userModel;
 
+//@property (nonatomic, assign) float latitude;    //当前所处位置的纬度
+//@property (nonatomic, assign) float longitude;    //当前所处位置的经度
+//
+//@property (nonatomic, assign) float lat;
+//@property (nonatomic, assign) float lng;
+
 @end
 
 @implementation DemoVC2_04
@@ -121,13 +127,16 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segment];
     enableCustomMap = NO;
     
+    _mapView.showsUserLocation = YES;//显示定位图层
+    _mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    /*! 设置地图缩放级别 */
+    _mapView.zoomLevel = 18;
+    
     [self addCustomGestures];//添加自定义的手势
     
     [self ba_startLocation];
     
     
-    /*! 设置地图缩放级别 */
-    [_mapView setZoomLevel:11];
 }
 
 - (void)ba_startLocation
@@ -167,15 +176,24 @@
         pointAnnotation.title = @"博爱test大头针";
         pointAnnotation.subtitle = @"欢迎来到博爱之家!";
         
-//        CLLocationCoordinate2D  local;
-//        
-//        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//        local.latitude = [[userDefault objectForKey:@"curLat"] doubleValue];
-//        local.longitude = [[userDefault objectForKey:@"curLog"] doubleValue];
-//        [userDefault synchronize];
+        /*! 注意：如果要批量添加大头针的话，要单独写一个继承自 BMKPointAnnotation 类的model 类，然后用 for 循环添加 model 给 pointAnnotation */
+//        pointAnnotation.poiModel = model;
+        pointAnnotation.coordinate = coor;
         
+       
     }
     [_mapView addAnnotation:pointAnnotation];
+}
+
+- (void)moveToCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    // 添加一个标记位
+    BMKCoordinateRegion viewRegion = BMKCoordinateRegionMake(coordinate, BMKCoordinateSpanMake(0.001, 0.001));
+    BMKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
+    [_mapView setRegion:adjustedRegion animated:YES];
+    //    //[m_mapView setRegion:viewRegion animated:YES];
+    
+    [_mapView setCenterCoordinate:coordinate animated:YES];
 }
 
 // 添加动画Annotation
@@ -233,14 +251,15 @@
 // 根据anntation生成对应的View
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
-    //普通annotation
-    if (annotation == pointAnnotation) {
+    // 普通annotation
+    if (annotation == pointAnnotation)
+    {
         NSString *AnnotationViewID = @"renameMark";
         BMKPinAnnotationView *annotationView = (BMKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
         if (annotationView == nil) {
             annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
             // 设置颜色
-            annotationView.pinColor = BMKPinAnnotationColorPurple;
+            annotationView.pinColor = BMKPinAnnotationColorRed;
             // 从天上掉下效果
             annotationView.animatesDrop = YES;
             // 设置可拖拽

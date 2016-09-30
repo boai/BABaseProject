@@ -78,18 +78,20 @@
     /*! 友盟分享 */
     if (sender.tag == 1001)
     {
+        BAShareManage *shareManage = [BAShareManage ba_shareManage];
         NSString *shareTitle = @"博爱分享 2.0 版";
         NSString *shareUrlSrt = @"http://boai.github.io";
         NSString *shareContent = [NSString stringWithFormat:@"测试（博爱BABaseProject）分享【博爱之家】！详情点击：%@", shareUrlSrt];
         /*! 注意：图片不能为空 */
         UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
         
-        [[BAShareManage shareManage] ba_UMshareListWithViewControll:self title:shareTitle shareContent:shareContent image:shareImage url:shareUrlSrt];
+        shareManage.shareManageType = BAShareManageTypeImage;
+        [shareManage ba_UMshareListWithViewControll:self title:shareTitle shareContent:shareContent image:shareImage url:shareUrlSrt];
     }
     /*! 友盟登陆 */
     if (sender.tag == 1002)
     {
-        BAShareManage *manger = [BAShareManage shareManage];
+        BAShareManage *manger = [BAShareManage ba_shareManage];
         manger.delegate = self;
         [manger ba_UMLoginListWithViewControll:self];
     }

@@ -19,16 +19,21 @@
     UIViewController *_viewC;
 }
 
-static BAShareManage *shareManage;
+//static BAShareManage *shareManage;
 
-+ (BAShareManage *)shareManage
++ (BAShareManage *)ba_shareManage
 {
-    static BAShareManage *shareManage;
+    static BAShareManage *ba_shareManage;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shareManage = [[BAShareManage alloc] init];
+        ba_shareManage = [[BAShareManage alloc] init];
     });
-    return shareManage;
+    return ba_shareManage;
+}
+
+- (void)setShareManageType:(BAShareManageType)shareManageType
+{
+    _shareManageType = shareManageType;
 }
 
 #pragma mark - 友盟分享
@@ -79,9 +84,18 @@ static BAShareManage *shareManage;
 {
     _viewC = viewC;
     
-    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialData defaultData].extConfig.wechatSessionData.title = shareTitle;
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = shareURLString;
+    if (self.shareManageType == BAShareManageTypeImage)
+    {
+        [UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;
+        [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    }
+    else
+    {
+        [UMSocialData defaultData].extConfig.wechatSessionData.title = shareTitle;
+        [UMSocialData defaultData].extConfig.wechatSessionData.url = shareURLString;
+        [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    }
+
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -93,8 +107,14 @@ static BAShareManage *shareManage;
                                url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
-//    [UMSocialData defaultData].extConfig.wechatSessionData.title = title;
+    if (self.shareManageType == BAShareManageTypeImage)
+    {
+        [[UMSocialControllerService defaultControllerService] setShareText:nil shareImage:shareImage socialUIDelegate:nil];
+    }
+    else
+    {
+        [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    }
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -106,9 +126,19 @@ static BAShareManage *shareManage;
                                   url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialData defaultData].extConfig.wechatTimelineData.title = shareTitle;
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareURLString;
+    if (self.shareManageType == BAShareManageTypeImage)
+    {
+        [UMSocialData defaultData].extConfig.wechatTimelineData.wxMessageType = UMSocialWXMessageTypeImage;
+        [UMSocialData defaultData].extConfig.wechatTimelineData.title = nil;
+        [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    }
+    else
+    {
+        [UMSocialData defaultData].extConfig.wechatTimelineData.title = shareTitle;
+        [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareURLString;
+        [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    }
+
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
 
@@ -120,9 +150,17 @@ static BAShareManage *shareManage;
                                url:(NSString *)shareURLString
 {
     _viewC = viewC;
-    [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
-    [UMSocialData defaultData].extConfig.qqData.url = shareURLString;
-    [UMSocialData defaultData].extConfig.qqData.title = shareTitle;
+    if (self.shareManageType == BAShareManageTypeImage)
+    {
+        [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+        [[UMSocialControllerService defaultControllerService] setShareText:nil shareImage:shareImage socialUIDelegate:nil];
+    }
+    else
+    {
+        [UMSocialData defaultData].extConfig.qqData.url = shareURLString;
+        [UMSocialData defaultData].extConfig.qqData.title = shareTitle;
+        [[UMSocialControllerService defaultControllerService] setShareText:shareContent shareImage:shareImage socialUIDelegate:nil];
+    }
 
     [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ].snsClickHandler(viewC,[UMSocialControllerService defaultControllerService],YES);
 }
