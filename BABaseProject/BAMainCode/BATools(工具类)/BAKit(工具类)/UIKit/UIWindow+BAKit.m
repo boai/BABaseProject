@@ -57,7 +57,7 @@
 @implementation UIWindow (BAKit)
 
 /* 采取截屏 */
-- (UIImage *)takeScreenshot
+- (UIImage *)ba_takeScreenshot
 {
     // 源代码地址 (Under MIT License): https://github.com/shinydevelopment/SDScreenshotCapture/blob/master/SDScreenshotCapture/SDScreenshotCapture.m#L35
     // 判断系统版本号

@@ -60,6 +60,6 @@
 /**
  *  采取截屏
  */
-- (UIImage *)takeScreenshot;
+- (UIImage *)ba_takeScreenshot;
 
 @end

@@ -133,6 +133,9 @@
     /*! 离屏渲染绘制 layer */
     #import "UIView+RoundedCorner.h"
 
+    /*! 截屏 */
+    #import <SDScreenshotCapture.h>
+
     /*! 将Toast通知添加到UIView对象类 */
     //#import "UIView+Toast.h"
 

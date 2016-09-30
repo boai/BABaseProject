@@ -86,6 +86,10 @@ target 'BABaseProject' do
     # Facebook的内存检测工具
     pod 'FBMemoryProfiler'
     
+    # 截屏
+    pod 'SDScreenshotCapture'
+
+    
     # 类似QQ侧滑框架
 #    pod "JVFloatingDrawer"
 

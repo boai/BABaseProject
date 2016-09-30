@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '89C347E5AD3387A150F8CAD6B3ED33FD'
-               BlueprintName = 'SDAutoLayout'
+               BlueprintIdentifier = '43BE14234FCAFE0261EA517ECBD7A217'
+               BlueprintName = 'SDScreenshotCapture'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSDAutoLayout.a'>
+               BuildableName = 'libSDScreenshotCapture.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

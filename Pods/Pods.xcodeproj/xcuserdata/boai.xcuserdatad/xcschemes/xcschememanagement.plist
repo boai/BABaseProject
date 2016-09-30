@@ -104,6 +104,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDScreenshotCapture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -122,17 +127,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03F5BBFD7D8A6BB90CB59F110CD162CA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>07A1458F0ECFD7D943DC4EF15E916F34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>362413C1766944FAB7F4304F37B692EA</key>
+		<key>27C84E3E5B63A327FDCB4A5A2E2707DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +142,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41A0385EF78F63D07BACEC60C9C684D5</key>
+		<key>43BE14234FCAFE0261EA517ECBD7A217</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,12 +157,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64593443C981ACA9F81179ADFCBBB8A6</key>
+		<key>70BC44266C6FFE30D2C57129458E070B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<key>80B3AF63759542FF0EAE1D605D3F2091</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89C347E5AD3387A150F8CAD6B3ED33FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,17 +177,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>924D33FD29EE4B8C2EEC6C575F5861AC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>93D7B2561440B88E4738C0CC1655A302</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -198,6 +193,11 @@
 			<true/>
 		</dict>
 		<key>A1CA83E959654FBDDE495F0BB01A1CB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5BFF4294A7D3C90226C05DDAA3C5C25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,7 +222,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA73D2B9DDCC706253D46A0B3094C075</key>
+		<key>E08F0778673C5C93369B7E5339C291D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -232,7 +232,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E7768CB1FB2921E3C6C0B75E61E84A98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EBE33197DFF5736FB990D1E852CCCDEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED3955DD835D95D548C25F59FB60343B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

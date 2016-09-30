@@ -16,7 +16,9 @@ typedef NS_ENUM(NSUInteger, BAShareManageType) {
     /*! 默认类型 */
     BAShareManageTypeNone,
     /*! 纯图片类型分享 */
-    BAShareManageTypeImage
+    BAShareManageTypeImage,
+    /*! 截图类型分享 */
+    BAShareManageTypeScreenShots
 };
 @protocol BAShareManageDelegate <NSObject>
 

@@ -48,6 +48,7 @@ PODS:
   - MyLayout (1.1.9)
   - NullSafe (1.2.2)
   - SDAutoLayout (2.1.7)
+  - SDScreenshotCapture (1.3.1)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - MyLayout (~> 1.1.6)
   - NullSafe
   - SDAutoLayout
+  - SDScreenshotCapture
   - SDWebImage (~> 3.7.5)
   - UMengSocialCOM (~> 5.2.1)
   - WebViewJavascriptBridge (~> 5.0)
@@ -98,11 +100,12 @@ SPEC CHECKSUMS:
   MyLayout: a908e6a34cd9dc5320b6ac27b7fb419c6a8933d2
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
+  SDScreenshotCapture: 6bf9bf26a16f34bac8d9a9b1c3bbb4c4974789cc
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: a431396f6e9ede8cbb33a4ef9361bb2b450b73e7
+PODFILE CHECKSUM: 7c240c24d715de240c8b1fb767966242224c9fd8
 
 COCOAPODS: 1.0.1

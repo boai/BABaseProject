@@ -155,6 +155,11 @@
         [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
         [[UMSocialControllerService defaultControllerService] setShareText:nil shareImage:shareImage socialUIDelegate:nil];
     }
+    else if (self.shareManageType == BAShareManageTypeScreenShots)
+    {
+        [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+        [[UMSocialControllerService defaultControllerService] setShareText:nil shareImage:shareImage socialUIDelegate:nil];
+    }
     else
     {
         [UMSocialData defaultData].extConfig.qqData.url = shareURLString;
@@ -475,6 +480,10 @@
 
             // delegate
             [weakSelf.delegate getUserData:dict];
+
+//            UMSocialUserInfoResponse *userinfo =result;
+//
+//            NSString *message = [NSString stringWithFormat:@"name: %@\n icon: %@\n gender: %@\n",userinfo.name,userinfo.iconurl,userinfo.gender];
 
             BALog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
         }
