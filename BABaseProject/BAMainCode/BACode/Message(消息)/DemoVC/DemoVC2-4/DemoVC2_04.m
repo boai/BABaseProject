@@ -41,7 +41,8 @@
 >
 {
     BOOL                 enableCustomMap;
-    
+    BOOL                 isGeoSearch;
+
     BMKCircle           *circle;
     BMKPolygon          *polygon;
     BMKPolygon          *polygon2;
@@ -54,11 +55,16 @@
 }
 @property (nonatomic, strong) BAUserModel *userModel;
 
-//@property (nonatomic, assign) float latitude;    //当前所处位置的纬度
-//@property (nonatomic, assign) float longitude;    //当前所处位置的经度
+@property (nonatomic, assign) float latitude;    //当前所处位置的纬度
+@property (nonatomic, assign) float longitude;    //当前所处位置的经度
 //
 //@property (nonatomic, assign) float lat;
 //@property (nonatomic, assign) float lng;
+
+//@property (nonatomic, strong) NSString *coordinateXText;
+//@property (nonatomic, strong) NSString *coordinateYText;
+@property (nonatomic, strong) NSString *cityText;
+@property (nonatomic, strong) NSString *addrText;
 
 @end
 
@@ -69,7 +75,8 @@
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     _locService.delegate = self;
-    
+    _geocodesearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+
     [BMKMapView enableCustomMapStyle:enableCustomMap];
     
     [self startLocation:nil];
@@ -83,7 +90,8 @@
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
     _locService.delegate = nil;
-    
+    _geocodesearch.delegate = nil; // 不用时，置nil
+
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
 
@@ -136,9 +144,133 @@
     
     [self ba_startLocation];
     
+    [self ba_GeoCode];
+
+}
+
+#pragma mark - ***** 正向地理编码
+- (void)ba_GeoCode
+{
+    _geocodesearch = [[BMKGeoCodeSearch alloc]init];
+//    _coordinateXText = @"116.403981";
+//    _coordinateYText = @"39.915101";
+    _cityText = @"北京";
+    _addrText = @"海淀区上地十街10号";
+    [_mapView setZoomLevel:14];
+    
+    /*! 正向地理编码 */
+    [self onClickGeocodeWithCity:_cityText address:_addrText];
+}
+
+-(IBAction)onClickGeocodeWithCity:(NSString *)city address:(NSString *)adress
+{
+    isGeoSearch = YES;
+    BMKGeoCodeSearchOption *geocodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
+    geocodeSearchOption.city= city;
+    geocodeSearchOption.address = adress;
+    BOOL flag = [_geocodesearch geoCode:geocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"geo检索发送失败");
+    }
     
 }
 
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    array = [NSArray arrayWithArray:_mapView.overlays];
+    [_mapView removeOverlays:array];
+    if (error == 0) {
+        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+        [_mapView addAnnotation:item];
+        _mapView.centerCoordinate = result.location;
+        NSString* titleStr;
+        NSString* showmeg;
+        
+        titleStr = @"正向地理编码成功！";
+        showmeg = [NSString stringWithFormat:@"纬度:%f,经度:%f",item.coordinate.latitude,item.coordinate.longitude];
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        [myAlertView show];
+        
+        
+        BA_WEAKSELF;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [GCDQueue executeInLowPriorityGlobalQueue:^{
+                [weakSelf onClickReverseGeocodeWithlat:@(weakSelf.latitude).stringValue longStr:@(weakSelf.longitude).stringValue];
+            } afterDelaySecs:2];
+        });
+    }
+}
+
+#pragma mark - ***** 反向地理编码
+- (IBAction)onClickReverseGeocodeWithlat:(NSString *)latStr longStr:(NSString *)longStr
+{
+    isGeoSearch = false;
+    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
+//    if (_coordinateXText != nil && _coordinateYText != nil) {
+//        pt = (CLLocationCoordinate2D){[_coordinateYText floatValue], [_coordinateXText floatValue]};
+//    }
+    if (latStr != nil && longStr != nil) {
+        pt = (CLLocationCoordinate2D){[latStr floatValue], [longStr floatValue]};
+    }
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"反geo检索发送失败");
+    }
+    
+}
+
+- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    array = [NSArray arrayWithArray:_mapView.overlays];
+    [_mapView removeOverlays:array];
+    if (error == 0) {
+        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+        [_mapView addAnnotation:item];
+        _mapView.centerCoordinate = result.location;
+        NSString* titleStr;
+        NSString* showmeg;
+        titleStr = @"反向地理编码！";
+        showmeg = [NSString stringWithFormat:@"您目前所在位置：%@",item.title];
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        [myAlertView show];
+        
+        
+        BA_WEAKSELF;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [GCDQueue executeInLowPriorityGlobalQueue:^{
+                /*! 正向地理编码 */
+                [weakSelf onClickGeocodeWithCity:result.addressDetail.city address:result.address];
+            } afterDelaySecs:2];
+        });
+        
+    }
+}
+
+#pragma mark - ***** 开始定位
 - (void)ba_startLocation
 {
     _locService = [[BMKLocationService alloc]init];
@@ -415,11 +547,16 @@
  */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    NSLog(@"新的用户位置 didUpdateUserLocation lat %f,long %f", userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
     [_mapView updateLocationData:userLocation];
     [self startFollowing:nil];
-    _userModel.m_local2D = userLocation.location.coordinate;
+    
+    self.latitude = userLocation.location.coordinate.latitude;
+    self.longitude = userLocation.location.coordinate.longitude;
+    
+//    _userModel.m_local2D = userLocation.location.coordinate;
+    
     
     
     /*! 添加标注 */
@@ -428,8 +565,7 @@
     [self addAnimatedAnnotation];
     
     /*! 在地图View停止定位后，会调用此函数 */
-    [self didStopLocatingUser];
-    
+//    [self stopLocation:nil];
     
 }
 
@@ -459,6 +595,10 @@
     if (_mapView)
     {
         _mapView = nil;
+    }
+    if (_geocodesearch != nil)
+    {
+        _geocodesearch = nil;
     }
 }
 

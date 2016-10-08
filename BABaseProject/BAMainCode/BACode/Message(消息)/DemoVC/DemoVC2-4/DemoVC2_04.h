@@ -10,7 +10,16 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
-@interface DemoVC2_04 : BABaseViewController <BMKMapViewDelegate, BMKLocationServiceDelegate>
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
+
+
+@interface DemoVC2_04 : BABaseViewController
+<
+    BMKMapViewDelegate,
+    BMKLocationServiceDelegate,
+    BMKGeoCodeSearchDelegate
+>
 {
     __weak IBOutlet BMKMapView *_mapView;
     __weak IBOutlet UIButton *startBtn;
@@ -19,6 +28,7 @@
     __weak IBOutlet UIButton *followHeadBtn;
     
     BMKLocationService       *_locService;
+    BMKGeoCodeSearch         * _geocodesearch;
 
 }
 
