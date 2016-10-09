@@ -121,7 +121,8 @@
     {
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.frame = CGRectMake(0, _btn2.bottom + 20, BA_SCREEN_WIDTH, 200);
-        
+        _datePicker.backgroundColor = [UIColor blackColor];
+
         /*! 跟踪所有可用的地区，取出想要的地区 */
         BALog(@"%@", [NSLocale availableLocaleIdentifiers]);
         
@@ -167,9 +168,60 @@
         /*! 8、当值发生改变的时候调用的方法 */
         [_datePicker addTarget:self action:@selector(datePickValueChanged:) forControlEvents:UIControlEventValueChanged];
         
+        /*! 9、用 runtime 和 KVC 改变字体颜色 */
+        [self setTextColor];
+        
         [self.view addSubview:_datePicker];
     }
     return _datePicker;
+}
+
+- (void)setTextColor
+{
+    // 获取所有的属性，去查看有没有对应的属性
+    unsigned int count = 0;
+    objc_property_t *propertys = class_copyPropertyList([UIDatePicker class], &count);
+    for(int i = 0;i < count;i ++){
+        
+        // 获得每一个属性
+        objc_property_t property = propertys[i];
+        // 获得属性对应的nsstring
+        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+        // 输出打印看对应的属性
+        NSLog(@"propertyname = %@",propertyName);
+        if ([propertyName isEqualToString:@"textColor"])
+        {
+            [_datePicker setValue:[UIColor redColor] forKey:propertyName];
+        }
+    }
+    
+    /*! 
+     UIDatePicker 所有的属性，所以不能改变字体大小，需要改字体的只能使用 pickview 自定义了！
+     
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = usesBlackChrome
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = drawsBackground
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = allowsZeroCountDownDuration
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = allowsZeroTimeInterval
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = dateUnderSelectionBar
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = contentWidth
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = isTimeIntervalMode
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = useCurrentDateDuringDecoding
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = _usesModernStyle
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = highlightColor
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = textColor
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = textShadowColor
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = timeInterval
+     2016-10-09 15:47:52.058 BABaseProject[1198:300932] propertyname = shouldAnimateSetDateCall
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = datePickerMode
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = locale
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = calendar
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = timeZone
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = date
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = minimumDate
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = maximumDate
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = countDownDuration
+     2016-10-09 15:47:52.059 BABaseProject[1198:300932] propertyname = minuteInterval
+     */
 }
 
 - (void)datePickValueChanged:(UIDatePicker *)sender
