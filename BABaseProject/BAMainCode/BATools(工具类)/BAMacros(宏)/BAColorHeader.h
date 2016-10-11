@@ -78,34 +78,56 @@
 #define BA_BGClearColor        [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.7f]
 
 /*! 主题浅绿 */
-#define BA_Them_greenColor     BA_COLOR(30, 198, 181, 1.0)
+#define BA_Them_greenColor      BA_COLOR(30, 198, 181, 1.0)
 
-/*! 白色 */
-#define BA_White_Color         [UIColor whiteColor]
+/*! 白色 1.0 white */
+#define BA_White_Color          [UIColor whiteColor]
 
-/*! 红色 */
-#define BA_Red_Color           [UIColor redColor]
+/*! 红色 1.0, 0.0, 0.0 RGB */
+#define BA_Red_Color            [UIColor redColor]
 
-/*! 黄色 */
-#define BA_Yellow_Color        [UIColor yellowColor]
+/*! 黄色 1.0, 1.0, 0.0 RGB */
+#define BA_Yellow_Color         [UIColor yellowColor]
 
-/*! 绿色 */
-#define BA_Green_Color         [UIColor greenColor]
+/*! 绿色 0.0, 1.0, 0.0 RGB */
+#define BA_Green_Color          [UIColor greenColor]
 
-/*! 蓝色 */
-#define BA_Blue_Color          [UIColor blueColor]
+/*! 蓝色 0.0, 0.0, 1.0 RGB */
+#define BA_Blue_Color           [UIColor blueColor]
 
-/*! 无色 */
-#define BA_Clear_Color         [UIColor clearColor]
+/*! 无色 0.0 white, 0.0 alpha */
+#define BA_Clear_Color          [UIColor clearColor]
 
-/*! 橙色 */
-#define BA_Orange_Color        [UIColor orangeColor]
+/*! 橙色 1.0, 0.5, 0.0 RGB */
+#define BA_Orange_Color         [UIColor orangeColor]
 
-/*! 黑色 */
-#define BA_Black_Color         [UIColor blackColor]
+/*! 黑色 0.0 white */
+#define BA_Black_Color          [UIColor blackColor]
 
-/*! 浅灰色色 */
-#define BA_LightGray_Color     [UIColor lightGrayColor]
+/*! 浅灰色 0.667 white */
+#define BA_LightGray_Color      [UIColor lightGrayColor]
+
+/*! 灰色 0.5 white */
+#define BA_Gray_Color           [UIColor grayColor]
+
+/*! 青色 0.0, 1.0, 1.0 RGB */
+#define BA_Cyan_Color           [UIColor cyanColor]
+
+/*! 深灰色 0.333 white */
+#define BA_DarkGray_Color       [UIColor darkGrayColor]
+
+/*! 红褐色 1.0, 0.0, 1.0 RGB */
+#define BA_Magenta_Color        [UIColor magentaColor]
+
+/*! 棕色 0.6, 0.4, 0.2 RGB */
+#define BA_Brown_Color          [UIColor brownColor]
+
+/*! 红褐色 1.0, 0.0, 1.0 RGB */
+#define BA_Magenta_Color        [UIColor magentaColor]
+
+/*! 紫色 0.5, 0.0, 0.5 RGB */
+#define BA_Purple_Color         [UIColor purpleColor]
+
 
 
 

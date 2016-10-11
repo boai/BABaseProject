@@ -53,93 +53,59 @@
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
  * 博客    : http://boai.github.io
+ * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
+ * 简书专题 : http://www.jianshu.com/collection/072d578bf782
  
  *********************************************************************************
  
  */
 
+/**
+ *  - 添加运行时分类方法
+ *  - 用于运行时动态获取当前类的属性列表、方法列表、成员变量列表、协议列表
+ *  - 性能优化
+ */
+#import <Foundation/Foundation.h>
 
+@interface NSObject (BARunTime)
 
-#ifndef BAKit_h
-#define BAKit_h
+/**
+ *  将 ‘字典数组‘ 转换成当前模型的对象数组
+ *
+ *  @param array 字典数组
+ *
+ *  @return 返回模型对象的数组
+ */
++ (NSArray *)ba_objectsWithArray:(NSArray *)array;
 
+/**
+ *  返回当前类的所有属性列表
+ *
+ *  @return 属性名称
+ */
++ (NSArray *)ba_propertysList;
 
-#pragma mark - ****** 系统类
-/*! 系统类 */
-#import "BALog.h"
-#import "BAApp.h"
+/**
+ *  返回当前类的所有成员变量数组
+ *
+ *  @return 当前类的所有成员变量！ 
+ *
+ *  Tips：用于调试, 可以尝试查看所有不开源的类的ivar
+ */
++ (NSArray *)ba_ivarList;
 
-#pragma mark - ****** UIKit类
-/*! UIKit类 */
-// 控件类
-//#import <BAButton.h>
-#import "BAPickerView.h"
-#import "BATextView.h"
-/*! 自定义alertView */
-#import "BAAlertView.h"
-#import <BACustomAlertView.h>
+/**
+ *  返回当前类的所有方法
+ *
+ *  @return 当前类的所有成员变量！
+ */
++ (NSArray *)ba_methodList;
 
+/**
+ *  返回当前类的所有协议
+ *
+ *  @return 当前类的所有协议！
+ */
++ (NSArray *)ba_protocolList;
 
-// 扩展类
-#import "UIButton+BAKit.h"
-#import "UIImage+BAKit.h"
-#import "UIImageView+BAKit.h"
-#import "UILabel+BAKit.h"
-#import "UIScrollView+BAKit.h"
-#import "UITableView+BAKit.h"
-#import "UITextField+BAKit.h"
-#import "UIView+BAKit.h"
-#import "UIWebView+BAKit.h"
-
-#import "UIColor+BAKit.h"
-#import "UIFont+BAKit.h"
-#import "UIWindow+BAKit.h"
-#import "UIDevice+BAKit.h"
-
-
-#import "UINavigationBar+BAKit.h"
-#import "UINavigationController+BAKit.h"
-#import "UINavigationItem+CustomItem.h"
-
-
-#pragma mark - ****** Foundation类
-/*! Foundation类 */
-#import "NSArray+BAKit.h"
-#import "NSMutableArray+BAKit.h"
-#import "NSDictionary+BAKit.h"
-#import "NSMutableDictionary+BAKit.h"
-#import "NSString+BAKit.h"
-
-#import "NSFileManager+BAKit.h"
-#import "NSNumber+BAKit.h"
-#import "NSDate+BAKit.h"
-#import "NSProcessInfo+BAKit.h"
-#import "NSThread+BAKit.h"
-#import "NSObject+BARunTime.h"
-
-/*! app跳转到系统的各种基本设置选项 */
-#import "BASystermSetting.h"
-
-
-#pragma mark - ****** BAKitManager类
-/*! BAKitManager */
-#import "BAKitManager.h"
-#import "BAKitManager+BALabel.h"
-
-
-#pragma mark - ****** 其他封装
-/*! GCD */
-#import "GCD/GCD.h"
-/*! 清理系统缓存 */
-#import "BAClearCacheManager.h"
-
-
-/*! 自定义上下拉刷新 */
-#import "BACustomMJFooter.h"
-#import "BACustomMJHeader.h"
-
-
-
-
-
-#endif /* BAKit_h */
+@end

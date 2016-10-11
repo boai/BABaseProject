@@ -79,6 +79,9 @@
 		C473CC791CF72372001883A9 /* DemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC781CF72372001883A9 /* DemoVC9.m */; };
 		C473CC7B1CF72439001883A9 /* BACollectionView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C473CC7A1CF72439001883A9 /* BACollectionView.bundle */; };
 		C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC801CF72960001883A9 /* DemoVC9_Model.m */; };
+		C474FE771DACB996007755D3 /* DemoVC2_05.m in Sources */ = {isa = PBXBuildFile; fileRef = C474FE751DACB996007755D3 /* DemoVC2_05.m */; };
+		C474FE781DACB996007755D3 /* DemoVC2_05.xib in Resources */ = {isa = PBXBuildFile; fileRef = C474FE761DACB996007755D3 /* DemoVC2_05.xib */; };
+		C474FE7B1DACC8D8007755D3 /* NSObject+BARunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C474FE7A1DACC8D8007755D3 /* NSObject+BARunTime.m */; };
 		C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B1B1D8F8DB6002B73CD /* BATabBar.m */; };
 		C4772B1F1D8F8DB6002B73CD /* BATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B1D1D8F8DB6002B73CD /* BATabBarButton.m */; };
 		C4772B221D8F8F16002B73CD /* BATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4772B211D8F8F16002B73CD /* BATabBarController.m */; };
@@ -584,6 +587,11 @@
 		C473CC7A1CF72439001883A9 /* BACollectionView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BACollectionView.bundle; sourceTree = "<group>"; };
 		C473CC7F1CF72960001883A9 /* DemoVC9_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9_Model.h; sourceTree = "<group>"; };
 		C473CC801CF72960001883A9 /* DemoVC9_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9_Model.m; sourceTree = "<group>"; };
+		C474FE741DACB996007755D3 /* DemoVC2_05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_05.h; sourceTree = "<group>"; };
+		C474FE751DACB996007755D3 /* DemoVC2_05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_05.m; sourceTree = "<group>"; };
+		C474FE761DACB996007755D3 /* DemoVC2_05.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoVC2_05.xib; sourceTree = "<group>"; };
+		C474FE791DACC8D8007755D3 /* NSObject+BARunTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BARunTime.h"; sourceTree = "<group>"; };
+		C474FE7A1DACC8D8007755D3 /* NSObject+BARunTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BARunTime.m"; sourceTree = "<group>"; };
 		C4772B1A1D8F8DB6002B73CD /* BATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBar.h; sourceTree = "<group>"; };
 		C4772B1B1D8F8DB6002B73CD /* BATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBar.m; sourceTree = "<group>"; };
 		C4772B1C1D8F8DB6002B73CD /* BATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarButton.h; sourceTree = "<group>"; };
@@ -1386,6 +1394,16 @@
 			path = DemoVC9;
 			sourceTree = "<group>";
 		};
+		C474FE701DACB94A007755D3 /* DemoVC2-5 */ = {
+			isa = PBXGroup;
+			children = (
+				C474FE741DACB996007755D3 /* DemoVC2_05.h */,
+				C474FE751DACB996007755D3 /* DemoVC2_05.m */,
+				C474FE761DACB996007755D3 /* DemoVC2_05.xib */,
+			);
+			path = "DemoVC2-5";
+			sourceTree = "<group>";
+		};
 		C48026BE1D191EC90087BBB9 /* DemoVC11 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1463,6 +1481,8 @@
 				C4EE1C621D228E34005046A6 /* NSString */,
 				C48026E81D1928290087BBB9 /* NSArray+BAKit.h */,
 				C48026E91D1928290087BBB9 /* NSArray+BAKit.m */,
+				C474FE791DACC8D8007755D3 /* NSObject+BARunTime.h */,
+				C474FE7A1DACC8D8007755D3 /* NSObject+BARunTime.m */,
 				C48026EA1D1928290087BBB9 /* NSData+BAKit.h */,
 				C48026EB1D1928290087BBB9 /* NSData+BAKit.m */,
 				C48026EC1D1928290087BBB9 /* NSDate+BAKit.h */,
@@ -2945,6 +2965,7 @@
 				C44423461D2E8596004ACAA8 /* DemoVC2-2 */,
 				C42DAA401D37265500FE8B3E /* DemoVC2-3 */,
 				C4D109291D9270BA0057B2DC /* DemoVC2-4 */,
+				C474FE701DACB94A007755D3 /* DemoVC2-5 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -3239,6 +3260,7 @@
 				C4EB5BE01CD8B250003A7094 /* img5.jpg in Resources */,
 				C4B964081D33A5B1005926B8 /* Contents.json in Resources */,
 				C4B9644A1D33A5B1005926B8 /* Contents.json in Resources */,
+				C474FE781DACB996007755D3 /* DemoVC2_05.xib in Resources */,
 				C4B9642D1D33A5B1005926B8 /* dropdown_anim__00051@2x.png in Resources */,
 				C4B964051D33A5B1005926B8 /* dropdown_anim__00033@2x.png in Resources */,
 				C4EB5C191CD8B251003A7094 /* pic6.jpg in Resources */,
@@ -3578,6 +3600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C474FE7B1DACC8D8007755D3 /* NSObject+BARunTime.m in Sources */,
 				C48556331D3CC39900002FA2 /* UIBarButtonItem+BAKit.m in Sources */,
 				C4D108051CE2FC1C00F735B9 /* view4.m in Sources */,
 				C4EB5BD21CD8B250003A7094 /* BABaseNetManager.m in Sources */,
@@ -3599,6 +3622,7 @@
 				C48026CA1D191EC90087BBB9 /* DemoVC11_model.m in Sources */,
 				C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */,
 				C4772B1F1D8F8DB6002B73CD /* BATabBarButton.m in Sources */,
+				C474FE771DACB996007755D3 /* DemoVC2_05.m in Sources */,
 				C4ACE2FF1CF5C53100313DD4 /* DemoVC7.m in Sources */,
 				C48027471D1928290087BBB9 /* UIFont+BAKit.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,

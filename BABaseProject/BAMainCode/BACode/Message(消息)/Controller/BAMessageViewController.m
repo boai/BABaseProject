@@ -127,7 +127,7 @@
     [self addCell:@"cell的分组展开收回" content:@"2、cell的分组展开收回" class:@"DemoVC2_02"];
     [self addCell:@"系统各种设置的跳转" content:@"3、系统各种设置的跳转" class:@"DemoVC2_03"];
     [self addCell:@"博爱百度地图" content:@"4、博爱百度地图" class:@"DemoVC2_04"];
-    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"runtime 的常用方法" content:@"5、runtime 的常用方法" class:@"DemoVC2_05"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
