@@ -53,94 +53,71 @@
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
  * 博客    : http://boai.github.io
+ * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
+ * 简书专题 : http://www.jianshu.com/collection/072d578bf782
  
  *********************************************************************************
  
  */
 
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-#ifndef BAKit_h
-#define BAKit_h
+@interface NSMutableAttributedString (BAKit)
 
+/*! 改变某位置的颜色 */
+- (NSRange)ba_changeColor:(UIColor *)color range:(NSRange)range;
 
-#pragma mark - ****** 系统类
-/*! 系统类 */
-#import "BALog.h"
-#import "BAApp.h"
+/*! 改变某位置的颜色 */
+- (NSRange)ba_changeColor:(UIColor *)color
+                 from:(NSInteger)loc
+                length:(NSInteger)length;
 
-#pragma mark - ****** UIKit类
-/*! UIKit类 */
-// 控件类
-//#import <BAButton.h>
-#import "BAPickerView.h"
-#import "BATextView.h"
-/*! 自定义alertView */
-#import "BAAlertView.h"
-#import <BACustomAlertView.h>
+/*! 改变某位置的普通字号 */
+- (NSRange)ba_changeSystemFontFloat:(CGFloat)fontFloat range:(NSRange)range;
 
+/*! 改变某位置的普通字号*/
+- (NSRange)ba_changeSystemFontFloat:(CGFloat)fontFloat
+                            from:(NSInteger)loc
+                           length:(NSInteger)length;
 
-// 扩展类
-#import "UIButton+BAKit.h"
-#import "UIImage+BAKit.h"
-#import "UIImageView+BAKit.h"
-#import "UILabel+BAKit.h"
-#import "UIScrollView+BAKit.h"
-#import "UITableView+BAKit.h"
-#import "UITextField+BAKit.h"
-#import "UIView+BAKit.h"
-#import "UIWebView+BAKit.h"
+/*! 改变某位置的粗体字号 */
+- (NSRange)ba_changeBoldFontFloat:(CGFloat)fontFloat range:(NSRange)range;
 
-#import "UIColor+BAKit.h"
-#import "UIFont+BAKit.h"
-#import "UIWindow+BAKit.h"
-#import "UIDevice+BAKit.h"
+/*! 改变某位置的粗体字号 */
+- (NSRange)ba_changeBoldFontFloat:(CGFloat)fontFloat
+                         from:(NSInteger)loc
+                        length:(NSInteger)length;
 
+/*! 改变某位置的行距 */
+- (NSRange)ba_changeLineSpacing:(CGFloat)spacing
+                        from:(NSInteger)loc
+                       length:(NSInteger)length;
 
-#import "UINavigationBar+BAKit.h"
-#import "UINavigationController+BAKit.h"
-#import "UINavigationItem+CustomItem.h"
+/*! 改变某位置的段落距离 */
+- (NSRange)ba_changeParagraphSpacing:(CGFloat)spacing
+                              from:(NSInteger)loc
+                             length:(NSInteger)length;
 
+/*! 改变段的顶部和文本内容的开头之间的距离 */
+-(NSRange)ba_changeBeforeLparagraphSpacing:(CGFloat)spacing
+                                   from:(NSInteger)loc
+                                  length:(NSInteger)length;
 
-#pragma mark - ****** Foundation类
-/*! Foundation类 */
-#import "NSArray+BAKit.h"
-#import "NSMutableArray+BAKit.h"
-#import "NSDictionary+BAKit.h"
-#import "NSMutableDictionary+BAKit.h"
-#import "NSString+BAKit.h"
+/*! 根据位置加下划线 */
+- (NSRange)ba_changeUnderlineWitRange:(NSRange)range;
+/*! 根据位置加下划线 */
+- (NSRange)ba_changeUnderlineFrom:(NSInteger)loc length:(NSInteger)length;
+/*! 全部加下划线 */
+- (void)ba_changeUnderlineAtAll;
 
-#import "NSFileManager+BAKit.h"
-#import "NSNumber+BAKit.h"
-#import "NSDate+BAKit.h"
-#import "NSProcessInfo+BAKit.h"
-#import "NSThread+BAKit.h"
-#import "NSObject+BARunTime.h"
-#import "NSMutableAttributedString+BAKit.h"
-
-/*! app跳转到系统的各种基本设置选项 */
-#import "BASystermSetting.h"
+/*! 根据位置加删除线 */
+- (NSRange)ba_changeStrikethroughWitRange:(NSRange)range;
+/*! 根据位置加删除线 */
+- (NSRange)ba_changeStrikethroughFrom:(NSInteger)loc length:(NSInteger)length;
+/*! 全部加删除线 */
+- (void)ba_changeStrikethroughAtAll;
 
 
-#pragma mark - ****** BAKitManager类
-/*! BAKitManager */
-#import "BAKitManager.h"
-#import "BAKitManager+BALabel.h"
-
-
-#pragma mark - ****** 其他封装
-/*! GCD */
-#import "GCD/GCD.h"
-/*! 清理系统缓存 */
-#import "BAClearCacheManager.h"
-
-
-/*! 自定义上下拉刷新 */
-#import "BACustomMJFooter.h"
-#import "BACustomMJHeader.h"
-
-
-
-
-
-#endif /* BAKit_h */
+@end

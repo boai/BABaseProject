@@ -145,8 +145,27 @@
         }
         if ([ivarName isEqualToString:@"_attributedMessage"])
         {
-            NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"改变颜色和大小后的字体：" attributes:@{NSForegroundColorAttributeName:BA_Cyan_Color, NSFontAttributeName:[UIFont systemFontOfSize:16]}];
-            [alert setValue:title forKey:@"attributedMessage"];
+//            NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"改变颜色和大小后的字体：" attributes:@{NSForegroundColorAttributeName:BA_Cyan_Color, NSFontAttributeName:[UIFont systemFontOfSize:16]}];
+            NSString *result = @"改变颜色和大小后的博爱字体：";
+            NSString *keyWord = @"博爱";
+            
+            //关键字添加效果
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:result];
+            
+            //获取关键字位置
+            NSRange range = [result rangeOfString:keyWord];
+            
+            // 阴影
+            NSShadow *shadow = [[NSShadow alloc] init];
+            shadow.shadowBlurRadius = 1.0;// 模糊程度
+            shadow.shadowColor = [UIColor grayColor];
+            shadow.shadowOffset = CGSizeMake(1, 3);
+            NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor blackColor],NSKernAttributeName:@2.0,NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle),NSStrokeColorAttributeName:[UIColor blueColor],NSStrokeWidthAttributeName:@2.0,NSShadowAttributeName:shadow,NSVerticalGlyphFormAttributeName:@(0)};
+            
+            //设置关键字属性
+            [attributedString setAttributes:dic range:range];
+            
+            [alert setValue:attributedString forKey:@"attributedMessage"];
         }
     }
     
