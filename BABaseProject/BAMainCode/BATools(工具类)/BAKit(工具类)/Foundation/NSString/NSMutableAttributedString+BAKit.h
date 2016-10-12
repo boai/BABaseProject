@@ -125,6 +125,9 @@
 /*! 根据位置修改默认字距 0表示禁用字距调整 */
 - (NSRange)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range;
 
+/*! 根据位置添加阴影效果 */
+- (NSRange)ba_changeShadowWithShadow:(NSShadow *)shadow Range:(NSRange)range;
+
 /*! 根据位置修改描边颜色 */
 - (NSRange)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
                              strokeWidth:(CGFloat)strokeWidth

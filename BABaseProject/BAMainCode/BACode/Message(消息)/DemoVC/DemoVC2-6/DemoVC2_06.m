@@ -72,13 +72,16 @@
     [attributedString ba_changeKernWithInteger:10 Range:NSMakeRange(1, 5)];
     
     /*! 根据位置修改描边颜色 */
-    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor]  strokeWidth:2.0 Range:NSMakeRange(1, 5)];
+    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor] strokeWidth:2.0 Range:NSMakeRange(1, 5)];
     
-    // 阴影
+    /*! 阴影 */
     NSShadow *shadow = [[NSShadow alloc] init];
     [shadow ba_shadowWithColor:[UIColor grayColor]
                   shadowOffset:CGSizeMake(1, 3)
               shadowBlurRadius:1];
+    [attributedString ba_changeShadowWithShadow:shadow Range:NSMakeRange(1, 3)];
+    
+    /*! 完全自定义 */
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],
                           NSForegroundColorAttributeName:[UIColor blackColor],
                           NSKernAttributeName:@2.0,
@@ -88,9 +91,7 @@
                           NSShadowAttributeName:shadow,
                           NSVerticalGlyphFormAttributeName:@(0)};
     
-    [attributedString ba_changeAttributeDict:dic range:NSMakeRange(63, 5)];
-    
-    label.attributedText = attributedString;
+    [attributedString ba_changeAttributeDict:dic range:NSMakeRange(65, 3)];
     
     label.attributedText = attributedString;
 }

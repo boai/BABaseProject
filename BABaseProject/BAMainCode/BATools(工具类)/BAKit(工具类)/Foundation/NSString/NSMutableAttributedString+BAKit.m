@@ -213,6 +213,14 @@
     return range;
 }
 
+#pragma mark 根据位置添加阴影效果
+- (NSRange)ba_changeShadowWithShadow:(NSShadow *)shadow Range:(NSRange)range
+{
+    [self addAttribute:NSShadowAttributeName value:shadow range:range];
+    [self addAttribute:NSVerticalGlyphFormAttributeName value:@(0) range:range];
+    return range;
+}
+
 #pragma mark 根据位置修改描边颜色 垂直标志符号形式
 - (NSRange)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
                              strokeWidth:(CGFloat)strokeWidth

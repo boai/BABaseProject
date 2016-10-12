@@ -10,20 +10,13 @@
 
 @implementation NSShadow (BAKit)
 
-static NSShadow *_insetControlShadow = nil;
-
-- (NSShadow *)ba_shadowWithColor:(UIColor *)shadowColor
-                    shadowOffset:(CGSize)shadowSize
-                shadowBlurRadius:(CGFloat)shadowBlurRadius
+- (void)ba_shadowWithColor:(UIColor *)shadowColor
+              shadowOffset:(CGSize)shadowSize
+          shadowBlurRadius:(CGFloat)shadowBlurRadius
 {
-    if (_insetControlShadow == nil)
-    {
-        _insetControlShadow = [[NSShadow alloc] init];
-        _insetControlShadow.shadowColor = shadowColor;
-        _insetControlShadow.shadowOffset = shadowSize;
-        _insetControlShadow.shadowBlurRadius = shadowBlurRadius;
-    }
-    return _insetControlShadow;
+    self.shadowColor = shadowColor;
+    self.shadowOffset = shadowSize;
+    self.shadowBlurRadius = shadowBlurRadius;
 }
 
 @end

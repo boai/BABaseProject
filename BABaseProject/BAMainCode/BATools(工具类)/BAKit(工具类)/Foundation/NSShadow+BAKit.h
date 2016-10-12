@@ -19,7 +19,7 @@
  *
  *  @return 阴影效果
  */
-- (NSShadow *)ba_shadowWithColor:(UIColor *)shadowColor
+- (void)ba_shadowWithColor:(UIColor *)shadowColor
                     shadowOffset:(CGSize)shadowSize
                 shadowBlurRadius:(CGFloat)shadowBlurRadius;
 
