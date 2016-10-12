@@ -65,6 +65,13 @@
 
 @implementation NSMutableAttributedString (BAKit)
 
+#pragma mark 完全自定义样式
+- (NSRange)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range
+{
+    [self addAttributes:dict range:range];
+    return range;
+}
+
 #pragma mark 改变某位置的颜色
 - (NSRange)ba_changeColor:(UIColor *)color range:(NSRange)range
 {
@@ -156,7 +163,7 @@
 }
 
 #pragma mark 根据位置、长度加下划线
-- (NSRange)ba_changeUnderlineWitRange:(NSRange)range
+- (NSRange)ba_changeUnderlineWithRange:(NSRange)range
 {
     [self addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:range];
     return range;
@@ -166,7 +173,7 @@
 - (NSRange)ba_changeUnderlineFrom:(NSInteger)loc length:(NSInteger)length
 {
     NSRange range = NSMakeRange(loc, length);
-    [self ba_changeUnderlineWitRange:range];
+    [self ba_changeUnderlineWithRange:range];
     return range;
 }
 
@@ -174,11 +181,11 @@
 - (void)ba_changeUnderlineAtAll
 {
     NSRange range = NSMakeRange(0, self.length);
-    [self ba_changeUnderlineWitRange:range];
+    [self ba_changeUnderlineWithRange:range];
 }
 
 #pragma mark 根据位置加删除线
-- (NSRange)ba_changeStrikethroughWitRange:(NSRange)range
+- (NSRange)ba_changeStrikethroughWithRange:(NSRange)range
 {
     [self addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:range];
     return range;
@@ -188,7 +195,7 @@
 - (NSRange)ba_changeStrikethroughFrom:(NSInteger)loc length:(NSInteger)length
 {
     NSRange range = NSMakeRange(loc, length);
-    [self ba_changeStrikethroughWitRange:range];
+    [self ba_changeStrikethroughWithRange:range];
     return range;
 }
 
@@ -196,8 +203,24 @@
 - (void)ba_changeStrikethroughAtAll
 {
     NSRange range = NSMakeRange(0, self.length);
-    [self ba_changeStrikethroughWitRange:range];
+    [self ba_changeStrikethroughWithRange:range];
 }
 
+#pragma mark 根据位置修改默认字距 0表示禁用字距调整
+- (NSRange)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range
+{
+    [self addAttribute:NSKernAttributeName value:[NSNumber numberWithFloat:value] range:range];
+    return range;
+}
+
+#pragma mark 根据位置修改描边颜色 垂直标志符号形式
+- (NSRange)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
+                             strokeWidth:(CGFloat)strokeWidth
+                                   Range:(NSRange)range
+{
+    [self addAttribute:NSStrokeColorAttributeName value:strokeColor range:range];
+    [self addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat:strokeWidth] range:range];
+    return range;
+}
 
 @end

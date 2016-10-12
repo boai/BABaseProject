@@ -70,8 +70,9 @@
 		C44BC02B1D93735800B5EA99 /* AppDelegate+BABaiduMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BC02A1D93735800B5EA99 /* AppDelegate+BABaiduMap.m */; };
 		C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C6A1CDD9F05000F5710 /* DemoVC4.m */; };
 		C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C7D1CDDBE44000F5710 /* DemoVC5.m */; };
-		C457EA431DADD67000CD0B91 /* NSMutableAttributedString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C457EA421DADD67000CD0B91 /* NSMutableAttributedString+BAKit.m */; };
 		C457EA461DADD6E600CD0B91 /* DemoVC2_06.m in Sources */ = {isa = PBXBuildFile; fileRef = C457EA451DADD6E600CD0B91 /* DemoVC2_06.m */; };
+		C457EA4C1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C457EA4B1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.m */; };
+		C457EA4F1DADE8F100CD0B91 /* NSShadow+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C457EA4E1DADE8F100CD0B91 /* NSShadow+BAKit.m */; };
 		C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89F81CE055DD00005E2B /* DemoVC5Cell.m */; };
 		C46B89FC1CE0AE3400005E2B /* DemoVC5_TextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B89FB1CE0AE3400005E2B /* DemoVC5_TextPart.m */; };
 		C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B8A031CE0BAC200005E2B /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -573,10 +574,12 @@
 		C4562C6A1CDD9F05000F5710 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
 		C4562C7C1CDDBE44000F5710 /* DemoVC5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC5.h; sourceTree = "<group>"; };
 		C4562C7D1CDDBE44000F5710 /* DemoVC5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC5.m; sourceTree = "<group>"; };
-		C457EA411DADD67000CD0B91 /* NSMutableAttributedString+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+BAKit.h"; sourceTree = "<group>"; };
-		C457EA421DADD67000CD0B91 /* NSMutableAttributedString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+BAKit.m"; sourceTree = "<group>"; };
 		C457EA441DADD6E600CD0B91 /* DemoVC2_06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_06.h; sourceTree = "<group>"; };
 		C457EA451DADD6E600CD0B91 /* DemoVC2_06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_06.m; sourceTree = "<group>"; };
+		C457EA4A1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+BAKit.h"; sourceTree = "<group>"; };
+		C457EA4B1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+BAKit.m"; sourceTree = "<group>"; };
+		C457EA4D1DADE8F100CD0B91 /* NSShadow+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+BAKit.h"; sourceTree = "<group>"; };
+		C457EA4E1DADE8F100CD0B91 /* NSShadow+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+BAKit.m"; sourceTree = "<group>"; };
 		C46B89F71CE055DD00005E2B /* DemoVC5Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC5Cell.h; sourceTree = "<group>"; };
 		C46B89F81CE055DD00005E2B /* DemoVC5Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC5Cell.m; sourceTree = "<group>"; };
 		C46B89FA1CE0AE3400005E2B /* DemoVC5_TextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC5_TextPart.h; sourceTree = "<group>"; };
@@ -1496,6 +1499,8 @@
 				C4EE1C621D228E34005046A6 /* NSString */,
 				C48026E81D1928290087BBB9 /* NSArray+BAKit.h */,
 				C48026E91D1928290087BBB9 /* NSArray+BAKit.m */,
+				C457EA4D1DADE8F100CD0B91 /* NSShadow+BAKit.h */,
+				C457EA4E1DADE8F100CD0B91 /* NSShadow+BAKit.m */,
 				C474FE791DACC8D8007755D3 /* NSObject+BARunTime.h */,
 				C474FE7A1DACC8D8007755D3 /* NSObject+BARunTime.m */,
 				C48026EA1D1928290087BBB9 /* NSData+BAKit.h */,
@@ -3002,8 +3007,8 @@
 		C4EE1C621D228E34005046A6 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				C457EA411DADD67000CD0B91 /* NSMutableAttributedString+BAKit.h */,
-				C457EA421DADD67000CD0B91 /* NSMutableAttributedString+BAKit.m */,
+				C457EA4A1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.h */,
+				C457EA4B1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.m */,
 				C407B6421D7434F0005DC17F /* NSString+BAColor.h */,
 				C407B6431D7434F0005DC17F /* NSString+BAColor.m */,
 				C4EE1C631D228E34005046A6 /* NSString+BAKit.h */,
@@ -3694,8 +3699,10 @@
 				C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C41CA8CA1D3FA3BF006296BD /* DemoVC2_02_studentCell.m in Sources */,
+				C457EA4F1DADE8F100CD0B91 /* NSShadow+BAKit.m in Sources */,
 				C48027461D1928290087BBB9 /* UIDevice+BAKit.m in Sources */,
 				C445E1CE1D1B86FE00D7654A /* SXColorGradientView.m in Sources */,
+				C457EA4C1DADE87F00CD0B91 /* NSMutableAttributedString+BAKit.m in Sources */,
 				C48026C81D191EC90087BBB9 /* DemoVC11_AutoLayout.m in Sources */,
 				C42781231D2D338F003E6694 /* DemoVC2_01_cell.m in Sources */,
 				C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */,
@@ -3783,7 +3790,6 @@
 				C48026C91D191EC90087BBB9 /* DemoVC11_Cell.m in Sources */,
 				C40852BC1CDA09100004A671 /* DemoVC2.m in Sources */,
 				C457EA461DADD6E600CD0B91 /* DemoVC2_06.m in Sources */,
-				C457EA431DADD67000CD0B91 /* NSMutableAttributedString+BAKit.m in Sources */,
 				C48026C71D191EC90087BBB9 /* DemoVC11.m in Sources */,
 				C48027411D1928290087BBB9 /* BACustomModalTransition.m in Sources */,
 				C4EB5BBF1CD8B250003A7094 /* BAProfileViewController.m in Sources */,

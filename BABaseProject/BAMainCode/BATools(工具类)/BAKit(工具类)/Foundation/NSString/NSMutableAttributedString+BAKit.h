@@ -66,6 +66,9 @@
 
 @interface NSMutableAttributedString (BAKit)
 
+/*! 完全自定义样式 */
+- (NSRange)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range;
+
 /*! 改变某位置的颜色 */
 - (NSRange)ba_changeColor:(UIColor *)color range:(NSRange)range;
 
@@ -106,18 +109,25 @@
                                   length:(NSInteger)length;
 
 /*! 根据位置加下划线 */
-- (NSRange)ba_changeUnderlineWitRange:(NSRange)range;
+- (NSRange)ba_changeUnderlineWithRange:(NSRange)range;
 /*! 根据位置加下划线 */
 - (NSRange)ba_changeUnderlineFrom:(NSInteger)loc length:(NSInteger)length;
 /*! 全部加下划线 */
 - (void)ba_changeUnderlineAtAll;
 
 /*! 根据位置加删除线 */
-- (NSRange)ba_changeStrikethroughWitRange:(NSRange)range;
+- (NSRange)ba_changeStrikethroughWithRange:(NSRange)range;
 /*! 根据位置加删除线 */
 - (NSRange)ba_changeStrikethroughFrom:(NSInteger)loc length:(NSInteger)length;
 /*! 全部加删除线 */
 - (void)ba_changeStrikethroughAtAll;
 
+/*! 根据位置修改默认字距 0表示禁用字距调整 */
+- (NSRange)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range;
+
+/*! 根据位置修改描边颜色 */
+- (NSRange)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
+                             strokeWidth:(CGFloat)strokeWidth
+                                   Range:(NSRange)range;
 
 @end

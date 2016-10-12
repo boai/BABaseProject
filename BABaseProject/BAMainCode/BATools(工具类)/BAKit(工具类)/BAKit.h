@@ -115,8 +115,12 @@
 #import "NSDate+BAKit.h"
 #import "NSProcessInfo+BAKit.h"
 #import "NSThread+BAKit.h"
+/*! RunTime */
 #import "NSObject+BARunTime.h"
+/*! 符文本 */
 #import "NSMutableAttributedString+BAKit.h"
+/*! 阴影 */
+#import "NSShadow+BAKit.h"
 
 /*! app跳转到系统的各种基本设置选项 */
 #import "BASystermSetting.h"

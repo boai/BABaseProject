@@ -57,16 +57,40 @@
     //    [attributedString ba_changeBeforeLparagraphSpacing:50 from:200 length:10];
     
     /*! 根据位置加下划线 */
-    [attributedString ba_changeUnderlineWitRange:NSMakeRange(100, 10)];
+    [attributedString ba_changeUnderlineWithRange:NSMakeRange(100, 10)];
     
     /*! 全部加下划线 */
     //    [attributedString ba_changeUnderlineAtAll];
     
     /*! 根据位置加删除线 */
-    [attributedString ba_changeStrikethroughWitRange:NSMakeRange(200, 10)];
+    [attributedString ba_changeStrikethroughWithRange:NSMakeRange(200, 10)];
     
     /*! 全部加删除线 */
     //    [attributedString ba_changeStrikethroughAtAll];
+    
+    /*! 根据位置修改默认字距 0表示禁用字距调整 */
+    [attributedString ba_changeKernWithInteger:10 Range:NSMakeRange(1, 5)];
+    
+    /*! 根据位置修改描边颜色 */
+    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor]  strokeWidth:2.0 Range:NSMakeRange(1, 5)];
+    
+    // 阴影
+    NSShadow *shadow = [[NSShadow alloc] init];
+    [shadow ba_shadowWithColor:[UIColor grayColor]
+                  shadowOffset:CGSizeMake(1, 3)
+              shadowBlurRadius:1];
+    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],
+                          NSForegroundColorAttributeName:[UIColor blackColor],
+                          NSKernAttributeName:@2.0,
+                          NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle),
+                          NSStrokeColorAttributeName:[UIColor blueColor],
+                          NSStrokeWidthAttributeName:@2.0,
+                          NSShadowAttributeName:shadow,
+                          NSVerticalGlyphFormAttributeName:@(0)};
+    
+    [attributedString ba_changeAttributeDict:dic range:NSMakeRange(63, 5)];
+    
+    label.attributedText = attributedString;
     
     label.attributedText = attributedString;
 }
