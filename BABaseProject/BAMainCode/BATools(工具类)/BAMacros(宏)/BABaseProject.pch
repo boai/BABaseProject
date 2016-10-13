@@ -134,7 +134,7 @@
     #import "UIView+RoundedCorner.h"
 
     /*! 截屏 */
-    #import <SDScreenshotCapture.h>
+//    #import <SDScreenshotCapture.h>
 
     /*! 将Toast通知添加到UIView对象类 */
     //#import "UIView+Toast.h"
