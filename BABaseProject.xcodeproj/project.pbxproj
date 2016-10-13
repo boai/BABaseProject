@@ -79,7 +79,7 @@
 		C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46C5AB81CDB75B9002F707F /* BAHomeViewModel.m */; };
 		C46DEBC41D90DB0E00973EC6 /* UITableViewCell+Reuse.m in Sources */ = {isa = PBXBuildFile; fileRef = C46DEBC31D90DB0E00973EC6 /* UITableViewCell+Reuse.m */; };
 		C46E4FDD1DAF5872009A5B6A /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C46E4FDC1DAF5872009A5B6A /* BANetManager.m */; };
-		C46E4FE01DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C46E4FDF1DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.m */; };
+		C46E4FE31DAF7092009A5B6A /* NSMutableAttributedString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C46E4FE21DAF7092009A5B6A /* NSMutableAttributedString+BAKit.m */; };
 		C473CC791CF72372001883A9 /* DemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC781CF72372001883A9 /* DemoVC9.m */; };
 		C473CC7B1CF72439001883A9 /* BACollectionView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C473CC7A1CF72439001883A9 /* BACollectionView.bundle */; };
 		C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C473CC801CF72960001883A9 /* DemoVC9_Model.m */; };
@@ -591,8 +591,8 @@
 		C46DEBC31D90DB0E00973EC6 /* UITableViewCell+Reuse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Reuse.m"; sourceTree = "<group>"; };
 		C46E4FDB1DAF5872009A5B6A /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
 		C46E4FDC1DAF5872009A5B6A /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
-		C46E4FDE1DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+BAKit.h"; sourceTree = "<group>"; };
-		C46E4FDF1DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+BAKit.m"; sourceTree = "<group>"; };
+		C46E4FE11DAF7092009A5B6A /* NSMutableAttributedString+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+BAKit.h"; sourceTree = "<group>"; };
+		C46E4FE21DAF7092009A5B6A /* NSMutableAttributedString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+BAKit.m"; sourceTree = "<group>"; };
 		C473CC771CF72372001883A9 /* DemoVC9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9.h; sourceTree = "<group>"; };
 		C473CC781CF72372001883A9 /* DemoVC9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9.m; sourceTree = "<group>"; };
 		C473CC7A1CF72439001883A9 /* BACollectionView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BACollectionView.bundle; sourceTree = "<group>"; };
@@ -3007,8 +3007,8 @@
 		C4EE1C621D228E34005046A6 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				C46E4FDE1DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.h */,
-				C46E4FDF1DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.m */,
+				C46E4FE11DAF7092009A5B6A /* NSMutableAttributedString+BAKit.h */,
+				C46E4FE21DAF7092009A5B6A /* NSMutableAttributedString+BAKit.m */,
 				C407B6421D7434F0005DC17F /* NSString+BAColor.h */,
 				C407B6431D7434F0005DC17F /* NSString+BAColor.m */,
 				C4EE1C631D228E34005046A6 /* NSString+BAKit.h */,
@@ -3735,7 +3735,7 @@
 				C480273D1D1928290087BBB9 /* NSNumber+BAKit.m in Sources */,
 				C46B89FC1CE0AE3400005E2B /* DemoVC5_TextPart.m in Sources */,
 				C480274A1D1928290087BBB9 /* UILabel+BAKit.m in Sources */,
-				C46E4FE01DAF5BDB009A5B6A /* NSMutableAttributedString+BAKit.m in Sources */,
+				C46E4FE31DAF7092009A5B6A /* NSMutableAttributedString+BAKit.m in Sources */,
 				C445E1CF1D1B86FE00D7654A /* SXColorLabel.m in Sources */,
 				C480274F1D1928290087BBB9 /* UIWebView+BAKit.m in Sources */,
 				C42DAA431D37269300FE8B3E /* DemoVC2_03.m in Sources */,

@@ -32,7 +32,10 @@
     NSString *heightLightStr = @"亮黑色";
     NSRange heightLightRange = [strings rangeOfString:heightLightStr];
     
-    /*! 创建 NSMutableAttributedString  */
+    /*! 第2种：综合创建富文本的方法 */
+    NSMutableAttributedString *attributedString2 = [[NSMutableAttributedString alloc] initWithStrings:@[@"1我们是富文本", @"2我们是富文本", @"3我们是富文本"] attributesArray:@[@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor blackColor],                                                                                                   NSKernAttributeName:@2.0,                                                                                                    NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle),                                                                                                    NSStrokeColorAttributeName:[UIColor blueColor],                                                                                                   NSStrokeWidthAttributeName:@2.0,                                                                                                     NSVerticalGlyphFormAttributeName:@(0)}, @{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor blackColor],                                                                                                   NSKernAttributeName:@2.0,                                                                                                    NSStrikethroughStyleAttributeName:@(NSUnderlineStyleDouble),                                                                                                    NSStrokeColorAttributeName:[UIColor redColor],                                                                                                   NSStrokeWidthAttributeName:@2.0,                                                                                                     NSVerticalGlyphFormAttributeName:@(0)}] space:@[@(1),@(5),@(10)]];
+    
+    /*! 第1种：创建 NSMutableAttributedString  */
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:strings];
     
     /*! 改变某位置的颜色 */
@@ -42,10 +45,10 @@
     [attributedString ba_changeColor:[UIColor redColor] range:NSMakeRange(3, 5)];
     
     /*! 改变某位置的普通字号 */
-    [attributedString ba_changeSystemFontFloat:30 range:NSMakeRange(10, 2)];
+    [attributedString ba_changeSystemFont:[UIFont systemFontOfSize:30] range:NSMakeRange(10, 2)];
     
-    /*! 改变某位置的粗体字号 */
-    [attributedString ba_changeBoldFontFloat:30 range:NSMakeRange(30, 2)];
+    /*! 设置字形倾斜度，取值为 NSNumber（float）,正值右倾，负值左倾   */
+    [attributedString ba_changeObliquenessValue:@(1) range:NSMakeRange(3, 5)];
     
     /*! 改变某位置的行距 */
     //    [attributedString ba_changeLineSpacing:20 from:60 length:50];
@@ -69,10 +72,10 @@
     //    [attributedString ba_changeStrikethroughAtAll];
     
     /*! 根据位置修改默认字距 0表示禁用字距调整 */
-    [attributedString ba_changeKernWithInteger:10 Range:NSMakeRange(1, 5)];
+    [attributedString ba_changeKernWithValue:@(10) Range:NSMakeRange(1, 5)];
     
     /*! 根据位置修改描边颜色 */
-    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor]  strokeWidth:2.0 Range:NSMakeRange(1, 5)];
+    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor]  strokeWidth:@(2.0) Range:NSMakeRange(1, 5)];
     
     /*! 阴影 */
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -82,7 +85,7 @@
     [attributedString ba_changeShadowWithShadow:shadow Range:NSMakeRange(1, 3)];
     
     /*! 根据位置修改宽度 */
-    [attributedString ba_changeExpansionWithInteger:0.6 Range:NSMakeRange(1, 3)];
+    [attributedString ba_changeExpansionWithValue:@(0.6) Range:NSMakeRange(1, 3)];
     
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],
                           NSForegroundColorAttributeName:[UIColor blackColor],
@@ -97,7 +100,22 @@
     
     [attributedString ba_changeStrikethroughStyle:NSUnderlineStyleDouble color:[UIColor redColor] Range:NSMakeRange(1, 3)];
     
+    /*! 设置连体属性，取值为NSNumber 对象(整数)，0 表示没有连体字符，1 表示使用默认的连体字符，  //  2 表示使用所有连体符号，默认值为 1（iOS 不支持 2） */
+    //    - (NSRange)ba_changeLigatureWithValue:(int)value range:(NSRange)range
+    //
+    //    NSString *ligatureStr = @"flush";
+    //
+    //    NSDictionary *attrDict1 = @{ NSLigatureAttributeName: [NSNumber numberWithInt: 0],
+    //                                 NSFontAttributeName: [UIFont fontWithName: @"futura" size: 30] };
+    
+    //    label.attributedText = [[NSAttributedString alloc] initWithString: ligatureStr attributes: attrDict1];
+    //
+    //    NSDictionary *attrDict2 = @{ NSLigatureAttributeName: @(1), NSFontAttributeName: [UIFont fontWithName: @"futura" size: 30]};
+    //
+    //    label2.attributedText = [[NSAttributedString alloc] initWithString: ligatureStr attributes: attrDict2];
+    
     label.attributedText = attributedString;
+    //    label.attributedText = attributedString2;
 }
 
 - (void)didReceiveMemoryWarning {

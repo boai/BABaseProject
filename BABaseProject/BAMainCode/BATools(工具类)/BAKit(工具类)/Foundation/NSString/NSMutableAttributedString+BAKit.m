@@ -92,18 +92,27 @@
 //}
 
 #pragma mark 改变某位置 设置字体属性，默认值：字体：Helvetica(Neue) 字号：12
-- (void)ba_changeSystemFontFloat:(CGFloat)fontFloat range:(NSRange)range
+- (void)ba_changeSystemFont:(UIFont *)font range:(NSRange)range
 {
-    [self addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontFloat] range:range];
+    [self addAttribute:NSFontAttributeName value:font range:range];
 }
 
-/*! NSObliquenessAttributeName 设置字体倾斜。Skew 斜 */
-
-
-#pragma mark 改变某位置的粗体字号
-- (void)ba_changeBoldFontFloat:(CGFloat)fontFloat range:(NSRange)range
+#pragma mark 设置字形倾斜度，取值为 NSNumber（float）,正值右倾，负值左倾
+- (void)ba_changeObliquenessValue:(NSNumber *)value range:(NSRange)range
 {
-    [self addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontFloat] range:range];
+    [self addAttribute:NSObliquenessAttributeName value:value range:range];
+}
+
+#pragma mark NSVerticalGlyphFormAttributeName  设置文字排版方向，取值为 NSNumber 对象(整数)，0 表示横排文本，1 表示竖排文本 在 iOS 中，总是使用横排文本，0 以外的值都未定义
+- (void)ba_changeVerticalGlyphFormValue:(NSNumber *)value range:(NSRange)range
+{
+    [self addAttribute:NSVerticalGlyphFormAttributeName value:value range:range];
+}
+
+#pragma mark NSWritingDirectionAttributeName 设置文字书写方向，从左向右书写或者从右向左书写
+- (void)ba_changeWritingDirectionStyle:(NSWritingDirection)style
+{
+    [self addAttribute:NSWritingDirectionAttributeName value:@[@(NSWritingDirectionRightToLeft)] range:NSMakeRange(0, self.length)];
 }
 
 #pragma mark 改变某位置的行距
@@ -171,15 +180,15 @@
 }
 
 #pragma mark 设定字符间距，取值为 NSNumber 对象（整数），正值间距加宽，负值间距变窄 
-- (void)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range
+- (void)ba_changeKernWithValue:(NSNumber *)value Range:(NSRange)range
 {
-    [self addAttribute:NSKernAttributeName value:[NSNumber numberWithFloat:value] range:range];
+    [self addAttribute:NSKernAttributeName value:value range:range];
 }
 
 #pragma mark 根据位置设置文本横向拉伸属性，取值为 NSNumber （float）,正值横向拉伸文本，负值横向压缩文本
-- (void)ba_changeExpansionWithInteger:(CGFloat)value Range:(NSRange)range
+- (void)ba_changeExpansionWithValue:(NSNumber *)value Range:(NSRange)range
 {
-    [self addAttribute:NSExpansionAttributeName value:[NSNumber numberWithFloat:value] range:range];
+    [self addAttribute:NSExpansionAttributeName value:value range:range];
 }
 
 #pragma mark 根据位置添加阴影效果
@@ -192,11 +201,64 @@
 
 #pragma mark 根据位置修改描边颜色 垂直标志符号形式
 - (void)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
-                             strokeWidth:(CGFloat)strokeWidth
+                             strokeWidth:(NSNumber *)strokeWidth
                                    Range:(NSRange)range
 {
     [self addAttribute:NSStrokeColorAttributeName value:strokeColor range:range];
-    [self addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat:strokeWidth] range:range];
+    [self addAttribute:NSStrokeWidthAttributeName value:strokeWidth range:range];
+}
+
+- (instancetype)initWithStrings:(NSArray <NSString *>*)texts
+                attributesArray:(NSArray <NSDictionary<NSString *,id>*>*)attrsArray
+                          space:(NSArray <NSNumber *>*)space
+{
+    if (self = [super init])
+    {
+        
+    }
+    return [self go:texts andAttributesArray:attrsArray space:space];
+}
+
+- (instancetype)go:(NSArray *)textArray andAttributesArray:(NSArray *)attrsArray space:(NSArray<NSNumber *> *)space
+{
+    __block NSMutableAttributedString *string = [[NSMutableAttributedString alloc]init];
+    
+    __weak typeof(self)weakSelf = self;
+    [textArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        NSUInteger attrsCount = attrsArray.count;
+        if (idx <= (attrsCount-1) )
+        {
+            [string appendAttributedString:[strongSelf initWithString:obj attributes:attrsArray[idx]]];
+        }
+        else
+        {
+            [string appendAttributedString:[strongSelf initWithString:obj attributes:attrsArray[attrsCount-1]]];
+        }
+        
+        if (idx != textArray.count-1 && idx <= space.count-1)
+        {
+            [string appendAttributedString:[self spaceWidthWithNumberBlackSpace:space[idx]]];
+        }
+        else
+        {
+            [string appendAttributedString:[self spaceWidthWithNumberBlackSpace:0]];
+        }
+    }];
+    
+    return string;
+}
+
+- (NSMutableAttributedString *)spaceWidthWithNumberBlackSpace:(NSNumber *)number
+{
+    NSString *string = @"";
+    NSUInteger count = [number integerValue];
+    for (NSUInteger i = 0;i < count ; i++)
+    {
+        string = [string stringByAppendingFormat:@" "];
+    }
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:string];
+    return attributedString;
 }
 
 @end
