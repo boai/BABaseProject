@@ -32,10 +32,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - FBAllocationTracker (0.1.5)
-  - FBMemoryProfiler (0.1.3):
-    - FBAllocationTracker (~> 0.1)
-    - FBRetainCycleDetector (~> 0.1)
+  - DZNEmptyDataSet (1.8.1)
   - FBRetainCycleDetector (0.1.3)
   - IQKeyboardManager (4.0.4)
   - JMRoundedCorner (1.2.1)
@@ -48,12 +45,10 @@ PODS:
   - MyLayout (1.1.9)
   - NullSafe (1.2.2)
   - SDAutoLayout (2.1.7)
-  - SDScreenshotCapture (1.3.1)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - UMengSocialCOM (5.2.1)
-  - WebViewJavascriptBridge (5.0.5)
   - YYKit (1.0.7):
     - YYKit/no-arc (= 1.0.7)
   - YYKit/no-arc (1.0.7)
@@ -64,7 +59,7 @@ DEPENDENCIES:
   - BACustomAlertView
   - BaiduMapKit
   - BlocksKit
-  - FBMemoryProfiler
+  - DZNEmptyDataSet
   - IQKeyboardManager
   - JMRoundedCorner
   - Masonry (~> 0.6.4)
@@ -75,10 +70,8 @@ DEPENDENCIES:
   - MyLayout (~> 1.1.6)
   - NullSafe
   - SDAutoLayout
-  - SDScreenshotCapture
   - SDWebImage (~> 3.7.5)
   - UMengSocialCOM (~> 5.2.1)
-  - WebViewJavascriptBridge (~> 5.0)
   - YYKit
 
 SPEC CHECKSUMS:
@@ -87,8 +80,7 @@ SPEC CHECKSUMS:
   BACustomAlertView: 416a6497a6e1ca322f7a99ccdcc213492ee63be3
   BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
-  FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   IQKeyboardManager: 4a6f83b540283c2645aaeba2bd8dc0f09b5c77f8
   JMRoundedCorner: 214e56c2a7e3a0916e8d6040c66d85519cc1be87
@@ -100,12 +92,10 @@ SPEC CHECKSUMS:
   MyLayout: a908e6a34cd9dc5320b6ac27b7fb419c6a8933d2
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
-  SDScreenshotCapture: 6bf9bf26a16f34bac8d9a9b1c3bbb4c4974789cc
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
-  WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: 7c240c24d715de240c8b1fb767966242224c9fd8
+PODFILE CHECKSUM: fbfc11fcbdf0cc00011fd04476d9165f3bc5f403
 
 COCOAPODS: 1.0.1

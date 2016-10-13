@@ -39,7 +39,7 @@
     [attributedString ba_changeColor:[UIColor cyanColor] range:heightLightRange];
     
     /*! 改变某位置的颜色 */
-    [attributedString ba_changeColor:[UIColor redColor] from:3 length:5];
+    [attributedString ba_changeColor:[UIColor redColor] range:NSMakeRange(3, 5)];
     
     /*! 改变某位置的普通字号 */
     [attributedString ba_changeSystemFontFloat:30 range:NSMakeRange(10, 2)];
@@ -56,14 +56,14 @@
     /*! 改变段的顶部和文本内容的开头之间的距离 */
     //    [attributedString ba_changeBeforeLparagraphSpacing:50 from:200 length:10];
     
-    /*! 根据位置加下划线 */
-    [attributedString ba_changeUnderlineWithRange:NSMakeRange(100, 10)];
+    /*! 根据位置、长度 设置下划线样式：根据枚举选择 */
+    [attributedString ba_changeUnderlineStyle:NSUnderlineStyleDouble color:[UIColor greenColor] Range:NSMakeRange(100, 10)];
     
     /*! 全部加下划线 */
     //    [attributedString ba_changeUnderlineAtAll];
     
     /*! 根据位置加删除线 */
-    [attributedString ba_changeStrikethroughWithRange:NSMakeRange(200, 10)];
+    [attributedString ba_changeStrikethroughStyle:NSUnderlineStyleDouble color:[UIColor redColor] Range:NSMakeRange(200, 10)];
     
     /*! 全部加删除线 */
     //    [attributedString ba_changeStrikethroughAtAll];
@@ -72,7 +72,7 @@
     [attributedString ba_changeKernWithInteger:10 Range:NSMakeRange(1, 5)];
     
     /*! 根据位置修改描边颜色 */
-    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor] strokeWidth:2.0 Range:NSMakeRange(1, 5)];
+    [attributedString ba_changeStrokeColorWithColor:[UIColor greenColor]  strokeWidth:2.0 Range:NSMakeRange(1, 5)];
     
     /*! 阴影 */
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -81,7 +81,9 @@
               shadowBlurRadius:1];
     [attributedString ba_changeShadowWithShadow:shadow Range:NSMakeRange(1, 3)];
     
-    /*! 完全自定义 */
+    /*! 根据位置修改宽度 */
+    [attributedString ba_changeExpansionWithInteger:0.6 Range:NSMakeRange(1, 3)];
+    
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],
                           NSForegroundColorAttributeName:[UIColor blackColor],
                           NSKernAttributeName:@2.0,
@@ -91,7 +93,9 @@
                           NSShadowAttributeName:shadow,
                           NSVerticalGlyphFormAttributeName:@(0)};
     
-    [attributedString ba_changeAttributeDict:dic range:NSMakeRange(65, 3)];
+    [attributedString ba_changeAttributeDict:dic range:NSMakeRange(65, 5)];
+    
+    [attributedString ba_changeStrikethroughStyle:NSUnderlineStyleDouble color:[UIColor redColor] Range:NSMakeRange(1, 3)];
     
     label.attributedText = attributedString;
 }

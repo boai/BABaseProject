@@ -24,12 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBAllocationTracker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBMemoryProfiler.xcscheme</key>
+		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -104,17 +99,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDScreenshotCapture.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>WebViewJavascriptBridge.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -132,7 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>27C84E3E5B63A327FDCB4A5A2E2707DE</key>
+		<key>1686730DC90548923E6B4BB7CBF7DA9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A18A430B3BABC04BDAC1DA0C7C0839E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43BE14234FCAFE0261EA517ECBD7A217</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A0DF836BAB98D7819952604EA22C47E</key>
+		<key>69C41A227BF3D4CCFC37471784E7D1D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,17 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80B3AF63759542FF0EAE1D605D3F2091</key>
+		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89C347E5AD3387A150F8CAD6B3ED33FD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8C8C1779E3959B3BF107B00990F45010</key>
+		<key>845196B20073B7259E7A784D4ABD4C16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -197,12 +177,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5BFF4294A7D3C90226C05DDAA3C5C25</key>
+		<key>B58AE9150F017AC1E3E69371EC850776</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B58AE9150F017AC1E3E69371EC850776</key>
+		<key>B9C5D98D8ADD7148978F671F156051D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -217,22 +197,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D4C9D526C96F9905465626D25CE0AFDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E08F0778673C5C93369B7E5339C291D0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E3E12B8BB339234054946D8B39A93687</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E7768CB1FB2921E3C6C0B75E61E84A98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -242,7 +212,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED3955DD835D95D548C25F59FB60343B</key>
+		<key>F3819D6EA3780FF5932A69179B43612A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

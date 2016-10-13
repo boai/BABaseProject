@@ -81,13 +81,18 @@ target 'BABaseProject' do
     pod 'NullSafe'
     
     # oc 与 js 交互框架
-    pod 'WebViewJavascriptBridge', '~> 5.0'
-    
+#    pod 'WebViewJavascriptBridge', '~> 5.0'
+
     # Facebook的内存检测工具
-    pod 'FBMemoryProfiler'
-    
+#    pod 'FBMemoryProfiler'
+
+    # 空数据 的三方库
+    pod 'DZNEmptyDataSet'
+
+
     # 截屏
-    pod 'SDScreenshotCapture'
+#    pod 'SDScreenshotCapture'
+
 
     
     # 类似QQ侧滑框架

@@ -1,1 +1,0 @@
-../../../SDScreenshotCapture/SDScreenshotCapture/SDScreenshotCapture.h

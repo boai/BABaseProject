@@ -47,16 +47,19 @@
  *
  * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
  *
- * QQ     : 博爱1616【137361770】
+ * QQ     : 可以添加ios开发技术群 479663605 在这里找到我(博爱1616【137361770】)
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
  * 博客园  : http://www.cnblogs.com/boai/
  * 博客    : http://boai.github.io
+ * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
+ * 简书专题 : http://www.jianshu.com/collection/072d578bf782
  
  *********************************************************************************
  
  */
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -142,17 +145,18 @@ typedef NSURLSessionTask BAURLSessionTask;
  *  @param progress 进度
  */
 + (BAURLSessionTask *)ba_requestWithType:(BAHttpRequestType)type
-                           withUrlString:(NSString *)urlString
-                          withParameters:(NSDictionary *)parameters
-                        withSuccessBlock:(BAResponseSuccess)successBlock
-                        withFailureBlock:(BAResponseFail)failureBlock
+                               UrlString:(NSString *)urlString
+                              Parameters:(NSDictionary *)parameters
+                            SuccessBlock:(BAResponseSuccess)successBlock
+                            FailureBlock:(BAResponseFail)failureBlock
                                 progress:(BADownloadProgress)progress;
 
 /*!
  *  上传图片(多图)
  *
- *  @param operations   上传图片预留参数---视具体情况而定 可移除
+ *  @param parameters   上传图片预留参数---视具体情况而定 可移除
  *  @param imageArray   上传的图片数组
+ *  @param fileName     上传的图片数组fileName
  *  @param urlString    上传的url
  *  @param successBlock 上传成功的回调
  *  @param failureBlock 上传失败的回调
@@ -160,10 +164,11 @@ typedef NSURLSessionTask BAURLSessionTask;
  */
 + (BAURLSessionTask *)ba_uploadImageWithUrlString:(NSString *)urlString
                                        parameters:(NSDictionary *)parameters
-                                   withImageArray:(NSArray *)imageArray
-                                 withSuccessBlock:(BAResponseSuccess)successBlock
-                                  withFailurBlock:(BAResponseFail)failureBlock
-                               withUpLoadProgress:(BAUploadProgress)progress;
+                                       ImageArray:(NSArray *)imageArray
+                                         FileName:(NSString *)fileName
+                                     SuccessBlock:(BAResponseSuccess)successBlock
+                                      FailurBlock:(BAResponseFail)failureBlock
+                                   UpLoadProgress:(BAUploadProgress)progress;
 
 /*!
  *  视频上传
@@ -177,10 +182,10 @@ typedef NSURLSessionTask BAURLSessionTask;
  */
 + (void)ba_uploadVideoWithUrlString:(NSString *)urlString
                          parameters:(NSDictionary *)parameters
-                      withVideoPath:(NSString *)videoPath
-                   withSuccessBlock:(BAResponseSuccess)successBlock
-                   withFailureBlock:(BAResponseFail)failureBlock
-                 withUploadProgress:(BAUploadProgress)progress;
+                          VideoPath:(NSString *)videoPath
+                       SuccessBlock:(BAResponseSuccess)successBlock
+                       FailureBlock:(BAResponseFail)failureBlock
+                     UploadProgress:(BAUploadProgress)progress;
 
 /*!
  *  文件下载
@@ -194,10 +199,10 @@ typedef NSURLSessionTask BAURLSessionTask;
  */
 + (BAURLSessionTask *)ba_downLoadFileWithUrlString:(NSString *)urlString
                                         parameters:(NSDictionary *)parameters
-                                      withSavaPath:(NSString *)savePath
-                                  withSuccessBlock:(BAResponseSuccess)successBlock
-                                  withFailureBlock:(BAResponseFail)failureBlock
-                              withDownLoadProgress:(BADownloadProgress)progress;
+                                          SavaPath:(NSString *)savePath
+                                      SuccessBlock:(BAResponseSuccess)successBlock
+                                      FailureBlock:(BAResponseFail)failureBlock
+                                  DownLoadProgress:(BADownloadProgress)progress;
 
 
 

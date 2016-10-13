@@ -66,65 +66,48 @@
 @implementation NSMutableAttributedString (BAKit)
 
 #pragma mark 完全自定义样式
-- (NSRange)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range
+- (void)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range
 {
     [self addAttributes:dict range:range];
-    return range;
 }
 
-#pragma mark 改变某位置的颜色
-- (NSRange)ba_changeColor:(UIColor *)color range:(NSRange)range
+#pragma mark 设置字体颜色，取值为 UIColor，默认为黑色
+- (void)ba_changeColor:(UIColor *)color range:(NSRange)range
 {
     [self addAttribute:NSForegroundColorAttributeName value:color range:range];
-    return range;
 }
 
-/*! 改变某位置的颜色 */
-- (NSRange)ba_changeColor:(UIColor *)color
-                     from:(NSInteger)loc
-                    length:(NSInteger)length
+#pragma mark 设置字体所在区域背景颜色，取值为 UIColor对象，默认值为nil, 透明色
+#warning NSForegroundColorAttributeName 和 NSBackgroundColorAttributeName 的低位是相等的，跟前面介绍的 textColor 一样，哪个属性最后一次赋值，就会冲掉前面的效果
+- (void)ba_changeBackgroundColor:(UIColor *)color range:(NSRange)range
 {
-    NSRange range = NSMakeRange(loc, length);
-    [self ba_changeColor:color range:range];
-    return range;
+    [self addAttribute:NSBackgroundColorAttributeName value:color range:range];
 }
 
-#pragma mark 改变某位置的普通字号
-- (NSRange)ba_changeSystemFontFloat:(CGFloat)fontFloat range:(NSRange)range
+//#pragma mark 设置连体属性，取值为NSNumber 对象(整数)，0 表示没有连体字符，1 表示使用默认的连体字符，  //  2 表示使用所有连体符号，默认值为 1（iOS 不支持 2）
+//- (void)ba_changeLigatureWithValue:(int)value range:(NSRange)range
+//{
+//    [self addAttribute:NSLigatureAttributeName value:[NSNumber numberWithInt: value] range:range];
+//    // return range;
+//}
+
+#pragma mark 改变某位置 设置字体属性，默认值：字体：Helvetica(Neue) 字号：12
+- (void)ba_changeSystemFontFloat:(CGFloat)fontFloat range:(NSRange)range
 {
     [self addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontFloat] range:range];
-    return range;
 }
 
-/*! 改变某位置的普通字号*/
-- (NSRange)ba_changeSystemFontFloat:(CGFloat)fontFloat
-                               from:(NSInteger)loc
-                              length:(NSInteger)length
-{
-    NSRange range = NSMakeRange(loc, length);
-    [self ba_changeSystemFontFloat:fontFloat range:range];
-    return range;
-}
+/*! NSObliquenessAttributeName 设置字体倾斜。Skew 斜 */
+
 
 #pragma mark 改变某位置的粗体字号
-- (NSRange)ba_changeBoldFontFloat:(CGFloat)fontFloat range:(NSRange)range
+- (void)ba_changeBoldFontFloat:(CGFloat)fontFloat range:(NSRange)range
 {
     [self addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontFloat] range:range];
-    return range;
-}
-
-/*! 改变某位置的粗体字号 */
-- (NSRange)ba_changeBoldFontFloat:(CGFloat)fontFloat
-                             from:(NSInteger)loc
-                            length:(NSInteger)length
-{
-    NSRange range = NSMakeRange(loc, length);
-    [self ba_changeBoldFontFloat:fontFloat range:range];
-    return range;
 }
 
 #pragma mark 改变某位置的行距
-- (NSRange)ba_changeLineSpacing:(CGFloat)spacing
+- (void)ba_changeLineSpacing:(CGFloat)spacing
                            from:(NSInteger)loc
                           length:(NSInteger)length
 {
@@ -133,11 +116,10 @@
     /*! 行距 */
     style.lineSpacing = spacing;
     [self addAttribute:NSParagraphStyleAttributeName value:style range:range];
-    return range;
 }
 
 /*! 改变某位置的段落距离 */
-- (NSRange)ba_changeParagraphSpacing:(CGFloat)spacing
+- (void)ba_changeParagraphSpacing:(CGFloat)spacing
                                  from:(NSInteger)loc
                                 length:(NSInteger)length
 {
@@ -146,11 +128,10 @@
     /*! 段落距离 */
     style.paragraphSpacing = spacing;
     [self addAttribute:NSParagraphStyleAttributeName value:style range:range];
-    return range;
 }
 
 #pragma mark 改变段落的顶部和文本内容的开头之间的距离
--(NSRange)ba_changeBeforeLparagraphSpacing:(CGFloat)spacing
+- (void)ba_changeBeforeLparagraphSpacing:(CGFloat)spacing
                                       from:(NSInteger)loc
                                      length:(NSInteger)length
 {
@@ -159,76 +140,63 @@
     /*! 段落的顶部和文本内容的开头之间的距离 */
     style.paragraphSpacingBefore = spacing;
     [self addAttribute:NSParagraphStyleAttributeName value:style range:range];
-    return range;
 }
 
-#pragma mark 根据位置、长度加下划线
-- (NSRange)ba_changeUnderlineWithRange:(NSRange)range
+#pragma mark 设置下划线样式：根据枚举选择
+- (void)ba_changeUnderlineStyle:(NSUnderlineStyle)style color:(UIColor *)color Range:(NSRange)range
 {
-    [self addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:range];
-    return range;
+    [self addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:style] range:range];
+    [self addAttribute:NSUnderlineColorAttributeName value:color range:range];
 }
 
-/*! 根据位置加下划线 */
-- (NSRange)ba_changeUnderlineFrom:(NSInteger)loc length:(NSInteger)length
-{
-    NSRange range = NSMakeRange(loc, length);
-    [self ba_changeUnderlineWithRange:range];
-    return range;
-}
-
-#pragma mark 全部加下划线
-- (void)ba_changeUnderlineAtAll
+#pragma mark 全部加下划线 设置下划线样式：根据枚举选择
+- (void)ba_changeUnderlineAtAllStyle:(NSUnderlineStyle)style color:(UIColor *)color
 {
     NSRange range = NSMakeRange(0, self.length);
-    [self ba_changeUnderlineWithRange:range];
+    [self ba_changeUnderlineStyle:style color:color Range:range];
 }
 
-#pragma mark 根据位置加删除线
-- (NSRange)ba_changeStrikethroughWithRange:(NSRange)range
+#pragma mark 设置删除线样式：根据枚举选择
+- (void)ba_changeStrikethroughStyle:(NSUnderlineStyle)style color:(UIColor *)color Range:(NSRange)range
 {
-    [self addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:range];
-    return range;
+    [self addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger:style] range:range];
+    [self addAttribute:NSStrikethroughColorAttributeName value:color range:range];
 }
 
-/*! 根据位置加删除线 */
-- (NSRange)ba_changeStrikethroughFrom:(NSInteger)loc length:(NSInteger)length
-{
-    NSRange range = NSMakeRange(loc, length);
-    [self ba_changeStrikethroughWithRange:range];
-    return range;
-}
-
-#pragma mark 全部加删除线
-- (void)ba_changeStrikethroughAtAll
+#pragma mark 全部添加删除线 设置删除线样式：根据枚举选择
+- (void)ba_changeStrikethroughAtAllStyle:(NSUnderlineStyle)style color:(UIColor *)color
 {
     NSRange range = NSMakeRange(0, self.length);
-    [self ba_changeStrikethroughWithRange:range];
+    [self ba_changeStrikethroughStyle:style color:color Range:range];
 }
 
-#pragma mark 根据位置修改默认字距 0表示禁用字距调整
-- (NSRange)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range
+#pragma mark 设定字符间距，取值为 NSNumber 对象（整数），正值间距加宽，负值间距变窄 
+- (void)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range
 {
     [self addAttribute:NSKernAttributeName value:[NSNumber numberWithFloat:value] range:range];
-    return range;
+}
+
+#pragma mark 根据位置设置文本横向拉伸属性，取值为 NSNumber （float）,正值横向拉伸文本，负值横向压缩文本
+- (void)ba_changeExpansionWithInteger:(CGFloat)value Range:(NSRange)range
+{
+    [self addAttribute:NSExpansionAttributeName value:[NSNumber numberWithFloat:value] range:range];
 }
 
 #pragma mark 根据位置添加阴影效果
-- (NSRange)ba_changeShadowWithShadow:(NSShadow *)shadow Range:(NSRange)range
+- (void)ba_changeShadowWithShadow:(NSShadow *)shadow Range:(NSRange)range
 {
     [self addAttribute:NSShadowAttributeName value:shadow range:range];
+    /*! 排版 */
     [self addAttribute:NSVerticalGlyphFormAttributeName value:@(0) range:range];
-    return range;
 }
 
 #pragma mark 根据位置修改描边颜色 垂直标志符号形式
-- (NSRange)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
+- (void)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
                              strokeWidth:(CGFloat)strokeWidth
                                    Range:(NSRange)range
 {
     [self addAttribute:NSStrokeColorAttributeName value:strokeColor range:range];
     [self addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat:strokeWidth] range:range];
-    return range;
 }
 
 @end

@@ -67,69 +67,59 @@
 @interface NSMutableAttributedString (BAKit)
 
 /*! 完全自定义样式 */
-- (NSRange)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range;
+- (void)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range;
 
 /*! 改变某位置的颜色 */
-- (NSRange)ba_changeColor:(UIColor *)color range:(NSRange)range;
+- (void)ba_changeColor:(UIColor *)color range:(NSRange)range;
 
-/*! 改变某位置的颜色 */
-- (NSRange)ba_changeColor:(UIColor *)color
-                 from:(NSInteger)loc
-                length:(NSInteger)length;
+/*! 设置字体所在区域背景颜色，取值为 UIColor对象，默认值为nil, 透明色 */
+- (void)ba_changeBackgroundColor:(UIColor *)color range:(NSRange)range;
+
+///*! 设置连体属性，取值为NSNumber 对象(整数)，0 表示没有连体字符，1 表示使用默认的连体字符，  //  2 表示使用所有连体符号，默认值为 1（iOS 不支持 2） */
+//- (void)ba_changeLigatureWithValue:(int)value range:(NSRange)range;
 
 /*! 改变某位置的普通字号 */
-- (NSRange)ba_changeSystemFontFloat:(CGFloat)fontFloat range:(NSRange)range;
-
-/*! 改变某位置的普通字号*/
-- (NSRange)ba_changeSystemFontFloat:(CGFloat)fontFloat
-                            from:(NSInteger)loc
-                           length:(NSInteger)length;
+- (void)ba_changeSystemFontFloat:(CGFloat)fontFloat range:(NSRange)range;
 
 /*! 改变某位置的粗体字号 */
-- (NSRange)ba_changeBoldFontFloat:(CGFloat)fontFloat range:(NSRange)range;
-
-/*! 改变某位置的粗体字号 */
-- (NSRange)ba_changeBoldFontFloat:(CGFloat)fontFloat
-                         from:(NSInteger)loc
-                        length:(NSInteger)length;
+- (void)ba_changeBoldFontFloat:(CGFloat)fontFloat range:(NSRange)range;
 
 /*! 改变某位置的行距 */
-- (NSRange)ba_changeLineSpacing:(CGFloat)spacing
+- (void)ba_changeLineSpacing:(CGFloat)spacing
                         from:(NSInteger)loc
                        length:(NSInteger)length;
 
 /*! 改变某位置的段落距离 */
-- (NSRange)ba_changeParagraphSpacing:(CGFloat)spacing
+- (void)ba_changeParagraphSpacing:(CGFloat)spacing
                               from:(NSInteger)loc
                              length:(NSInteger)length;
 
 /*! 改变段的顶部和文本内容的开头之间的距离 */
--(NSRange)ba_changeBeforeLparagraphSpacing:(CGFloat)spacing
+- (void)ba_changeBeforeLparagraphSpacing:(CGFloat)spacing
                                    from:(NSInteger)loc
                                   length:(NSInteger)length;
 
-/*! 根据位置加下划线 */
-- (NSRange)ba_changeUnderlineWithRange:(NSRange)range;
-/*! 根据位置加下划线 */
-- (NSRange)ba_changeUnderlineFrom:(NSInteger)loc length:(NSInteger)length;
-/*! 全部加下划线 */
-- (void)ba_changeUnderlineAtAll;
+/*! 设置下划线样式：根据枚举选择 */
+- (void)ba_changeUnderlineStyle:(NSUnderlineStyle)style color:(UIColor *)color Range:(NSRange)range;
+/*! 全部加下划线 设置下划线样式：根据枚举选择 */
+- (void)ba_changeUnderlineAtAllStyle:(NSUnderlineStyle)style color:(UIColor *)color;
 
-/*! 根据位置加删除线 */
-- (NSRange)ba_changeStrikethroughWithRange:(NSRange)range;
-/*! 根据位置加删除线 */
-- (NSRange)ba_changeStrikethroughFrom:(NSInteger)loc length:(NSInteger)length;
-/*! 全部加删除线 */
-- (void)ba_changeStrikethroughAtAll;
+/*! 设置删除线样式：根据枚举选择 */
+- (void)ba_changeStrikethroughStyle:(NSUnderlineStyle)style color:(UIColor *)color Range:(NSRange)range;
+/*! 全部添加删除线 设置删除线样式：根据枚举选择 */
+- (void)ba_changeStrikethroughAtAllStyle:(NSUnderlineStyle)style color:(UIColor *)color;
 
-/*! 根据位置修改默认字距 0表示禁用字距调整 */
-- (NSRange)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range;
+/*! 设定字符间距，取值为 NSNumber 对象（整数），正值间距加宽，负值间距变窄  */
+- (void)ba_changeKernWithInteger:(CGFloat)value Range:(NSRange)range;
+
+/*! 根据位置修改宽度 */
+- (void)ba_changeExpansionWithInteger:(CGFloat)value Range:(NSRange)range;
 
 /*! 根据位置添加阴影效果 */
-- (NSRange)ba_changeShadowWithShadow:(NSShadow *)shadow Range:(NSRange)range;
+- (void)ba_changeShadowWithShadow:(NSShadow *)shadow Range:(NSRange)range;
 
 /*! 根据位置修改描边颜色 */
-- (NSRange)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
+- (void)ba_changeStrokeColorWithColor:(UIColor *)strokeColor
                              strokeWidth:(CGFloat)strokeWidth
                                    Range:(NSRange)range;
 
