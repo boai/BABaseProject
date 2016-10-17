@@ -14,6 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AsyncDisplayKit (1.9.81):
+    - AsyncDisplayKit/PINRemoteImage (= 1.9.81)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.9.81)
+  - AsyncDisplayKit/Core (1.9.81):
+    - AsyncDisplayKit/ASDealloc2MainObject
+  - AsyncDisplayKit/PINRemoteImage (1.9.81):
+    - AsyncDisplayKit/Core
+    - PINRemoteImage/iOS (>= 3.0.0-beta.2)
   - BAButton (1.0.1)
   - BACustomAlertView (1.0.5)
   - BaiduMapKit (3.0.0)
@@ -44,6 +52,11 @@ PODS:
     - FBRetainCycleDetector
   - MyLayout (1.1.9)
   - NullSafe (1.2.2)
+  - PINCache (3.0.1-beta)
+  - PINRemoteImage/Core (3.0.0-beta.3):
+    - PINCache (>= 3.0.0-beta)
+  - PINRemoteImage/iOS (3.0.0-beta.3):
+    - PINRemoteImage/Core
   - SDAutoLayout (2.1.7)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
@@ -55,6 +68,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - AsyncDisplayKit
   - BAButton (~> 1.0.1)
   - BACustomAlertView
   - BaiduMapKit
@@ -76,6 +90,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AsyncDisplayKit: 011ea22a76a79a5bbfc14501fede6e0196a3c2f0
   BAButton: bb8f74e5e167a7e01ce8c0a66eafc3245ebb8c31
   BACustomAlertView: 416a6497a6e1ca322f7a99ccdcc213492ee63be3
   BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
@@ -91,11 +106,13 @@ SPEC CHECKSUMS:
   MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
   MyLayout: a908e6a34cd9dc5320b6ac27b7fb419c6a8933d2
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
+  PINCache: 6911fe422a633e18b3d3ddf2bd4f0e55e36e2892
+  PINRemoteImage: 308731aa6534500e58fc211b9cc2bb7252df25ba
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: fbfc11fcbdf0cc00011fd04476d9165f3bc5f403
+PODFILE CHECKSUM: 3e9d4b960f3f768b65343ba239513a1afe2c3c37
 
 COCOAPODS: 1.0.1
