@@ -130,7 +130,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         }
     }
     
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page), @"page", @"", @"per_page", nil];;
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page).stringValue, @"page", @"", @"per_page", nil];;
     
     BA_WEAKSELF;
     [self BA_showAlert:BA_Loading];
