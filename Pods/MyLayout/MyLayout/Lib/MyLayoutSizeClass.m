@@ -338,6 +338,7 @@
     lsc.wrapContentWidth = self.wrapContentWidth;
     lsc.wrapContentHeight = self.wrapContentHeight;
     lsc.hideSubviewReLayout = self.hideSubviewReLayout;
+    lsc.reverseLayout = self.reverseLayout;
     
     return lsc;
 }
@@ -449,5 +450,10 @@
     return lsc;
 }
 
+
+
+@end
+
+@implementation MyLayoutSizeClassPathLayout
 
 @end

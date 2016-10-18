@@ -15,31 +15,31 @@ inhibit_all_warnings!
 target 'BABaseProject' do
     
     # 自定义button框架
-    pod 'BAButton', '~> 1.0.1'
+    pod 'BAButton'
     
     # 一个完全实现自定义的alertView！目前为止，最为精简的alert封装！
     pod 'BACustomAlertView'
     
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
-    pod 'Masonry', '~> 0.6.4'
+    pod 'Masonry'
     
     # 两个都是自动布局框架
     pod 'SDAutoLayout'
     
     # 为UI控件提供网络图片加载和缓存功能，AF已经整合了此功能，一般用AF就够了，据专业人士说：SD比AF快0.02秒，如果，同时引用AF和SD，那么AF的网络图片加载方法会被划线
-    pod 'SDWebImage', '~> 3.7.5'
+    pod 'SDWebImage'
     
     # 为滚动控件（UIScrollView, UITableView, UICollectionView）添加头部脚部刷新UI
-    pod 'MJRefresh', '~> 3.1.0'
+    pod 'MJRefresh'
     
     # 键盘框架
     pod 'IQKeyboardManager'
     
     # 专门用于转换 Array/Dictionary -> 对象模型 主要用于JSON解析，基本都用这个框架（必会）
-    pod 'MJExtension', '~> 3.0.10'
+    pod 'MJExtension'
     
     # GitHub 排名第一的网络操作框架，底层使用NSURLSession+NSOperation(多线程)
-    pod 'AFNetworking', '~> 3.0'
+    pod 'AFNetworking'
     
     # 在屏幕中间显示 加载框 类似于安卓的toast效果
     pod 'MBProgressHUD'
@@ -73,7 +73,7 @@ target 'BABaseProject' do
 #    pod 'Toast', '~> 3.0'
 
     # 线性布局MyLinearLayout/相对布局MyRelativeLayout/框架布局MyFrameLayout/表格布局MyTableLayout/流式布局MyFlowLayout/浮动布局MyFloatLayout/SizeClass的支持
-    pod 'MyLayout', '~> 1.1.6'
+    pod 'MyLayout'
 
     # 各种封装的集合！大神的多年积累！
     pod 'YYKit'
