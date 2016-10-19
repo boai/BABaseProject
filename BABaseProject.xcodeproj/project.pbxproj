@@ -100,7 +100,6 @@
 		C480272E1D1928290087BBB9 /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */; };
 		C480272F1D1928290087BBB9 /* BALog.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D91D1928290087BBB9 /* BALog.m */; };
 		C48027311D1928290087BBB9 /* BAPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026DD1D1928290087BBB9 /* BAPassword.m */; };
-		C48027321D1928290087BBB9 /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026DF1D1928290087BBB9 /* BARegularExpression.m */; };
 		C48027341D1928290087BBB9 /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E31D1928290087BBB9 /* BASystemSound.m */; };
 		C48027351D1928290087BBB9 /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E51D1928290087BBB9 /* BATouchID.m */; };
 		C48027361D1928290087BBB9 /* NSArray+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E91D1928290087BBB9 /* NSArray+BAKit.m */; };
@@ -287,6 +286,7 @@
 		C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3791D0C3351001F1585 /* BATabBar2.m */; };
 		C4DEB37D1D0C33E8001F1585 /* BANavigationController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB37C1D0C33E8001F1585 /* BANavigationController2.m */; };
 		C4DEB3851D0C34B0001F1585 /* BAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */; };
+		C4E464F31DB764100007985E /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464F21DB764100007985E /* BARegularExpression.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
@@ -631,8 +631,6 @@
 		C48026D91D1928290087BBB9 /* BALog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALog.m; sourceTree = "<group>"; };
 		C48026DC1D1928290087BBB9 /* BAPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPassword.h; sourceTree = "<group>"; };
 		C48026DD1D1928290087BBB9 /* BAPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPassword.m; sourceTree = "<group>"; };
-		C48026DE1D1928290087BBB9 /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
-		C48026DF1D1928290087BBB9 /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
 		C48026E21D1928290087BBB9 /* BASystemSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystemSound.h; sourceTree = "<group>"; };
 		C48026E31D1928290087BBB9 /* BASystemSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystemSound.m; sourceTree = "<group>"; };
 		C48026E41D1928290087BBB9 /* BATouchID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATouchID.h; sourceTree = "<group>"; };
@@ -873,6 +871,8 @@
 		C4DEB37C1D0C33E8001F1585 /* BANavigationController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANavigationController2.m; sourceTree = "<group>"; };
 		C4DEB3831D0C34B0001F1585 /* BAPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPublishViewController.h; sourceTree = "<group>"; };
 		C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPublishViewController.m; sourceTree = "<group>"; };
+		C4E464F11DB764100007985E /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
+		C4E464F21DB764100007985E /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
 		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
@@ -1475,6 +1475,7 @@
 				C4F74A851D37BDB60014C396 /* 清理缓存 */,
 				C4B9644E1D33A5FB005926B8 /* 自定义下拉刷新动画 */,
 				C444232B1D2E738A004ACAA8 /* BAAlert */,
+				C4E464F01DB764100007985E /* BARegularExpression */,
 				C48026D41D1928290087BBB9 /* BAAPP.h */,
 				C48026D51D1928290087BBB9 /* BAAPP.m */,
 				C48026D61D1928290087BBB9 /* BAAutoSizeWithWH.h */,
@@ -1483,8 +1484,6 @@
 				C48026D91D1928290087BBB9 /* BALog.m */,
 				C48026DC1D1928290087BBB9 /* BAPassword.h */,
 				C48026DD1D1928290087BBB9 /* BAPassword.m */,
-				C48026DE1D1928290087BBB9 /* BARegularExpression.h */,
-				C48026DF1D1928290087BBB9 /* BARegularExpression.m */,
 				C48026E21D1928290087BBB9 /* BASystemSound.h */,
 				C48026E31D1928290087BBB9 /* BASystemSound.m */,
 				C48026E41D1928290087BBB9 /* BATouchID.h */,
@@ -2325,6 +2324,15 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4E464F01DB764100007985E /* BARegularExpression */ = {
+			isa = PBXGroup;
+			children = (
+				C4E464F11DB764100007985E /* BARegularExpression.h */,
+				C4E464F21DB764100007985E /* BARegularExpression.m */,
+			);
+			path = BARegularExpression;
 			sourceTree = "<group>";
 		};
 		C4EA257E1CF7DF4B00F6081C /* DemoVC10 */ = {
@@ -3174,6 +3182,7 @@
 				C4EB5AC11CD8B04B003A7094 /* Frameworks */,
 				C4EB5AC21CD8B04B003A7094 /* Resources */,
 				506D9245C67DCD36FDEA4BE1 /* [CP] Copy Pods Resources */,
+				B6A714841A6340FB4E5AC33D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3556,6 +3565,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B6A714841A6340FB4E5AC33D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BABaseProject-BABaseProjectUITests/Pods-BABaseProject-BABaseProjectUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E529F28772B974488CBD1AB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3583,7 +3607,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EF5B19CC6D0A6B2D1857956F /* [CP] Check Pods Manifest.lock */ = {
@@ -3598,7 +3622,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F8AC0514F3C56B806478C29A /* [CP] Check Pods Manifest.lock */ = {
@@ -3613,7 +3637,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3706,6 +3730,7 @@
 				C48026C81D191EC90087BBB9 /* DemoVC11_AutoLayout.m in Sources */,
 				C42781231D2D338F003E6694 /* DemoVC2_01_cell.m in Sources */,
 				C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */,
+				C4E464F31DB764100007985E /* BARegularExpression.m in Sources */,
 				C445E1D31D1B86FE00D7654A /* UIColor+Wonderful.m in Sources */,
 				C4EE1C5E1D2288BF005046A6 /* DemoVC2_01.m in Sources */,
 				C480273B1D1928290087BBB9 /* NSMutableArray+BAKit.m in Sources */,
@@ -3759,7 +3784,6 @@
 				C42781311D2D39B1003E6694 /* GCDTimer.m in Sources */,
 				C48027521D1928290087BBB9 /* BASnowView.m in Sources */,
 				C4F74AA21D37C1BD0014C396 /* BAShareManageView.m in Sources */,
-				C48027321D1928290087BBB9 /* BARegularExpression.m in Sources */,
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
 				C480274E1D1928290087BBB9 /* UIView+BAKit.m in Sources */,
 				C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */,

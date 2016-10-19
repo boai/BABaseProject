@@ -66,7 +66,7 @@ target 'BABaseProject' do
     pod 'BlocksKit'
 
     # Facebook kit 框架
-    pod 'AsyncDisplayKit'
+#    pod 'AsyncDisplayKit'
 
 
     # 自定义提示框
@@ -134,4 +134,7 @@ target 'BABaseProject' do
         
     end
 end
+
+
+
 

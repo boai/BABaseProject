@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AsyncDisplayKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>BAButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -84,16 +79,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PINCache.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PINRemoteImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-BABaseProject-BABaseProjectTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -127,7 +112,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02374ADCDDA9C2ACB08D06AB49510783</key>
+		<key>1686730DC90548923E6B4BB7CBF7DA9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A18A430B3BABC04BDAC1DA0C7C0839E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,22 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3EA59E428F08E75FCDF86F6B685FF535</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E07DE77170BAC9C2E4F9906B311EEB0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6EC48066A10459224CBD157FC4FB3F55</key>
+		<key>69C41A227BF3D4CCFC37471784E7D1D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,12 +152,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B6E821614BFC2FE49A523ECA236EEB2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8F3B243A2117F94CD73AB6717D9B51A8</key>
+		<key>845196B20073B7259E7A784D4ABD4C16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,11 +177,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A673D09F9D3713630C40A7E591F266BA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B58AE9150F017AC1E3E69371EC850776</key>
 		<dict>
 			<key>primary</key>
@@ -227,12 +197,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
+		<key>D4C9D526C96F9905465626D25CE0AFDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBA123876CA2345F4174B91D194121D6</key>
+		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -242,7 +212,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F767C8D86AE588542CF0ECBF7309D38F</key>
+		<key>F3819D6EA3780FF5932A69179B43612A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
