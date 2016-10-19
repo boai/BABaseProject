@@ -237,7 +237,15 @@
  */
 + (BOOL)ba_isValidTaxNo:(NSString *)taxNo;
 
+/*!
+ *  Mac地址有效性验证
+ */
++ (BOOL)ba_isMacAddress:(NSString *)macAddress;
 
+/*!
+ *  银行卡的有效性验证
+ */
++ (BOOL)ba_isBankCardlNumCheck:(NSString *)bankCardlNum;
 
 
 /*！
