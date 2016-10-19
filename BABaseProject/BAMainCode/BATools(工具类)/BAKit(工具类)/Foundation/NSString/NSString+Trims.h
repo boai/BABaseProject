@@ -60,16 +60,39 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (BAColor)
-#pragma mark - *****  颜色处理 类
+@interface NSString (Trims)
+#pragma mark - *****  特殊字符串处理 类
 
 /*!
- *  返回十六进制的color 随机颜色
+ *  @brief  清除html标签
  *
- *  @return randomColor
+ *  @return 清除后的结果
  */
-+ (NSString *)randomColorWithHex;
+- (NSString *)ba_stringByStrippingHTML;
+
+/*!
+ *  @brief  清除js脚本
+ *
+ *  @return 清楚js后的结果
+ */
+- (NSString *)ba_stringByRemovingScriptsAndStrippingHTML;
+
+/*!
+ *  @brief  去除空格
+ *
+ *  @return 去除空格后的字符串
+ */
+- (NSString *)ba_trimmingWhitespace;
+
+/*!
+ *  @brief  去除字符串与空行
+ *
+ *  @return 去除字符串与空行的字符串
+ */
+- (NSString *)ba_trimmingWhitespaceAndNewlines;
 
 
+/*! 去掉字符串中的html标签的方法 */
+- (NSString *)ba_filterHTML:(NSString *)html;
 
 @end

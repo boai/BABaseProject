@@ -65,6 +65,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NSMutableAttributedString (BAKit)
+#pragma mark - *****  富文本处理 类
 
 /*! 完全自定义样式 */
 - (void)ba_changeAttributeDict:(NSDictionary *)dict range:(NSRange)range;

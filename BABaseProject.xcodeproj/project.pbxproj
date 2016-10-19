@@ -287,6 +287,7 @@
 		C4DEB37D1D0C33E8001F1585 /* BANavigationController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB37C1D0C33E8001F1585 /* BANavigationController2.m */; };
 		C4DEB3851D0C34B0001F1585 /* BAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */; };
 		C4E464F31DB764100007985E /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464F21DB764100007985E /* BARegularExpression.m */; };
+		C4E464F61DB76C2B0007985E /* NSString+Trims.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464F51DB76C2B0007985E /* NSString+Trims.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
@@ -873,6 +874,8 @@
 		C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPublishViewController.m; sourceTree = "<group>"; };
 		C4E464F11DB764100007985E /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
 		C4E464F21DB764100007985E /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
+		C4E464F41DB76C2B0007985E /* NSString+Trims.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trims.h"; sourceTree = "<group>"; };
+		C4E464F51DB76C2B0007985E /* NSString+Trims.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trims.m"; sourceTree = "<group>"; };
 		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
@@ -3021,6 +3024,8 @@
 				C407B6431D7434F0005DC17F /* NSString+BAColor.m */,
 				C4EE1C631D228E34005046A6 /* NSString+BAKit.h */,
 				C4EE1C641D228E34005046A6 /* NSString+BAKit.m */,
+				C4E464F41DB76C2B0007985E /* NSString+Trims.h */,
+				C4E464F51DB76C2B0007985E /* NSString+Trims.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -3724,6 +3729,7 @@
 				C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C41CA8CA1D3FA3BF006296BD /* DemoVC2_02_studentCell.m in Sources */,
+				C4E464F61DB76C2B0007985E /* NSString+Trims.m in Sources */,
 				C457EA4F1DADE8F100CD0B91 /* NSShadow+BAKit.m in Sources */,
 				C48027461D1928290087BBB9 /* UIDevice+BAKit.m in Sources */,
 				C445E1CE1D1B86FE00D7654A /* SXColorGradientView.m in Sources */,
