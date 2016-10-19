@@ -288,6 +288,8 @@
 		C4E465051DB775BC0007985E /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464FF1DB775BC0007985E /* BASystemSound.m */; };
 		C4E465061DB775BC0007985E /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E465011DB775BC0007985E /* BATouchID.m */; };
 		C4E4650A1DB7765B0007985E /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E465091DB7765B0007985E /* BAAutoSizeWithWH.m */; };
+		C4E4650F1DB777CB0007985E /* BASystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E4650C1DB777CB0007985E /* BASystemService.m */; };
+		C4E465101DB777CB0007985E /* UIApplication+AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E4650E1DB777CB0007985E /* UIApplication+AppInfo.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
@@ -876,6 +878,10 @@
 		C4E465011DB775BC0007985E /* BATouchID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATouchID.m; sourceTree = "<group>"; };
 		C4E465081DB7765B0007985E /* BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAutoSizeWithWH.h; sourceTree = "<group>"; };
 		C4E465091DB7765B0007985E /* BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAutoSizeWithWH.m; sourceTree = "<group>"; };
+		C4E4650B1DB777CB0007985E /* BASystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystemService.h; sourceTree = "<group>"; };
+		C4E4650C1DB777CB0007985E /* BASystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystemService.m; sourceTree = "<group>"; };
+		C4E4650D1DB777CB0007985E /* UIApplication+AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppInfo.h"; sourceTree = "<group>"; };
+		C4E4650E1DB777CB0007985E /* UIApplication+AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppInfo.m"; sourceTree = "<group>"; };
 		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
@@ -2341,6 +2347,10 @@
 				C4E464FF1DB775BC0007985E /* BASystemSound.m */,
 				C4E465001DB775BC0007985E /* BATouchID.h */,
 				C4E465011DB775BC0007985E /* BATouchID.m */,
+				C4E4650B1DB777CB0007985E /* BASystemService.h */,
+				C4E4650C1DB777CB0007985E /* BASystemService.m */,
+				C4E4650D1DB777CB0007985E /* UIApplication+AppInfo.h */,
+				C4E4650E1DB777CB0007985E /* UIApplication+AppInfo.m */,
 			);
 			path = UIApplication;
 			sourceTree = "<group>";
@@ -3739,6 +3749,7 @@
 				C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */,
 				C48027541D1928290087BBB9 /* CALayer+BAMaskLayer.m in Sources */,
 				C4E465061DB775BC0007985E /* BATouchID.m in Sources */,
+				C4E465101DB777CB0007985E /* UIApplication+AppInfo.m in Sources */,
 				C4EE1C691D2295E2005046A6 /* BACellDataAdapter.m in Sources */,
 				C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
@@ -3807,6 +3818,7 @@
 				C4F74AA21D37C1BD0014C396 /* BAShareManageView.m in Sources */,
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
 				C480274E1D1928290087BBB9 /* UIView+BAKit.m in Sources */,
+				C4E4650F1DB777CB0007985E /* BASystemService.m in Sources */,
 				C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */,
 				C4E465031DB775BC0007985E /* BALog.m in Sources */,
 				C4D108021CE2FC1C00F735B9 /* view1.m in Sources */,
