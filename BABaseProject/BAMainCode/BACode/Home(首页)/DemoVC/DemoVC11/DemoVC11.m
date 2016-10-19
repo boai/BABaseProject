@@ -198,13 +198,14 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     cell.model          = model;
     cell.backgroundColor = BA_Green_Color;
     
-    if ([NSString BA_NSStringIsNULL:cell.model.desc])
+    if ([NSString ba_NSStringIsNULL:cell.model.desc])
     {
         cell.titleLabel.text = @(indexPath.item).stringValue;
     }
     else
+    {
         cell.titleLabel.text = cell.model.desc;
-    
+    }
     return cell;
 }
 

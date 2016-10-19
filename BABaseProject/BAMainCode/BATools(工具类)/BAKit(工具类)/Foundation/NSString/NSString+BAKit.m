@@ -511,19 +511,7 @@
     return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
 }
 
-- (NSString *)BA_trimmedString:(NSString *)string
-{
-    // 去除字符串的特殊字符
-    //    NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";
-    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@／：；（）¥「」＂、<>[]{}#%-*+=_\\|~＜＞$?^?'@#$%^&*()_+'\""];
-    NSString*trimmedString = [string stringByTrimmingCharactersInSet:set];
-    BALog(@"trimmedString1:%@",trimmedString);
-    // 去除字符串的空格
-    trimmedString = [trimmedString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    BALog(@"trimmedString2: %@",trimmedString);
-    
-    return trimmedString;
-}
+
 
 // 获得随机字符串
 //+ (NSString *)getRandString
@@ -536,7 +524,7 @@
 //    return tempText;
 //}
 
-+ (BOOL)BA_NSStringIsNULL:(NSString *)aStirng
++ (BOOL)ba_NSStringIsNULL:(NSString *)aStirng
 {
     if([aStirng isKindOfClass:[NSNull class]]) return YES;
     if(![aStirng isKindOfClass:[NSString class]]) return YES;
@@ -545,15 +533,6 @@
     
     NSUInteger len = aStirng.length;
     if (len <= 0) return YES;
-    return NO;
-}
-
-+ (BOOL)BA_url_isURL:(NSString *)url
-{
-    if([self BA_NSStringIsNULL:url]) return NO;
-    
-    if([url rangeOfString:@"http://" options:NSCaseInsensitiveSearch].location != NSNotFound)
-        return YES;
     return NO;
 }
 
@@ -875,21 +854,7 @@
     return userInfoPath;
 }
 
-/*! 判断字符串是否是邮箱账号 */
-+ (BOOL)BA_isEmailString:(NSString *)emailString
-{
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:emailString];
-}
 
-/*! 判断字符串是否是字母或数字 */
-+ (BOOL)BA_isLetterOrNumberString:(NSString *)string
-{
-    NSString *letterOrNumberRegex = @"[A-Z0-9a-z]+";
-    NSPredicate *letterOrNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", letterOrNumberRegex];
-    return [letterOrNumberTest evaluateWithObject:string];
-}
 
 /*! 获取字符串的长度 */
 + (NSUInteger)BA_getLengthOfStr:(NSString*)str
@@ -897,26 +862,6 @@
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData* da = [str dataUsingEncoding:enc];
     return [da length];
-}
-
-/*! 判断字符串是否是手机号码 */
-+ (BOOL)BA_isMobileNumber:(NSString *)mobileNum
-{
-    /*
-     13 14 15 16 17 18 开头号码段
-     */
-    NSString *phoneRegex = @"^1[34578]\\d{9}$";
-    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
-    return [phoneTest evaluateWithObject:mobileNum];
-}
-
-/*! 特殊字符串处理：改变部分字符串的字体颜色 */
-+ (NSMutableAttributedString *)BA_creatMutableAttributedString:(NSString *)text textColor:(UIColor *)textColor bgColor:(UIColor *)bgColor font:(CGFloat)fontSize range:(NSRange)range
-{
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:text];
-    
-    [attributedStr addAttributes:@{NSForegroundColorAttributeName:textColor,NSBackgroundColorAttributeName:bgColor, NSFontAttributeName:[UIFont systemFontOfSize:fontSize]} range:range];
-    return attributedStr;
 }
 
 /*! 重复字符串N次 */

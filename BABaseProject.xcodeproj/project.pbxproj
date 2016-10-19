@@ -96,12 +96,6 @@
 		C48026CA1D191EC90087BBB9 /* DemoVC11_model.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026C61D191EC90087BBB9 /* DemoVC11_model.m */; };
 		C48026CE1D191F720087BBB9 /* DemoVC12.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026CD1D191F720087BBB9 /* DemoVC12.m */; };
 		C48026D11D1920110087BBB9 /* DemoVC12View.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D01D1920110087BBB9 /* DemoVC12View.m */; };
-		C480272D1D1928290087BBB9 /* BAAPP.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D51D1928290087BBB9 /* BAAPP.m */; };
-		C480272E1D1928290087BBB9 /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */; };
-		C480272F1D1928290087BBB9 /* BALog.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026D91D1928290087BBB9 /* BALog.m */; };
-		C48027311D1928290087BBB9 /* BAPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026DD1D1928290087BBB9 /* BAPassword.m */; };
-		C48027341D1928290087BBB9 /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E31D1928290087BBB9 /* BASystemSound.m */; };
-		C48027351D1928290087BBB9 /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E51D1928290087BBB9 /* BATouchID.m */; };
 		C48027361D1928290087BBB9 /* NSArray+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026E91D1928290087BBB9 /* NSArray+BAKit.m */; };
 		C48027371D1928290087BBB9 /* NSData+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026EB1D1928290087BBB9 /* NSData+BAKit.m */; };
 		C48027381D1928290087BBB9 /* NSDate+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C48026ED1D1928290087BBB9 /* NSDate+BAKit.m */; };
@@ -288,6 +282,12 @@
 		C4DEB3851D0C34B0001F1585 /* BAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DEB3841D0C34B0001F1585 /* BAPublishViewController.m */; };
 		C4E464F31DB764100007985E /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464F21DB764100007985E /* BARegularExpression.m */; };
 		C4E464F61DB76C2B0007985E /* NSString+Trims.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464F51DB76C2B0007985E /* NSString+Trims.m */; };
+		C4E465021DB775BC0007985E /* BAAPP.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464F91DB775BC0007985E /* BAAPP.m */; };
+		C4E465031DB775BC0007985E /* BALog.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464FB1DB775BC0007985E /* BALog.m */; };
+		C4E465041DB775BC0007985E /* BAPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464FD1DB775BC0007985E /* BAPassword.m */; };
+		C4E465051DB775BC0007985E /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E464FF1DB775BC0007985E /* BASystemSound.m */; };
+		C4E465061DB775BC0007985E /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E465011DB775BC0007985E /* BATouchID.m */; };
+		C4E4650A1DB7765B0007985E /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E465091DB7765B0007985E /* BAAutoSizeWithWH.m */; };
 		C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25801CF7DFEC00F6081C /* DemoVC10.m */; };
 		C4EA25841CF7E10600F6081C /* DemoVC10_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA25831CF7E10600F6081C /* DemoVC10_CollectionView.m */; };
 		C4EADCE51D02C0130086979C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4EADCE71D02C0130086979C /* Localizable.strings */; };
@@ -624,18 +624,6 @@
 		C48026CD1D191F720087BBB9 /* DemoVC12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12.m; sourceTree = "<group>"; };
 		C48026CF1D1920110087BBB9 /* DemoVC12View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC12View.h; sourceTree = "<group>"; };
 		C48026D01D1920110087BBB9 /* DemoVC12View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12View.m; sourceTree = "<group>"; };
-		C48026D41D1928290087BBB9 /* BAAPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAPP.h; sourceTree = "<group>"; };
-		C48026D51D1928290087BBB9 /* BAAPP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAPP.m; sourceTree = "<group>"; };
-		C48026D61D1928290087BBB9 /* BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAutoSizeWithWH.h; sourceTree = "<group>"; };
-		C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAutoSizeWithWH.m; sourceTree = "<group>"; };
-		C48026D81D1928290087BBB9 /* BALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALog.h; sourceTree = "<group>"; };
-		C48026D91D1928290087BBB9 /* BALog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALog.m; sourceTree = "<group>"; };
-		C48026DC1D1928290087BBB9 /* BAPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPassword.h; sourceTree = "<group>"; };
-		C48026DD1D1928290087BBB9 /* BAPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPassword.m; sourceTree = "<group>"; };
-		C48026E21D1928290087BBB9 /* BASystemSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystemSound.h; sourceTree = "<group>"; };
-		C48026E31D1928290087BBB9 /* BASystemSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystemSound.m; sourceTree = "<group>"; };
-		C48026E41D1928290087BBB9 /* BATouchID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATouchID.h; sourceTree = "<group>"; };
-		C48026E51D1928290087BBB9 /* BATouchID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATouchID.m; sourceTree = "<group>"; };
 		C48026E61D1928290087BBB9 /* BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKit.h; sourceTree = "<group>"; };
 		C48026E81D1928290087BBB9 /* NSArray+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BAKit.h"; sourceTree = "<group>"; };
 		C48026E91D1928290087BBB9 /* NSArray+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BAKit.m"; sourceTree = "<group>"; };
@@ -876,6 +864,18 @@
 		C4E464F21DB764100007985E /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
 		C4E464F41DB76C2B0007985E /* NSString+Trims.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trims.h"; sourceTree = "<group>"; };
 		C4E464F51DB76C2B0007985E /* NSString+Trims.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trims.m"; sourceTree = "<group>"; };
+		C4E464F81DB775BC0007985E /* BAAPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAPP.h; sourceTree = "<group>"; };
+		C4E464F91DB775BC0007985E /* BAAPP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAPP.m; sourceTree = "<group>"; };
+		C4E464FA1DB775BC0007985E /* BALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALog.h; sourceTree = "<group>"; };
+		C4E464FB1DB775BC0007985E /* BALog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALog.m; sourceTree = "<group>"; };
+		C4E464FC1DB775BC0007985E /* BAPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPassword.h; sourceTree = "<group>"; };
+		C4E464FD1DB775BC0007985E /* BAPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPassword.m; sourceTree = "<group>"; };
+		C4E464FE1DB775BC0007985E /* BASystemSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystemSound.h; sourceTree = "<group>"; };
+		C4E464FF1DB775BC0007985E /* BASystemSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystemSound.m; sourceTree = "<group>"; };
+		C4E465001DB775BC0007985E /* BATouchID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATouchID.h; sourceTree = "<group>"; };
+		C4E465011DB775BC0007985E /* BATouchID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATouchID.m; sourceTree = "<group>"; };
+		C4E465081DB7765B0007985E /* BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAutoSizeWithWH.h; sourceTree = "<group>"; };
+		C4E465091DB7765B0007985E /* BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAutoSizeWithWH.m; sourceTree = "<group>"; };
 		C4EA257F1CF7DFEC00F6081C /* DemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10.h; sourceTree = "<group>"; };
 		C4EA25801CF7DFEC00F6081C /* DemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC10.m; sourceTree = "<group>"; };
 		C4EA25821CF7E10600F6081C /* DemoVC10_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC10_CollectionView.h; sourceTree = "<group>"; };
@@ -1458,6 +1458,7 @@
 				C44423241D2E5D66004ACAA8 /* BAKitManager.h */,
 				C44423251D2E5D66004ACAA8 /* BAKitManager.m */,
 				C44423271D2E5DE1004ACAA8 /* BAKitManager */,
+				C4E464F71DB775BC0007985E /* UIApplication */,
 				C48026D31D1928290087BBB9 /* BACustom */,
 				C48026E71D1928290087BBB9 /* Foundation */,
 				C48026FE1D1928290087BBB9 /* UIKit */,
@@ -1470,6 +1471,7 @@
 		C48026D31D1928290087BBB9 /* BACustom */ = {
 			isa = PBXGroup;
 			children = (
+				C4E465071DB7765B0007985E /* BAAutoSizeWithWH */,
 				C4D109251D9235100057B2DC /* BASystermSetting */,
 				C4F74A891D37C1BD0014C396 /* BALocalNotification */,
 				C4F74A8C1D37C1BD0014C396 /* BANavigationItem */,
@@ -1479,18 +1481,6 @@
 				C4B9644E1D33A5FB005926B8 /* 自定义下拉刷新动画 */,
 				C444232B1D2E738A004ACAA8 /* BAAlert */,
 				C4E464F01DB764100007985E /* BARegularExpression */,
-				C48026D41D1928290087BBB9 /* BAAPP.h */,
-				C48026D51D1928290087BBB9 /* BAAPP.m */,
-				C48026D61D1928290087BBB9 /* BAAutoSizeWithWH.h */,
-				C48026D71D1928290087BBB9 /* BAAutoSizeWithWH.m */,
-				C48026D81D1928290087BBB9 /* BALog.h */,
-				C48026D91D1928290087BBB9 /* BALog.m */,
-				C48026DC1D1928290087BBB9 /* BAPassword.h */,
-				C48026DD1D1928290087BBB9 /* BAPassword.m */,
-				C48026E21D1928290087BBB9 /* BASystemSound.h */,
-				C48026E31D1928290087BBB9 /* BASystemSound.m */,
-				C48026E41D1928290087BBB9 /* BATouchID.h */,
-				C48026E51D1928290087BBB9 /* BATouchID.m */,
 			);
 			path = BACustom;
 			sourceTree = "<group>";
@@ -2336,6 +2326,32 @@
 				C4E464F21DB764100007985E /* BARegularExpression.m */,
 			);
 			path = BARegularExpression;
+			sourceTree = "<group>";
+		};
+		C4E464F71DB775BC0007985E /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				C4E464F81DB775BC0007985E /* BAAPP.h */,
+				C4E464F91DB775BC0007985E /* BAAPP.m */,
+				C4E464FA1DB775BC0007985E /* BALog.h */,
+				C4E464FB1DB775BC0007985E /* BALog.m */,
+				C4E464FC1DB775BC0007985E /* BAPassword.h */,
+				C4E464FD1DB775BC0007985E /* BAPassword.m */,
+				C4E464FE1DB775BC0007985E /* BASystemSound.h */,
+				C4E464FF1DB775BC0007985E /* BASystemSound.m */,
+				C4E465001DB775BC0007985E /* BATouchID.h */,
+				C4E465011DB775BC0007985E /* BATouchID.m */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		C4E465071DB7765B0007985E /* BAAutoSizeWithWH */ = {
+			isa = PBXGroup;
+			children = (
+				C4E465081DB7765B0007985E /* BAAutoSizeWithWH.h */,
+				C4E465091DB7765B0007985E /* BAAutoSizeWithWH.m */,
+			);
+			path = BAAutoSizeWithWH;
 			sourceTree = "<group>";
 		};
 		C4EA257E1CF7DF4B00F6081C /* DemoVC10 */ = {
@@ -3666,12 +3682,12 @@
 				C46B89F91CE055DD00005E2B /* DemoVC5Cell.m in Sources */,
 				C44423301D2E738A004ACAA8 /* BAAlertView.m in Sources */,
 				C4F74A9C1D37C1BD0014C396 /* BALocalNotification.m in Sources */,
-				C48027341D1928290087BBB9 /* BASystemSound.m in Sources */,
 				C4EB5BBE1CD8B250003A7094 /* BAMessageViewController.m in Sources */,
 				C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */,
 				C44BC02B1D93735800B5EA99 /* AppDelegate+BABaiduMap.m in Sources */,
 				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C48026CA1D191EC90087BBB9 /* DemoVC11_model.m in Sources */,
+				C4E4650A1DB7765B0007985E /* BAAutoSizeWithWH.m in Sources */,
 				C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */,
 				C4772B1F1D8F8DB6002B73CD /* BATabBarButton.m in Sources */,
 				C474FE771DACB996007755D3 /* DemoVC2_05.m in Sources */,
@@ -3704,25 +3720,25 @@
 				C4EB5BCB1CD8B250003A7094 /* AppDelegate+BACategory.m in Sources */,
 				C48556301D3CB2DD00002FA2 /* UINavigationBar+BAKit.m in Sources */,
 				C4EBE1EA1D94C4FC00020C1F /* MyAnimatedAnnotationView.m in Sources */,
-				C480272F1D1928290087BBB9 /* BALog.m in Sources */,
 				C427812E1D2D39B1003E6694 /* GCDGroup.m in Sources */,
 				C48027551D1928290087BBB9 /* EmitterLayerView.m in Sources */,
 				C4F74A9E1D37C1BD0014C396 /* UINavigationItem+CustomItem.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
 				C44423261D2E5D67004ACAA8 /* BAKitManager.m in Sources */,
 				C445E1D21D1B86FE00D7654A /* UIColor+Separate.m in Sources */,
+				C4E465051DB775BC0007985E /* BASystemSound.m in Sources */,
 				C4F74A881D37BDEB0014C396 /* BAClearCacheManager.m in Sources */,
 				C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */,
 				C480273C1D1928290087BBB9 /* NSMutableDictionary+BAKit.m in Sources */,
 				C4F59F871D54680E00AA822A /* BANewFeatureVC.m in Sources */,
+				C4E465041DB775BC0007985E /* BAPassword.m in Sources */,
 				C427812F1D2D39B1003E6694 /* GCDQueue.m in Sources */,
 				C4D108031CE2FC1C00F735B9 /* view2.m in Sources */,
 				C48027451D1928290087BBB9 /* UIColor+BAKit.m in Sources */,
 				C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */,
-				C480272D1D1928290087BBB9 /* BAAPP.m in Sources */,
 				C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */,
 				C48027541D1928290087BBB9 /* CALayer+BAMaskLayer.m in Sources */,
-				C48027351D1928290087BBB9 /* BATouchID.m in Sources */,
+				C4E465061DB775BC0007985E /* BATouchID.m in Sources */,
 				C4EE1C691D2295E2005046A6 /* BACellDataAdapter.m in Sources */,
 				C4EA25811CF7DFEC00F6081C /* DemoVC10.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
@@ -3738,12 +3754,12 @@
 				C46C5AB91CDB75B9002F707F /* BAHomeViewModel.m in Sources */,
 				C4E464F31DB764100007985E /* BARegularExpression.m in Sources */,
 				C445E1D31D1B86FE00D7654A /* UIColor+Wonderful.m in Sources */,
+				C4E465021DB775BC0007985E /* BAAPP.m in Sources */,
 				C4EE1C5E1D2288BF005046A6 /* DemoVC2_01.m in Sources */,
 				C480273B1D1928290087BBB9 /* NSMutableArray+BAKit.m in Sources */,
 				C444232A1D2E5E07004ACAA8 /* BAKitManager+BALabel.m in Sources */,
 				C480273A1D1928290087BBB9 /* NSFileManager+BAKit.m in Sources */,
 				C4D1092D1D9271400057B2DC /* DemoVC2_04.m in Sources */,
-				C48027311D1928290087BBB9 /* BAPassword.m in Sources */,
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,
 				C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */,
 				C4D108041CE2FC1C00F735B9 /* view3.m in Sources */,
@@ -3757,7 +3773,6 @@
 				C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */,
 				C41CA8C41D3FA049006296BD /* DemoVC2_02_studentModel.m in Sources */,
 				C4EB5AA51CD8B04B003A7094 /* main.m in Sources */,
-				C480272E1D1928290087BBB9 /* BAAutoSizeWithWH.m in Sources */,
 				C44423451D2E824D004ACAA8 /* BARotateView.m in Sources */,
 				C48556361D3CC74600002FA2 /* NSDateFormatter+BAKit.m in Sources */,
 				C48027481D1928290087BBB9 /* UIImage+BAKit.m in Sources */,
@@ -3793,6 +3808,7 @@
 				C4EB5BB71CD8B250003A7094 /* BAFPSLabel.m in Sources */,
 				C480274E1D1928290087BBB9 /* UIView+BAKit.m in Sources */,
 				C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */,
+				C4E465031DB775BC0007985E /* BALog.m in Sources */,
 				C4D108021CE2FC1C00F735B9 /* view1.m in Sources */,
 				C445E1D11D1B86FE00D7654A /* SXMarquee.m in Sources */,
 				C445E1D01D1B86FE00D7654A /* SXHeadLine.m in Sources */,

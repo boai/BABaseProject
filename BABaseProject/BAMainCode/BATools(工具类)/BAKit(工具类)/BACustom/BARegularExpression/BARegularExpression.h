@@ -247,6 +247,14 @@
  */
 + (BOOL)ba_isBankCardlNumCheck:(NSString *)bankCardlNum;
 
+/*! 判断字符串是否是字母或数字 */
++ (BOOL)ba_isLetterOrNumberString:(NSString *)string;
+
+
+
+
+
+
 
 /*！
  *  正则表达式简单说明

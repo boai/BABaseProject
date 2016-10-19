@@ -95,4 +95,13 @@
 /*! 去掉字符串中的html标签的方法 */
 - (NSString *)ba_filterHTML:(NSString *)html;
 
+/*!
+ *  去除字符串的特殊字符
+ *
+ *  @param string 需要处理的字符串（如：NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";）
+ *
+ *  @return 去除字符串的特殊字符
+ */
+- (nullable NSString *)ba_trimmedString:(nullable NSString *)string;
+
 @end

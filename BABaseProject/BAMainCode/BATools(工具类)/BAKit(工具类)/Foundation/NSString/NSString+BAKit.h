@@ -60,6 +60,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonCrypto.h>
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  给NSString类添加许多有用的方法
@@ -273,31 +274,13 @@
 - (nullable NSString *)BA_md5String;
 
 /*!
- *  去除字符串的特殊字符
- *
- *  @param string 需要处理的字符串（如：NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";）
- *
- *  @return 去除字符串的特殊字符
- */
-- (nullable NSString *)BA_trimmedString:(nullable NSString *)string;
-
-/*!
  *  判断字符串是否为空
  *
  *  @param aStirng aStirng
  *
  *  @return 判断字符串是否为空
  */
-+ (BOOL)BA_NSStringIsNULL:(nullable NSString *)aStirng;
-
-/*!
- *  判断字符串是否为url
- *
- *  @param url url description
- *
- *  @return 判断字符串是否为url
- */
-+ (BOOL)BA_url_isURL:(nullable NSString *)url;
++ (BOOL)ba_NSStringIsNULL:(nullable NSString *)aStirng;
 
 /**
  *   Trim blank characters (space and newline) in head and tail.
@@ -320,20 +303,8 @@
  */
 - (nullable NSData *)dataValue;
 
-/*! 判断字符串是否是邮箱账号 */
-+ (BOOL)BA_isEmailString:(nullable NSString *)emailString;
-
-/*! 判断字符串是否是字母或数字 */
-+ (BOOL)BA_isLetterOrNumberString:(nullable NSString *)string;
-
 /*! 获取字符串的长度 */
 + (NSUInteger)BA_getLengthOfStr:(nullable NSString *)str;
-
-/*! 判断字符串是否是手机号码 */
-+ (BOOL)BA_isMobileNumber:(nullable NSString *)mobileNum;
-
-/*! 特殊字符串处理：改变部分字符串的字体颜色 */
-+ (nullable NSMutableAttributedString *)BA_creatMutableAttributedString:(nullable NSString *)text textColor:(nullable UIColor *)textColor bgColor:(nullable UIColor *)bgColor font:(CGFloat)fontSize range:(NSRange)range;
 
 /*!
  *  字典转json
@@ -473,4 +444,4 @@
 - (NSArray <NSValue *> *)ba_rangesOfString:(NSString *)searchString options:(NSStringCompareOptions)mask serachRange:(NSRange)range;
 
 @end
-
+NS_ASSUME_NONNULL_END

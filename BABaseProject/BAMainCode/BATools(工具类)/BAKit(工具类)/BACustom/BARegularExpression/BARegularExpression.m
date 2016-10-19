@@ -617,5 +617,12 @@
     return (luhmTotal%10 ==0)?YES:NO;
 }
 
+/*! 判断字符串是否是字母或数字 */
++ (BOOL)ba_isLetterOrNumberString:(NSString *)string
+{
+    NSString *letterOrNumberRegex = @"[A-Z0-9a-z]+";
+    NSPredicate *letterOrNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", letterOrNumberRegex];
+    return [letterOrNumberTest evaluateWithObject:string];
+}
 
 @end

@@ -113,8 +113,8 @@
 /*! 去掉字符串中的html标签的方法 */
 - (NSString *)ba_filterHTML:(NSString *)html
 {
-    NSScanner * scanner = [NSScanner scannerWithString:html];
-    NSString * text = nil;
+    NSScanner *scanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
     while([scanner isAtEnd]==NO)
     {
         //找到标签的起始位置
@@ -132,6 +132,27 @@
     html = [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];  //去掉前后两边空白
     //    BALog(@"html:------------%@",html);
     return html;
+}
+
+/*!
+ *  去除字符串的特殊字符
+ *
+ *  @param string 需要处理的字符串（如：NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";）
+ *
+ *  @return 去除字符串的特殊字符
+ */
+- (nullable NSString *)ba_trimmedString:(nullable NSString *)string
+{
+    // 去除字符串的特殊字符
+    //    NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@／：；（）¥「」＂、<>[]{}#%-*+=_\\|~＜＞$?^?'@#$%^&*()_+'\""];
+    NSString*trimmedString = [string stringByTrimmingCharactersInSet:set];
+    BALog(@"trimmedString1:%@",trimmedString);
+    // 去除字符串的空格
+    trimmedString = [trimmedString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    BALog(@"trimmedString2: %@",trimmedString);
+    
+    return trimmedString;
 }
 
 @end
