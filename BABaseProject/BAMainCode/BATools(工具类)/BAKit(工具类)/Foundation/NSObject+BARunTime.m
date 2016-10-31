@@ -134,7 +134,7 @@ const void *ba_propertyListKey = @"ba_propertyListKey";
         [arrayM addObject:name];
     }
     
-    // ⚠️注意： 一定要释放数组
+    /*! ⚠️注意： 一定要释放数组 class_copyPropertyList底层为C语言，所以我们一定要记得释放properties */
     free(list);
     
     // ---保存属性数组对象---
@@ -169,6 +169,14 @@ const void *ba_methodListKey = "ba_methodListKey";
        SEL methodName = method_getName(method);
         
         NSString *methodName_OC = NSStringFromSelector(methodName);
+        
+        IMP imp = method_getImplementation(method);
+        const char *name_s =sel_getName(method_getName(method));
+        int arguments = method_getNumberOfArguments(method);
+        const char* encoding =method_getTypeEncoding(method);
+        NSLog(@"方法名：%@,参数个数：%d,编码方式：%@",[NSString stringWithUTF8String:name_s],
+              arguments,
+              [NSString stringWithUTF8String:encoding]);
         
         [arrayM addObject:methodName_OC];
     }
