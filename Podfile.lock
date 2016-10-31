@@ -17,21 +17,6 @@ PODS:
   - BAButton (1.0.1)
   - BACustomAlertView (1.0.5)
   - BaiduMapKit (3.1.0)
-  - BlocksKit (2.2.5):
-    - BlocksKit/All (= 2.2.5)
-  - BlocksKit/All (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.5)
-  - BlocksKit/DynamicDelegate (2.2.5)
-  - BlocksKit/MessageUI (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
   - DZNEmptyDataSet (1.8.1)
   - FBRetainCycleDetector (0.1.3)
   - IQKeyboardManager (4.0.6)
@@ -58,7 +43,6 @@ DEPENDENCIES:
   - BAButton
   - BACustomAlertView
   - BaiduMapKit
-  - BlocksKit
   - DZNEmptyDataSet
   - IQKeyboardManager
   - JMRoundedCorner
@@ -79,7 +63,6 @@ SPEC CHECKSUMS:
   BAButton: bb8f74e5e167a7e01ce8c0a66eafc3245ebb8c31
   BACustomAlertView: 416a6497a6e1ca322f7a99ccdcc213492ee63be3
   BaiduMapKit: 4cfaedb118cff7e157e9771859a4bf65a261b2a1
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   IQKeyboardManager: c52debb1967799ae7addb98eab0cf328083a874f
@@ -96,6 +79,6 @@ SPEC CHECKSUMS:
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 561bdfe493d08f5579b1dbd2440fc3f24b060242
+PODFILE CHECKSUM: 806dd59e95509763861012156962445dcf6e77e5
 
 COCOAPODS: 1.1.0.rc.3

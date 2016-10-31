@@ -301,6 +301,7 @@
 		C4C7447F1DC72DB300E747D8 /* CALayer+BAMaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C7442F1DC72DB300E747D8 /* CALayer+BAMaskLayer.m */; };
 		C4C744801DC72DB300E747D8 /* EmitterLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C744311DC72DB300E747D8 /* EmitterLayerView.m */; };
 		C4C744811DC72DB300E747D8 /* UIView+BAGlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C744331DC72DB300E747D8 /* UIView+BAGlowView.m */; };
+		C4C744841DC7306800E747D8 /* DemoVC2_05_test.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C744831DC7306800E747D8 /* DemoVC2_05_test.m */; };
 		C4C802511CF5AFAE00AD5B3B /* BAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8024F1CF5AFAE00AD5B3B /* BAWebViewController.m */; };
 		C4D108021CE2FC1C00F735B9 /* view1.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FB1CE2FC1C00F735B9 /* view1.m */; };
 		C4D108031CE2FC1C00F735B9 /* view2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D107FD1CE2FC1C00F735B9 /* view2.m */; };
@@ -913,6 +914,8 @@
 		C4C744311DC72DB300E747D8 /* EmitterLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterLayerView.m; sourceTree = "<group>"; };
 		C4C744321DC72DB300E747D8 /* UIView+BAGlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BAGlowView.h"; sourceTree = "<group>"; };
 		C4C744331DC72DB300E747D8 /* UIView+BAGlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BAGlowView.m"; sourceTree = "<group>"; };
+		C4C744821DC7306800E747D8 /* DemoVC2_05_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_05_test.h; sourceTree = "<group>"; };
+		C4C744831DC7306800E747D8 /* DemoVC2_05_test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_05_test.m; sourceTree = "<group>"; };
 		C4C8024F1CF5AFAE00AD5B3B /* BAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAWebViewController.m; sourceTree = "<group>"; };
 		C4C802501CF5AFAE00AD5B3B /* BAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAWebViewController.h; sourceTree = "<group>"; };
 		C4D107FA1CE2FC1C00F735B9 /* view1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view1.h; sourceTree = "<group>"; };
@@ -1391,6 +1394,8 @@
 				C474FE741DACB996007755D3 /* DemoVC2_05.h */,
 				C474FE751DACB996007755D3 /* DemoVC2_05.m */,
 				C474FE761DACB996007755D3 /* DemoVC2_05.xib */,
+				C4C744821DC7306800E747D8 /* DemoVC2_05_test.h */,
+				C4C744831DC7306800E747D8 /* DemoVC2_05_test.m */,
 			);
 			path = "DemoVC2-5";
 			sourceTree = "<group>";
@@ -2129,8 +2134,8 @@
 		C4C7437F1DC72DB300E747D8 /* BAKit(工具类) */ = {
 			isa = PBXGroup;
 			children = (
-				C4C743801DC72DB300E747D8 /* BACustom */,
 				C4C743B01DC72DB300E747D8 /* BAKit.h */,
+				C4C743801DC72DB300E747D8 /* BACustom */,
 				C4C743B11DC72DB300E747D8 /* BAKitManager */,
 				C4C743B61DC72DB300E747D8 /* Foundation */,
 				C4C743DA1DC72DB300E747D8 /* GCD */,
@@ -3871,6 +3876,7 @@
 				C4EB5BB41CD8B250003A7094 /* BABaseModel.m in Sources */,
 				C4C7445D1DC72DB300E747D8 /* BAAPP.m in Sources */,
 				C4C7437D1DC7295B00E747D8 /* BANewsNetManager.m in Sources */,
+				C4C744841DC7306800E747D8 /* DemoVC2_05_test.m in Sources */,
 				C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */,
 				C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */,
 				C4C7443C1DC72DB300E747D8 /* BARegularExpression.m in Sources */,

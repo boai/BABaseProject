@@ -72,9 +72,11 @@
 #pragma mark - ****** UIKit类
 /*! UIKit类 */
 // 控件类
-//#import <BAButton.h>
 #import "BAPickerView.h"
 #import "BATextView.h"
+/*! 自定义 TextField */
+#import "BATextField.h"
+
 /*! 自定义alertView */
 #import "BAAlertView.h"
 

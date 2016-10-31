@@ -7,6 +7,8 @@
 //
 
 #import "DemoVC2_05.h"
+#import "DemoVC2_05_test.h"
+
 
 @interface DemoVC2_05 ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -55,7 +57,9 @@
 {
     if (!_dataArray)
     {
-        _dataArray = @[@"1、修改 系统 alert 的字体颜色"];
+        _dataArray = @[@"1、修改 系统 alert 的字体颜色",
+                       @"2、修改 textField 属性"
+                       ];
     }
     return _dataArray;
 }
@@ -91,6 +95,10 @@
     if (0 == indexPath.row)
     {
         [self performSelector:@selector(test1)];
+    }
+    else if (1 == indexPath.row)
+    {
+        [self performSelector:@selector(test2)];
     }
 }
 
@@ -221,6 +229,13 @@
 //        }
 //    }
 }
+
+- (void)test2
+{
+    DemoVC2_05_test *vc = [DemoVC2_05_test new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {

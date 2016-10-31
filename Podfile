@@ -63,7 +63,7 @@ target 'BABaseProject' do
     pod 'JMRoundedCorner'
     
     # 把系统的target+selector/委托模式 转为 Block语法，让代码结构更加紧凑
-    pod 'BlocksKit'
+#    pod 'BlocksKit'
 
     # Facebook kit 框架
 #    pod 'AsyncDisplayKit'

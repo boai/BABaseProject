@@ -27,7 +27,6 @@
         [self.sheetLab setTextAlignment:NSTextAlignmentCenter];
         self.sheetLab.font = [UIFont systemFontOfSize:14];
         [self addSubview:self.sheetBtn];
-        
     }
     return self;
 }
