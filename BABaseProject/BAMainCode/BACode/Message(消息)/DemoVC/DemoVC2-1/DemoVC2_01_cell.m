@@ -96,7 +96,7 @@
     [UIView animateWithDuration:0.35f animations:^{
         self.normalLabel.alpha = 1.0f;
         self.expendLabel.alpha = 0.f;
-        self.stateView.backgroundColor = BA_TEXTGrayColor;
+        self.stateView.backgroundColor = BA_Gray_Color;
     }];
 }
 

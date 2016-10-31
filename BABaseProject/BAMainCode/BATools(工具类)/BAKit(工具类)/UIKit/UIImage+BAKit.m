@@ -40,7 +40,7 @@ UIColor *colorForColorString(NSString *colorString)
     }
 }
 
-@implementation UIImage (STKit)
+@implementation UIImage (BAKit)
 
 + (void)load
 {
@@ -804,8 +804,8 @@ UIColor *colorForColorString(NSString *colorString)
     return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
 }
 
-/*! 获得的就是一个圆形的图片 */
-- (UIImage *)BA_circleImage
+/*! 返回一个圆形的图片 */
+- (UIImage *)ba_circleImage
 {
     // 开始图形上下文
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
@@ -939,23 +939,6 @@ UIColor *colorForColorString(NSString *colorString)
     return newImage;
 }
 
-- (UIImage *)ba_circleImage
-{
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
-    
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
-    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
-    CGContextAddEllipseInRect(ctx, rect);
-    CGContextClip(ctx);
-    [self drawInRect:rect];
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
-
 + (UIImage *)ba_resizeImage:(NSString *)imgName
 {
     UIImage *img = [UIImage imageNamed:imgName];
@@ -1004,12 +987,12 @@ UIColor *colorForColorString(NSString *colorString)
     return lastImage;
 }
 
-+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName
-{
-    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.data", fileName]];
-    NSData *data = UIImagePNGRepresentation(image);
-    [data writeToFile:path atomically:YES];
-}
+//+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName
+//{
+//    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.data", fileName]];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    [data writeToFile:path atomically:YES];
+//}
 
 + (UIImage *)ba_getImageFromFileWithFileName:(NSString *)fileName
 {
@@ -1032,7 +1015,10 @@ UIColor *colorForColorString(NSString *colorString)
     return newImage;
 }
 
-+ (UIImage*)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
+/*!
+ *  压缩图片尺寸
+ */
++ (UIImage *)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
 {
     // Create a graphics image context
     UIGraphicsBeginImageContext(newSize);
@@ -1049,6 +1035,64 @@ UIColor *colorForColorString(NSString *colorString)
     
     // Return the new image.
     return newImage;
+}
+
+/*! 图片旋转 */
++ (UIImage *)ba_rotationImage:(UIImage *)image rotation:(UIImageOrientation)orientation
+{
+    long double rotate = 0.0;
+    CGRect rect;
+    float translateX = 0;
+    float translateY = 0;
+    float scaleX = 1.0;
+    float scaleY = 1.0;
+    
+    switch (orientation) {
+        case UIImageOrientationLeft:
+            rotate = M_PI_2;
+            rect = CGRectMake(0, 0, image.size.height, image.size.width);
+            translateX = 0;
+            translateY = -rect.size.width;
+            scaleY = rect.size.width/rect.size.height;
+            scaleX = rect.size.height/rect.size.width;
+            break;
+        case UIImageOrientationRight:
+            rotate = 3 * M_PI_2;
+            rect = CGRectMake(0, 0, image.size.height, image.size.width);
+            translateX = -rect.size.height;
+            translateY = 0;
+            scaleY = rect.size.width/rect.size.height;
+            scaleX = rect.size.height/rect.size.width;
+            break;
+        case UIImageOrientationDown:
+            rotate = M_PI;
+            rect = CGRectMake(0, 0, image.size.width, image.size.height);
+            translateX = -rect.size.width;
+            translateY = -rect.size.height;
+            break;
+        default:
+            rotate = 0.0;
+            rect = CGRectMake(0, 0, image.size.width, image.size.height);
+            translateX = 0;
+            translateY = 0;
+            break;
+    }
+    
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //做CTM变换
+    CGContextTranslateCTM(context, 0.0, rect.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextRotateCTM(context, rotate);
+    CGContextTranslateCTM(context, translateX, translateY);
+    
+    CGContextScaleCTM(context, scaleX, scaleY);
+    //绘制图片
+    CGContextDrawImage(context, CGRectMake(0, 0, rect.size.width, rect.size.height), image.CGImage);
+    
+    UIImage *newPic = UIGraphicsGetImageFromCurrentImageContext();
+    
+    return newPic;
 }
 
 @end

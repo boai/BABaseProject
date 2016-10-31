@@ -213,7 +213,7 @@
 {
     UILabel *headerLabel = [UILabel new];
     headerLabel.frame = CGRectMake(0, 0, BA_SCREEN_WIDTH, 20);
-    headerLabel.textColor = BA_TEXTGrayColor;
+    headerLabel.textColor = BA_Gray_Color;
     headerLabel.font = BA_FontSize(13);
     headerLabel.backgroundColor = BA_Yellow_Color;
     

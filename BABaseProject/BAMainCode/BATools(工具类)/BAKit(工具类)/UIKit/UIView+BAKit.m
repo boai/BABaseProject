@@ -682,11 +682,6 @@
     return nil;
 }
 
-- (void)ba_showAlertView:(NSString *)title message:(NSString *)message
-{
-    [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确 定" otherButtonTitles: nil] show];
-}
-
 /*!
  *  自适应label的高度
  *
@@ -725,7 +720,7 @@
 
 - (void)setManager:(BAKitManager *)manager
 {
-    objc_setAssociatedObject(self, @selector(manager), manager, OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self, @selector(bakit_manager), manager, OBJC_ASSOCIATION_RETAIN);
 }
 
 - (BAKitManager *)getManager
@@ -749,5 +744,27 @@
     
     return manager;
 }
+
+- (void)ba_showAlertView:(NSString *)title message:(NSString *)message
+{
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确 定" otherButtonTitles: nil] show];
+}
+
+//- (void)ba_showHudWitTitle:(NSString *)title atView:(UIView *)view
+//{
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+//    
+//    // Set the label text.
+//    hud.label.text = title;
+//    // You can also adjust other label properties if needed.
+//     hud.label.font = [UIFont italicSystemFontOfSize:15.f];
+//    
+//    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [hud hideAnimated:YES];
+//        });
+//    });
+//}
 
 @end

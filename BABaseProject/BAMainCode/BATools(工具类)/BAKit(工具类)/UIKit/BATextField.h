@@ -47,7 +47,7 @@
  *
  * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
  *
- * QQ     : 可以添加ios开发技术群 479663605 在这里找到我(博爱1616【137361770】)
+ * QQ     : 博爱1616【137361770】
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
@@ -58,50 +58,32 @@
  
  */
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NSString (Trims)
-#pragma mark - *****  特殊字符串处理 类
+@interface BATextField : UITextField
 
-/*!
- *  @brief  清除html标签
- *
- *  @return 清除后的结果
+/*! 可以用 xib 直接设置 */
+
+/**
+ *  电话号码限制验证码限制(默认只能输入11位数字)
  */
-- (NSString *)ba_stringByStrippingHTML;
-
-/*!
- *  @brief  清除js脚本
- *
- *  @return 清楚js后的结果
+@property (assign, nonatomic) IBInspectable BOOL phoneRestrict;
+/**
+ *  限制输入长度
  */
-- (NSString *)ba_stringByRemovingScriptsAndStrippingHTML;
-
-/*!
- *  @brief  去除空格
- *
- *  @return 去除空格后的字符串
+@property (assign, nonatomic) IBInspectable NSInteger lengthRestrict;
+/**
+ *  带小数点的数字限制(默认只能输入小数位后2位)
  */
-- (NSString *)ba_trimmingWhitespace;
-
-/*!
- *  @brief  去除字符串与空行
- *
- *  @return 去除字符串与空行的字符串
+@property (assign, nonatomic) IBInspectable BOOL decimalsRestrict;
+/**
+ *  验证码限制(默认只能输入6位数字)
  */
-- (NSString *)ba_trimmingWhitespaceAndNewlines;
-
-
-/*! 去掉字符串中的html标签的方法 */
-+ (NSString *)ba_filterHTML:(NSString *)html;
-
-/*!
- *  去除字符串的特殊字符
- *
- *  @param string 需要处理的字符串（如：NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";）
- *
- *  @return 去除字符串的特殊字符
+@property (assign, nonatomic) IBInspectable BOOL verCodeRestrict;
+/**
+ *  限制只能输入数字
  */
-+ (nullable NSString *)ba_trimmedString:(nullable NSString *)string;
+@property (assign, nonatomic) IBInspectable BOOL numberRestrict;
+
 
 @end

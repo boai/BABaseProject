@@ -111,7 +111,7 @@
 }
 
 /*! 去掉字符串中的html标签的方法 */
-- (NSString *)ba_filterHTML:(NSString *)html
++ (NSString *)ba_filterHTML:(NSString *)html
 {
     NSScanner *scanner = [NSScanner scannerWithString:html];
     NSString *text = nil;
@@ -141,7 +141,7 @@
  *
  *  @return 去除字符串的特殊字符
  */
-- (nullable NSString *)ba_trimmedString:(nullable NSString *)string
++ (nullable NSString *)ba_trimmedString:(nullable NSString *)string
 {
     // 去除字符串的特殊字符
     //    NSString *string = @"<f7091300 00000000 830000c4 00002c00 0000c500>";

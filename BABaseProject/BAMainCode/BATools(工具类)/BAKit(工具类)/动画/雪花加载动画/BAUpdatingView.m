@@ -59,7 +59,7 @@
     [self addSubview:self.label];
     self.label.textColor        = [UIColor whiteColor];
     self.label.textAlignment    = NSTextAlignmentCenter;
-    self.label.font             = [UIFont fontWithName:LATO_LIGHT size:18.f];
+//    self.label.font             = [UIFont fontWithName:LATO_LIGHT size:18.f];
     self.label.text             = @"Updating . . .";
     self.label.GCDTimerInterval = @(0.8f);
     self.label.glowDuration     = @(0.7f);
@@ -81,7 +81,7 @@
     [self addSubview:self.failedLabel];
     self.failedLabel.textColor        = [UIColor whiteColor];
     self.failedLabel.textAlignment    = NSTextAlignmentCenter;
-    self.failedLabel.font             = [UIFont fontWithName:LATO_LIGHT size:24.f];
+//    self.failedLabel.font             = [UIFont fontWithName:LATO_LIGHT size:24.f];
     self.failedLabel.text             = @"Failed";
     self.failedLabel.GCDTimerInterval = @(0.8f);
     self.failedLabel.glowDuration     = @(0.7f);

@@ -76,7 +76,8 @@
 /*! 百度地图 AppKey  */
 #define BA_BaiDuMapAppKey   @"qhqlttbTzqPdGilGTVoaH7fYGenIxNK5"
 
-
+/*! 图片 */
+#define BA_ImageName(imageName) [UIImage imageNamed:imageName]
 
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
@@ -115,7 +116,7 @@
 
 /*! 其他 */
 #pragma mark - ***** 应用内相关设置
-#define BA_PLACEHOLDER_IMAGE @"placeHolder"
+#define BA_placeHolder_Image @"placeHolder"
 
 
 /*! 警告框-一个按钮【VC】 */
@@ -126,7 +127,7 @@ BALog(@"你点击了确定按钮！");\
 [self presentViewController:alert animated:YES completion:nil];\
 
 /*! 警告框-一个按钮【View】 */
-#define BA_SHOW_AlertAtView(msg) [[[UIAlertView alloc] initWithTitle:@"温馨提示：" message:msg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+#define BA_AlertAtView(msg) [[[UIAlertView alloc] initWithTitle:@"温馨提示：" message:msg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
 
 
 

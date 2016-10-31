@@ -61,8 +61,6 @@
 #import "BABaseViewController.h"
 
 #import "BANavigationBar.h"
-// GIF动画
-#import "BAGIFImageView.h"
 
 #import "BASnowView.h"
 // 更新 + 变黑
@@ -655,22 +653,6 @@
     rocket.emitterCells				= [NSArray arrayWithObject:burst];
     burst.emitterCells				= [NSArray arrayWithObject:spark];
     [self.view.layer addSublayer:fireworksEmitter];
-}
-
-/*!
- *  gif动画
- *
- *  @param gifImageName gifImageName
- *  @param imgFrame     imgFrame
- */
-- (void)ba_useGIFImageViewWithGifImageName:(NSString *)gifImageName frame:(CGRect)imgFrame
-{
-    BAGIFImageView *GIFimgView = [BAGIFImageView new];
-    GIFimgView.frame = imgFrame;
-    [self.view addSubview:GIFimgView];
-    // gifImageName = @"xia.gif";
-    GIFimgView.gifPath = [[NSBundle mainBundle] pathForResource:gifImageName ofType:nil];
-    [GIFimgView startGIF];
 }
 
 /*! love动画 */

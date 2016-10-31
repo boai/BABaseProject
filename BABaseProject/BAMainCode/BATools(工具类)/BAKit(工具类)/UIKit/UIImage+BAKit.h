@@ -337,8 +337,8 @@
 
 + (instancetype)imageWithStretchableName:(NSString *)imageName;
 
-/*! 获得的就是一个圆形的图片 */
-- (UIImage *)BA_circleImage;
+/*! 返回一个圆形的图片 */
+- (UIImage *)ba_circleImage;
 
 /*!
  *  creat a circleImage
@@ -349,12 +349,14 @@
  *
  *  @return creat a circleImage
  */
-+ (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
++ (instancetype)circleImageWithName:(NSString *)name
+                        borderWidth:(CGFloat)borderWidth
+                        borderColor:(UIColor *)borderColor;
 
 /*! 加载最原始的图片，没有渲染 */
 + (instancetype)imageWithOriginalName:(NSString *)imageName;
 
-/**
+/*!
  *  图片的压缩方法
  *
  *  @param sourceImg   要被压缩的图片
@@ -364,34 +366,36 @@
  */
 + (UIImage *)ba_IMGCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;
 
-
-- (UIImage *)ba_circleImage;
-
-/**
+/*!
  *  图片拉伸
  */
 + (UIImage *)ba_resizeImage:(NSString *)imgName;
 
-/**
+/*!
  *  icon        要裁剪的图片
  *  borderWith  头像边框的宽度
  *  borderColor 边框的颜色
  */
-+ (instancetype)ba_image:(UIImage *)image borderWith:(CGFloat)borderWith borderColor:(UIColor *)borderColor;
++ (instancetype)ba_image:(UIImage *)image
+              borderWith:(CGFloat)borderWith
+             borderColor:(UIColor *)borderColor;
 
-/**
- *  缓存图片
- */
-+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName;
+///*!
+// *  缓存图片
+// */
+//+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName;
 
-/**
- *  取图片
+/*!
+ *  从本地取图片
  */
 + (UIImage *)ba_getImageFromFileWithFileName:(NSString *)fileName;
 
-/**
- *  图片缩放
+/*!
+ *  压缩图片尺寸
  */
 + (UIImage*)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
+
+/*! 图片旋转 */
++ (UIImage *)ba_rotationImage:(UIImage *)image rotation:(UIImageOrientation)orientation;
 
 @end

@@ -25,7 +25,7 @@
     self.emitterLayer.emitterShape = kCAEmitterLayerLine;
     self.emitterLayer.emitterMode = kCAEmitterLayerSurface;
     // 发射区域
-    self.emitterLayer.emitterSize = self.size;
+    self.emitterLayer.emitterSize = self.frame.size;
     // 发射中心点位置
     self.emitterLayer.emitterPosition = CGPointMake(self.bounds.size.width / 2.f, - 5);
 }

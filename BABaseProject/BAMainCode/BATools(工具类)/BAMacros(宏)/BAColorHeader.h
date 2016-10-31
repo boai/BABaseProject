@@ -64,48 +64,46 @@
 #pragma mark - ***** 颜色设置
 
 /*! RGB色值 */
-#define BA_COLOR(R, G, B, A)      [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+//#define ba_RGBAColor(R, G, B, A)      [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 
 /*! 随机色 */
-#define BARandomColor             [UIColor colorWithRed:arc4random_uniform(256)%255.0 green:arc4random_uniform(256)%255.0 blue:arc4random_uniform(256)%255.0 alpha:1.0]
+#define BARandomColor           [UIColor colorWithRed:arc4random_uniform(256)%255.0 green:arc4random_uniform(256)%255.0 blue:arc4random_uniform(256)%255.0 alpha:1.0]
 #define BA_ColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-/*! navi蓝色 */
-#define BA_NaviBgBlueColor     BA_COLOR(92, 177, 251, 1.0)
-#define BA_BGGrayColor         BA_COLOR(239, 239, 239, 1.0)
-#define BA_TEXTGrayColor       BA_COLOR(148, 147, 133, 1.0)
-#define BA_BLUEColor           BA_COLOR(78, 164, 255, 1.0)
-#define BA_BGClearColor        [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.7f]
+#define BA_BGClearColor         [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.7f]
 
-/*! 主题浅绿 */
-#define BA_Them_greenColor      BA_COLOR(30, 198, 181, 1.0)
+
+static inline UIColor *ba_RGBAColor(float r,float g,float b, float a) { return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];}
+
+/*! 主题微信绿 */
+#define BA_WeXin_greenColor      ba_RGBAColor(0, 190, 12, 1)
 
 /*! 白色 1.0 white */
-#define BA_White_Color          [UIColor whiteColor]
+#define BA_White_Color          ba_RGBAColor(255, 255, 255, 1)
 
 /*! 红色 1.0, 0.0, 0.0 RGB */
-#define BA_Red_Color            [UIColor redColor]
+#define BA_Red_Color            ba_RGBAColor(255, 0, 0, 1)
 
 /*! 黄色 1.0, 1.0, 0.0 RGB */
-#define BA_Yellow_Color         [UIColor yellowColor]
+#define BA_Yellow_Color         ba_RGBAColor(255, 255, 0, 1)
 
 /*! 绿色 0.0, 1.0, 0.0 RGB */
-#define BA_Green_Color          [UIColor greenColor]
+#define BA_Green_Color          ba_RGBAColor(0, 255, 0, 1)
 
 /*! 蓝色 0.0, 0.0, 1.0 RGB */
-#define BA_Blue_Color           [UIColor blueColor]
+#define BA_Blue_Color           ba_RGBAColor(0, 0, 255, 1)
 
 /*! 无色 0.0 white, 0.0 alpha */
-#define BA_Clear_Color          [UIColor clearColor]
+#define BA_Clear_Color          ba_RGBAColor(0, 0, 0, 0)
 
 /*! 橙色 1.0, 0.5, 0.0 RGB */
-#define BA_Orange_Color         [UIColor orangeColor]
+#define BA_Orange_Color         ba_RGBAColor(255, 255, 0, 1)
 
 /*! 黑色 0.0 white */
-#define BA_Black_Color          [UIColor blackColor]
+#define BA_Black_Color          ba_RGBAColor(0, 0, 0, 1)
 
 /*! 浅灰色 0.667 white */
-#define BA_LightGray_Color      [UIColor lightGrayColor]
+#define BA_LightGray_Color      ba_RGBAColor(255, 255, 255, 0.667)
 
 /*! 灰色 0.5 white */
 #define BA_Gray_Color           [UIColor grayColor]

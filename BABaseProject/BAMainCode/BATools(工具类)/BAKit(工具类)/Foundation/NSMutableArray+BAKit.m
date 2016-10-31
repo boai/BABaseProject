@@ -54,6 +54,9 @@
 #import "NSMutableArray+BAKit.h"
 #import "NSArray+BAKit.h"
 
+
+#define PATTERN_STR         @"\\[[^\\[\\]]*\\]"
+
 @implementation NSMutableArray (BAKit)
 
 /* 获取在安全模式下给定索引的对象（如果自身是空的则无 */
@@ -109,6 +112,89 @@
     tempArray = (NSMutableArray *)sortedArray;
     [array removeAllObjects];
     [array addObjectsFromArray:tempArray];
+    
+    return array;
+}
+
+#pragma mark - 将字符串中的文字和表情解析出来
++ (NSMutableArray *)ba_decorateString:(NSString *)string
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    NSRegularExpression *regex = [[NSRegularExpression alloc]
+                                  initWithPattern:PATTERN_STR
+                                  options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators
+                                  error:nil];
+    NSArray *chunks = [regex matchesInString:string options:0
+                                       range:NSMakeRange(0, [string length])];
+    NSMutableArray *matchRanges = [NSMutableArray array];
+    
+    for (NSTextCheckingResult *result in chunks) {
+        NSString *resultStr = [string substringWithRange:[result range]];
+        
+        if ([resultStr hasPrefix:@"["] && [resultStr hasSuffix:@"]"]) {
+            NSString *name = [resultStr substringWithRange:NSMakeRange(1, [resultStr length]-2)];
+            name=[NSString stringWithFormat:@"[%@]",name];
+            NSLog(@"name:%@",name);
+            NSDictionary *faceMap = [[NSUserDefaults standardUserDefaults] objectForKey:@"FaceMap"];
+            if ([[faceMap allValues] containsObject:name]) {
+                //                [array addObject:name];
+                [matchRanges addObject:[NSValue valueWithRange:result.range]];
+            }
+        }
+    }
+    
+    NSRange r = NSMakeRange([string length], 0);
+    [matchRanges addObject:[NSValue valueWithRange:r]];
+    
+    NSUInteger lastLoc = 0;
+    for (NSValue *v in matchRanges)
+    {
+        NSRange resultRange = [v rangeValue];
+        if (resultRange.location==0) {
+            NSString *faceString = [string substringWithRange:resultRange];
+            NSLog(@"aaaaaaaaa:faceString:%@",faceString);
+            if (faceString.length!=0)
+            {
+                [array addObject:faceString];
+            }
+            
+            NSRange normalStringRange = NSMakeRange(lastLoc, resultRange.location - lastLoc);
+            NSString *normalString = [string substringWithRange:normalStringRange];
+            lastLoc = resultRange.location + resultRange.length;
+            NSLog(@"aaaaaaa:normalString:%@",normalString);
+            if (normalString.length!=0)
+            {
+                [array addObject:normalString];
+            }
+        }
+        else
+        {
+            NSRange normalStringRange = NSMakeRange(lastLoc, resultRange.location - lastLoc);
+            NSString *normalString = [string substringWithRange:normalStringRange];
+            lastLoc = resultRange.location + resultRange.length;
+            NSLog(@"bbbbbbb:normalString:%@",normalString);
+            if (normalString.length!=0)
+            {
+                [array addObject:normalString];
+            }
+            
+            NSString *faceString = [string substringWithRange:resultRange];
+            NSLog(@"bbbbbbbb:faceString:%@",faceString);
+            if (faceString.length!=0)
+            {
+                [array addObject:faceString];
+            }
+        }
+    }
+    if ([matchRanges count]==0)
+    {
+        if (string.length!=0)
+        {
+            [array addObject:string];
+        }
+    }
+    NSLog(@"字符串中的文字和表情解析出来 的 array ：%@",array);
     
     return array;
 }

@@ -82,7 +82,7 @@
     _backgroundView.layer.shadowOpacity = 1;
     _backgroundView.layer.shadowRadius = kBAAlertRadius;
     _backgroundView.layer.borderWidth = 0.5;
-    _backgroundView.layer.borderColor = BA_COLOR(110, 115, 120, 1).CGColor;
+    _backgroundView.layer.borderColor = ba_RGBAColor(110, 115, 120, 1).CGColor;
     
     _containerView = [UIView new];
     _containerView.layer.cornerRadius = kBAAlertRadius;
@@ -203,7 +203,7 @@
 
 - (void)addLine:(CGRect)frame toView:(UIView *)view{
     UIView *line = [[UIView alloc] initWithFrame:frame];
-    line.backgroundColor = BA_COLOR(160, 170, 160, 0.5);
+    line.backgroundColor = ba_RGBAColor(160, 170, 160, 0.5);
     [view addSubview:line];
     [_lines addObject:line];
 }
@@ -295,9 +295,9 @@
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     button.tag = tag;
-    [button setTitleColor:BA_COLOR(220, 210, 200, 1) forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageWithColor:BA_COLOR(135, 140, 145, 0.65)] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageWithColor:BA_COLOR(135, 140, 145, 0.45)] forState:UIControlStateHighlighted];
+    [button setTitleColor:ba_RGBAColor(220, 210, 200, 1) forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageWithColor:ba_RGBAColor(135, 140, 145, 0.65)] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageWithColor:ba_RGBAColor(135, 140, 145, 0.45)] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_containerView addSubview:button];
     [_buttons addObject:button];

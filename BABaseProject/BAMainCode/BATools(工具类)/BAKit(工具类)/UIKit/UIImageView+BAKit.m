@@ -97,7 +97,7 @@
 
 - (void)ba_setHeardWithUrl:(NSString *)hearUrl
 {
-    UIImage *placeHolder = [[UIImage imageNamed:BA_PLACEHOLDER_IMAGE] ba_circleImage];
+    UIImage *placeHolder = [[UIImage imageNamed:BA_placeHolder_Image] ba_circleImage];
     [self sd_setImageWithURL:[NSURL URLWithString:hearUrl] placeholderImage:placeHolder options:0 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.image = image ? [image ba_circleImage] : placeHolder;
     }];

@@ -331,11 +331,11 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         btn.layer.borderColor = BA_Red_Color.CGColor;
     }
     else
-        btn.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        btn.layer.borderColor = BA_Gray_Color.CGColor;
 
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:BA_Red_Color forState:UIControlStateSelected];
-    [btn setTitleColor:BA_TEXTGrayColor forState:UIControlStateNormal];
+    [btn setTitleColor:BA_Gray_Color forState:UIControlStateNormal];
     
     [btn setImage:[UIImage imageNamed:@"otherImages.bundle/有币"] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"otherImages.bundle/有币"] forState:UIControlStateSelected];
@@ -359,9 +359,9 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         _button4.selected = NO;
 
         _button1.layer.borderColor = BA_Red_Color.CGColor;
-        _button2.layer.borderColor = BA_TEXTGrayColor.CGColor;
-        _button3.layer.borderColor = BA_TEXTGrayColor.CGColor;
-        _button4.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button2.layer.borderColor = BA_Gray_Color.CGColor;
+        _button3.layer.borderColor = BA_Gray_Color.CGColor;
+        _button4.layer.borderColor = BA_Gray_Color.CGColor;
     }
     if (sender.tag == 2)
     {
@@ -369,10 +369,10 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         _button3.selected = NO;
         _button4.selected = NO;
         
-        _button1.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button1.layer.borderColor = BA_Gray_Color.CGColor;
         _button2.layer.borderColor = BA_Red_Color.CGColor;
-        _button3.layer.borderColor = BA_TEXTGrayColor.CGColor;
-        _button4.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button3.layer.borderColor = BA_Gray_Color.CGColor;
+        _button4.layer.borderColor = BA_Gray_Color.CGColor;
     }
     if (sender.tag == 3)
     {
@@ -380,10 +380,10 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         _button1.selected = NO;
         _button4.selected = NO;
         
-        _button1.layer.borderColor = BA_TEXTGrayColor.CGColor;
-        _button2.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button1.layer.borderColor = BA_Gray_Color.CGColor;
+        _button2.layer.borderColor = BA_Gray_Color.CGColor;
         _button3.layer.borderColor = BA_Red_Color.CGColor;
-        _button4.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button4.layer.borderColor = BA_Gray_Color.CGColor;
     }
     if (sender.tag == 4)
     {
@@ -391,9 +391,9 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         _button1.selected = NO;
         _button3.selected = NO;
         
-        _button1.layer.borderColor = BA_TEXTGrayColor.CGColor;
-        _button2.layer.borderColor = BA_TEXTGrayColor.CGColor;
-        _button3.layer.borderColor = BA_TEXTGrayColor.CGColor;
+        _button1.layer.borderColor = BA_Gray_Color.CGColor;
+        _button2.layer.borderColor = BA_Gray_Color.CGColor;
+        _button3.layer.borderColor = BA_Gray_Color.CGColor;
         _button4.layer.borderColor = BA_Red_Color.CGColor;
     }
     if (sender.tag == 5)

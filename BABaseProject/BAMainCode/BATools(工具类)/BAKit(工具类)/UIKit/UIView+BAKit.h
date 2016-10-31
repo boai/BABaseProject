@@ -131,6 +131,7 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
 };
 
 
+IB_DESIGNABLE
 
 @interface UIView (BAKit)
 
@@ -160,6 +161,10 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
 
 @property (nonatomic          ) BAKitManager  *bakit_manager;
 
+@property (nonatomic, assign) IBInspectable BOOL     masksToBounds;
+@property (nonatomic, assign) IBInspectable CGFloat  cornerRadius;
+@property (nonatomic, assign) IBInspectable CGFloat  borderWidth;
+@property (nonatomic, assign) IBInspectable UIColor *borderColor;
 
 /**
  *  1.设置颜色
@@ -230,8 +235,6 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
                                       opacity:(CGFloat)opacity
                                        radius:(CGFloat)radius;
 
-
-
 /**
  *  8.设置圆角半径
  */
@@ -298,5 +301,8 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  *  @return label的宽度
  */
 + (CGFloat)ba_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
+
+
+//- (void)ba_showHudWitTitle:(NSString *)title atView:(UIView *)view;
 
 @end

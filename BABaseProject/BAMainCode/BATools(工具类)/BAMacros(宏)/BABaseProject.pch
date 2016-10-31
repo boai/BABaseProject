@@ -77,9 +77,7 @@
     #import "BAColorHeader.h"
     #import "BAFrameHeader.h"
 
-    /*! 正则表达式 */
-    #import "BARegularExpression.h"
-
+    #import <BACustomAlertView.h>
     /*! BAKit框架 */
     #import "BAKit.h"
 

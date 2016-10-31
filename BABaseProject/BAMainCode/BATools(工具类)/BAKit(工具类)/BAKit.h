@@ -77,7 +77,6 @@
 #import "BATextView.h"
 /*! 自定义alertView */
 #import "BAAlertView.h"
-#import <BACustomAlertView.h>
 
 
 // 扩展类
@@ -87,9 +86,12 @@
 #import "UILabel+BAKit.h"
 #import "UIScrollView+BAKit.h"
 #import "UITableView+BAKit.h"
+#import "UITableViewCell+Reuse.h"
+
 #import "UITextField+BAKit.h"
 #import "UIView+BAKit.h"
 #import "UIWebView+BAKit.h"
+#import "UICollectionView+ARDynamicCacheHeightLayoutCell.h"
 
 #import "UIColor+BAKit.h"
 #import "UIFont+BAKit.h"
@@ -101,6 +103,8 @@
 #import "UINavigationController+BAKit.h"
 #import "UINavigationItem+CustomItem.h"
 
+#import "UIApplication+AppInfo.h"
+
 
 #pragma mark - ****** Foundation类
 /*! Foundation类 */
@@ -109,6 +113,7 @@
 #import "NSDictionary+BAKit.h"
 #import "NSMutableDictionary+BAKit.h"
 #import "NSString+BAKit.h"
+#import "NSString+Trims.h"
 
 #import "NSFileManager+BAKit.h"
 #import "NSNumber+BAKit.h"
@@ -137,7 +142,11 @@
 #import "GCD/GCD.h"
 /*! 清理系统缓存 */
 #import "BAClearCacheManager.h"
+/*! 系统服务权限的封装 */
+#import "BASystemService.h"
 
+/*! 正则表达式 */
+#import "BARegularExpression.h"
 
 /*! 自定义上下拉刷新 */
 #import "BACustomMJFooter.h"

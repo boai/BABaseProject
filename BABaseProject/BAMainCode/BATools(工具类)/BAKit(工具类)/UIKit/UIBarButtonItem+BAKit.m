@@ -121,7 +121,7 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    [button setTitleColor:BA_COLOR(220, 33, 43, 1.0) forState:UIControlStateNormal];
+    [button setTitleColor:ba_RGBAColor(220, 33, 43, 1.0) forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button sizeToFit];
     CGSize size = [title sizeOfMaxSize:CGSizeMake(1000, button.frame.size.height) fontSize:14.0f];
