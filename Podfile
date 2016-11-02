@@ -125,6 +125,12 @@ target 'BABaseProject' do
 #
 #地址:https://github.com/rnapier/RNCachingURLProtocol
 
+    # Aspect库是对面向切面编程(Aspect Oriented Programming)的实现，里面封装了Runtime的方法，也封装了上文的Method Swizzling方法。因此我们也可以看到，Method Swizzling也是AOP编程的一种。Aspect的用途很广泛，这里不具体展开，想了解更多的可以看一下官方github的介绍，已经够详细了。
+    # pod "Aspects"
+    
+    # 友盟统计
+    pod 'UMengAnalytics-NO-IDFA'
+
 
     target 'BABaseProjectTests' do
         

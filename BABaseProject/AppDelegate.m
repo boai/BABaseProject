@@ -60,7 +60,10 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+BACategory.h"
+/*! 百度地图 */
 #import "AppDelegate+BABaiduMap.h"
+/*! 友盟统计 */
+#import "AppDelegate+BAUMengAnalytics.h"
 
 #import "BABaseNetManager.h"
 
@@ -85,6 +88,9 @@
     
     /*! 友盟分享/登陆 */
     [self BA_YMShareSetting];
+    
+    /*! 友盟统计 */
+    [self ba_setuUMengAnalytics];
     
     /*! 键盘处理 */
     [self BA_KeyboardSetting];

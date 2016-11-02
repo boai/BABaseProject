@@ -57,4 +57,14 @@
  */
 + (NSDictionary *)ba_dictFromBundleWithName:(NSString*)fileName withType:(NSString*)typeName;
 
+/*!
+ *  判断是否打开定位
+ *
+ *  @return YES / NO
+ */
++ (BOOL)isLocationOpen;
+
+
+
+
 @end

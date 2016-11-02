@@ -106,6 +106,8 @@
 #import "UINavigationItem+CustomItem.h"
 
 #import "UIApplication+AppInfo.h"
+/*! UIAlertController 类 */
+#import "UIAlertController+Blocks.h"
 
 
 #pragma mark - ****** Foundation类

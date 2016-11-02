@@ -94,7 +94,19 @@
     return dict;
 }
 
-
+/*! 判断是否打开定位 */
++ (BOOL)isLocationOpen
+{
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if (kCLAuthorizationStatusDenied == status || kCLAuthorizationStatusRestricted == status)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 
 
 

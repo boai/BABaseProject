@@ -45,6 +45,7 @@
 		C42DAA4B1D3763A800FE8B3E /* profileVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA471D3763A700FE8B3E /* profileVC.bundle */; };
 		C42DAA4D1D37669C00FE8B3E /* otherImages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA4C1D37669C00FE8B3E /* otherImages.bundle */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
+		C43222D41DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C43222D31DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m */; };
 		C44423341D2E7775004ACAA8 /* BABaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423331D2E7775004ACAA8 /* BABaseHeaderFooterView.m */; };
 		C44423491D2E85B8004ACAA8 /* DemoVC2_02.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423481D2E85B8004ACAA8 /* DemoVC2_02.m */; };
 		C444234C1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C444234B1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m */; };
@@ -433,6 +434,7 @@
 		C4EE1C5E1D2288BF005046A6 /* DemoVC2_01.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C5D1D2288BF005046A6 /* DemoVC2_01.m */; };
 		C4EE1C611D228AE9005046A6 /* DemoVC2_01_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C601D228AE9005046A6 /* DemoVC2_01_Model.m */; };
 		C4EE1C691D2295E2005046A6 /* BACellDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EE1C681D2295E2005046A6 /* BACellDataAdapter.m */; };
+		C4F284D31DC97D02005A69BC /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F284D21DC97D02005A69BC /* UIAlertController+Blocks.m */; };
 		C4F59F871D54680E00AA822A /* BANewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F861D54680E00AA822A /* BANewFeatureVC.m */; };
 		C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F891D54684E00AA822A /* BAADScrollView.m */; };
 		C4F59F8D1D5468B900AA822A /* BAADLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F8C1D5468B900AA822A /* BAADLabel.m */; };
@@ -529,6 +531,8 @@
 		C42DAA4C1D37669C00FE8B3E /* otherImages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = otherImages.bundle; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
+		C43222D21DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BAUMengAnalytics.h"; sourceTree = "<group>"; };
+		C43222D31DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BAUMengAnalytics.m"; sourceTree = "<group>"; };
 		C44423321D2E7775004ACAA8 /* BABaseHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseHeaderFooterView.h; sourceTree = "<group>"; };
 		C44423331D2E7775004ACAA8 /* BABaseHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseHeaderFooterView.m; sourceTree = "<group>"; };
 		C44423471D2E85B8004ACAA8 /* DemoVC2_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_02.h; sourceTree = "<group>"; };
@@ -1086,6 +1090,8 @@
 		C4EE1C601D228AE9005046A6 /* DemoVC2_01_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_01_Model.m; sourceTree = "<group>"; };
 		C4EE1C671D2295E2005046A6 /* BACellDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACellDataAdapter.h; sourceTree = "<group>"; };
 		C4EE1C681D2295E2005046A6 /* BACellDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACellDataAdapter.m; sourceTree = "<group>"; };
+		C4F284D11DC97D02005A69BC /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		C4F284D21DC97D02005A69BC /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		C4F59F851D54680E00AA822A /* BANewFeatureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANewFeatureVC.h; sourceTree = "<group>"; };
 		C4F59F861D54680E00AA822A /* BANewFeatureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANewFeatureVC.m; sourceTree = "<group>"; };
 		C4F59F881D54684E00AA822A /* BAADScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAADScrollView.h; sourceTree = "<group>"; };
@@ -2090,6 +2096,8 @@
 				C4C742631DC7295A00E747D8 /* AppDelegate+BABaiduMap.m */,
 				C4C742641DC7295A00E747D8 /* AppDelegate+BACategory.h */,
 				C4C742651DC7295A00E747D8 /* AppDelegate+BACategory.m */,
+				C43222D21DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.h */,
+				C43222D31DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m */,
 				C4C742661DC7295A00E747D8 /* NSObject+BAMJParse.h */,
 				C4C742671DC7295A00E747D8 /* NSObject+BAMJParse.m */,
 				C4C742681DC7295A00E747D8 /* NSObject+BANetwork.h */,
@@ -2398,6 +2406,8 @@
 				C4C743FF1DC72DB300E747D8 /* UIButton+BAKit.m */,
 				C4C744001DC72DB300E747D8 /* UICollectionView+ARDynamicCacheHeightLayoutCell.h */,
 				C4C744011DC72DB300E747D8 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m */,
+				C4F284D11DC97D02005A69BC /* UIAlertController+Blocks.h */,
+				C4F284D21DC97D02005A69BC /* UIAlertController+Blocks.m */,
 				C4C744021DC72DB300E747D8 /* UIColor+BAKit.h */,
 				C4C744031DC72DB300E747D8 /* UIColor+BAKit.m */,
 				C4C744041DC72DB300E747D8 /* UIDevice+BAKit.h */,
@@ -3763,6 +3773,7 @@
 				C4C7444E1DC72DB300E747D8 /* NSMutableArray+BAKit.m in Sources */,
 				C4C744721DC72DB300E747D8 /* UINavigationController+BAKit.m in Sources */,
 				C44423491D2E85B8004ACAA8 /* DemoVC2_02.m in Sources */,
+				C4F284D31DC97D02005A69BC /* UIAlertController+Blocks.m in Sources */,
 				C4C744341DC72DB300E747D8 /* BAAlertView.m in Sources */,
 				C4C744401DC72DB300E747D8 /* BAShareManageView.m in Sources */,
 				C4EBE1EA1D94C4FC00020C1F /* MyAnimatedAnnotationView.m in Sources */,
@@ -3797,6 +3808,7 @@
 				C42A6AE51CDAE10500D534EE /* BABadgeView.m in Sources */,
 				C40852801CD995200004A671 /* Reachability.m in Sources */,
 				C4C744661DC72DB300E747D8 /* BATextField.m in Sources */,
+				C43222D41DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m in Sources */,
 				C41CA8CA1D3FA3BF006296BD /* DemoVC2_02_studentCell.m in Sources */,
 				C445E1CE1D1B86FE00D7654A /* SXColorGradientView.m in Sources */,
 				C48026C81D191EC90087BBB9 /* DemoVC11_AutoLayout.m in Sources */,

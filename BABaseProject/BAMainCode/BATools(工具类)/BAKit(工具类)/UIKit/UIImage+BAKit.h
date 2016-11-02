@@ -398,4 +398,7 @@
 /*! 图片旋转 */
 + (UIImage *)ba_rotationImage:(UIImage *)image rotation:(UIImageOrientation)orientation;
 
+/*! View转化为图片 */
++ (UIImage *)getImageFromView:(UIView *)view;
+
 @end
