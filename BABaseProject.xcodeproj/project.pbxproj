@@ -44,6 +44,11 @@
 		C42DAA4A1D3763A800FE8B3E /* messageVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA461D3763A700FE8B3E /* messageVC.bundle */; };
 		C42DAA4B1D3763A800FE8B3E /* profileVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA471D3763A700FE8B3E /* profileVC.bundle */; };
 		C42DAA4D1D37669C00FE8B3E /* otherImages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42DAA4C1D37669C00FE8B3E /* otherImages.bundle */; };
+		C4309BB11DCAD4D50016ABE6 /* BALoadingHubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4309BB01DCAD4D50016ABE6 /* BALoadingHubView.m */; };
+		C4309BBC1DCAD5C40016ABE6 /* BAUserStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = C4309BB51DCAD5C40016ABE6 /* BAUserStatistics.m */; };
+		C4309BBD1DCAD5C40016ABE6 /* NSObject+BAHook.m in Sources */ = {isa = PBXBuildFile; fileRef = C4309BB71DCAD5C40016ABE6 /* NSObject+BAHook.m */; };
+		C4309BBE1DCAD5C40016ABE6 /* UIControl+BAUserStastistics.m in Sources */ = {isa = PBXBuildFile; fileRef = C4309BB91DCAD5C40016ABE6 /* UIControl+BAUserStastistics.m */; };
+		C4309BBF1DCAD5C40016ABE6 /* UIViewController+BAHook.m in Sources */ = {isa = PBXBuildFile; fileRef = C4309BBB1DCAD5C40016ABE6 /* UIViewController+BAHook.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C43222D41DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C43222D31DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m */; };
 		C44423341D2E7775004ACAA8 /* BABaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423331D2E7775004ACAA8 /* BABaseHeaderFooterView.m */; };
@@ -57,6 +62,8 @@
 		C445E1D31D1B86FE00D7654A /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1CB1D1B86FE00D7654A /* UIColor+Wonderful.m */; };
 		C445E1D41D1B86FE00D7654A /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1CD1D1B86FE00D7654A /* UILabel+Wonderful.m */; };
 		C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1F41D1BF10A00D7654A /* DemoVC13.m */; };
+		C44C00CE1DCB268C00BAAAEC /* DemoVC2_05_test2.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C00CD1DCB268C00BAAAEC /* DemoVC2_05_test2.m */; };
+		C44C00D01DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C44C00CF1DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist */; };
 		C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C6A1CDD9F05000F5710 /* DemoVC4.m */; };
 		C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C7D1CDDBE44000F5710 /* DemoVC5.m */; };
 		C457EA461DADD6E600CD0B91 /* DemoVC2_06.m in Sources */ = {isa = PBXBuildFile; fileRef = C457EA451DADD6E600CD0B91 /* DemoVC2_06.m */; };
@@ -529,6 +536,17 @@
 		C42DAA461D3763A700FE8B3E /* messageVC.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = messageVC.bundle; sourceTree = "<group>"; };
 		C42DAA471D3763A700FE8B3E /* profileVC.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = profileVC.bundle; sourceTree = "<group>"; };
 		C42DAA4C1D37669C00FE8B3E /* otherImages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = otherImages.bundle; sourceTree = "<group>"; };
+		C4309BAF1DCAD4D50016ABE6 /* BALoadingHubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALoadingHubView.h; sourceTree = "<group>"; };
+		C4309BB01DCAD4D50016ABE6 /* BALoadingHubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALoadingHubView.m; sourceTree = "<group>"; };
+		C4309BB31DCAD5C40016ABE6 /* BAEventIDConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAEventIDConstant.h; sourceTree = "<group>"; };
+		C4309BB41DCAD5C40016ABE6 /* BAUserStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAUserStatistics.h; sourceTree = "<group>"; };
+		C4309BB51DCAD5C40016ABE6 /* BAUserStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAUserStatistics.m; sourceTree = "<group>"; };
+		C4309BB61DCAD5C40016ABE6 /* NSObject+BAHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAHook.h"; sourceTree = "<group>"; };
+		C4309BB71DCAD5C40016ABE6 /* NSObject+BAHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BAHook.m"; sourceTree = "<group>"; };
+		C4309BB81DCAD5C40016ABE6 /* UIControl+BAUserStastistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+BAUserStastistics.h"; sourceTree = "<group>"; };
+		C4309BB91DCAD5C40016ABE6 /* UIControl+BAUserStastistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+BAUserStastistics.m"; sourceTree = "<group>"; };
+		C4309BBA1DCAD5C40016ABE6 /* UIViewController+BAHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BAHook.h"; sourceTree = "<group>"; };
+		C4309BBB1DCAD5C40016ABE6 /* UIViewController+BAHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BAHook.m"; sourceTree = "<group>"; };
 		C430AB741CDC8A360086DDD6 /* DemoVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC3.h; sourceTree = "<group>"; };
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C43222D21DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BAUMengAnalytics.h"; sourceTree = "<group>"; };
@@ -555,6 +573,9 @@
 		C445E1CD1D1B86FE00D7654A /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
 		C445E1F31D1BF10A00D7654A /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		C445E1F41D1BF10A00D7654A /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
+		C44C00CC1DCB268C00BAAAEC /* DemoVC2_05_test2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_05_test2.h; sourceTree = "<group>"; };
+		C44C00CD1DCB268C00BAAAEC /* DemoVC2_05_test2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_05_test2.m; sourceTree = "<group>"; };
+		C44C00CF1DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BADemoUserStatisticsConfig.plist; sourceTree = "<group>"; };
 		C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProjectNoti.h; sourceTree = "<group>"; };
 		C4562C691CDD9F05000F5710 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		C4562C6A1CDD9F05000F5710 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
@@ -1247,6 +1268,39 @@
 			path = "DemoVC2-3";
 			sourceTree = "<group>";
 		};
+		C4309BAE1DCAD4D50016ABE6 /* BALoadingHubView */ = {
+			isa = PBXGroup;
+			children = (
+				C4309BAF1DCAD4D50016ABE6 /* BALoadingHubView.h */,
+				C4309BB01DCAD4D50016ABE6 /* BALoadingHubView.m */,
+			);
+			path = BALoadingHubView;
+			sourceTree = "<group>";
+		};
+		C4309BB21DCAD5C40016ABE6 /* BAHook */ = {
+			isa = PBXGroup;
+			children = (
+				C44C00CF1DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist */,
+				C4309BB31DCAD5C40016ABE6 /* BAEventIDConstant.h */,
+				C4309BB41DCAD5C40016ABE6 /* BAUserStatistics.h */,
+				C4309BB51DCAD5C40016ABE6 /* BAUserStatistics.m */,
+				C4309BB61DCAD5C40016ABE6 /* NSObject+BAHook.h */,
+				C4309BB71DCAD5C40016ABE6 /* NSObject+BAHook.m */,
+				C4309BB81DCAD5C40016ABE6 /* UIControl+BAUserStastistics.h */,
+				C4309BB91DCAD5C40016ABE6 /* UIControl+BAUserStastistics.m */,
+				C4309BBA1DCAD5C40016ABE6 /* UIViewController+BAHook.h */,
+				C4309BBB1DCAD5C40016ABE6 /* UIViewController+BAHook.m */,
+			);
+			path = BAHook;
+			sourceTree = "<group>";
+		};
+		C4309BC01DCAD5CE0016ABE6 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		C430AB731CDC8A170086DDD6 /* DemoVC3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1402,6 +1456,8 @@
 				C474FE761DACB996007755D3 /* DemoVC2_05.xib */,
 				C4C744821DC7306800E747D8 /* DemoVC2_05_test.h */,
 				C4C744831DC7306800E747D8 /* DemoVC2_05_test.m */,
+				C44C00CC1DCB268C00BAAAEC /* DemoVC2_05_test2.h */,
+				C44C00CD1DCB268C00BAAAEC /* DemoVC2_05_test2.m */,
 			);
 			path = "DemoVC2-5";
 			sourceTree = "<group>";
@@ -2157,6 +2213,8 @@
 		C4C743801DC72DB300E747D8 /* BACustom */ = {
 			isa = PBXGroup;
 			children = (
+				C4309BB21DCAD5C40016ABE6 /* BAHook */,
+				C4309BAE1DCAD4D50016ABE6 /* BALoadingHubView */,
 				C4C743811DC72DB300E747D8 /* BAAlert */,
 				C4C743861DC72DB300E747D8 /* BAAutoSizeWithWH */,
 				C4C743891DC72DB300E747D8 /* BACommon */,
@@ -2392,6 +2450,7 @@
 		C4C743F31DC72DB300E747D8 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C4309BC01DCAD5CE0016ABE6 /* UIViewController */,
 				C4C743F41DC72DB300E747D8 /* BACustomModalTransition.h */,
 				C4C743F51DC72DB300E747D8 /* BACustomModalTransition.m */,
 				C4C743F61DC72DB300E747D8 /* BAPickerView.h */,
@@ -3460,6 +3519,7 @@
 				C4B9643A1D33A5B1005926B8 /* Contents.json in Resources */,
 				C4B964411D33A5B1005926B8 /* dropdown_anim__00060@2x.png in Resources */,
 				C4B964111D33A5B1005926B8 /* dropdown_anim__00039@2x.png in Resources */,
+				C44C00D01DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist in Resources */,
 				C4EB5C061CD8B251003A7094 /* 4.jpg in Resources */,
 				C4B9641E1D33A5B1005926B8 /* Contents.json in Resources */,
 				C4EB5BEC1CD8B250003A7094 /* icon-6@2x.png in Resources */,
@@ -3741,7 +3801,9 @@
 				C40852EC1CDA26680004A671 /* RDVTabBarController.m in Sources */,
 				C4C744681DC72DB300E747D8 /* UIBarButtonItem+BAKit.m in Sources */,
 				C48026CA1D191EC90087BBB9 /* DemoVC11_model.m in Sources */,
+				C4309BBD1DCAD5C40016ABE6 /* NSObject+BAHook.m in Sources */,
 				C4772B1E1D8F8DB6002B73CD /* BATabBar.m in Sources */,
+				C44C00CE1DCB268C00BAAAEC /* DemoVC2_05_test2.m in Sources */,
 				C4772B1F1D8F8DB6002B73CD /* BATabBarButton.m in Sources */,
 				C474FE771DACB996007755D3 /* DemoVC2_05.m in Sources */,
 				C4C744481DC72DB300E747D8 /* NSArray+BAKit.m in Sources */,
@@ -3779,8 +3841,10 @@
 				C4EBE1EA1D94C4FC00020C1F /* MyAnimatedAnnotationView.m in Sources */,
 				C4EB5BB51CD8B250003A7094 /* BABaseViewModel.m in Sources */,
 				C445E1D21D1B86FE00D7654A /* UIColor+Separate.m in Sources */,
+				C4309BBC1DCAD5C40016ABE6 /* BAUserStatistics.m in Sources */,
 				C4C744491DC72DB300E747D8 /* NSData+BAKit.m in Sources */,
 				C4C7437B1DC7295B00E747D8 /* BABaseNetManager.m in Sources */,
+				C4309BBF1DCAD5C40016ABE6 /* UIViewController+BAHook.m in Sources */,
 				C4C7445E1DC72DB300E747D8 /* BALog.m in Sources */,
 				C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */,
 				C4F59F871D54680E00AA822A /* BANewFeatureVC.m in Sources */,
@@ -3825,6 +3889,7 @@
 				C4C744351DC72DB300E747D8 /* BAModal.m in Sources */,
 				C40852AD1CD9FDD50004A671 /* BAHomeVCModel.m in Sources */,
 				C41F625C1CFC265300294C35 /* DemoVC10_ReusableView.m in Sources */,
+				C4309BBE1DCAD5C40016ABE6 /* UIControl+BAUserStastistics.m in Sources */,
 				C4C744781DC72DB300E747D8 /* UIWebView+BAKit.m in Sources */,
 				C4D108041CE2FC1C00F735B9 /* view3.m in Sources */,
 				C41CA8C71D3FA185006296BD /* DemoVC2_02_classModel.m in Sources */,
@@ -3877,6 +3942,7 @@
 				C473CC791CF72372001883A9 /* DemoVC9.m in Sources */,
 				C4DEB3771D0C332C001F1585 /* BATabBarController2.m in Sources */,
 				C4C7445A1DC72DB300E747D8 /* GCDQueue.m in Sources */,
+				C4309BB11DCAD4D50016ABE6 /* BALoadingHubView.m in Sources */,
 				C4C744511DC72DB300E747D8 /* NSObject+BARunTime.m in Sources */,
 				C4C744371DC72DB300E747D8 /* BACommon.m in Sources */,
 				C4C744361DC72DB300E747D8 /* BAAutoSizeWithWH.m in Sources */,

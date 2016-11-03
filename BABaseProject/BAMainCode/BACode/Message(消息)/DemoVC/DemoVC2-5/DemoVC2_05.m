@@ -8,6 +8,7 @@
 
 #import "DemoVC2_05.h"
 #import "DemoVC2_05_test.h"
+#import "DemoVC2_05_test2.h"
 
 
 @interface DemoVC2_05 ()<UITableViewDelegate, UITableViewDataSource>
@@ -59,7 +60,8 @@
     {
         _dataArray = @[@"1、修改 系统 alert 的字体颜色",
                        @"2、修改 系统 actionSheet 的字体颜色",
-                       @"3、修改 textField 属性"
+                       @"3、修改 textField 属性",
+                       @"4、面向切面编程(Aspect-Oriented Programming)：Method Swizzling、Hook与代码注入"
                        ];
     }
     return _dataArray;
@@ -104,6 +106,10 @@
     else if (2 == indexPath.row)
     {
         [self performSelector:@selector(test3)];
+    }
+    else if (3 == indexPath.row)
+    {
+        [self performSelector:@selector(test4)];
     }
 }
 
@@ -180,7 +186,11 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+- (void)test4
+{
+    DemoVC2_05_test2 *vc = [DemoVC2_05_test2 new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

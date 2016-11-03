@@ -45,12 +45,15 @@
 
 - (void)getData
 {
-    [self BA_showAlert:BA_Loading];
+//    [self BA_showAlert:BA_Loading];
     BA_WEAKSELF;
 //    BA_WeakSelf(self);
+    [self ba_showBallLoadingView:YES];
     [BANewsNetManager getVideosWithStartIndex:1 completionHandle:^(id model, NSError *error) {
         
-        [weakSelf BA_hideProgress];
+//        [weakSelf BA_hideProgress];
+        [weakSelf ba_showBallLoadingView:NO];
+
         if (!error)
         {
             BALog(@"model: %@", model);

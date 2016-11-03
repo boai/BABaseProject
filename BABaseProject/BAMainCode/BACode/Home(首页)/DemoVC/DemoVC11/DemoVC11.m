@@ -133,11 +133,13 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(page).stringValue, @"page", @"", @"per_page", nil];;
     
     BA_WEAKSELF;
-    [self BA_showAlert:BA_Loading];
+//    [self BA_showAlert:BA_Loading];
+    [self ba_showBallLoadingView:YES];
     [BANewsNetManager postDemoVC11DataWithParameters:parameters completionHandle:^(id model, NSError *error) {
         
-        [weakSelf BA_hideProgress];
-        
+//        [weakSelf BA_hideProgress];
+        [weakSelf ba_showBallLoadingView:NO];
+
         if (isHead)
         {
             [weakSelf.collectionView.mj_header endRefreshing];

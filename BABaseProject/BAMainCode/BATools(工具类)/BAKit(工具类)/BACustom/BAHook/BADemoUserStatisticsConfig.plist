@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BAMessageViewController</key>
+	<dict>
+		<key>ControlEventIDs</key>
+		<dict>
+			<key>onShareBtnPressed:</key>
+			<string>CTRL_EVENT_DETAILVC_SHARE</string>
+		</dict>
+		<key>PageEventIDs</key>
+		<dict>
+			<key>Leave</key>
+			<string>PAGE_EVENT_BAMessageViewController_LEAVE</string>
+			<key>Enter</key>
+			<string>PAGE_EVENT_BAMessageViewController_ENTER</string>
+		</dict>
+	</dict>
+	<key>BAHomeViewController</key>
+	<dict>
+		<key>ControlEventIDs</key>
+		<dict>
+			<key>onShareBtnPressed:</key>
+			<string>CTRL_EVENT_HOMEVC_SHARE</string>
+		</dict>
+		<key>PageEventIDs</key>
+		<dict>
+			<key>Leave</key>
+			<string>PAGE_EVENT_BAHomeViewController_LEAVE</string>
+			<key>Enter</key>
+			<string>PAGE_EVENT_BAHomeViewController_ENTER</string>
+		</dict>
+	</dict>
+	<key>DemoVC2_05_test2</key>
+	<dict>
+		<key>ControlEventIDs</key>
+		<dict>
+			<key>onShareBtnPressed:</key>
+			<string>CTRL_EVENT_DemoVC2_05_test2_SHARE</string>
+		</dict>
+		<key>PageEventIDs</key>
+		<dict>
+			<key>Leave</key>
+			<string>PAGE_EVENT_DemoVC2_05_test2_LEAVE</string>
+			<key>Enter</key>
+			<string>PAGE_EVENT_DemoVC2_05_test2_ENTER</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

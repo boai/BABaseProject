@@ -27,6 +27,8 @@
     return vc.view;
 }
 
+
+
 /** 弹出文字提示 */
 - (void)BA_showAlert:(NSString *)text
 {

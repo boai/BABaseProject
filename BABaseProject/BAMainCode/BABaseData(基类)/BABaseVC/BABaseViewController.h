@@ -74,6 +74,14 @@
 
 #pragma mark - ***** 显示自定义加载框
 
+
+/*!
+ *  三个球 自定义加载动画
+ *
+ *  @param isShow yes:显示，no:隐藏
+ */
+- (void)ba_showBallLoadingView:(BOOL)isShow;
+
 /*!
  *  显示雪花加载框
  *

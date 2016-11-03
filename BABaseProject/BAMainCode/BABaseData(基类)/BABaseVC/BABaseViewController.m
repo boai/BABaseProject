@@ -85,6 +85,7 @@
 @property (strong, nonatomic) BAFadeBlackView  *fadeBlackView;
 @property (strong, nonatomic) BAUpdatingView   *upDatingView;
 
+@property (nonatomic, strong) BALoadingHubView *loadingHubView;
 
 @end
 
@@ -418,6 +419,24 @@
 }
 
 #pragma mark - ***** 各种动画开关
+
+/*! 三个球 自定义加载动画 */
+- (void)ba_showBallLoadingView:(BOOL)isShow
+{
+    if (isShow)
+    {
+        _loadingHubView = [[BALoadingHubView alloc] initWithFrame:CGRectMake(85, 80, 150, 150)];
+        _loadingHubView.center = self.view.center;
+//        _loadingHubView = [[BALoadingHubView alloc] initWithFrame:CGRectMake(85, 80, 150, 150)];
+        [self.view addSubview:_loadingHubView];
+        [_loadingHubView showHub];
+    }
+    else
+    {
+        [_loadingHubView dismissHub];
+    }
+}
+
 /*!
  *  开启樱花动画
  */
