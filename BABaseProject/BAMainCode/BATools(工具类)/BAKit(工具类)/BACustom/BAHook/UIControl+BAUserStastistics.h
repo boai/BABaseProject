@@ -10,6 +10,4 @@
 
 @interface UIControl (BAUserStastistics)
 
-
-
 @end

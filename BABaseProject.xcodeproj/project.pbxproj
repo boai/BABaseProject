@@ -64,6 +64,7 @@
 		C445E1F51D1BF10A00D7654A /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = C445E1F41D1BF10A00D7654A /* DemoVC13.m */; };
 		C44C00CE1DCB268C00BAAAEC /* DemoVC2_05_test2.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C00CD1DCB268C00BAAAEC /* DemoVC2_05_test2.m */; };
 		C44C00D01DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C44C00CF1DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist */; };
+		C44C00D31DCB30BA00BAAAEC /* UIButton+BAHook.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C00D21DCB30BA00BAAAEC /* UIButton+BAHook.m */; };
 		C4562C6B1CDD9F05000F5710 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C6A1CDD9F05000F5710 /* DemoVC4.m */; };
 		C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = C4562C7D1CDDBE44000F5710 /* DemoVC5.m */; };
 		C457EA461DADD6E600CD0B91 /* DemoVC2_06.m in Sources */ = {isa = PBXBuildFile; fileRef = C457EA451DADD6E600CD0B91 /* DemoVC2_06.m */; };
@@ -576,6 +577,8 @@
 		C44C00CC1DCB268C00BAAAEC /* DemoVC2_05_test2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_05_test2.h; sourceTree = "<group>"; };
 		C44C00CD1DCB268C00BAAAEC /* DemoVC2_05_test2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC2_05_test2.m; sourceTree = "<group>"; };
 		C44C00CF1DCB283700BAAAEC /* BADemoUserStatisticsConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BADemoUserStatisticsConfig.plist; sourceTree = "<group>"; };
+		C44C00D11DCB30BA00BAAAEC /* UIButton+BAHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BAHook.h"; sourceTree = "<group>"; };
+		C44C00D21DCB30BA00BAAAEC /* UIButton+BAHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BAHook.m"; sourceTree = "<group>"; };
 		C4562C641CDD8969000F5710 /* BABaseProjectNoti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProjectNoti.h; sourceTree = "<group>"; };
 		C4562C691CDD9F05000F5710 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		C4562C6A1CDD9F05000F5710 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
@@ -1290,6 +1293,8 @@
 				C4309BB91DCAD5C40016ABE6 /* UIControl+BAUserStastistics.m */,
 				C4309BBA1DCAD5C40016ABE6 /* UIViewController+BAHook.h */,
 				C4309BBB1DCAD5C40016ABE6 /* UIViewController+BAHook.m */,
+				C44C00D11DCB30BA00BAAAEC /* UIButton+BAHook.h */,
+				C44C00D21DCB30BA00BAAAEC /* UIButton+BAHook.m */,
 			);
 			path = BAHook;
 			sourceTree = "<group>";
@@ -3811,6 +3816,7 @@
 				C4C7444A1DC72DB300E747D8 /* NSDate+BAKit.m in Sources */,
 				C4C744601DC72DB300E747D8 /* BASystemService.m in Sources */,
 				C4C7444B1DC72DB300E747D8 /* NSDateFormatter+BAKit.m in Sources */,
+				C44C00D31DCB30BA00BAAAEC /* UIButton+BAHook.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
 				C4C744771DC72DB300E747D8 /* UIView+BAKit.m in Sources */,

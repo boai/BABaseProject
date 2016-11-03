@@ -13,8 +13,7 @@
 
 @implementation UIControl (BAUserStastistics)
 
-+ (void)load
-{
++ (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         SEL originalSelector = @selector(sendAction:to:forEvent:);
@@ -38,7 +37,7 @@
 {
     //NSLog(@"\n***hook success.\n[1]action:%@\n[2]target:%@ \n[3]event:%@", NSStringFromSelector(action), target, event);
     NSString *eventID = nil;
-    // 只统计触摸结束时
+    //只统计触摸结束时
     if ([[[event allTouches] anyObject] phase] == UITouchPhaseEnded)
     {
         NSString *actionString = NSStringFromSelector(action);
