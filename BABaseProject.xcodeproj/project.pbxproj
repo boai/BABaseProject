@@ -222,6 +222,7 @@
 		C4B9644C1D33A5B1005926B8 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B963CE1D33A5AF005926B8 /* Contents.json */; };
 		C4B9644D1D33A5B1005926B8 /* dropdown_loading_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B963CF1D33A5AF005926B8 /* dropdown_loading_03@2x.png */; };
 		C4C6E0271DD01C280031395C /* NSString+NSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E0261DD01C280031395C /* NSString+NSNumber.m */; };
+		C4C6E02D1DD05B170031395C /* UILabel+BAAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E02C1DD05B170031395C /* UILabel+BAAttributeTextTapAction.m */; };
 		C4C7432A1DC7295A00E747D8 /* AppDelegate+BABaiduMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C742631DC7295A00E747D8 /* AppDelegate+BABaiduMap.m */; };
 		C4C7432B1DC7295A00E747D8 /* AppDelegate+BACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C742651DC7295A00E747D8 /* AppDelegate+BACategory.m */; };
 		C4C7432C1DC7295A00E747D8 /* NSObject+BAMJParse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C742671DC7295A00E747D8 /* NSObject+BAMJParse.m */; };
@@ -760,6 +761,8 @@
 		C4B963CF1D33A5AF005926B8 /* dropdown_loading_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_loading_03@2x.png"; sourceTree = "<group>"; };
 		C4C6E0251DD01C280031395C /* NSString+NSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSNumber.h"; sourceTree = "<group>"; };
 		C4C6E0261DD01C280031395C /* NSString+NSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSNumber.m"; sourceTree = "<group>"; };
+		C4C6E02B1DD05B170031395C /* UILabel+BAAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+BAAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		C4C6E02C1DD05B170031395C /* UILabel+BAAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+BAAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		C4C742621DC7295A00E747D8 /* AppDelegate+BABaiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BABaiduMap.h"; sourceTree = "<group>"; };
 		C4C742631DC7295A00E747D8 /* AppDelegate+BABaiduMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BABaiduMap.m"; sourceTree = "<group>"; };
 		C4C742641DC7295A00E747D8 /* AppDelegate+BACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BACategory.h"; sourceTree = "<group>"; };
@@ -2469,6 +2472,8 @@
 				C4C743F91DC72DB300E747D8 /* BATextField.m */,
 				C4C743FA1DC72DB300E747D8 /* BATextView.h */,
 				C4C743FB1DC72DB300E747D8 /* BATextView.m */,
+				C4C6E02B1DD05B170031395C /* UILabel+BAAttributeTextTapAction.h */,
+				C4C6E02C1DD05B170031395C /* UILabel+BAAttributeTextTapAction.m */,
 				C4C743FC1DC72DB300E747D8 /* UIBarButtonItem+BAKit.h */,
 				C4C743FD1DC72DB300E747D8 /* UIBarButtonItem+BAKit.m */,
 				C4C743FE1DC72DB300E747D8 /* UIButton+BAKit.h */,
@@ -3917,6 +3922,7 @@
 				C42DAA431D37269300FE8B3E /* DemoVC2_03.m in Sources */,
 				C41F62561CFC250500294C35 /* DemoVC10Cell.m in Sources */,
 				C4EBE1ED1D94CB0700020C1F /* BAUserModel.m in Sources */,
+				C4C6E02D1DD05B170031395C /* UILabel+BAAttributeTextTapAction.m in Sources */,
 				C40852B81CDA08F10004A671 /* DemoVC1.m in Sources */,
 				C4EB5BC31CD8B250003A7094 /* LPLevelView.m in Sources */,
 				C48026CE1D191F720087BBB9 /* DemoVC12.m in Sources */,

@@ -109,6 +109,9 @@
 /*! UIAlertController 类 */
 #import "UIAlertController+Blocks.h"
 
+/*! 带富文本属性的 UILabel 封装 */
+#import "UILabel+BAAttributeTextTapAction.h"
+
 
 #pragma mark - ****** Foundation类
 /*! Foundation类 */
