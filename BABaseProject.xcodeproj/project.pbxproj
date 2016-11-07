@@ -221,6 +221,7 @@
 		C4B9644B1D33A5B1005926B8 /* dropdown_loading_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B963CC1D33A5AF005926B8 /* dropdown_loading_02@2x.png */; };
 		C4B9644C1D33A5B1005926B8 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B963CE1D33A5AF005926B8 /* Contents.json */; };
 		C4B9644D1D33A5B1005926B8 /* dropdown_loading_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B963CF1D33A5AF005926B8 /* dropdown_loading_03@2x.png */; };
+		C4C6E0271DD01C280031395C /* NSString+NSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E0261DD01C280031395C /* NSString+NSNumber.m */; };
 		C4C7432A1DC7295A00E747D8 /* AppDelegate+BABaiduMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C742631DC7295A00E747D8 /* AppDelegate+BABaiduMap.m */; };
 		C4C7432B1DC7295A00E747D8 /* AppDelegate+BACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C742651DC7295A00E747D8 /* AppDelegate+BACategory.m */; };
 		C4C7432C1DC7295A00E747D8 /* NSObject+BAMJParse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C742671DC7295A00E747D8 /* NSObject+BAMJParse.m */; };
@@ -757,6 +758,8 @@
 		C4B963CC1D33A5AF005926B8 /* dropdown_loading_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_loading_02@2x.png"; sourceTree = "<group>"; };
 		C4B963CE1D33A5AF005926B8 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C4B963CF1D33A5AF005926B8 /* dropdown_loading_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_loading_03@2x.png"; sourceTree = "<group>"; };
+		C4C6E0251DD01C280031395C /* NSString+NSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSNumber.h"; sourceTree = "<group>"; };
+		C4C6E0261DD01C280031395C /* NSString+NSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSNumber.m"; sourceTree = "<group>"; };
 		C4C742621DC7295A00E747D8 /* AppDelegate+BABaiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BABaiduMap.h"; sourceTree = "<group>"; };
 		C4C742631DC7295A00E747D8 /* AppDelegate+BABaiduMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BABaiduMap.m"; sourceTree = "<group>"; };
 		C4C742641DC7295A00E747D8 /* AppDelegate+BACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BACategory.h"; sourceTree = "<group>"; };
@@ -2369,6 +2372,7 @@
 		C4C743B61DC72DB300E747D8 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C4C743CF1DC72DB300E747D8 /* NSString */,
 				C4C743B71DC72DB300E747D8 /* NSArray+BAKit.h */,
 				C4C743B81DC72DB300E747D8 /* NSArray+BAKit.m */,
 				C4C743B91DC72DB300E747D8 /* NSData+BAKit.h */,
@@ -2393,7 +2397,6 @@
 				C4C743CC1DC72DB300E747D8 /* NSProcessInfo+BAKit.m */,
 				C4C743CD1DC72DB300E747D8 /* NSShadow+BAKit.h */,
 				C4C743CE1DC72DB300E747D8 /* NSShadow+BAKit.m */,
-				C4C743CF1DC72DB300E747D8 /* NSString */,
 				C4C743D81DC72DB300E747D8 /* NSThread+BAKit.h */,
 				C4C743D91DC72DB300E747D8 /* NSThread+BAKit.m */,
 			);
@@ -2405,6 +2408,8 @@
 			children = (
 				C4C743D01DC72DB300E747D8 /* NSMutableAttributedString+BAKit.h */,
 				C4C743D11DC72DB300E747D8 /* NSMutableAttributedString+BAKit.m */,
+				C4C6E0251DD01C280031395C /* NSString+NSNumber.h */,
+				C4C6E0261DD01C280031395C /* NSString+NSNumber.m */,
 				C4C743D21DC72DB300E747D8 /* NSString+BAColor.h */,
 				C4C743D31DC72DB300E747D8 /* NSString+BAColor.m */,
 				C4C743D41DC72DB300E747D8 /* NSString+BAKit.h */,
@@ -3821,6 +3826,7 @@
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
 				C4C744771DC72DB300E747D8 /* UIView+BAKit.m in Sources */,
 				C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */,
+				C4C6E0271DD01C280031395C /* NSString+NSNumber.m in Sources */,
 				C4C744701DC72DB300E747D8 /* UILabel+BAKit.m in Sources */,
 				C4C7447E1DC72DB300E747D8 /* BAUpdatingView.m in Sources */,
 				C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */,

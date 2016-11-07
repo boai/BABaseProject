@@ -116,8 +116,14 @@
 #import "NSMutableArray+BAKit.h"
 #import "NSDictionary+BAKit.h"
 #import "NSMutableDictionary+BAKit.h"
+/*! 日常 NSString 类型处理 */
 #import "NSString+BAKit.h"
+/*! 特殊字符处理 */
 #import "NSString+Trims.h"
+/*! 数字格式化 */
+#import "NSString+NSNumber.h"
+/*! 富文本 */
+#import "NSMutableAttributedString+BAKit.h"
 
 #import "NSFileManager+BAKit.h"
 #import "NSNumber+BAKit.h"
@@ -126,8 +132,7 @@
 #import "NSThread+BAKit.h"
 /*! RunTime */
 #import "NSObject+BARunTime.h"
-/*! 符文本 */
-#import "NSMutableAttributedString+BAKit.h"
+
 /*! 阴影 */
 #import "NSShadow+BAKit.h"
 
