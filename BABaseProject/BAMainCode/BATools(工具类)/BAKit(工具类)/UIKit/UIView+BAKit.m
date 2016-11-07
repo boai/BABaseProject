@@ -262,6 +262,38 @@
     };
 }
 
+- (void)setCornerRadius:(CGFloat)cornerRadius
+{
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = cornerRadius;
+}
+
+- (void)setBorderColor:(UIColor *)borderColor
+{
+    self.layer.borderColor = borderColor.CGColor;
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth
+{
+    self.layer.borderWidth = borderWidth;
+}
+
+- (CGFloat)cornerRadius
+{
+    return self.layer.cornerRadius;
+}
+
+- (CGFloat)borderWidth
+{
+    return self.layer.borderWidth;
+}
+
+- (UIColor *)borderColor
+{
+    return [UIColor colorWithCGColor:self.layer.borderColor];
+}
+
+
 /* 1.给UIView添加点击事件*/
 - (void)addTarget:(id)target
            action:(SEL)action;
@@ -324,13 +356,13 @@
     [self.layer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
 }
 
-/* 6.设置圆角半径 */
-- (void)ba_setCornerRadius:(CGFloat)radius
-{
-    CALayer *roundedlayer = [self layer];
-    roundedlayer.cornerRadius = radius;
-    [roundedlayer setMasksToBounds:YES];
-}
+///* 6.设置圆角半径 */
+//- (void)ba_setCornerRadius:(CGFloat)radius
+//{
+//    CALayer *roundedlayer = [self layer];
+//    roundedlayer.cornerRadius = radius;
+//    [roundedlayer setMasksToBounds:YES];
+//}
 
 /* 7.创建阴影 */
 - (void)ba_setRectShadowWithOffset:(CGSize)offset

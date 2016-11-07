@@ -235,10 +235,6 @@ IB_DESIGNABLE
                                       opacity:(CGFloat)opacity
                                        radius:(CGFloat)radius;
 
-/**
- *  8.设置圆角半径
- */
-- (void)setCornerRadius:(CGFloat)radius;
 
 /**
  *  9.摇摆动画
