@@ -61,7 +61,13 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (BAColor)
-#pragma mark - *****  颜色处理 类
+/*!
+ 
+ 封装说明：
+ 所有 颜色 类型的字符处理类，包含：十六进制随机颜色处理等
+ 
+ */
+
 
 /*!
  *  返回十六进制的color 随机颜色

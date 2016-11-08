@@ -10,6 +10,45 @@
 
 @implementation NSString (NSNumber)
 
+#pragma mark - ***** 手机号码格式化样式：344【中间空格】，示例：13855556666 --> 138 5555 6666
++ (NSString *)ba_phoneNumberFormatterSpace:(NSString *)phoneNumber
+{
+    NSString *phone = phoneNumber;
+    
+    while (phone.length > 0)
+    {
+        NSString *subString = [phone substringToIndex:MIN(phone.length, 3)];
+        if (phone.length >= 7 )
+        {
+            subString = [subString stringByAppendingString:@" "];
+            subString = [subString stringByAppendingString:[phone substringWithRange:NSMakeRange(3, 4)]];
+        }
+        if ( phone.length == 11 )
+        {
+            subString = [subString stringByAppendingString:@" "];
+            subString = [subString stringByAppendingString:[phone substringWithRange:NSMakeRange(7, 4)]];
+            phone = subString;
+            break;
+        }
+    }
+    
+    return phone;
+}
+
+#pragma mark - ***** 手机号码格式化样式：3*4【中间4位为*】，示例：13855556666 --> 138****6666
++ (NSString *)ba_phoneNumberFormatterCenterStar:(NSString *)phoneNumber
+{
+    NSString *phone = phoneNumber;
+    
+    while (phone.length > 0)
+    {
+        phone = [phone stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+        break;
+    }
+    
+    return phone;
+}
+
 #pragma mark - ***** 数字格式化样式，示例：12345678.89 --> 12,345,678.89
 + (NSString *)ba_stringFormatterWithStyle:(NSNumberFormatterStyle)numberStyle numberString:(NSString *)numberString
 {
@@ -140,6 +179,11 @@
     return string;
 }
 
-
+#pragma mark - ***** 保留纯数字
+- (NSString *)ba_removeStringSaveNumber
+{
+    NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet ];
+    return [[self componentsSeparatedByCharactersInSet:setToRemove] componentsJoinedByString:@""];
+}
 
 @end

@@ -59,9 +59,15 @@
  */
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Trims)
-#pragma mark - *****  特殊字符串处理 类
+/*!
+ 
+ 封装说明：
+ 所有 特殊字符 类型的字符处理类，包含：手机号码格式化、数字格式化等
+ 
+ */
 
 /*!
  *  @brief  清除html标签
@@ -105,3 +111,4 @@
 + (nullable NSString *)ba_trimmedString:(nullable NSString *)string;
 
 @end
+NS_ASSUME_NONNULL_END

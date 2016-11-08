@@ -62,10 +62,15 @@
 #import <CommonCrypto/CommonCrypto.h>
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  给NSString类添加许多有用的方法
- */
+
 @interface NSString (BAKit)
+/*!
+ 
+ 封装说明：
+ 所有 NSString 类型的字符处理类，包含：。。。【待整理】等
+ 
+ */
+
 
 /**
  *  搜索两个字符之间的字符串。
