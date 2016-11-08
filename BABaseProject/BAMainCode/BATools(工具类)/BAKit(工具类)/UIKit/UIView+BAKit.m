@@ -278,6 +278,11 @@
     self.layer.borderWidth = borderWidth;
 }
 
+- (void)setDefineValue:(CGFloat)defineValue
+{
+    objc_setAssociatedObject(self, @selector(defineValue), @(defineValue),OBJC_ASSOCIATION_ASSIGN);
+}
+
 - (CGFloat)cornerRadius
 {
     return self.layer.cornerRadius;
@@ -293,6 +298,10 @@
     return [UIColor colorWithCGColor:self.layer.borderColor];
 }
 
+- (CGFloat)defineValue
+{
+    return [objc_getAssociatedObject(self, @selector(defineValue)) floatValue];
+}
 
 /* 1.给UIView添加点击事件*/
 - (void)addTarget:(id)target
