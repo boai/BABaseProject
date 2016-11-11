@@ -323,6 +323,34 @@
 - (void)ba_telWithPhoneNumber:(NSString *)phoneNumber
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tel:" stringByAppendingString: phoneNumber]]];
+    //打电话
+//    UIWebView *webView=[[UIWebView alloc] init];
+//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]]]];
+//    [self.view addSubview:webView];
+    
+    /*! 
+     
+     拨打电话 的几种常用方法
+     
+     1，这种方法，拨打完电话回不到原来的应用，会停留在通讯录里，而且是直接拨打，不弹出提示
+     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"186xxxx6979"];
+     //            NSLog(@"str======%@",str);
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+     
+     2，这种方法，打完电话后还会回到原来的程序，也会弹出提示，推荐这种
+     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"186xxxx6979"];
+     UIWebView * callWebview = [[UIWebView alloc] init];
+     [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+     [self.view addSubview:callWebview];
+     [callWebview release];
+     [str release];
+     
+     3,这种方法也会回去到原来的程序里（注意这里的telprompt），也会弹出提示
+     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"186xxxx6979"];
+     //            NSLog(@"str======%@",str);
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]]
+     
+     */
 }
 
 
