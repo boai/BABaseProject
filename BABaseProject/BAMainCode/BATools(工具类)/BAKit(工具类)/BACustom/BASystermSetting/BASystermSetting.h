@@ -155,5 +155,11 @@
  */
 - (void)ba_gotoSafariBrowserWithURL:(NSString *)url;
 
+/*!
+ *  拨打电话
+ *
+ *  @param phoneNumber 电话号码
+ */
+- (void)ba_telWithPhoneNumber:(NSString *)phoneNumber;
 
 @end
