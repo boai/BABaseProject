@@ -23,7 +23,9 @@
 //    [self test3];
 //    [self test4];
 //    [self test5];
-    [self test6];
+//    [self test6];
+    
+    [self test11];
 }
 
 /*! 
@@ -262,7 +264,504 @@
     
 }
 
+- (void)test11
+{
+    //    [self ba_syncConcurrent];
+    
+    //    [self ba_asyncConcurrent];
+    
+    //    [self ba_syncSerial];
+    
+    //    [self ba_asyncSerial];
+    
+    //    [self ba_syncMain];
+    
+    //    dispatch_async(dispatch_queue_create("boai.queue", DISPATCH_QUEUE_CONCURRENT), ^{
+    //        [self ba_syncMain];
+    //    });
+    
+    //    [self ba_asyncMain];
+    
+    //    [self ba_asyncMain2];
+    
+    //    [self ba_barrier];
+    
+    //    [self ba_dispatch_after];
+    
+    //    [self ba_dispatch_once];
+    
+    //    [self ba_dispatch_apply];
+    
+    [self ba_dispatch_group_async];
+}
 
+#pragma mark - **** 1. 并发队列 + 同步执行 不会开启新线程，执行完一个任务，再执行下一个任务
+- (void)ba_syncConcurrent
+{
+    NSLog(@"syncConcurrent---begin");
+    dispatch_queue_t queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程1-1------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程1-2------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程1-3------%@",[NSThread currentThread]);
+        }
+    });
+    
+    NSLog(@"syncConcurrent---end");
+    
+    /*!
+     从并发队列 + 同步执行中可以看到，所有任务都是在主线程中执行的。由于只有一个线程，所以任务只能一个一个执行。
+     同时我们还可以看到，所有任务都在打印的syncConcurrent---begin和syncConcurrent---end之间，这说明任务是添加到队列中马上执行的。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 14:37:47.411 GCDTestDemo[18432:559826] syncConcurrent---begin
+     2016-11-16 14:37:47.413 GCDTestDemo[18432:559826] 线程1------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.413 GCDTestDemo[18432:559826] 线程1------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.413 GCDTestDemo[18432:559826] 线程1------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.413 GCDTestDemo[18432:559826] 线程2------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.413 GCDTestDemo[18432:559826] 线程2------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.414 GCDTestDemo[18432:559826] 线程2------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.414 GCDTestDemo[18432:559826] 线程3------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.414 GCDTestDemo[18432:559826] 线程3------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.414 GCDTestDemo[18432:559826] 线程3------<NSThread: 0x7fc7d4504970>{number = 1, name = main}
+     2016-11-16 14:37:47.414 GCDTestDemo[18432:559826] syncConcurrent---end
+     
+     */
+}
+
+#pragma mark - **** 2. 并发队列 + 异步执行 可同时开启多线程，任务交替执行
+- (void)ba_asyncConcurrent
+{
+    NSLog(@"asyncConcurrent---begin");
+    
+    dispatch_queue_t queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程2-1------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程2-2------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程2-3------%@",[NSThread currentThread]);
+        }
+    });
+    
+    NSLog(@"asyncConcurrent---end");
+    
+    /*!
+     在并发队列 + 异步执行中可以看出，除了主线程，又开启了3个线程，并且任务是交替着同时执行的。
+     另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始同步执行。
+     */
+    
+    /*!
+     输出结果：
+     
+     2016-11-16 14:48:16.639 GCDTestDemo[18669:577059] asyncConcurrent---begin
+     2016-11-16 14:48:16.640 GCDTestDemo[18669:577102] 线程2-1------<NSThread: 0x7f9c94d19c50>{number = 2, name = (null)}
+     2016-11-16 14:48:16.640 GCDTestDemo[18669:577059] asyncConcurrent---end
+     2016-11-16 14:48:16.640 GCDTestDemo[18669:577103] 线程2-2------<NSThread: 0x7f9c94c13690>{number = 3, name = (null)}
+     2016-11-16 14:48:16.640 GCDTestDemo[18669:577146] 线程2-3------<NSThread: 0x7f9c94d19870>{number = 4, name = (null)}
+     2016-11-16 14:48:16.640 GCDTestDemo[18669:577102] 线程2-1------<NSThread: 0x7f9c94d19c50>{number = 2, name = (null)}
+     2016-11-16 14:48:16.641 GCDTestDemo[18669:577103] 线程2-2------<NSThread: 0x7f9c94c13690>{number = 3, name = (null)}
+     2016-11-16 14:48:16.641 GCDTestDemo[18669:577146] 线程2-3------<NSThread: 0x7f9c94d19870>{number = 4, name = (null)}
+     2016-11-16 14:48:16.641 GCDTestDemo[18669:577102] 线程2-1------<NSThread: 0x7f9c94d19c50>{number = 2, name = (null)}
+     2016-11-16 14:48:16.642 GCDTestDemo[18669:577103] 线程2-2------<NSThread: 0x7f9c94c13690>{number = 3, name = (null)}
+     2016-11-16 14:48:16.643 GCDTestDemo[18669:577146] 线程2-3------<NSThread: 0x7f9c94d19870>{number = 4, name = (null)}
+     */
+}
+
+#pragma mark - **** 3. 串行队列 + 同步执行 不会开启新线程，在当前线程执行任务。任务是串行的，执行完一个任务，再执行下一个任务
+- (void)ba_syncSerial
+{
+    NSLog(@"syncSerial---begin");
+    
+    dispatch_queue_t queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 2; ++i) {
+            NSLog(@"线程3-1------%@",[NSThread currentThread]);
+        }
+    });
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 2; ++i) {
+            NSLog(@"线程3-2------%@",[NSThread currentThread]);
+        }
+    });
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 2; ++i) {
+            NSLog(@"线程3-3------%@",[NSThread currentThread]);
+        }
+    });
+    
+    NSLog(@"syncSerial---end");
+    
+    /*!
+     在串行队列 + 同步执行可以看到，所有任务都是在主线程中执行的，并没有开启新的线程。而且由于串行队列，所以按顺序一个一个执行。
+     同时我们还可以看到，所有任务都在打印的syncConcurrent---begin和syncConcurrent---end之间，这说明任务是添加到队列中马上执行的。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 14:54:30.971 GCDTestDemo[18818:587736] syncSerial---begin
+     2016-11-16 14:54:30.972 GCDTestDemo[18818:587736] 1------<NSThread: 0x7f99c3404250>{number = 1, name = main}
+     2016-11-16 14:54:30.972 GCDTestDemo[18818:587736] 1------<NSThread: 0x7f99c3404250>{number = 1, name = main}
+     2016-11-16 14:54:30.974 GCDTestDemo[18818:587736] 2------<NSThread: 0x7f99c3404250>{number = 1, name = main}
+     2016-11-16 14:54:30.975 GCDTestDemo[18818:587736] 2------<NSThread: 0x7f99c3404250>{number = 1, name = main}
+     2016-11-16 14:54:30.976 GCDTestDemo[18818:587736] 3------<NSThread: 0x7f99c3404250>{number = 1, name = main}
+     2016-11-16 14:54:30.976 GCDTestDemo[18818:587736] 3------<NSThread: 0x7f99c3404250>{number = 1, name = main}
+     2016-11-16 14:54:30.977 GCDTestDemo[18818:587736] syncSerial---end
+     */
+}
+
+#pragma mark - **** 4. 串行队列 + 异步执行 会开启新线程，但是因为任务是串行的，执行完一个任务，再执行下一个任务
+- (void)ba_asyncSerial
+{
+    NSLog(@"asyncSerial---begin");
+    
+    dispatch_queue_t queue = dispatch_queue_create("boai.queue", DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程4-1------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程4-2------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程4-3------%@",[NSThread currentThread]);
+        }
+    });
+    
+    NSLog(@"asyncSerial---end");
+    
+    /*!
+     在串行队列 + 异步执行可以看到，开启了一条新线程，但是任务还是串行，所以任务是一个一个执行。
+     另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始同步执行。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 15:02:33.771 GCDTestDemo[18998:601095] asyncSerial---begin
+     2016-11-16 15:02:33.772 GCDTestDemo[18998:601095] asyncSerial---end
+     2016-11-16 15:02:33.772 GCDTestDemo[18998:601340] 线程4-1------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.772 GCDTestDemo[18998:601340] 线程4-1------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.773 GCDTestDemo[18998:601340] 线程4-1------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.773 GCDTestDemo[18998:601340] 线程4-2------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.774 GCDTestDemo[18998:601340] 线程4-2------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.774 GCDTestDemo[18998:601340] 线程4-2------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.775 GCDTestDemo[18998:601340] 线程4-3------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.775 GCDTestDemo[18998:601340] 线程4-3------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     2016-11-16 15:02:33.775 GCDTestDemo[18998:601340] 线程4-3------<NSThread: 0x7f891ff12d00>{number = 2, name = (null)}
+     */
+}
+
+#pragma mark - **** 5. 主队列 + 同步执行 互等卡住不可行(在主线程中调用)
+- (void)ba_syncMain
+{
+    NSLog(@"syncMain---begin");
+    
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程5-1------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程5-2------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程5-3------%@",[NSThread currentThread]);
+        }
+    });
+    
+    
+    NSLog(@"syncMain---end");
+    
+    /*!
+     这时候，我们惊奇的发现，在主线程中使用主队列 + 同步执行，任务不再执行了，而且syncMain---end也没有打印。这是为什么呢？
+     
+     这是因为我们在主线程中执行这段代码。我们把任务放到了主队列中，也就是放到了主线程的队列中。而同步执行有个特点，就是对于任务是立马执行的。那么当我们把第一个任务放进主队列中，它就会立马执行。但是主线程现在正在处理syncMain方法，所以任务需要等syncMain执行完才能执行。而syncMain执行到第一个任务的时候，又要等第一个任务执行完才能往下执行第二个和第三个任务。
+     
+     那么，现在的情况就是syncMain方法和第一个任务都在等对方执行完毕。这样大家互相等待，所以就卡住了，所以我们的任务执行不了，而且syncMain---end也没有打印。
+     */
+    
+    /*!
+     输出结果：
+     
+     2016-11-16 15:14:56.652 GCDTestDemo[19238:622720] syncMain---begin
+     */
+    
+    /*!
+     要是如果不再主线程中调用，而在其他线程中调用会如何呢？
+     
+     不会开启新线程，执行完一个任务，再执行下一个任务（在其他线程中调用）
+     
+     dispatch_queue_t queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
+     
+     dispatch_async(queue, ^{
+     [self syncMain];
+     });
+     
+     在其他线程中使用主队列 + 同步执行可看到：所有任务都是在主线程中执行的，并没有开启新的线程。而且由于主队列是串行队列，所以按顺序一个一个执行。
+     另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始同步执行。
+     
+     2016-11-16 15:20:31.785 GCDTestDemo[19365:631782] syncMain---begin
+     2016-11-16 15:20:31.789 GCDTestDemo[19365:631710] 线程5-1------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.790 GCDTestDemo[19365:631710] 线程5-1------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.790 GCDTestDemo[19365:631710] 线程5-1------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.791 GCDTestDemo[19365:631710] 线程5-2------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.791 GCDTestDemo[19365:631710] 线程5-2------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.791 GCDTestDemo[19365:631710] 线程5-2------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.792 GCDTestDemo[19365:631710] 线程5-3------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.792 GCDTestDemo[19365:631710] 线程5-3------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.792 GCDTestDemo[19365:631710] 线程5-3------<NSThread: 0x7fc620e040d0>{number = 1, name = main}
+     2016-11-16 15:20:31.793 GCDTestDemo[19365:631782] syncMain---end
+     
+     */
+    
+}
+
+#pragma mark - **** 6. 主队列 + 异步执行 只在主线程中执行任务，执行完一个任务，再执行下一个任务
+- (void)ba_asyncMain
+{
+    NSLog(@"asyncMain---begin");
+    
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程6-1------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程6-2------%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程6-3------%@",[NSThread currentThread]);
+        }
+    });
+    
+    
+    NSLog(@"asyncMain---end");
+    
+    /*!
+     我们发现所有任务都在主线程中，虽然是异步执行，具备开启线程的能力，但因为是主队列，所以所有任务都在主线程中，并且一个接一个执行。
+     另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始同步执行。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 15:53:19.216 GCDTestDemo[19969:684717] asyncMain---begin
+     2016-11-16 15:53:19.217 GCDTestDemo[19969:684717] asyncMain---end
+     2016-11-16 15:53:19.224 GCDTestDemo[19969:684717] 线程6-1------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.225 GCDTestDemo[19969:684717] 线程6-1------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.226 GCDTestDemo[19969:684717] 线程6-1------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.227 GCDTestDemo[19969:684717] 线程6-2------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.228 GCDTestDemo[19969:684717] 线程6-2------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.229 GCDTestDemo[19969:684717] 线程6-2------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.233 GCDTestDemo[19969:684717] 线程6-3------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.235 GCDTestDemo[19969:684717] 线程6-3------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     2016-11-16 15:53:19.236 GCDTestDemo[19969:684717] 线程6-3------<NSThread: 0x7fad50d06880>{number = 1, name = main}
+     */
+}
+
+
+#pragma mark - **** 7. GCD线程之间的通讯 在iOS开发过程中，我们一般在主线程里边进行UI刷新，例如：点击、滚动、拖拽等事件。我们通常把一些耗时的操作放在其他线程，比如说图片下载、文件上传等耗时操作。而当我们有时候在其他线程完成了耗时操作时，需要回到主线程，那么就用到了线程之间的通讯。
+- (void)ba_asyncMain2
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        /*! 在此执行耗时操作 */
+        for (int i = 0; i < 3; i ++)
+        {
+            NSLog(@"线程7-1------%@",[NSThread currentThread]);
+        }
+        
+        /*! 回到主线程更新 UI */
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"线程7-2------%@",[NSThread currentThread]);
+        });
+        
+    });
+    
+    /*!
+     可以看到在其他线程中先执行操作，执行完了之后回到主线程执行主线程的相应操作。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 16:07:50.654 GCDTestDemo[20232:707780] 线程7-1------<NSThread: 0x7fc7de429970>{number = 2, name = (null)}
+     2016-11-16 16:07:50.655 GCDTestDemo[20232:707780] 线程7-1------<NSThread: 0x7fc7de429970>{number = 2, name = (null)}
+     2016-11-16 16:07:50.655 GCDTestDemo[20232:707780] 线程7-1------<NSThread: 0x7fc7de429970>{number = 2, name = (null)}
+     2016-11-16 16:07:50.659 GCDTestDemo[20232:707642] 线程7-2------<NSThread: 0x7fc7de5005e0>{number = 1, name = main}
+     */
+}
+
+#pragma mark - **** 8. GCD的栅栏方法 dispatch_barrier_async 我们有时需要异步执行两组操作，而且第一组操作执行完之后，才能开始执行第二组操作。这样我们就需要一个相当于栅栏一样的一个方法将两组异步执行的操作组给分割起来，当然这里的操作组里可以包含一个或多个任务。这就需要用到dispatch_barrier_async方法在两个操作组间形成栅栏。
+- (void)ba_barrier
+{
+    dispatch_queue_t queue = dispatch_queue_create("boa.barrier", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        NSLog(@"线程8-1-----%@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"线程8-2-----%@", [NSThread currentThread]);
+    });
+    
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"---- 这里是栅栏，执行完前面的所有任务，才能继续栅栏后面的任务！-----%@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"线程8-3-----%@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"线程8-4-----%@", [NSThread currentThread]);
+    });
+    
+    /*!
+     可以看出在执行完栅栏前面的操作之后，才执行栅栏操作，最后再执行栅栏后边的操作。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 16:24:10.802 GCDTestDemo[20568:736069] 线程8-1-----<NSThread: 0x7f9291c091d0>{number = 2, name = (null)}
+     2016-11-16 16:24:10.802 GCDTestDemo[20568:736070] 线程8-2-----<NSThread: 0x7f9291d8e400>{number = 3, name = (null)}
+     2016-11-16 16:24:10.803 GCDTestDemo[20568:736070] ---- 这里是栅栏，执行完前面的所有任务，才能继续栅栏后面的任务！-----<NSThread: 0x7f9291d8e400>{number = 3, name = (null)}
+     2016-11-16 16:24:10.803 GCDTestDemo[20568:736070] 线程8-3-----<NSThread: 0x7f9291d8e400>{number = 3, name = (null)}
+     2016-11-16 16:24:10.803 GCDTestDemo[20568:736069] 线程8-4-----<NSThread: 0x7f9291c091d0>{number = 2, name = (null)}
+     */
+}
+
+#pragma mark - **** 9.GCD的延时执行方法 dispatch_after 当我们需要延迟执行一段代码时，就需要用到GCD的dispatch_after方法。
+- (void)ba_dispatch_after
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        /*! 2秒后异步执行这里的代码... */
+        NSLog(@"--- 2秒后异步执行这里的代码... ---");
+    });
+}
+
+#pragma mark - **** 10.GCD的一次性代码(只执行一次) dispatch_once 我们在创建单例、或者有整个程序运行过程中只执行一次的代码时，我们就用到了GCD的dispatch_once方法。使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次。
+- (void)ba_dispatch_once
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        /*! 只执行1次的代码(这里面默认是线程安全的) */
+        NSLog(@"--- 只执行1次的代码(这里面默认是线程安全的) ---");
+    });
+}
+
+#pragma mark - **** 11.GCD的快速迭代方法 dispatch_apply 通常我们会用for循环遍历，但是GCD给我们提供了快速迭代的方法dispatch_apply，使我们可以同时遍历。比如说遍历0~5这6个数字，for循环的做法是每次取出一个元素，逐个遍历。dispatch_apply可以同时遍历多个数字。
+- (void)ba_dispatch_apply
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_apply(8, queue, ^(size_t index) {
+        NSLog(@"dispatch_apply 快速循环 %zd------%@",index, [NSThread currentThread]);
+    });
+    
+    /*!
+     从输出结果中前边的时间中可以看出，几乎是同时遍历的。
+     */
+    
+    /*!
+     输出结果：
+     2016-11-16 16:40:35.227 GCDTestDemo[20924:763423] dispatch_apply 快速循环 1------<NSThread: 0x7f9a15d3b4a0>{number = 3, name = (null)}
+     2016-11-16 16:40:35.227 GCDTestDemo[20924:763422] dispatch_apply 快速循环 0------<NSThread: 0x7f9a15f45490>{number = 2, name = (null)}
+     2016-11-16 16:40:35.227 GCDTestDemo[20924:763290] dispatch_apply 快速循环 2------<NSThread: 0x7f9a15e06090>{number = 1, name = main}
+     2016-11-16 16:40:35.227 GCDTestDemo[20924:763427] dispatch_apply 快速循环 3------<NSThread: 0x7f9a15c3ac20>{number = 4, name = (null)}
+     2016-11-16 16:40:35.228 GCDTestDemo[20924:763423] dispatch_apply 快速循环 4------<NSThread: 0x7f9a15d3b4a0>{number = 3, name = (null)}
+     2016-11-16 16:40:35.228 GCDTestDemo[20924:763422] dispatch_apply 快速循环 5------<NSThread: 0x7f9a15f45490>{number = 2, name = (null)}
+     2016-11-16 16:40:35.228 GCDTestDemo[20924:763290] dispatch_apply 快速循环 6------<NSThread: 0x7f9a15e06090>{number = 1, name = main}
+     2016-11-16 16:40:35.228 GCDTestDemo[20924:763427] dispatch_apply 快速循环 7------<NSThread: 0x7f9a15c3ac20>{number = 4, name = (null)}
+     */
+}
+
+#pragma mark - **** 12.GCD的队列组 dispatch_group 有时候我们会有这样的需求：分别异步执行2个耗时操作，然后当2个耗时操作都执行完毕后再回到主线程执行操作。这时候我们可以用到GCD的队列组。 我们可以先把任务放到队列中，然后将队列放入队列组中。 调用队列组的dispatch_group_notify回到主线程执行操作。
+- (void)ba_dispatch_group_async
+{
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        /*! 执行1个耗时的异步操作 */
+        NSLog(@"--- 执行第 1 个耗时的异步操作 ---");
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        /*! 执行1个耗时的异步操作 */
+        NSLog(@"--- 执行第 2 个耗时的异步操作 ---");
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        /*! 等前面的异步操作都执行完毕后，回到主线程... */
+        NSLog(@"--- 等前面的异步操作都执行完毕后，回到主线程... ---");
+    });
+    
+    /*!
+     输出结果：
+     2016-11-16 16:54:30.375 GCDTestDemo[21212:787439] --- 执行第 2 个耗时的异步操作 ---
+     2016-11-16 16:54:30.375 GCDTestDemo[21212:787438] --- 执行第 1 个耗时的异步操作 ---
+     2016-11-16 16:54:30.379 GCDTestDemo[21212:787353] --- 等前面的异步操作都执行完毕后，回到主线程... ---
+     */
+}
 
 
 @end
