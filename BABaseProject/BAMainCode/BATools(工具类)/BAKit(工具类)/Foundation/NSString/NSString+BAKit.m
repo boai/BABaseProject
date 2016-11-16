@@ -342,7 +342,7 @@
 }
 
 #pragma mark - 获得系统当前日期和时间
-+ (nullable NSString *)BA_time_getCurrentDateAndTime
++ (nullable NSString *)ba_time_getCurrentDateAndTime
 {
     //获得系统日期
     NSDate *senddate = [NSDate date];
@@ -357,7 +357,7 @@
 
 #pragma mark - 时间戳转换
 #pragma mark 时间戳转换【YYYY-MM-dd HH:mm:ss】
-+ (nullable NSString *)BA_time_getCurrentDateAndTimeWithTimeString:(nullable NSString *)string
++ (nullable NSString *)ba_time_getCurrentDateAndTimeWithTimeString:(nullable NSString *)string
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -371,7 +371,7 @@
 }
 
 #pragma mark 时间戳转换【YYYY-MM-dd】
-+ (nullable NSString *)BA_time_getDateWithTimeString:(nullable NSString *)string
++ (nullable NSString *)ba_time_getDateWithTimeString:(nullable NSString *)string
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -384,7 +384,7 @@
 }
 
 #pragma mark 时间戳转换【HH:mm】
-+ (nullable NSString *)BA_time_getTimeWithTimeString:(nullable NSString *)string
++ (nullable NSString *)ba_time_getTimeWithTimeString:(nullable NSString *)string
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -399,13 +399,28 @@
 }
 
 #pragma mark 时间转换时间戳
-+ (nullable NSString *)BA_time_getTimeStamp
++ (nullable NSString *)ba_time_getTimeStamp
 {
     NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
     // 时间转时间戳的方法:
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
     
     return timeSp;
+}
+
+#pragma mark 判断两个时间差
++ (NSString *)ba_intervalSinceNow:(NSDate *)theDate
+{
+    NSTimeInterval late = [theDate timeIntervalSince1970]*1;
+    
+    NSDate *dat = [NSDate date];
+    NSTimeInterval now=[dat timeIntervalSince1970]*1;
+    
+    
+    NSTimeInterval cha = now -late;
+    NSString *timeString=[NSString stringWithFormat:@"%f",cha];
+    
+    return timeString;
 }
 
 #pragma mark 日期转换星期, 返回星期几
@@ -427,7 +442,7 @@
 }
 
 /*! 解析新浪微博中的日期, 判断日期是今天，昨天还是明天 */
-+ (NSString *)BA_time_resolveSinaWeiboDate:(NSString *)dateStr
++ (NSString *)ba_time_resolveSinaWeiboDate:(NSString *)dateStr
 {
     // Tue Mar 10 17:32:22 +0800 2015
     // 字符串转换NSDate
@@ -506,7 +521,7 @@
     return str;
 }
 
-- (NSString *)BA_md5String
+- (NSString *)ba_md5String
 {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
 }
@@ -540,10 +555,10 @@
 /**
  * @brief 推断当前时间是否在fromHour和toHour之间。如。fromHour=8，toHour=23时。即为推断当前时间是否在8:00-23:00之间
  */
-- (BOOL)BA_time_isBetweenFromHour:(NSInteger)fromHour toHour:(NSInteger)toHour
+- (BOOL)ba_time_isBetweenFromHour:(NSInteger)fromHour toHour:(NSInteger)toHour
 {
-    NSDate *date8 = [self BA_time_getCustomDateWithHour:8];
-    NSDate *date23 = [self BA_time_getCustomDateWithHour:23];
+    NSDate *date8 = [self ba_time_getCustomDateWithHour:8];
+    NSDate *date23 = [self ba_time_getCustomDateWithHour:23];
     
     NSDate *currentDate = [NSDate date];
     
@@ -559,7 +574,7 @@
  * @brief 生成当天的某个点（返回的是伦敦时间，可直接与当前时间[NSDate date]比較）
  * @param hour 如hour为“8”。就是上午8:00（本地时间）
  */
-- (NSDate *)BA_time_getCustomDateWithHour:(NSInteger)hour
+- (NSDate *)ba_time_getCustomDateWithHour:(NSInteger)hour
 {
     //获取当前时间
     NSDate *currentDate = [NSDate date];
@@ -582,7 +597,7 @@
 }
 
 /*! 判断日期是今天，昨天还是明天 */
-- (NSString *)BA_time_compareDate:(NSDate *)date
+- (NSString *)ba_time_compareDate:(NSDate *)date
 {
     NSTimeInterval secondsPerDay = 24 * 60 * 60;
     NSDate *today = [[NSDate alloc] init];
@@ -614,8 +629,8 @@
     }
 }
 
-/*! 计算上报时间差 */
-- (NSString *)BA_time_compareTime
+#pragma mark 计算上报时间差: 几分钟前，几天前
+- (NSString *)ba_time_compareTime
 {
     // 计算上报时间差
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -661,7 +676,7 @@
 
 #pragma mark - *****  数字处理 类
 /*! 判断数字为2.1千，3.4万（点赞数处理） */
-+ (NSString *)BA_stringHandleWithString:(NSString *)string
++ (NSString *)ba_stringHandleWithString:(NSString *)string
 {
     float number = [string integerValue];
     
@@ -684,7 +699,7 @@
 }
 
 /*! 判断是否为整形 */
-- (BOOL)BA_isPureInt:(NSString*)string
+- (BOOL)ba_isPureInt:(NSString*)string
 {
     NSScanner* scan = [NSScanner scannerWithString:string];
     int val;
@@ -692,7 +707,7 @@
 }
 
 /*! 判断是否为浮点形 */
-- (BOOL)BA_isPureFloat:(NSString*)string
+- (BOOL)ba_isPureFloat:(NSString*)string
 {
     NSScanner* scan = [NSScanner scannerWithString:string];
     float val;
@@ -701,7 +716,7 @@
 
 #pragma mark - *****  特殊字符串处理 类
 /*! 去掉字符串中的html标签的方法 */
-- (NSString *)BA_filterHTML:(NSString *)html
+- (NSString *)ba_filterHTML:(NSString *)html
 {
     NSScanner * scanner = [NSScanner scannerWithString:html];
     NSString * text = nil;
@@ -725,7 +740,7 @@
 }
 
 /*! 十六进制转换为普通字符串 */
-- (NSString *)BA_stringFromHexString:(NSString *)hexString
+- (NSString *)ba_stringFromHexString:(NSString *)hexString
 {
     char *myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
     bzero(myBuffer, [hexString length] / 2 + 1);
@@ -759,7 +774,7 @@
 }
 
 /*! 获取软件沙盒路径 */
-+ (NSString *)BA_path_getApplicationSupportPath
++ (NSString *)ba_path_getApplicationSupportPath
 {
     //such as:../Applications/9A425424-645E-4337-8730-8A080DF086F4/Library/Application Support
     
@@ -770,15 +785,15 @@
         path = [libraryPaths objectAtIndex:0];
     }
     
-    if (![self BA_path_fileExist:path]) {
-        [self BA_path_createDirectory:path];
+    if (![self ba_path_fileExist:path]) {
+        [self ba_path_createDirectory:path];
     }
     
     return path;
 }
 
 /*! 获取软件沙盒Documents路径 */
-+ (NSString *)BA_path_getDocumentsPath
++ (NSString *)ba_path_getDocumentsPath
 {
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) objectAtIndex:0];
     
@@ -787,7 +802,7 @@
 }
 
 /*! 获取软件沙盒cache路径 */
-+ (NSString *)BA_path_getCachePath
++ (NSString *)ba_path_getCachePath
 {
     // such as : ../Applications/9A425424-645E-4337-8730-8A080DF086F4/Library/Caches
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES) objectAtIndex:0];
@@ -795,16 +810,16 @@
 }
 
 /*! 获取软件沙盒cachesDic路径 */
-+ (NSString *)BA_path_getTemPath
++ (NSString *)ba_path_getTemPath
 {
     NSString *cachesDic = NSTemporaryDirectory();
     return cachesDic;
 }
 
 /*! 在软件沙盒指定的路径创建一个目录 */
-+ (BOOL)BA_path_createDirectory:(NSString *)newDirectory
++ (BOOL)ba_path_createDirectory:(NSString *)newDirectory
 {
-    if([self BA_path_fileExist:newDirectory]) return YES;
+    if([self ba_path_fileExist:newDirectory]) return YES;
     
     NSError * error = nil;
     BOOL finished = [[NSFileManager defaultManager] createDirectoryAtPath:newDirectory
@@ -815,7 +830,7 @@
 }
 
 /*! 在软件沙盒指定的路径删除一个目录 */
-+ (BOOL)BA_path_deleteFilesysItem:(NSString*)strItem
++ (BOOL)ba_path_deleteFilesysItem:(NSString*)strItem
 {
     if ([strItem length] == 0) {
         return YES;
@@ -828,9 +843,9 @@
 }
 
 /*! 在软件沙盒路径移动一个目录到另一个目录中 */
-+ (BOOL)BA_path_moveFilesysItem:(NSString *)srcPath toPath:(NSString *)dstPath
++ (BOOL)ba_path_moveFilesysItem:(NSString *)srcPath toPath:(NSString *)dstPath
 {
-    if (![self BA_path_fileExist:srcPath]) return NO;
+    if (![self ba_path_fileExist:srcPath]) return NO;
     
     NSError * error = nil;
     return [[NSFileManager defaultManager] moveItemAtPath:srcPath
@@ -839,7 +854,7 @@
 }
 
 /*! 在软件沙盒路径中查看有没有这个路径 */
-+ (BOOL)BA_path_fileExist:(NSString*)strPath
++ (BOOL)ba_path_fileExist:(NSString*)strPath
 {
     NSFileManager *file_manager = [NSFileManager defaultManager];
     BOOL finded = [file_manager fileExistsAtPath:strPath];
@@ -847,9 +862,9 @@
 }
 
 /*! 在软件沙盒路径中获取指定userPath路径 */
-- (NSString *)BA_path_getUserInfoStorePath:(NSString *)userPath
+- (NSString *)ba_path_getUserInfoStorePath:(NSString *)userPath
 {
-    NSString *destPath = [NSString BA_path_getDocumentsPath];
+    NSString *destPath = [NSString ba_path_getDocumentsPath];
     NSString *userInfoPath = [destPath stringByAppendingString:[NSString stringWithFormat:@"/%@", userPath]];
     return userInfoPath;
 }
@@ -857,7 +872,7 @@
 
 
 /*! 获取字符串的长度 */
-+ (NSUInteger)BA_getLengthOfStr:(NSString*)str
++ (NSUInteger)ba_getLengthOfStr:(NSString*)str
 {
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData* da = [str dataUsingEncoding:enc];

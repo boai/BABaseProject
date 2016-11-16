@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 获得系统当前日期和时间
  */
-+ (nullable NSString *)BA_time_getCurrentDateAndTime;
++ (nullable NSString *)ba_time_getCurrentDateAndTime;
 
 /**
  *  时间戳转换【YYYY-MM-dd HH:mm:ss】
@@ -180,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 时间戳转换【YYYY-MM-dd HH:mm:ss】
  */
-+ (nullable NSString *)BA_time_getCurrentDateAndTimeWithTimeString:(nullable NSString *)string;
++ (nullable NSString *)ba_time_getCurrentDateAndTimeWithTimeString:(nullable NSString *)string;
 
 /**
  *  时间戳转换【YYYY-MM-dd】
@@ -189,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 时间戳转换【YYYY-MM-dd】
  */
-+ (nullable NSString *)BA_time_getDateWithTimeString:(nullable NSString *)string;
++ (nullable NSString *)ba_time_getDateWithTimeString:(nullable NSString *)string;
 
 /**
  *  时间戳转换【HH:mm】
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 时间戳转换【HH:mm】
  */
-+ (nullable NSString *)BA_time_getTimeWithTimeString:(nullable NSString *)string;
++ (nullable NSString *)ba_time_getTimeWithTimeString:(nullable NSString *)string;
 
 /**
  *  时间转换时间戳
@@ -207,7 +207,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 时间转换时间戳
  */
-+ (nullable NSString *)BA_time_getTimeStamp;
++ (nullable NSString *)ba_time_getTimeStamp;
+
+/*!
+ *  判断两个时间差
+ *
+ *  @param theDate 目标时间
+ *
+ *  @return 判断两个时间差
+ */
++ (NSString *)ba_intervalSinceNow:(NSDate *)theDate;
 
 /*!
  *  日期转换星期
@@ -222,33 +231,37 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief 推断当前时间是否在fromHour和toHour之间。如。fromHour=8，toHour=23时。即为推断当前时间是否在8:00-23:00之间
  */
-- (BOOL)BA_time_isBetweenFromHour:(NSInteger)fromHour toHour:(NSInteger)toHour;
+- (BOOL)ba_time_isBetweenFromHour:(NSInteger)fromHour toHour:(NSInteger)toHour;
 
 /*!
  * @brief 生成当天的某个点（返回的是伦敦时间，可直接与当前时间[NSDate date]比較）
  * @param hour 如hour为“8”。就是上午8:00（本地时间）
  */
-- (nullable NSDate *)BA_time_getCustomDateWithHour:(NSInteger)hour;
+- (nullable NSDate *)ba_time_getCustomDateWithHour:(NSInteger)hour;
 
 /*! 判断日期是今天，昨天还是明天 */
-- (nullable NSString *)BA_time_compareDate:(nullable NSDate *)date;
+- (nullable NSString *)ba_time_compareDate:(nullable NSDate *)date;
 
-/*! 计算上报时间差 */
-- (nullable NSString *)BA_time_compareTime;
+/*!
+ *  计算上报时间差: 几分钟前，几天前
+ *
+ *  @return 计算上报时间差: 几分钟前，几天前
+ */
+- (NSString *)ba_time_compareTime;
 
 /*! 解析新浪微博中的日期, 判断日期是今天，昨天还是明天 */
-+ (nullable NSString *)BA_time_resolveSinaWeiboDate:(nullable NSString*)dateStr;
++ (nullable NSString *)ba_time_resolveSinaWeiboDate:(nullable NSString*)dateStr;
 
 
 #pragma mark - *****  数字处理 类
 /*! 判断数字为2.1千，3.4万（点赞数处理） */
-+ (nullable NSString *)BA_stringHandleWithString:(nullable NSString *)string;
++ (nullable NSString *)ba_stringHandleWithString:(nullable NSString *)string;
 
 /*! 判断是否为整形 */
-- (BOOL)BA_isPureInt:(nullable NSString*)string;
+- (BOOL)ba_isPureInt:(nullable NSString*)string;
 
 /*! 判断是否为浮点形 */
-- (BOOL)BA_isPureFloat:(nullable NSString*)string;
+- (BOOL)ba_isPureFloat:(nullable NSString*)string;
 
 
 #pragma mark - *****  特殊字符串处理 类
@@ -257,10 +270,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSString *)getText:(nullable NSString *)text withRepeat:(int)repeat;
 
 /*! 去掉字符串中的html标签的方法 */
-- (nullable NSString *)BA_filterHTML:(nullable NSString *)html;
+- (nullable NSString *)ba_filterHTML:(nullable NSString *)html;
 
 /*! 十六进制转换为普通字符串 */
-- (nullable NSString *)BA_stringFromHexString:(nullable NSString *)hexString;
+- (nullable NSString *)ba_stringFromHexString:(nullable NSString *)hexString;
 
 /**
  *   Create a string from the file in main bundle (similar to [UIImage imageNamed:]).
@@ -276,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return  Returns a lowercase NSString for md5 hash.
  */
-- (nullable NSString *)BA_md5String;
+- (nullable NSString *)ba_md5String;
 
 /*!
  *  判断字符串是否为空
@@ -309,7 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSData *)dataValue;
 
 /*! 获取字符串的长度 */
-+ (NSUInteger)BA_getLengthOfStr:(nullable NSString *)str;
++ (NSUInteger)ba_getLengthOfStr:(nullable NSString *)str;
 
 /*!
  *  字典转json
@@ -323,31 +336,31 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - *****  获取软件沙盒路径 类
 
 /*! 获取软件沙盒路径 */
-+ (nullable NSString *)BA_path_getApplicationSupportPath;
++ (nullable NSString *)ba_path_getApplicationSupportPath;
 
 /*! 获取软件沙盒Documents路径 */
-+ (nullable NSString *)BA_path_getDocumentsPath;
++ (nullable NSString *)ba_path_getDocumentsPath;
 
 /*! 获取软件沙盒cache路径 */
-+ (nullable NSString *)BA_path_getCachePath;
++ (nullable NSString *)ba_path_getCachePath;
 
 /*! 获取软件沙盒cachesDic路径 */
-+ (nullable NSString *)BA_path_getTemPath;
++ (nullable NSString *)ba_path_getTemPath;
 
 /*! 在软件沙盒指定的路径创建一个目录 */
-+ (BOOL)BA_path_createDirectory:(nullable NSString *)newDirectory;
++ (BOOL)ba_path_createDirectory:(nullable NSString *)newDirectory;
 
 /*! 在软件沙盒指定的路径删除一个目录 */
-+ (BOOL)BA_path_deleteFilesysItem:(nullable NSString*)strItem;
++ (BOOL)ba_path_deleteFilesysItem:(nullable NSString*)strItem;
 
 /*! 在软件沙盒路径移动一个目录到另一个目录中 */
-+ (BOOL)BA_path_moveFilesysItem:(nullable NSString *)srcPath toPath:(nullable NSString *)dstPath;
++ (BOOL)ba_path_moveFilesysItem:(nullable NSString *)srcPath toPath:(nullable NSString *)dstPath;
 
 /*! 在软件沙盒路径中查看有没有这个路径 */
-+ (BOOL)BA_path_fileExist:(nullable NSString*)strPath;
++ (BOOL)ba_path_fileExist:(nullable NSString*)strPath;
 
 /*! 在软件沙盒路径中获取指定userPath路径 */
-- (nullable NSString *)BA_path_getUserInfoStorePath:(nullable NSString *)userPath;
+- (nullable NSString *)ba_path_getUserInfoStorePath:(nullable NSString *)userPath;
 
 @end
 
