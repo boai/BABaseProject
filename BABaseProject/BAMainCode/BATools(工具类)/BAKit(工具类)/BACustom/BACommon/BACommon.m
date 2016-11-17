@@ -110,7 +110,7 @@
 }
 
 #pragma mark - ***** 判断字典是否为空
-+ (BOOL)ba_isDirectionaryNil:(id)obj
++ (BOOL)ba_isNSDictionaryNULL:(id)obj
 {
     if(obj == nil) return YES;
     
@@ -118,6 +118,51 @@
         return YES;
     
     //if([obj count] <= 0) return YES;
+    return NO;
+}
+
+#pragma mark - ***** 判断字符串是否为空
++ (BOOL)ba_isNSStringNULL:(NSString *)stirng
+{
+    if([stirng isKindOfClass:[NSNull class]]) return YES;
+    if(![stirng isKindOfClass:[NSString class]]) return YES;
+    
+    if(stirng == nil) return YES;
+    
+    NSString * string1 = [stirng stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSUInteger len=[string1 length];
+    if (len <= 0) return YES;
+    return NO;
+}
+
+#pragma mark - ***** 判断字符串为空和只为空格
++ (BOOL)ba_isBlankString:(NSString *)string
+{
+    if (string == nil)
+    {
+        return YES;
+    }
+    
+    if (string == NULL)
+    {
+        return YES;
+    }
+    
+    if ([string isKindOfClass:[NSNull class]])
+    {
+        return YES;
+    }
+    
+    if (string.length==0)
+    {
+        return YES;
+    }
+    
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0)
+    {
+        return YES;
+    }
+    
     return NO;
 }
 

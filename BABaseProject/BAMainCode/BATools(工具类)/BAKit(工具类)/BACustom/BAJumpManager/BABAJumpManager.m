@@ -50,7 +50,7 @@
  */
 + (void)ba_jumpToVCWtihDict:(NSDictionary *)dict
 {
-    if ([BACommon ba_isDirectionaryNil:dict])
+    if ([BACommon ba_isNSDictionaryNULL:dict])
     {
         return;
     }

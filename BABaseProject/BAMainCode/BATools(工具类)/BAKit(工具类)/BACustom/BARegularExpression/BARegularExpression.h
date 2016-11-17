@@ -233,7 +233,6 @@
  */
 + (BOOL)ba_isValidateNickname:(NSString *)nickname;
 
-
 /*!
  *  邮政编码验证
  */

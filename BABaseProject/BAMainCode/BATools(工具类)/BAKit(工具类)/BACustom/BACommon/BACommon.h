@@ -71,7 +71,25 @@
  *
  *  @return YES：为空，NO：不为空
  */
-+ (BOOL)ba_isDirectionaryNil:(id)obj;
++ (BOOL)ba_isNSDictionaryNULL:(id)obj;
+
+/*!
+ *  判断字符串判断是否为空
+ *
+ *  @param stirng 传进来的字符
+ *
+ *  @return YES：为空，NO：不为空
+ */
++ (BOOL)ba_isNSStringNULL:(NSString *)stirng;
+
+/*!
+ *  判断字符串为空和只为空格
+ *
+ *  @param string 传进来的字符
+ *
+ *  @return YES：为空，NO：不为空
+ */
++ (BOOL)ba_isBlankString:(NSString *)string;
 
 /*!
  *  拨打电话

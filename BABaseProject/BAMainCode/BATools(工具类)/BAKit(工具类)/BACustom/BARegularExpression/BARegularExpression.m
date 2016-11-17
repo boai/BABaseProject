@@ -62,13 +62,7 @@
 
 @implementation BARegularExpression
 
-/*!
- *  是否为电话号码【简单写法】
- *
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 是否为电话号码【简单写法】
 +(BOOL)ba_isPhoneNumber:(NSString *)phoneNum
 {
     NSString *MOBILE = @"^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|70)\\d{8}$";
@@ -76,13 +70,7 @@
     return [regextestmobile evaluateWithObject:phoneNum];
 }
 
-/*!
- *  是否为电话号码【复杂写法】
- *
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 是否为电话号码【复杂写法】
 + (BOOL)ba_isMobileNumber:(NSString *)mobileNum
 {
     if (mobileNum.length != 11)
@@ -132,13 +120,7 @@
     }
 }
 
-/*!
- *  判断是否是：移动手机号
- *
- *  @param phoneNum 手机号码
- *
- *  @return 移动手机号
- */
+#pragma mark - ***** 判断是否是：移动手机号
 + (BOOL)ba_isChinaMobile:(NSString *)phoneNum
 {
     /*!
@@ -150,13 +132,7 @@
     return [regextestcm evaluateWithObject:phoneNum];
 }
 
-/*!
- *  判断是否是：联通手机号
- *
- *  @param phoneNum 手机号码
- *
- *  @return 联通手机号
- */
+#pragma mark - ***** 判断是否是：联通手机号
 + (BOOL)ba_isChinaUnicom:(NSString *)phoneNum
 {
     /*!
@@ -168,13 +144,7 @@
     return [regextestcm evaluateWithObject:phoneNum];
 }
 
-/*!
- *  判断是否是：电信手机号
- *
- *  @param phoneNum 手机号码
- *
- *  @return 电信手机号
- */
+#pragma mark - ***** 判断是否是：电信手机号
 + (BOOL)ba_isChinaTelecom:(NSString *)phoneNum
 {
     /*!
@@ -186,25 +156,13 @@
     return [regextestcm evaluateWithObject:phoneNum];
 }
 
-/*!
- *  判断具体是哪个运营商的手机号
- *
- *  @param phoneNum 传入需要检测的字符串
- *
- *  @return 返回：中国移动、中国联通、中国电信、未知
- */
+ #pragma mark - ***** 判断具体是哪个运营商的手机号
 + (NSString *)ba_getPhoneNumType:(NSString *)phoneNum
 {
     return [BARegularExpression ba_isChinaMobile:phoneNum]? @"中国移动": ([BARegularExpression ba_isChinaUnicom:phoneNum]? @"中国联通":([BARegularExpression ba_isChinaTelecom:phoneNum]? @"中国电信": @"未知号码"));
 }
 
-/*!
- *  检测是否为邮箱
- *
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 检测是否为邮箱
 + (BOOL)ba_isEmailQualified:(NSString *)emailStr
 {
     NSString *pattern = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
@@ -213,13 +171,7 @@
     return results.count > 0;
 }
 
-/*!
- *  检测用户输入密码是否以字母开头，长度在6-18之间，只能包含字符、数字和下划线。
- *
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 检测用户输入密码是否以字母开头，长度在6-18之间，只能包含字符、数字和下划线。
 + (BOOL)ba_isPasswordQualified:(NSString *)passwordStr
 {
 //    NSString *pattern = @"^[a-zA-Z]\\w.{5,17}$";
@@ -230,14 +182,19 @@
     NSString *passWordRegex = @"^[a-zA-Z]\\w.{5,17}$";
     NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",passWordRegex];
     return [passWordPredicate evaluateWithObject:passwordStr];
+    
+//    BOOL result = false;
+//    if ([passwordStr length] >= 6 && ([passwordStr length] <= 16))
+//    {
+//        /*! 判断长度大于6位后，再接着判断是否同时包含数字和字符 */
+//        NSString * regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
+//        NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+//        result = [pred evaluateWithObject:passwordStr];
+//    }
+//    return result;
 }
 
-/*!
- *  验证身份证号（15位或18位数字）【最全的身份证校验，带校验位】
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证身份证号（15位或18位数字）【最全的身份证校验，带校验位】
 + (BOOL)ba_isIdCardNumberQualified:(NSString *)idCardNumberStr
 {    
     idCardNumberStr = [idCardNumberStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -359,27 +316,16 @@
     }
 }
 
-/*!
- *  验证IP地址（15位或18位数字）
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证IP地址（15位或18位数字）
 + (BOOL)ba_isIPAddress:(NSString *)iPAddressStr
 {
-    
     NSString *pattern = @"((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:0 error:nil];
     NSArray *results = [regex matchesInString:iPAddressStr options:0 range:NSMakeRange(0, iPAddressStr.length)];
     return results.count > 0;
 }
 
-/*!
- *  验证输入的是否全为数字
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证输入的是否全为数字
 + (BOOL)ba_isAllNumber:(NSString *)allNumberStr
 {
     NSString *pattern = @"^[0-9]*$";
@@ -388,12 +334,7 @@
     return results.count > 0;
 }
 
-/*!
- *  验证由26个英文字母组成的字符串
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证由26个英文字母组成的字符串
 + (BOOL)ba_isEnglishAlphabet:(NSString *)englishAlphabetStr
 {
     NSString *pattern = @"^[A-Za-z]+$";
@@ -402,12 +343,7 @@
     return results.count > 0;
 }
 
-/*!
- *  验证输入的是否是URL地址
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证输入的是否是URL地址
 + (BOOL)ba_isUrl:(NSString *)urlStr
 {
 //    NSString* verifyRules=@"^http://([\\w-]+\.)+[\\w-]+(/[\\w-./?%&=]*)?$";
@@ -420,12 +356,7 @@
     return results.count > 0;
 }
 
-/*!
- *  验证输入的是否是中文
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证输入的是否是中文
 + (BOOL)ba_isChinese:(NSString *)chineseStr
 {
     NSString *pattern = @"[\u4e00-\u9fa5]+";
@@ -434,12 +365,7 @@
     return results.count > 0;
 }
 
-/*!
- *  验证输入的是否是高亮显示
- *  @param pattern 传入需要检测的字符串
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 验证输入的是否是高亮显示
 + (BOOL)ba_isNormalText:(NSString *)normalStr WithHighLightText:(NSString *)HighLightStr
 {
     NSString *pattern = [NSString stringWithFormat:@"%@",HighLightStr];
@@ -451,13 +377,7 @@
     return results.count > 0;
 }
 
-/*!
- *  是否为常用用户名（根据自己需求改）
- *
- *  @param userNameStr userNameStr
- *
- *  @return 返回检测结果 是或者不是（6-20位数字+字母组合）
- */
+#pragma mark - ***** 是否为常用用户名（根据自己需求改）
 + (BOOL)ba_isUserNameInGeneral:(NSString *)userNameStr
 {
     NSString* verifyRules = @"^[A-Za-z0-9]{6,20}+$";
@@ -465,13 +385,7 @@
     return [verifyRulesPre evaluateWithObject:userNameStr];
 }
 
-/*!
- *  车牌号验证
- *
- *  @param carNumber carNumber
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 车牌号验证
 + (BOOL)ba_isValidateCarNumber:(NSString *)carNumber
 {
     /*! 车牌号:湘K-DE829 香港车牌号码:粤Z-J499港 */
@@ -481,13 +395,7 @@
     return [catTest evaluateWithObject:carNumber];
 }
 
-/*!
- *  车型验证
- *
- *  @param CarType CarType
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 车型验证
 + (BOOL)ba_isValidateCarType:(NSString *)CarType
 {
     NSString *CarTypeRegex = @"^[\u4E00-\u9FFF]+$";
@@ -495,13 +403,7 @@
     return [carTest evaluateWithObject:CarType];
 }
 
-/*!
- *  昵称验证
- *
- *  @param nickname nickname
- *
- *  @return 返回检测结果 是或者不是
- */
+#pragma mark - ***** 昵称验证
 + (BOOL)ba_isValidateNickname:(NSString *)nickname
 {
     NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{4,8}$";
@@ -509,9 +411,7 @@
     return [passWordPredicate evaluateWithObject:nickname];
 }
 
-/*!
- *  邮政编码验证
- */
+#pragma mark - ***** 邮政编码验证
 + (BOOL)ba_isValidPostalcode:(NSString *)postalcode
 {
     NSString *postalRegex = @"^[0-8]\\d{5}(?!\\d)$";
@@ -520,9 +420,7 @@
     return [postalcodePredicate evaluateWithObject:postalcode];
 }
 
-/*!
- *  工商税号验证
- */
+#pragma mark - ***** 工商税号验证
 + (BOOL)ba_isValidTaxNo:(NSString *)taxNo
 {
     NSString *taxNoRegex = @"[0-9]\\d{13}([0-9]|X)$";
@@ -531,9 +429,7 @@
     return [taxNoPredicate evaluateWithObject:taxNo];
 }
 
-/*!
- *  Mac地址有效性验证
- */
+#pragma mark - ***** Mac地址有效性验证
 + (BOOL)ba_isMacAddress:(NSString *)macAddress
 {
     NSString *macAddRegex = @"([A-Fa-f\\d]{2}:){5}[A-Fa-f\\d]{2}";
@@ -550,6 +446,7 @@
  *  2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
  *  3，将加法和加上校验位能被 10 整除。
  */
+#pragma mark - ***** 银行卡号有效性问题Luhn算法
 + (BOOL)ba_isBankCardlNumCheck:(NSString *)bankCardlNum
 {
     NSString *lastNum = [[bankCardlNum substringFromIndex:(bankCardlNum.length-1)] copy];//取出最后一位
@@ -617,7 +514,7 @@
     return (luhmTotal%10 ==0)?YES:NO;
 }
 
-/*! 判断字符串是否是字母或数字 */
+#pragma mark - ***** 判断字符串是否是字母或数字
 + (BOOL)ba_isLetterOrNumberString:(NSString *)string
 {
     NSString *letterOrNumberRegex = @"[A-Z0-9a-z]+";
