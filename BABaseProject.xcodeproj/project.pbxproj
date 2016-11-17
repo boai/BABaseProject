@@ -448,6 +448,8 @@
 		C4F59F871D54680E00AA822A /* BANewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F861D54680E00AA822A /* BANewFeatureVC.m */; };
 		C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F891D54684E00AA822A /* BAADScrollView.m */; };
 		C4F59F8D1D5468B900AA822A /* BAADLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F59F8C1D5468B900AA822A /* BAADLabel.m */; };
+		C4FB59DB1DDD42F7002F5A03 /* DemoVC14.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FB59DA1DDD42F7002F5A03 /* DemoVC14.m */; };
+		C4FB59DE1DDD4302002F5A03 /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FB59DD1DDD4302002F5A03 /* Dog.m */; };
 		E1C6EFD156F8206BA6582EBE /* libPods-BABaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46504BE330E8BECB1887138B /* libPods-BABaseProject.a */; };
 /* End PBXBuildFile section */
 
@@ -1128,6 +1130,10 @@
 		C4F59F891D54684E00AA822A /* BAADScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAADScrollView.m; sourceTree = "<group>"; };
 		C4F59F8B1D5468B900AA822A /* BAADLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAADLabel.h; sourceTree = "<group>"; };
 		C4F59F8C1D5468B900AA822A /* BAADLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAADLabel.m; sourceTree = "<group>"; };
+		C4FB59D91DDD42F7002F5A03 /* DemoVC14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC14.h; sourceTree = "<group>"; };
+		C4FB59DA1DDD42F7002F5A03 /* DemoVC14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC14.m; sourceTree = "<group>"; };
+		C4FB59DC1DDD4302002F5A03 /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		C4FB59DD1DDD4302002F5A03 /* Dog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
 		DF2E61F00C0958F539053F08 /* Pods-BABaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProjectUITests/Pods-BABaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB54BFBC1CA5F4765E84B54C /* libPods-BABaseProject-BABaseProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProject-BABaseProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1237,6 +1243,7 @@
 				C48026BE1D191EC90087BBB9 /* DemoVC11 */,
 				C48026CB1D191EDC0087BBB9 /* DemoVC12 */,
 				C445E1F21D1BF0E100D7654A /* DemoVC13 */,
+				C4FB59D81DDD42D3002F5A03 /* DemoVC14 */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -3277,6 +3284,17 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		C4FB59D81DDD42D3002F5A03 /* DemoVC14 */ = {
+			isa = PBXGroup;
+			children = (
+				C4FB59D91DDD42F7002F5A03 /* DemoVC14.h */,
+				C4FB59DA1DDD42F7002F5A03 /* DemoVC14.m */,
+				C4FB59DC1DDD4302002F5A03 /* Dog.h */,
+				C4FB59DD1DDD4302002F5A03 /* Dog.m */,
+			);
+			path = DemoVC14;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3869,6 +3887,7 @@
 				C4562C7E1CDDBE44000F5710 /* DemoVC5.m in Sources */,
 				C4C744531DC72DB300E747D8 /* NSShadow+BAKit.m in Sources */,
 				C4C744791DC72DB300E747D8 /* UIWindow+BAKit.m in Sources */,
+				C4FB59DE1DDD4302002F5A03 /* Dog.m in Sources */,
 				C4C7446B1DC72DB300E747D8 /* UIColor+BAKit.m in Sources */,
 				C423217F1CE72ABC00D91F45 /* DemoVC6.m in Sources */,
 				C4C7447F1DC72DB300E747D8 /* CALayer+BAMaskLayer.m in Sources */,
@@ -3882,6 +3901,7 @@
 				C4C744421DC72DB300E747D8 /* BASystermSetting.m in Sources */,
 				C4C7445F1DC72DB300E747D8 /* BAPassword.m in Sources */,
 				C40852881CD9C34F0004A671 /* BABaseView.m in Sources */,
+				C4FB59DB1DDD42F7002F5A03 /* DemoVC14.m in Sources */,
 				C4C744751DC72DB300E747D8 /* UITableViewCell+Reuse.m in Sources */,
 				C4C7432F1DC7295A00E747D8 /* UIBarButtonItem+Item.m in Sources */,
 				C4C7446A1DC72DB300E747D8 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m in Sources */,

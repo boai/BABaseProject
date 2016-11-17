@@ -92,7 +92,7 @@
     [self addCell:@"11、collectionView的浮动布局" content:@"自适应宽高的collectionView，自定义layout，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
     [self addCell:@"12、各种自定义弹框" content:@"各种自定义弹框，系统的、自定义的弹框，如果喜欢，请在git上点个星吧！" class:@"DemoVC12"];
     [self addCell:@"13、GCD入门" content:@"GCD入门学习，小白可以看，大神自行绕过！如果喜欢，请在git上点个星吧！" class:@"DemoVC13"];
-
+    [self addCell:@"14、OC的set/get 方法的区别！" content:@"OC的set/get 方法的区别！，小白可以看，大神自行绕过！如果喜欢，请在git上点个星吧！" class:@"DemoVC14"];
 }
 
 - (void)addCell:(NSString *)title content:(NSString *)content class:(NSString *)className
