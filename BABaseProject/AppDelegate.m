@@ -79,8 +79,12 @@
     /*! 是否使用自定义TabVC * YES:使用，NO:使用RDVTabVC , 这行注掉后还可以使用SB看看，具体使用：请前往工程中修改Main显示即可！*/
     [self isBATabVC:NO];
     
-    /*! 设置3DTouch */
-    [self ba_setup3DTouch];
+    /*! 判断当前设备是否支持 3D Touch */
+    if (self.window.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+    {
+        /*! 设置3DTouch */
+        [self ba_setup3DTouch];
+    }
     
     /*！把各种初始化操作,固定的操作 写入到类别中 */
 //    [self BA_initializeWithApplication:application];

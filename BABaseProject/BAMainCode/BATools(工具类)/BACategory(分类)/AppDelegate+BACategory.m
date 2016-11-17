@@ -101,6 +101,7 @@
     
     UIApplicationShortcutItem *itemThree = [[UIApplicationShortcutItem alloc] initWithType:@"contact" localizedTitle:@"博爱3D Touch 测试3" localizedSubtitle:nil icon:iconContact userInfo:nil];
     
+    /*! 将items 添加到app图标 */
     [UIApplication sharedApplication].shortcutItems = @[itemOne, itemTwo, itemThree];
 }
 
