@@ -58,6 +58,13 @@
  
  */
 
+/*!
+ 最新更新时间：2016-11-17 【倒叙】
+ 最新Version：【Version：2.0】
+ 更新内容：
+     2.0.1、优化方法名命名规范
+     2.0.2、新增 银行卡验证、手机号码验证更新
+ */
 #import <Foundation/Foundation.h>
 
 @interface BARegularExpression : NSObject

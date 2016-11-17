@@ -61,6 +61,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+/*!
+ Version：【Version：2.0】
+ 最新更新时间：2016-11-17
+ */
 @interface BALocalNotification : NSObject
 
 // 设置本地通知

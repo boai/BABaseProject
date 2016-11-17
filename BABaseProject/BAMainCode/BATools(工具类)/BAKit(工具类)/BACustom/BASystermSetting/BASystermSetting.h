@@ -60,7 +60,10 @@
  
  */
 
-
+/*!
+ Version：【Version：2.0】
+ 最新更新时间：2016-11-17
+ */
 #import <Foundation/Foundation.h>
 
 @interface BASystermSetting : NSObject

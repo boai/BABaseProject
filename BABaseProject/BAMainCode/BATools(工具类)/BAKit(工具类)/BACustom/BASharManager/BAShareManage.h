@@ -1,11 +1,73 @@
-//
-//  ShareManage.h
-//  yrapp
-//
-//  Created by 博爱 on 16/2/3.
-//  Copyright © 2016年 有人科技. All rights reserved.
-//  友盟分享工具类
 
+/*!
+ *  @header BAKit.h
+ *          BABaseProject
+ *
+ *  @brief  BAKit
+ *
+ *  @author 博爱
+ *  @copyright    Copyright © 2016年 博爱. All rights reserved.
+ *  @version    V1.0
+ */
+
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//
+//         .............................................
+//                  佛祖镇楼                  BUG辟易
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+
+/*
+ 
+ *********************************************************************************
+ *
+ * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
+ *
+ * QQ     : 博爱1616【137361770】
+ * 微博    : 博爱1616
+ * Email  : 137361770@qq.com
+ * GitHub : https://github.com/boai
+ * 博客园  : http://www.cnblogs.com/boai/
+ * 博客    : http://boai.github.io
+ 
+ *********************************************************************************
+ 
+ */
+
+
+/*!
+ 最新更新时间：2016-11-17 【倒叙】
+ 最新Version：【Version：2.0】
+ 更新内容：
+     2.0.1、优化方法名命名规范
+     2.0.2、新增 分享类型选择，可以单独选择分享类型
+     2.0.3、新增 软件安装判断，如果没有安装就不显示
+     2.0.4、新增 友盟登录封装，返回用户信息代理更详细
+ */
 #import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
 
@@ -33,7 +95,6 @@ typedef NS_ENUM(NSUInteger, BAShareManageType) {
 @property (nonatomic, weak) id<BAShareManageDelegate> delegate;
 
 /*! 博爱分享：纯图片，默认为 NO */
-//@property (nonatomic, getter=isPurePicture) BOOL isPurePicture;
 @property (nonatomic, assign) BAShareManageType shareManageType;
 
 /*!

@@ -60,7 +60,14 @@
  
  */
 
-
+/*!
+ 最新更新时间：2016-11-17 【倒叙】
+ 最新Version：【Version：2.0】
+ 更新内容：
+     2.0.1、优化方法名命名规范
+     2.0.2、新增部分注释
+     2.0.3、视频上传方法对接，目前有很多项目对接成功
+ */
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
