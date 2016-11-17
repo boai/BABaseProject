@@ -170,7 +170,8 @@
 /*! hook */
 #import "NSObject+BAHook.h"
 
-
+/*! 公共方法类 */
+#import "BACommon.h"
 
 
 #endif /* BAKit_h */

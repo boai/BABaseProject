@@ -63,7 +63,8 @@
                          @"12、跳到DATE_AND_TIME日期和时间界面",
                          @"13、跳到FaceTime界面",
                          @"14、跳到Keyboard界面",
-                         @"15、跳到iCloud界面"
+                         @"15、跳到iCloud界面",
+                         @"16、拨打电话的几种方式"
                          ];
 
     }
@@ -193,15 +194,10 @@
     /*! 点击立刻取消该cell的选中状态 */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    NSLog(@"版本号1：%@", [[[[UIDevice currentDevice] systemVersion] substringToIndex:1] stringByAppendingString:@"0"]);
-//    NSLog(@"版本号2：%f", [[UIDevice currentDevice] systemVersion].floatValue);
-//    NSLog(@"版本号3：%@", [[UIDevice currentDevice] systemVersion] );
-
-    if (isiOS10)
-    {
-        [self.view ba_showAlertView:@"博爱温馨提示：" message:@"iOS 10 干掉了所有系统设置的 URL Scheme，这意味着你再也不可能直接跳转到系统设置页面（比如 WiFi、蜂窝数据、定位等！"];
-        return;
-    }
+//    if (isiOS10)
+//    {
+//        [self.view ba_showAlertView:@"博爱温馨提示：" message:@"iOS 10 干掉了所有系统设置的 URL Scheme，这意味着你再也不可能直接跳转到系统设置页面（比如 WiFi、蜂窝数据、定位等！"];
+//    }
     BASystermSetting *settingManager = [BASystermSetting ba_systermSettingManage];
     switch (indexPath.row) {
         case 0:
@@ -249,9 +245,10 @@
         case 14:
             [settingManager ba_gotoSystermiCloudSettings];
             break;
+        case 15:
+            [BACommon ba_telWithPhoneNumber:@"10010"];
+            break;
             
-            
-
         default:
             break;
     }

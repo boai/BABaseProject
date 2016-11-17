@@ -23,6 +23,11 @@
 
 }
 
+- (void)openAppWithAlert:(NSString *)msg
+{
+    [self.view ba_showAlertView:@"网页打开APP，带传参：" message:msg];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

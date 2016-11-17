@@ -31,6 +31,7 @@
 
 /*! 本地通知VC */
 #import "DemoVC6.h"
+#import <MJExtension.h>
 
 @implementation AppDelegate (BACategory)
 
@@ -255,16 +256,87 @@
     BOOL result = [UMSocialSnsService handleOpenURL:url];
     if (result == FALSE) {
         //调用其他SDK，例如支付宝SDK等
+        NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
+        NSLog(@"URL scheme:%@", [url scheme]);
+        NSLog(@"URL query: %@", [url query]);
+        NSString *jsonText = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSDictionary *dict = [jsonText mj_JSONObject];
+
+        BAProfileViewController *vc = [BAProfileViewController new];
+        [vc openAppWithAlert:dict[@"parmeter"][@"msg"]];
+        return YES;
     }
     return result;
 }
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+
+- (NSDictionary *)parseQueryString:(NSString *)query
+{
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] initWithDictionary:0];
+    
+    NSArray *paramArr = [query componentsSeparatedByString:@"&"];
+    for (NSString *param in paramArr)
+    {
+        NSArray * elements = [param componentsSeparatedByString:@"="];
+        if ([elements count] <= 1)
+        {
+            return nil;
+        }
+        
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *value = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [paramDict setObject:value forKey:key];
+    }
+    
+    return paramDict;
+}
+
+- (NSDictionary*)dictionaryFromQuery:(NSString *)query usingEncoding:(NSStringEncoding)encoding {
+    NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
+    NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
+    NSScanner* scanner = [[NSScanner alloc] initWithString:query];
+    while (![scanner isAtEnd]) {
+        NSString* pairString = nil;
+        [scanner scanUpToCharactersFromSet:delimiterSet intoString:&pairString];
+        [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
+        NSArray* kvPair = [pairString componentsSeparatedByString:@"="];
+        if (kvPair.count == 2) {
+            NSString* key = [[kvPair objectAtIndex:0]
+                             stringByReplacingPercentEscapesUsingEncoding:encoding];
+            NSString* value = [[kvPair objectAtIndex:1]
+                               stringByReplacingPercentEscapesUsingEncoding:encoding];
+            [pairs setObject:value forKey:key];
+        }
+    }
+    
+    return [NSDictionary dictionaryWithDictionary:pairs];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+//    NSString *urlString = [url absoluteString];
+//    if ([urlString isEqualToString:@"openBoaiApp://"])
+//    {
+//        BAProfileViewController *vc = [BAProfileViewController new];
+//        [vc openAppWithAlert:@"我是博爱！"];
+//        return YES;
+//    }
+    
     BOOL result = [UMSocialSnsService handleOpenURL:url];
     if (result == FALSE) {
         //调用其他SDK，例如支付宝SDK等
+        NSString *urlString = [url absoluteString];
+        if ([urlString isEqualToString:@"openBoaiApp://"])
+        {
+            BAProfileViewController *vc = [BAProfileViewController new];
+            [vc openAppWithAlert:@"我是博爱！"];
+            return YES;
+        }
     }
     return result;
 }
+
 /**
  这里处理新浪微博SSO授权进入新浪微博客户端后进入后台，再返回原来应用
  */
@@ -481,6 +553,11 @@ didReceiveLocalNotification:(UILocalNotification *)notification
 }
 
 #pragma mark - *****
+#pragma mark - 获取当前屏幕的控制器
+- (UIViewController *)getCurrentTabViewController
+{
+    return self.window.rootViewController;
+}
 
 
 @end

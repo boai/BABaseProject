@@ -27,4 +27,11 @@
  */
 + (void)ba_jumpVCWtihDict:(NSDictionary *)dict navi:(UINavigationController *)navi;
 
+/*!
+ *  全局中转类
+ *
+ *  @param dict 跳转需要的参数
+ */
++ (void)ba_jumpToVCWtihDict:(NSDictionary *)dict;
+
 @end

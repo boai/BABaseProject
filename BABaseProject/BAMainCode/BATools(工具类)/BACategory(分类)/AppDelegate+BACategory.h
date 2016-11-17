@@ -42,5 +42,11 @@
 /*! 键盘处理 */
 - (void)BA_KeyboardSetting;
 
+/*!
+ *  获取当前屏幕的控制器
+ *
+ *  @return 获取当前屏幕的控制器
+ */
+- (UIViewController *)getCurrentTabViewController;
 
 @end

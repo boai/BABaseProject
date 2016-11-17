@@ -7,6 +7,7 @@
 //
 
 #import "BABAJumpManager.h"
+#import "AppDelegate.h"
 
 @implementation BABAJumpManager
 
@@ -42,5 +43,26 @@
     [navi pushViewController:vc animated:YES];
 }
 
+/*!
+ *  全局中转类
+ *
+ *  @param dict 跳转需要的参数
+ */
++ (void)ba_jumpToVCWtihDict:(NSDictionary *)dict
+{
+    if ([BACommon ba_isDirectionaryNil:dict])
+    {
+        return;
+    }
+    
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIViewController *viewController = app.window.rootViewController;
+    
+    /*! 跳转 VC 的标识 */
+    NSString *actionType    = [dict objectForKey:@"actionType"];
+    NSString *actionParam   = [dict objectForKey:@"actionParam"];
+    
+    
+}
 
 @end

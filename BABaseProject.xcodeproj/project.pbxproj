@@ -2785,8 +2785,8 @@
 				C4EB5AF71CD8B24F003A7094 /* Home(首页) */,
 				C4EB5AFF1CD8B24F003A7094 /* Message(消息) */,
 				C4EB5AF11CD8B24F003A7094 /* Discover(发现) */,
-				C4EB5B051CD8B24F003A7094 /* Profile(我) */,
 				C4DEB37E1D0C348E001F1585 /* Publish(发布) */,
+				C4EB5B051CD8B24F003A7094 /* Profile(我) */,
 			);
 			path = BACode;
 			sourceTree = "<group>";

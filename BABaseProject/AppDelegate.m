@@ -111,6 +111,9 @@
     /*! 配置百度地图 */
     [self ba_setupBaiduMap];
     
+    /*! 网页端打开 APP */
+//    NSString *urlString = [];
+    
     return YES;
 }
 

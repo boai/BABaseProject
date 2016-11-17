@@ -10,4 +10,6 @@
 
 @interface BAProfileViewController : UIViewController
 
+- (void)openAppWithAlert:(NSString *)msg;
+
 @end

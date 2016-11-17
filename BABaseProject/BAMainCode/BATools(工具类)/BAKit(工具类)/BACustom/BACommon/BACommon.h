@@ -62,7 +62,23 @@
  *
  *  @return YES / NO
  */
-+ (BOOL)isLocationOpen;
++ (BOOL)ba_isLocationOpen;
+
+/*!
+ *  判断字典是否为空
+ *
+ *  @param obj 传进来的字典
+ *
+ *  @return YES：为空，NO：不为空
+ */
++ (BOOL)ba_isDirectionaryNil:(id)obj;
+
+/*!
+ *  拨打电话
+ *
+ *  @param phoneNumber 电话号码
+ */
++ (void)ba_telWithPhoneNumber:(NSString *)phoneNumber;
 
 
 
