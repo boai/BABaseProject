@@ -50,8 +50,8 @@
     if (!_titlesArray)
     {
         _titlesArray = @[@"1、本APP设置的跳转",
-                         @"2、跳到WIFI界面" ,
-                         @"3、跳到General界面",
+                         @"2、跳到WIFI界面",
+                         @"3、拨打电话的几种方式",
                          @"4、跳到About关于本机界面",
                          @"5、跳到Accessibility辅助功能界面",
                          @"6、跳到AirplaneModeOn飞行模式界面",
@@ -64,7 +64,7 @@
                          @"13、跳到FaceTime界面",
                          @"14、跳到Keyboard界面",
                          @"15、跳到iCloud界面",
-                         @"16、拨打电话的几种方式"
+                         @"16、跳到General界面"
                          ];
 
     }
@@ -207,7 +207,7 @@
             [settingManager ba_gotoSystermWIFISettings];
             break;
         case 2:
-            [settingManager ba_gotoSystermGeneralSettings];
+            [BACommon ba_telWithPhoneNumber:@"10010"];
             break;
         case 3:
             [settingManager ba_gotoSystermAboutSettings];
@@ -246,7 +246,7 @@
             [settingManager ba_gotoSystermiCloudSettings];
             break;
         case 15:
-            [BACommon ba_telWithPhoneNumber:@"10010"];
+            [settingManager ba_gotoSystermGeneralSettings];
             break;
             
         default:
