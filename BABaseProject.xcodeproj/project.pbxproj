@@ -51,6 +51,7 @@
 		C4309BBF1DCAD5C40016ABE6 /* UIViewController+BAHook.m in Sources */ = {isa = PBXBuildFile; fileRef = C4309BBB1DCAD5C40016ABE6 /* UIViewController+BAHook.m */; };
 		C430AB761CDC8A360086DDD6 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = C430AB751CDC8A360086DDD6 /* DemoVC3.m */; };
 		C43222D41DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = C43222D31DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m */; };
+		C432E6031E3490D600463558 /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C432E6021E3490D600463558 /* BARegularExpression.m */; };
 		C44423341D2E7775004ACAA8 /* BABaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423331D2E7775004ACAA8 /* BABaseHeaderFooterView.m */; };
 		C44423491D2E85B8004ACAA8 /* DemoVC2_02.m in Sources */ = {isa = PBXBuildFile; fileRef = C44423481D2E85B8004ACAA8 /* DemoVC2_02.m */; };
 		C444234C1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C444234B1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m */; };
@@ -242,7 +243,6 @@
 		C4C744391DC72DB300E747D8 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743911DC72DB300E747D8 /* BALocalNotification.m */; };
 		C4C7443A1DC72DB300E747D8 /* BACustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743941DC72DB300E747D8 /* BACustomBarItem.m */; };
 		C4C7443B1DC72DB300E747D8 /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743961DC72DB300E747D8 /* UINavigationItem+CustomItem.m */; };
-		C4C7443C1DC72DB300E747D8 /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743991DC72DB300E747D8 /* BARegularExpression.m */; };
 		C4C7443D1DC72DB300E747D8 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C7439C1DC72DB300E747D8 /* HMSegmentedControl.m */; };
 		C4C7443E1DC72DB300E747D8 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C7439F1DC72DB300E747D8 /* BAShareAnimationView.m */; };
 		C4C7443F1DC72DB300E747D8 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743A11DC72DB300E747D8 /* BAShareManage.m */; };
@@ -556,6 +556,8 @@
 		C430AB751CDC8A360086DDD6 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		C43222D21DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BAUMengAnalytics.h"; sourceTree = "<group>"; };
 		C43222D31DC9D18800AE63F2 /* AppDelegate+BAUMengAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BAUMengAnalytics.m"; sourceTree = "<group>"; };
+		C432E6011E3490D600463558 /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
+		C432E6021E3490D600463558 /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
 		C44423321D2E7775004ACAA8 /* BABaseHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseHeaderFooterView.h; sourceTree = "<group>"; };
 		C44423331D2E7775004ACAA8 /* BABaseHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseHeaderFooterView.m; sourceTree = "<group>"; };
 		C44423471D2E85B8004ACAA8 /* DemoVC2_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC2_02.h; sourceTree = "<group>"; };
@@ -808,8 +810,6 @@
 		C4C743941DC72DB300E747D8 /* BACustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomBarItem.m; sourceTree = "<group>"; };
 		C4C743951DC72DB300E747D8 /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
 		C4C743961DC72DB300E747D8 /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
-		C4C743981DC72DB300E747D8 /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
-		C4C743991DC72DB300E747D8 /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
 		C4C7439B1DC72DB300E747D8 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		C4C7439C1DC72DB300E747D8 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		C4C7439E1DC72DB300E747D8 /* BAShareAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareAnimationView.h; sourceTree = "<group>"; };
@@ -2310,8 +2310,8 @@
 		C4C743971DC72DB300E747D8 /* BARegularExpression */ = {
 			isa = PBXGroup;
 			children = (
-				C4C743981DC72DB300E747D8 /* BARegularExpression.h */,
-				C4C743991DC72DB300E747D8 /* BARegularExpression.m */,
+				C432E6011E3490D600463558 /* BARegularExpression.h */,
+				C432E6021E3490D600463558 /* BARegularExpression.m */,
 			);
 			path = BARegularExpression;
 			sourceTree = "<group>";
@@ -3846,6 +3846,7 @@
 				C4C7444B1DC72DB300E747D8 /* NSDateFormatter+BAKit.m in Sources */,
 				C44C00D31DCB30BA00BAAAEC /* UIButton+BAHook.m in Sources */,
 				C46B8A041CE0BAC200005E2B /* RegexKitLite.m in Sources */,
+				C432E6031E3490D600463558 /* BARegularExpression.m in Sources */,
 				C4EB5AA81CD8B04B003A7094 /* AppDelegate.m in Sources */,
 				C4C744771DC72DB300E747D8 /* UIView+BAKit.m in Sources */,
 				C4F59F8A1D54684E00AA822A /* BAADScrollView.m in Sources */,
@@ -3995,7 +3996,6 @@
 				C4C744841DC7306800E747D8 /* DemoVC2_05_test.m in Sources */,
 				C4DEB37A1D0C3351001F1585 /* BATabBar2.m in Sources */,
 				C473CC811CF72960001883A9 /* DemoVC9_Model.m in Sources */,
-				C4C7443C1DC72DB300E747D8 /* BARegularExpression.m in Sources */,
 				C4C744441DC72DB300E747D8 /* BACustomMJFooter.m in Sources */,
 				C48026C91D191EC90087BBB9 /* DemoVC11_Cell.m in Sources */,
 				C40852BC1CDA09100004A671 /* DemoVC2.m in Sources */,
