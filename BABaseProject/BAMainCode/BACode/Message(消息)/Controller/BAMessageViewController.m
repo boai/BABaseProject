@@ -129,9 +129,9 @@
     [self addCell:@"博爱百度地图" content:@"4、博爱百度地图" class:@"DemoVC2_04"];
     [self addCell:@"runtime 的常用方法" content:@"5、runtime 的常用方法" class:@"DemoVC2_05"];
     [self addCell:@"NSMutableAttributedString 的完美封装" content:@"6、NSMutableAttributedString 的完美封装" class:@"DemoVC2_06"];
-    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
-    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
-    [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
+    [self addCell:@"iOS 各种基本算法" content:@"7、iOS 各种基本算法：选择排序、冒泡排序、快速排序..." class:@"DemoVC2_07"];
+    [self addCell:@"OC 与 JS 交互" content:@"8、OC 与 JS 交互" class:@"DemoVC2_08"];
+    [self addCell:@"OC 基础动画" content:@"9、OC 基础动画" class:@"DemoVC2_09"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];
     [self addCell:@"系统各种设置的跳转" content:@"3、上滑测试渐变navi" class:@"DemoVC2_03"];

@@ -7,8 +7,13 @@
 //
 
 #import "MyMaker.h"
+
+#if TARGET_OS_IPHONE
+
 #import "MyLayoutPos.h"
-#import "MyLayoutDime.h"
+#import "MyLayoutSize.h"
+#import "MyLayoutPosInner.h"
+#import "MyLayoutSizeInner.h"
 
 @implementation MyMaker
 {
@@ -211,6 +216,13 @@
     
 }
 
+-(MyMaker*)shrinkType
+{
+    return [self addMethod:@"shrinkType"];
+    
+}
+
+
 -(MyMaker*)arrangedCount
 {
     return [self addMethod:@"arrangedCount"];
@@ -262,37 +274,37 @@
                     id oldVal = [myView valueForKey:key];
                     if ([oldVal isKindOfClass:[MyLayoutPos class]])
                     {
-                        ((MyLayoutPos*)oldVal).equalTo(val);
+                        [((MyLayoutPos*)oldVal) __equalTo:val];
                     }
-                    else if ([oldVal isKindOfClass:[MyLayoutDime class]])
+                    else if ([oldVal isKindOfClass:[MyLayoutSize class]])
                     {
-                        ((MyLayoutDime*)oldVal).equalTo(val);
+                        [((MyLayoutSize*)oldVal) __equalTo:val];
                     }
                     else
                         [myView setValue:val forKey:key];
                 }
                 else if ([val isKindOfClass:[MyLayoutPos class]])
                 {
-                    ((MyLayoutPos*)[myView valueForKey:key]).equalTo(val);
+                    [((MyLayoutPos*)[myView valueForKey:key]) __equalTo:val];
                 }
-                else if ([val isKindOfClass:[MyLayoutDime class]])
+                else if ([val isKindOfClass:[MyLayoutSize class]])
                 {
-                    ((MyLayoutDime*)[myView valueForKey:key]).equalTo(val);
+                    [((MyLayoutSize*)[myView valueForKey:key]) __equalTo:val];
                 }
                 else if ([val isKindOfClass:[NSArray class]])
                 {
-                    ((MyLayoutDime*)[myView valueForKey:key]).equalTo(val);
+                    [((MyLayoutSize*)[myView valueForKey:key]) __equalTo:val];
                 }
                 else if ([val isKindOfClass:[UIView class]])
                 {
                     id oldVal = [val valueForKey:key];
                     if ([oldVal isKindOfClass:[MyLayoutPos class]])
                     {
-                        ((MyLayoutPos*)[myView valueForKey:key]).equalTo(oldVal);
+                        [((MyLayoutPos*)[myView valueForKey:key]) __equalTo:oldVal];
                     }
-                    else if ([oldVal isKindOfClass:[MyLayoutDime class]])
+                    else if ([oldVal isKindOfClass:[MyLayoutSize class]])
                     {
-                        ((MyLayoutDime*)[myView valueForKey:key]).equalTo(oldVal);
+                        [((MyLayoutSize*)[myView valueForKey:key]) __equalTo:oldVal];
                         
                     }
                     else
@@ -319,7 +331,7 @@
             for (UIView *myView in _myViews)
             {
                 
-                ((MyLayoutPos*)[myView valueForKey:key]).offset(val);
+                [((MyLayoutPos*)[myView valueForKey:key]) __offset:val];
             }
         }
         
@@ -337,7 +349,7 @@
             for (UIView *myView in _myViews)
             {
                 
-                ((MyLayoutDime*)[myView valueForKey:key]).multiply(val);
+                [((MyLayoutSize*)[myView valueForKey:key]) __multiply:val];
             }
         }
         return self;
@@ -356,7 +368,7 @@
             for (UIView *myView in _myViews)
             {
                 
-                ((MyLayoutDime*)[myView valueForKey:key]).add(val);
+                [((MyLayoutSize*)[myView valueForKey:key]) __add:val];
             }
         }
         return self;
@@ -375,7 +387,7 @@
             for (UIView *myView in _myViews)
             {
                 
-                ((MyLayoutDime*)[myView valueForKey:key]).min(val);
+                [((MyLayoutSize*)[myView valueForKey:key]) __min:val];
             }
         }
         return self;
@@ -394,7 +406,7 @@
             for (UIView *myView in _myViews)
             {
                 
-                ((MyLayoutDime*)[myView valueForKey:key]).max(val);
+                [((MyLayoutSize*)[myView valueForKey:key]) __max:val];
             }
         }
         return self;
@@ -425,4 +437,6 @@
 
 
 @end
+
+#endif
 

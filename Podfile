@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
-# use_frameworks!
+ use_frameworks!
 
 project 'BABaseProject.project'
 
@@ -44,12 +44,27 @@ target 'BABaseProject' do
     # 在屏幕中间显示 加载框 类似于安卓的toast效果
     pod 'MBProgressHUD'
     
+    # 数据库 sqlite
+    pod 'FMDB'
+
     # 网络或本地 多张图片浏览 控制器
 #    pod 'MWPhotoBrowser'
 
     # 友盟分享
 #    pod 'UMengSocial', '~> 4.4'
-    pod 'UMengSocialCOM', '~> 5.2.1'
+#    pod 'UMengSocialCOM', '~> 5.2.1'
+        pod 'UMengUShare/UI'
+
+        # 集成新浪微博 【友盟官网技术文档这里标点符号有错，导入的时候记得更改】
+        pod 'UMengUShare/Social/Sina'
+        # 集成微信
+        pod 'UMengUShare/Social/WeChat'
+
+        # 集成QQ
+        pod 'UMengUShare/Social/QQ'
+        # 集成支付宝
+        pod 'UMengUShare/Social/AlipayShare'
+
 
     # 百度地图SDK
     pod 'BaiduMapKit'

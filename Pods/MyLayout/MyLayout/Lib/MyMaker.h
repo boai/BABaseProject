@@ -8,6 +8,7 @@
 
 #import "MyLayoutDef.h"
 
+#if TARGET_OS_IPHONE
 
 /**
  *专门为布局设置的简化操作类，以便在统一的地方进行布局设置
@@ -51,6 +52,8 @@
 -(MyMaker*)gravity;
 -(MyMaker*)subviewMargin;
 
+//线性布局独有
+-(MyMaker*)shrinkType;
 
 //流式布局独有
 -(MyMaker*)arrangedCount;
@@ -73,7 +76,7 @@
 //浮动布局独有。
 -(MyMaker*)noBoundaryLimit;
 
-//赋值操支持NSNumber,UIView,MyLayoutPos,MyLayoutDime, NSArray[MyLayoutDime]
+//赋值操支持NSNumber,UIView,MyLayoutPos,MyLayoutSize, NSArray[MyLayoutSize]
 -(MyMaker* (^)(id val))equalTo;
 
 -(MyMaker* (^)(CGFloat val))offset;
@@ -98,5 +101,6 @@
 
 @end
 
+#endif
 
 

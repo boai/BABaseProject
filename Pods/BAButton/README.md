@@ -23,7 +23,13 @@
 
 >##完全实现button的自定义，
 
-###pod 导入：pod 'BAButton', '~> 1.0.0'
+###pod 导入：   pod 'BAButton', '~> 1.0.1'
+如果发现pod search BAButton 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
+具体步骤：
+- pod setup : 初始化
+- pod repo update : 更新仓库
+- pod search BAButton
+
 
 ###项目中导入头文件：
 ```
@@ -38,6 +44,10 @@ BAAligenmentStatusRight, // 右对齐
 BAAligenmentStatusTop, // 图标在上，文本在下(居中)
 BAAligenmentStatusBottom, // 图标在下，文本在上(居中)
 
+// 大家下载demo后可能出现图片不显示，只需更换图片即可，注意button的frame哦！
+// 此外，此button的titleLAbel只支持一行显示，不支持多行！敬请注意！
+
+// 示例1：
 BACustomButton *btn1 = [BACustomButton BA_ShareButton];
 [btn1 setBackgroundColor:[UIColor greenColor]];
 [btn1 setImage:[UIImage imageNamed:@"btn_share"] forState:UIControlStateNormal];
@@ -49,6 +59,7 @@ btn1.titleLabel.font = [UIFont systemFontOfSize:15];
 btn1.frame = CGRectMake(CGRectGetMinX(btn.frame), CGRectGetMaxY(btn.frame) + 10, 200, 50);
 [self.view addSubview:btn1];
 
+// 示例2：
 BACustomButton *btn5 = [[BACustomButton alloc] initWitAligenmentStatus:BAAligenmentStatusTop];
 [btn5 setBackgroundColor:[UIColor greenColor]];
 [btn5 setImage:[UIImage imageNamed:@"btn_share"] forState:UIControlStateNormal];
@@ -59,4 +70,4 @@ btn5.buttonCornerRadius = 5.0;
 btn5.frame = CGRectMake(CGRectGetMinX(btn.frame), CGRectGetMaxY(btn4.frame) + 10, 200, 80);
 [self.view addSubview:btn5];
 
-
+其他示例可下载demo查看源码！

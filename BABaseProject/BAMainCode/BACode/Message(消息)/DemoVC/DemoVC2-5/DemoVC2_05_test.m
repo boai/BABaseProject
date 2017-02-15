@@ -7,6 +7,15 @@
 //
 
 #import "DemoVC2_05_test.h"
+#import "BATextField.h"
+
+
+
+/**
+ *  获取屏幕宽度和高度
+ */
+#define BA_SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+#define BA_SCREEN_HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
 
 @interface DemoVC2_05_test ()
 
@@ -18,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-//    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self test];
 }
 
@@ -41,10 +50,12 @@
         if (idx == 0)
         {
             textField.phoneRestrict    = YES;
+            textField.textfieldStyle   = BATextfieldStylePhone;
         }
         else if (idx == 1)
         {
             textField.numberRestrict   = YES;
+            textField.textfieldStyle   = BATextfieldStyleBank;
         }
         else if (idx == 2)
         {

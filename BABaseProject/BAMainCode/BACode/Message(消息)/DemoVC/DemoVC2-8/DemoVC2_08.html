@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        
+        <style type="text/css">
+            .btn1,.btn2,button{height:50px; background:#cfc; margin:10px;}
+            </style>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body>
+        <div id="btn-box">
+            <button class="btn1" id="btn2" onclick="ba_shareClick()">JS分享按钮！</button>
+            <button class="btn1" id="btn1" onclick="addbutton()">点击自增按钮！</button>
+        </div>
+    </body>
+    <script>
+        
+        function addbutton(){
+            
+            $('#btn-box').each(function() {
+               var index = $('body').find('button').index()+1;
+               var btn = '<button>按钮' + index + '</button>';
+               $('#btn-box').append(btn);
+           });
+        }
+    
+        function showAlert(message) {
+            alert(message);
+        }
+    
+        function loadShareURL(url) {
+            var iFrame;
+            iFrame = document.createElement("iframe");
+            iFrame.setAttribute("src", url);
+            iFrame.setAttribute("style", "display:none;");
+            iFrame.setAttribute("height", "0px");
+            iFrame.setAttribute("width", "0px");
+            iFrame.setAttribute("frameborder", "0");
+            document.body.appendChild(iFrame);
+            // 发起请求后这个 iFrame 就没用了，所以把它从 dom 上移除掉
+            iFrame.parentNode.removeChild(iFrame);
+            iFrame = null;
+        }
+    
+        function ba_shareClick() {
+            loadShareURL("ba_shareFunction://shareClick?title=博爱分享2.1版本&content=欢迎使用博爱分享2.1版本&url=www.baidu.com&imagePath=图片地址");
+        }
+    </script>
+</html>

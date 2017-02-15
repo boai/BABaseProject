@@ -1,0 +1,6 @@
+framework module BACustomAlertView {
+  umbrella header "BACustomAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

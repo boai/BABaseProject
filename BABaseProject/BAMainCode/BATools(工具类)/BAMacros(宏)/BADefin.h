@@ -64,23 +64,11 @@
 
 #pragma mark - ***** AppDelegate
 
-/*! 友盟分享 SDK：接入自己项目时需要更改各个属性值 */
-#define BA_Umeng_Appkey     @"56f217d467e58e513a000434"
-#define BA_Sina_AppKey      @"2447331824"
-#define BA_SinaAppSecret    @"4ee72cf1958fa92b88570d1b99328718"
-#define BA_WX_APPKEY        @"wx19d8c52e02fa7556"
-#define BA_WX_APPSECRET     @"90eeb0c9ef2a1c99fb473890809f7f19"
-#define BA_QQKey            @"wrGGgg89e0lqqoXT"
-#define BA_QQAppID          @"1105285308"
-
 /*! 友盟统计 SDK */
 #define BA_UMengAnalyticskey     @"58199af182b635155d0028cd"
 
 /*! 百度地图 AppKey  */
 #define BA_BaiDuMapAppKey   @"qhqlttbTzqPdGilGTVoaH7fYGenIxNK5"
-
-/*! 图片 */
-#define BA_ImageName(imageName) [UIImage imageNamed:imageName]
 
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
@@ -105,15 +93,26 @@
 #define BA_StrongSelf(type)  __strong typeof(type) type = weak##type;
 
 /*! 通知 */
-#define BA_Noti [NSNotificationCenter defaultCenter]
+#define BA_NotiCenter [NSNotificationCenter defaultCenter]
 
 #define BA_UserDefault [NSUserDefaults standardUserDefaults]
+
+/*! 图片 */
+#define BA_ImageName(imageName) [UIImage imageNamed:imageName]
 
 /*! 获取图片资源 */
 #define BA_GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
+/*! 定义 UIImage 对象 */
+#define BA_ImageFromBundle(fileName) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
+
 /*! 获取当前语言 */
 #define BA_CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+
+
+#pragma mark - 通知类
+#define BANotioKey_LoginFinish   @"BANotioKey_LoginFinish"
 
 
 

@@ -52,7 +52,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 
 /**
  *  给UIScrollView类添加许多有用的方法

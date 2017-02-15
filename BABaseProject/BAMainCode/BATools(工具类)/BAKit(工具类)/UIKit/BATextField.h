@@ -60,7 +60,20 @@
 
 #import <UIKit/UIKit.h>
 
+/*! BATextField 样式枚举 */
+typedef NS_ENUM(NSInteger, BATextFieldStyle) {
+    /*! 默认 */
+    BATextfieldStyleNone,
+    /*! 手机号码格式化 【格式化结果：138 1111 1111】 */
+    BATextfieldStylePhone,
+    /*! 银行卡卡号格式化【格式化结果：1111 1111 1111 1234】 */
+    BATextfieldStyleBank
+};
+
 @interface BATextField : UITextField
+
+/*! textfiled 输入的格式化格式 有四种 */
+@property (nonatomic) BATextFieldStyle textfieldStyle;
 
 /*! 可以用 xib 直接设置 */
 

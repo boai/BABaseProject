@@ -63,7 +63,7 @@
         
         progressHUD.mode = MBProgressHUDModeText;
         progressHUD.labelText = text;
-        progressHUD.color = BA_Orange_Color;
+//        progressHUD.color = BA_Orange_Color;
 //        if (!time || time == 0)
 //        {
 //            [progressHUD hide:YES afterDelay:1.5];

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MJExtension.h>
+#import "MJExtension.h"
 
 @interface NSObject (BAMJParse)
 

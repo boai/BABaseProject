@@ -117,6 +117,9 @@
 /*! Foundation类 */
 #import "NSArray+BAKit.h"
 #import "NSMutableArray+BAKit.h"
+/*! 排序算法 */
+#import "NSMutableArray+BASort.h"
+
 #import "NSDictionary+BAKit.h"
 #import "NSMutableDictionary+BAKit.h"
 /*! 日常 NSString 类型处理 */
@@ -168,10 +171,13 @@
 #import "BALoadingHubView.h"
 
 /*! hook */
-#import "NSObject+BAHook.h"
+//#import "NSObject+BAHook.h"
 
 /*! 公共方法类 */
 #import "BACommon.h"
+
+/*! 公共跳转类 */
+#import "BAJumpManager.h"
 
 
 #endif /* BAKit_h */

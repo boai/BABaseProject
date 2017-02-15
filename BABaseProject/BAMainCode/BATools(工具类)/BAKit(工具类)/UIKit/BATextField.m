@@ -72,6 +72,15 @@ static const void *verCodeRestrictKey  = & verCodeRestrictKey;
 /*! 限制只能输入数字 */
 static const void *numberRestrictKey   = & numberRestrictKey;
 
+static NSInteger byteNil           = 3;
+static NSInteger byteNilFlag       = 0;
+static NSInteger byteNilBank       = 4;
+static NSInteger byteNilFlagBank   = 0;
+static NSInteger tableHeight       = 30;
+static CGFloat   keyHchange        = 0;
+static CGFloat   keyChangeTableH   = 0;
+static CGFloat   selfLocation_MAXy = 0;
+
 @interface BATextField () <UITextFieldDelegate>
 
 @end
@@ -184,6 +193,11 @@ static const void *numberRestrictKey   = & numberRestrictKey;
     return [objc_getAssociatedObject(self, numberRestrictKey) boolValue];
 }
 
+- (void)setTextfieldStyle:(BATextFieldStyle)textfieldStyle
+{
+    _textfieldStyle = textfieldStyle;
+}
+
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -264,9 +278,20 @@ static const void *numberRestrictKey   = & numberRestrictKey;
         
         if (self.phoneRestrict)
         {
-            if (proposedNewLength > 11)
+            if (_textfieldStyle == BATextfieldStylePhone)
             {
-                return NO;
+                if (proposedNewLength > 13)
+                {
+                    return NO;
+                }
+                [self ba_phoneNumberTextField:textField shouldChangeCharactersInRange:range replacementString:string];
+            }
+            else
+            {
+                if (proposedNewLength > 11)
+                {
+                    return NO;
+                }
             }
         }
         else if (self.verCodeRestrict)
@@ -297,6 +322,10 @@ static const void *numberRestrictKey   = & numberRestrictKey;
                         return NO;
                     }
                 }
+                if (_textfieldStyle == BATextfieldStyleBank)
+                {
+                    [self ba_bankNumberTextField:textField shouldChangeCharactersInRange:range replacementString:string];
+                }
             }
         }
     }
@@ -304,9 +333,89 @@ static const void *numberRestrictKey   = & numberRestrictKey;
 }
 
 
+#pragma mark - 手机号码格式
+- (BOOL)ba_phoneNumberTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField.text.length >12 && ![string isEqualToString:@""]) {
+        return NO;
+    }else if ([string isEqualToString:@" "]) {
+        NSLog(@"不能输入空格");
+        return NO;
+    }else if(![string isEqualToString:@""]){
+        // NSLog(@"====%@    string = %@",textField.text,string);
+        if ((textField.text.length - byteNilFlag)%byteNil == 0 && (textField.text.length - byteNilFlag)/byteNil != 0 && string.length > 0) {
+            byteNilFlag = byteNilFlag + byteNil;
+            byteNil = 5;
+            
+            NSMutableString * str = [NSMutableString stringWithFormat:@"%@ ",textField.text];
+            textField.text = str;
+        }
+        NSString *str = [NSString stringWithFormat:@"%@%@",textField.text,string];
+        NSLog(@"格式化结果：%@", str);
+        return YES;
+    }else{
+        //删除是遇到空格多删除一位
+        if ([[textField.text substringWithRange:range] isEqualToString:@" "]) {
+            NSRange deleteRange = NSMakeRange(0, textField.text.length - 1);
+            NSString * str = [textField.text substringWithRange:deleteRange];
+            textField.text = str;
+            
+        }
+        if (textField.text.length < 3) {
+            byteNil = 3;
+            byteNilFlag = 0;
+        }
+        if(textField.text.length  <= byteNilFlag){
+            
+            byteNilFlag = byteNilFlag - byteNil;
+        }
+        NSString *str = [NSString stringWithFormat:@"%@%@",textField.text,string];
+        NSLog(@"格式化结果：%@", str);
+        return YES;
+    }
+}
 
-
-
+#pragma mark - 银行卡格式化
+- (BOOL)ba_bankNumberTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    //NSLog();
+    if (textField.text.length > 19 + 3 && ![string isEqualToString:@""]){
+        return NO;
+    }else if ([string isEqualToString:@" "]) {
+        NSLog(@"不能输入空格");
+        return NO;
+    }else if(![string isEqualToString:@""]){
+        //   NSLog(@"====%@    string = %@",textField.text,string);
+        if ((textField.text.length - byteNilFlagBank)%byteNilBank == 0 && (textField.text.length - byteNilFlagBank)/byteNilBank != 0 && string.length > 0) {
+            byteNilFlagBank = byteNilFlagBank + byteNilBank;
+            byteNilBank = 5;
+            
+            NSMutableString * str = [NSMutableString stringWithFormat:@"%@ ",textField.text];
+            textField.text = str;
+        }
+        NSString *str = [NSString stringWithFormat:@"%@%@",textField.text,string];
+        NSLog(@"格式化结果：%@", str);
+        return YES;
+        
+    }else{
+        
+        /*! 删除是遇到空格多删除一位 */
+        if ([[textField.text substringWithRange:range] isEqualToString:@" "]) {
+            NSRange deleteRange = NSMakeRange(0, textField.text.length - 1);
+            NSString * str = [textField.text substringWithRange:deleteRange];
+            textField.text = str;
+        }
+        if (textField.text.length < 4) {
+            byteNilBank = 4;
+            byteNilFlagBank = 0;
+        }
+        if(textField.text.length  <= byteNilFlagBank){
+            
+            byteNilFlagBank = byteNilFlagBank - byteNilBank;
+        }
+        NSString *str = [NSString stringWithFormat:@"%@%@",textField.text,string];
+        NSLog(@"格式化结果：%@", str);
+        return YES;
+    }
+}
 
 
 

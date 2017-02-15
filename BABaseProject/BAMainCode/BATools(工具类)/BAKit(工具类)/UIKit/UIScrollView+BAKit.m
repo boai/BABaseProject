@@ -80,9 +80,9 @@
     /*! 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法） */
     BACustomMJHeader *header = [BACustomMJHeader headerWithRefreshingBlock:refreshBlock];
     /*! 设置文字 */
-    [header setTitle:@"下拉博爱为您刷新！" forState:MJRefreshStateIdle];
-    [header setTitle:@"松开博爱再为您刷新！" forState:MJRefreshStatePulling];
-    [header setTitle:@"感谢博爱的刷新 ..." forState:MJRefreshStateRefreshing];
+//    [header setTitle:@"下拉博爱为您刷新！" forState:MJRefreshStateIdle];
+//    [header setTitle:@"松开博爱再为您刷新！" forState:MJRefreshStatePulling];
+//    [header setTitle:@"感谢博爱的刷新 ..." forState:MJRefreshStateRefreshing];
     
     /*! 设置字体 */
     header.stateLabel.font = [UIFont systemFontOfSize:15];

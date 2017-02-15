@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate+BACategory.h"
-#import <AFNetworkActivityIndicatorManager.h>
+#import "AFNetworkActivityIndicatorManager.h"
 
 #import "BANavigationController.h"
 #import "BATabBarController.h"
@@ -27,11 +27,11 @@
 
 /*! 友盟分享 */
 #import "BAShareManage.h"
-#import "UMSocial.h"
+#import <UMSocialCore/UMSocialCore.h>
 
 /*! 本地通知VC */
 #import "DemoVC6.h"
-#import <MJExtension.h>
+#import "MJExtension.h"
 
 @implementation AppDelegate (BACategory)
 
@@ -248,13 +248,26 @@
     [BASHAREMANAGER ba_setupShareConfig];
 }
 
-/**
+//#define __IPHONE_10_0    100000
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > 100000
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
+#endif
+
+/*！
  这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
  */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    BOOL result = [UMSocialSnsService handleOpenURL:url];
-    if (result == FALSE) {
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
         //调用其他SDK，例如支付宝SDK等
         NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
         NSLog(@"URL scheme:%@", [url scheme]);
@@ -270,48 +283,48 @@
     return result;
 }
 
-- (NSDictionary *)parseQueryString:(NSString *)query
-{
-    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] initWithDictionary:0];
-    
-    NSArray *paramArr = [query componentsSeparatedByString:@"&"];
-    for (NSString *param in paramArr)
-    {
-        NSArray * elements = [param componentsSeparatedByString:@"="];
-        if ([elements count] <= 1)
-        {
-            return nil;
-        }
-        
-        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *value = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [paramDict setObject:value forKey:key];
-    }
-    
-    return paramDict;
-}
-
-- (NSDictionary*)dictionaryFromQuery:(NSString *)query usingEncoding:(NSStringEncoding)encoding {
-    NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
-    NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
-    NSScanner* scanner = [[NSScanner alloc] initWithString:query];
-    while (![scanner isAtEnd]) {
-        NSString* pairString = nil;
-        [scanner scanUpToCharactersFromSet:delimiterSet intoString:&pairString];
-        [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
-        NSArray* kvPair = [pairString componentsSeparatedByString:@"="];
-        if (kvPair.count == 2) {
-            NSString* key = [[kvPair objectAtIndex:0]
-                             stringByReplacingPercentEscapesUsingEncoding:encoding];
-            NSString* value = [[kvPair objectAtIndex:1]
-                               stringByReplacingPercentEscapesUsingEncoding:encoding];
-            [pairs setObject:value forKey:key];
-        }
-    }
-    
-    return [NSDictionary dictionaryWithDictionary:pairs];
-}
+//- (NSDictionary *)parseQueryString:(NSString *)query
+//{
+//    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] initWithDictionary:0];
+//    
+//    NSArray *paramArr = [query componentsSeparatedByString:@"&"];
+//    for (NSString *param in paramArr)
+//    {
+//        NSArray * elements = [param componentsSeparatedByString:@"="];
+//        if ([elements count] <= 1)
+//        {
+//            return nil;
+//        }
+//        
+//        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        NSString *value = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        
+//        [paramDict setObject:value forKey:key];
+//    }
+//    
+//    return paramDict;
+//}
+//
+//- (NSDictionary*)dictionaryFromQuery:(NSString *)query usingEncoding:(NSStringEncoding)encoding {
+//    NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
+//    NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
+//    NSScanner* scanner = [[NSScanner alloc] initWithString:query];
+//    while (![scanner isAtEnd]) {
+//        NSString* pairString = nil;
+//        [scanner scanUpToCharactersFromSet:delimiterSet intoString:&pairString];
+//        [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
+//        NSArray* kvPair = [pairString componentsSeparatedByString:@"="];
+//        if (kvPair.count == 2) {
+//            NSString* key = [[kvPair objectAtIndex:0]
+//                             stringByReplacingPercentEscapesUsingEncoding:encoding];
+//            NSString* value = [[kvPair objectAtIndex:1]
+//                               stringByReplacingPercentEscapesUsingEncoding:encoding];
+//            [pairs setObject:value forKey:key];
+//        }
+//    }
+//    
+//    return [NSDictionary dictionaryWithDictionary:pairs];
+//}
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
@@ -323,8 +336,8 @@
 //        return YES;
 //    }
     
-    BOOL result = [UMSocialSnsService handleOpenURL:url];
-    if (result == FALSE) {
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
         //调用其他SDK，例如支付宝SDK等
         NSString *urlString = [url absoluteString];
         if ([urlString isEqualToString:@"openBoaiApp://"])
@@ -337,13 +350,13 @@
     return result;
 }
 
-/**
+/*！
  这里处理新浪微博SSO授权进入新浪微博客户端后进入后台，再返回原来应用
  */
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     BALog(@"程序已经进入前台！");
-    [UMSocialSnsService  applicationDidBecomeActive];
+//    [UMSocialSnsService  applicationDidBecomeActive];
     [application setApplicationIconBadgeNumber:0];
     return;
 }

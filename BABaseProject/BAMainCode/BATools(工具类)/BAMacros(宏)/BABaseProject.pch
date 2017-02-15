@@ -77,7 +77,11 @@
     #import "BAColorHeader.h"
     #import "BAFrameHeader.h"
 
-    #import <BACustomAlertView.h>
+    #import "BACustomAlertView.h"
+
+    /*! 用户基本信心 model */
+    #import "BAUserModel.h"
+
     /*! BAKit框架 */
     #import "BAKit.h"
 
@@ -88,7 +92,7 @@
     #import "BALocalNotification.h"
 
     /*! 自定义button */
-    #import <BAButton.h>
+    #import "BAButton.h"
 
     /*! 文本宽度/高度自适应 */
     #import "BAAutoSizeWithWH.h"
@@ -97,13 +101,17 @@
     #import "UINavigationItem+CustomItem.h"
 
     /*! 自动布局三方库 */
-    #import <Masonry.h>
+    #import "Masonry.h"
     #import "UIView+SDAutoLayout.h"
     #import "UITableView+SDAutoTableViewCellHeight.h"
 
     /*! 缓存三方库 */
     #import "UIImageView+WebCache.h"
-    #import <SDImageCache.h>
+    #import "SDImageCache.h"
+
+    /*! FMDB 封装 */
+    #import "FMDB.h"
+    #import "JKDBHelper.h"
 
     /*! 键盘 */
     #import "IQKeyboardManager.h"
@@ -112,15 +120,15 @@
     #import "NSObject+BAProgressHUD.h"
 
     /*! 网络库 */
-    #import <AFNetworking.h>
-    #import <UIKit+AFNetworking.h>
+    #import "AFNetworking.h"
+    #import "UIKit+AFNetworking.h"
 
     /*! block三方库 */
 //    #import <BlocksKit.h>
 //    #import <BlocksKit+UIKit.h>
 
     /*! 上下拉刷新 */
-    #import <MJRefresh.h>
+    #import "MJRefresh.h"
 
     /*! 友盟分享/登陆 的详细封装 */
     #import "BAShareManage.h"

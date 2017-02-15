@@ -84,11 +84,11 @@
 //        
 //        completionHandle([BAVideoModel BAMJParse:model], error);
 //    }];
-    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet UrlString:path Parameters:nil SuccessBlock:^(id response) {
+    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet urlString:path parameters:nil successBlock:^(id response) {
         
         completionHandle([BAVideoModel BAMJParse:response], nil);
         
-    } FailureBlock:^(NSError *error) {
+    } failureBlock:^(NSError *error) {
         
         BALog(@"error：%@", error);
         completionHandle(nil, error);
@@ -105,7 +105,10 @@
  */
 + (id)getDemoVC11DataCompletionHandle:(void(^)(id model, NSError *error))completionHandle
 {
-    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet UrlString:DemoVC11URLPath Parameters:nil SuccessBlock:^(id response) {
+    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet
+                                  urlString:DemoVC11URLPath
+                                 parameters:nil
+                               successBlock:^(id response) {
         
         /*! 
          获取的字典示例：
@@ -131,7 +134,7 @@
         
     completionHandle([DemoVC11_model BAMJParse:response], nil);
         
-    } FailureBlock:^(NSError *error) {
+    } failureBlock:^(NSError *error) {
         
         BALog(@"error：%@", error);
         completionHandle(nil, error);
@@ -149,9 +152,12 @@
 + (id)postDemoVC11DataWithParameters:parameters completionHandle:(void(^)(id model, NSError *error))completionHandle
 {
 //    NSString *url = [NSString stringWithFormat:@"%@%@", DemoVC11URLPath2, parameters[@"page"]];
-    return [BANetManager ba_requestWithType:BAHttpRequestTypePost UrlString:DemoVC11URLPath2 Parameters:parameters SuccessBlock:^(id response) {
+    return [BANetManager ba_requestWithType:BAHttpRequestTypePost
+                                  urlString:DemoVC11URLPath2
+                                 parameters:parameters
+                               successBlock:^(id response) {
         completionHandle([DemoVC11_model BAMJParse:response], nil);
-    } FailureBlock:^(NSError *error) {
+    } failureBlock:^(NSError *error) {
         BALog(@"error：%@", error);
         completionHandle(nil, error);
     } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {

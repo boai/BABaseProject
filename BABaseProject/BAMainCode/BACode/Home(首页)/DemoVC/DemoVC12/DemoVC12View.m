@@ -19,11 +19,11 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
 @property (nonatomic, strong) UILabel            *label1;
 @property (nonatomic, strong) UIView             *bgView;
 
-@property (nonatomic, strong) BACustomButton     *button1;
-@property (nonatomic, strong) BACustomButton     *button2;
-@property (nonatomic, strong) BACustomButton     *button3;
-@property (nonatomic, strong) BACustomButton     *button4;
-@property (nonatomic, strong) BACustomButton     *sureButton;
+@property (nonatomic, strong) BAButton     *button1;
+@property (nonatomic, strong) BAButton     *button2;
+@property (nonatomic, strong) BAButton     *button3;
+@property (nonatomic, strong) BAButton     *button4;
+@property (nonatomic, strong) BAButton     *sureButton;
 
 @property (nonatomic, strong) BACustomAlertView  *customView;
 
@@ -294,7 +294,7 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
         _button3 = [self creatButtonWithFrame:CGRectMake(_button1.x, _button1.bottom + 10, _button1.width, _button1.height) title:@"288"];
         _button4 = [self creatButtonWithFrame:CGRectMake(_button3.right + 10, _button3.top, _button1.width, _button1.height) title:@"388"];
 
-        _sureButton = [BACustomButton buttonWithType:UIButtonTypeCustom];
+        _sureButton = [BAButton buttonWithType:UIButtonTypeCustom];
         _sureButton.frame = CGRectMake(_button1.x, _button3.bottom + 20, _bgView.width - 20, _button1.height);
         _sureButton.backgroundColor = [UIColor redColor];
         _sureButton.layer.masksToBounds = YES;
@@ -317,9 +317,9 @@ static NSString * const titleMsg = @"欢迎使用 iPhone SE，迄今最高性能
     return _bgView;
 }
 
-- (BACustomButton *)creatButtonWithFrame:(CGRect)frame title:(NSString *)title
+- (BAButton *)creatButtonWithFrame:(CGRect)frame title:(NSString *)title
 {
-    BACustomButton *btn = [BACustomButton buttonWithType:UIButtonTypeCustom];
+    BAButton *btn = [BAButton buttonWithType:UIButtonTypeCustom];
     btn.frame = frame;
 //    btn.clipsToBounds = YES;
     btn.layer.masksToBounds = YES;

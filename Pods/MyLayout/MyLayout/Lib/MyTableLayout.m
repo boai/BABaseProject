@@ -219,10 +219,10 @@
             if ([colView isKindOfClass:[MyBaseLayout class]])
             {
                 if (!((MyBaseLayout*)colView).wrapContentHeight)
-                    colView.heightDime.equalTo(rowView.heightDime);
+                    [colView.heightDime __equalTo:rowView.heightDime];
             }
             else
-                colView.heightDime.equalTo(rowView.heightDime);
+                [colView.heightDime __equalTo:rowView.heightDime];
         }
     }
     else
@@ -233,10 +233,10 @@
             if ([colView isKindOfClass:[MyBaseLayout class]])
             {
                 if (!((MyBaseLayout*)colView).wrapContentWidth)
-                     colView.widthDime.equalTo(rowView.widthDime);
+                    [colView.widthDime __equalTo:rowView.widthDime];
             }
             else
-                colView.widthDime.equalTo(rowView.widthDime);
+                [colView.widthDime __equalTo:rowView.widthDime];
         }
         
     }
@@ -313,7 +313,7 @@
 
 -(id)createSizeClassInstance
 {
-    return [MyLayoutSizeClassTableLayout new];
+    return [MyTableLayoutViewSizeClass new];
 }
 
 

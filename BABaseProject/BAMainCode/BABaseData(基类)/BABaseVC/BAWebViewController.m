@@ -267,7 +267,7 @@
             // 注意：图片不能为空
             UIImage *shareImage = [UIImage imageNamed:@"icon1.jpg"];
             
-            [BASHAREMANAGER ba_UMshareListWithViewControll:self title:shareTitle shareContent:shareContent image:shareImage url:shareUrlSrt];
+//            [BASHAREMANAGER ba_UMshareListWithViewControll:self title:shareTitle shareContent:shareContent image:shareImage url:shareUrlSrt];
         }
         else if (index == 4)
         {

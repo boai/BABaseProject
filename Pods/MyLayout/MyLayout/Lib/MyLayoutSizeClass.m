@@ -8,9 +8,9 @@
 
 #import "MyLayoutSizeClass.h"
 #import "MyLayoutPosInner.h"
-#import "MyLayoutDimeInner.h"
+#import "MyLayoutSizeInner.h"
 
-@implementation MyLayoutSizeClass
+@implementation MyViewSizeClass
 
 
 -(MyLayoutPos*)leftPos
@@ -95,7 +95,7 @@
 
 -(void)setMyLeftMargin:(CGFloat)leftMargin
 {
-    self.leftPos.equalTo(@(leftMargin));
+    [self.leftPos __equalTo:@(leftMargin)];
     
 }
 
@@ -106,7 +106,7 @@
 
 -(void)setMyTopMargin:(CGFloat)topMargin
 {
-    self.topPos.equalTo(@(topMargin));
+    [self.topPos __equalTo:@(topMargin)];
 }
 
 -(CGFloat)myRightMargin
@@ -116,7 +116,7 @@
 
 -(void)setMyRightMargin:(CGFloat)rightMargin
 {
-    self.rightPos.equalTo(@(rightMargin));
+    [self.rightPos __equalTo:@(rightMargin)];
 }
 
 -(CGFloat)myBottomMargin
@@ -126,7 +126,7 @@
 
 -(void)setMyBottomMargin:(CGFloat)bottomMargin
 {
-    self.bottomPos.equalTo(@(bottomMargin));
+    [self.bottomPos __equalTo:@(bottomMargin)];
 }
 
 -(CGFloat)myMargin
@@ -136,10 +136,10 @@
 
 -(void)setMyMargin:(CGFloat)myMargin
 {
-    self.topPos.equalTo(@(myMargin));
-    self.leftPos.equalTo(@(myMargin));
-    self.rightPos.equalTo(@(myMargin));
-    self.bottomPos.equalTo(@(myMargin));
+    [self.topPos __equalTo:@(myMargin)];
+    [self.leftPos __equalTo:@(myMargin)];
+    [self.rightPos __equalTo:@(myMargin)];
+    [self.bottomPos __equalTo:@(myMargin)];
 }
 
 
@@ -150,7 +150,7 @@
 
 -(void)setMyCenterXOffset:(CGFloat)centerXOffset
 {
-    self.centerXPos.equalTo(@(centerXOffset));
+    [self.centerXPos __equalTo:@(centerXOffset)];
 }
 
 -(CGFloat)myCenterYOffset
@@ -160,7 +160,7 @@
 
 -(void)setMyCenterYOffset:(CGFloat)centerYOffset
 {
-    self.centerYPos.equalTo(@(centerYOffset));
+    [self.centerYPos __equalTo:@(centerYOffset)];
 }
 
 
@@ -176,11 +176,11 @@
 }
 
 
--(MyLayoutDime*)widthDime
+-(MyLayoutSize*)widthDime
 {
     if (_widthDime == nil)
     {
-        _widthDime = [MyLayoutDime new];
+        _widthDime = [MyLayoutSize new];
         _widthDime.dime = MyMarginGravity_Horz_Fill;
         
     }
@@ -189,11 +189,11 @@
 }
 
 
--(MyLayoutDime*)heightDime
+-(MyLayoutSize*)heightDime
 {
     if (_heightDime == nil)
     {
-        _heightDime = [MyLayoutDime new];
+        _heightDime = [MyLayoutSize new];
         _heightDime.dime = MyMarginGravity_Vert_Fill;
         
     }
@@ -209,7 +209,7 @@
 
 -(void)setMyWidth:(CGFloat)width
 {
-    self.widthDime.equalTo(@(width));
+    [self.widthDime __equalTo:@(width)];
 }
 
 -(CGFloat)myHeight
@@ -219,7 +219,7 @@
 
 -(void)setMyHeight:(CGFloat)height
 {
-    self.heightDime.equalTo(@(height));
+    [self.heightDime __equalTo:@(height)];
 }
 
 -(CGSize)mySize
@@ -245,12 +245,36 @@
 }
 
 
+-(NSString*)debugDescription
+{
+    
+    NSString*dbgDesc = [NSString stringWithFormat:@"\nView:\n%@\n%@\n%@\n%@\n%@\n%@\n%@\n%@\nweight=%f\nuseFrame=%@\nnoLayout=%@\nflexedHeight=%@\nmarginGravity=%hu\nreverseFloat=%@\nclearFloat=%@",
+                    self.leftPos,
+                    self.topPos,
+                    self.bottomPos,
+                    self.rightPos,
+                    self.centerXPos,
+                    self.centerYPos,
+                    self.widthDime,
+                    self.heightDime,
+                    self.weight,
+                    self.useFrame ? @"YES":@"NO",
+                    self.noLayout? @"YES":@"NO",
+                    self.flexedHeight? @"YES":@"NO",
+                    self.marginGravity,
+                    self.reverseFloat ? @"YES":@"NO",
+                    self.clearFloat ? @"YES":@"NO"];
+    
+    
+    return dbgDesc;
+}
+
 
 #pragma mark -- NSCopying
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClass *lsc = [[[self class] allocWithZone:zone] init];
+    MyViewSizeClass *lsc = [[[self class] allocWithZone:zone] init];
     
   
     //这里不会复制hidden属性
@@ -278,7 +302,7 @@
 
 @end
 
-@implementation MyLayoutSizeClassLayout
+@implementation MyLayoutViewSizeClass
 
 -(id)init
 {
@@ -333,7 +357,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClassLayout *lsc = [super copyWithZone:zone];
+    MyLayoutViewSizeClass *lsc = [super copyWithZone:zone];
     lsc.padding = self.padding;
     lsc.wrapContentWidth = self.wrapContentWidth;
     lsc.wrapContentHeight = self.wrapContentHeight;
@@ -343,11 +367,28 @@
     return lsc;
 }
 
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nLayout:\npadding=%@\nwrapContentWidth=%@\nwrapContentHeight=%@\nhideSubviewRelayout=%@\nreverseLayout=%@",
+                        dbgDesc,
+                        NSStringFromUIEdgeInsets(self.padding),
+                        self.wrapContentWidth ? @"YES":@"NO",
+                        self.wrapContentHeight ? @"YES":@"NO",
+                        self.hideSubviewReLayout?@"YES":@"NO",
+                        self.reverseLayout ? @"YES":@"NO"
+               ];
+    
+    
+    return dbgDesc;
+}
+
 
 @end
 
 
-@implementation MyLayoutSizeClassLinearLayout
+@implementation MySequentLayoutViewSizeClass
 
 -(CGFloat)subviewMargin
 {
@@ -363,7 +404,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClassLinearLayout *lsc = [super copyWithZone:zone];
+    MySequentLayoutViewSizeClass *lsc = [super copyWithZone:zone];
     
     lsc.orientation = self.orientation;
     lsc.gravity = self.gravity;
@@ -373,11 +414,57 @@
      return lsc;
 }
 
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nSequentLayout: \norientation=%lu\ngravity=%hu\nsubviewVertMargin=%f\nsubviewHorzMargin=%f",
+               dbgDesc,
+              (unsigned long)self.orientation,
+               self.gravity,
+               self.subviewVertMargin,
+               self.subviewHorzMargin
+               ];
+    
+    
+    return dbgDesc;
+}
+
 
 
 @end
 
-@implementation MyLayoutSizeClassTableLayout
+
+@implementation MyLinearLayoutViewSizeClass
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    MyLinearLayoutViewSizeClass *lsc = [super copyWithZone:zone];
+    
+    lsc.shrinkType = self.shrinkType;
+    
+    return lsc;
+}
+
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nLinearLayout: \nshrinkType=%lu",
+               dbgDesc,
+               (unsigned long)self.shrinkType
+               ];
+    
+    
+    return dbgDesc;
+}
+
+
+
+@end
+
+
+@implementation MyTableLayoutViewSizeClass
 
 
 -(CGFloat)rowSpacing
@@ -393,7 +480,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClassTableLayout *lsc = [super copyWithZone:zone];
+    MyTableLayoutViewSizeClass *lsc = [super copyWithZone:zone];
     
     lsc.rowSpacing = self.rowSpacing;
     lsc.colSpacing = self.colSpacing;
@@ -401,50 +488,94 @@
     return lsc;
 }
 
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nTableLayout: \nrowSpacing=%f\ncolSpacing=%f",
+               dbgDesc,
+               self.rowSpacing,
+               self.colSpacing];
+    
+    return dbgDesc;
+}
 
 
 @end
 
-@implementation MyLayoutSizeClassFloatLayout
+@implementation MyFloatLayoutViewSizeClass
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClassFloatLayout *lsc = [super copyWithZone:zone];
+    MyFloatLayoutViewSizeClass *lsc = [super copyWithZone:zone];
     
     lsc.subviewSize = self.subviewSize;
-    lsc.minMargin = self.minMargin;
+    lsc.minSpace = self.minSpace;
+    lsc.maxSpace = self.maxSpace;
     lsc.noBoundaryLimit = self.noBoundaryLimit;
     
     return lsc;
 }
 
 
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nFloatLayout: \nnoBoundaryLimit=%@",
+               dbgDesc,
+               self.noBoundaryLimit ? @"YES":@"NO"];
+    
+    return dbgDesc;
+}
+
+
+
 @end
 
 
-@implementation MyLayoutSizeClassFlowLayout
+@implementation MyFlowLayoutViewSizeClass
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClassFlowLayout *lsc = [super copyWithZone:zone];
+    MyFlowLayoutViewSizeClass *lsc = [super copyWithZone:zone];
     
     lsc.arrangedCount = self.arrangedCount;
     lsc.averageArrange = self.averageArrange;
     lsc.autoArrange = self.autoArrange;
     lsc.arrangedGravity = self.arrangedGravity;
+    lsc.subviewSize = self.subviewSize;
+    lsc.minSpace = self.minSpace;
+    lsc.maxSpace = self.maxSpace;
     
     return lsc;
+}
+
+
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nFlowLayout: \narrangedCount=%ld\naverageArrange=%@\nautoArrange=%@\narrangedGravity=%hu",
+                                          dbgDesc,
+                                          (long)self.arrangedCount,
+                                          self.averageArrange ? @"YES":@"NO",
+                                          self.autoArrange ? @"YES":@"NO",
+                                          self.arrangedGravity
+                                          ];
+    
+    return dbgDesc;
 }
 
 
 @end
 
 
-@implementation MyLayoutSizeClassRelativeLayout
+@implementation MyRelativeLayoutViewSizeClass
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    MyLayoutSizeClassRelativeLayout *lsc = [super copyWithZone:zone];
+    MyRelativeLayoutViewSizeClass *lsc = [super copyWithZone:zone];
     lsc.flexOtherViewWidthWhenSubviewHidden = self.flexOtherViewWidthWhenSubviewHidden;
     lsc.flexOtherViewHeightWhenSubviewHidden = self.flexOtherViewHeightWhenSubviewHidden;
     
@@ -452,9 +583,29 @@
 }
 
 
+-(NSString*)debugDescription
+{
+    NSString *dbgDesc = [super debugDescription];
+    
+    dbgDesc = [NSString stringWithFormat:@"%@\nRelativeLayout: \nflexOtherViewWidthWhenSubviewHidden=%@\nflexOtherViewHeightWhenSubviewHidden=%@",
+               dbgDesc,
+               self.flexOtherViewWidthWhenSubviewHidden ? @"YES":@"NO",
+               self.flexOtherViewHeightWhenSubviewHidden ? @"YES":@"NO"
+               ];
+    
+    return dbgDesc;
+}
+
+
 
 @end
 
-@implementation MyLayoutSizeClassPathLayout
+@implementation MyFrameLayoutViewSizeClass
+
+
+
+@end
+
+@implementation MyPathLayoutViewSizeClass
 
 @end

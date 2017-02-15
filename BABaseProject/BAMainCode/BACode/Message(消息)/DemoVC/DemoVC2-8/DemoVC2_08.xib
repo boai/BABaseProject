@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoVC2_08">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="9eh-yi-92N" id="RdK-db-oAh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eh-yi-92N">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="371"/>
+                    <color key="backgroundColor" red="0.96674096580000002" green="0.030850609760000001" blue="0.15443938970000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="DkS-lw-cit"/>
+                    </connections>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.88324317009999997" blue="0.57767656570000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="9eh-yi-92N" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.618" id="dnb-oJ-yyF"/>
+                <constraint firstItem="9eh-yi-92N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dvz-E8-R1j"/>
+                <constraint firstAttribute="trailing" secondItem="9eh-yi-92N" secondAttribute="trailing" id="jCh-r2-P5t"/>
+                <constraint firstItem="9eh-yi-92N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lsg-r7-5Er"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

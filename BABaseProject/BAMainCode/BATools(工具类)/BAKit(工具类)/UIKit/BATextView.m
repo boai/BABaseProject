@@ -76,9 +76,9 @@
 - (void)addObserver
 {
     // 注册通知
-    [BA_Noti addObserver:self selector:@selector(didBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:self];
-    [BA_Noti addObserver:self selector:@selector(didEndEditing:) name:UITextViewTextDidEndEditingNotification object:self];
-    [BA_Noti addObserver:self selector:@selector(terminate:) name:UIApplicationWillTerminateNotification object:BASharedApplication];
+    [BA_NotiCenter addObserver:self selector:@selector(didBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:self];
+    [BA_NotiCenter addObserver:self selector:@selector(didEndEditing:) name:UITextViewTextDidEndEditingNotification object:self];
+    [BA_NotiCenter addObserver:self selector:@selector(terminate:) name:UIApplicationWillTerminateNotification object:BASharedApplication];
 }
 
 - (void)setPlaceholder:(NSString *)placeholder
@@ -91,7 +91,7 @@
 - (void)terminate:(NSNotification *)notification
 {
     // 移除通知
-    [BA_Noti removeObserver:self];
+    [BA_NotiCenter removeObserver:self];
 }
 
 - (void)didBeginEditing:(NSNotification *)notification

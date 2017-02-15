@@ -61,7 +61,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyLeftMargin:(CGFloat)leftMargin
 {
-    self.leftPos.equalTo(@(leftMargin));
+    [self.leftPos __equalTo:@(leftMargin)];
     
 }
 
@@ -72,7 +72,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyTopMargin:(CGFloat)topMargin
 {
-    self.topPos.equalTo(@(topMargin));
+    [self.topPos __equalTo:@(topMargin)];
 }
 
 -(CGFloat)myRightMargin
@@ -82,7 +82,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyRightMargin:(CGFloat)rightMargin
 {
-    self.rightPos.equalTo(@(rightMargin));
+    [self.rightPos __equalTo:@(rightMargin)];
 }
 
 -(CGFloat)myBottomMargin
@@ -92,7 +92,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyBottomMargin:(CGFloat)bottomMargin
 {
-    self.bottomPos.equalTo(@(bottomMargin));
+    [self.bottomPos __equalTo:@(bottomMargin)];
 }
 
 -(CGFloat)myMargin
@@ -102,16 +102,16 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyMargin:(CGFloat)myMargin
 {
-    self.topPos.equalTo(@(myMargin));
-    self.leftPos.equalTo(@(myMargin));
-    self.rightPos.equalTo(@(myMargin));
-    self.bottomPos.equalTo(@(myMargin));
+    [self.topPos __equalTo:@(myMargin)];
+    [self.leftPos __equalTo:@(myMargin)];
+    [self.rightPos __equalTo:@(myMargin)];
+     [self.bottomPos __equalTo:@(myMargin)];
 }
 
--(MyLayoutDime*)widthDime
+-(MyLayoutSize*)widthDime
 {
 
-    MyLayoutDime *dime = self.myCurrentSizeClass.widthDime;
+    MyLayoutSize *dime = self.myCurrentSizeClass.widthDime;
     dime.view = self;
     return dime;
     
@@ -119,10 +119,10 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 
 
--(MyLayoutDime*)heightDime
+-(MyLayoutSize*)heightDime
 {
 
-    MyLayoutDime *dime = self.myCurrentSizeClass.heightDime;
+    MyLayoutSize *dime = self.myCurrentSizeClass.heightDime;
     dime.view = self;
     return dime;
 }
@@ -135,7 +135,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyWidth:(CGFloat)width
 {
-    self.widthDime.equalTo(@(width));
+    [self.widthDime __equalTo:@(width)];
 }
 
 -(CGFloat)myHeight
@@ -145,7 +145,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyHeight:(CGFloat)height
 {
-    self.heightDime.equalTo(@(height));
+    [self.heightDime __equalTo:@(height)];
 }
 
 -(CGSize)mySize
@@ -187,7 +187,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyCenterXOffset:(CGFloat)centerXOffset
 {
-    self.centerXPos.equalTo(@(centerXOffset));
+    [self.centerXPos __equalTo:@(centerXOffset)];
 }
 
 -(CGFloat)myCenterYOffset
@@ -197,7 +197,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(void)setMyCenterYOffset:(CGFloat)centerYOffset
 {
-    self.centerYPos.equalTo(@(centerYOffset));
+    [self.centerYPos __equalTo:@(centerYOffset)];
 }
 
 
@@ -282,7 +282,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(CGRect)estimatedRect
 {
-    CGRect rect = self.absPos.frame;
+    CGRect rect = self.myFrame.frame;
     if (rect.origin.x == CGFLOAT_MAX || rect.origin.y == CGFLOAT_MAX)
         return self.frame;
     return rect;
@@ -325,10 +325,10 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
         
     }
     
-    MyLayoutSizeClass *myLayoutSizeClass = (MyLayoutSizeClass*)[dict objectForKey:@(sizeClass)];
+    MyViewSizeClass *myLayoutSizeClass = (MyViewSizeClass*)[dict objectForKey:@(sizeClass)];
     if (myLayoutSizeClass == nil)
     {
-        MyLayoutSizeClass *srcLayoutSizeClass = (MyLayoutSizeClass*)[dict objectForKey:@(srcSizeClass)];
+        MyViewSizeClass *srcLayoutSizeClass = (MyViewSizeClass*)[dict objectForKey:@(srcSizeClass)];
         if (srcLayoutSizeClass == nil)
             myLayoutSizeClass = [self createSizeClassInstance];
         else
@@ -361,10 +361,10 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(instancetype)myCurrentSizeClass
 {
-    if (self.absPos.sizeClass == nil)
-        self.absPos.sizeClass = [self myDefaultSizeClass];
+    if (self.myFrame.sizeClass == nil)
+        self.myFrame.sizeClass = [self myDefaultSizeClass];
     
-    return self.absPos.sizeClass;
+    return self.myFrame.sizeClass;
 }
 
 
@@ -393,7 +393,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     
     //first search the most exact SizeClass
     MySizeClass searchSizeClass = wsc | hsc | ori;
-    MyLayoutSizeClass *myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+    MyViewSizeClass *myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
     if (myClass != nil)
         return (UIView*)myClass;
     
@@ -401,7 +401,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     searchSizeClass = wsc | hsc;
     if (searchSizeClass != sizeClass)
     {
-        MyLayoutSizeClass *myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+        MyViewSizeClass *myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
         if (myClass != nil)
             return (UIView*)myClass;
     }
@@ -410,7 +410,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     searchSizeClass = MySizeClass_wAny | hsc | ori;
     if (ori != 0 && searchSizeClass != sizeClass)
     {
-        myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+        myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
         if (myClass != nil)
             return (UIView*)myClass;
         
@@ -419,7 +419,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     searchSizeClass = MySizeClass_wAny | hsc;
     if (searchSizeClass != sizeClass)
     {
-        myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+        myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
         if (myClass != nil)
             return (UIView*)myClass;
     }
@@ -427,7 +427,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     searchSizeClass = wsc | MySizeClass_hAny | ori;
     if (ori != 0 && searchSizeClass != sizeClass)
     {
-        myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+        myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
         if (myClass != nil)
             return (UIView*)myClass;
     }
@@ -435,7 +435,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     searchSizeClass = wsc | MySizeClass_hAny;
     if (searchSizeClass != sizeClass)
     {
-        myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+        myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
         if (myClass != nil)
             return (UIView*)myClass;
     }
@@ -443,13 +443,13 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     searchSizeClass = MySizeClass_wAny | MySizeClass_hAny | ori;
     if (ori != 0 && searchSizeClass != sizeClass)
     {
-        myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+        myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
         if (myClass != nil)
             return (UIView*)myClass;
     }
     
     searchSizeClass = MySizeClass_wAny | MySizeClass_hAny;
-    myClass = (MyLayoutSizeClass*)[dict objectForKey:@(searchSizeClass)];
+    myClass = (MyViewSizeClass*)[dict objectForKey:@(searchSizeClass)];
     if (myClass == nil)
     {
         myClass = [self createSizeClassInstance];
@@ -462,13 +462,13 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 }
 
 
--(MyLayoutMeasure*)absPos
+-(MyFrame*)myFrame
 {
     
-    MyLayoutMeasure *obj = objc_getAssociatedObject(self, ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS);
+    MyFrame *obj = objc_getAssociatedObject(self, ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS);
     if (obj == nil)
     {
-        obj = [MyLayoutMeasure new];
+        obj = [MyFrame new];
         objc_setAssociatedObject(self, ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
     }
@@ -478,7 +478,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 
 -(id)createSizeClassInstance
 {
-    return [MyLayoutSizeClass new];
+    return [MyViewSizeClass new];
 }
 
 
@@ -587,6 +587,9 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
     }
     else
     {
+        layerRect = CGRectZero;
+        fromPoint = CGPointZero;
+        toPoint = CGPointZero;
         NSAssert(0, @"oops!");
     }
     
@@ -633,7 +636,7 @@ const char * const ASSOCIATEDOBJECT_KEY_MYLAYOUT_ABSPOS = "ASSOCIATEDOBJECT_KEY_
 @end
 
 
-IB_DESIGNABLE
+
 @implementation MyBaseLayout
 {
     __weak id _target;
@@ -660,6 +663,7 @@ IB_DESIGNABLE
     
     BOOL _isAddSuperviewKVO;
 
+    int _lastScreenOrientation; //为0为初始状态，为1为竖屏，为2为横屏。内部使用。
 }
 
 BOOL _hasBegin;
@@ -667,6 +671,9 @@ BOOL _hasBegin;
 -(void)dealloc
 {
     //如果您在使用时出现了KVO的异常崩溃，原因是您将这个视图被多次加入为子视图，请检查您的代码，是否这个视图被多次加入！！
+    _endLayoutBlock = nil;
+    _beginLayoutBlock = nil;
+    _rotationToDeviceOrientationBlock = nil;
 }
 
 #pragma  mark -- Public Method
@@ -901,35 +908,35 @@ BOOL _hasBegin;
 -(CGRect)estimateLayoutRect:(CGSize)size inSizeClass:(MySizeClass)sizeClass
 {
     
-    self.absPos.sizeClass = [self myBestSizeClass:sizeClass];
+    self.myFrame.sizeClass = [self myBestSizeClass:sizeClass];
     for (UIView *sbv in self.subviews)
     {
-        sbv.absPos.sizeClass = [sbv myBestSizeClass:sizeClass];
+        sbv.myFrame.sizeClass = [sbv myBestSizeClass:sizeClass];
     }
     
     BOOL hasSubLayout = NO;
     CGSize selfSize= [self calcLayoutRect:size isEstimate:NO pHasSubLayout:&hasSubLayout sizeClass:sizeClass];
     
-    self.absPos.width = selfSize.width;
-    self.absPos.height = selfSize.height;
+    self.myFrame.width = selfSize.width;
+    self.myFrame.height = selfSize.height;
     
     if (hasSubLayout)
     {
         selfSize = [self calcLayoutRect:CGSizeZero isEstimate:YES pHasSubLayout:&hasSubLayout sizeClass:sizeClass];
     }
     
-    self.absPos.width = selfSize.width;
-    self.absPos.height = selfSize.height;
+    self.myFrame.width = selfSize.width;
+    self.myFrame.height = selfSize.height;
 
 
     
     //计算后还原为默认sizeClass
     for (UIView *sbv in self.subviews)
     {
-        sbv.absPos.sizeClass = self.myDefaultSizeClass;
+        sbv.myFrame.sizeClass = self.myDefaultSizeClass;
         
     }
-    self.absPos.sizeClass = self.myDefaultSizeClass;
+    self.myFrame.sizeClass = self.myDefaultSizeClass;
     
     
     return CGRectMake(0, 0, selfSize.width, selfSize.height);
@@ -1179,7 +1186,14 @@ BOOL _hasBegin;
         if ([keyPath isEqualToString:@"frame"] ||
             [keyPath isEqualToString:@"bounds"] )
         {
-            [self setLayoutRectInNoLayoutSuperview:object];
+         
+            //只监控父视图的尺寸变换
+            CGRect rcOld = [change[NSKeyValueChangeOldKey] CGRectValue];
+            CGRect rcNew = [change[NSKeyValueChangeNewKey] CGRectValue];
+            if (!CGSizeEqualToSize(rcOld.size, rcNew.size))
+            {
+                [self setLayoutRectInNoLayoutSuperview:object];
+            }
         }
         return;
     }
@@ -1190,7 +1204,7 @@ BOOL _hasBegin;
         [keyPath isEqualToString:@"hidden"] ||
         [keyPath isEqualToString:@"center"])
     {
-        if (!_isMyLayouting && [self.subviews containsObject:object])
+        if (!_isMyLayouting)
         {
             if (![object useFrame])
             {
@@ -1211,7 +1225,7 @@ BOOL _hasBegin;
 
 -(id)createSizeClassInstance
 {
-    return [MyLayoutSizeClassLayout new];
+    return [MyLayoutViewSizeClass new];
 }
 
 
@@ -1262,9 +1276,9 @@ BOOL _hasBegin;
     [super didAddSubview:subview];   //只要加入进来后就修改其默认的实现，而改用我们的实现，这里包括隐藏,调整大小，
     
     //添加hidden, frame,center的属性通知。
-    [subview addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:nil];
-    [subview addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
-    [subview addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
+    [subview addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+    [subview addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+    [subview addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
 
 }
 
@@ -1392,8 +1406,8 @@ BOOL _hasBegin;
                 
             }
             
-            [newSuperview addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
-            [newSuperview addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
+            [newSuperview addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+            [newSuperview addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
             _isAddSuperviewKVO = YES;
         }
         
@@ -1462,9 +1476,12 @@ BOOL _hasBegin;
     if (self.beginLayoutBlock != nil)
         self.beginLayoutBlock();
     self.beginLayoutBlock = nil;
+
+    int  currentScreenOrientation = 0;
     
     if (!self.isMyLayouting)
     {
+
         _isMyLayouting = YES;
 
         if (self.priorAutoresizingMask)
@@ -1479,15 +1496,21 @@ BOOL _hasBegin;
         
         UIDeviceOrientation ori =   [UIDevice currentDevice].orientation;
         if (UIDeviceOrientationIsPortrait(ori))
+        {
             sizeClass |= MySizeClass_Portrait;
+            currentScreenOrientation  = 1;
+        }
         else if (UIDeviceOrientationIsLandscape(ori))
+        {
             sizeClass |= MySizeClass_Landscape;
+            currentScreenOrientation = 2;
+        }
         else;
         
-        self.absPos.sizeClass = [self myBestSizeClass:sizeClass];
+        self.myFrame.sizeClass = [self myBestSizeClass:sizeClass];
         for (UIView *sbv in self.subviews)
         {
-            sbv.absPos.sizeClass = [sbv myBestSizeClass:sizeClass];
+            sbv.myFrame.sizeClass = [sbv myBestSizeClass:sizeClass];
         }
 
         //计算布局
@@ -1499,17 +1522,20 @@ BOOL _hasBegin;
         {
             CGPoint ptorigin = sbv.bounds.origin;
             
-            if (sbv.absPos.leftPos != CGFLOAT_MAX && sbv.absPos.topPos != CGFLOAT_MAX && !sbv.noLayout)
+            MyFrame *myFrame = sbv.myFrame;
+            if (myFrame.leftPos != CGFLOAT_MAX && myFrame.topPos != CGFLOAT_MAX && !sbv.noLayout)
             {
-                sbv.bounds = CGRectMake(ptorigin.x, ptorigin.y, sbv.absPos.width, sbv.absPos.height);
                 
-                sbv.center = CGPointMake(sbv.absPos.leftPos + sbv.layer.anchorPoint.x * sbv.absPos.width, sbv.absPos.topPos + sbv.layer.anchorPoint.y * sbv.absPos.height);
+                sbv.center = CGPointMake(myFrame.leftPos + sbv.layer.anchorPoint.x * myFrame.width, myFrame.topPos + sbv.layer.anchorPoint.y * myFrame.height);
                 
+                sbv.bounds = CGRectMake(ptorigin.x, ptorigin.y, myFrame.width, myFrame.height);
 
             }
             
-            if (sbv.absPos.sizeClass.isHidden)
+            if (myFrame.sizeClass.isHidden)
+            {
                 sbv.bounds = CGRectMake(ptorigin.x, ptorigin.y, 0, 0);
+            }
             
             if (sbv.viewLayoutCompleteBlock != nil)
             {
@@ -1517,10 +1543,10 @@ BOOL _hasBegin;
                 sbv.viewLayoutCompleteBlock = nil;
             }
             
-            sbv.absPos.sizeClass = [sbv myDefaultSizeClass];
-            [sbv.absPos reset];
+            myFrame.sizeClass = [sbv myDefaultSizeClass];
+            [myFrame reset];
         }
-        self.absPos.sizeClass = [self myDefaultSizeClass];
+        self.myFrame.sizeClass = [self myDefaultSizeClass];
         
         //调整自身
         if (!CGSizeEqualToSize(oldSelfSize,newSelfSize) && newSelfSize.width != CGFLOAT_MAX)
@@ -1559,17 +1585,35 @@ BOOL _hasBegin;
             [self alterScrollViewContentSize:newSelfSize];
        
         _isMyLayouting = NO;
+        
     }
     
     if (self.endLayoutBlock != nil)
         self.endLayoutBlock();
     self.endLayoutBlock = nil;
 
+    //执行屏幕旋转的处理逻辑。
+    if (self.rotationToDeviceOrientationBlock != nil && currentScreenOrientation != 0)
+    {
+        if (_lastScreenOrientation == 0)
+        {
+            _lastScreenOrientation = currentScreenOrientation;
+            self.rotationToDeviceOrientationBlock(self,YES, currentScreenOrientation == 1);
+        }
+        else
+        {
+            if (_lastScreenOrientation != currentScreenOrientation)
+            {
+                _lastScreenOrientation = currentScreenOrientation;
+                self.rotationToDeviceOrientationBlock(self, NO, currentScreenOrientation == 1);
+            }
+        }
+        
+        _lastScreenOrientation = currentScreenOrientation;
+    }
+    
     
 }
-
-
-
 
 
 #pragma mark -- Private Method
@@ -1578,7 +1622,7 @@ BOOL _hasBegin;
 {
     CGSize selfSize;
     if (isEstimate)
-        selfSize = self.absPos.frame.size;
+        selfSize = self.myFrame.frame.size;
     else
     {
         selfSize = self.bounds.size;
@@ -1712,20 +1756,20 @@ BOOL _hasBegin;
     lsc.wrapContentHeight = wrapContentHeight;
 }
 
--(void)calcSizeOfWrapContentSubview:(UIView*)sbv
+-(void)calcSizeOfWrapContentSubview:(UIView*)sbv selfLayoutSize:(CGSize)selfLayoutSize
 {
     if (sbv.widthDime.dimeSelfVal != nil || sbv.heightDime.dimeSelfVal != nil)
     {
         CGSize fitSize = [sbv sizeThatFits:CGSizeZero];
         if (sbv.widthDime.dimeSelfVal != nil)
         {
-            sbv.absPos.width = fitSize.width * sbv.widthDime.mutilVal + sbv.widthDime.addVal;
+            sbv.myFrame.width = fitSize.width * sbv.widthDime.mutilVal + sbv.widthDime.addVal;
             
         }
         
         if (sbv.heightDime.dimeSelfVal != nil)
         {
-            sbv.absPos.height = fitSize.height * sbv.heightDime.mutilVal + sbv.heightDime.addVal;
+            sbv.myFrame.height = fitSize.height * sbv.heightDime.mutilVal + sbv.heightDime.addVal;
         }
     }    
 }
@@ -1736,7 +1780,17 @@ BOOL _hasBegin;
     BOOL isAdjust = NO;
     
     CGRect rectSuper = newSuperview.bounds;
-    CGRect rectSelf = self.frame;
+    CGFloat leftMargin = [self.leftPos realMarginInSize:rectSuper.size.width];
+    CGFloat rightMargin = [self.rightPos realMarginInSize:rectSuper.size.width];
+    CGFloat topMargin = [self.topPos realMarginInSize:rectSuper.size.height];
+    CGFloat bottomMargin = [self.bottomPos realMarginInSize:rectSuper.size.height];
+    CGRect rectSelf = self.bounds;
+    
+    //得到在设置center后的原始值。
+    rectSelf.origin.x = self.center.x - rectSelf.size.width * self.layer.anchorPoint.x;
+    rectSelf.origin.y = self.center.y - rectSelf.size.height * self.layer.anchorPoint.y;
+    
+    CGRect oldRectSelf = rectSelf;
     
     //确定左右边距和宽度。
     if (self.widthDime.dimeVal != nil)
@@ -1745,7 +1799,14 @@ BOOL _hasBegin;
         
         if (self.widthDime.dimeRelaVal != nil)
         {
-            rectSelf.size.width = rectSuper.size.width*self.widthDime.mutilVal + self.widthDime.addVal;
+            if (self.widthDime.dimeRelaVal.view == newSuperview)
+            {
+                rectSelf.size.width = [self.widthDime measureWith:rectSuper.size.width];
+            }
+            else
+            {
+                rectSelf.size.width = [self.widthDime measureWith:self.widthDime.dimeRelaVal.view.estimatedRect.size.width];
+            }
             isAdjust = YES;
         }
         else
@@ -1758,24 +1819,24 @@ BOOL _hasBegin;
     {
         isAdjust = YES;
         [self setWrapContentWidthNoLayout:NO];
-        rectSelf.size.width = rectSuper.size.width - self.leftPos.margin - self.rightPos.margin;
+        rectSelf.size.width = rectSuper.size.width - leftMargin - rightMargin;
         rectSelf.size.width = [self validMeasure:self.widthDime sbv:self calcSize:rectSelf.size.width sbvSize:rectSelf.size selfLayoutSize:rectSuper.size];
         
-        rectSelf.origin.x = self.leftPos.margin;
+        rectSelf.origin.x = leftMargin;
     }
     else if (self.centerXPos.posVal != nil)
     {
         isAdjust = YES;
-        rectSelf.origin.x = (rectSuper.size.width - rectSelf.size.width)/2 + self.centerXPos.margin;
+        rectSelf.origin.x = (rectSuper.size.width - rectSelf.size.width)/2 + [self.centerXPos realMarginInSize:rectSuper.size.width];
     }
     else if (self.leftPos.posVal != nil)
     {
-        rectSelf.origin.x = self.leftPos.margin;
+        rectSelf.origin.x = leftMargin;
     }
     else if (self.rightPos.posVal != nil)
     {
         isAdjust = YES;
-        rectSelf.origin.x  = rectSuper.size.width - rectSelf.size.width - self.rightPos.margin;
+        rectSelf.origin.x  = rectSuper.size.width - rectSelf.size.width - rightMargin;
     }
     else;
     
@@ -1786,7 +1847,14 @@ BOOL _hasBegin;
         
         if (self.heightDime.dimeRelaVal != nil)
         {
-            rectSelf.size.height = rectSuper.size.height*self.heightDime.mutilVal + self.heightDime.addVal;
+            if (self.heightDime.dimeRelaVal.view == newSuperview)
+            {
+                rectSelf.size.height = [self.heightDime measureWith:rectSuper.size.height];
+            }
+            else
+            {
+                rectSelf.size.height = [self.heightDime measureWith:self.heightDime.dimeRelaVal.view.estimatedRect.size.height];
+            }
             isAdjust = YES;
         }
         else
@@ -1799,33 +1867,40 @@ BOOL _hasBegin;
     {
         isAdjust = YES;
         [self setWrapContentHeightNoLayout:NO];
-        rectSelf.size.height = rectSuper.size.height - self.topPos.margin - self.bottomPos.margin;
+        rectSelf.size.height = rectSuper.size.height - topMargin - bottomMargin;
         rectSelf.size.height = [self validMeasure:self.heightDime sbv:self calcSize:rectSelf.size.height sbvSize:rectSelf.size selfLayoutSize:rectSuper.size];
         
-        rectSelf.origin.y = self.topPos.margin;
+        rectSelf.origin.y = topMargin;
     }
     else if (self.centerYPos.posVal != nil)
     {
         isAdjust = YES;
-        rectSelf.origin.y = (rectSuper.size.height - rectSelf.size.height)/2 + self.centerYPos.margin;
+        rectSelf.origin.y = (rectSuper.size.height - rectSelf.size.height)/2 + [self.centerYPos realMarginInSize:rectSuper.size.height];
     }
     else if (self.topPos.posVal != nil)
     {
-        rectSelf.origin.y = self.topPos.margin;
+        rectSelf.origin.y = topMargin;
     }
     else if (self.bottomPos.posVal != nil)
     {
         isAdjust = YES;
-        rectSelf.origin.y  = rectSuper.size.height - rectSelf.size.height - self.bottomPos.margin;
+        rectSelf.origin.y  = rectSuper.size.height - rectSelf.size.height - bottomMargin;
     }
     else;
     
-
-
-    if (!CGRectEqualToRect(rectSelf, self.frame))
+    
+    if (!CGRectEqualToRect(rectSelf, oldRectSelf))
     {
-        self.frame = rectSelf;
+        self.bounds = CGRectMake(self.bounds.origin.x, self.bounds.origin.y,rectSelf.size.width, rectSelf.size.height);
+        self.center = CGPointMake(rectSelf.origin.x + self.layer.anchorPoint.x * rectSelf.size.width, rectSelf.origin.y + self.layer.anchorPoint.y * rectSelf.size.height);
+        
     }
+    else if (self.wrapContentWidth || self.wrapContentHeight)
+    {
+        [self setNeedsLayout];
+    }
+    
+    
     
     return isAdjust;
 
@@ -1855,7 +1930,7 @@ BOOL _hasBegin;
 }
 
 
--(CGFloat)getBoundLimitMeasure:(MyLayoutDime*)boundDime sbv:(UIView*)sbv dimeType:(MyMarginGravity)dimeType sbvSize:(CGSize)sbvSize selfLayoutSize:(CGSize)selfLayoutSize isUBound:(BOOL)isUBound
+-(CGFloat)getBoundLimitMeasure:(MyLayoutSize*)boundDime sbv:(UIView*)sbv dimeType:(MyMarginGravity)dimeType sbvSize:(CGSize)sbvSize selfLayoutSize:(CGSize)selfLayoutSize isUBound:(BOOL)isUBound
 {
     CGFloat value = isUBound ? CGFLOAT_MAX : -CGFLOAT_MAX;
     
@@ -1866,12 +1941,12 @@ BOOL _hasBegin;
     }
     else if (lValueType == MyLayoutValueType_LayoutDime)
     {
-        if (boundDime.dimeRelaVal.view == self || boundDime.dimeRelaVal.view == self.superview)
+        if (boundDime.dimeRelaVal.view == self)
         {
             if (boundDime.dimeRelaVal.dime == MyMarginGravity_Horz_Fill)
-                value = selfLayoutSize.width - (boundDime.dimeRelaVal.view == self ? (self.leftPadding - self.rightPadding) : 0);
+                value = selfLayoutSize.width - (boundDime.dimeRelaVal.view == self ? (self.leftPadding + self.rightPadding) : 0);
             else
-                value = selfLayoutSize.height - (boundDime.dimeRelaVal.view == self ? (self.topPadding - self.bottomPadding) :0);
+                value = selfLayoutSize.height - (boundDime.dimeRelaVal.view == self ? (self.topPadding + self.bottomPadding) :0);
         }
         else if (boundDime.dimeRelaVal.view == sbv)
         {
@@ -1888,17 +1963,22 @@ BOOL _hasBegin;
                     value = sbvSize.height;
             }
         }
+        else if (boundDime.dimeSelfVal != nil)
+        {
+            if (dimeType == MyMarginGravity_Horz_Fill)
+                value = sbvSize.width;
+            else
+                value = sbvSize.height;
+        }
         else
         {
             if (boundDime.dimeRelaVal.dime == MyMarginGravity_Horz_Fill)
             {
-                if (boundDime.dimeRelaVal.view.absPos.width != CGFLOAT_MAX)
-                    value = boundDime.dimeRelaVal.view.absPos.width;
+                value = boundDime.dimeRelaVal.view.estimatedRect.size.width;
             }
             else
             {
-                if (boundDime.dimeRelaVal.view.absPos.height != CGFLOAT_MAX)
-                    value = boundDime.dimeRelaVal.view.absPos.height;
+                value = boundDime.dimeRelaVal.view.estimatedRect.size.height;
             }
         }
         
@@ -1918,7 +1998,7 @@ BOOL _hasBegin;
 
 
 
--(CGFloat)validMeasure:(MyLayoutDime*)dime sbv:(UIView*)sbv calcSize:(CGFloat)calcSize sbvSize:(CGSize)sbvSize selfLayoutSize:(CGSize)selfLayoutSize
+-(CGFloat)validMeasure:(MyLayoutSize*)dime sbv:(UIView*)sbv calcSize:(CGFloat)calcSize sbvSize:(CGSize)sbvSize selfLayoutSize:(CGSize)selfLayoutSize
 {    
     //算出最大最小值。
     CGFloat min = [self getBoundLimitMeasure:dime.lBoundVal sbv:sbv dimeType:dime.dime sbvSize:sbvSize selfLayoutSize:selfLayoutSize isUBound:NO];
@@ -1940,7 +2020,7 @@ BOOL _hasBegin;
         value = boundPos.posNumVal.doubleValue;
     else if (lValueType == MyLayoutValueType_LayoutPos)
     {
-        CGRect rect = boundPos.posRelaVal.view.absPos.frame;
+        CGRect rect = boundPos.posRelaVal.view.myFrame.frame;
         
         MyMarginGravity pos = boundPos.posRelaVal.pos;
         if (pos == MyMarginGravity_Horz_Left)
@@ -1997,7 +2077,7 @@ BOOL _hasBegin;
 
 -(BOOL)isNoLayoutSubview:(UIView*)sbv
 {
-    return ((sbv.isHidden || sbv.absPos.sizeClass.isHidden) && self.hideSubviewReLayout) || sbv.useFrame;
+    return ((sbv.isHidden || sbv.myFrame.sizeClass.isHidden) && self.hideSubviewReLayout) || sbv.useFrame;
 }
 
 -(NSMutableArray*)getLayoutSubviews
@@ -2098,3 +2178,96 @@ BOOL _hasBegin;
 
 
 @end
+
+
+@implementation MyFrame
+
+-(id)init
+{
+    self = [super init];
+    if (self != nil)
+    {
+        _leftPos = CGFLOAT_MAX;
+        _rightPos = CGFLOAT_MAX;
+        _topPos = CGFLOAT_MAX;
+        _bottomPos = CGFLOAT_MAX;
+        _width = CGFLOAT_MAX;
+        _height = CGFLOAT_MAX;
+        
+    }
+    
+    return self;
+}
+
+-(void)reset
+{
+    _leftPos = CGFLOAT_MAX;
+    _rightPos = CGFLOAT_MAX;
+    _topPos = CGFLOAT_MAX;
+    _bottomPos = CGFLOAT_MAX;
+    _width = CGFLOAT_MAX;
+    _height = CGFLOAT_MAX;
+}
+
+
+-(CGRect)frame
+{
+    return CGRectMake(_leftPos, _topPos,_width, _height);
+}
+
+-(void)setFrame:(CGRect)frame
+{
+    _leftPos = frame.origin.x;
+    _topPos = frame.origin.y;
+    _width  = frame.size.width;
+    _height = frame.size.height;
+    _rightPos = _leftPos + _width;
+    _bottomPos = _topPos + _height;
+}
+
+-(NSString*)description
+{
+    return [NSString stringWithFormat:@"LeftPos:%g, TopPos:%g, Width:%g, Height:%g, RightPos:%g, BottomPos:%g",_leftPos,_topPos,_width,_height,_rightPos,_bottomPos];
+}
+
+
+@end
+
+
+BOOL _myCGFloatEqual(CGFloat f1, CGFloat f2)
+{
+#if CGFLOAT_IS_DOUBLE == 1
+    return fabs(f1 - f2) < 1e-7;
+#else
+    return fabsf(f1 - f2) < 1e-4;
+#endif
+}
+
+BOOL _myCGFloatNotEqual(CGFloat f1, CGFloat f2)
+{
+#if CGFLOAT_IS_DOUBLE == 1
+    return fabs(f1 - f2) > 1e-7;
+#else
+    return fabsf(f1 - f2) > 1e-4;
+#endif
+}
+
+
+BOOL _myCGFloatLessOrEqual(CGFloat f1, CGFloat f2)
+{
+    
+#if CGFLOAT_IS_DOUBLE == 1
+    return f1 < f2 || fabs(f1 - f2) < 1e-7;
+#else
+    return f1 < f2 || fabsf(f1 - f2) < 1e-4;
+#endif
+}
+
+BOOL _myCGFloatGreatOrEqual(CGFloat f1, CGFloat f2)
+{
+#if CGFLOAT_IS_DOUBLE == 1
+    return f1 > f2 || fabs(f1 - f2) < 1e-7;
+#else
+    return f1 > f2 || fabsf(f1 - f2) < 1e-4;
+#endif
+}

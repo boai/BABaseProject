@@ -292,13 +292,13 @@
     switch (type)
     {
         case BARegularExpressionTypePhone:
-            if ([BARegularExpression ba_isPhoneNumber:inputText])
+            if ([BARegularExpression ba_isMobileNumber:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是电话号码！"];
             }
             else
             {
-                [self.view ba_showAlertView:@"温馨提示：" message:@"输入的电话号码格式错误！"];
+                [self.view ba_showAlertView:@"错误提示：" message:@"输入的电话号码格式错误！"];
             }
             break;
         case BARegularExpressionTypeEmail:

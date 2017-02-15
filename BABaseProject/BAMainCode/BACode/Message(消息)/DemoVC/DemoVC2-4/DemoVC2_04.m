@@ -28,7 +28,6 @@
 /*! 大头针动画 */
 #import "MyAnimatedAnnotationView.h"
 
-#import "BAUserModel.h"
 
 
 #define MYBUNDLE_NAME @ "mapapi.bundle"
@@ -53,7 +52,6 @@
     BMKPointAnnotation  *pointAnnotation;
     BMKPointAnnotation  *animatedAnnotation;
 }
-@property (nonatomic, strong) BAUserModel *userModel;
 
 @property (nonatomic, assign) float latitude;    //当前所处位置的纬度
 @property (nonatomic, assign) float longitude;    //当前所处位置的经度

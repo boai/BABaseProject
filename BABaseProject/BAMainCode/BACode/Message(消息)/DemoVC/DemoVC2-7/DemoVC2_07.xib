@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoVC2_07">
+            <connections>
+                <outlet property="segmentControl" destination="BgT-TS-Cv3" id="fmF-Mc-m0a"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BgT-TS-Cv3">
+                    <rect key="frame" x="20" y="65" width="335" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0H7-Hf-t4J"/>
+                    </constraints>
+                    <segments>
+                        <segment title="选择排序"/>
+                        <segment title="冒泡排序"/>
+                        <segment title="快速排序"/>
+                        <segment title="堆排序"/>
+                        <segment title="插入排序"/>
+                    </segments>
+                    <color key="tintColor" red="0.96674096580000002" green="0.030850609760000001" blue="0.15443938970000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="BgT-TS-Cv3" secondAttribute="trailing" constant="20" id="56U-qC-omx"/>
+                <constraint firstItem="BgT-TS-Cv3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="xMs-e1-h5J"/>
+                <constraint firstItem="BgT-TS-Cv3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="yAP-zK-6vy"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="-49.5" y="152.5"/>
+        </view>
+    </objects>
+</document>

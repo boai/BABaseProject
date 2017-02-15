@@ -181,17 +181,28 @@
 }
 
 
--(void)setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin;
+-(void)setSubviewsSize:(CGFloat)subviewSize minSpace:(CGFloat)minSpace maxSpace:(CGFloat)maxSpace
 {
-    [self setSubviewFloatMargin:subviewSize minMargin:minMargin inSizeClass:MySizeClass_hAny | MySizeClass_wAny];
+    [self setSubviewsSize:subviewSize minSpace:minSpace maxSpace:maxSpace inSizeClass:MySizeClass_hAny | MySizeClass_wAny];
+}
+
+-(void)setSubviewsSize:(CGFloat)subviewSize minSpace:(CGFloat)minSpace maxSpace:(CGFloat)maxSpace inSizeClass:(MySizeClass)sizeClass
+{
+    MyFloatLayoutViewSizeClass *lsc = (MyFloatLayoutViewSizeClass*)[self fetchLayoutSizeClass:sizeClass];
+    lsc.subviewSize = subviewSize;
+    lsc.minSpace = minSpace;
+    lsc.maxSpace = maxSpace;
+    [self setNeedsLayout];
+}
+
+-(void)setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin
+{
+    [self setSubviewsSize:subviewSize minSpace:minMargin maxSpace:CGFLOAT_MAX];
 }
 
 -(void)setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin inSizeClass:(MySizeClass)sizeClass
 {
-    MyLayoutSizeClassFloatLayout *lsc = (MyLayoutSizeClassFloatLayout*)[self fetchLayoutSizeClass:sizeClass];
-    lsc.subviewSize = subviewSize;
-    lsc.minMargin = minMargin;
-    [self setNeedsLayout];
+    [self setSubviewsSize:subviewSize minSpace:minMargin maxSpace:CGFLOAT_MAX inSizeClass:sizeClass];
 }
 
 
@@ -217,7 +228,8 @@
         CGRect rightCandidateRect = ((NSValue*)rightCandidateRects[i]).CGRectValue;
         
         //如果有比重则不能相等只能小于。
-        if ((hasWeight ? CGRectGetMaxX(leftCandidateRect) + width < CGRectGetMinX(rightCandidateRect) : CGRectGetMaxX(leftCandidateRect) + width <= CGRectGetMinX(rightCandidateRect)) &&
+        if ((hasWeight ? CGRectGetMaxX(leftCandidateRect) + width < CGRectGetMinX(rightCandidateRect) : _myCGFloatLessOrEqual(CGRectGetMaxX(leftCandidateRect) + width, CGRectGetMinX(rightCandidateRect))
+             ) &&
             CGRectGetMaxY(leftCandidateRect) > lastHeight)
         {
             retPoint.y = MAX(CGRectGetMinY(leftCandidateRect),lastHeight);
@@ -231,7 +243,7 @@
     
     if (retPoint.y == CGFLOAT_MAX)
     {
-        if ((hasWeight ? CGRectGetMaxX(leftCandidateRect) + width < rightBoundary : CGRectGetMaxX(leftCandidateRect) + width <= rightBoundary ) &&
+        if ((hasWeight ? CGRectGetMaxX(leftCandidateRect) + width < rightBoundary :_myCGFloatLessOrEqual(CGRectGetMaxX(leftCandidateRect) + width, rightBoundary) ) &&
             CGRectGetMaxY(leftCandidateRect) > lastHeight)
         {
             retPoint.y =  MAX(CGRectGetMinY(leftCandidateRect),lastHeight);
@@ -251,7 +263,8 @@
     {
         
         CGRect bottomCandidateRect = ((NSValue*)bottomCandidateRects[i]).CGRectValue;
-        if ((hasWeight ? CGRectGetMaxY(topCandidateRect) + height < CGRectGetMinY(bottomCandidateRect) : CGRectGetMaxY(topCandidateRect) + height <= CGRectGetMinY(bottomCandidateRect)) &&
+        if ((hasWeight ? CGRectGetMaxY(topCandidateRect) + height < CGRectGetMinY(bottomCandidateRect) :/* CGRectGetMaxY(topCandidateRect) + height <= CGRectGetMinY(bottomCandidateRect)*/
+             _myCGFloatLessOrEqual(CGRectGetMaxY(topCandidateRect) + height, CGRectGetMinY(bottomCandidateRect))) &&
             CGRectGetMaxX(topCandidateRect) > lastWidth)
         {
             retPoint.x = MAX(CGRectGetMinX(topCandidateRect),lastWidth);
@@ -265,7 +278,7 @@
     
     if (retPoint.x == CGFLOAT_MAX)
     {
-        if ((hasWeight ? CGRectGetMaxY(topCandidateRect) + height < bottomBoundary : CGRectGetMaxY(topCandidateRect) + height <= bottomBoundary ) &&
+        if ((hasWeight ? CGRectGetMaxY(topCandidateRect) + height < bottomBoundary : /*CGRectGetMaxY(topCandidateRect) + height <= bottomBoundary*/_myCGFloatLessOrEqual(CGRectGetMaxY(topCandidateRect) + height, bottomBoundary) ) &&
             CGRectGetMaxX(topCandidateRect) > lastWidth)
         {
             retPoint.x =  MAX(CGRectGetMinX(topCandidateRect),lastWidth);
@@ -286,7 +299,8 @@
     {
         
         CGRect leftCandidateRect = ((NSValue*)leftCandidateRects[i]).CGRectValue;
-        if ((hasWeight ? CGRectGetMinX(rightCandidateRect) - width > CGRectGetMaxX(leftCandidateRect) : CGRectGetMinX(rightCandidateRect) - width >= CGRectGetMaxX(leftCandidateRect)) &&
+        if ((hasWeight ? CGRectGetMinX(rightCandidateRect) - width > CGRectGetMaxX(leftCandidateRect) : /*CGRectGetMinX(rightCandidateRect) - width >= CGRectGetMaxX(leftCandidateRect)*/
+             _myCGFloatGreatOrEqual(CGRectGetMinX(rightCandidateRect) - width, CGRectGetMaxX(leftCandidateRect))) &&
             CGRectGetMaxY(rightCandidateRect) > lastHeight)
         {
             retPoint.y = MAX(CGRectGetMinY(rightCandidateRect),lastHeight);
@@ -300,7 +314,8 @@
     
     if (retPoint.y == CGFLOAT_MAX)
     {
-        if ((hasWeight ? CGRectGetMinX(rightCandidateRect) - width > leftBoundary : CGRectGetMinX(rightCandidateRect) - width >= leftBoundary) &&
+        if ((hasWeight ? CGRectGetMinX(rightCandidateRect) - width > leftBoundary : /*CGRectGetMinX(rightCandidateRect) - width >= leftBoundary*/
+             _myCGFloatGreatOrEqual(CGRectGetMinX(rightCandidateRect) - width, leftBoundary)) &&
             CGRectGetMaxY(rightCandidateRect) > lastHeight)
         {
             retPoint.y =  MAX(CGRectGetMinY(rightCandidateRect),lastHeight);
@@ -320,7 +335,8 @@
     {
         
         CGRect topCandidateRect = ((NSValue*)topCandidateRects[i]).CGRectValue;
-        if ((hasWeight ? CGRectGetMinY(bottomCandidateRect) - height > CGRectGetMaxY(topCandidateRect) : CGRectGetMinY(bottomCandidateRect) - height >= CGRectGetMaxY(topCandidateRect)) &&
+        if ((hasWeight ? CGRectGetMinY(bottomCandidateRect) - height > CGRectGetMaxY(topCandidateRect) : /*CGRectGetMinY(bottomCandidateRect) - height >= CGRectGetMaxY(topCandidateRect)*/
+             _myCGFloatGreatOrEqual(CGRectGetMinY(bottomCandidateRect) - height, CGRectGetMaxY(topCandidateRect))) &&
             CGRectGetMaxX(bottomCandidateRect) > lastWidth)
         {
             retPoint.x = MAX(CGRectGetMinX(bottomCandidateRect),lastWidth);
@@ -334,7 +350,8 @@
     
     if (retPoint.x == CGFLOAT_MAX)
     {
-        if ((hasWeight ? CGRectGetMinY(bottomCandidateRect) - height > topBoundary : CGRectGetMinY(bottomCandidateRect) - height >= topBoundary) &&
+        if ((hasWeight ? CGRectGetMinY(bottomCandidateRect) - height > topBoundary : /*CGRectGetMinY(bottomCandidateRect) - height >= topBoundary*/
+             _myCGFloatGreatOrEqual(CGRectGetMinY(bottomCandidateRect) - height, topBoundary)) &&
             CGRectGetMaxX(bottomCandidateRect) > lastWidth)
         {
             retPoint.x =  MAX(CGRectGetMinX(bottomCandidateRect),lastWidth);
@@ -357,6 +374,7 @@
     if (!hasBoundaryLimit)
         selfSize.width = CGFLOAT_MAX;
 
+    //CGFloat
     
     //遍历所有的子视图，查看是否有子视图的宽度会比视图自身要宽，如果有且有包裹属性则扩充自身的宽度
     if (self.wrapContentWidth && hasBoundaryLimit)
@@ -366,7 +384,7 @@
         {
             CGFloat leftMargin = sbv.leftPos.margin;
             CGFloat rightMargin = sbv.rightPos.margin;
-            CGRect rect = sbv.absPos.frame;
+            CGRect rect = sbv.myFrame.frame;
             
             //因为这里是计算包裹宽度属性，所以只会计算那些设置了固定宽度的子视图
             
@@ -404,22 +422,33 @@
     //支持浮动水平间距。
     CGFloat vertMargin = self.subviewVertMargin;
     CGFloat horzMargin = self.subviewHorzMargin;
-    CGFloat subviewSize = ((MyLayoutSizeClassFloatLayout*)self.myCurrentSizeClass).subviewSize;
+    CGFloat subviewSize = ((MyFloatLayoutViewSizeClass*)self.myCurrentSizeClass).subviewSize;
     if (subviewSize != 0)
     {
         
 #ifdef DEBUG
         //异常崩溃：当布局视图设置了noBoundaryLimit为YES时，不能设置最小垂直间距。
-        NSCAssert(hasBoundaryLimit, @"Constraint exception！！, vertical float layout:%@ can not set noBoundaryLimit to YES when call  setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin  method",self);
+        NSCAssert(hasBoundaryLimit, @"Constraint exception！！, vertical float layout:%@ can not set noBoundaryLimit to YES when call setSubviewsSize:minSpace:maxSpace  method",self);
 #endif
 
         
-        CGFloat minMargin = ((MyLayoutSizeClassFloatLayout*)self.myCurrentSizeClass).minMargin;
+        CGFloat minSpace = ((MyFloatLayoutViewSizeClass*)self.myCurrentSizeClass).minSpace;
+        CGFloat maxSpace = ((MyFloatLayoutViewSizeClass*)self.myCurrentSizeClass).maxSpace;
         
-        NSInteger rowCount =  floor((selfSize.width - padding.left - padding.right  + minMargin) / (subviewSize + minMargin));
+        NSInteger rowCount =  floor((selfSize.width - padding.left - padding.right  + minSpace) / (subviewSize + minSpace));
         if (rowCount > 1)
         {
             horzMargin = (selfSize.width - padding.left - padding.right - subviewSize * rowCount)/(rowCount - 1);
+            
+            //如果超过最大间距则调整子视图的宽度。
+            if (horzMargin > maxSpace)
+            {
+                horzMargin = maxSpace;
+                
+                subviewSize =  (selfSize.width - padding.left - padding.right -  horzMargin * (rowCount - 1)) / rowCount;
+                
+            }
+
         }
     }
 
@@ -450,7 +479,11 @@
         CGFloat leftMargin = sbv.leftPos.margin;
         CGFloat bottomMargin = sbv.bottomPos.margin;
         CGFloat rightMargin = sbv.rightPos.margin;
-        CGRect rect = sbv.absPos.frame;
+        CGRect rect = sbv.myFrame.frame;
+        
+        
+        if (subviewSize != 0)
+            rect.size.width = subviewSize;
         
         if (sbv.widthDime.dimeNumVal != nil)
             rect.size.width = sbv.widthDime.measure;
@@ -476,12 +509,12 @@
         
         if (sbv.widthDime.dimeRelaVal != nil &&  sbv.widthDime.dimeRelaVal.view != nil &&  sbv.widthDime.dimeRelaVal.view != self && sbv.widthDime.dimeRelaVal.view != sbv)
         {
-            rect.size.width = sbv.widthDime.dimeRelaVal.view.absPos.width * sbv.widthDime.mutilVal + sbv.widthDime.addVal;
+            rect.size.width = sbv.widthDime.dimeRelaVal.view.myFrame.width * sbv.widthDime.mutilVal + sbv.widthDime.addVal;
         }
         
         if (sbv.heightDime.dimeRelaVal != nil &&  sbv.heightDime.dimeRelaVal.view != nil &&  sbv.heightDime.dimeRelaVal.view != self && sbv.heightDime.dimeRelaVal.view != sbv)
         {
-            rect.size.height = sbv.heightDime.dimeRelaVal.view.absPos.height * sbv.heightDime.mutilVal + sbv.heightDime.addVal;
+            rect.size.height = sbv.heightDime.dimeRelaVal.view.myFrame.height * sbv.heightDime.mutilVal + sbv.heightDime.addVal;
         }
         
         rect.size.width = [self validMeasure:sbv.widthDime sbv:sbv calcSize:rect.size.width sbvSize:rect.size selfLayoutSize:selfSize];
@@ -609,7 +642,8 @@
             for (NSInteger i = leftCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)leftCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxY(candidateRect) <= CGRectGetMinY(cRect))
+                if (/*CGRectGetMaxY(candidateRect) <= CGRectGetMinY(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxY(candidateRect), CGRectGetMinY(cRect)))
                     [leftCandidateRects removeObjectAtIndex:i];
             }
 
@@ -718,7 +752,8 @@
             for (NSInteger i = leftCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)leftCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxY(candidateRect) <= CGRectGetMaxY(cRect))
+                if (/*CGRectGetMaxY(candidateRect) <= CGRectGetMaxY(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxY(candidateRect), CGRectGetMaxY(cRect)))
                     [leftCandidateRects removeObjectAtIndex:i];
             }
             
@@ -726,7 +761,8 @@
             for (NSInteger i = rightCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)rightCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxY(candidateRect) <= CGRectGetMinY(cRect))
+                if (/*CGRectGetMaxY(candidateRect) <= CGRectGetMinY(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxY(candidateRect), CGRectGetMinY(cRect)))
                     [rightCandidateRects removeObjectAtIndex:i];
             }
             
@@ -744,7 +780,7 @@
         if (rect.origin.x + rect.size.width + rightMargin + horzMargin > maxWidth)
             maxWidth = rect.origin.x + rect.size.width + rightMargin + horzMargin;
         
-        sbv.absPos.frame = rect;
+        sbv.myFrame.frame = rect;
         
     }
     
@@ -781,7 +817,7 @@
             {
                 UIView *sbv = sbs[i];
                 
-                sbv.absPos.topPos += addYPos;
+                sbv.myFrame.topPos += addYPos;
             }
         }
         
@@ -809,7 +845,7 @@
         {
             CGFloat topMargin = sbv.topPos.margin;
             CGFloat bottomMargin = sbv.bottomPos.margin;
-            CGRect rect = sbv.absPos.frame;
+            CGRect rect = sbv.myFrame.frame;
             
             
             //这里有可能设置了固定的高度
@@ -852,20 +888,30 @@
     //支持浮动垂直间距。
     CGFloat horzMargin = self.subviewHorzMargin;
     CGFloat vertMargin = self.subviewVertMargin;
-    CGFloat subviewSize = ((MyLayoutSizeClassFloatLayout*)self.myCurrentSizeClass).subviewSize;
+    CGFloat subviewSize = ((MyFloatLayoutViewSizeClass*)self.myCurrentSizeClass).subviewSize;
     if (subviewSize != 0)
     {
 #ifdef DEBUG
         //异常崩溃：当布局视图设置了noBoundaryLimit为YES时，不能设置最小垂直间距。
-        NSCAssert(hasBoundaryLimit, @"Constraint exception！！, horizontal float layout:%@ can not set noBoundaryLimit to YES when call  setSubviewFloatMargin:(CGFloat)subviewSize minMargin:(CGFloat)minMargin  method",self);
+        NSCAssert(hasBoundaryLimit, @"Constraint exception！！, horizontal float layout:%@ can not set noBoundaryLimit to YES when call setSubviewsSize:minSpace:maxSpace  method",self);
 #endif
         
-        CGFloat minMargin = ((MyLayoutSizeClassFloatLayout*)self.myCurrentSizeClass).minMargin;
+        CGFloat minSpace = ((MyFloatLayoutViewSizeClass*)self.myCurrentSizeClass).minSpace;
+        CGFloat maxSpace = ((MyFloatLayoutViewSizeClass*)self.myCurrentSizeClass).maxSpace;
 
-        NSInteger rowCount =  floor((selfSize.height - padding.top - padding.bottom  + minMargin) / (subviewSize + minMargin));
+        NSInteger rowCount =  floor((selfSize.height - padding.top - padding.bottom  + minSpace) / (subviewSize + minSpace));
         if (rowCount > 1)
         {
             vertMargin = (selfSize.height - padding.top - padding.bottom - subviewSize * rowCount)/(rowCount - 1);
+            
+            if (vertMargin > maxSpace)
+            {
+                vertMargin = maxSpace;
+                
+                subviewSize =  (selfSize.height - padding.top - padding.bottom -  vertMargin * (rowCount - 1)) / rowCount;
+                
+            }
+
         }
     }
 
@@ -896,10 +942,13 @@
         CGFloat leftMargin = sbv.leftPos.margin;
         CGFloat bottomMargin = sbv.bottomPos.margin;
         CGFloat rightMargin = sbv.rightPos.margin;
-        CGRect rect = sbv.absPos.frame;
+        CGRect rect = sbv.myFrame.frame;
         
         if (sbv.widthDime.dimeNumVal != nil)
             rect.size.width = sbv.widthDime.measure;
+        
+        if (subviewSize != 0)
+            rect.size.height = subviewSize;
         
         if (sbv.heightDime.dimeNumVal != nil)
             rect.size.height = sbv.heightDime.measure;
@@ -923,12 +972,12 @@
         
         if (sbv.widthDime.dimeRelaVal != nil &&  sbv.widthDime.dimeRelaVal.view != nil &&  sbv.widthDime.dimeRelaVal.view != self && sbv.widthDime.dimeRelaVal.view != sbv)
         {
-            rect.size.width = sbv.widthDime.dimeRelaVal.view.absPos.width * sbv.widthDime.mutilVal + sbv.widthDime.addVal;
+            rect.size.width = sbv.widthDime.dimeRelaVal.view.myFrame.width * sbv.widthDime.mutilVal + sbv.widthDime.addVal;
         }
         
         if (sbv.heightDime.dimeRelaVal != nil &&  sbv.heightDime.dimeRelaVal.view != nil &&  sbv.heightDime.dimeRelaVal.view != self && sbv.heightDime.dimeRelaVal.view != sbv)
         {
-            rect.size.height = sbv.heightDime.dimeRelaVal.view.absPos.height * sbv.heightDime.mutilVal + sbv.heightDime.addVal;
+            rect.size.height = sbv.heightDime.dimeRelaVal.view.myFrame.height * sbv.heightDime.mutilVal + sbv.heightDime.addVal;
         }
 
         rect.size.width = [self validMeasure:sbv.widthDime sbv:sbv calcSize:rect.size.width sbvSize:rect.size selfLayoutSize:selfSize];
@@ -1037,7 +1086,8 @@
             for (NSInteger i = bottomCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)bottomCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxX(candidateRect) <= CGRectGetMaxX(cRect))
+                if (/*CGRectGetMaxX(candidateRect) <= CGRectGetMaxX(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxX(candidateRect), CGRectGetMaxX(cRect)))
                     [bottomCandidateRects removeObjectAtIndex:i];
             }
             
@@ -1045,7 +1095,8 @@
             for (NSInteger i = topCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)topCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxX(candidateRect) <= CGRectGetMinX(cRect))
+                if (/*CGRectGetMaxX(candidateRect) <= CGRectGetMinX(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxX(candidateRect), CGRectGetMinX(cRect)))
                     [topCandidateRects removeObjectAtIndex:i];
             }
             
@@ -1146,7 +1197,8 @@
             for (NSInteger i = topCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)topCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxX(candidateRect) <= CGRectGetMaxX(cRect))
+                if (/*CGRectGetMaxX(candidateRect) <= CGRectGetMaxX(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxX(candidateRect), CGRectGetMaxX(cRect)))
                     [topCandidateRects removeObjectAtIndex:i];
             }
             
@@ -1154,7 +1206,8 @@
             for (NSInteger i = bottomCandidateRects.count - 1; i >= 0; i--)
             {
                 CGRect candidateRect = ((NSValue*)bottomCandidateRects[i]).CGRectValue;
-                if (CGRectGetMaxX(candidateRect) <= CGRectGetMinX(cRect))
+                if (/*CGRectGetMaxX(candidateRect) <= CGRectGetMinX(cRect)*/
+                    _myCGFloatLessOrEqual(CGRectGetMaxX(candidateRect), CGRectGetMinX(cRect)))
                     [bottomCandidateRects removeObjectAtIndex:i];
             }
 
@@ -1173,7 +1226,7 @@
         if (rect.origin.y + rect.size.height + bottomMargin + vertMargin > maxHeight)
             maxHeight = rect.origin.y + rect.size.height + bottomMargin + vertMargin;
         
-        sbv.absPos.frame = rect;
+        sbv.myFrame.frame = rect;
         
     }
     
@@ -1210,7 +1263,7 @@
             {
                 UIView *sbv = sbs[i];
                 
-                sbv.absPos.leftPos += addXPos;
+                sbv.myFrame.leftPos += addXPos;
             }
         }
         
@@ -1231,8 +1284,8 @@
     {
         if (!isEstimate)
         {
-            sbv.absPos.frame = sbv.bounds;
-            [self calcSizeOfWrapContentSubview:sbv];    
+            sbv.myFrame.frame = sbv.bounds;
+            [self calcSizeOfWrapContentSubview:sbv selfLayoutSize:selfSize];
         }
         
         if ([sbv isKindOfClass:[MyBaseLayout class]])
@@ -1261,8 +1314,8 @@
                         
             if (isEstimate && (sbvl.wrapContentHeight || sbvl.wrapContentWidth))
             {
-                [sbvl estimateLayoutRect:sbvl.absPos.frame.size inSizeClass:sizeClass];
-                sbvl.absPos.sizeClass = [sbvl myBestSizeClass:sizeClass]; //因为estimateLayoutRect执行后会还原，所以这里要重新设置
+                [sbvl estimateLayoutRect:sbvl.myFrame.frame.size inSizeClass:sizeClass];
+                sbvl.myFrame.sizeClass = [sbvl myBestSizeClass:sizeClass]; //因为estimateLayoutRect执行后会还原，所以这里要重新设置
             }
         }
     }
@@ -1283,7 +1336,7 @@
 
 -(id)createSizeClassInstance
 {
-    return [MyLayoutSizeClassFloatLayout new];
+    return [MyFloatLayoutViewSizeClass new];
 }
 
 

@@ -9,8 +9,9 @@
 
 #import "MyLayoutDef.h"
 #import "MyLayoutPos.h"
-#import "MyLayoutDime.h"
+#import "MyLayoutSize.h"
 
+@class MyBaseLayout;
 
 /*
  SizeClass的尺寸定义,用于定义苹果设备的各种屏幕的尺寸，对于任意一种设备来说某个纬度的尺寸都可以描述为：Any任意，Compact压缩，Regular常规
@@ -102,7 +103,7 @@ typedef enum : unsigned char{
  SizeClass，以及MySizeClass_Portrait或者MySizeClass_Landscape 也就是设置布局默认的约束。而iOS8以上的系统则能支持所有的SizeClass.
   
  */
-@interface MyLayoutSizeClass:NSObject<NSCopying>
+@interface MyViewSizeClass:NSObject<NSCopying>
 
 
 //所有视图通用
@@ -125,8 +126,8 @@ typedef enum : unsigned char{
 
 
 
-@property(nonatomic, strong)  MyLayoutDime *widthDime;
-@property(nonatomic, strong)  MyLayoutDime *heightDime;
+@property(nonatomic, strong)  MyLayoutSize *widthDime;
+@property(nonatomic, strong)  MyLayoutSize *heightDime;
 
 @property(nonatomic,assign) CGFloat myWidth;
 @property(nonatomic,assign) CGFloat myHeight;
@@ -138,7 +139,7 @@ typedef enum : unsigned char{
 @property(nonatomic, assign) BOOL useFrame;
 @property(nonatomic, assign) BOOL noLayout;
 
-@property(nonatomic, copy) void (^viewLayoutCompleteBlock)(UIView* layout, UIView *v);
+@property(nonatomic, copy) void (^viewLayoutCompleteBlock)(MyBaseLayout* layout, UIView *v);
 
 /*
  隐藏不参与布局，这个属性是默认sizeClass外可以用来设置某个视图是否参与布局的标志，如果设置为YES则表示不参与布局。默认是NO。
@@ -162,7 +163,7 @@ typedef enum : unsigned char{
 @end
 
 
-@interface MyLayoutSizeClassLayout : MyLayoutSizeClass
+@interface MyLayoutViewSizeClass : MyViewSizeClass
 
 @property(nonatomic,assign) UIEdgeInsets padding;
 @property(nonatomic, assign) CGFloat topPadding;
@@ -182,9 +183,7 @@ typedef enum : unsigned char{
 @end
 
 
-
-
-@interface MyLayoutSizeClassLinearLayout : MyLayoutSizeClassLayout
+@interface MySequentLayoutViewSizeClass : MyLayoutViewSizeClass
 
 @property(nonatomic,assign) MyLayoutViewOrientation orientation;
 @property(nonatomic, assign) MyMarginGravity gravity;
@@ -193,11 +192,21 @@ typedef enum : unsigned char{
 @property(nonatomic, assign) CGFloat subviewHorzMargin;
 @property(nonatomic, assign) CGFloat subviewMargin;
 
+
 @end
 
 
 
-@interface MyLayoutSizeClassTableLayout : MyLayoutSizeClassLinearLayout
+
+@interface MyLinearLayoutViewSizeClass : MySequentLayoutViewSizeClass
+
+@property(nonatomic, assign) MySubviewsShrinkType shrinkType;
+
+@end
+
+
+
+@interface MyTableLayoutViewSizeClass : MyLinearLayoutViewSizeClass
 
 @property(nonatomic, assign) CGFloat rowSpacing;
 @property(nonatomic, assign) CGFloat colSpacing;
@@ -205,27 +214,32 @@ typedef enum : unsigned char{
 @end
 
 
-@interface MyLayoutSizeClassFlowLayout : MyLayoutSizeClassLinearLayout
+@interface MyFlowLayoutViewSizeClass : MySequentLayoutViewSizeClass
 
 @property(nonatomic,assign) NSInteger arrangedCount;
 @property(nonatomic,assign) BOOL averageArrange;
 @property(nonatomic,assign) BOOL autoArrange;
 @property(nonatomic,assign) MyMarginGravity arrangedGravity;
 
+@property(nonatomic, assign) CGFloat subviewSize;
+@property(nonatomic, assign) CGFloat minSpace;
+@property(nonatomic, assign) CGFloat maxSpace;
+
 
 @end
 
 
-@interface MyLayoutSizeClassFloatLayout : MyLayoutSizeClassLinearLayout
+@interface MyFloatLayoutViewSizeClass : MySequentLayoutViewSizeClass
 
 @property(nonatomic, assign) CGFloat subviewSize;
-@property(nonatomic, assign) CGFloat minMargin;
+@property(nonatomic, assign) CGFloat minSpace;
+@property(nonatomic, assign) CGFloat maxSpace;
 @property(nonatomic,assign) BOOL noBoundaryLimit;
 
 @end
 
 
-@interface MyLayoutSizeClassRelativeLayout : MyLayoutSizeClassLayout
+@interface MyRelativeLayoutViewSizeClass : MyLayoutViewSizeClass
 
 @property(nonatomic, assign) BOOL flexOtherViewWidthWhenSubviewHidden;
 @property(nonatomic, assign) BOOL flexOtherViewHeightWhenSubviewHidden;
@@ -234,7 +248,12 @@ typedef enum : unsigned char{
 @end
 
 
-@interface MyLayoutSizeClassPathLayout  : MyLayoutSizeClassLayout
+@interface MyFrameLayoutViewSizeClass : MyLayoutViewSizeClass
+
+
+@end
+
+@interface MyPathLayoutViewSizeClass  : MyLayoutViewSizeClass
 
 
 @end

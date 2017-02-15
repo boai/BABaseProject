@@ -1,0 +1,6 @@
+framework module UShareUI {
+  umbrella header "UShareUI.h"
+
+  export *
+  module * { export * }
+}

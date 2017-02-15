@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BAProfileHeadCell"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BAProfileHeadCell" rowHeight="76" id="KGk-i7-Jjw" customClass="BAProfileHeadCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="博爱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="MJ0-oa-raO">
+                        <rect key="frame" x="82" y="17" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="boai1616" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="W6f-Ib-FXn">
+                        <rect key="frame" x="82" y="43" width="54" height="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BAProfile.bundle/qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="LPx-YA-zwl">
+                        <rect key="frame" x="262" y="28" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="691-je-oJH"/>
+                            <constraint firstAttribute="height" constant="20" id="CoO-Kd-RqK"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BAProfile.bundle/xhr" translatesAutoresizingMaskIntoConstraints="NO" id="LFI-WM-bjw">
+                        <rect key="frame" x="10" y="10" width="62" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="31" id="KPj-Wb-R4T"/>
+                            <constraint firstAttribute="width" constant="62" id="eUN-HD-jQO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="31"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KPj-Wb-R4T"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="LPx-YA-zwl" secondAttribute="trailing" constant="5" id="GLc-yp-rgF"/>
+                    <constraint firstItem="MJ0-oa-raO" firstAttribute="bottom" secondItem="LFI-WM-bjw" secondAttribute="bottom" constant="10" id="Gl6-RQ-iSp"/>
+                    <constraint firstAttribute="bottom" secondItem="LFI-WM-bjw" secondAttribute="bottom" constant="10" id="J1n-L5-bZD"/>
+                    <constraint firstItem="W6f-Ib-FXn" firstAttribute="leading" secondItem="MJ0-oa-raO" secondAttribute="leading" id="Liy-nA-17Z"/>
+                    <constraint firstItem="MJ0-oa-raO" firstAttribute="centerY" secondItem="LFI-WM-bjw" secondAttribute="centerY" constant="-10" id="Ncx-ew-MWf"/>
+                    <constraint firstItem="W6f-Ib-FXn" firstAttribute="top" secondItem="MJ0-oa-raO" secondAttribute="bottom" constant="5" id="Pbf-0N-paA"/>
+                    <constraint firstItem="MJ0-oa-raO" firstAttribute="leading" secondItem="LFI-WM-bjw" secondAttribute="trailing" constant="10" id="Z3a-Mz-gpX"/>
+                    <constraint firstItem="LFI-WM-bjw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bCw-PU-bLG"/>
+                    <constraint firstItem="LPx-YA-zwl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hVd-Wl-0Vb"/>
+                    <constraint firstItem="LFI-WM-bjw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="t60-GG-VHf"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Gl6-RQ-iSp"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="QRCodeImgView" destination="LPx-YA-zwl" id="zD2-bm-o0I"/>
+                <outlet property="accountLabel" destination="W6f-Ib-FXn" id="0E6-K1-fRW"/>
+                <outlet property="userImgView" destination="LFI-WM-bjw" id="TY0-Bt-nkZ"/>
+                <outlet property="userNameLabel" destination="MJ0-oa-raO" id="Yq4-qZ-Npr"/>
+            </connections>
+            <point key="canvasLocation" x="140" y="170"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="BAProfile.bundle/qrcode" width="55" height="55"/>
+        <image name="BAProfile.bundle/xhr" width="55" height="55"/>
+    </resources>
+</document>

@@ -52,7 +52,7 @@
     [BANewsNetManager getVideosWithStartIndex:1 completionHandle:^(id model, NSError *error) {
         
 //        [weakSelf BA_hideProgress];
-        [weakSelf ba_showBallLoadingView:NO];
+//        [weakSelf ba_showBallLoadingView:NO];
 
         if (!error)
         {

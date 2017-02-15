@@ -6,22 +6,73 @@
 [![QQ](https://img.shields.io/badge/QQ-156355113-yellow.svg?style=flat)]()
 [![GitHub stars](https://img.shields.io/github/stars/youngsoft/MyLinearLayout.svg)](https://github.com/youngsoft/MyLinearLayout/stargazers)
 
-#MyLayout(2016.10.8)
+##MyLayout(2016.12.5)
+
+MyLayout is a simple and easy objective-c framework for iOS view layout. MyLayout provides some simple functions to build a variety of complex interface. It integrates the functions including: Autolayout and SizeClass of iOS, five layout classes of Android, float and flex-box and bootstrap of HTML/CSS. The MyLayout's Swift version are named: **[TangramKit](https://github.com/youngsoft/TangramKit)**
+
+##### ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) Chinese (Simplified): [中文说明](README.zh.md)
 
 
-## Introduction
----
-**MyLayout is a powerful iOS UI layout framework which is not an encapsulation based on the AutoLayout but is based on primary *frame* property and by overwriting the *layoutSubview* method to realize the subview's layout. So It is unlimited to run in any version of iOS system. Its idea and principle is referenced from the layout of the Android system, HTML/CSS float&flexbox, iOS AutoLayout and SizeClass. You can implement the UI layout through the seven kinds of layout class below: MyLinearLayout, MyRelativeLayout, MyFrameLayout MyTableLayout, MyFlowLayout,MyFloatLayout ,MyPathLayout and the support for SizeClass.**
 
-**Powerful function, easy to use, barely constraint 
-setting and fit various screen size perfectly are MyLayout's main advantages.**
+## Usage
 
-**I hope you use MyLayout right now or in your next project will be happy!**
+* There is a container view S which width is 100 and height is wrap to all subviews height. there are four subviews A,B,C,D arranged from top to bottom. 
+*  Subview A's left margin is 20% width of S, right margin is 30% width of S, height is equal to width of A. 
+*  Subview B's left margin is 40, width is filled in to residual width of S,height is 40.
+*  Subview C's width is filled in to S, height is 40.
+*  Subview D's right margin is 20, width is 50% width of S, height is 40 
 
-#### ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [中文说明](README.zh.md)
+![demo](https://raw.githubusercontent.com/youngsoft/TangramKit/master/TangramKit/usagedemo.png)
 
----
+
+```objective-c
+
+    MyLinearLayout *S = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    S.subviewMargin = 10;
+    S.myWidth = 100;
+    
+    UIView *A = UIView.new;
+    A.myLeftMargin = 0.2;
+    A.myRightMargin = 0.3;
+    A.heightDime.equalTo(A.widthDime);
+    [S addSubview:A];
+    
+    UIView *B = UIView.new;
+    B.myLeftMargin = 40;
+    B.myWidth = 60;
+    B.myHeight = 40;
+    [S addSubview:B];
+    
+    UIView *C = UIView.new;
+    C.myLeftMargin = C.myRightMargin = 0;
+    C.myHeight = 40;
+    [S addSubview:C];
+    
+    UIView *D = UIView.new;
+    D.myRightMargin = 20;
+    D.widthDime.equalTo(S.widthDime).multiply(0.5);
+    D.myHeight = 40;
+    [S addSubview:D];
+    
+
+```
+
+
+##Architecture
+
+![demo](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/MyLayoutClass.png)
+
+###MyLayoutPos
+`MyLayoutPos` is represent to the position of a view. UIView provides six extension variables:leftPos, topPos, bottomPos, rightPos, centerXPos, centerYPos to set view's margin or space distance between self and others. You can use `equalTo` method to set NSNumber or MyLayoutPos or NSArray<MyLayoutPos*> value. there are six simple variables:myLeftMargin,myTopMargin,myBottomMargin,myRightMargin,myCenterXOffset,myCenterYOffset use to set NSNumber value. eg. `A.leftPos.equalTo(@10); <==> A.myLeftMargin = 10;`
+
+
+###MyLayoutSize
+`MyLayoutSize` is represent to the size of a view. UIView provides two extension variables:widthDime,heightDime to set view's width and height dimension. You can use `equalTo` method to set NSNumber or MyLayoutSize or NSArray<MyLayoutSize*> value. there are two simple variables: myWidth, myHeight use to set NSNumber value. eg. `A.widthDime.equalTo(@10); <==> A.myWidth = 10;`
+
+
 ### MyLinearLayout
+> Is equivalent to: UIStackView of iOS and LinearLayout of Android.
+
 Linear layout is a single line layout view that the subviews are arranged in sequence according to the added order（from top to bottom or from left to right). So the subviews' origin&size constraints are established by the added order. Subviews arranged in top-to-bottom order is called vertical linear layout view, and 
 the subviews arranged in left-to-right order is called horizontal linear layout.
 
@@ -30,37 +81,50 @@ the subviews arranged in left-to-right order is called horizontal linear layout.
 Sample code:
 
 ```objective-c
-MyLinearLayout *rootLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
-rootLayout.wrapContentWidth = YES;
-rootLayout.subviewMargin = 10;
 
-UIView *A = [UIView new];
-A.myLeftMargin = A.myRightMargin = 5;
-A.myHeight = 40;
-[rootLayout addSubview:A];
-
-UIView *B = [UIView new];
-B.myLeftMargin = 20;
-B.myWidth = B.myHeight = 40;
-[rootLayout addSubview:B];
-
-UIView *C = [UIView new];
-C.myRightMargin = 40;
-C.myWidth = 50;
-C.myHeight = 40;
-[rootLayout addSubview:C];
-
-UIView *D = [UIView new];
-D.myLeftMargin = D.myRightMargin = 10;
-D.myHeight = 40;
-[rootLayout addSubview:D];
+-(void)loadView
+{
+    [super loadView];
+    
+    MyLinearLayout *S = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    S.myWidth = 120;
+    S.subviewMargin = 10;
+    
+    UIView *A = [UIView new];
+    A.myLeftMargin = A.myRightMargin = 5;
+    A.myHeight = 40;
+    [S addSubview:A];
+    
+    UIView *B = [UIView new];
+    B.myLeftMargin = 20;
+    B.myWidth = B.myHeight = 40;
+    [S addSubview:B];
+    
+    UIView *C = [UIView new];
+    C.myRightMargin = 40;
+    C.myWidth = 50;
+    C.myHeight = 40;
+    [S addSubview:C];
+    
+    UIView *D = [UIView new];
+    D.myLeftMargin = D.myRightMargin = 10;
+    D.myHeight = 40;
+    [S addSubview:D];
+    
+    [self.view addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+    A.backgroundColor = [UIColor greenColor];
+    B.backgroundColor = [UIColor blueColor];
+    C.backgroundColor = [UIColor orangeColor];
+    D.backgroundColor = [UIColor cyanColor];
+ }
 
 ```
 
-**MyLinearLayout be equivalent to LinearLayout of Android and UIStackView**
 
----
 ### MyRelativeLayout
+> Is equivalent to: AutoLayout of iOS and RelativeLayout of Android.
+
 Relative layout is a layout view that the subviews layout and position through mutual constraints.The subviews in the relative layout are not depended to the adding order but layout and position by setting the subviews' constraints.
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/rl.png)
@@ -68,49 +132,66 @@ Relative layout is a layout view that the subviews layout and position through m
 Sample code:
 
 ```objective-c
-MyRelativeLayout *rootLayout = [MyRelativeLayout new];
-rootLayout.wrapContentWidth = YES;
-rootLayout.wrapContentHeight = YES;
 
-UIView *A = [UIView new];
-A.leftPos.equalTo(@20)
-A.topPos.equalTo(@20);
-A.widthDime.equalTo(@40);
-A.heightDime.equalTo(A.widthDime);
-[rootLayout addSubview:A];
-
-UIView *B = [UIView new];
-B.leftPos.equalTo(A.centerXPos);
-B.topPos.equalTo(A.bottomPos);
-B.widthDime.equalTo(@60);
-B.heightDime.equalTo(A.heightDime);
-[rootLayout addSubview:B];
-
-UIView *C = [UIView new];
-C.leftPos.equalTo(B.rightPos);
-C.widthDime.equalTo(@40);
-C.heightDime.equalTo(B.heightDime).multiply(0.5);
-[rootLayout addSubview:C];
-
-UIView *D = [UIView new];
-D.bottomPos.equalTo(C.topPos);
-D.rightPos.equalTo(@20);
-D.heightDime.equalTo(A.heightDime);
-D.widthDime.equalTo(D.heightDime);
-[rootLayout addSubview:D];
-
-UIView *E = [UIView new];
-E.centerYPos.equalTo(@0);
-E.heightDime.equalTo(@40);
-E.widthDime.equalTo(rootLayout.widthDime);
-[rootLayout addSubview:E];
-//...F,G
+-(void)loadView
+{
+    [super loadView];
+    
+    MyRelativeLayout *S = [MyRelativeLayout new];
+    S.widthDime.equalTo(@170);
+    S.heightDime.equalTo(@280);
+    
+    UIView *A = [UIView new];
+    A.leftPos.equalTo(@20);
+    A.topPos.equalTo(@20);
+    A.widthDime.equalTo(@40);
+    A.heightDime.equalTo(A.widthDime);
+    [S addSubview:A];
+    
+    UIView *B = [UIView new];
+    B.leftPos.equalTo(A.centerXPos);
+    B.topPos.equalTo(A.bottomPos).offset(10);
+    B.widthDime.equalTo(@60);
+    B.heightDime.equalTo(A.heightDime);
+    [S addSubview:B];
+    
+    UIView *C = [UIView new];
+    C.leftPos.equalTo(B.rightPos).offset(10);
+    C.bottomPos.equalTo(B.bottomPos);
+    C.widthDime.equalTo(@40);
+    C.heightDime.equalTo(B.heightDime).multiply(0.5);
+    [S addSubview:C];
+    
+    UIView *D = [UIView new];
+    D.bottomPos.equalTo(C.topPos).offset(10);
+    D.rightPos.equalTo(@15);
+    D.heightDime.equalTo(A.heightDime);
+    D.widthDime.equalTo(D.heightDime);
+    [S addSubview:D];
+    
+    UIView *E = [UIView new];
+    E.centerYPos.equalTo(@0);
+    E.centerXPos.equalTo(@0);
+    E.heightDime.equalTo(@40);
+    E.widthDime.equalTo(S.widthDime).add(-20);
+    [S addSubview:E];
+    //.. F, G
+    
+    [self.view addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+    A.backgroundColor = [UIColor greenColor];
+    B.backgroundColor = [UIColor blueColor];
+    C.backgroundColor = [UIColor orangeColor];
+    D.backgroundColor = [UIColor cyanColor];
+    E.backgroundColor = [UIColor magentaColor];
+}
 
 ```
-**MyRelativeLayout be equivalent to RelativeLayout of Android and AutoLayout**
 
----
+
 ### MyFrameLayout
+> Is equivalent to: FrameLayout of Android.
+
 Frame layout is a layout view that the subviews can be overlapped and gravity in a special location of the superview.The subviews' layout position&size is not depended to the adding order and establish dependency constraint with the superview. Frame layout devided the vertical orientation to top,vertical center and bottom, while horizontal orientation is devided to left,horizontal center and right. Any of the subviews is just gravity in either vertical orientation or horizontal orientation.
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/fl.png)
@@ -118,37 +199,50 @@ Frame layout is a layout view that the subviews can be overlapped and gravity in
 Sample code:
 
 ```objective-c
-  MyFrameLayout *rootLayout = [MyFrameLayout new];
-  rootLayout.mySize = CGSizeMake(500,500);
-  
-  UIView *A = [UIView new];
-  A.mySize = CGSizeMake(40,40);
-  A.marginGravity = MyMarginGravity_Horz_Left | MyMarginGravity_Vert_Top;
-  [rootLayout addSubview:A];
-  
-  UIView *B = [UIView new];
-  B.mySize = CGSizeMake(40,40);
-  B.marginGravity = MyMarginGravity_Horz_Right | MyMarginGravity_Vert_Top;
-  [rootLayout addSubview:B];
-  
-  UIView *C = [UIView new];
-  C.mySize = CGSizeMake(40,40);
-  C.marginGravity = MyMarginGravity_Horz_Left | MyMarginGravity_Vert_Center;
-  [rootLayout addSubview:C];
 
-  UIView *D = [UIView new];
-  D.mySize = CGSizeMake(40,40);
-  D.marginGravity = MyMarginGravity_Horz_Center | MyMarginGravity_Vert_Center;
-  [rootLayout addSubview:D];
-  
-  //..E，F,G
+ -(void)loadView
+{
+    [super loadView];
+    
+    MyFrameLayout *S = [MyFrameLayout new];
+    S.mySize = CGSizeMake(320,500);
+    
+    UIView *A = [UIView new];
+    A.mySize = CGSizeMake(40,40);
+    A.marginGravity = MyMarginGravity_Horz_Left | MyMarginGravity_Vert_Top;
+    [S addSubview:A];
+    
+    UIView *B = [UIView new];
+    B.mySize = CGSizeMake(40,40);
+    B.marginGravity = MyMarginGravity_Horz_Right | MyMarginGravity_Vert_Top;
+    [S addSubview:B];
+    
+    UIView *C = [UIView new];
+    C.mySize = CGSizeMake(40,40);
+    C.marginGravity = MyMarginGravity_Horz_Left | MyMarginGravity_Vert_Center;
+    [S addSubview:C];
+    
+    UIView *D = [UIView new];
+    D.mySize = CGSizeMake(40,40);
+    D.marginGravity = MyMarginGravity_Horz_Center | MyMarginGravity_Vert_Center;
+    [S addSubview:D];
+    
+    //..E，F,G
+    
+    [self.view addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+    A.backgroundColor = [UIColor greenColor];
+    B.backgroundColor = [UIColor blueColor];
+    C.backgroundColor = [UIColor orangeColor];
+    D.backgroundColor = [UIColor cyanColor];  
+  }
   
 ```
 
-**MyFrameLayout be equivalent to FrameLayout of Android**
 
----
 ### MyTableLayout
+> Is equivalent to: TableLayout of Android and table of HTML.
+
 Table layout is a layout view that the subviews are multi-row&col arranged like a table. First you must create a rowview and add it to the table layout, then add the subview to the rowview. If the rowviews arranged in top-to-bottom order,the tableview is caled vertical table layout,in which the subviews are arranged from left to right; If the rowviews arranged in in left-to-right order,the tableview is caled horizontal table layout,in which the subviews are arranged from top to bottom.
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/tl.png)
@@ -156,39 +250,53 @@ Table layout is a layout view that the subviews are multi-row&col arranged like 
 Sample code:
 
 ```objective-c
-  MyTableLayout *rootLayout = [MyTableLayout tableLayoutWithOrientation:MyLayoutViewOrientation_Vert];
-  rootLayout.myWidth = 500;
-  
-  [rootLayout addRow:MTLSIZE_WRAPCONTENT colSize:MTLSIZE_MATCHPARENT];
-  
-  UIView *A = [UIView new];
-  A.mySize = CGSizeMake(50,40);
-  [rootLayout addSubview:A];
-  
-  UIView *B = [UIView new];
-  B.mySize = CGSizeMake(100,40);
-  [rootLayout addSubview:B];
-  
-  UIView *C = [UIView new];
-  C.mySize = CGSizeMake(30,40);
-  [rootLayout addSubview:C];
-  
-  [rootLayout addRow:MTLSIZE_WRAPCONTENT colSize:MTLSIZE_MATCHPARENT];
-  
-   UIView *D = [UIView new];
-  D.mySize = CGSizeMake(180,40);
-  [rootLayout addSubview:D];
-  
-  //...E,F  
-  
+
+ -(void)loadView
+{
+    [super loadView];
+    
+    MyTableLayout *S = [MyTableLayout tableLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    S.wrapContentWidth = YES;
+    S.rowSpacing = 10;
+    S.colSpacing = 10;
+    
+    [S addRow:MTLSIZE_WRAPCONTENT colSize:MTLSIZE_WRAPCONTENT];
+    
+    UIView *A = [UIView new];
+    A.mySize = CGSizeMake(50,40);
+    [S addSubview:A];
+    
+    UIView *B = [UIView new];
+    B.mySize = CGSizeMake(100,40);
+    [S addSubview:B];
+    
+    UIView *C = [UIView new];
+    C.mySize = CGSizeMake(30,40);
+    [S addSubview:C];
+    
+    [S addRow:MTLSIZE_WRAPCONTENT colSize:MTLSIZE_WRAPCONTENT];
+    
+    UIView *D = [UIView new];
+    D.mySize = CGSizeMake(200,40);
+    [S addSubview:D];
+    
+    //...E,F  
+    
+    
+    [self.view addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+    A.backgroundColor = [UIColor greenColor];
+    B.backgroundColor = [UIColor blueColor];
+    C.backgroundColor = [UIColor orangeColor];
+    D.backgroundColor = [UIColor cyanColor];
+}  
   
 ```
 
-**MyTableLayout be equivalent to TableLayout of Android and table element of HTML**
-
----
 
 ### MyFlowLayout
+> Is equivalent to: flexbox of CSS3.
+
 Flow layout is a layout view presents in multi-line that the subviews are arranged in sequence according to the added order, and when meeting with a arranging constraint it will start a new line and rearrange. The constrains mentioned here includes count constraints and size constraints. The orientation of the new line would be vertical and horizontal, so the flow layout is divided into: count constraints vertical flow layout, size constraints vertical flow layout, count constraints horizontal flow layout,  size constraints horizontal flow layout. Flow layout often used in the scenes that the subviews is  arranged regularly, it can be substitutive of UICollectionView to some extent. the MyFlowLayout is almost implement the flex-box function of the HTML/CSS.
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/fll.png)
@@ -196,27 +304,44 @@ Flow layout is a layout view presents in multi-line that the subviews are arrang
 Sample code:
 
 ```objective-c
-   MyFlowLayout *rootLayout = [MyFlowLayout flowLayoutWithOrientation:MyLayoutViewOrientation_Vert arrangedCount:3];
-   rootLayout.wrapContentHeight = YES;
-   rootLayout.myWidth = 300;
-   rootLayout.averageArrange = YES;
-   rootLayout.subviewMargin = 10;
-   
-   for (int i = 0; i < 10; i++)
-   {
-       UIView *A = [UIView new];
-       A.heightDime.equalTo(A.widhtDime);
-       [rootLayout addSubview:A];
-   }
+
+
+  -(void)loadView
+{
+    [super loadView];
+    
+    MyFlowLayout *S = [MyFlowLayout flowLayoutWithOrientation:MyLayoutViewOrientation_Vert arrangedCount:4];
+    S.wrapContentHeight = YES;
+    S.myWidth = 300;
+    S.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    S.gravity = MyMarginGravity_Horz_Fill;
+    S.subviewMargin = 10;
+    
+    for (int i = 0; i < 10; i++)
+    {
+        UIView *A = [UIView new];
+        A.heightDime.equalTo(A.widthDime);
+        [S addSubview:A];
+        
+        A.backgroundColor = [UIColor greenColor];
+
+    }
+    
+    
+    [self.view addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+}
+
    
    
 
 ```
 
-**MyFlowLayout be equivalent to flexbox of CSS3**
 
----	
+
 ### MyFloatLayout
+> Is equivalent to: float of CSS.
+
 Float layout is a layout view that the subviews are floating gravity in the given orientations, when the size is not enough to be hold, it will automatically find the best location to gravity. float layout's conception is reference from the HTML/CSS's floating positioning technology, so the float layout can be designed in implementing irregular layout. According to the different orientation of the floating, float layout can be divided into left-right float layout and up-down float layout.
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/flo.png)
@@ -224,42 +349,59 @@ Float layout is a layout view that the subviews are floating gravity in the give
 Sample code:
 
 ```objective-c
-     MyFloatLayout *rootLayout = [MyFloatLayout floatLayoutWithOrientation:MyLayoutViewOrientation_Vert];
-     rootLayout.wrapContentHeight = YES;
-     rootLayout.myWidth = 300;
-     
-     UIView *A = [UIView new];
-     A.mySize = CGSizeMake(80,70);
-     [rootLayout addSubview:A];
-     
-     UIView *B = [UIView new];
-     B.mySize = CGSizeMake(150,40);
-     [rootLayout addSubview:B];
-     
-     UIView *C = [UIView new];
-     C.mySize = CGSizeMake(70,40);
-     [rootLayout addSubview:C];
-     
-     UIView *D = [UIView new];
-     D.mySize = CGSizeMake(140,140);
-     [rootLayout addSubview:D];
-     
-     UIView *E = [UIView new];
-     E.mySize = CGSizeMake(150,40);
-     E.reverseFloat = YES;
-     [rootLayout addSubview:E];
 
-     UIView *F = [UIView new];
-     F.mySize = CGSizeMake(140,60);
-     [rootLayout addSubview:F];
-     
+     -(void)loadView
+{
+    [super loadView];
+    
+    MyFloatLayout *S  = [MyFloatLayout floatLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    S.wrapContentHeight = YES;
+    S.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    S.subviewMargin = 10;
+    S.myWidth = 300;
+    
+    UIView *A = [UIView new];
+    A.mySize = CGSizeMake(80,70);
+    [S addSubview:A];
+    
+    UIView *B = [UIView new];
+    B.mySize = CGSizeMake(150,40);
+    [S addSubview:B];
+    
+    UIView *C = [UIView new];
+    C.mySize = CGSizeMake(70,40);
+    [S addSubview:C];
+    
+    UIView *D = [UIView new];
+    D.mySize = CGSizeMake(100,140);
+    [S addSubview:D];
+    
+    UIView *E = [UIView new];
+    E.mySize = CGSizeMake(150,40);
+    E.reverseFloat = YES;
+    [S addSubview:E];
+    
+    UIView *F = [UIView new];
+    F.mySize = CGSizeMake(120,60);
+    [S addSubview:F];
+    
+    
+    [self.view addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+    A.backgroundColor = [UIColor greenColor];
+    B.backgroundColor = [UIColor blueColor];
+    C.backgroundColor = [UIColor orangeColor];
+    D.backgroundColor = [UIColor cyanColor];
+    E.backgroundColor = [UIColor blackColor];
+    F.backgroundColor = [UIColor whiteColor];
+}     
 
 ```
 
-**MyFloatLayout be equivalent to float of CSS**
 
----
 ### MyPathLayout
+> Is unique characteristic layout view of iOS.
+
  Path layout is a layout view that the subviews are according to a specified path curve to layout. You must provide a type of Functional equation，a coordinate and a type of distance setting to create a Path Curve than all subview are equidistance layout in the Path layout. path layout usually used to create some irregular and gorgeous UI layout.
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/pl.png)
@@ -267,35 +409,74 @@ Sample code:
 Sample code:
  
  ```objective-c
-    MyPathLayout *rootLayout = [MyPathLayout new];
-    rootLayout.mySize = CGSizeMake(400,400);
-    rootLayout.coordinateSetting.origin = CGPointMake(0.5, 0.5);
-        
-    rootLayout.polarEquation = ^(CGFloat angle)
+ 
+    -(void)loadView
+{
+    [super loadView];
+    
+    MyPathLayout *S = [MyPathLayout new];
+    S.mySize = CGSizeMake(320,320);
+    S.coordinateSetting.isReverse = YES;
+    S.coordinateSetting.origin = CGPointMake(0.5, 0.2);
+    
+    S.polarEquation = ^(CGFloat angle)
     {
-       return 120 * (1 + cos(angle));
+        return 80 * (1 + cos(angle));
     };
     
     for (int i = 0; i < 4; i++)
-   {
-       UIView *A = [UIView new];
-       A.mySize = CGSizeMake(40,40);
-       [rootLayout addSubview:A];
-   }
+    {
+        UIView *A = [UIView new];
+        A.mySize = CGSizeMake(40,40);
+        [S addSubview:A];
+        
+        A.backgroundColor = [UIColor greenColor];
+    }
+
+    [self.view  addSubview:S];
+    S.backgroundColor = [UIColor redColor];
+ }
+
  
  ```
   
-  **MyPathLayout is only implement in MyLayout**
-  
----
+ 
+ 
 ###  MySizeClass
-MyLayout provided support to SizeClass in order to fit the different screen sizes of devices. You can combinate the SizeClass with any of the 6 kinds of layout views mentioned above to perfect fit the UI of all equipments.
+> Is equivalent to: Size Classes of iOS.
 
-**MySizeClass be equivalent to SizeClass of iOS**
+MyLayout provided support to SizeClass in order to fit the different screen sizes of devices. You can combinate the SizeClass with any of the 6 kinds of layout views mentioned above to perfect fit the UI of all equipments. there are two UIView extension method: 
+
+```objective-c
+
+-(instancetype)fetchLayoutSizeClass:(MySizeClass)sizeClass;
+-(instancetype)fetchLayoutSizeClass:(MySizeClass)sizeClass copyFrom:(MySizeClass)srcSizeClass;
+
+```
+to set Size Classes Characteristics like below:
+
+```objective-c
+
+//default is all Size Classes
+ MyLinearLayout *rootLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    rootLayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    rootLayout.wrapContentHeight = NO;
+    rootLayout.gravity = MyMarginGravity_Horz_Fill;
+
+//MySizeClass_wAny | MySizeClass_hCompact is iPhone landscape orientation.
+ MyLinearLayout *lsc = [rootLayout fetchLayoutSizeClass:MySizeClass_wAny | MySizeClass_hCompact copyFrom:MySizeClass_wAny | MySizeClass_hAny];
+ 
+    lsc.orientation = MyLayoutViewOrientation_Horz;
+    lsc.wrapContentWidth = NO;
+    lsc.gravity = MyMarginGravity_Vert_Fill;
+
+
+
+```
+
 
 
 ## Demo sample
----
 
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/layoutdemo1.gif)
 ![演示效果图](https://raw.githubusercontent.com/youngsoft/MyLinearLayout/master/MyLayout/layoutdemo2.gif)
@@ -307,7 +488,7 @@ MyLayout provided support to SizeClass in order to fit the different screen size
 
 
 ##How To Get Started
----
+
  [Download MyLayout](https://github.com/youngsoft/MyLinearLayout/archive/master.zip) and try out the included iPad and iPhone example apps
 Read FAQ, or articles below:
    
@@ -323,7 +504,7 @@ Because my english is poor so I just only can support chinese articles，and I w
 
 
 ##Communication
----
+
 
 - If you need help, use Stack Overflow or Baidu. (Tag 'mylayout')
 - If you'd like to contact me, use *qq:156355113 or weibo:欧阳大哥 or email:obq0387_cn@sina.com*
@@ -332,7 +513,7 @@ Because my english is poor so I just only can support chinese articles，and I w
 - If you want to contribute, submit a pull request.
 
 ## Installation
----
+
 MyLayout supports multiple methods for installing the library in a project.
 ### Copy to your project
 1.  Copy `Lib` folder from the demo project to your project
@@ -350,7 +531,7 @@ To integrate MyLayout into your Xcode project using CocoaPods, specify it in you
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 
-pod 'MyLayout', '~> 1.2.5'
+pod 'MyLayout', '~> 1.2.9'
 ```
    
 Then, run the following command:
@@ -362,7 +543,7 @@ Then, run the following command:
 
 
 ##FAQ
----
+
 * If you use MyLayout runtime cause 100% CPU usage said appeared constraint conflict, please check the subview's constraint set.
 * If you use MyLayout exception crashed in MyBaseLayout *willMoveToSuperview* method. it does not matter, just remove the exception break setting in CMD+7.
 * If you set wrapConentWidth or wrapContentHeight while set widthDime or heightDime in layout view may be constraint conflict。
@@ -372,9 +553,9 @@ Then, run the following command:
 
 
 ## License
----
 
 MyLayout is released under the MIT license. See LICENSE for details.
 
 
-
+## Version History
+ **[CHANGELOG.md](CHANGELOG.md)**

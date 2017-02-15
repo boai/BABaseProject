@@ -172,11 +172,11 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
             {
                 if (page > 1)
                 {
-                    [(MJRefreshAutoGifFooter *)weakSelf.collectionView.mj_footer setTitle:@"空空如也" forState:MJRefreshStateIdle];
+//                    [(MJRefreshAutoGifFooter *)weakSelf.collectionView.mj_footer setTitle:@"空空如也" forState:MJRefreshStateIdle];
                 }
                 else
                 {
-                    [(MJRefreshAutoGifFooter *)weakSelf.collectionView.mj_footer setTitle:@"" forState:MJRefreshStateIdle];
+//                    [(MJRefreshAutoGifFooter *)weakSelf.collectionView.mj_footer setTitle:@"" forState:MJRefreshStateIdle];
                 }
             }
         }
