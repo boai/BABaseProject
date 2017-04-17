@@ -6,7 +6,7 @@
 [![SUPPORT](https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_7)&nbsp;
 [![BLOG](https://img.shields.io/badge/blog-raozhizhen.com-orange.svg?style=flat)](http://raozhizhen.com)&nbsp;
 
-###Swift 版本：[JMRoundedCornerSwift](https://github.com/raozhizhen/JMRoundedCornerSwift)
+### Swift 版本：[JMRoundedCornerSwift](https://github.com/raozhizhen/JMRoundedCornerSwift)
 
 
 当我们需要给一个 View 设置圆角的时候，一般会这样写
@@ -21,11 +21,11 @@ Instrument的 Core Animation 有一个叫做 Color Offscreen-Rendered Yellow 的
 
 ![](https://github.com/raozhizhen/JMRoundedCorner/blob/master/IMG_2590.PNG?raw=true)
 
-####离屏渲染是什么？
+#### 离屏渲染是什么？
 
 离屏渲染绘制 layer tree 中的一部分到一个新的缓存里面（这个缓存不是屏幕，是另一个地方），然后再把这个缓存渲染到屏幕上面。一般来说，你需要避免离屏渲染。因为这个开销很大。在屏幕上面直接合成层要比先创建一个离屏缓存然后在缓存上面绘制，最后再绘制缓存到屏幕上面快很多。这里面有 2 个上下文环境的切换（切换到屏幕外缓存环境，和屏幕环境）。
 
-####解决方案
+#### 解决方案
 
 如果你的 view 不需要让子视图超出部分不显示，且不需要给 view 的 image 绘制圆角，
 
@@ -46,7 +46,7 @@ view.layer.backgroundColor = backgroundColor.CGColor;
 
 我将这个过程封装了一下
 
-####使用 JMRoundedCorner 来绘制圆角
+#### 使用 JMRoundedCorner 来绘制圆角
 
 
 	platform :ios, '7.0'
@@ -57,37 +57,37 @@ view.layer.backgroundColor = backgroundColor.CGColor;
 
 	
 	
-#####给 view 设置一个圆角边框
+##### 给 view 设置一个圆角边框
 
 ```objc	
 - (void)jm_setCornerRadius:(CGFloat)radius withBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
 ```
 
-#####给 view 设置一个圆角背景颜色
+##### 给 view 设置一个圆角背景颜色
 
 ```objc
 - (void)jm_setCornerRadius:(CGFloat)radius withBackgroundColor:(UIColor *)backgroundColor;
 ```
 
-#####给 view 设置一个圆角背景图
+##### 给 view 设置一个圆角背景图
 
 ```objc
 - (void)jm_setCornerRadius:(CGFloat)radius withImage:(UIImage *)image;
 ```
 
-#####给 view 设置一个 contentMode 模式的圆角背景图
+##### 给 view 设置一个 contentMode 模式的圆角背景图
 
 ```objc
 - (void)jm_setCornerRadius:(CGFloat)radius withImage:(UIImage *)image contentMode:(UIViewContentMode)contentMode;
 ```
 
-#####设置所有属性配置出一个圆角背景图
+##### 设置所有属性配置出一个圆角背景图
 
 ```objc
 - (void)jm_setCornerRadius:(CGFloat)radius withBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor backgroundImage:(UIImage *)backgroundImage contentMode:(UIViewContentMode)contentMode;
 ```
 
-#####代码示例
+##### 代码示例
 ```objc
     _avatarView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 7, 40, 40)];
     [_avatarView jm_setCornerRadius:20 withImage:[UIImage imageNamed:@"avatar.jpg"]];
@@ -119,25 +119,25 @@ view.layer.backgroundColor = backgroundColor.CGColor;
 ```
 
 ![](https://github.com/raozhizhen/JMRoundedCorner/blob/master/JMRoundedCornerGIF.gif?raw=true)
-####联系我
+#### 联系我
 
 - QQ:337519524
 - 邮箱：raozhizhen@gmail.com
 
-####感谢
+#### 感谢
 
 - [reviewcode.cn](http://www.reviewcode.cn/article.html?reviewId=7)
 
 - [Getting Pixels Onto the Screen](https://www.objc.io/issues/3-views/moving-pixels-onto-the-screen/)
 
-####性能上的优缺点
+#### 性能上的优缺点
 
 优点：没有了离屏渲染，调整了 image 的像素大小以避免不必要的缩放
 
 缺点：会造成图层混合，且因为只是绘制了一个带圆角的图片，所以不能使子视图超出圆角部分不显示。
 注意：内存会持续提升，是正常现象，点击 home 键内存会回到正常水平，并非内存泄漏，只是绘制的缓存，在内存不足时会自动释放。
 
-####更新日志
+#### 更新日志
 - 2016/4/25  1.2.0版本 : 使用 NSOperationQueue 代替 dispatch_queue，当重复设置圆角的时候会自动 cancel 上一次操作，感谢 **[kudocc](https://github.com/kudocc)** 的 pull request。
 
 - 2016/4/18  1.1.2版本 : 修改一点小 BUG
