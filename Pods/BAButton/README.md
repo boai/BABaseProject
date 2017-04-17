@@ -15,7 +15,7 @@
 
 ## 2016.04.4 --- 
 
-###示例展示：
+### 示例展示：
 
 ![image](https://raw.githubusercontent.com/boai/BAButton/master/BAButtonDemo/images/image1.png)
 ![image](https://raw.githubusercontent.com/boai/BAButton/master/BAButtonDemo/images/image2.png)
@@ -23,7 +23,7 @@
 
 >##完全实现button的自定义，
 
-###pod 导入：   pod 'BAButton', '~> 1.0.1'
+### pod 导入：   pod 'BAButton', '~> 1.0.1'
 如果发现pod search BAButton 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 具体步骤：
 - pod setup : 初始化
@@ -31,7 +31,7 @@
 - pod search BAButton
 
 
-###项目中导入头文件：
+### 项目中导入头文件：
 ```
 #import <BAButton.h> 即可
 ```
