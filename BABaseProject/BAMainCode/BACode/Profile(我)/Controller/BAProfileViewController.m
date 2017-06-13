@@ -55,7 +55,7 @@
 - (void)setupUI
 {
     self.title                     = @"我 的";
-    self.view.backgroundColor      = BA_Red_Color;
+    self.view.backgroundColor      = BAKit_Color_Red;
     
     self.tableView.delegate        = self;
     self.tableView.dataSource      = self;

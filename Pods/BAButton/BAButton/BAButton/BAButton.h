@@ -94,6 +94,11 @@ BAKit_ColorRandom(){
  OC 版 ：https://github.com/BAHome/BAButton
  
  最新更新时间：2017-06-01 【倒叙】
+ 最新Version：【Version：2.4.3】
+ 更新内容：
+ 2.4.3.1、快速创建 button 方法改为类方法，可直接调用！
+ 
+ 最新更新时间：2017-06-01 【倒叙】
  最新Version：【Version：2.4.2】
  更新内容：
  2.4.2.1、优化注释

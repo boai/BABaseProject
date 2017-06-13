@@ -16,6 +16,9 @@ typedef unsigned char u_char;
 FOUNDATION_EXTERN UIColor *BAKit_Color_ThemYellow;
 FOUNDATION_EXTERN UIColor *BAKit_Color_ThemBlue;
 
+// 支付宝 蓝色
+FOUNDATION_EXTERN UIColor *BAKit_Color_AliPayBlue;
+
 
 /*! 灰色 */
 FOUNDATION_EXTERN UIColor *BAKit_Color_Gray_1;

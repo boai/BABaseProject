@@ -67,13 +67,14 @@
     userSqlite.nickName      = _nickNameTextField.text;
     userSqlite.pwd           = _pwd1TextField.text;
     
-    BAWeak;
+    BAKit_WeakSelf;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        BAKit_StrongSelf
         [userSqlite save];
-        [weakSelf.view BA_showAlertWithTitle:@"注册成功！"];
+        [self.view BA_showAlertWithTitle:@"注册成功！"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
             });
         });
     });

@@ -72,13 +72,16 @@
 #pragma mark - ****** UIKit类
 /*! UIKit类 */
 // 控件类
-#import "BAPickerView.h"
 #import "BATextView.h"
 /*! 自定义 TextField */
 #import "BATextField.h"
 
-/*! 自定义alertView */
-#import "BAAlertView.h"
+#import "BAKit_Define.h"
+
+#pragma mark - 信息存储 类
+#import "BAKit_UserDefaults.h"
+#import "NSString+BAFileManager.h"
+#import "NSFileManager+BAKit.h"
 
 
 // 扩展类
@@ -107,7 +110,6 @@
 
 #import "UIApplication+AppInfo.h"
 /*! UIAlertController 类 */
-#import "UIAlertController+Blocks.h"
 
 /*! 带富文本属性的 UILabel 封装 */
 #import "UILabel+BAAttributeTextTapAction.h"
@@ -123,13 +125,8 @@
 #import "NSDictionary+BAKit.h"
 #import "NSMutableDictionary+BAKit.h"
 /*! 日常 NSString 类型处理 */
-#import "NSString+BAKit.h"
-/*! 特殊字符处理 */
-#import "NSString+Trims.h"
-/*! 数字格式化 */
-#import "NSString+NSNumber.h"
-/*! 富文本 */
-#import "NSMutableAttributedString+BAKit.h"
+#import "BAKit_NSString.h"
+
 
 #import "NSFileManager+BAKit.h"
 #import "NSNumber+BAKit.h"
@@ -156,7 +153,7 @@
 /*! GCD */
 #import "GCD/GCD.h"
 /*! 清理系统缓存 */
-#import "BAClearCacheManager.h"
+#import "BAKit_ClearCacheManager.h"
 /*! 系统服务权限的封装 */
 #import "BASystemService.h"
 

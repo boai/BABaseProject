@@ -84,23 +84,23 @@
     
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar ba_setBackgroundColor:[UIColor clearColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BA_Black_Color, NSForegroundColorAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BAKit_Color_Black, NSForegroundColorAttributeName, nil]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BA_Black_Color, NSForegroundColorAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:BAKit_Color_Black, NSForegroundColorAttributeName, nil]];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar ba_setBackgroundColor:BA_White_Color];
+    [self.navigationController.navigationBar ba_setBackgroundColor:BAKit_Color_White];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BA_Yellow_Color;
+    self.view.backgroundColor = BAKit_Color_Yellow;
 
     self.title = @"消 息";
     
@@ -243,8 +243,8 @@
     {
         CGFloat alpha = (self.tableView.contentOffset.y - 30) / 75;
         
-        _statusBarView.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
-        self.navigationController.navigationBar.backgroundColor = [BA_Red_Color colorWithAlphaComponent:alpha];
+        _statusBarView.backgroundColor = [BAKit_Color_Red colorWithAlphaComponent:alpha];
+        self.navigationController.navigationBar.backgroundColor = [BAKit_Color_Red colorWithAlphaComponent:alpha];
     }
 }
 

@@ -6265,29 +6265,6 @@
 			};
 			name = Debug;
 		};
-		5824D429C31F0B54DC5947C5B1961269 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF284593655C892B7FBC584208FC6B3 /* BAButton.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BAButton/BAButton-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		5A6ACE61C4D128598EA7472C87982601 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 141FCE7E92B2539D3BA3A82D56E9CFCD /* Masonry.xcconfig */;
@@ -6518,6 +6495,29 @@
 			};
 			name = Debug;
 		};
+		9090F11143C43D5C92D8F88C8AA6743A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF284593655C892B7FBC584208FC6B3 /* BAButton.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BAButton/BAButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		90A588C46F0F65445BD1A10F420461BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A52CDB4442685E57F1B88305266C9F1D /* SDAutoLayout.xcconfig */;
@@ -6610,29 +6610,6 @@
 			};
 			name = Release;
 		};
-		97981C80734EED8D68497C49871319DB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF284593655C892B7FBC584208FC6B3 /* BAButton.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BAButton/BAButton-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		9D682F614F824833F21535A583E0A0FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 663A19FFB2BDB3088FC83BCB69A56988 /* MyLayout.xcconfig */;
@@ -6655,6 +6632,29 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		C03F4B6759472A395054C07F83766928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF284593655C892B7FBC584208FC6B3 /* BAButton.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BAButton/BAButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -7234,8 +7234,8 @@
 		E402F415AC13FF31230807ECB2E00E30 /* Build configuration list for PBXNativeTarget "BAButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5824D429C31F0B54DC5947C5B1961269 /* Debug */,
-				97981C80734EED8D68497C49871319DB /* Release */,
+				9090F11143C43D5C92D8F88C8AA6743A /* Debug */,
+				C03F4B6759472A395054C07F83766928 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

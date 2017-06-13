@@ -9,7 +9,7 @@
 #import "DemoVC2_05.h"
 #import "DemoVC2_05_test.h"
 #import "DemoVC2_05_test2.h"
-
+#import "DemoVC2_05_test3.h"
 
 @interface DemoVC2_05 ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -115,69 +115,12 @@
 
 - (void)test1
 {
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"博爱温馨提示：" attributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
-    
-    NSString *result = @"改变颜色和大小后的博爱字体：";
-    NSString *keyWord = @"博爱";
-    
-    /*! 关键字添加效果 */
-    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc]initWithString:result];
-    
-    /*! 获取关键字位置 */
-    NSRange range = [result rangeOfString:keyWord];
-    
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor blackColor],NSKernAttributeName:@2.0,NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle),NSStrokeColorAttributeName:[UIColor blueColor],NSStrokeWidthAttributeName:@2.0,NSVerticalGlyphFormAttributeName:@(0)};
-    
-    /*! 设置关键字属性 */
-    [attributedMessage ba_changeAttributeDict:dic range:range];
-    
-    /*! 系统 alert */
-    [UIAlertController showAlertInViewController:self
-                                       withTitle:@"Test Alert"
-                          mutableAttributedTitle:title
-                                         message:@"Test Message"
-                        mutableAttributedMessage:attributedMessage
-                               buttonTitlesArray:@[@"First Other", @"Second Other"]
-                           buttonTitleColorArray:@[[UIColor greenColor], [UIColor blackColor]]
-                                        tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                            NSLog(@"你点击了第 %ld 个按钮！", (long)buttonIndex);
-                                        }];
+    [self.navigationController pushViewController:[DemoVC2_05_test3 new] animated:YES];
 }
 
 - (void)test2
 {
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"博爱温馨提示：" attributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
-    NSString *result = @"改变颜色和大小后的博爱字体：";
-    NSString *keyWord = @"博爱";
-    
-    /*! 关键字添加效果 */
-    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc]initWithString:result];
-    
-    /*! 获取关键字位置 */
-    NSRange range = [result rangeOfString:keyWord];
-    
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor blackColor],NSKernAttributeName:@2.0,NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle),NSStrokeColorAttributeName:[UIColor blueColor],NSStrokeWidthAttributeName:@2.0,NSVerticalGlyphFormAttributeName:@(0)};
-    
-    /*! 设置关键字属性 */
-    [attributedMessage ba_changeAttributeDict:dic range:range];
-    
-    [UIAlertController showActionSheetInViewController:self
-                                             withTitle:@"Test Action Sheet"
-                                mutableAttributedTitle:title
-                                               message:@"Test Message"
-                              mutableAttributedMessage:attributedMessage
-                                     buttonTitlesArray:@[@"First Other", @"Second Other", @"取 消"]
-                                 buttonTitleColorArray:@[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor]]
-#if TARGET_OS_IOS
-                    popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
-                        
-                        popover.sourceView = self.view;
-                        popover.sourceRect = self.view.frame;
-                    }
-#endif
-                                              tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                                  NSLog(@"你点击了第 %ld 个按钮！", (long)buttonIndex);
-                                              }];
+    [self.navigationController pushViewController:[DemoVC2_05_test3 new] animated:YES];
 }
 
 - (void)test3

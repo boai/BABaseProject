@@ -57,7 +57,7 @@
 //            btn.backgroundColor = [UIColor colorWithRed:0.226 green:0.780 blue:1.000 alpha:1.000];
             [btn setTitle:@"确 定" forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-            [btn jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
+            [btn jm_setCornerRadius:5 withBackgroundColor:BAKit_Color_Orange];
             btn;
         });
         [self.view addSubview:_submitBtn];

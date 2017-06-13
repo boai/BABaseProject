@@ -29,9 +29,9 @@
         _shareBtn = [UIButton new];
         _shareBtn.frame = CGRectMake(50, BA_SCREEN_HEIGHT - 200, 150, 40);
         [_shareBtn setTitle:@"OC按钮调用JS方法" forState:UIControlStateNormal];
-        [_shareBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];
+        [_shareBtn setTitleColor:BAKit_Color_White forState:UIControlStateNormal];
         _shareBtn.titleLabel.font = BA_FontSize(14);
-        [_shareBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
+        [_shareBtn jm_setCornerRadius:5 withBackgroundColor:BAKit_Color_Green];
         _shareBtn.tag = 1001;
         [_shareBtn addTarget:self action:@selector(clickShareBtn:) forControlEvents:UIControlEventTouchUpInside];
         _shareBtn.titleLabel.textAlignment = NSTextAlignmentRight;
@@ -46,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = BA_Yellow_Color;
+    self.view.backgroundColor = BAKit_Color_Yellow;
     self.shareBtn.hidden = NO;
 }
 

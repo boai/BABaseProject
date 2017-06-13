@@ -51,31 +51,22 @@
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
- * 博客园  : http://www.cnblogs.com/boai/
- * 博客    : http://boai.github.io
+ * 博客    : http://boaihome.com
  
  *********************************************************************************
  
  */
 
+
 #import <Foundation/Foundation.h>
 
 @interface NSString (BAColor)
-/*!
- 
- 封装说明：
- 所有 颜色 类型的字符处理类，包含：十六进制随机颜色处理等
- 
- */
-
 
 /*!
- *  返回十六进制的color 随机颜色
+ *  获取十六进制的随机颜色
  *
- *  @return randomColor
+ *  @return 十六进制的随机颜色
  */
-+ (NSString *)randomColorWithHex;
-
-
++ (NSString *)ba_stringRandomColor;
 
 @end

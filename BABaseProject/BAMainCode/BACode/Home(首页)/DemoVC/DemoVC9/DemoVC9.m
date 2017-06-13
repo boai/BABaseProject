@@ -24,7 +24,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"浮动布局2";
-    self.view.backgroundColor = BA_White_Color;
+    self.view.backgroundColor = BAKit_Color_White;
     
     [self setupUI];
 }
@@ -33,11 +33,11 @@
 {
     UIScrollView *scrollView = [UIScrollView new];
     self.view = scrollView;
-    scrollView.backgroundColor = BA_Yellow_Color;
+    scrollView.backgroundColor = BAKit_Color_Yellow;
 
     MyLinearLayout *rootLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
     rootLayout.myLeftMargin = rootLayout.myRightMargin = 0;
-    rootLayout.backgroundColor = BA_White_Color;
+    rootLayout.backgroundColor = BAKit_Color_White;
     [scrollView addSubview:rootLayout];
     
     /*! 里面的子视图的宽度都和布局视图相等，这样子视图就不需要设置宽度了。 */

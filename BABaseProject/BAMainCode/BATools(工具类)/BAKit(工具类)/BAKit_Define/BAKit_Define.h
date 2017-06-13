@@ -60,14 +60,15 @@
 #ifndef BAKit_Define_h
 #define BAKit_Define_h
 
-#import "BAKit_CommonDefine.h"
+#import "BAKit_DefineCommon.h"
 #import "BAKit_Singleton.h"
-#import "BAKit_FontDefine.h"
-#import "BAKit_FrameDefine.h"
-#import "BAKit_NotiDefine.h"
-#import "BAKit_AppKeyDefine.h"
+#import "BAKit_DefineFont.h"
+#import "BAKit_DefineFrame.h"
+#import "BAKit_DefineNoti.h"
+#import "BAKit_DefineAppKey.h"
 #import "BAKit_Const.h"
 #import "BAKit_Const_Color.h"
-
+#import "BAKit_DefineCurrent.h"
+#import "BAKit_DefineFormat.h"
 
 #endif /* BAKit_Define_h */

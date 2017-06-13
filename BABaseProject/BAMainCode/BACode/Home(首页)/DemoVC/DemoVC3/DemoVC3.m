@@ -14,7 +14,6 @@
 @interface DemoVC3 ()
 {
     NSInteger   _time;
-    BAModal    *_modal1;
     UILabel    *_label1;
 }
 @property (nonatomic, strong) UIButton    *timeButton2;
@@ -180,7 +179,7 @@
             
         }];
         
-        _headerLine.bgColor = BA_Green_Color;
+        _headerLine.bgColor = BAKit_Color_Green;
         
         [self.view addSubview:_headerLine];
     }
@@ -217,7 +216,7 @@
         _timeButton2.titleLabel.font = BA_FontSize(15);
         [_timeButton2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_timeButton2 addTarget:self action:@selector(handleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_timeButton2 jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
+        [_timeButton2 jm_setCornerRadius:5 withBackgroundColor:BAKit_Color_Orange];
         
         _timeButton2.tag = 100;
         [self.view addSubview:_timeButton2];
@@ -305,7 +304,7 @@
         _timeButton3.titleLabel.font = BA_FontSize(15);
         [_timeButton3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_timeButton3 addTarget:self action:@selector(handleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_timeButton3 jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
+        [_timeButton3 jm_setCornerRadius:5 withBackgroundColor:BAKit_Color_Orange];
         _timeButton3.tag = 101;
         
         [self.view addSubview:_timeButton3];

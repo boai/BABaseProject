@@ -21,6 +21,8 @@ target 'BABaseProject' do
     pod 'BAPickView'
     pod 'BATouchID'
     pod 'BATextView'
+#    pod 'BAAlertController'
+
 
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry'

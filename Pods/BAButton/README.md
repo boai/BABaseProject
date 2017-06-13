@@ -73,6 +73,11 @@ BAKit_ColorRandom(){
  OC 版 ：https://github.com/BAHome/BAButton
  
  最新更新时间：2017-06-01 【倒叙】
+ 最新Version：【Version：2.4.3】
+ 更新内容：
+ 2.4.3.1、快速创建 button 方法改为类方法，可直接调用！
+ 
+ 最新更新时间：2017-06-01 【倒叙】
  最新Version：【Version：2.4.2】
  更新内容：
  2.4.2.1、优化注释
@@ -272,7 +277,7 @@ highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage;
  @param sel sel
  @return button
  */
-- (instancetype __nonnull)ba_creatButtonWithFrame:(CGRect)frame
++ (instancetype __nonnull)ba_creatButtonWithFrame:(CGRect)frame
                                             title:(NSString * __nullable)title
                                          selTitle:(NSString * __nullable)selTitle
                                        titleColor:(UIColor * __nullable)titleColor
@@ -480,11 +485,11 @@ NS_ASSUME_NONNULL_END
 - (void)setupNavi
 {
     CGRect frame = CGRectMake(0, 0, 80, 40);
-    UIButton *navi_rightButton = [[UIButton alloc] ba_creatButtonWithFrame:frame title:@"xib" selTitle:nil titleColor:nil titleFont:nil image:[UIImage imageNamed:@"tabbar_mainframeHL"] selImage:nil padding:2 buttonPositionStyle:BAButtonLayoutTypeCenterImageRight viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction)];
+    UIButton *navi_rightButton = [UIButton ba_creatButtonWithFrame:frame title:@"xib" selTitle:nil titleColor:nil titleFont:nil image:[UIImage imageNamed:@"tabbar_mainframeHL"] selImage:nil padding:2 buttonPositionStyle:BAButtonLayoutTypeCenterImageRight viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction)];
     navi_rightButton.backgroundColor = BAKit_ColorRandom();
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navi_rightButton];
     
-    UIButton *navi_leftButton = [[UIButton alloc] ba_creatButtonWithFrame:frame title:@"state" selTitle:nil titleColor:nil titleFont:nil image:[UIImage imageNamed:@"tabbar_mainframeHL"] selImage:nil padding:2 buttonPositionStyle:BAButtonLayoutTypeCenterImageRight viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleLeftNaviButtonAction)];
+    UIButton *navi_leftButton = [UIButton ba_creatButtonWithFrame:frame title:@"state" selTitle:nil titleColor:nil titleFont:nil image:[UIImage imageNamed:@"tabbar_mainframeHL"] selImage:nil padding:2 buttonPositionStyle:BAButtonLayoutTypeCenterImageRight viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleLeftNaviButtonAction)];
     navi_rightButton.backgroundColor = BAKit_ColorRandom();
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navi_leftButton];
 }
@@ -513,6 +518,11 @@ NS_ASSUME_NONNULL_END
 ## 5、更新记录：【倒叙】
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
+ 
+ 最新更新时间：2017-06-01 【倒叙】
+ 最新Version：【Version：2.4.3】
+ 更新内容：
+ 2.4.3.1、快速创建 button 方法改为类方法，可直接调用！
  
  最新更新时间：2017-06-01 【倒叙】
  最新Version：【Version：2.4.2】

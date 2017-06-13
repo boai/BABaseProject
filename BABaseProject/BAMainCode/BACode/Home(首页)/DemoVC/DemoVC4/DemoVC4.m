@@ -29,9 +29,9 @@
         _shareBtn = [UIButton new];
         _shareBtn.frame = CGRectMake(50, 100, 100, 40);
         [_shareBtn setTitle:@"博爱分享" forState:UIControlStateNormal];
-        [_shareBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];
+        [_shareBtn setTitleColor:BAKit_Color_White forState:UIControlStateNormal];
         _shareBtn.titleLabel.font = BA_FontSize(16);
-        [_shareBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
+        [_shareBtn jm_setCornerRadius:5 withBackgroundColor:BAKit_Color_Green];
         _shareBtn.tag = 1001;
         [_shareBtn addTarget:self action:@selector(clickShareBtn:) forControlEvents:UIControlEventTouchUpInside];
         _shareBtn.titleLabel.textAlignment = NSTextAlignmentRight;
@@ -50,9 +50,9 @@
         _QQLoginBtn = [UIButton new];
         _QQLoginBtn.frame = CGRectMake(50, _shareBtn.bottom + 50, 100, 40);
         [_QQLoginBtn setTitle:@"博爱登录" forState:UIControlStateNormal];
-        [_QQLoginBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];
+        [_QQLoginBtn setTitleColor:BAKit_Color_White forState:UIControlStateNormal];
         _QQLoginBtn.titleLabel.font = BA_FontSize(16);
-        [_QQLoginBtn jm_setCornerRadius:5 withBackgroundColor:BA_Green_Color];
+        [_QQLoginBtn jm_setCornerRadius:5 withBackgroundColor:BAKit_Color_Green];
         _QQLoginBtn.tag = 1002;
         [_QQLoginBtn addTarget:self action:@selector(clickShareBtn:) forControlEvents:UIControlEventTouchUpInside];
         _QQLoginBtn.titleLabel.textAlignment = NSTextAlignmentRight;
@@ -68,7 +68,7 @@
 {
     [super viewDidLoad];
     
-    self.vcBgColor = BA_White_Color;
+    self.vcBgColor = BAKit_Color_White;
 //    [self.view ba_createGradientWithColors:@[[]] direction:UIViewLinearGradientDirectionVertical];
     self.shareBtn.hidden = NO;
     self.QQLoginBtn.hidden = NO;
@@ -77,7 +77,7 @@
 #pragma mark 友盟分享和登陆
 - (IBAction)clickShareBtn:(UIButton *)sender
 {
-    BAWeak;
+    BAKit_WeakSelf;
     /*! 友盟分享 */
     if (sender.tag == 1001)
     {
@@ -114,15 +114,17 @@
     {
         
         [BASHAREMANAGER ba_loginListWithViewController:self isGetAuthWithUserInfo:YES loginCallback:^(UMSocialUserInfoResponse *response) {
+            
+            BAKit_StrongSelf
             // 授权信息【具体返回参数要看平台，每个平台返回的数据不一样！如：新浪微博没有返回 openid 】
             NSString *msg = [NSString stringWithFormat:@"登陆成功，获取用户名：%@", response.name];
-            [weakSelf BAAlertWithTitle:@"温馨提示：" message:msg andOthers:@[@"确 定"] animated:YES action:^(NSInteger index) {
+            [self BAAlertWithTitle:@"温馨提示：" message:msg andOthers:@[@"确 定"] animated:YES action:^(NSInteger index) {
                 if (index)
                 {
                     return ;
                 }
             }];
-            weakSelf.dict = response;
+            self.dict = response;
             NSLog(@"登陆返回信息 uid: %@", response.uid);
             NSLog(@"登陆返回信息 openid: %@", response.openid);
             NSLog(@"登陆返回信息 accessToken: %@", response.accessToken);
@@ -138,12 +140,12 @@
             NSLog(@"登陆返回信息 originalResponse: %@", response.originalResponse);
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (weakSelf.dict)
+                if (self.dict)
                 {
                     [BASHAREMANAGER ba_cancelAuthWithPlatformType:UMSocialPlatformType_QQ];
                     BASHAREMANAGER.authOpFinish = ^{
                         NSString *msg = [NSString stringWithFormat:@"清除授权成功！"];
-                        [weakSelf BA_showAlertWithTitle:msg];
+                        [self BA_showAlertWithTitle:msg];
                     };
                 }
 

@@ -62,7 +62,7 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
         
 
         _collectionView                 = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _collectionView.backgroundColor = BA_Yellow_Color;
+        _collectionView.backgroundColor = BAKit_Color_Yellow;
         _collectionView.delegate        = self;
         _collectionView.dataSource      = self;
         
@@ -198,9 +198,9 @@ static NSString * const DemoVC11_cellID = @"DemoVC11_Cell";
     DemoVC11_Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DemoVC11_cellID forIndexPath:indexPath];
     DemoVC11_model *model = self.dataArray[indexPath.row];
     cell.model          = model;
-    cell.backgroundColor = BA_Green_Color;
+    cell.backgroundColor = BAKit_Color_Green;
     
-    if ([NSString ba_NSStringIsNULL:cell.model.desc])
+    if (![cell.model.desc ba_stringIsNotBlank])
     {
         cell.titleLabel.text = @(indexPath.item).stringValue;
     }

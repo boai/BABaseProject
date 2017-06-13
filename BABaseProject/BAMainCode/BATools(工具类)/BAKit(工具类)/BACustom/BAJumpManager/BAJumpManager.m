@@ -9,6 +9,7 @@
 #import "BAJumpManager.h"
 #import "AppDelegate.h"
 #import "BALoginViewController.h"
+#import "UIAlertController+BAKit.h"
 
 //@interface UIViewController (TopViewController)
 //
@@ -161,22 +162,14 @@
     /*! 设置关键字属性 */
     [attributedMessage ba_changeAttributeDict:dic range:range];
     
-    BAWeak;
+    BAKit_WeakSelf;
     /*! 系统 alert */
-    [UIAlertController showAlertInViewController:viewController
-                                       withTitle:@"温馨提示："
-                          mutableAttributedTitle:title
-                                         message:@"当前用户未登录，是否登录？"
-                        mutableAttributedMessage:attributedMessage
-                               buttonTitlesArray:@[@"取 消", @"登 录"]
-                           buttonTitleColorArray:@[BA_Green_Color, BA_Red_Color]
-                                        tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                            if (1 == buttonIndex)
-                                            {
-                                                BALoginViewController *loginVC = [[BALoginViewController alloc] init];
-                                                [viewController.navigationController pushViewController:loginVC animated:YES];
-                                            }
-                                        }];
+    NSArray *buttonTitleArray = @[@"取 消", @"登 录"];
+    NSArray *buttonTitleColorArray = @[BAKit_Color_Green, BAKit_Color_Red];
+    [UIAlertController ba_alertAttributedShowInViewController:viewController attributedTitle:title attributedMessage:attributedMessage buttonTitleArray:buttonTitleArray buttonTitleColorArray:buttonTitleColorArray block:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+        BALoginViewController *loginVC = [[BALoginViewController alloc] init];
+        [viewController.navigationController pushViewController:loginVC animated:YES];
+    }];
 }
 
 

@@ -51,18 +51,19 @@
     UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag];
     button.selected = !button.selected;
     
-    BAWeak;
+    BAKit_WeakSelf
     if (sender.tag == 1)
     {
         /*! 1、基础的缩放动画【仿qq空间的点赞】 */
         [UIView animateWithDuration:0.5f animations:^{
+            BAKit_StrongSelf
             /*! 1.5和0，67，两个的缩放的积等于1才能回归原大小 */
             button.transform = CGAffineTransformScale(button.transform, 2, 2);
-            weakSelf.contentLabel.transform = CGAffineTransformScale(weakSelf.contentLabel.transform, 1.6, 1.6);
+            self.contentLabel.transform = CGAffineTransformScale(self.contentLabel.transform, 1.6, 1.6);
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.5f animations:^{
                 button.transform = CGAffineTransformScale(button.transform, 0.5, 0.5);
-                weakSelf.contentLabel.transform = CGAffineTransformScale(weakSelf.contentLabel.transform, 0.625, 0.625);
+                self.contentLabel.transform = CGAffineTransformScale(self.contentLabel.transform, 0.625, 0.625);
             }];
         }];
     }
@@ -74,15 +75,17 @@
 //        {
         
         /*! 2、基础的移动动画【仿微博上下拉新数据条数】 */
+        BAKit_WeakSelf
         [UIView animateWithDuration:1.8f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             /*! 负数为向左向上 */
-            weakSelf.shareLabelButton.transform = CGAffineTransformMakeTranslation(0, -30);
+            BAKit_StrongSelf
+            self.shareLabelButton.transform = CGAffineTransformMakeTranslation(0, -30);
         } completion:^(BOOL finished) {
             /*! 2、基础的移动动画【仿微博上下拉新数据条数】 */
             [UIView animateWithDuration:1.8f delay:1.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 /*! 正数为向右向下 */
-                weakSelf.shareLabelButton.transform = CGAffineTransformIdentity;
-//                weakSelf.shareLabelButton.transform = CGAffineTransformMakeTranslation(0, 30);
+                self.shareLabelButton.transform = CGAffineTransformIdentity;
+//                self.shareLabelButton.transform = CGAffineTransformMakeTranslation(0, 30);
             } completion:^(BOOL finished) {
             }];
         }];
@@ -90,11 +93,11 @@
     else if (sender.tag == 3)
     {
         [UIView animateWithDuration:1.0f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            weakSelf.contentLabel.transform = CGAffineTransformRotate(_contentLabel.transform, M_PI_2);
-            weakSelf.contentLabel.transform = CGAffineTransformScale(weakSelf.contentLabel.transform, 1.6, 1.6);
+            self.contentLabel.transform = CGAffineTransformRotate(_contentLabel.transform, M_PI_2);
+            self.contentLabel.transform = CGAffineTransformScale(self.contentLabel.transform, 1.6, 1.6);
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:1.0f delay:0.f options:UIViewAnimationOptionCurveEaseOut animations:^{
-                weakSelf.contentLabel.transform = CGAffineTransformScale(weakSelf.contentLabel.transform, 0.625, 0.625);
+                self.contentLabel.transform = CGAffineTransformScale(self.contentLabel.transform, 0.625, 0.625);
             } completion:^(BOOL finished) {
                 
             }];

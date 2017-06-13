@@ -40,7 +40,7 @@
 - (void)notBtnClick:(UIButton *)sender
 {
     // 此处使用两个时间戳的差来计算，10秒后开启通知
-    NSInteger time = [[NSString ba_time_getTimeStamp] integerValue] + 10 - [[NSString ba_time_getTimeStamp] integerValue];
+    NSInteger time = [[NSString ba_time_getCurrentDateTransformTimeStampYMDHMS] integerValue] + 10 - [[NSString ba_time_getCurrentDateTransformTimeStampYMDHMS] integerValue];
     
 //    NSDate *fireDate = [NSDate ba_NSDateTransformWithNSDateTimeSp:@"1464586860"];
     NSLog(@"***** 通知时间：%ld", (long)time);

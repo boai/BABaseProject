@@ -17,7 +17,7 @@
         self.bakit_manager
         .label_font([UIFont fontWithName:@"SFOuterLimitsUpright" size:20.0f])
         .label_textAlignment(NSTextAlignmentCenter)
-        .label_textColor(BA_White_Color);
+        .label_textColor(BAKit_Color_White);
     }
     return self;
 }

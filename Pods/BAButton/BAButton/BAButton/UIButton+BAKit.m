@@ -311,7 +311,7 @@ highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage
  @param sel sel
  @return button
  */
-- (instancetype __nonnull)ba_creatButtonWithFrame:(CGRect)frame
++ (instancetype __nonnull)ba_creatButtonWithFrame:(CGRect)frame
                                             title:(NSString * __nullable)title
                                          selTitle:(NSString * __nullable)selTitle
                                        titleColor:(UIColor * __nullable)titleColor

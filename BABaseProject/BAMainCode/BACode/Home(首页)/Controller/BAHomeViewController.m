@@ -103,7 +103,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BA_White_Color;
+    self.view.backgroundColor = BAKit_Color_White;
 
     /*! 设置CGRectZero从导航栏下开始计算 */
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
@@ -155,11 +155,11 @@
         /*! 标题背景颜色 */
         _segmentedControl.backgroundColor             = [UIColor clearColor];
         /*! 标题默认字体颜色 */
-        _segmentedControl.titleTextAttributes         = @{NSForegroundColorAttributeName : BA_LightGray_Color, NSFontAttributeName: BA_FontSize(16)};
+        _segmentedControl.titleTextAttributes         = @{NSForegroundColorAttributeName : BAKit_Color_LightGray, NSFontAttributeName: BA_FontSize(16)};
         /*! 标题选中字体颜色 */
-        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BA_White_Color, NSFontAttributeName: BA_FontSize(18)};
+        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : BAKit_Color_White, NSFontAttributeName: BA_FontSize(18)};
         /*! 标题选中的下划线的颜色 */
-        _segmentedControl.selectionIndicatorColor     = BA_Green_Color;
+        _segmentedControl.selectionIndicatorColor     = BAKit_Color_Green;
         /*! 标题选中的下划线的高度 */
         _segmentedControl.selectionIndicatorHeight    = 2.0f;
         /*! 标题选中的样式：本样式为下划线 */
@@ -169,7 +169,7 @@
         /*! 标题的中间的隔线：默认为：NO */
         _segmentedControl.verticalDividerEnabled      = YES;
         /*! 标题的中间的隔线颜色 */
-        _segmentedControl.verticalDividerColor        = BA_LightGray_Color;
+        _segmentedControl.verticalDividerColor        = BAKit_Color_LightGray;
         /*! 标题的中间的隔线宽度 */
         _segmentedControl.verticalDividerWidth        = 1.0f;
         
@@ -197,7 +197,7 @@
         self.scrollView.bounces                        = NO;
         self.scrollView.contentSize                    = CGSizeMake(BA_SCREEN_WIDTH * (_segmentedControl.sectionTitles.count), self.scrollView.frame.size.height);
         self.scrollView.delegate                       = self;
-        self.scrollView.backgroundColor                = BA_Green_Color;
+        self.scrollView.backgroundColor                = BAKit_Color_Green;
 
         [self.scrollView scrollRectToVisible:CGRectMake(0, 0, BA_SCREEN_WIDTH, self.scrollView.frame.size.height) animated:NO];
         [self.view addSubview:self.scrollView];

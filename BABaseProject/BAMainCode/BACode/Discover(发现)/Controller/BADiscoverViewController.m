@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"发 现";
-    self.view.backgroundColor = BA_Green_Color;
+    self.view.backgroundColor = BAKit_Color_Green;
     [self test];
     
 }

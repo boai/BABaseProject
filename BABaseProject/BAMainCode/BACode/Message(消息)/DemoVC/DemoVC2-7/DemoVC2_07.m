@@ -270,7 +270,7 @@ static const NSInteger kTempCount = 100;
         for (NSInteger i = 0; i < kTempCount; i++)
         {
             UIView *barView = [UIView new];
-            barView.backgroundColor = BARandomColor;
+            barView.backgroundColor = BAKit_ColorRandom();
             [self.view addSubview:barView];
             
             [_tempViewArray addObject:barView];

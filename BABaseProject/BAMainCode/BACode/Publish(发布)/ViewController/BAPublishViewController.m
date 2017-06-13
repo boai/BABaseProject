@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view setBackgroundColor:BA_Green_Color];
+    [self.view setBackgroundColor:BAKit_Color_Green];
     
     /*! 设置导航条 */
     [self setUpNavgationBar];

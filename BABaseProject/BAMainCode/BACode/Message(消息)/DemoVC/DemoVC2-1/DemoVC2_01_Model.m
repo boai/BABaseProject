@@ -25,7 +25,7 @@
  */
 - (void)calculateTheExpendStringHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width
 {
-    self.expendStringHeight = 10 + [self.contentString ba_heightWithStringAttribute:attribute fixedWidth:width] + 10;
+    self.expendStringHeight = 10 + [self.contentString ba_stringGetHeightWithStringAttributeDictionary:attribute width:width] + 10;
 }
 
 /*!
@@ -36,12 +36,13 @@
  */
 - (void)calculateTheNormalStringHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width
 {
-    CGFloat oneLineHeight = [NSString ba_oneLineOfTextHeightWithStringAttribute:attribute];
-    CGFloat textHeight = [self.contentString ba_heightWithStringAttribute:attribute fixedWidth:width];
+    CGFloat oneLineHeight = [NSString ba_stringGetOneLineOfTextHeightWithStringAttribute:attribute];
+    CGFloat textHeight = [self.contentString ba_stringGetHeightWithStringAttributeDictionary:attribute width:width];
     
     CGFloat normalTextHeight = textHeight >= 3 * oneLineHeight ? 3 * oneLineHeight : textHeight;
     self.normalStringHeight = 10 + normalTextHeight + 10;
 }
+
 
 
 @end

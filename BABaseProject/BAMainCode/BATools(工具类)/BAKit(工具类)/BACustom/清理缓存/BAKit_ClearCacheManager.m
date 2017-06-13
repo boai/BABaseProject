@@ -1,36 +1,30 @@
 //
-//  BAClearCacheManager.m
+//  BAKit_ClearCacheManager.m
 //  BABaseProject
 //
 //  Created by 博爱 on 16/7/14.
 //  Copyright © 2016年 博爱之家. All rights reserved.
 //
 
-#import "BAClearCacheManager.h"
+#import "BAKit_ClearCacheManager.h"
 
-@implementation BAClearCacheManager
+@implementation BAKit_ClearCacheManager
 
 + (instancetype)ba_sharedCache
 {
-    static BAClearCacheManager *manager = nil;
+    static BAKit_ClearCacheManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[BAClearCacheManager alloc] init];
+        manager = [[BAKit_ClearCacheManager alloc] init];
     });
     
     return manager;
 }
 
 #pragma mark - 计算单个文件大小
-- (CGFloat)ba_fileSizeAtPath:(NSString *)path
+- (CGFloat)ba_fileManagerGetSizeWithFilePath:(NSString *)path
 {
-    NSFileManager *fileManager=[NSFileManager defaultManager];
-    if([fileManager fileExistsAtPath:path])
-    {
-        long long size=[fileManager attributesOfItemAtPath:path error:nil].fileSize;
-        return size/1024.0/1024.0;
-    }
-    return 0;
+    return [NSFileManager ba_fileManagerGetSizeWithFilePath:path];
 }
 
 - (CGFloat)ba_loadCacheSize
@@ -41,9 +35,9 @@
     for (NSString *f in files)
     {
         NSString *path = [cachPath stringByAppendingPathComponent:f];
-        self.cacheSize += [self ba_fileSizeAtPath:path];
+        self.cacheSize += [self ba_fileManagerGetSizeWithFilePath:path];
     }
-    BALog(@"cacheSize == %f",self.cacheSize);
+    NSLog(@"cacheSize == %f",self.cacheSize);
     
     return self.cacheSize;
     
@@ -53,18 +47,18 @@
 - (CGFloat)ba_folderSizeAtPath:(NSString *)path
 {
     NSFileManager *fileManager=[NSFileManager defaultManager];
-    float folderSize;
+    float folderSize = 0.0;
     if ([fileManager fileExistsAtPath:path])
     {
         NSArray *childerFiles=[fileManager subpathsAtPath:path];
         for (NSString *fileName in childerFiles)
         {
             NSString *absolutePath=[path stringByAppendingPathComponent:fileName];
-            folderSize += [self ba_fileSizeAtPath:absolutePath];
+            folderSize += [self ba_fileManagerGetSizeWithFilePath:absolutePath];
         }
         //SDWebImage框架自身计算缓存的实现
         //        folderSize+=[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0;
-        BALog(@"d = %f",folderSize);
+        NSLog(@"d = %f",folderSize);
         return folderSize;
     }
     return 0;
@@ -92,10 +86,10 @@
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
                    , ^{
                        NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-                       BALog(@"cachPath===%@",cachPath);
+                       NSLog(@"cachPath===%@",cachPath);
                        NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
-                       BALog(@"files :%lu",(unsigned long)[files count]);
-                       BALog(@"file === %@",files);
+                       NSLog(@"files :%lu",(unsigned long)[files count]);
+                       NSLog(@"file === %@",files);
                        for (NSString *p in files)
                        {
                            NSError *error;
@@ -110,7 +104,7 @@
 
 - (void)ba_clearCacheSuccess
 {
-    BALog(@"清理成功");
+    NSLog(@"清理成功");
 }
 
 

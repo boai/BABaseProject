@@ -85,7 +85,7 @@ extern "C" {
 }
 
 + (NSNumber *)numberWithString:(NSString *)string {
-    NSString *str = [[string stringByTrim] lowercaseString];
+    NSString *str = [[string ba_trimWhitespaceAndNewlines] lowercaseString];
     if (!str || !str.length) {
         return nil;
     }

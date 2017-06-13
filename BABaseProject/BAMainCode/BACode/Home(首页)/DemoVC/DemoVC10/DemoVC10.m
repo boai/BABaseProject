@@ -30,7 +30,7 @@
     self.title = NSLocalizedString(@"DemoVC10Title", nil);
    
     
-    self.vcBgColor = BA_Yellow_Color;
+    self.vcBgColor = BAKit_Color_Yellow;
 
     self.collectionView.hidden = NO;
     self.editButton.hidden     = NO;
@@ -42,7 +42,7 @@
     if (!_editButton)
     {
         _editButton = [[UIButton alloc] init];
-        [_editButton setTintColor:BA_Orange_Color];
+        [_editButton setTintColor:BAKit_Color_Orange];
         [_editButton setTitle:@"编辑" forState:UIControlStateNormal];
         [_editButton addTarget:self action:@selector(editButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_editButton sizeToFit];

@@ -146,7 +146,7 @@
 //        cell.textField.tag = 1001 + indexPath.row;
         _cell2.normalTextView.delegate = self;
         _cell2.hightlightTextField.delegate = self;
-        _cell2.backgroundColor = BA_Orange_Color;
+        _cell2.backgroundColor = BAKit_Color_Orange;
         
         return _cell2;
     }
@@ -213,9 +213,9 @@
 {
     UILabel *headerLabel = [UILabel new];
     headerLabel.frame = CGRectMake(0, 0, BA_SCREEN_WIDTH, 20);
-    headerLabel.textColor = BA_Gray_Color;
+    headerLabel.textColor = BAKit_Color_Gray_1;
     headerLabel.font = BA_FontSize(13);
-    headerLabel.backgroundColor = BA_Yellow_Color;
+    headerLabel.backgroundColor = BAKit_Color_Yellow;
     
     [self.view addSubview:headerLabel];
     
@@ -452,7 +452,7 @@
         if (part.specical)
         {
             // 非表情的特殊文字
-            substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{NSForegroundColorAttributeName:BA_Red_Color}];
+            substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{NSForegroundColorAttributeName:BAKit_Color_Red}];
         }
         else
         {

@@ -57,8 +57,8 @@
  
  */
 
-#ifndef BAKit_CommonDefine_h
-#define BAKit_CommonDefine_h
+#ifndef BAKit_DefineCommon_h
+#define BAKit_DefineCommon_h
 
 #ifndef __OPTIMIZE__
 #define NSLog(...) NSLog(__VA_ARGS__)
@@ -173,10 +173,8 @@
 #define BAKit_CopyContent(content) [[UIPasteboard generalPasteboard] setString:content]
 
 #define BAKit_ImageName(imageName)  [UIImage imageNamed:imageName]
-#define BAKit_ImageBADiscoveryName(imageName) BAKit_ImageName([@"discoverVC.bundle/" stringByAppendingString:imageName])
-#define BAKit_ImageBAProfileName(imageName) BAKit_ImageName([@"profileVC.bundle/" stringByAppendingString:imageName])
-#define BAKit_ImageBAMessageName(imageName) BAKit_ImageName([@"messageVC.bundle/" stringByAppendingString:imageName])
-
+#define BAKit_ImageBADiscoveryName(imageName) BAKit_ImageName([@"BADiscovery.bundle/" stringByAppendingString:imageName])
+#define BAKit_ImageBAProfileName(imageName) BAKit_ImageName([@"BAProfile.bundle/" stringByAppendingString:imageName])
 #define BAKit_ImageBATabBundleName(imageName) BAKit_ImageName([@"BATabBundle.bundle/" stringByAppendingString:imageName])
 #define BAKit_ImageBAWeXinAppName(imageName) BAKit_ImageName([@"BAWeXinApp.bundle/" stringByAppendingString:imageName])
 
@@ -189,6 +187,18 @@
 #define BAKit_DefaultLoading             @"加载中..."
 #define BAKit_DefaultLoading_location    @"定位中，请稍后..."
 
+#pragma mark - 获取时间间隔
+/*! 获取时间间隔 */
+#define BAKit_CFAbsoluteTime_start  CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+#define BAKit_CFAbsoluteTime_end   CFAbsoluteTime end = CFAbsoluteTimeGetCurrent(); \
+NSLog(@"获取时间间隔 = %f", end -start);
+
+#pragma mark - 获取沙盒目录路径
+/*! 获取沙盒 Cache 目录路径 */
+#define BAKit_Path_Cache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+
+/*! 获取沙盒 home 目录路径 */
+#define BAKit_Path_Home NSHomeDirectory()
 
 
 #pragma mark - 简单警告框
@@ -233,6 +243,68 @@ BAKit_RandomNumber(NSInteger i){
     return arc4random() % i;
 }
 
+/**
+ 计算列数【根据 array.count、每行多少个 item，计算列数】
+ 
+ @param array array
+ @param rowCount 每行多少个 item
+ @return 列数
+ */
+CG_INLINE NSInteger
+BAKit_getColumnCountWithArrayAndRowCount(NSArray *array, NSInteger rowCount){
+    NSUInteger count = array.count;
+    
+    NSUInteger i = 0;
+    if (count % rowCount == 0)
+    {
+        i = count / rowCount;
+    }
+    else
+    {
+        i = count / rowCount + 1;
+    }
+    return i;
+}
+
+CG_INLINE NSUInteger BAKit_hexStrToInt(NSString *str) {
+    uint32_t result = 0;
+    sscanf([str UTF8String], "%X", &result);
+    return result;
+}
+
+#import "NSString+BATrims.h"
+CG_INLINE BOOL BAKit_hexStrToRGBA(NSString *str,
+                                  CGFloat *r, CGFloat *g, CGFloat *b, CGFloat *a) {
+    str = [[str ba_trimWhitespaceAndNewlines] uppercaseString];
+    if ([str hasPrefix:@"#"]) {
+        str = [str substringFromIndex:1];
+    } else if ([str hasPrefix:@"0X"]) {
+        str = [str substringFromIndex:2];
+    }
+    
+    NSUInteger length = [str length];
+    //         RGB            RGBA          RRGGBB        RRGGBBAA
+    if (length != 3 && length != 4 && length != 6 && length != 8) {
+        return NO;
+    }
+    
+    //RGB,RGBA,RRGGBB,RRGGBBAA
+    if (length < 5) {
+        *r = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(0, 1)]) / 255.0f;
+        *g = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(1, 1)]) / 255.0f;
+        *b = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(2, 1)]) / 255.0f;
+        if (length == 4)  *a = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(3, 1)]) / 255.0f;
+        else *a = 1;
+    } else {
+        *r = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(0, 2)]) / 255.0f;
+        *g = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(2, 2)]) / 255.0f;
+        *b = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(4, 2)]) / 255.0f;
+        if (length == 8) *a = BAKit_hexStrToInt([str substringWithRange:NSMakeRange(6, 2)]) / 255.0f;
+        else *a = 1;
+    }
+    return YES;
+}
+
 #pragma mark 从本地文件读取数据
 /*!
  从本地文件读取数据
@@ -274,4 +346,4 @@ BAKit_GetDictionaryWithContentsOfFile(NSString *fileName, NSString *type){
 
 
 
-#endif /* BAKit_CommonDefine_h */
+#endif /* BAKit_DefineCommon_h */

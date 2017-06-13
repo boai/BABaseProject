@@ -121,10 +121,10 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    [button setTitleColor:ba_RGBAColor(220, 33, 43, 1.0) forState:UIControlStateNormal];
+    [button setTitleColor:BAKit_Color_RGBA(220, 33, 43, 1.0) forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button sizeToFit];
-    CGSize size = [title sizeOfMaxSize:CGSizeMake(1000, button.frame.size.height) fontSize:14.0f];
+    CGSize size = [title ba_stringGetSizeWithMaxSize:CGSizeMake(1000, button.frame.size.height) fontSize:14.0f];
     button.frame = (CGRect){CGPointZero, size.width + 25, button.frame.size.height};
     [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     return [[UIBarButtonItem alloc] initWithCustomView:button];

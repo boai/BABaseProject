@@ -95,7 +95,7 @@
     if (!_progressView)
     {
         UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
-        progressView.tintColor = BA_Orange_Color;
+        progressView.tintColor = BAKit_Color_Orange;
         progressView.trackTintColor = [UIColor whiteColor];
         [self.view addSubview:progressView];
         self.progressView = progressView;
@@ -164,7 +164,7 @@
     UIImage *backImage = [UIImage imageNamed:@"navigationbar_back"];
     backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIButton *backBtn = [[UIButton alloc] init];
-    [backBtn setTintColor:BA_Orange_Color];
+    [backBtn setTintColor:BAKit_Color_Orange];
     [backBtn setBackgroundImage:backImage forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [backBtn sizeToFit];
@@ -179,7 +179,7 @@
     UIImage *menuImage = [UIImage imageNamed:@"navigationbar_more"];
     menuImage = [menuImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIButton *menuBtn = [[UIButton alloc] init];
-    [menuBtn setTintColor:BA_Orange_Color];
+    [menuBtn setTintColor:BAKit_Color_Orange];
     [menuBtn setImage:menuImage forState:UIControlStateNormal];
     [menuBtn addTarget:self action:@selector(menuBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [menuBtn sizeToFit];
@@ -193,7 +193,7 @@
 {
     UIButton *colseBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [colseBtn setTitle:@"关闭" forState:UIControlStateNormal];
-    [colseBtn setTitleColor:BA_Orange_Color forState:UIControlStateNormal];
+    [colseBtn setTitleColor:BAKit_Color_Orange forState:UIControlStateNormal];
     [colseBtn addTarget:self action:@selector(colseBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [colseBtn sizeToFit];
     

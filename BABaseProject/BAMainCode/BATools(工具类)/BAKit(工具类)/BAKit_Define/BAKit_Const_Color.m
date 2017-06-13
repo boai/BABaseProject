@@ -12,6 +12,9 @@
 UIColor *BAKit_Color_ThemYellow;
 UIColor *BAKit_Color_ThemBlue;
 
+// 支付宝 蓝色
+UIColor *BAKit_Color_AliPayBlue;
+
 /*! 灰色 */
 UIColor *BAKit_Color_Gray_1;
 UIColor *BAKit_Color_Gray_2;
@@ -105,8 +108,13 @@ UIColor *BAKit_Color_RGBA(u_char r,u_char g, u_char b, u_char a){
 }
 
 UIColor *BAKit_Color_Hex(NSString *hexString) {
-    return [UIColor colorWithHexString:hexString];
+    CGFloat r, g, b, a;
+    if (BAKit_hexStrToRGBA(hexString, &r, &g, &b, &a)) {
+        return [UIColor colorWithRed:r green:g blue:b alpha:a];
+    }
+    return nil;
 }
+
 
 /**
  加载颜色
@@ -122,6 +130,9 @@ UIColor *BAKit_Color_Hex(NSString *hexString) {
     BAKit_Color_ThemYellow = BAKit_Color_RGB(229, 205, 139);
     BAKit_Color_ThemBlue = BAKit_Color_RGB(92, 140, 193);
     
+    // 支付宝 蓝色
+    BAKit_Color_AliPayBlue = BAKit_Color_RGB(0, 152, 229);
+
     /*! 灰色 */
     BAKit_Color_Gray_1 = BAKit_Color_RGB(53, 60, 70);
     BAKit_Color_Gray_2 = BAKit_Color_RGB(73, 80, 90);

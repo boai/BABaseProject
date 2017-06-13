@@ -74,7 +74,6 @@
 
     /*! 全局宏定义文件 */
     #import "BADefin.h"
-    #import "BAColorHeader.h"
     #import "BAFrameHeader.h"
 
     #import <BAAlert_OC.h>
@@ -84,9 +83,6 @@
 
     /*! BAKit框架 */
     #import "BAKit.h"
-
-    /*! 自定义modal动画 */
-    #import "BAModal.h"
 
     /*! 本地通知 */
     #import "BALocalNotification.h"

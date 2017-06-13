@@ -182,7 +182,7 @@
     /*! 创建分享消息对象 */
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
-    BAWeak;
+    BAKit_WeakSelf;
     UIImageView *imageView = [UIImageView new];
     [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         /*! 创建网页内容对象 */
@@ -209,7 +209,7 @@
                     UMSocialLogInfo(@"response data is %@",data);
                 }
             }
-            [weakSelf alertWithError:error];
+            [self alertWithError:error];
         }];
 
     }];
@@ -239,7 +239,7 @@
 //    } else {
         /*! 这里设置默认图片 */
 //        shareObject.thumbImage = [UIImage imageNamed:@"icon2.jpg"];
-    BAWeak;
+    BAKit_WeakSelf;
     UIImageView *imageView = [UIImageView new];
     [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         shareObject.shareImage = image;
@@ -261,7 +261,7 @@
                     UMSocialLogInfo(@"response data is %@",data);
                 }
             }
-            [weakSelf alertWithError:error];
+            [self alertWithError:error];
         }];
 
     }];
@@ -354,7 +354,7 @@
 {
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
-    BAWeak;
+    BAKit_WeakSelf;
     UIImageView *imageView = [UIImageView new];
     [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         UMShareEmotionObject *shareObject = [UMShareEmotionObject shareObjectWithTitle:title descr:shareText thumImage:image];
@@ -380,7 +380,7 @@
                     NSLog(@"response data is %@",data);
                 }
             }
-            [weakSelf alertWithError:error];
+            [self alertWithError:error];
         }];
     }];
 }
@@ -1157,7 +1157,7 @@
 - (void)ba_shareListWithShareType:(BAUM_SHARE_TYPE)shareType
                    viewController:(UIViewController *)viewController
 {
-    BAWeak;
+    BAKit_WeakSelf;
     BAUMSocialShareUIConfig.sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
     BAUMSocialShareUIConfig.sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_IconAndBGRadius;
     BAUMSocialShareUIConfig.shareTitleViewConfig.shareTitleViewTitleString = @"博爱分享";
@@ -1175,27 +1175,27 @@
         
         if (platformType == UMSocialPlatformType_QQ)
         {
-            [weakSelf ba_qqShareWithShareType:shareType
+            [self ba_qqShareWithShareType:shareType
                                viewController:viewController];
         }
         else if (platformType == UMSocialPlatformType_Qzone)
         {
-            [weakSelf ba_qZoneShareWithShareType:shareType
+            [self ba_qZoneShareWithShareType:shareType
                                  viewController:viewController];
         }
         else if (platformType == UMSocialPlatformType_WechatSession)
         {
-            [weakSelf ba_wechatShareWithShareType:shareType
+            [self ba_wechatShareWithShareType:shareType
                                viewController:viewController];
         }
         else if (platformType == UMSocialPlatformType_WechatTimeLine)
         {
-            [weakSelf ba_wechatTimeLineShareWithShareType:shareType
+            [self ba_wechatTimeLineShareWithShareType:shareType
                                    viewController:viewController];
         }
         else if (platformType == UMSocialPlatformType_Sina)
         {
-            [weakSelf ba_sinaShareWithShareType:shareType
+            [self ba_sinaShareWithShareType:shareType
                                    viewController:viewController];
         }
     }];
@@ -1252,7 +1252,7 @@
                  isGetAuthWithUserInfo:(BOOL)isGetAuthWithUserInfo
                          loginCallback:(BAUMLoginCallback)loginCallback
 {
-    BAWeak;
+    BAKit_WeakSelf;
     BAUMSocialShareUIConfig.sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
     BAUMSocialShareUIConfig.sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_IconAndBGRadius;
     BAUMSocialShareUIConfig.shareTitleViewConfig.shareTitleViewTitleString = @"博爱登录";
@@ -1269,25 +1269,25 @@
         
         if (platformType == UMSocialPlatformType_QQ)
         {
-            [weakSelf ba_qqLoginWithViewController:viewController
+            [self ba_qqLoginWithViewController:viewController
                              isGetAuthWithUserInfo:isGetAuthWithUserInfo
                                      loginCallback:loginCallback];
         }
         else if (platformType == UMSocialPlatformType_Qzone)
         {
-            [weakSelf ba_qZoneLoginWithViewController:viewController
+            [self ba_qZoneLoginWithViewController:viewController
                                 isGetAuthWithUserInfo:isGetAuthWithUserInfo
                                         loginCallback:loginCallback];
         }
         else if (platformType == UMSocialPlatformType_WechatSession)
         {
-            [weakSelf ba_wechatLoginWithViewController:viewController
+            [self ba_wechatLoginWithViewController:viewController
                                  isGetAuthWithUserInfo:isGetAuthWithUserInfo
                                          loginCallback:loginCallback];
         }
         else if (platformType == UMSocialPlatformType_Sina)
         {
-            [weakSelf ba_sinaLoginWithViewController:viewController
+            [self ba_sinaLoginWithViewController:viewController
                                isGetAuthWithUserInfo:isGetAuthWithUserInfo
                                        loginCallback:loginCallback];
         }
@@ -1299,12 +1299,12 @@
              isGetAuthWithUserInfo:(BOOL)isGetAuthWithUserInfo
                      loginCallback:(BAUMLoginCallback)loginCallback
 {
-    BAWeak;
+    BAKit_WeakSelf;
     if (isGetAuthWithUserInfo)
     {
         [BAUMSocialManager getUserInfoWithPlatform:platformType currentViewController:nil completion:^(id result, NSError *error) {
             
-            [weakSelf callbackWithResult:result
+            [self callbackWithResult:result
                                    error:error
                            loginCallback:loginCallback];
         }];
@@ -1312,7 +1312,7 @@
     else
     {
         [BAUMSocialManager authWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
-            [weakSelf callbackWithResult:result
+            [self callbackWithResult:result
                                    error:error
                            loginCallback:loginCallback];
         }];
@@ -1355,17 +1355,17 @@
 #pragma mark - 清除授权
 - (void)ba_cancelAuthWithPlatformType:(UMSocialPlatformType)platformType
 {
-    BAWeak;
+    BAKit_WeakSelf;
     if (self.responseDic)
     {
         [BAUMSocialManager cancelAuthWithPlatform:platformType completion:^(id result, NSError *error) {
             self.responseDic = nil;
-            if (weakSelf.authOpFinish)
+            if (self.authOpFinish)
             {
-                weakSelf.authOpFinish();
+                self.authOpFinish();
             }
 //            NSString *msg = [NSString stringWithFormat:@"清除授权成功！"];
-//            [weakSelf BA_showAlertWithTitle:msg];
+//            [self BA_showAlertWithTitle:msg];
         }];
     }
     else

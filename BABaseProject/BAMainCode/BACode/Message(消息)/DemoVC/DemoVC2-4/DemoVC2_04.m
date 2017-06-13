@@ -160,7 +160,7 @@
     [self.searchView ba_setBordersWithColor:nil andCornerRadius:5 andWidth:0];
     
     min_y = 0;
-    CGSize size = BAKit_LabelSizeWithTextAndFont(self.searchLabel.text, BAKit_FontSystem_15);
+    CGSize size = BAKit_LabelSizeWithTextAndFont(self.searchLabel.text, BAKit_Font_systemFontOfSize_15);
     min_w = size.width;
     
     self.searchLabel.frame = CGRectMake(min_x, min_y, min_w, min_h);
@@ -707,7 +707,7 @@
 {
     if (!_locationButton)
     {
-        _locationButton = [[UIButton alloc] ba_creatButtonWithFrame:CGRectZero title:@"ceshi" selTitle:nil titleColor:nil titleFont:nil image:BAKit_ImageBAMessageName(@"定位") selImage:nil padding:0 buttonPositionStyle:BAButtonLayoutTypeNormal viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:0 target:self selector:@selector(handleButtonAction:)];
+        _locationButton = [UIButton ba_creatButtonWithFrame:CGRectZero title:@"ceshi" selTitle:nil titleColor:nil titleFont:nil image:BAKit_ImageName(@"定位") selImage:nil padding:0 buttonPositionStyle:BAButtonLayoutTypeNormal viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:0 target:self selector:@selector(handleButtonAction:)];
         self.locationButton.tag = 1;
         
         [self.view addSubview:self.locationButton];
@@ -733,7 +733,7 @@
     {
         _searchLabel = [UILabel new];
         self.searchLabel.text = @"当前位置:";
-        self.searchLabel.font = BAKit_FontSystem_15;
+        self.searchLabel.font = BAKit_Font_systemFontOfSize_15;
         //        self.searchLabel.backgroundColor = BAKit_Color_Yellow;
         
         [self.searchView addSubview:self.searchLabel];
@@ -746,7 +746,7 @@
     if (!_searchTextField)
     {
         _searchTextField = [UITextField new];
-        self.searchTextField.font = BAKit_FontSystem_15;
+        self.searchTextField.font = BAKit_Font_systemFontOfSize_15;
         self.searchTextField.delegate = self;
         self.searchTextField.returnKeyType = UIReturnKeySearch;
         self.searchTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -762,7 +762,7 @@
 {
     if (!_voiceButton)
     {
-        _voiceButton = [[UIButton alloc] ba_creatButtonWithFrame:CGRectZero title:@"ceshi" selTitle:nil titleColor:nil titleFont:nil image:BAKit_ImageBAMessageName(@"map_voice") selImage:BAKit_ImageBAMessageName(@"map_voice") padding:1 buttonPositionStyle:BAButtonLayoutTypeNormal viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:1 target:self selector:@selector(handleButtonAction:)];
+        _voiceButton = [UIButton ba_creatButtonWithFrame:CGRectZero title:@"ceshi" selTitle:nil titleColor:nil titleFont:nil image:BAKit_ImageName(@"map_voice") selImage:BAKit_ImageName(@"map_voice") padding:1 buttonPositionStyle:BAButtonLayoutTypeNormal viewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:1 target:self selector:@selector(handleButtonAction:)];
 
         self.voiceButton.tag = 2;
         self.voiceButton.backgroundColor = BAKit_Color_Red;

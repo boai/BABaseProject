@@ -51,10 +51,7 @@
  * 微博    : 博爱1616
  * Email  : 137361770@qq.com
  * GitHub : https://github.com/boai
- * 博客园  : http://www.cnblogs.com/boai/
- * 博客    : http://boai.github.io
- * 简书    : http://www.jianshu.com/users/95c9800fdf47/latest_articles
- * 简书专题 : http://www.jianshu.com/collection/072d578bf782
+ * 博客    : http://boaihome.com
  
  *********************************************************************************
  
@@ -133,7 +130,7 @@
 
 /*!
  *
- *   实例化 NSMutableAttributedString 字符串
+ *  实例化 NSMutableAttributedString 字符串
  *
  *  @param texts      用于存储所需设置字符串的数组(根据所需自定义类型分组)
  *  @param attrsArray 富文本属性样式的集合(数组元素是texts的相应文本的属性--字典)

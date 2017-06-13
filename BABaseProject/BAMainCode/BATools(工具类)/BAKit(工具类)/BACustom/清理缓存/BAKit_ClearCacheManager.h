@@ -1,14 +1,16 @@
 //
-//  BAClearCacheManager.h
+//  BAKit_ClearCacheManager.h
 //  BABaseProject
 //
 //  Created by 博爱 on 16/7/14.
 //  Copyright © 2016年 博爱之家. All rights reserved.
 //
 
-#import "BABaseNetManager.h"
+#import <Foundation/Foundation.h>
 
-@interface BAClearCacheManager : BABaseNetManager
+
+#define  BAKit_ClearCacheManagerShared [BAKit_ClearCacheManager ba_sharedCache]
+@interface BAKit_ClearCacheManager : NSObject
 
 @property (nonatomic, assign) CGFloat cacheSize;
 
@@ -21,7 +23,7 @@
  *
  *  @return 计算单个文件大小
  */
-- (CGFloat)ba_fileSizeAtPath:(NSString *)path;
+- (CGFloat)ba_fileManagerGetSizeWithFilePath:(NSString *)path;
 
 /*!
  *  计算目录大小

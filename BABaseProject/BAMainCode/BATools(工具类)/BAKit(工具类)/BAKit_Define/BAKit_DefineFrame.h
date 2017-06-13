@@ -1,13 +1,15 @@
 //
-//  BAKit_FrameDefine.h
+//  BAKit_DefineFrame.h
 //  BAQMUIDemo
 //
 //  Created by 博爱 on 2017/2/9.
 //  Copyright © 2017年 boaihome. All rights reserved.
 //
 
-#ifndef BAKit_FrameDefine_h
-#define BAKit_FrameDefine_h
+#ifndef BAKit_DefineFrame_h
+#define BAKit_DefineFrame_h
+
+#import <objc/runtime.h>
 
 #pragma mark - Margin
 #define BAKit_Margin_1       BAKit_Flat(1)
@@ -434,4 +436,4 @@ BAKit_CGRectSetSize(CGRect rect, CGSize size) {
 }
 
 
-#endif /* BAKit_FrameDefine_h */
+#endif /* BAKit_DefineFrame_h */

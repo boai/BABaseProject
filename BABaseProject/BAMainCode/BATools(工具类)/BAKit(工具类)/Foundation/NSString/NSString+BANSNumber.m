@@ -1,14 +1,15 @@
 //
-//  NSString+NSNumber.m
-//  testDemo
+//  NSString+BANSNumber.m
+//  BAKit
 //
-//  Created by 博爱 on 2016/11/7.
-//  Copyright © 2016年 DS-Team. All rights reserved.
+//  Created by boai on 2017/6/7.
+//  Copyright © 2017年 boai. All rights reserved.
 //
 
-#import "NSString+NSNumber.h"
 
-@implementation NSString (NSNumber)
+#import "NSString+BANSNumber.h"
+
+@implementation NSString (BANSNumber)
 
 #pragma mark - ***** 手机号码格式化样式：344【中间空格】，示例：13855556666 --> 138 5555 6666
 + (NSString *)ba_phoneNumberFormatterSpace:(NSString *)phoneNumber
@@ -65,14 +66,14 @@
 + (NSString *)ba_stringFormatterWithDecimalStyleWithNumberString:(NSString *)numberString
 {
 //    NSString *numString = [NSString stringWithFormat:@"%@",@"12345678.89"];
-    NSString *numString = numberString;
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    NSNumber *number = [formatter numberFromString:numString];
-    formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    NSString *string = [formatter stringFromNumber:number];
+//    NSString *numString = numberString;
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+//    NSNumber *number = [formatter numberFromString:numString];
+//    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+//    NSString *string = [formatter stringFromNumber:number];
     
     /*! 输出结果示例：numberFormatter == 12,345,678.89 */
-    return string;
+    return [NSString ba_stringFormatterWithStyle:NSNumberFormatterDecimalStyle numberString:numberString];
 }
 
 #pragma mark - ***** 格式化为货币样式，示例：12345678.89 --> $12,345,678.89
@@ -140,7 +141,7 @@
     return string;
 }
 
-#pragma mark - ***** 格式化为货币ISO代码样式样式，示例：12345678.89 --> 12,345,679
+#pragma mark - ***** 格式化为货币ISO代码样式样式，示例：123456889.86 --> CNY123,456,889.86
 + (NSString *)ba_stringFormatterWithCurrencyISOCodeStyleWithNumberString:(NSString *)numberString
 {
     NSString *numString = numberString;
@@ -179,11 +180,68 @@
     return string;
 }
 
-#pragma mark - ***** 保留纯数字
+#pragma mark - 保留纯数字
 - (NSString *)ba_removeStringSaveNumber
 {
     NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet ];
     return [[self componentsSeparatedByCharactersInSet:setToRemove] componentsJoinedByString:@""];
+}
+
+#pragma mark - 点赞数处理：2.1千，3.4万
+/**
+ 点赞数处理：2.1千，3.4万
+
+ @param string 传入的 string 类型的 数字
+ @return 2.1千，3.4万
+ */
++ (NSString *)ba_stringTransformNumberWithString:(NSString *)string
+{
+    float number = [string integerValue];
+    
+    NSString *numberString = @"";
+    if (number < 1000)
+    {
+        numberString = [NSString stringWithFormat:@"%.0f", number];
+    }
+    else
+        if (number / 1000 && number / 10000 < 1)
+        {
+            numberString = [NSString stringWithFormat:@"%.1f千", number/1000];
+        }
+        else
+        {
+            numberString = [NSString stringWithFormat:@"%.1f万", number/10000];
+        }
+    
+    return numberString;
+}
+
+#pragma mark - 判断是否为 int 类型
+/**
+ 判断是否为 int 类型
+
+ @param string 传入的 string 类型的 数字
+ @return YES、NO
+ */
++ (BOOL)ba_stringIsInt:(NSString*)string
+{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
+}
+
+#pragma mark - 判断是否为 float 类型
+/**
+ 判断是否为 float 类型
+
+ @param string 传入的 string 类型的 数字
+ @return YES、NO
+ */
++ (BOOL)ba_stringIsFloat:(NSString*)string
+{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    float val;
+    return [scan scanFloat:&val] && [scan isAtEnd];
 }
 
 @end

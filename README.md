@@ -17,6 +17,7 @@
 * 10、NSMutableAttributedString 的完美封装
 * 11、3D Touch使用demo
 * 12、正则表达式封装
+* 13、BAKit 系列封装逐渐开放，目前项目中已添加部分封装
 * 等等，内容太多，详见demo
 
 ## 2、图片示例
@@ -60,6 +61,11 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录：【倒叙】
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
+ 
+ 最新更新时间：2017-06-13 【倒叙】 <br>
+ 最新Version：【Version：2.2.1】 <br>
+ 更新内容： <br>
+ 2.2.1.1、新增 BAKit 系列部分源码，如：BAKit_Define.h 、BAKit_NSString.h、BAKit_UserDefaults、NSDate+BAKit.h、NSDateFormatter+BAKit.h 里面有大部分改动，代码更规范，质量更高 <br>
  
  最新更新时间：2017-06-03 【倒叙】 <br>
  最新Version：【Version：2.2.0】 <br>

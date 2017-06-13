@@ -25,7 +25,7 @@
 {
     // 白色背景
     UIView *backgroundView         = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BA_SCREEN_WIDTH, 30)];
-    backgroundView.backgroundColor = BA_White_Color;
+    backgroundView.backgroundColor = BAKit_Color_White;
     
     // 灰色背景
     UIView *contentView         = [[UIView alloc] initWithFrame:CGRectMake(0, 2, BA_SCREEN_WIDTH, 26)];
@@ -55,7 +55,7 @@
     
     _highClassNameLabel = [[UILabel alloc] initWithFrame:_normalClassNameLabel.frame];
     _highClassNameLabel.font = _normalClassNameLabel.font;
-    _highClassNameLabel.textColor = BA_Red_Color;
+    _highClassNameLabel.textColor = BAKit_Color_Red;
     
     
     [self addSubview:backgroundView];

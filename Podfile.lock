@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - BAAlert (1.1.9)
-  - BAButton (2.4.2)
+  - BAButton (2.4.3)
   - BaiduMapKit (3.3.2)
   - BANetManager (2.2.2):
     - AFNetworking
@@ -25,9 +25,9 @@ PODS:
   - BATouchID (1.0.1)
   - DZNEmptyDataSet (1.8.1)
   - FBRetainCycleDetector (0.1.3)
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - IQKeyboardManager (4.0.10)
   - JMRoundedCorner (1.2.1)
   - Masonry (1.0.2)
@@ -36,7 +36,7 @@ PODS:
   - MJRefresh (3.1.12)
   - MLeaksFinder (0.2.1):
     - FBRetainCycleDetector
-  - MyLayout (1.3.8)
+  - MyLayout (1.3.9)
   - NullSafe (1.2.2)
   - ReactiveObjC (3.0.0)
   - SDAutoLayout (2.1.8)
@@ -101,7 +101,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BAAlert: 99fb0f11877797481623369032eb2ff788ae8ddb
-  BAButton: e9d0702df8f0d0a846f7fda80e9ac38a464efb29
+  BAButton: 5297ede563f199a8110b85a46f861217d92b1543
   BaiduMapKit: 5118390d63b375483bd64c963e8e32a40fd9ddb5
   BANetManager: bd2e6d0bcb5fc7397f3098b90c3bcf25a04127b5
   BAPickView: 0ddba863e40bf706bc4417c5bc2d220b74a46a1e
@@ -109,7 +109,7 @@ SPEC CHECKSUMS:
   BATouchID: 33732f62f7d656733a3208c94744c61806095d3c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   JMRoundedCorner: 214e56c2a7e3a0916e8d6040c66d85519cc1be87
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -117,7 +117,7 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: '0850e2f2abc7227adc4d4e2d1992b431264eb4d5'
-  MyLayout: ba20b60fe7322449bd124ac3d3c78869194666d5
+  MyLayout: 3d0450e4b5c404806929ea689ebbca6dea7ac45c
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDAutoLayout: 5a4b48d6b8a5172ae8d088d2879e40dd795e6251
@@ -126,6 +126,6 @@ SPEC CHECKSUMS:
   UMengUShare: cd54ae52958426b79aa9193a7b02058d6a6d9aa0
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 272b1a66b095f56dfb8bf0d669f1d8fcb8ee8482
+PODFILE CHECKSUM: 8136b95a48adadabc0540614ee4d5836b1f967d8
 
 COCOAPODS: 1.2.1

@@ -45,7 +45,7 @@
     self.expendLabel               = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, BA_SCREEN_WIDTH - 20, 0)];
     self.expendLabel.bakit_manager
     .label_numberOfLines(.0f)
-    .label_textColor(BA_Black_Color)
+    .label_textColor(BAKit_Color_Black)
     .label_font([UIFont HeitiSCWithFontSize:14.0f]);
     
     [self.contentView ba_AddSubViewsWithArray:@[_line, _stateView, _normalLabel, _expendLabel]];
@@ -96,7 +96,7 @@
     [UIView animateWithDuration:0.35f animations:^{
         self.normalLabel.alpha = 1.0f;
         self.expendLabel.alpha = 0.f;
-        self.stateView.backgroundColor = BA_Gray_Color;
+        self.stateView.backgroundColor = BAKit_Color_Gray_1;
     }];
 }
 
@@ -105,7 +105,7 @@
     [UIView animateWithDuration:0.35f animations:^{
         self.normalLabel.alpha = 0.f;
         self.expendLabel.alpha = 1.f;
-        self.stateView.backgroundColor = BA_Red_Color;
+        self.stateView.backgroundColor = BAKit_Color_Red;
     }];
 }
 

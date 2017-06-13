@@ -95,7 +95,7 @@
     _normalTextView = [[UITextView alloc]initWithFrame:CGRectMake(20, 20, BA_SCREEN_WIDTH - 40, 80)];
     _normalTextView.layer.cornerRadius = 5;
     _normalTextView.font = BA_FontSize(14);
-    _normalTextView.textColor = BA_Black_Color;
+    _normalTextView.textColor = BAKit_Color_Black;
     _normalTextView.returnKeyType = UIReturnKeyDone;
     _normalTextView.keyboardType = UIKeyboardTypeDefault;
     _normalTextView.autocorrectionType = UITextAutocorrectionTypeYes; //开启自动纠错
@@ -106,11 +106,11 @@
     
     _hightlightTextField = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.normalTextView.frame)+10, CGRectGetMaxY(self.normalTextView.frame)+10,CGRectGetWidth(self.normalTextView.frame)-20, 32)];
     _hightlightTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _hightlightTextField.backgroundColor = BA_White_Color;
+    _hightlightTextField.backgroundColor = BAKit_Color_White;
     _hightlightTextField.textAlignment = NSTextAlignmentLeft;
     _hightlightTextField.placeholder = @"请输入高亮显示的字符串";
     _hightlightTextField.font = BA_FontSize(14);
-    _hightlightTextField.textColor = BA_Black_Color;
+    _hightlightTextField.textColor = BAKit_Color_Black;
     _hightlightTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     _hightlightTextField.returnKeyType = UIReturnKeyNext;
     _hightlightTextField.clearsOnBeginEditing = YES;
@@ -124,7 +124,7 @@
     
     _resultLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame)+5, CGRectGetWidth(_normalTextView.frame), 80)];
     _resultLabel.layer.borderWidth = 1;
-    _resultLabel.layer.borderColor = BA_Black_Color.CGColor;
+    _resultLabel.layer.borderColor = BAKit_Color_Black.CGColor;
     _resultLabel.layer.cornerRadius = 5;
     _resultLabel.layer.masksToBounds = YES;
     _resultLabel.adjustsFontSizeToFitWidth = YES;

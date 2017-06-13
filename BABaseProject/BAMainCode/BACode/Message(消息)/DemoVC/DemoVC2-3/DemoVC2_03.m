@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.vcBgColor = BA_Yellow_Color;
+    self.vcBgColor = BAKit_Color_Yellow;
     self.title = @"各种系统设置的跳转";
     
     self.tableView.hidden = NO;
