@@ -245,7 +245,7 @@
             [self judgeTextFieldResultType:BARegularExpressionTypePhone inputString:textField.text];
             break;
         case 1002:
-            [self.view ba_showAlertView:@"温馨提示：" message:[BARegularExpression ba_getPhoneNumType:textField.text]];
+            [self.view ba_showAlertView:@"温馨提示：" message:[BAKit_RegularExpression ba_getPhoneNumType:textField.text]];
             break;
         case 1003:
             [self judgeTextFieldResultType:BARegularExpressionTypeEmail inputString:textField.text];
@@ -292,7 +292,7 @@
     switch (type)
     {
         case BARegularExpressionTypePhone:
-            if ([BARegularExpression ba_isMobileNumber:inputText])
+            if ([BAKit_RegularExpression ba_regularIsPhoneNumber:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是电话号码！"];
             }
@@ -302,7 +302,7 @@
             }
             break;
         case BARegularExpressionTypeEmail:
-            if ([BARegularExpression ba_isEmailQualified:inputText])
+            if ([BAKit_RegularExpression ba_regularIsEmailQualified:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是邮箱！"];
             }
@@ -312,7 +312,7 @@
             }
             break;
         case BARegularExpressionTypeUrl:
-            if ([BARegularExpression ba_isUrl:inputText])
+            if ([BAKit_RegularExpression ba_regularIsUrl:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是Url！"];
             }
@@ -322,7 +322,7 @@
             }
             break;
         case BARegularExpressionTypeAllNumber:
-            if ([BARegularExpression ba_isAllNumber:inputText])
+            if ([BAKit_RegularExpression ba_regularIsAllNumber:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是纯数字！"];
             }
@@ -332,7 +332,7 @@
             }
             break;
         case BARegularExpressionTypeIDCard:
-            if ([BARegularExpression ba_isIdCardNumberQualified:inputText])
+            if ([BAKit_RegularExpression ba_regularIsIdCardNumberQualified:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是身份证号码！"];
             }
@@ -342,7 +342,7 @@
             }
             break;
         case BARegularExpressionTypeEnglishAlphabet:
-            if ([BARegularExpression ba_isEnglishAlphabet:inputText])
+            if ([BAKit_RegularExpression ba_regularIsEnglishAlphabet:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是26个英文字母组成的字符串！"];
             }
@@ -352,7 +352,7 @@
             }
             break;
         case BARegularExpressionTypePasswordQualified:
-            if ([BARegularExpression ba_isPasswordQualified:inputText])
+            if ([BAKit_RegularExpression ba_regularIsPasswordQualified:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的密码是以字母开头，长度在6-18之间，只能包含字符、数字和下划线。！"];
             }
@@ -362,7 +362,7 @@
             }
             break;
         case BARegularExpressionTypeIPAddress:
-            if ([BARegularExpression ba_isIPAddress:inputText])
+            if ([BAKit_RegularExpression ba_regularIsIPAddress:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是IP地址！"];
             }
@@ -372,7 +372,7 @@
             }
             break;
         case BARegularExpressionTypeChinese:
-            if ([BARegularExpression ba_isChinese:inputText])
+            if ([BAKit_RegularExpression ba_regularIsChinese:inputText])
             {
                 [self.view ba_showAlertView:@"温馨提示：" message:@"输入的是中文！"];
             }

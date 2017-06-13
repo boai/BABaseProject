@@ -60,7 +60,8 @@
 
 #import "BABaseViewController.h"
 
-typedef enum {
+
+typedef NS_ENUM(NSUInteger, BARegularExpressionType) {
     /*! 验证输入的是否是手机号码 */
     BARegularExpressionTypePhone,
     /*! 验证输入的是否是邮箱 */
@@ -79,7 +80,7 @@ typedef enum {
     BARegularExpressionTypeIPAddress,
     /*! 验证输入的是否是中文 */
     BARegularExpressionTypeChinese,
-}BARegularExpressionType;
+};
 
 @interface DemoVC5 : BABaseViewController
 

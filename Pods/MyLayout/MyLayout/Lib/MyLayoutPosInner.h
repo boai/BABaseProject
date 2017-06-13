@@ -13,7 +13,7 @@
 @interface MyLayoutPos()
 
 @property(nonatomic, weak) UIView *view;
-@property(nonatomic, assign) MyMarginGravity pos;
+@property(nonatomic, assign) MyGravity pos;
 @property(nonatomic, assign) MyLayoutValueType posValType;
 
 @property(nonatomic, readonly, strong) NSNumber *posNumVal;
@@ -22,6 +22,10 @@
 
 @property(nonatomic, readonly, strong) MyLayoutPos *lBoundVal;
 @property(nonatomic, readonly, strong) MyLayoutPos *uBoundVal;
+
+@property(nonatomic, readonly, strong) MyLayoutPos *lBoundValInner;
+@property(nonatomic, readonly, strong) MyLayoutPos *uBoundValInner;
+
 
 
 -(MyLayoutPos*)__equalTo:(id)val;
@@ -36,10 +40,12 @@
 
 // minVal <= posNumVal + offsetVal <=maxVal . 注意这个只试用于相对布局。对于线性布局和框架布局来说，因为可以支持相对边距。
 // 所以线性布局和框架布局不能使用这个属性。
-@property(nonatomic,readonly, assign) CGFloat margin;
+@property(nonatomic,readonly, assign) CGFloat absVal;
 
 //获取真实的位置值
--(CGFloat)realMarginInSize:(CGFloat)size;
+-(CGFloat)realPosIn:(CGFloat)size;
+
+-(BOOL)isRelativePos;
 
 
 @end

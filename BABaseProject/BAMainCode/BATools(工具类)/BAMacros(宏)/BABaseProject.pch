@@ -77,7 +77,7 @@
     #import "BAColorHeader.h"
     #import "BAFrameHeader.h"
 
-    #import "BACustomAlertView.h"
+    #import <BAAlert_OC.h>
 
     /*! 用户基本信心 model */
     #import "BAUserModel.h"
@@ -154,7 +154,7 @@
     /*! 自定义字体 */
     #import "AddedFont.h"
 
-
+    #import <ReactiveObjC.h>
 
 #endif
 

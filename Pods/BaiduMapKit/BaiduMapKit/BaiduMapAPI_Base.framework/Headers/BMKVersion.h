@@ -801,7 +801,7 @@
  自v2.9.0起，采用分包的形式提供 .framework包，请广大开发者使用时确保各分包的版本保持一致。其中BaiduMapAPI_Base.framework为基础包，使用SDK任何功能都需导入，其他分包可按需导入。
 
  【 新版提示 】
- 1.自v3.0.0起，iOS SDK全面支持ipv6网格
+ 1.自v3.0.0起，iOS SDK全面支持ipv6网络
  
  【 新  增 】
    基础地图
@@ -919,6 +919,125 @@ v3.1.0
  3、一次点击事件，点击地图空白处回调和点击覆盖物回调都会调用的问题
  
  
+ --------------------
+ v3.2.0
+ 
+ 注：自v3.2.0起，百度地图iOS SDK全面支持HTTPS，需要广大开发者导入第三方openssl静态库：libssl.a和libcrypto.a（存放于thirdlib目录下）。
+ 
+ 【 新版提示 】
+ 1、自v3.2.0起，全面支持HTTPS
+ 2、自v3.2.0起，地图引擎全面升级，主要升级特征有：
+    渲染架构技术升级，OpenGL ES从1.0升级到2.0
+    地图数据加载升级，加载性能大幅提升
+ 
+ 【 新  增 】
+   检索功能
+ 1、建议检索支持港澳台；建议检索可控制只返回指定城市的检索结果
+ BMKSuggestionSearchOption新增属性：
+ ///是否只返回指定城市检索结果（默认：NO）（提示：海外区域暂不支持设置cityLimit）
+ @property (nonatomic, assign) BOOL cityLimit;
+ 2、反地址编码结果BMKReverseGeoCodeResult新增属性：
+ ///结合当前位置POI的语义化结果描述
+ @property (nonatomic, strong) NSString* sematicDescription;
+ 
+ 【 优  化 】
+ 1、建议检索和反地址编码检索服务升级，提供更加优质的服务
+ 
+ 【 修  复 】
+ 1、修复国外定位偏移的问题
+ 2、修复特殊情况下，移除BMKGroundOverlay时的问题
+ 
+ 
+ --------------------
+ v3.2.1
+ 
+ 注：自v3.2.0起，百度地图iOS SDK全面支持HTTPS，需要广大开发者导入第三方openssl静态库：libssl.a和libcrypto.a（存放于thirdlib目录下）。
+ 
+ 【 新版提示 】
+ 1、自v3.2.0起，全面支持HTTPS
+ 2、自v3.2.0起，地图引擎全面升级，主要升级特征有：
+ 渲染架构技术升级，OpenGL ES从1.0升级到2.0
+ 地图数据加载升级，加载性能大幅提升
+ 
+ 【 修  复 】
+ 修复下载离线地图时，delegate方法返回state错误问题
+ 
+ 
+ --------------------
+ v3.3.0
+ 
+ 
+注：自v3.2.0起，百度地图iOS SDK全面支持HTTPS，需要广大开发者导入第三方openssl静态库：libssl.a和libcrypto.a（存放于thirdlib目录下）。
+ 
+ 新 版 提 示 】
+ 【 注 意 】
+ 1、自v3.2.0起，百度地图iOS SDK全面支持HTTPS，需要广大开发者导入第三方openssl静态库：libssl.a和libcrypto.a（存放于thirdlib目录下）
+ 添加方法：在 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择libssl.a和libcrypto.a添加到工程中 。
+ 
+ 2、支持CocoaPods导入
+ pod setup //更新CocoPods的本地库
+ pod search BaiduMapKit  //下载最新地图SDK
+ 
+ 【 新 增 】
+ [ 基 础 地 图 ]
+ 3D地图下，增加显示天空效果，无需设置
+ 
+ [ 工 具 ]
+ 1．全面支持GCJ02坐标输入/输出，全局设置方法如下：
+ [BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_COMMON];//默认为BD09LL坐标，且此方法仅在国内生效，国外均为WGS84坐标
+ 
+ 2. 新增调启步行AR导航接口：openBaiduMapwalkARNavigation
+ 
+ [ LBS云]
+ 云检索中，keywords 改为非必填项
+ 
+ 【 优 化 】
+ 优化个性化地图元素分类
+ 
+ 【 修 复 】
+ 少部分地铁线及室内图无法显示问题（v3.2.0引入的问题）。
+ 未下载全国离线基础包时，离线状态下全国（球）地图显示异常。
+ 
+ --------------------
+ v3.3.1
+ 
+ 【 新 版 提 示 】
+ 【 注 意 】
+ 1、自v3.2.0起，百度地图iOS SDK全面支持HTTPS，需要广大开发者导入第三方openssl静态库：libssl.a和libcrypto.a（存放于thirdlib目录下）
+ 添加方法：在 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择libssl.a和libcrypto.a添加到工程中 。
+ 
+ 2、支持CocoaPods导入
+ pod setup //更新CocoPods的本地库
+ pod search BaiduMapKit  //下载最新地图SDK
+ 
+ 【 新 增 】
+ [ 检 索 ]
+ 逆地理编码返回结果新增2个属性：cityCode(城市编码) 和adCode（行政区域编码）
+ 
+ 【 优 化 】
+ 1.增加重试机制，优化鉴权时长
+ 2.解决Xcode8.3编译时出现大量warning的问题
+ 3.swift Demo：swift语言升级为 swift v3.1，优化升级swift Demo。
+ 
+ --------------------
+ v3.3.2
+ 
+ 
+ 【 新 版 提 示 】
+ 【 注 意 】
+ 1、自v3.2.0起，百度地图iOS SDK全面支持HTTPS，需要广大开发者导入第三方openssl静态库：libssl.a和libcrypto.a（存放于thirdlib目录下）
+ 添加方法：在 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择libssl.a和libcrypto.a添加到工程中 。
+ 
+ 2、支持CocoaPods导入
+ pod setup //更新CocoPods的本地库
+ pod search BaiduMapKit  //查看最新地图SDK
+ 
+ 【 新 增 】
+ 【 优 化 】
+ 1.修复个性化地图在部分使用场景下，不显示的问题。（受影响版本v3.3.0、v3.3.1）
+ 
+ 
+ 
  *********************/
 /**
  *获取当前地图API的版本号
@@ -926,12 +1045,12 @@ v3.1.0
  */
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-    return @"3.1.0";
+    return @"3.3.2";
 }
 
 /**
  *获取当前地图API base组件 的版本号
- *当前base组件版本 : 3.1.0
+ *当前base组件版本 : 3.3.2
  *return  返回当前API base组件 的版本号
  */
 UIKIT_EXTERN NSString* BMKGetMapApiBaseComponentVersion();

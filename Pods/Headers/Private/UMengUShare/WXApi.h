@@ -1,1 +1,1 @@
-../../../UMengUShare/UShareSDK/SocialLibraries/WeChat/WXApi.h
+../../../UMengUShare/UShareSDK/SocialLibraries/WeChat/WechatSDK/WXApi.h

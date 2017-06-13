@@ -75,22 +75,27 @@
    return [self bottom];
 }
 
+-(MyMaker*)leading
+{
+    return [self addMethod:@"leadingPos"];
+
+}
+
+-(MyMaker*)trailing
+{
+    return [self addMethod:@"trailingPos"];
+
+}
+
 
 -(MyMaker*)height
 {
-    return [self addMethod:@"heightDime"];
+    return [self addMethod:@"heightSize"];
 }
 
 -(MyMaker*)width
 {
-    return [self addMethod:@"widthDime"];
-}
-
-
-
--(MyMaker*)flexedHeight
-{
-    return [self addMethod:@"flexedHeight"];
+    return [self addMethod:@"widthSize"];
 }
 
 -(MyMaker*)useFrame
@@ -169,6 +174,32 @@
     
 }
 
+-(MyMaker*)leadingPadding
+{
+    
+    return [self addMethod:@"leadingPadding"];
+    
+}
+
+-(MyMaker*)trailingPadding
+{
+    return [self addMethod:@"trailingPadding"];
+    
+}
+
+
+-(MyMaker*)padding
+{
+     [self addMethod:@"topPadding"];
+     [self addMethod:@"leftPadding"];
+     [self addMethod:@"bottomPadding"];
+    return [self addMethod:@"rightPadding"];
+}
+
+-(MyMaker*)zeroPadding
+{
+    return [self addMethod:@"zeroPadding"];
+}
 
 -(MyMaker*)orientation
 {
@@ -193,6 +224,24 @@
     return [self addMethod:@"centerYPos"];
 }
 
+-(MyMaker*)center
+{
+    [self addMethod:@"centerXPos"];
+    return [self addMethod:@"centerYPos"];
+}
+
+-(MyMaker*)visibility
+{
+    return [self addMethod:@"myVisibility"];
+}
+
+-(MyMaker*)alignment
+{
+    return [self addMethod:@"myAlignment"];
+}
+
+
+
 -(MyMaker*)sizeToFit
 {
     for (UIView *myView in _myViews)
@@ -204,15 +253,10 @@
 }
 
 
--(MyMaker*)marginGravity
-{
-    return [self addMethod:@"marginGravity"];
 
-}
-
--(MyMaker*)subviewMargin
+-(MyMaker*)space
 {
-    return [self addMethod:@"subviewMargin"];
+    return [self addMethod:@"subviewSpace"];
     
 }
 
@@ -228,11 +272,6 @@
     return [self addMethod:@"arrangedCount"];
 }
 
--(MyMaker*)averageArrange
-{
-    return [self addMethod:@"averageArrange"];
-}
-
 -(MyMaker*)autoArrange
 {
     return [self addMethod:@"autoArrange"];
@@ -244,16 +283,22 @@
 
 }
 
--(MyMaker*)subviewVertMargin
+-(MyMaker*)vertSpace
 {
-    return [self addMethod:@"subviewVertMargin"];
+    return [self addMethod:@"subviewVSpace"];
 
 }
 
--(MyMaker*)subviewHorzMargin
+-(MyMaker*)horzSpace
 {
-    return [self addMethod:@"subviewHorzMargin"];
+    return [self addMethod:@"subviewHSpace"];
 
+}
+
+-(MyMaker*)pagedCount
+{
+    return [self addMethod:@"pagedCount"];
+    
 }
 
 
@@ -376,10 +421,10 @@
     
 }
 
--(MyMaker* (^)(CGFloat val))min
+-(MyMaker* (^)(id val))min
 {
     _clear = YES;
-    return ^id(CGFloat val) {
+    return ^id(id val) {
         
         for (NSString *key in _keys)
         {
@@ -387,26 +432,53 @@
             for (UIView *myView in _myViews)
             {
                 
-                [((MyLayoutSize*)[myView valueForKey:key]) __min:val];
+                
+                id val2 = val;
+                if ([val isKindOfClass:[UIView class]])
+                    val2 = [val valueForKey:key];
+                
+                id oldVal = [myView valueForKey:key];
+                if ([oldVal isKindOfClass:[MyLayoutPos class]])
+                {
+                    [((MyLayoutPos*)oldVal) __lBound:val2 offsetVal:0];
+                }
+                else if ([oldVal isKindOfClass:[MyLayoutSize class]])
+                {
+                    [((MyLayoutSize*)oldVal) __lBound:val2 addVal:0 multiVal:1];
+                }
+                else
+                    ;
             }
         }
         return self;
     };
-
+    
 }
 
--(MyMaker* (^)(CGFloat val))max
+-(MyMaker* (^)(id val))max
 {
     _clear = YES;
-    return ^id(CGFloat val) {
+    return ^id(id val) {
         
         for (NSString *key in _keys)
         {
-            
             for (UIView *myView in _myViews)
             {
+                id val2 = val;
+                if ([val isKindOfClass:[UIView class]])
+                    val2 = [val valueForKey:key];
                 
-                [((MyLayoutSize*)[myView valueForKey:key]) __max:val];
+                id oldVal = [myView valueForKey:key];
+                if ([oldVal isKindOfClass:[MyLayoutPos class]])
+                {
+                    [((MyLayoutPos*)oldVal) __uBound:val2 offsetVal:0];
+                }
+                else if ([oldVal isKindOfClass:[MyLayoutSize class]])
+                {
+                    [((MyLayoutSize*)oldVal) __uBound:val2 addVal:0 multiVal:1];
+                }
+                else
+                    ;
             }
         }
         return self;

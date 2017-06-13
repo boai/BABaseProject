@@ -1,6 +1,0 @@
-framework module BAButton {
-  umbrella header "BAButton-umbrella.h"
-
-  export *
-  module * { export * }
-}

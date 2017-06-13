@@ -1,5 +1,5 @@
 //
-//  NSString+NSNumber.h
+//  UILabel+BAAttributeTextTapAction
 //  testDemo
 //
 //  Created by 博爱 on 2016/11/7.
@@ -14,7 +14,7 @@
 
 @optional
 /**
- *  YBAttributeTapActionDelegate
+ *  BAAttributeTapActionDelegate
  *
  *  @param string  点击的字符串
  *  @param range   点击的字符串range
@@ -32,10 +32,6 @@
 @property (nonatomic, assign) NSRange range;
 
 @end
-
-
-
-
 
 @interface UILabel (BAAttributeTextTapAction)
 

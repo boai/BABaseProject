@@ -20,8 +20,8 @@ FOUNDATION_EXPORT const unsigned char UMSocialCoreVersionString[];
 #import <UMSocialCore/UMSocialHandler.h>
 
 //UI
-#import <UMSocialCore/UMSocialShareEditViewController.h>
-#import <UMSocialCore/UMSocialSOAuthViewController.h>
+//#import <UMSocialCore/UMSocialShareEditViewController.h>
+//#import <UMSocialCore/UMSocialSOAuthViewController.h>
 
 //save socialData
 #import <UMSocialCore/UMSocialDataManager.h>
@@ -45,5 +45,8 @@ FOUNDATION_EXPORT const unsigned char UMSocialCoreVersionString[];
 //UMSocial log
 #import <UMSocialCore/UMSociallogMacros.h>
 
-#import <UMSocialCore/UMSBaeViewController.h>
+
+//watermark
+#import <UMSocialCore/UMSocialWarterMarkConfig.h>
+
 

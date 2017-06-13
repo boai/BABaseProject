@@ -161,7 +161,7 @@
 #import "BASystemService.h"
 
 /*! 正则表达式 */
-#import "BARegularExpression.h"
+#import "BAKit_RegularExpression.h"
 
 /*! 自定义上下拉刷新 */
 #import "BACustomMJFooter.h"
@@ -179,5 +179,6 @@
 /*! 公共跳转类 */
 #import "BAJumpManager.h"
 
+#import "BAKit_Define.h"
 
 #endif /* BAKit_h */

@@ -21,6 +21,11 @@ extern NSString *const  UMSPlatformNameSina;
 extern NSString *const  UMSPlatformNameTencentWb;
 
 /**
+ 钉钉
+ */
+extern NSString *const  UMSPlatformNameDingDing;
+
+/**
  人人网
  */
 extern NSString *const  UMSPlatformNameRenren;
@@ -141,6 +146,41 @@ extern NSString *const  UMSPlatformNameKakaoTalk;
  */
 extern NSString *const  UMSPlatformNameFlickr;
 
+
+/**
+ *  有道云笔记
+ */
+extern NSString *const  UMSPlatformNameYouDaoNote;
+
+/**
+ *  印象笔记
+ */
+extern NSString *const  UMSPlatformNameEverNote;
+
+/**
+ *  google+
+ */
+extern NSString *const  UMSPlatformNameGooglePlus;
+
+/**
+ *  Pocket
+ */
+extern NSString *const  UMSPlatformNamePocket;
+
+/**
+ *  dropbox
+ */
+extern NSString *const  UMSPlatformNameDropBox;
+
+/**
+ *  vkontakte
+ */
+extern NSString *const  UMSPlatformNameVKontakte;
+
+/**
+ *  FaceBookMessenger
+ */
+extern NSString *const  UMSPlatformNameFaceBookMessenger;
 
 
 /**
@@ -285,6 +325,16 @@ typedef NS_ENUM(NSInteger,UMSocialPlatformType)
     UMSocialPlatformType_Tumblr             = 24,//Tumblr
     UMSocialPlatformType_Instagram          = 25,//Instagram
     UMSocialPlatformType_Whatsapp           = 26,//Whatsapp
+    UMSocialPlatformType_DingDing           = 27,//钉钉
+    
+    UMSocialPlatformType_YouDaoNote         = 28,//有道云笔记
+    UMSocialPlatformType_EverNote           = 29,//印象笔记
+    UMSocialPlatformType_GooglePlus         = 30,//Google+
+    UMSocialPlatformType_Pocket             = 31,//Pocket
+    UMSocialPlatformType_DropBox            = 32,//dropbox
+    UMSocialPlatformType_VKontakte          = 33,//vkontakte
+    UMSocialPlatformType_FaceBookMessenger  = 34,//FaceBookMessenger
+    
     UMSocialPlatformType_Predefine_end      = 999,
     
     //用户自定义的平台

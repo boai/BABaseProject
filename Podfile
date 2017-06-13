@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '8.0'
+platform :ios, '8.0'
 # Uncomment this line if you're using Swift
- use_frameworks!
+#use_frameworks!
 
 project 'BABaseProject.project'
 
@@ -14,12 +14,14 @@ inhibit_all_warnings!
 
 target 'BABaseProject' do
     
-    # 自定义button框架
+    # BAHome 系列代码
+    pod 'BANetManager'
     pod 'BAButton'
-    
-    # 一个完全实现自定义的alertView！目前为止，最为精简的alert封装！
-    pod 'BACustomAlertView'
-    
+    pod 'BAAlert'
+    pod 'BAPickView'
+    pod 'BATouchID'
+    pod 'BATextView'
+
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry'
     
@@ -91,8 +93,8 @@ target 'BABaseProject' do
     pod 'MyLayout'
 
     # 各种封装的集合！大神的多年积累！
-    pod 'YYKit'
-    
+#    pod 'YYKit'
+
     # 内存泄露检测工具
     pod 'MLeaksFinder'
     
@@ -146,6 +148,8 @@ target 'BABaseProject' do
     # 友盟统计
     pod 'UMengAnalytics-NO-IDFA'
 
+    # ReactiveObjC包含RAC 2原来包含的全部代码
+    pod 'ReactiveObjC'
 
     target 'BABaseProjectTests' do
         
@@ -156,6 +160,59 @@ target 'BABaseProject' do
     end
 end
 
+#Last login: Sat Jun  3 15:33:55 on ttys000
 
+#- AFNetworking, 3.1.0
+#- BAAlert, 1.1.9
+#- BAButton, 2.4.2
+#- BANetManager, 2.2.2
+#- BAPickView, 1.0.3
+#- BATextView, 1.0.1
+#- BATouchID, 1.0.1
+#- BaiduMapKit, 3.3.2
+#- DZNEmptyDataSet, 1.8.1
+#- FBRetainCycleDetector, 0.1.3
+#- FMDB, 2.6.2
+#- IQKeyboardManager, 4.0.10
+#- JMRoundedCorner, 1.2.1
+#- MBProgressHUD, 1.0.0
+#- MJExtension, 3.0.13
+#- MJRefresh, 3.1.12
+#- MLeaksFinder, 0.2.1
+#- Masonry, 1.0.2
+#- MyLayout, 1.3.8
+#- NullSafe, 1.2.2
+#- ReactiveObjC, 3.0.0
+#- SDAutoLayout, 2.1.8
+#- SDWebImage, 4.0.0
+#- UMengAnalytics-NO-IDFA, 4.2.5
+#- UMengUShare, 6.4.4
+#- YYCache, 1.0.4
+#- YYKit, 1.0.9
+
+#Last login: Sat Jun  3 15:04:25 on ttys003
+
+#- AFNetworking, 3.1.0
+#- BAAlert, 1.1.9
+#- BAButton, 2.4.2
+#- BaiduMapKit, 3.3.2
+#- DZNEmptyDataSet, 1.8.1
+#- FBRetainCycleDetector, 0.1.3
+#- FMDB, 2.6.2
+#- IQKeyboardManager, 4.0.10
+#- JMRoundedCorner, 1.2.1
+#- MBProgressHUD, 1.0.0
+#- MJExtension, 3.0.13
+#- MJRefresh, 3.1.12
+#- MLeaksFinder, 0.2.1
+#- Masonry, 1.0.2
+#- MyLayout, 1.3.8
+#- NullSafe, 1.2.2
+#- ReactiveObjC, 3.0.0
+#- SDAutoLayout, 2.1.8
+#- SDWebImage, 4.0.0
+#- UMengAnalytics-NO-IDFA, 4.2.5
+#- UMengUShare, 6.4.4
+#- YYKit, 1.0.9
 
 

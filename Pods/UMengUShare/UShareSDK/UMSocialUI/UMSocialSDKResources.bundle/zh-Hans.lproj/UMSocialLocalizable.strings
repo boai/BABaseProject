@@ -159,6 +159,14 @@
 "umsocial_linkedin" = "Linkedin";
 "umsocial_whatsapp" = "Whatsapp";
 
+"umsocial_youdaonote" = "有道云笔记";
+"umsocial_evernote" = "印象笔记";
+"umsocial_googleplus" = "Google+";
+"umsocial_pocket" = "Pocket";
+"umsocial_dropbox" = "Dropbox";
+"umsocial_vkontakte" = "VKontakte";
+"umsocial_facebookmessenger" = "Messenger";
+
 "umsocial_default" = "自定义模板";
 
 //云端分享认证的国际化字符串

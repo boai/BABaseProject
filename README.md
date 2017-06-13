@@ -1,99 +1,78 @@
 # BABaseProject
-    一个基于 MVVM 和 MVC 设计模式的基本项目框架，项目用到的各种类，各种封装，各种三方库的综合项目，欢迎大家使用！ 
-    
-    重点集成功能 请看 readme 的第三章 【博爱极力推荐】！
+[![BAHome Team Name](https://img.shields.io/badge/Team-BAHome-brightgreen.svg?style=flat)](https://github.com/BAHome "BAHome Team")
+![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) 
+![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg) 
+ [![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123)
 
->**本项目使用内存泄露检测工具[『MLeaksFinder』](http://wereadteam.github.io/2016/02/22/MLeaksFinder/)！** <br>
->**所有demo均检测通过！欢迎大家使用！**
+## 1、功能及简介
+* 1、iOS 开发常用的控件封装，如：[BAButton](https://github.com/BAHome/BAButton)、[BAPickView](https://github.com/BAHome/BAPickView)、[BATextView](https://github.com/BAHome/BATextView)、[BATouchID](https://github.com/BAHome/BATouchID)、[BANetManager](https://github.com/BAHome/BANetManager)、[BAAlert](https://github.com/BAHome/BAAlert)<br>
+* 2、常用功能封装，如：倒计时、跑马灯等
+* 3、常用第三方SDK demo，如：友盟分享登录封装、百度地图详细 demo
+* 4、web OC 交互，详见demo
+* 5、常用 动画 封装
+* 6、常用 网络库 封装，如：[BANetManager](https://github.com/BAHome/BANetManager)
+* 7、AOP 切面编程
+* 8、runtime 封装使用，详见demo
+* 9、渐变navi 封装，详见demo
+* 10、NSMutableAttributedString 的完美封装
+* 11、3D Touch使用demo
+* 12、正则表达式封装
+* 等等，内容太多，详见demo
 
-###### 大家有好的需求，或者项目中遇到的重难点，可以在issue里面提需求，一定要记得联系我哈！有时间我会处理的！
+## 2、图片示例
+<!--![BAButton1](https://github.com/BAHome/BAButton/blob/master/Images/BAButton1.png)
+![BAButton2](https://github.com/BAHome/BAButton/blob/master/Images/BAButton2.png)
+![BAButton4](https://github.com/BAHome/BAButton/blob/master/Images/BAButton4.png)-->
 
-**如果大神发现其中代码有bug，希望可以尽快联系本人修复，在此感谢各路大神的帮助** <br>
-
----
-
-## 1、性能问题 和 MVVM模式优点
-* 1.1、开发中遇到的 性能问题：
-  * 1.1.1 cell的高度应该提前计算出来
-  * 1.1.2 cell的高度必须要先计算出每个子控件的frame，才能确定
-  * 1.1.3 如果在cell的set方法计算子控件的位置，会比较耗性能
-
-* 1.2、解决方法：MVVM思想
-  * M:模型 <br>
-  * V:视图 <br>
-  * VM:视图模型（模型包装视图模型，模型+模型对应视图的frame）
-
-* 1.3、MVVM模式的 优点
-  * MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（Model），有几大优点:
-
-  * 1.3.1 低耦合。视图（View）可以独立于Model变化和修改，一个ViewModel可以绑定到不同的"View"上，当View变化的时候Model可以不变，当Model变化的时候View也可以不变。
-  * 1.3.2 可重用性。你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。
-  * 1.3.3 独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。
-  * 1.3.4 可测试。界面素来是比较难于测试的，而现在测试可以针对ViewModel来写。
-
----
-
-## 2、个人简介
-方式     | 链接 | 
-:----------- | :-----------: | 
-微博     | [『博爱1616』](http://weibo.com/2706728003/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1)        |
-博客     | [『http://boai.github.io』](http://boai.github.io)   | 
-简书     | [『简书』](http://www.jianshu.com/users/95c9800fdf47/latest_articles) | 
-简书专题  | [『简书专题链接』](http://www.jianshu.com/collection/072d578bf782) | 
-QQ       | `137361770`        | 
-iOS 10技术开发群       | `479663605`        | 
-
-    为解决广大小白项目中遇到的各种疑难杂症，博爱新建了QQ群 `479663605`，希望广大小白和大神能够积极加入！
-
-**~~老司机也欢迎！~~**
-
----
-
-## 3、博爱极力推荐
-序号 | 类库 | 简介及功能介绍 
-:----------- | :-----------: | :-----------
-3.1         | [『BAButton』](https://github.com/boai/BAButton)        | 完全实现 UIButton 的自定义的类库。pod 导入：`pod 'BAButton', '~> 1.0.1'`
-3.2         | [pod安装和使用方法](http://www.cnblogs.com/boai/p/4977976.html)        | 对pod还是不熟的同学，可以看下我的博客，是最新的pod安装和使用方法，一直更新！
-3.3         | [『BASegmentControl』](https://github.com/boai/BASegmentControl)        | 新增网易新闻的滑动SegmentControl，基于[『HMSegmentedControl』](https://github.com/HeshamMegid/HMSegmentedControl)的完美二次封装！
-3.4         | [『BAReminderDemo』](https://github.com/boai/BAReminderDemo)        | 系统提醒和日历提醒，最近做了一个预约功能，有用到系统提醒和日历提醒，就写了这个demo！
-3.5         | [『BALocalNotification』](https://github.com/boai/BALocalNotification)        | 本地通知最新完美封装，最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！如果喜欢，请在git上点个星吧！
-3.6         | [『BANetManager』](https://github.com/boai/BANetManager)        | 基于[『AFNetworking 3.1』](https://github.com/AFNetworking/AFNetworking)！最新版本的封装，集成了get/post 方法请求数据，单图/多图上传，视频上传/下载，网络监测 等多种网络请求方式！
-3.7         | [『APP中的文字和APP名字的国际化多语言处理』](http://www.cnblogs.com/boai/p/5337558.html)        | 最全、最贴心的国际化处理博客！
-3.8         | 3D Touch 的纯代码实现方法        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`appdelegate`！
-3.9         | [『DSAlert』](https://github.com/DS-Team/DSAlert-OC](https://github.com/DS-Team/DSAlert-OC)       | 目前为止，最为精简的 alert 和 actionSheet 封装！DSAlert 让你的弹框不再孤单！[『DSAlert』](https://github.com/DS-Team/DSAlert-OC](https://github.com/DS-Team/DSAlert-OC)！
-3.10        | 最新、最全、最优美的友盟登录和分享的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`demo 4`！
-3.11        | 最新、最全、最优美的 清理 APP 缓存的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`demo 2`！
-3.12        | 最新、最全、最优美的 渐变navi 的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`tabbar 的 消息栏目`！
-3.13        | 最新、最全、最优美的 获取所有系统设置跳转 的封装        | 详见：[『BABaseProject』](https://github.com/boai/BABaseProject)中的`tabbar 的 消息栏目中demo 3`！
-
----
-
-## 4、项目简介 和 使用指南
-####4.1、项目简介 <br>
+## 3、项目目录 和 使用指南
+#### 项目简介 <br>
 **主要使用 MVVM 和 MVC 设计模式，共分为三大类：** <br>
 
-**4.1.1、Main** <br>
-- 主要功能：三种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController，一种是storeboard搭建的tabBarController <br>
+1、Main <br>
 
-**4.1.2、BAMainCode** <br>
-- 4.1.2.1、BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
-- 4.1.2.2、BABaseData【基类】      如：BABaseVC、BABaseView、BABaseModel <br>
-- 4.1.2.3、BALib     【三方库】    如：不能用pod更新的三方库可以放在这里 <br>
-- 4.1.2.4、BATools   【工具类】    如：BACategory(分类)、BADataBase(数据库)、BAMacros(宏)、BANetManager(网络类)、BAKit(工具类) <br>
-- 4.1.2.5、Resources 【资源】      如：字体、Plist、图片 <br>
-- 4.1.2.6、Other     【其他代码】   如： <br>
-- 4.1.2.7、BACustom  【其他自定义】 如：暂时不知道放在哪里的自定义文件可放在这里 <br>
+* 主要功能：三种tabbarVC，可以自由选择，一种是完全自定义tabbarVC，一种是DVTabBarController，一种是storeboard搭建的tabBarController <br>
 
-**4.1.3、Supporting Files** <br>
-- 4.1.3.1 这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
+2、BAMainCode <br>
 
-#### 4.2 使用指南 <br>
+- 2.1、BACode    【主要代码】   如：Home(首页)、Message(消息)、Discover(发现)、Profile(我) <br>
+- 2.2、BABaseData【基类】      如：BABaseVC、BABaseView、BABaseModel <br>
+- 2.3、BALib     【三方库】    如：不能用pod更新的三方库可以放在这里 <br>
+- 2.4、BATools   【工具类】    如：BACategory(分类)、BADataBase(数据库)、BAMacros(宏)、BANetManager(网络类)、BAKit(工具类) <br>
+- 2.5、Resources 【资源】      如：字体、Plist、图片 <br>
+- 2.6、Other     【其他代码】   如： <br>
+- 2.7、BACustom  【其他自定义】 如：暂时不知道放在哪里的自定义文件可放在这里 <br>
+
+3、Supporting Files <br>
+
+- 这里暂时放置系统的文件，如：AppDelegate、Main.storyboard、Assets.xcassets、Assets.xcassets、main.m <br>
+
+#### 使用指南 <br>
 使用的时候删除每个VC里面的DemoVC文件夹即可！<br>
 DemoVC文件夹：是专门展示各级样例用法的文件夹！
 
----
+4、项目源码地址：<br>
+ OC 版 ：[https://github.com/boai/BABaseProject](https://github.com/boai/BABaseProject)<br>
 
-## 5、更新记录【倒叙】
+## 4、BABaseProject 的类结构及 demo 示例
+<!--![BAButton3](https://github.com/BAHome/BAButton/blob/master/Images/BAButton3.png)-->
+详见源码！
+
+## 5、更新记录：【倒叙】
+ 欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
+ 如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
+ 
+ 最新更新时间：2017-06-03 【倒叙】 <br>
+ 最新Version：【Version：2.2.0】 <br>
+ 更新内容： <br>
+ 2.2.0.1、新增 [BAHome](https://github.com/BAHome)系列精品源码封装及使用demo <br>
+ 2.2.0.2、使用pod 方法导入 [BANetManager](https://github.com/BAHome/BANetManager) <br>
+ 2.2.0.3、新增 BAButton demo [BAButton](https://github.com/BAHome/BAButton) <br>
+ 2.2.0.4、重构 正则表达封装 demo <br>
+ 2.2.0.5、修复系统提醒和日历提醒封装崩溃的bug，添加iOS 10对应的所有权限 <br>
+ 2.2.0.6、新增 BAAlert demo [BAButton](https://github.com/BAHome/BAAlert) <br>
+ 2.2.0.7、重构百度地图demo <br>
+ 2.2.0.7、修复跑马灯文字过段时间重复的bug <br>
+ 2.2.0.8、新增倒计时 button 功能封装，两行代码搞定倒计时 button <br>
 
 ##### 2016-10-12  版本：2.1
 - 5.2.30、新增 NSMutableAttributedString 的完美封装，详见：【消息】栏目DemoVC02-6！
@@ -207,27 +186,19 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 - 5.1.02、整理优化各级目录 
 - 5.1.01、创建框架 
 
----
+## 6、bug 反馈 和 联系方式
+> 1、开发中遇到 bug，希望小伙伴儿们能够及时反馈与我们 BAHome 团队，我们必定会认真对待每一个问题！ <br>
 
-## 6、系统要求
+> 2、联系方式 <br> 
+QQ群：479663605  【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
+博爱QQ：137361770 <br> 
+博爱微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br> 
 
-    该项目最低支持 iOS 7.0 和 Xcode 7.0。（部分动画效果仅支持iOS 8.0）使用时请仔细查看
+## 7、开发环境 和 支持版本
+> 开发使用 Xcode Version 8.3.2 (8E2002) ，理论上支持所有 iOS 版本，如有版本适配问题，请及时反馈！多谢合作！
 
+## 8、感谢
+> 感谢 BAHome 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
 
----
-
-## 7、感谢
-
-    项目中集成了很多网络上民间大神的多年积累的优秀成果，结合自己项目开发中遇到的重难点，和很多开发者向我提起的疑难问题，在下综合整理并优化了下，最终成就了[『BABaseProject』](https://github.com/boai/BABaseProject)
-
-    在此，博爱再次感谢各位大神的源码贡献！
-    
-希望开源项目[『BABaseProject』](https://github.com/boai/BABaseProject)能够为众多iOS开发新手提供最简单、最快捷的开源项目！ 
-
-
----
-
-> 感谢大家的支持！
-
-
+> BAHome 的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！
 

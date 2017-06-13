@@ -1,6 +1,0 @@
-framework module JMRoundedCorner {
-  umbrella header "JMRoundedCorner-umbrella.h"
-
-  export *
-  module * { export * }
-}

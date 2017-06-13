@@ -119,6 +119,8 @@
  *  @return 是否处理  YES代表处理成功，NO代表不处理
  */
 -(BOOL)umSocial_handleOpenURL:(NSURL *)url;
+-(BOOL)umSocial_handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+-(BOOL)umSocial_handleOpenURL:(NSURL *)url options:(NSDictionary*)options;
 
 
 #pragma mark - 平台的特性

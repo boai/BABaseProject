@@ -58,6 +58,7 @@ typedef void(^actionBlock)(NSInteger index);
  *
  *  @param action tapAction block code
  */
+//- (void)changeTapMarqueeAction:(void(^)(NSInteger index))action;
 - (void)changeTapMarqueeAction:(actionBlock)action;
 
 /**

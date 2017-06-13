@@ -11,6 +11,6 @@
 
 @interface UMSocialWechatHandler : UMSocialHandler
 
-+ (UMSocialWechatHandler *)defaultManager;
++ (instancetype)defaultManager;
 
 @end

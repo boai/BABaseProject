@@ -74,7 +74,7 @@
     {
         url = [NSString stringWithFormat:@"http://%@",url];
     }
-    else if ([BARegularExpression ba_isUrl:url])
+    else if ([BAKit_RegularExpression ba_regularIsUrl:url])
     {
         url = url;
     }

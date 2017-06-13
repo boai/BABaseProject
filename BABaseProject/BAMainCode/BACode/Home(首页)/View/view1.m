@@ -81,7 +81,7 @@
 {
     [self addCell:@"1、AFNetWorking的完美封装" content:@"封装AFN，实现简单的get和post请求，可以自定义请求头，可以解析json数据、xml数据、data数据，可以获取缓存数据。" class:@"DemoVC1"];
     [self addCell:@"2、清理缓存" content:@"清理网络请求缓存和图片缓存，可清理系统缓存！" class:@"DemoVC2"];
-    [self addCell:@"3、点击button倒计时" content:@"两种比较常用的获取倒计时验证码的样式！新增一种自定义警告框，可以点击屏幕消失！新增了一种跑马灯广告效果，希望能帮助部分用户！" class:@"DemoVC3"];
+    [self addCell:@"3、BAButton" content:@"两种比较常用的获取倒计时验证码的样式！新增一种自定义警告框，可以点击屏幕消失！新增了一种跑马灯广告效果，希望能帮助部分用户！" class:@"DemoVC3"];
     [self addCell:@"4、友盟分享和友盟登陆的完美封装" content:@"包含：微博、微信、朋友圈、QQ、空间、短信的分享和登陆，可以使用默认列表，也可以自定义单个分享和登陆！" class:@"DemoVC4"];
     [self addCell:@"5、正则表达式最新封装" content:@"包含：手机号码、运营商类型(判断移动、联通、电信)、邮箱、数字、中英文、URL、身份证号码等！还可以文字筛选高亮显示！" class:@"DemoVC5"];
     [self addCell:@"6、本地通知最新完美封装" content:@"最近整理了下本地通知和极光推送，有很多坑都踩过了，刚刚整理出来的完美封装，肯定适合大部分场合，也可以用此封装写闹钟，也提醒事件，都可以！【刚添加了本地通知的跳转事件处理！】如果喜欢，请在git上点个星吧！" class:@"DemoVC6"];
@@ -90,7 +90,7 @@
     [self addCell:@"9、流式布局和线性布局库的使用" content:@"用流式布局和线性布局库MyLayout，写了一个collectionView，如果喜欢，请在git上点个星吧！" class:@"DemoVC9"];
     [self addCell:@"10、collectionView的简单使用" content:@"用View写的写了一个简单的collectionView，可随意添加到任何地方，如果喜欢，请在git上点个星吧！" class:@"DemoVC10"];
     [self addCell:@"11、collectionView的浮动布局" content:@"自适应宽高的collectionView，自定义layout，如果喜欢，请在git上点个星吧！" class:@"DemoVC11"];
-    [self addCell:@"12、各种自定义弹框" content:@"各种自定义弹框，系统的、自定义的弹框，如果喜欢，请在git上点个星吧！" class:@"DemoVC12"];
+    [self addCell:@"12、BAAlert 各种自定义弹框" content:@"各种自定义弹框，系统的、自定义的弹框，如果喜欢，请在git上点个星吧！" class:@"DemoVC12"];
     [self addCell:@"13、GCD入门" content:@"GCD入门学习，小白可以看，大神自行绕过！如果喜欢，请在git上点个星吧！" class:@"DemoVC13"];
     [self addCell:@"14、OC的set/get 方法的区别！" content:@"OC的set/get 方法的区别！，小白可以看，大神自行绕过！如果喜欢，请在git上点个星吧！" class:@"DemoVC14"];
 }

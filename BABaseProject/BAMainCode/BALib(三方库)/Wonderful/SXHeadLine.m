@@ -41,40 +41,55 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
     if (self) {
         self.h                   = frame.size.height;
         self.w                   = frame.size.width;
-        UILabel *label1          = [[UILabel alloc]initWithFrame:CGRectMake(kSXHeadLineMargin, 0, frame.size.width, _h)];
-        UILabel *label2          = [[UILabel alloc]initWithFrame:CGRectMake(kSXHeadLineMargin, _h, frame.size.width, _h)];
         self.bgColor             = [UIColor whiteColor];
         self.textColor           = [UIColor blackColor];
         self.scrollDuration      = 1.0f;
         self.stayDuration        = 4.0f;
         self.cornerRadius        = 2;
         self.textFont            = [UIFont systemFontOfSize:12];
-        label1.font              = label2.font = _textFont;
-        label1.textColor         = label2.textColor = _textColor;
-        self.label1              = label1;
-        self.label2              = label2;
-        [self addSubview:label1];
-        [self addSubview:label2];
+        [self addCompoment];
         self.layer.cornerRadius  = self.cornerRadius;
         self.layer.masksToBounds = YES;
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(restart) name:@"UIApplicationDidBecomeActiveNotification" object:nil];
     }
     return self;
+}
+
+- (void)addCompoment{
+    UILabel *label1          = [[UILabel alloc]initWithFrame:CGRectMake(kSXHeadLineMargin, 0, _w, _h)];
+    UILabel *label2          = [[UILabel alloc]initWithFrame:CGRectMake(kSXHeadLineMargin, _h, _w, _h)];
+    label1.font              = label2.font = _textFont;
+    label1.textColor         = label2.textColor = _textColor;
+    self.label1              = label1;
+    self.label2              = label2;
+    [self addSubview:label1];
+    [self addSubview:label2];
+    [self addSubview:self.bgBtn];
+}
+
+- (void)removeCompoment{
+    [self.label1 removeFromSuperview];
+    [self.label2 removeFromSuperview];
+    [self.bgBtn removeFromSuperview];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - **************** animate
 - (void)scrollAnimate
 {
-    BA_WEAKSELF;
     CGRect rect1 = self.label1.frame;
     CGRect rect2 = self.label2.frame;
     rect1.origin.y -= _h;
     rect2.origin.y -= _h;
     [UIView animateWithDuration:_scrollDuration animations:^{
-        weakSelf.label1.frame = rect1;
-        weakSelf.label2.frame = rect2;
+        self.label1.frame = rect1;
+        self.label2.frame = rect2;
     } completion:^(BOOL finished) {
-        [weakSelf checkLabelFrameChange:weakSelf.label1];
-        [weakSelf checkLabelFrameChange:weakSelf.label2];
+        [self checkLabelFrameChange:self.label1];
+        [self checkLabelFrameChange:self.label2];
     }];
 }
 
@@ -111,12 +126,14 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
 -(void)setMessageArray:(NSArray *)messageArray
 {
     _messageArray = messageArray;
+    if (self.messageArray.count == 1) {
+        self.messageArray = @[self.messageArray[0],self.messageArray[0]];
+    }
+    
     if (self.messageArray.count > 2) {
         self.label1.text = self.messageArray[0];
         self.label2.text = self.messageArray[1];
         self.messageIndex = 2;
-    }else if (self.messageArray.count == 1){
-        self.label1.text = self.messageArray[0];
     }else if (self.messageArray.count == 2){
         self.label1.text = self.messageArray[0];
         self.label2.text = self.messageArray[1];
@@ -184,11 +201,18 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
 
 - (void)changeTapMarqueeAction:(actionBlock)action{
     
-    [self addSubview:self.bgBtn];
     self.tapAction = action;
     self.tapMode = SXMarqueeTapForAction;
 }
 
+- (void)restart
+{
+    [self stop];
+    [self removeCompoment];
+    [self addCompoment];
+    [self setMessageArray:_messageArray];
+    [self start];
+}
 
 - (UIButton *)bgBtn
 {
@@ -197,16 +221,27 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
         CGFloat h = self.frame.size.height;
         _bgBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, w, h)];
         [_bgBtn addTarget:self action:@selector(bgButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_bgBtn addTarget:self action:@selector(bgButtonPress) forControlEvents:UIControlEventTouchDown];
     }
     return _bgBtn;
 }
 
 - (void)bgButtonClick
 {
+    if (self.messageArray.count == 0) return;
     if (self.tapAction)
     {
         NSLog(@"***** messageIndex : %ld", (self.messageIndex + self.messageArray.count - 2)%self.messageArray.count);
         self.tapAction((self.messageIndex + self.messageArray.count - 2)%self.messageArray.count);
+    }else{
+        [self start];
+    }
+}
+
+- (void)bgButtonPress
+{
+    if (!self.tapAction) {
+        [self stop];
     }
 }
 

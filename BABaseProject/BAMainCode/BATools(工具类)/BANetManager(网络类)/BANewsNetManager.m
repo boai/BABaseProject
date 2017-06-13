@@ -84,15 +84,12 @@
 //        
 //        completionHandle([BAVideoModel BAMJParse:model], error);
 //    }];
-    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet urlString:path parameters:nil successBlock:^(id response) {
-        
+
+    return [BANetManager ba_request_GETWithUrlString:path isNeedCache:YES parameters:nil successBlock:^(id response) {
         completionHandle([BAVideoModel BAMJParse:response], nil);
-        
     } failureBlock:^(NSError *error) {
-        
         BALog(@"error：%@", error);
         completionHandle(nil, error);
-
     } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         
     }];
@@ -105,12 +102,8 @@
  */
 + (id)getDemoVC11DataCompletionHandle:(void(^)(id model, NSError *error))completionHandle
 {
-    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet
-                                  urlString:DemoVC11URLPath
-                                 parameters:nil
-                               successBlock:^(id response) {
-        
-        /*! 
+    return [BANetManager ba_request_GETWithUrlString:DemoVC11URLPath isNeedCache:YES parameters:nil successBlock:^(id response) {
+        /*!
          获取的字典示例：
          
          {
@@ -132,13 +125,11 @@
          
          */
         
-    completionHandle([DemoVC11_model BAMJParse:response], nil);
-        
+        completionHandle([DemoVC11_model BAMJParse:response], nil);
+
     } failureBlock:^(NSError *error) {
-        
         BALog(@"error：%@", error);
         completionHandle(nil, error);
-        
     } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
         
     }];
@@ -152,10 +143,8 @@
 + (id)postDemoVC11DataWithParameters:parameters completionHandle:(void(^)(id model, NSError *error))completionHandle
 {
 //    NSString *url = [NSString stringWithFormat:@"%@%@", DemoVC11URLPath2, parameters[@"page"]];
-    return [BANetManager ba_requestWithType:BAHttpRequestTypePost
-                                  urlString:DemoVC11URLPath2
-                                 parameters:parameters
-                               successBlock:^(id response) {
+
+    return [BANetManager ba_request_POSTWithUrlString:DemoVC11URLPath2 isNeedCache:YES parameters:nil successBlock:^(id response) {
         completionHandle([DemoVC11_model BAMJParse:response], nil);
     } failureBlock:^(NSError *error) {
         BALog(@"error：%@", error);

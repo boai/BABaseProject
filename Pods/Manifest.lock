@@ -14,15 +14,21 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BAButton (2.0.1)
-  - BACustomAlertView (1.0.5)
-  - BaiduMapKit (3.1.0)
+  - BAAlert (1.1.9)
+  - BAButton (2.4.2)
+  - BaiduMapKit (3.3.2)
+  - BANetManager (2.2.2):
+    - AFNetworking
+    - YYCache
+  - BAPickView (1.0.3)
+  - BATextView (1.0.1)
+  - BATouchID (1.0.1)
   - DZNEmptyDataSet (1.8.1)
   - FBRetainCycleDetector (0.1.3)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
-  - IQKeyboardManager (4.0.7)
+  - IQKeyboardManager (4.0.10)
   - JMRoundedCorner (1.2.1)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
@@ -30,35 +36,47 @@ PODS:
   - MJRefresh (3.1.12)
   - MLeaksFinder (0.2.1):
     - FBRetainCycleDetector
-  - MyLayout (1.2.9)
+  - MyLayout (1.3.8)
   - NullSafe (1.2.2)
-  - SDAutoLayout (2.1.7)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - UMengAnalytics-NO-IDFA (4.1.5)
-  - UMengUShare/Core (6.1):
+  - ReactiveObjC (3.0.0)
+  - SDAutoLayout (2.1.8)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - UMengAnalytics-NO-IDFA (4.2.5)
+  - UMengUShare/Core (6.4.4):
     - UMengUShare/Network
-  - UMengUShare/Network (6.1)
-  - UMengUShare/Social/AlipayShare (6.1):
+  - UMengUShare/Network (6.4.4)
+  - UMengUShare/Social/AlipayShare (6.4.4):
     - UMengUShare/Core
-  - UMengUShare/Social/QQ (6.1):
+  - UMengUShare/Social/QQ (6.4.4):
     - UMengUShare/Core
-  - UMengUShare/Social/Sina (6.1):
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.4):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.1):
+  - UMengUShare/Social/ReducedSina (6.4.4):
     - UMengUShare/Core
-  - UMengUShare/UI (6.1):
+  - UMengUShare/Social/ReducedWeChat (6.4.4):
     - UMengUShare/Core
-  - YYKit (1.0.9):
-    - YYKit/no-arc (= 1.0.9)
-  - YYKit/no-arc (1.0.9)
+  - UMengUShare/Social/Sina (6.4.4):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/WeChat (6.4.4):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.4):
+    - UMengUShare/Core
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - BAAlert
   - BAButton
-  - BACustomAlertView
   - BaiduMapKit
+  - BANetManager
+  - BAPickView
+  - BATextView
+  - BATouchID
   - DZNEmptyDataSet
   - FMDB
   - IQKeyboardManager
@@ -70,6 +88,7 @@ DEPENDENCIES:
   - MLeaksFinder
   - MyLayout
   - NullSafe
+  - ReactiveObjC
   - SDAutoLayout
   - SDWebImage
   - UMengAnalytics-NO-IDFA
@@ -78,31 +97,35 @@ DEPENDENCIES:
   - UMengUShare/Social/Sina
   - UMengUShare/Social/WeChat
   - UMengUShare/UI
-  - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BAButton: 4aa11638748f946e9da6f783eba3ac1b501aea00
-  BACustomAlertView: 416a6497a6e1ca322f7a99ccdcc213492ee63be3
-  BaiduMapKit: 4cfaedb118cff7e157e9771859a4bf65a261b2a1
+  BAAlert: 99fb0f11877797481623369032eb2ff788ae8ddb
+  BAButton: e9d0702df8f0d0a846f7fda80e9ac38a464efb29
+  BaiduMapKit: 5118390d63b375483bd64c963e8e32a40fd9ddb5
+  BANetManager: bd2e6d0bcb5fc7397f3098b90c3bcf25a04127b5
+  BAPickView: 0ddba863e40bf706bc4417c5bc2d220b74a46a1e
+  BATextView: 0514fcbc994a7abafc0a3addb35596fe56c1910c
+  BATouchID: 33732f62f7d656733a3208c94744c61806095d3c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   JMRoundedCorner: 214e56c2a7e3a0916e8d6040c66d85519cc1be87
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
-  MyLayout: abd7dce7e1019191c78d35f095673969fcaebe6f
+  MLeaksFinder: '0850e2f2abc7227adc4d4e2d1992b431264eb4d5'
+  MyLayout: ba20b60fe7322449bd124ac3d3c78869194666d5
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
-  SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  UMengAnalytics-NO-IDFA: f1b08b540eba6ebad044a574cae6d988cf40cfda
-  UMengUShare: 6c3902a68a06d01031bed6f426e97b89d4fc504f
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+  SDAutoLayout: 5a4b48d6b8a5172ae8d088d2879e40dd795e6251
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+  UMengUShare: cd54ae52958426b79aa9193a7b02058d6a6d9aa0
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 479a6da39923358a1c2743afc1acb6f867b23661
+PODFILE CHECKSUM: 272b1a66b095f56dfb8bf0d669f1d8fcb8ee8482
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.1

@@ -23,7 +23,7 @@
 @property (nonatomic, strong) SXHeadLine  *headerLine;
 @property (nonatomic, strong) SXMarquee   *headerLine2;
 
-@property (strong, nonatomic) dispatch_source_t timer2;
+//@property (strong, nonatomic) dispatch_source_t timer2;
 
 @end
 
@@ -40,14 +40,10 @@
     
     [_headerLine stop];    
     
-    if (self.timer2)
-    {
-        dispatch_source_cancel(self.timer2);
-    }
-    
-//    _timeButton2 = nil;
-//    _timeButton3 = nil;
-
+//    if (self.timer2)
+//    {
+//        dispatch_source_cancel(self.timer2);
+//    }
 }
 
 - (void)viewDidLoad
@@ -59,6 +55,107 @@
     self.timeButton2.hidden = NO;
     self.timeButton3.hidden = NO;
 
+    [self test];
+}
+
+- (void)test
+{
+    CGFloat min_x = 20;
+    CGFloat min_y = self.timeButton2.bottom + 20;
+    CGFloat min_w = CGRectGetWidth(self.view.frame) - min_x * 2;
+    //    CGFloat min_w = 200;
+    
+    CGFloat min_h = 0;
+    CGFloat min_space = 5;
+    
+    for (NSInteger i = 0; i < 8; i ++)
+    {
+        min_h = 30;
+        if (i == 2 || i == 3)
+        {
+            min_h = 80;
+        }
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(min_x, min_y, min_w, min_h);
+        button.backgroundColor = BAKit_ColorRandom();
+        button.titleLabel.font = [UIFont systemFontOfSize:13];
+        [button setImage:[UIImage imageNamed:@"tabbar_mainframeHL"] forState:UIControlStateNormal];
+        min_y = CGRectGetMaxY(button.frame) + min_space;
+        
+        CGFloat padding = 10;
+        CGFloat viewCornerRadius = 15;
+        BAButtonLayoutType type;
+        
+        switch (i) {
+            case 0:
+            {
+                [button setTitle:@"默认样式：内容居中-图左文右" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeNormal;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeBottomLeft viewCornerRadius:viewCornerRadius];
+            }
+                break;
+            case 1:
+            {
+                [button setTitle:@"内容居中-图右文左" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeCenterImageRight;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeBottomRight viewCornerRadius:viewCornerRadius];
+            }
+                break;
+            case 2:
+            {
+                [button setTitle:@"内容居中-图上文下" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeCenterImageTop;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeTopLeftAndTopRight viewCornerRadius:viewCornerRadius * 2];
+            }
+                break;
+            case 3:
+            {
+                [button setTitle:@"内容居中-图下文上" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeCenterImageBottom;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeBottomRightAndTopRightAndTopLeft viewCornerRadius:viewCornerRadius * 2];
+            }
+                break;
+            case 4:
+            {
+                [button setTitle:@"内容居左-图左文右" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeLeftImageLeft;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeBottomRight viewCornerRadius:viewCornerRadius];
+                button.padding_inset = 20;
+            }
+                break;
+            case 5:
+            {
+                [button setTitle:@"内容居左-图右文左" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeLeftImageRight;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:viewCornerRadius];
+            }
+                break;
+            case 6:
+            {
+                [button setTitle:@"内容居右-图左文右" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeRightImageLeft;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeBottomRightAndTopRightAndBottomLeft viewCornerRadius:viewCornerRadius];
+            }
+                break;
+            case 7:
+            {
+                [button setTitle:@"内容居右-图右文左" forState:UIControlStateNormal];
+                type = BAButtonLayoutTypeRightImageRight;
+                [button ba_button_setBAViewRectCornerType:BAViewRectCornerTypeAllCorners viewCornerRadius:viewCornerRadius];
+            }
+                break;
+                
+            default:
+                type = BAButtonLayoutTypeNormal;
+                break;
+        }
+        
+        // 注意：文字、字体大小、图片等设置一定要在设置 ba_button_setBAButtonLayoutType 之前设置，要不然计算会以默认字体大小计算，导致位置偏移
+        [button ba_button_setBAButtonLayoutType:type padding:padding];
+        
+        [self.view addSubview:button];
+    }
 }
 
 #pragma mark - ***** 一个滚动的广告条：跑马灯label
@@ -119,118 +216,104 @@
         [_timeButton2 setTitle:@"获取验证码" forState:UIControlStateNormal];
         _timeButton2.titleLabel.font = BA_FontSize(15);
         [_timeButton2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_timeButton2 addTarget:self action:@selector(btnAction2:) forControlEvents:UIControlEventTouchUpInside];
+        [_timeButton2 addTarget:self action:@selector(handleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_timeButton2 jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
         
+        _timeButton2.tag = 100;
         [self.view addSubview:_timeButton2];
     }
     return _timeButton2;
 }
 
-- (void)btnAction2:(UIButton *)btn
+- (IBAction)handleButtonAction:(UIButton *)sender
 {
-    __block int timeout = 29;
+    sender.userInteractionEnabled = NO;
+    __block UIButton *btn = sender;
     
-    /*! 倒计时时间 */
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    self.timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
-    dispatch_source_set_timer(self.timer2,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
-    
-    /*! 每秒执行 */
-    dispatch_source_set_event_handler(self.timer2, ^{
-        
-        if(timeout <= 0)
-        {
-            /*! 倒计时结束，关闭 */
-            dispatch_source_cancel(self.timer2); dispatch_async(dispatch_get_main_queue(), ^{
-                
-                /*! 设置界面的按钮显示 根据自己需求设置 */
-                [btn setTitle:@"发送验证码" forState:UIControlStateNormal];
-                btn.userInteractionEnabled = YES;
-                
-            });
-        }
-        else
-        {
-            int seconds = timeout % 60;
-            NSString *strTime = [NSString stringWithFormat:@"%d", seconds];
-            if ([strTime isEqualToString:@"0"])
-            {
-                strTime = [NSString stringWithFormat:@"%d", 60];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                /*! 设置界面的按钮显示 根据自己需求设置 */
-                // BALog(@"____%@",strTime);
-                [UIView beginAnimations:nil context:nil];
-                [UIView setAnimationDuration:1];
-                [btn setTitle:[NSString stringWithFormat:@"%@秒后重新发送",strTime] forState:UIControlStateNormal];
-                [UIView commitAnimations];
-                btn.userInteractionEnabled = NO;
-                
-            });
-            timeout--;
-        }
-    });
-    dispatch_resume(self.timer2);
+    if (sender.tag == 100)
+    {
+        [sender ba_countDownWithTimeInterval:60 countDownFormat:@"剩余 %zd s"];
+        [sender setTimeStoppedCallback:^{
+            [btn setTitle:@"获取验证码" forState:UIControlStateNormal];
+        }];
+    }
+    if (sender.tag == 101)
+    {
+        [sender ba_countDownWithTimeInterval:5 countDownFormat:@"跳过 %zd s"];
+        [sender setTimeStoppedCallback:^{
+            [btn setTitle:@"跳过" forState:UIControlStateNormal];
+        }];
+    }
 }
 
-#pragma mark - ***** 第3种button
+//- (void)btnAction2:(UIButton *)btn
+//{
+//    __block int timeout = 29;
+//    
+//    /*! 倒计时时间 */
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    self.timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+//    dispatch_source_set_timer(self.timer2,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
+//    
+//    /*! 每秒执行 */
+//    dispatch_source_set_event_handler(self.timer2, ^{
+//        
+//        if(timeout <= 0)
+//        {
+//            /*! 倒计时结束，关闭 */
+//            dispatch_source_cancel(self.timer2); dispatch_async(dispatch_get_main_queue(), ^{
+//                
+//                /*! 设置界面的按钮显示 根据自己需求设置 */
+//                [btn setTitle:@"发送验证码" forState:UIControlStateNormal];
+//                btn.userInteractionEnabled = YES;
+//                
+//            });
+//        }
+//        else
+//        {
+//            int seconds = timeout % 60;
+//            NSString *strTime = [NSString stringWithFormat:@"%d", seconds];
+//            if ([strTime isEqualToString:@"0"])
+//            {
+//                strTime = [NSString stringWithFormat:@"%d", 60];
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                
+//                /*! 设置界面的按钮显示 根据自己需求设置 */
+//                // BALog(@"____%@",strTime);
+//                [UIView beginAnimations:nil context:nil];
+//                [UIView setAnimationDuration:1];
+//                [btn setTitle:[NSString stringWithFormat:@"%@秒后重新发送",strTime] forState:UIControlStateNormal];
+//                [UIView commitAnimations];
+//                btn.userInteractionEnabled = NO;
+//                
+//            });
+//            timeout--;
+//        }
+//    });
+//    dispatch_resume(self.timer2);
+//}
+//
+#pragma mark - ***** 第3种 倒计时
 - (UIButton *)timeButton3
 {
     if (!_timeButton3)
     {
         _timeButton3 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _timeButton3.frame = CGRectMake(_timeButton2.x, _timeButton2.bottom + 10, 120, 40);
-        [_timeButton3 setTitle:@"点击有惊喜！" forState:UIControlStateNormal];
+        _timeButton3.frame = CGRectMake(_timeButton2.right + 20, _timeButton2.y, _timeButton2.width, _timeButton2.height);
+        [_timeButton3 setTitle:@"跳过" forState:UIControlStateNormal];
         _timeButton3.titleLabel.font = BA_FontSize(15);
         [_timeButton3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_timeButton3 addTarget:self action:@selector(btnAction3:) forControlEvents:UIControlEventTouchUpInside];
+        [_timeButton3 addTarget:self action:@selector(handleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_timeButton3 jm_setCornerRadius:5 withBackgroundColor:BA_Orange_Color];
+        _timeButton3.tag = 101;
         
         [self.view addSubview:_timeButton3];
     }
     return _timeButton3;
 }
 
-- (IBAction)btnAction3:(UIButton *)sender
-{
-    if (!_modal1)
-    {
-        _modal1 = [self creatModal:nil];
-    }
-    
-    if (!_label1)
-    {
-        _label1 = [self creatLabel];
-        _label1.userInteractionEnabled = YES;
-        _label1.text = @"欢迎使用 iPhone SE，迄今最高性能的 4 英寸 iPhone。在打造这款手机时，我们在深得人心的 4 英寸设计基础上，从里到外重新构想。它所采用的 A9 芯片，正是在 iPhone 6s 上使用的先进芯片。1200 万像素的摄像头能拍出令人叹为观止的精彩照片和 4K 视频，而 Live Photos 则会让你的照片栩栩如生。这一切，成就了一款外形小巧却异常强大的 iPhone。";
-        
-        _label1.font = [UIFont systemFontOfSize:16];
-        
-        CGSize size2 = [BAAutoSizeWithWH BA_AutoSizeOfHeghtWithText:_label1.text font:_label1.font width:BA_SCREEN_WIDTH - 60];
-        _label1.frame = CGRectMake(10, CGRectGetMidX(self.view.frame), size2.width, size2.height);
-        _label1.backgroundColor = BA_Green_Color;
-        [_label1 jm_setCornerRadius:10 withBorderColor:BA_Red_Color borderWidth:2];
-    }
-    [_modal1 showContentView:_label1 animated:YES];
-}
 
-- (BAModal *)creatModal:(UIView *)contentView
-{
-    BAModal *modal = [BAModal ba_modalWithContentView:contentView];
-    modal.hideWhenTouchOutside = YES;
-    return modal;
-}
-
-- (UILabel *)creatLabel
-{
-    UILabel *label = [UILabel new];
-    label.numberOfLines = 0;
-    label.textAlignment = NSTextAlignmentLeft;
-    label.textColor = [UIColor colorWithWhite:1 alpha:0.85];
-    return label;
-}
 
 
 @end

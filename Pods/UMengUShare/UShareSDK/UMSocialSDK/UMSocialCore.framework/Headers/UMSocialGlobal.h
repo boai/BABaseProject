@@ -14,6 +14,7 @@
  */
 
 
+@class UMSocialWarterMarkConfig;
 
 /**
  *  用来设置UMSocial的全局设置变量
@@ -81,6 +82,22 @@
  *  NO,代表不清楚缓存，用缓存的数据请求用户数据
  */
 @property(atomic,readwrite,assign)BOOL isClearCacheWhenGetUserInfo;
+
+
+/**
+ *  添加水印功能
+ *  @note 此功能为6.2版本以后的功能
+ *  @discuss 此函数默认关闭 NO - 关闭水印 YES - 打开水印
+ *  @discuss 设置此函数为YES后，必须要设置warterMarkConfig,来配置图片水印和字符串水印，如果不配置，就会用默认的[UMSocialWarterMarkConfig defaultWarterMarkConfig]来显示水印
+ */
+@property(atomic,readwrite,assign)BOOL isUsingWaterMark;
+
+/**
+ *  添加水印的配置类
+ *  @note 此功能为6.2版本以后的功能
+ *  @discuss 设置isUsingWaterMark此函数为YES后，必须要设置warterMarkConfig,来配置图片水印和字符串水印
+ */
+@property(nonatomic,readwrite,strong)UMSocialWarterMarkConfig* warterMarkConfig;
 
 @end
 

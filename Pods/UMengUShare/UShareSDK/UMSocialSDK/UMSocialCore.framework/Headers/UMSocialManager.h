@@ -14,9 +14,15 @@
 
 +(instancetype)defaultManager;
 
-//友盟自己的appkey(暂时写成属性)
+/**
+ 友盟appkey
+ */
 @property(nonatomic,strong)NSString* umSocialAppkey;
 @property(nonatomic,strong)NSString* umSocialAppSecret;
+
+/**
+ 返回当前有效(安装并是可用的)平台列表
+ */
 @property(nonatomic,readonly,strong) NSArray * platformTypeArray;
 
 
@@ -83,6 +89,31 @@
  */
 -(BOOL)handleOpenURL:(NSURL *)url;
 
+/**
+ *  获得从sso或者web端回调到本app的回调
+ *
+ *  @param url               第三方sdk的打开本app的回调的url
+ *  @param sourceApplication 回调的源程序
+ *  @param annotation        annotation
+ *
+ *  @return 是否处理  YES代表处理成功，NO代表不处理
+ *  
+ *  @note 此函数在6.3版本加入
+ */
+-(BOOL)handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+
+/**
+ *  获得从sso或者web端回调到本app的回调
+ *
+ *  @param url     第三方sdk的打开本app的回调的url
+ *  @param options 回调的参数
+ *
+ *  @return 是否处理  YES代表处理成功，NO代表不处理
+ *
+ *  @note 此函数在6.3版本加入
+ */
+-(BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options;
+
 
 /**
  *  动态的增加用户自定义的PlatformProvider
@@ -129,7 +160,8 @@
  *  @param platformType 平台类型 @see UMSocialPlatformType
  *
  *  @return YES 代表安装，NO 代表未安装
- *  @note 在判断QQ空间的App的时候，QQApi判断会出问题
+ *  @note 调用前请检查是否配置好平台相关白名单: http://dev.umeng.com/social/ios/quick-integration#1_3 
+ *  在判断QQ空间的App的时候，QQApi判断会出问题
  */
 -(BOOL) isInstall:(UMSocialPlatformType)platformType;
 
@@ -153,7 +185,7 @@
  *  @param completion   回调
  */
 - (void)authWithPlatform:(UMSocialPlatformType)platformType
-   currentViewController:(id)currentViewController
+   currentViewController:(UIViewController *)currentViewController
               completion:(UMSocialRequestCompletionHandler)completion;
 
 @end

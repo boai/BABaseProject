@@ -1,6 +1,0 @@
-framework module Pods_BABaseProject_BABaseProjectUITests {
-  umbrella header "Pods-BABaseProject-BABaseProjectUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

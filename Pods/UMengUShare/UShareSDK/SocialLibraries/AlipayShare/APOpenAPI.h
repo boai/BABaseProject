@@ -96,6 +96,12 @@
 +(BOOL) isAPAppSupportOpenApi;
 
 
+/*! @brief 判断当前支付宝的版本是否支持分享到生活圈
+ *
+ * @return 支持返回YES，不支持返回NO。
+ */
++(BOOL) isAPAppSupportShareTimeLine;
+
 
 /*! @brief 获取支付宝的itunes安装地址
  *

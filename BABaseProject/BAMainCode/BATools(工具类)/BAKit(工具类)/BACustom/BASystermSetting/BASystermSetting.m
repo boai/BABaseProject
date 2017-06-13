@@ -303,7 +303,7 @@
  */
 - (void)ba_gotoSafariBrowserWithURL:(NSString *)url
 {
-    if ([BARegularExpression ba_isUrl:url])
+    if ([BAKit_RegularExpression ba_regularIsUrl:url])
     {
         /*! 跳转系统通知 */
         BA_OpenUrl(url);

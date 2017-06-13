@@ -32,14 +32,9 @@
 @synthesize titleFont = _titleFont;
 @synthesize title = _title;
 
-Class IQUIToolbarTextButtonClass;
-Class IQUIToolbarButtonClass;
-
-
-+(void)load
++(void)initialize
 {
-    IQUIToolbarTextButtonClass = NSClassFromString(@"UIToolbarTextButton");
-    IQUIToolbarButtonClass = NSClassFromString(@"UIToolbarButton");
+    [super initialize];
 
     //Tint Color
     [[self appearance] setTintColor:nil];
@@ -226,10 +221,15 @@ Class IQUIToolbarButtonClass;
         {
             isTitleBarButtonFound = YES;
         }
-        else if ([barButtonItemView isKindOfClass:IQUIToolbarTextButtonClass] ||
-            [barButtonItemView isKindOfClass:IQUIToolbarButtonClass])
+        else
         {
-            leftRect = barButtonItemView.frame;
+            NSString *classNameString = NSStringFromClass([barButtonItemView class]);
+            
+            //If it's UIToolbarButton or UIToolbarTextButton
+            if (([classNameString hasPrefix:@"UIToolbar"] && [classNameString hasSuffix:@"Button"]))
+            {
+                leftRect = barButtonItemView.frame;
+            }
         }
     }
     

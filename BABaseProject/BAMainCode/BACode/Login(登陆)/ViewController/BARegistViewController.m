@@ -34,14 +34,14 @@
 {
     self.title = @"注  册";
     
-    _phoneNumTextField.phoneRestrict = YES;
-    _phoneNumTextField.textfieldStyle = BATextfieldStylePhone;
-    
+//    _phoneNumTextField.phoneRestrict = YES;
+//    _phoneNumTextField.textfieldStyle = BATextfieldStylePhone;
+    // 0337 6711 76
 }
 
 - (IBAction)registButtonAction:(UIButton *)sender
 {
-    if (![BARegularExpression ba_isMobileNumber:_phoneNumTextField.text])
+    if (![BAKit_RegularExpression ba_regularIsMobileNumber:_phoneNumTextField.text])
     {
         [self.view BA_showAlertWithTitle:@"请输入合法的手机号码！"];
         return;
@@ -51,7 +51,7 @@
         [self.view BA_showAlertWithTitle:@"昵称不能为空！"];
         return;
     }
-    if (![BARegularExpression ba_isPasswordQualified:_pwd1TextField.text])
+    if (![BAKit_RegularExpression ba_regularIsPasswordQualified:_pwd1TextField.text])
     {
         [self.view BA_showAlertWithTitle:@"密码必须为6-8位的字母数字混合！"];
         return;

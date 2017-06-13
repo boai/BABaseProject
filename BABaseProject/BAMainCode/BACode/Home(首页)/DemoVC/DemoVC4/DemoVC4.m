@@ -13,8 +13,8 @@
 
 @interface DemoVC4 ()
 
-@property (nonatomic, strong) BAButton *shareBtn;
-@property (nonatomic, strong) BAButton *QQLoginBtn;
+@property (nonatomic, strong) UIButton *shareBtn;
+@property (nonatomic, strong) UIButton *QQLoginBtn;
 
 @property (nonatomic, strong) UMSocialUserInfoResponse *dict;
 
@@ -22,11 +22,11 @@
 
 @implementation DemoVC4
 
-- (BAButton *)shareBtn
+- (UIButton *)shareBtn
 {
     if (!_shareBtn)
     {
-        _shareBtn = [BAButton new];
+        _shareBtn = [UIButton new];
         _shareBtn.frame = CGRectMake(50, 100, 100, 40);
         [_shareBtn setTitle:@"博爱分享" forState:UIControlStateNormal];
         [_shareBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];
@@ -43,11 +43,11 @@
     return _shareBtn;
 }
 
-- (BAButton *)QQLoginBtn
+- (UIButton *)QQLoginBtn
 {
     if (!_QQLoginBtn)
     {
-        _QQLoginBtn = [BAButton new];
+        _QQLoginBtn = [UIButton new];
         _QQLoginBtn.frame = CGRectMake(50, _shareBtn.bottom + 50, 100, 40);
         [_QQLoginBtn setTitle:@"博爱登录" forState:UIControlStateNormal];
         [_QQLoginBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];

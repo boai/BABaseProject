@@ -1,1 +1,1 @@
-../../../UMengUShare/UShareSDK/SocialLibraries/WeChat/WechatAuthSDK.h
+../../../UMengUShare/UShareSDK/SocialLibraries/WeChat/WechatSDK/WechatAuthSDK.h

@@ -96,11 +96,10 @@
  *
  */
 + (UMShareImageObject *)shareObjectWithTitle:(NSString *)title
-                     descr:(NSString *)descr
-                 thumImage:(id)thumImage;
+                                       descr:(NSString *)descr
+                                   thumImage:(id)thumImage;
 
 @end
-
 
 @interface UMShareMusicObject : UMShareObject
 
@@ -129,8 +128,8 @@
  *
  */
 + (UMShareMusicObject *)shareObjectWithTitle:(NSString *)title
-                     descr:(NSString *)descr
-                 thumImage:(id)thumImage;
+                                       descr:(NSString *)descr
+                                   thumImage:(id)thumImage;
 
 @end
 
@@ -207,6 +206,11 @@
 @interface UMShareEmailObject : UMShareObject
 
 /**
+ *  主题
+ */
+@property (nonatomic, strong) NSString *subject;
+
+/**
  * 接收人
  */
 @property (nonatomic, strong) NSArray *toRecipients;
@@ -227,9 +231,20 @@
 @property (nonatomic, copy) NSString *emailContent;
 
 /**
- * 图片
+ * 图片,最好是本地图片（UIImage,或者NSdata）
  */
 @property (nonatomic, strong) id emailImage;
+
+/**
+ *  发送图片的类型 @see MIME 
+ *   默认 "image/ *"
+ */
+@property (nonatomic, copy) NSString* emailImageType;
+/**
+ *  发送图片的名字
+ *   默认 "um_share_image.png"
+ */
+@property (nonatomic, copy) NSString* emailImageName;
 
 /**
  * 文件（NSData）
@@ -238,11 +253,14 @@
 
 /**
  * 文件格式
+ *  @see MIME
+ *  默认 "text/ *"
  */
 @property (nonatomic, copy) NSString *fileType;
 
 /**
  * 文件名,(例如图片 imageName.png, 文件名后要跟文件后缀名，否则没法识别，导致类似图片不显示的问题)
+ * 默认 "um_share_file.txt"
  */
 @property (nonatomic, copy) NSString *fileName;
 
@@ -252,6 +270,8 @@
 /*! @brief 分享消息中的短信分享对象
  *
  * @see UMSocialMessageObject
+ * @discuss UMShareSmsObject只能发送的附件是图片！！！！
+ *  如果发送其他的文件的话，虽然能在短信界面显示发送的文件，但是会发送不成功
  */
 @interface UMShareSmsObject : UMShareObject
 
@@ -261,6 +281,11 @@
 @property (nonatomic, strong) NSArray *recipients;
 
 /**
+ *  主题
+ */
+@property (nonatomic, strong) NSString *subject;
+
+/**
  * 文本内容
  */
 @property (nonatomic, copy) NSString *smsContent;
@@ -268,8 +293,12 @@
 /**
  * 图片
  */
-@property (nonatomic, strong) id smsImage;
+@property (nonatomic, strong) id smsImage;//UIImage对象必填
+@property (nonatomic, copy) NSString *imageType;//图片格式必填，必须指定数据格式，如png图片格式应传入@"png"
+@property (nonatomic, copy) NSString *imageName;//图片 例如 imageName.png, 文件名后要跟文件后缀名，否则没法识别，导致类似图片不显示的问题)
 
+
+#pragma mark - 以下字段为非图片的属性
 /**
  * 文件数据（NSData）
  * 必填
@@ -278,17 +307,17 @@
 
 /**
  * 文件格式
- * 必填，必须指定数据格式，如png图片格式应传入@"png"
+ * 必填，必须指定数据格式，如png图片格式应传入@"txt"
  */
 @property (nonatomic, copy) NSString *fileType;
 
 /**
- * 文件名,(例如图片 imageName.png, 文件名后要跟文件后缀名，否则没法识别，导致类似图片不显示的问题)
+ * 文件名,(例如图片 fileName.txt, 文件名后要跟文件后缀名，否则没法识别，导致类似图片不显示的问题)
  */
 @property (nonatomic, copy) NSString *fileName;
 
 /**
- * 文件地址url
+ * 文件地址url(http:// or file:// ...../fileName.txt)
  */
 @property (nonatomic, copy) NSString *fileUrl;
 
@@ -364,4 +393,33 @@
  */
 @property (nonatomic, retain) NSData    *fileData;
 
+
 @end
+
+
+#pragma mark - UMMiniProgramObject
+
+/*! @brief 多媒体消息中包含 分享微信小程序的数据对象
+ *
+ * @see UMShareObject
+ */
+@interface UMShareMiniProgramObject : UMShareObject
+
+/**
+ 低版本微信网页链接
+ */
+@property (nonatomic, strong) NSString *webpageUrl;
+
+/**
+ 小程序username
+ */
+@property (nonatomic, strong) NSString *userName;
+
+/**
+ 小程序页面的路径
+ */
+@property (nonatomic, strong) NSString *path;
+
+@end
+
+

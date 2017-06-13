@@ -16,17 +16,17 @@
     NSMutableURLRequest *_request;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (nonatomic, strong) BAButton *shareBtn;
+@property (nonatomic, strong) UIButton *shareBtn;
 
 @end
 
 @implementation DemoVC2_08
 
-- (BAButton *)shareBtn
+- (UIButton *)shareBtn
 {
     if (!_shareBtn)
     {
-        _shareBtn = [BAButton new];
+        _shareBtn = [UIButton new];
         _shareBtn.frame = CGRectMake(50, BA_SCREEN_HEIGHT - 200, 150, 40);
         [_shareBtn setTitle:@"OC按钮调用JS方法" forState:UIControlStateNormal];
         [_shareBtn setTitleColor:BA_White_Color forState:UIControlStateNormal];

@@ -30,5 +30,43 @@
  */
 +(void)setPreDefinePlatforms:(NSArray*)preDefinePlatforms;
 
+
+/**
+ *  设置用户自定义的平台显示在分享面板的imageIcon和imageName
+ *  设置了此平台后不会过分享面板过滤掉
+ *  http://dev.umeng.com/social/ios/进阶文档#5
+ *
+ *  @param platformType 用户自定义的平台 范围在（UMSocialPlatformType_UserDefine_Begin，UMSocialPlatformType_UserDefine_End） @see UMSocialPlatformType
+ *  @param platformIcon    平台的icon
+ *  @param platformName    平台的名字
+ *  @disuss 此函数也可以加入用户需要自定义非平台的功能的性item,比如copy,paste等系统功能
+ */
++(void)addCustomPlatformWithoutFilted:(UMSocialPlatformType)platformType
+           withPlatformIcon:(UIImage*)platformIcon
+           withPlatformName:(NSString*)platformName;
+
+/**
+ *  删除用户自定义的平台显示在分享面板的imageIcon和imageName
+ *  http://dev.umeng.com/social/ios/进阶文档#5
+ *
+ *  @param platformType 范围在（UMSocialPlatformType_UserDefine_Begin，UMSocialPlatformType_UserDefine_End） @see UMSocialPlatformType
+ */
++(void)removeCustomPlatformWithoutFilted:(UMSocialPlatformType)platformType;
+
+/**
+ *  删除所有的用户自定义的平台
+ * http://dev.umeng.com/social/ios/进阶文档#5
+ */
++(void)removeAllCustomPlatformWithoutFilted;
+
+
+/**
+ *  设置分享面板的代理，从而监控其显示和隐藏的状态
+ *
+ *  @param shareMenuViewDelegate shareMenuViewDelegate @see UMSocialShareMenuViewDelegate
+ *  @dicuss 用户根据自己的需求来判断是否需要监控分享面板的显示和隐藏的状态
+ */
++(void)setShareMenuViewDelegate:(id<UMSocialShareMenuViewDelegate>)shareMenuViewDelegate;
+
 @end
 

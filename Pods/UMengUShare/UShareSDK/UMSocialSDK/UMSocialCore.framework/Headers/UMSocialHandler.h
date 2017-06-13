@@ -38,7 +38,7 @@ extern NSString *const  UMSocialShareDataTypeIllegalMessage;
 #pragma mark - 子类需要重载的类
 +(void)load;
 +(NSArray*) socialPlatformTypes;
-+ (UMSocialHandler *)defaultManager;
++ (instancetype)defaultManager;
 
 #pragma mark -
 
@@ -50,8 +50,10 @@ extern NSString *const  UMSocialShareDataTypeIllegalMessage;
 
 /**
  * 当前ViewController（用于一些特定平台弹出相应的页面，默认使用当前ViewController）
+ * since 6.3把currentViewController修改为弱引用，防止用户传入后强引用用户传入的UIViewController，导致内存不释放，
+ * 注意：如果传入currentViewController的时候，一定要保证在（执行对应的分享，授权，获得用户信息的接口需要传入此接口的时候）存在，否则导致弱引用为nil,没有弹出界面的效果。
  */
-@property (nonatomic, strong) UIViewController *currentViewController;
+@property (nonatomic, weak) UIViewController *currentViewController;
 
 @property (nonatomic, copy) UMSocialRequestCompletionHandler shareCompletionBlock;
 

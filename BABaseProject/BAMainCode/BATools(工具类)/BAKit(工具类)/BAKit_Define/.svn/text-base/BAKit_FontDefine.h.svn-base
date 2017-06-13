@@ -1,0 +1,33 @@
+//
+//  BAKit_FontDefine.h
+//  BAQMUIDemo
+//
+//  Created by 博爱 on 2017/2/9.
+//  Copyright © 2017年 boaihome. All rights reserved.
+//
+
+#ifndef BAKit_FontDefine_h
+#define BAKit_FontDefine_h
+
+#pragma mark - TimeLine
+
+#define BAKit_FontSystem_10    [UIFont systemFontOfSize:10]
+#define BAKit_FontSystem_11    [UIFont systemFontOfSize:11]
+#define BAKit_FontSystem_12    [UIFont systemFontOfSize:12]
+#define BAKit_FontSystem_13    [UIFont systemFontOfSize:13]
+#define BAKit_FontSystem_14    [UIFont systemFontOfSize:14]
+#define BAKit_FontSystem_15    [UIFont systemFontOfSize:15]
+#define BAKit_FontSystem_16    [UIFont systemFontOfSize:16]
+#define BAKit_FontSystem_17    [UIFont systemFontOfSize:17]
+#define BAKit_FontSystem_18    [UIFont systemFontOfSize:18]
+#define BAKit_FontSystem_19    [UIFont systemFontOfSize:19]
+#define BAKit_FontSystem_20    [UIFont systemFontOfSize:20]
+#define BAKit_FontSystem_25    [UIFont systemFontOfSize:25]
+#define BAKit_FontSystem_30    [UIFont systemFontOfSize:30]
+
+
+
+
+
+
+#endif /* BAKit_FontDefine_h */
