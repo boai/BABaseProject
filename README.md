@@ -75,7 +75,7 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
  2.2.0.3、新增 BAButton demo [BAButton](https://github.com/BAHome/BAButton) <br>
  2.2.0.4、重构 正则表达封装 demo <br>
  2.2.0.5、修复系统提醒和日历提醒封装崩溃的bug，添加iOS 10对应的所有权限 <br>
- 2.2.0.6、新增 BAAlert demo [BAButton](https://github.com/BAHome/BAAlert) <br>
+ 2.2.0.6、新增 BAAlert demo [BAAlert](https://github.com/BAHome/BAAlert) <br>
  2.2.0.7、重构百度地图demo <br>
  2.2.0.7、修复跑马灯文字过段时间重复的bug <br>
  2.2.0.8、新增倒计时 button 功能封装，两行代码搞定倒计时 button <br>
