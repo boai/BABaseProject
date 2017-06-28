@@ -192,18 +192,51 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 - 5.1.02、整理优化各级目录 
 - 5.1.01、创建框架 
 
-## 6、bug 反馈 和 联系方式
+## 6、bug 反馈
 > 1、开发中遇到 bug，希望小伙伴儿们能够及时反馈与我们 BAHome 团队，我们必定会认真对待每一个问题！ <br>
 
-> 2、联系方式 <br> 
-QQ群：479663605  【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
-博爱QQ：137361770 <br> 
-博爱微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br> 
+> 2、以后提需求和 bug 的同学，记得把 git 或者博客链接给我们，我直接超链到你们那里！希望大家积极参与测试！<br> 
 
-## 7、开发环境 和 支持版本
-> 开发使用 Xcode Version 8.3.2 (8E2002) ，理论上支持所有 iOS 版本，如有版本适配问题，请及时反馈！多谢合作！
+## 7、BAHome 团队成员
+> 1、QQ 群 
+479663605 <br> 
+【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
 
-## 8、感谢
+> 孙博岩 <br> 
+QQ：137361770 <br> 
+git：[https://github.com/boai](https://github.com/boai) <br>
+简书：[http://www.jianshu.com/u/95c9800fdf47](http://www.jianshu.com/u/95c9800fdf47) <br>
+微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br>
+
+> 马景丽 <br> 
+QQ：1253540493 <br> 
+git：[https://github.com/MaJingli](https://github.com/MaJingli) <br>
+
+> 陆晓峰 <br> 
+QQ：442171865 <br> 
+git：[https://github.com/zeR0Lu](https://github.com/zeR0Lu) <br>
+
+> 陈集 <br> 
+QQ：3161182978 <br> 
+git：[https://github.com/chenjipdc](https://github.com/chenjipdc) <br>
+简书：[http://www.jianshu.com/u/90ae559fc21d](http://www.jianshu.com/u/90ae559fc21d)
+
+> 任子丰 <br> 
+QQ：459643690 <br> 
+git：[https://github.com/renzifeng](https://github.com/renzifeng) <br>
+
+> 吴丰收 <br> 
+QQ：498121294 <br> 
+
+> 石少庸 <br> 
+QQ：363605775 <br> 
+git：[https://github.com/CrazyCoderShi](https://github.com/CrazyCoderShi) <br>
+简书：[http://www.jianshu.com/u/0726f4d689a3](http://www.jianshu.com/u/0726f4d689a3)
+
+## 8、开发环境 和 支持版本
+> 开发使用 最新版本 Xcode，理论上支持 iOS 8 及以上版本，如有版本适配问题，请及时反馈！多谢合作！
+
+## 9、感谢
 > 感谢 BAHome 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
 
 > BAHome 的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！
