@@ -51,11 +51,13 @@ static char overlayKey;
     
     UIView *titleView = [self valueForKey:@"_titleView"];
     titleView.alpha = alpha;
-//    when viewController first load, the titleView maybe nil
+    //    when viewController first load, the titleView maybe nil
     [[self subviews] enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:NSClassFromString(@"UINavigationItemView")]) {
             obj.alpha = alpha;
-            *stop = YES;
+        }
+        if ([obj isKindOfClass:NSClassFromString(@"_UINavigationBarBackIndicatorView")]) {
+            obj.alpha = alpha;
         }
     }];
 }

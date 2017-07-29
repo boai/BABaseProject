@@ -36,6 +36,7 @@
         _userNameLabel.text = @"游客";
         _accountLabel.text = @"18588886666";
     }
+    _QRCodeImgView.image = BA_ImageName(@"profileVC.bundle/qrcode");
 }
 
 - (void)awakeFromNib

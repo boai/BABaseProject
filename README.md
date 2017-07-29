@@ -4,6 +4,9 @@
 ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg) 
  [![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123)
 
+## 0、注意
+* BAKit 系列封装已经全新改版，目前逐渐开放，此项目中已添加部分封装，如有使用老版本，请逐渐升级到最新版本，以免出现不同问题，多谢合作，详见：[BAHome](https://github.com/BAHome)
+
 ## 1、功能及简介
 * 1、iOS 开发常用的控件封装，如：[BAButton](https://github.com/BAHome/BAButton)、[BAPickView](https://github.com/BAHome/BAPickView)、[BATextView](https://github.com/BAHome/BATextView)、[BATouchID](https://github.com/BAHome/BATouchID)、[BANetManager](https://github.com/BAHome/BANetManager)、[BAAlert](https://github.com/BAHome/BAAlert)<br>
 * 2、常用功能封装，如：倒计时、跑马灯等
@@ -17,7 +20,7 @@
 * 10、NSMutableAttributedString 的完美封装
 * 11、3D Touch使用demo
 * 12、正则表达式封装
-* 13、BAKit 系列封装逐渐开放，目前项目中已添加部分封装
+* 13、BAKit 系列封装逐渐开放，目前项目中已添加部分封装，详见：[BAHome](https://github.com/BAHome)
 * 等等，内容太多，详见demo
 
 ## 2、图片示例
@@ -61,6 +64,11 @@ DemoVC文件夹：是专门展示各级样例用法的文件夹！
 ## 5、更新记录：【倒叙】
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
+ 
+ 最新更新时间：2017-07-29 【倒叙】 <br>
+ 最新Version：【Version：2.2.2】 <br>
+ 更新内容： <br>
+ 2.2.1.1、优化部分代码，优化渐变 navi 封装，适配最新版本 <br>
  
  最新更新时间：2017-06-13 【倒叙】 <br>
  最新Version：【Version：2.2.1】 <br>
