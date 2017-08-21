@@ -35,7 +35,7 @@
 - (CGFloat)ba_folderSizeAtPath:(NSString *)path;
 
 /*!
- *  缓存大小
+ *  缓存大小，结果返回：1 M
  *
  *  @return 缓存大小
  */

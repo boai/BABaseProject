@@ -22,9 +22,14 @@
 }
 
 #pragma mark - 计算单个文件大小
+/*!
+ *  缓存大小，结果返回：1 M
+ *
+ *  @return 缓存大小
+ */
 - (CGFloat)ba_fileManagerGetSizeWithFilePath:(NSString *)path
 {
-    return [NSFileManager ba_fileManagerGetSizeWithFilePath:path];
+    return [NSFileManager ba_fileManagerGetSizeWithFilePath:path]/1024.0/1024.0;
 }
 
 - (CGFloat)ba_loadCacheSize
