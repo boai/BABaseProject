@@ -10,6 +10,7 @@
 		0A2263DDA3BEC585020264E0 /* libPods-BABaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77795B692E80399FDA1BD963 /* libPods-BABaseProjectUITests.a */; };
 		5C5C57EED15443424D1F9E04 /* libPods-BABaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1574EF9FCBB113FDCC972156 /* libPods-BABaseProjectTests.a */; };
 		859CBDBC1C0B897C477F1830 /* libPods-BABaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 539C5D5ABB06B9E52C89A5CE /* libPods-BABaseProject.a */; };
+		9C93D6B420BD2718002FB06B /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C93D6B220BD2718002FB06B /* HMSegmentedControl.m */; };
 		BC125F9D71FBD9A5C5530CAA /* libPods-BABaseProject-BABaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7379A219A22C69FA7095C49C /* libPods-BABaseProject-BABaseProjectUITests.a */; };
 		C07169A416BB3C73F9B14968 /* libPods-BABaseProject-BABaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1694997B390478F9A51051C8 /* libPods-BABaseProject-BABaseProjectTests.a */; };
 		C407E5501DE533FD00FB1244 /* NSMutableArray+BASort.m in Sources */ = {isa = PBXBuildFile; fileRef = C407E54F1DE533FD00FB1244 /* NSMutableArray+BASort.m */; };
@@ -283,7 +284,6 @@
 		C4C744391DC72DB300E747D8 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743911DC72DB300E747D8 /* BALocalNotification.m */; };
 		C4C7443A1DC72DB300E747D8 /* BACustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743941DC72DB300E747D8 /* BACustomBarItem.m */; };
 		C4C7443B1DC72DB300E747D8 /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743961DC72DB300E747D8 /* UINavigationItem+CustomItem.m */; };
-		C4C7443D1DC72DB300E747D8 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C7439C1DC72DB300E747D8 /* HMSegmentedControl.m */; };
 		C4C7443F1DC72DB300E747D8 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743A11DC72DB300E747D8 /* BAShareManage.m */; };
 		C4C744411DC72DB300E747D8 /* BASharManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4C743A41DC72DB300E747D8 /* BASharManager.bundle */; };
 		C4C744421DC72DB300E747D8 /* BASystermSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C743A71DC72DB300E747D8 /* BASystermSetting.m */; };
@@ -516,6 +516,8 @@
 		77795B692E80399FDA1BD963 /* libPods-BABaseProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BABaseProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6875B539C22C6BAC2A5D03 /* Pods-BABaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject/Pods-BABaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		85433259C94DA94EF8BE73D7 /* Pods-BABaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProjectTests/Pods-BABaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C93D6B220BD2718002FB06B /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		9C93D6B320BD2718002FB06B /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		9F749E1D19424B075A7198FF /* Pods-BABaseProject-BABaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE682D062D927BDA40F4BE28 /* Pods-BABaseProject-BABaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectTests/Pods-BABaseProject-BABaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C444FFA4B8F0D1E86C9B57 /* Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BABaseProject-BABaseProjectUITests/Pods-BABaseProject-BABaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -919,8 +921,6 @@
 		C4C743941DC72DB300E747D8 /* BACustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomBarItem.m; sourceTree = "<group>"; };
 		C4C743951DC72DB300E747D8 /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
 		C4C743961DC72DB300E747D8 /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
-		C4C7439B1DC72DB300E747D8 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
-		C4C7439C1DC72DB300E747D8 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		C4C743A01DC72DB300E747D8 /* BAShareManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareManage.h; sourceTree = "<group>"; };
 		C4C743A11DC72DB300E747D8 /* BAShareManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManage.m; sourceTree = "<group>"; };
 		C4C743A41DC72DB300E747D8 /* BASharManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BASharManager.bundle; sourceTree = "<group>"; };
@@ -2507,8 +2507,8 @@
 		C4C7439A1DC72DB300E747D8 /* BASegmentControl */ = {
 			isa = PBXGroup;
 			children = (
-				C4C7439B1DC72DB300E747D8 /* HMSegmentedControl.h */,
-				C4C7439C1DC72DB300E747D8 /* HMSegmentedControl.m */,
+				9C93D6B320BD2718002FB06B /* HMSegmentedControl.h */,
+				9C93D6B220BD2718002FB06B /* HMSegmentedControl.m */,
 			);
 			path = BASegmentControl;
 			sourceTree = "<group>";
@@ -3619,7 +3619,7 @@
 				TargetAttributes = {
 					C4EB5A9F1CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8JQ2PK6XN8;
+						DevelopmentTeam = A7FRU6ZJRL;
 					};
 					C4EB5AB81CD8B04B003A7094 = {
 						CreatedOnToolsVersion = 7.2;
@@ -4124,7 +4124,6 @@
 				C4EB5BBC1CD8B250003A7094 /* BADiscoverViewController.m in Sources */,
 				C4C7444D1DC72DB300E747D8 /* NSFileManager+BAKit.m in Sources */,
 				C444234C1D2E8680004ACAA8 /* DemoVC2_02_HeaderView.m in Sources */,
-				C4C7443D1DC72DB300E747D8 /* HMSegmentedControl.m in Sources */,
 				C42781201D2D315B003E6694 /* BABaseCollectionCell.m in Sources */,
 				C4C7444E1DC72DB300E747D8 /* NSMutableArray+BAKit.m in Sources */,
 				C4C744721DC72DB300E747D8 /* UINavigationController+BAKit.m in Sources */,
@@ -4201,6 +4200,7 @@
 				C4C744781DC72DB300E747D8 /* UIWebView+BAKit.m in Sources */,
 				C407E5501DE533FD00FB1244 /* NSMutableArray+BASort.m in Sources */,
 				C4D108041CE2FC1C00F735B9 /* view3.m in Sources */,
+				9C93D6B420BD2718002FB06B /* HMSegmentedControl.m in Sources */,
 				C41CA8C71D3FA185006296BD /* DemoVC2_02_classModel.m in Sources */,
 				C41F62591CFC253600294C35 /* DemoVC10Model.m in Sources */,
 				C4C744391DC72DB300E747D8 /* BALocalNotification.m in Sources */,
@@ -4446,7 +4446,7 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8JQ2PK6XN8;
+				DEVELOPMENT_TEAM = A7FRU6ZJRL;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
@@ -4467,7 +4467,7 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8JQ2PK6XN8;
+				DEVELOPMENT_TEAM = A7FRU6ZJRL;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAMainCode/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BABaseProject/BAMainCode/Resources(资源)/Plist/Info.plist";
